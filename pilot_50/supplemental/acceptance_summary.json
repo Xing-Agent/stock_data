@@ -1,0 +1,10 @@
+{
+  "stocks": 3,
+  "files": 6,
+  "status_counts": {
+    "ready": 6
+  },
+  "validated_files": 6,
+  "issues": [],
+  "supplier_missing_payment_dates": {}
+}

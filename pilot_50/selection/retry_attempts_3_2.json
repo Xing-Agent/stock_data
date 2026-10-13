@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "PODD",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 95973,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "586ecce6196c3a883dc5ad6f70d913c6a1704a65a582c639cafeb0949f809046"
+  },
+  {
+    "symbol": "QNST",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 92834,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "58b7a5e1f1c98cd8c6186d205508e9d48cae167d64ca04b3d74ad9ec11e73159"
+  },
+  {
+    "symbol": "ROL",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97441,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "288f8b4dd4efc4e215a43a44c11fa830f244062ebe6fb219762a591ca61c0674"
+  },
+  {
+    "symbol": "SBUX",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97523,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "0871117b96a8154aba78d983af8d1a4b3b355d1ea0e6ff67dff05701dfb0241e"
+  },
+  {
+    "symbol": "TKR",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 96874,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "0d83e8a59e7187f8911faa3fa93610e70eee059c7f581f91a0c9a1f0b93c7cd4"
+  }
+]

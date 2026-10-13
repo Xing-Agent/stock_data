@@ -1,0 +1,188 @@
+[
+  {
+    "symbol": "AEE",
+    "interval": "1d",
+    "filled_payment_dates": 0,
+    "remaining": [
+      "2016-04-20"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "AEE",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "KR",
+    "interval": "1d",
+    "filled_payment_dates": 19,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "KR",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "M",
+    "interval": "1d",
+    "filled_payment_dates": 17,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "M",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "OCSI",
+    "interval": "1d",
+    "filled_payment_dates": 0,
+    "remaining": [
+      "2016-11-10"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "OCSI",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "OVV",
+    "interval": "1d",
+    "filled_payment_dates": 0,
+    "remaining": [
+      "2021-06-14"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "OVV",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [
+      "2021-06-14"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "PEP",
+    "interval": "1d",
+    "filled_payment_dates": 17,
+    "remaining": [
+      "2016-06-01",
+      "2017-03-01"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "PEP",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "PNC",
+    "interval": "1d",
+    "filled_payment_dates": 23,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "PNC",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "PSX",
+    "interval": "1d",
+    "filled_payment_dates": 20,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "PSX",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "ROL",
+    "interval": "1d",
+    "filled_payment_dates": 0,
+    "remaining": [
+      "2016-11-08",
+      "2018-11-08"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "ROL",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "ROST",
+    "interval": "1d",
+    "filled_payment_dates": 0,
+    "remaining": [
+      "2019-03-06"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "ROST",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "SGA",
+    "interval": "1d",
+    "filled_payment_dates": 16,
+    "remaining": [
+      "2018-12-07"
+    ],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "SGA",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "SYY",
+    "interval": "1d",
+    "filled_payment_dates": 20,
+    "remaining": [],
+    "price_data_unchanged": true
+  },
+  {
+    "symbol": "SYY",
+    "interval": "5min",
+    "filled_payment_dates": 0,
+    "remaining": [],
+    "price_data_unchanged": true
+  }
+]

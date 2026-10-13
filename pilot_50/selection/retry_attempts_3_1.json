@@ -1,0 +1,69 @@
+[
+  {
+    "symbol": "AVEO",
+    "interval": "5min",
+    "attempt": 3,
+    "supplier_error": "Invalid API call. Please retry or visit the documentation (https://www.alphavantage.co/documentation/) for TIME_SERIES_INTRADAY.",
+    "probe_month": "2021-01"
+  },
+  {
+    "symbol": "OVV",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "6e17213ed50f5ec113d04764b96c31c7b65766d5f16ddd6ba8ff6a2273cad7a7"
+  },
+  {
+    "symbol": "PNC",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97521,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "69fe3a5bb56277bf7ef61fc70cad0e227cbb493cc84869cf45f7600d7c2ffac6"
+  },
+  {
+    "symbol": "RMTI",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 75814,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "9ba5c676f1ada0ece74a3acb10a29f20a36b97d1f4bfbe969986e4160a85bb11"
+  },
+  {
+    "symbol": "RRC",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97522,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "22963d0e9bbd996af1e5896c2909944bf83e3eb69f87982e93ea008e94a13dc7"
+  },
+  {
+    "symbol": "SRG",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 89212,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "6b4ac667bd3530700832223507605533aaf8342918cdfc9b96ee42b327e40112"
+  }
+]

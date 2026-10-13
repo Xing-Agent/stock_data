@@ -1,0 +1,327 @@
+[
+  {
+    "symbol": "AEE",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 95953,
+    "missing_months": [
+      "2025-06"
+    ],
+    "actions_status": "ready",
+    "adopted": false,
+    "retry_payload_sha256": "30c7cd268c636b235305fbefe1a73c2b2a2a4609098cd3e34754538ec88ffa16"
+  },
+  {
+    "symbol": "AVEO",
+    "interval": "1d",
+    "attempt": 1,
+    "previous_status": "unavailable",
+    "status": "ready",
+    "bars": 1774,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "bb1d045fedb44c77f6fa8baf0268a60146d54ab10bc9717e1e4ce316ca3b8349"
+  },
+  {
+    "symbol": "AVEO",
+    "interval": "5min",
+    "attempt": 1,
+    "supplier_error": "Invalid API call. Please retry or visit the documentation (https://www.alphavantage.co/documentation/) for TIME_SERIES_INTRADAY.",
+    "probe_month": "2021-01"
+  },
+  {
+    "symbol": "BA",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97523,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "84fa086d794767388f3f1ebb7c132012a6571df869214518af17f1d334854437"
+  },
+  {
+    "symbol": "CLB",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 95228,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "6129c8d4ad6a3dacd1a0c7ce9e25f6fd07c1fdbe0a808e30a2efddcf9261d305"
+  },
+  {
+    "symbol": "COO",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 94537,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "671bd3eae74984515828efd80aeb69d2e8d8179128a84ad1306fb4963442f70a"
+  },
+  {
+    "symbol": "DTE",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97498,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "401567f09648ad0b38da2f5616f9129f1c6af54cf49622a468d59fbbfc559e6a"
+  },
+  {
+    "symbol": "ED",
+    "interval": "1d",
+    "attempt": 1,
+    "previous_status": "ready",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "3de34be882cd7522dbd071a3f60b6f074676157366f82545f336e8436fb18c6f"
+  },
+  {
+    "symbol": "ED",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 92800,
+    "missing_months": [
+      "2022-04",
+      "2023-05",
+      "2025-11"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "6ea8e184a2ae6c1c971aa8522eaeae66ceea13bcd65720751733c82998300d3f"
+  },
+  {
+    "symbol": "FNWB",
+    "interval": "1d",
+    "attempt": 1,
+    "previous_status": "ready",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "53bb62d25d6de3ee9eb47b85a18d7399f483f0fce28c658f601887d8cae3438f"
+  },
+  {
+    "symbol": "FNWB",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 21387,
+    "missing_months": [
+      "2022-05",
+      "2022-09"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "e25fe6135ebf3086b3e4a6d019b107c8ea4806cbee5c76c313d7c2e8f5251c4d"
+  },
+  {
+    "symbol": "FTLF",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 7376,
+    "missing_months": [
+      "2021-01",
+      "2021-02",
+      "2021-03",
+      "2021-04",
+      "2021-05",
+      "2021-06",
+      "2021-07",
+      "2021-08",
+      "2021-09",
+      "2021-10",
+      "2021-11",
+      "2021-12",
+      "2022-01",
+      "2022-02",
+      "2022-03",
+      "2022-04",
+      "2022-05",
+      "2022-06",
+      "2022-07",
+      "2022-08",
+      "2022-09",
+      "2022-10",
+      "2022-11",
+      "2022-12",
+      "2023-01",
+      "2023-02",
+      "2023-03",
+      "2023-04",
+      "2023-05",
+      "2023-06",
+      "2023-07",
+      "2023-08"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "e26df34da1bf16a32960b876315a5dc2b8fcfafd8e52d2a11d4515c6d653dca5"
+  },
+  {
+    "symbol": "GOOG",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 94399,
+    "missing_months": [
+      "2022-04",
+      "2024-02"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "3a8bc1f5d42a4fb1ba2a25f480fd52f734e65ffc8ad57bfcaa6dbe7cddc0f8eb"
+  },
+  {
+    "symbol": "HII",
+    "interval": "1d",
+    "attempt": 1,
+    "previous_status": "unavailable",
+    "status": "unavailable",
+    "bars": 0,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": false,
+    "retry_payload_sha256": "0f2a27917b32bad528d53e6b702c52a3d1d336cb66eececd9c702c0afa2a73e3"
+  },
+  {
+    "symbol": "HII",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 90474,
+    "missing_months": [
+      "2022-04",
+      "2023-11"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "b687cc5ad4addf4b69c9584691e45745f51d7db64fe201babc20066c9d1c6aa8"
+  },
+  {
+    "symbol": "ISRG",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97447,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "dbac34b2ced7f64985e191c9ef0f7f2464b530bb67874589c6c97b3286664980"
+  },
+  {
+    "symbol": "KR",
+    "interval": "1d",
+    "attempt": 1,
+    "previous_status": "unavailable",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "unavailable",
+    "adopted": true,
+    "retry_payload_sha256": "7400eaf09c6b51b4330b54615e950e4e7ad52fdde4d731324495da9ce945a9c5"
+  },
+  {
+    "symbol": "KR",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97523,
+    "missing_months": [],
+    "actions_status": "unavailable",
+    "adopted": true,
+    "retry_payload_sha256": "9f899217b19d73c89c4465d51a4c8722b637f1dbd507f4e11cf0f953d6894479"
+  },
+  {
+    "symbol": "M",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 95807,
+    "missing_months": [
+      "2021-06"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "21843cb49ff4705ce83ae34c2889d788be5ff11c50ad7791f1430b07ed7e2a51"
+  },
+  {
+    "symbol": "META",
+    "interval": "1d",
+    "attempt": 1,
+    "previous_status": "unavailable",
+    "status": "unavailable",
+    "bars": 0,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": false,
+    "retry_payload_sha256": "58275ce217059bdc3f8293e0c0bd0348a3e4cc5baa5f0741ae34963b1c9d9bc2"
+  },
+  {
+    "symbol": "META",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 96048,
+    "missing_months": [
+      "2021-01"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "504bae2a7b70261d88352729aeefb2d93ef28054ebc6500702a9648dce941486"
+  },
+  {
+    "symbol": "MSB",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 50097,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "c90fabd3ac7a7c7ce5f6c7abb6c139d021cc6fe0b627959e28dba751553b430b"
+  },
+  {
+    "symbol": "MTG",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 95725,
+    "missing_months": [
+      "2021-03"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "cd3b17f2debf9eef19aea7057400a2524f9c3d4b43b8608f970102549bcadbc4"
+  }
+]

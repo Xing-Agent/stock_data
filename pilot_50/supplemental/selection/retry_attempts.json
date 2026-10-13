@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "MORN",
+    "interval": "5min",
+    "attempt": 1,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 72879,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "991c154d905f088ae7fb1596ba55e72cb157f10f9b793a2eb873896199ad0ea7"
+  }
+]

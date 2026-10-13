@@ -1,0 +1,206 @@
+{
+  "status": "unavailable",
+  "symbol": "AVEO",
+  "interval": "5min",
+  "start_date": "2021-01-01",
+  "end_date": "2023-01-19",
+  "timezone": "America/New_York",
+  "session": "regular",
+  "adjustment": "raw",
+  "provider": "alpha_vantage",
+  "retrieved_at": null,
+  "missing_months": [
+    "2021-01",
+    "2021-02",
+    "2021-03",
+    "2021-04",
+    "2021-05",
+    "2021-06",
+    "2021-07",
+    "2021-08",
+    "2021-09",
+    "2021-10",
+    "2021-11",
+    "2021-12",
+    "2022-01",
+    "2022-02",
+    "2022-03",
+    "2022-04",
+    "2022-05",
+    "2022-06",
+    "2022-07",
+    "2022-08",
+    "2022-09",
+    "2022-10",
+    "2022-11",
+    "2022-12",
+    "2023-01"
+  ],
+  "warnings": [
+    {
+      "month": "2021-01",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-02",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-03",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-04",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-05",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-06",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-07",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-08",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-09",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-10",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-11",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-12",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-01",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-02",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-03",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-04",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-05",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-06",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-07",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-08",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-09",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-10",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-11",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2022-12",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2023-01",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    }
+  ],
+  "data": [],
+  "corporate_actions": {
+    "status": "ready",
+    "provider": "alpha_vantage",
+    "coverage_start_date": "2016-01-01",
+    "coverage_end_date": "2023-01-19",
+    "retrieved_at": "2026-10-13T09:00:40.013854+00:00",
+    "cache_status": "miss",
+    "symbol": "AVEO",
+    "start_date": "2021-01-01",
+    "end_date": "2023-01-19",
+    "missing_payment_dates": [],
+    "events": [],
+    "cache_key": "external-data:market-data:corporate-actions:payment-dates:v2:alpha_vantage:d6df261f1b5a5d995190a813c7fdb8b72876046b574922c6d7a8a67e23fc0a81"
+  }
+}

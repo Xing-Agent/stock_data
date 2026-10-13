@@ -1,0 +1,163 @@
+{
+  "original_cohort_size": 50,
+  "supplemental_cohort_size": 3,
+  "files": 106,
+  "file_hashes_verified": 106,
+  "status_counts": {
+    "ready": 103,
+    "unavailable": 2,
+    "partial": 1
+  },
+  "validated_nonempty_files": 104,
+  "ready_daily_symbols": [
+    "AEE",
+    "AVEO",
+    "BA",
+    "BMI",
+    "BSM",
+    "CLB",
+    "COO",
+    "DBI",
+    "DHC",
+    "DTE",
+    "ED",
+    "FNWB",
+    "FTLF",
+    "GOOG",
+    "HII",
+    "ISRG",
+    "KR",
+    "M",
+    "META",
+    "MSB",
+    "MTG",
+    "OCSI",
+    "OII",
+    "OMEX",
+    "OMF",
+    "OVV",
+    "PCYO",
+    "PEP",
+    "PNC",
+    "PODD",
+    "PRA",
+    "PSX",
+    "QNST",
+    "RKDA",
+    "RMTI",
+    "ROL",
+    "ROST",
+    "RRC",
+    "SBUX",
+    "SGA",
+    "SRG",
+    "SRT",
+    "SYY",
+    "TAP",
+    "TKR",
+    "UIS",
+    "VEEV",
+    "VIRC",
+    "XEL",
+    "YELP",
+    "GNSS",
+    "MORN",
+    "XOM"
+  ],
+  "ready_five_minute_symbols": [
+    "AEE",
+    "BA",
+    "BMI",
+    "BSM",
+    "CLB",
+    "COO",
+    "DBI",
+    "DHC",
+    "DTE",
+    "ED",
+    "FNWB",
+    "GOOG",
+    "HII",
+    "ISRG",
+    "KR",
+    "M",
+    "META",
+    "MSB",
+    "MTG",
+    "OII",
+    "OMEX",
+    "OMF",
+    "OVV",
+    "PCYO",
+    "PEP",
+    "PNC",
+    "PODD",
+    "PRA",
+    "PSX",
+    "QNST",
+    "RKDA",
+    "RMTI",
+    "ROL",
+    "ROST",
+    "RRC",
+    "SBUX",
+    "SGA",
+    "SRG",
+    "SRT",
+    "SYY",
+    "TAP",
+    "TKR",
+    "UIS",
+    "VEEV",
+    "VIRC",
+    "XEL",
+    "YELP",
+    "GNSS",
+    "MORN",
+    "XOM"
+  ],
+  "unresolved_payment_events": 9,
+  "unresolved_payment_dates": [
+    {
+      "symbol": "AEE",
+      "effective_date": "2016-04-20"
+    },
+    {
+      "symbol": "OCSI",
+      "effective_date": "2016-11-10"
+    },
+    {
+      "symbol": "OVV",
+      "effective_date": "2021-06-14"
+    },
+    {
+      "symbol": "PEP",
+      "effective_date": "2016-06-01"
+    },
+    {
+      "symbol": "PEP",
+      "effective_date": "2017-03-01"
+    },
+    {
+      "symbol": "ROL",
+      "effective_date": "2016-11-08"
+    },
+    {
+      "symbol": "ROL",
+      "effective_date": "2018-11-08"
+    },
+    {
+      "symbol": "ROST",
+      "effective_date": "2019-03-06"
+    },
+    {
+      "symbol": "SGA",
+      "effective_date": "2018-12-07"
+    }
+  ],
+  "notes": [
+    "Ready does not imply a bar exists at every 5-minute calendar position.",
+    "Original and supplemental cohorts are separate; do not relabel them as a new random 50-stock cohort.",
+    "Six unresolved payment events have cross-provider dividend amount mismatches; three lack a unique FMP date match."
+  ]
+}

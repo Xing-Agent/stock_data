@@ -1,0 +1,228 @@
+[
+  {
+    "symbol": "AVEO",
+    "interval": "5min",
+    "attempt": 2,
+    "supplier_error": "Invalid API call. Please retry or visit the documentation (https://www.alphavantage.co/documentation/) for TIME_SERIES_INTRADAY.",
+    "probe_month": "2021-01"
+  },
+  {
+    "symbol": "ED",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97522,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "ccb3e5c1e60dd979764322b13511b45d52793a34110f1a991d3e78dc7921181c"
+  },
+  {
+    "symbol": "GOOG",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97518,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "7c9eca6e0edc38dbc0ec43b1f01d848f5242ec47bf0291c7cbeb7f63414e5492"
+  },
+  {
+    "symbol": "KR",
+    "interval": "1d",
+    "attempt": 2,
+    "previous_status": "ready",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "b57cd3240e6a022f9831619aa6a9606513a18ff6775a2a463a9de0fed88e67e0"
+  },
+  {
+    "symbol": "KR",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "ready",
+    "status": "ready",
+    "bars": 97523,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "d2342a5063656c8afc87fda1966d14d32642d22caa47d04a682e8e068016bc88"
+  },
+  {
+    "symbol": "OII",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97400,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "ae291538cbde971556dfcde7b5d0c559641a6783754e684d2b9fe3c7774b28b2"
+  },
+  {
+    "symbol": "OVV",
+    "interval": "1d",
+    "attempt": 2,
+    "previous_status": "unavailable",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "9fafb0d247b08835250b251bb3ed3dc67c10ae8ae86bfd1ecc56f81665eb7dd1"
+  },
+  {
+    "symbol": "OVV",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 95798,
+    "missing_months": [
+      "2021-06"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "bba57ec1d4b50ce6091af87865ba709b27a36d8d97d5d555551eab7252e2712e"
+  },
+  {
+    "symbol": "PNC",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 94359,
+    "missing_months": [
+      "2024-12",
+      "2025-06"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "a2c6a8d466311e73dfd29565bbce5f32b191048ef46e6c8b8008e39cd67e7302"
+  },
+  {
+    "symbol": "PSX",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97523,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "9f6a3b2d2a3561299346ffb74ae43ea37b09f13dc520b6e76a5d194d04f195da"
+  },
+  {
+    "symbol": "RMTI",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 71669,
+    "missing_months": [
+      "2023-08",
+      "2023-12",
+      "2025-04"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "852605f313b227d65a6f5acc8ea2e94e10e7a4f330506c2fa59ae2dcd09926e9"
+  },
+  {
+    "symbol": "RRC",
+    "interval": "1d",
+    "attempt": 2,
+    "previous_status": "unavailable",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "d608d415da8928bae66e4a076d9acde37d7dadcfc841b9f2e1dc1ad497631895"
+  },
+  {
+    "symbol": "RRC",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 94246,
+    "missing_months": [
+      "2021-08",
+      "2022-04"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "2b432d906ed7d9c82a2cf56a18bf5f81cf3b24195a6f599bc35f200fe7feac86"
+  },
+  {
+    "symbol": "SRG",
+    "interval": "1d",
+    "attempt": 2,
+    "previous_status": "unavailable",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "2cee790a60885bfa679046eb89ae6069d0db104ab59c4e9cdf1575a6295b61dc"
+  },
+  {
+    "symbol": "SRG",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "partial",
+    "bars": 85655,
+    "missing_months": [
+      "2021-03",
+      "2022-08"
+    ],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "c9f8de4ce23508cedbd1fe3967ac07010686dc00f82ac506a04ede9ee36077f2"
+  },
+  {
+    "symbol": "TAP",
+    "interval": "1d",
+    "attempt": 2,
+    "previous_status": "unavailable",
+    "status": "ready",
+    "bars": 2514,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "f861fdefd4fa044b670c1821ee61e0ca382700ae218dc39d83e30cf8d8a5148c"
+  },
+  {
+    "symbol": "TAP",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97491,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "442af0d6a00e0fd3968213c664c06f60dd93d61a111edc190b4bf5c5d2f588d6"
+  },
+  {
+    "symbol": "VEEV",
+    "interval": "5min",
+    "attempt": 2,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97425,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "c2f549f41e92863389260d6c63ce3da67bc09a6ab7c62f0ba33798b0b31ceda0"
+  }
+]

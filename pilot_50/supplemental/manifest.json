@@ -1,0 +1,62 @@
+{
+  "stocks": [
+    {
+      "symbol": "GNSS",
+      "name": "Genasys Inc.",
+      "exchange": "NASDAQ",
+      "ipo_date": "1997-05-09",
+      "size_group": "small",
+      "market_cap_usd": 63338052,
+      "market_cap_date": "2015-12-31",
+      "sector": "Technology",
+      "sector_basis": "FMP current profile; not historical GICS",
+      "delisted": false,
+      "delisting_date": null,
+      "is_adr": false
+    },
+    {
+      "symbol": "MORN",
+      "name": "Morningstar, Inc.",
+      "exchange": "NASDAQ",
+      "ipo_date": "2005-05-03",
+      "size_group": "mid",
+      "market_cap_usd": 3457630000,
+      "market_cap_date": "2015-12-31",
+      "sector": "Financial Services",
+      "sector_basis": "FMP current profile; not historical GICS",
+      "delisted": false,
+      "delisting_date": null,
+      "is_adr": false
+    },
+    {
+      "symbol": "XOM",
+      "name": "Exxonmobil Holdings Corporation",
+      "exchange": "NYSE",
+      "ipo_date": "1970-01-02",
+      "size_group": "large",
+      "market_cap_usd": 325675100000,
+      "market_cap_date": "2015-12-31",
+      "sector": "Energy",
+      "sector_basis": "FMP current profile; not historical GICS",
+      "delisted": false,
+      "delisting_date": null,
+      "is_adr": false
+    }
+  ],
+  "seed": 20261014,
+  "selection_method": "Supplemental engineering cohort only; fixed-seed one current survivor per historical size group; does not replace original cohort or repair survivorship bias",
+  "limitations": [
+    "Current provider sectors are not historical GICS.",
+    "Fixed delisted quota is for engineering coverage, not an estimate of population delisting rates.",
+    "Unavailable profiles or baseline market caps excluded; eligibility introduces coverage bias.",
+    "Provider historical market caps are not independently verified PIT share-count observations.",
+    "Ticker/IPO checks do not guarantee complete permanent-security identity mapping.",
+    "Listing API historical dates do not establish independently verified historical exchange/name/ticker metadata."
+  ],
+  "rejected_candidates": [
+    {
+      "symbol": "EVER",
+      "reason": "ineligible_profile"
+    }
+  ]
+}

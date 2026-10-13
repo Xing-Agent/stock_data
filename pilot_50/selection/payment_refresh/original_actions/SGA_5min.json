@@ -1,0 +1,184 @@
+{
+  "status": "ready",
+  "provider": "alpha_vantage",
+  "coverage_start_date": "2016-01-01",
+  "coverage_end_date": "2025-12-31",
+  "retrieved_at": "2026-10-13T09:28:48.731726+00:00",
+  "cache_status": "hit_db",
+  "symbol": "SGA",
+  "start_date": "2021-01-01",
+  "end_date": "2025-12-31",
+  "missing_payment_dates": [],
+  "events": [
+    {
+      "effective_date": "2021-06-29",
+      "action_type": "dividend",
+      "cash_amount": 0.16,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2021-07-16"
+    },
+    {
+      "effective_date": "2021-10-07",
+      "action_type": "dividend",
+      "cash_amount": 0.16,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2021-10-22"
+    },
+    {
+      "effective_date": "2021-12-23",
+      "action_type": "dividend",
+      "cash_amount": 0.66,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2022-01-14"
+    },
+    {
+      "effective_date": "2022-03-18",
+      "action_type": "dividend",
+      "cash_amount": 0.16,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2022-04-08"
+    },
+    {
+      "effective_date": "2022-06-10",
+      "action_type": "dividend",
+      "cash_amount": 0.2,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2022-07-01"
+    },
+    {
+      "effective_date": "2022-09-30",
+      "action_type": "dividend",
+      "cash_amount": 2.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2022-10-21"
+    },
+    {
+      "effective_date": "2022-12-20",
+      "action_type": "dividend",
+      "cash_amount": 2.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2023-01-13"
+    },
+    {
+      "effective_date": "2023-03-17",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2023-04-07"
+    },
+    {
+      "effective_date": "2023-05-19",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2023-06-16"
+    },
+    {
+      "effective_date": "2023-10-10",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2023-11-03"
+    },
+    {
+      "effective_date": "2023-11-24",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2023-12-15"
+    },
+    {
+      "effective_date": "2023-12-19",
+      "action_type": "dividend",
+      "cash_amount": 2.0,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2024-01-12"
+    },
+    {
+      "effective_date": "2024-02-16",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2024-03-08"
+    },
+    {
+      "effective_date": "2024-03-15",
+      "action_type": "dividend",
+      "cash_amount": 0.6,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2024-04-05"
+    },
+    {
+      "effective_date": "2024-06-03",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2024-06-28"
+    },
+    {
+      "effective_date": "2024-09-25",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2024-10-18"
+    },
+    {
+      "effective_date": "2024-11-25",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2024-12-13"
+    },
+    {
+      "effective_date": "2025-02-18",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2025-03-07"
+    },
+    {
+      "effective_date": "2025-06-06",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2025-06-27"
+    },
+    {
+      "effective_date": "2025-08-26",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2025-09-19"
+    },
+    {
+      "effective_date": "2025-11-24",
+      "action_type": "dividend",
+      "cash_amount": 0.25,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2025-12-12"
+    }
+  ],
+  "cache_key": "external-data:market-data:corporate-actions:payment-dates:v2:alpha_vantage:55acae132cd78f84304c16593cd09965685b5ccdabdfbcabcdf3eb79d322c52c",
+  "cache_expires_at": "2027-10-13T09:30:14.624833+00:00"
+}

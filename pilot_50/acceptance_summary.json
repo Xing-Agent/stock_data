@@ -1,0 +1,170 @@
+{
+  "stocks": 50,
+  "files": 100,
+  "status_counts": {
+    "ready": 97,
+    "unavailable": 2,
+    "partial": 1
+  },
+  "validated_files": 98,
+  "issues": [
+    {
+      "symbol": "AVEO",
+      "interval": "5min",
+      "status": "unavailable",
+      "bars": 0,
+      "first": null,
+      "last": null,
+      "requested_end": "2023-01-19",
+      "validation_passed": false,
+      "validation_issues": [
+        "no_bars"
+      ],
+      "calendar_expected_bars": 40098,
+      "absent_calendar_bars": 40098,
+      "calendar_note": "Absent bars include illiquid no-trade intervals and vendor gaps; not synthesized.",
+      "actions_status": "ready",
+      "actions_count": 0,
+      "missing_payment_dates": [],
+      "missing_months": [
+        "2021-01",
+        "2021-02",
+        "2021-03",
+        "2021-04",
+        "2021-05",
+        "2021-06",
+        "2021-07",
+        "2021-08",
+        "2021-09",
+        "2021-10",
+        "2021-11",
+        "2021-12",
+        "2022-01",
+        "2022-02",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11",
+        "2022-12",
+        "2023-01"
+      ],
+      "sha256": "636a5da547b49f5579566f63ea3b717083e51b47e6974289dc025691f291063c",
+      "ohlcv_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "corporate_actions_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "symbol": "FTLF",
+      "interval": "5min",
+      "status": "partial",
+      "bars": 7376,
+      "first": "2023-09-19T10:15:00-04:00",
+      "last": "2025-12-31T15:55:00-05:00",
+      "requested_end": "2025-12-31",
+      "validation_passed": true,
+      "validation_issues": [],
+      "calendar_expected_bars": 97530,
+      "absent_calendar_bars": 90154,
+      "calendar_note": "Absent bars include illiquid no-trade intervals and vendor gaps; not synthesized.",
+      "actions_status": "ready",
+      "actions_count": 2,
+      "missing_payment_dates": [],
+      "missing_months": [
+        "2021-01",
+        "2021-02",
+        "2021-03",
+        "2021-04",
+        "2021-05",
+        "2021-06",
+        "2021-07",
+        "2021-08",
+        "2021-09",
+        "2021-10",
+        "2021-11",
+        "2021-12",
+        "2022-01",
+        "2022-02",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11",
+        "2022-12",
+        "2023-01",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08"
+      ],
+      "sha256": "e26df34da1bf16a32960b876315a5dc2b8fcfafd8e52d2a11d4515c6d653dca5",
+      "ohlcv_sha256": "c514a1d2c65f76382e6e485647a27213b07844edd002a33389dcb16302b1e576",
+      "corporate_actions_sha256": "7bb545f273569b4df2cb5f3273ec6e43097b4274f64f87641727e071d31ff01d"
+    },
+    {
+      "symbol": "OCSI",
+      "interval": "5min",
+      "status": "unavailable",
+      "bars": 0,
+      "first": null,
+      "last": null,
+      "requested_end": "2021-03-19",
+      "validation_passed": false,
+      "validation_issues": [
+        "no_bars"
+      ],
+      "calendar_expected_bars": 4134,
+      "absent_calendar_bars": 4134,
+      "calendar_note": "Absent bars include illiquid no-trade intervals and vendor gaps; not synthesized.",
+      "actions_status": "ready",
+      "actions_count": 1,
+      "missing_payment_dates": [],
+      "missing_months": [
+        "2021-01",
+        "2021-02",
+        "2021-03"
+      ],
+      "sha256": "46ea0e3064ed29d78b892cc07b782ef9def80255d0025b43e8ce827192c1553a",
+      "ohlcv_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "corporate_actions_sha256": "079d55165e54f2f989b4e5bbc924a2b1133d43584c823c13c349db5df07ce480"
+    }
+  ],
+  "supplier_missing_payment_dates": {
+    "AEE:1d": [
+      "2016-04-20"
+    ],
+    "OCSI:1d": [
+      "2016-11-10"
+    ],
+    "OVV:1d": [
+      "2021-06-14"
+    ],
+    "OVV:5min": [
+      "2021-06-14"
+    ],
+    "PEP:1d": [
+      "2016-06-01",
+      "2017-03-01"
+    ],
+    "ROL:1d": [
+      "2016-11-08",
+      "2018-11-08"
+    ],
+    "ROST:1d": [
+      "2019-03-06"
+    ],
+    "SGA:1d": [
+      "2018-12-07"
+    ]
+  }
+}

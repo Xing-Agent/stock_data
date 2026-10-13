@@ -1,0 +1,4 @@
+symbol,name,exchange,size_group,market_cap_usd,market_cap_date,sector,sector_basis,delisted,delisting_date
+GNSS,Genasys Inc.,NASDAQ,small,63338052,2015-12-31,Technology,FMP current profile; not historical GICS,False,
+MORN,"Morningstar, Inc.",NASDAQ,mid,3457630000,2015-12-31,Financial Services,FMP current profile; not historical GICS,False,
+XOM,Exxonmobil Holdings Corporation,NYSE,large,325675100000,2015-12-31,Energy,FMP current profile; not historical GICS,False,

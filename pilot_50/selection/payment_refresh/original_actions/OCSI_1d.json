@@ -1,0 +1,347 @@
+{
+  "status": "ready",
+  "provider": "alpha_vantage",
+  "coverage_start_date": "2016-01-01",
+  "coverage_end_date": "2021-03-19",
+  "retrieved_at": "2026-10-13T09:19:07.883326+00:00",
+  "cache_status": "miss",
+  "payment_date_sources": [
+    "fmp"
+  ],
+  "symbol": "OCSI",
+  "start_date": "2016-01-01",
+  "end_date": "2021-03-19",
+  "missing_payment_dates": [
+    "2016-11-10"
+  ],
+  "events": [
+    {
+      "effective_date": "2016-02-03",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-02-16",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "032b69d0d068053420c5f0628251965b11e05ba812348fc0f44bac847c9cb8eb"
+    },
+    {
+      "effective_date": "2016-03-11",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-03-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "06da8f418f4d14c3944a7598a66293f82044211ff1eb0021092d49ca06db90b2"
+    },
+    {
+      "effective_date": "2016-04-13",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-04-29",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "5767fe75ed032e2b4a5c68be0e79b651e82502afe01c0c7d7791b90c7b2c4713"
+    },
+    {
+      "effective_date": "2016-05-11",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-05-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "8492793b8c5f342d6432b5e40ee9ad0cb0c45a203b414db2c275f20a663a391e"
+    },
+    {
+      "effective_date": "2016-06-13",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-06-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "f99b0e9aa8d76bf39cc1eda24024fa14a24f7fb7e4ff4ab6dc4b2f8e7aac2b5f"
+    },
+    {
+      "effective_date": "2016-07-13",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-07-29",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "5ad4410b57fd73b953ab019647472720f4520fae0f8eb2837f5fb3a0026e8407"
+    },
+    {
+      "effective_date": "2016-08-11",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-08-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "93372e22c629910b4462a0bbe595d39454ec5e5dde7f8ec6069a388291ce4c42"
+    },
+    {
+      "effective_date": "2016-09-13",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-09-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "d2dd2a519528f0d4c97c782c39d43871ea2f72a70cffe8f9862b355bb6e2e3c6"
+    },
+    {
+      "effective_date": "2016-10-12",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-10-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "7729fe5de7524a33d37c211225533903bbf8cfca212e0c8e33fb010db1aa5068"
+    },
+    {
+      "effective_date": "2016-11-10",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": null
+    },
+    {
+      "effective_date": "2016-12-13",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2016-12-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "a3db07298ad7b440d2dd2473a25b33f4f07269f3c8f2475526b8ec5bd389bf82"
+    },
+    {
+      "effective_date": "2017-01-11",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2017-01-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "372348281b7cce07fec0d0be3324ed8b9492817f5c7d354be9984e9f0e254495"
+    },
+    {
+      "effective_date": "2017-02-13",
+      "action_type": "dividend",
+      "cash_amount": 0.075,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2017-02-28",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "237a193554669b52978559126139d6a8faf241213728de1f6083b711f9d9ac3c"
+    },
+    {
+      "effective_date": "2017-03-13",
+      "action_type": "dividend",
+      "cash_amount": 0.04,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2017-03-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "f38fe02446a1d444871a3845e8e9ef002ffffcce9f1cc5fb0ce94c48f0446592"
+    },
+    {
+      "effective_date": "2017-06-13",
+      "action_type": "dividend",
+      "cash_amount": 0.19,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2017-06-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "2991d1428d0dff39a36b6aea9efc3912dffbdd79d8e3160fcacc561f63383a97"
+    },
+    {
+      "effective_date": "2017-09-14",
+      "action_type": "dividend",
+      "cash_amount": 0.19,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2017-09-29",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "d912c2f47d96aee03d1f1ee77225bd674ef4e82ecbfd34261d4d46fe62c1aef1"
+    },
+    {
+      "effective_date": "2017-12-14",
+      "action_type": "dividend",
+      "cash_amount": 0.19,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2017-12-29",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "4cbc7686258360d8f25276107c4cfa329686f7aa448dd13900770de5b94a53fd"
+    },
+    {
+      "effective_date": "2018-03-14",
+      "action_type": "dividend",
+      "cash_amount": 0.14,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2018-03-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "e0c83c3087c5df835c91324cf52f3023e11c1d5dd8ef4064787708039eace38c"
+    },
+    {
+      "effective_date": "2018-06-14",
+      "action_type": "dividend",
+      "cash_amount": 0.145,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2018-06-29",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "4f8871224d0b92ddeafed142c8acd74df80a4bdd94eec47b7ca5eefcdd852742"
+    },
+    {
+      "effective_date": "2018-09-13",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2018-09-28",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "ff3beeff181c1f87669d4395c555a563afd7bd052d0fc02a6b602abb36b907a5"
+    },
+    {
+      "effective_date": "2018-12-14",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2018-12-28",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "7105ba8e3690091cc880eccd90929d2a4df49ef2792402183de84c19a7020464"
+    },
+    {
+      "effective_date": "2019-03-14",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2019-03-29",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "d2a79fb477c87c6b3701c0d7ce53d2a7d2b5b82c5d2f6088682d4bc627ccf9c5"
+    },
+    {
+      "effective_date": "2019-06-13",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2019-06-28",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "4f7594c75eb158d77a29c27d8efe2f2925634fa77c598e9bf0c734277985d552"
+    },
+    {
+      "effective_date": "2019-09-12",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2019-09-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "f1b525612954981bc0bf1bb198d08e022c503eb1b8496ce45ea2333fc4b26f50"
+    },
+    {
+      "effective_date": "2019-12-12",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2019-12-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "473fde885ed607a7b26412a06d7ad21169e6aec7fee296b607e154206803be6b"
+    },
+    {
+      "effective_date": "2020-03-12",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2020-03-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "992598adf94682b14fc08288c3c8de4f6a90ec27e4e5c9549470404578a52bbb"
+    },
+    {
+      "effective_date": "2020-06-12",
+      "action_type": "dividend",
+      "cash_amount": 0.125,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2020-06-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "97c5ff0a1dadc294e3ef419ba42399bda658461cc7e1a2c8b8c58f8b3f1ceff2"
+    },
+    {
+      "effective_date": "2020-09-14",
+      "action_type": "dividend",
+      "cash_amount": 0.125,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2020-09-30",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "11a9446b28822256c42728ce61bfd1458c3819464606157b29434a07da4f9523"
+    },
+    {
+      "effective_date": "2020-12-14",
+      "action_type": "dividend",
+      "cash_amount": 0.145,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2020-12-31",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "cf0dc13faf5306a4771b92c26b003faeb7c377cc715b8c7c08b776941f97e9f5"
+    },
+    {
+      "effective_date": "2021-02-11",
+      "action_type": "dividend",
+      "cash_amount": 0.155,
+      "split_coefficient": null,
+      "reference_close": null,
+      "payment_date": "2021-02-26",
+      "payment_date_source": "fmp",
+      "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+      "payment_date_payload_hash": "bda6a0185f40aefff61c47dfb5211344fb327a5218c4b0d9a1abb7fc61098fc6"
+    }
+  ],
+  "cache_key": "external-data:market-data:corporate-actions:payment-dates:v2:alpha_vantage:6e2700ca8fe1cbe97952a7703d4d60c1750e578fb32398c99b16a2a85dd53957"
+}

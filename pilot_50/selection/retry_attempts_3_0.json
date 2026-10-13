@@ -1,0 +1,40 @@
+[
+  {
+    "symbol": "FTLF",
+    "interval": "5min",
+    "attempt": 3,
+    "supplier_error": "Invalid API call. Please retry or visit the documentation (https://www.alphavantage.co/documentation/) for TIME_SERIES_INTRADAY.",
+    "probe_month": "2021-01"
+  },
+  {
+    "symbol": "OCSI",
+    "interval": "5min",
+    "attempt": 3,
+    "supplier_error": "Invalid API call. Please retry or visit the documentation (https://www.alphavantage.co/documentation/) for TIME_SERIES_INTRADAY.",
+    "probe_month": "2021-01"
+  },
+  {
+    "symbol": "PEP",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97523,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "fb7e7c3d07a299d6616b6a693b889e1300d5f96ed34aa2555e1bad69125b2b28"
+  },
+  {
+    "symbol": "ROST",
+    "interval": "5min",
+    "attempt": 3,
+    "previous_status": "partial",
+    "status": "ready",
+    "bars": 97523,
+    "missing_months": [],
+    "actions_status": "ready",
+    "adopted": true,
+    "retry_payload_sha256": "d139da43f75ca1d9a44379313ddfb2944d2cfc36d93b488ee14bc6cb63c4e2d0"
+  }
+]

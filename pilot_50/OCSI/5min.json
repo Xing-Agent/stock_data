@@ -1,0 +1,68 @@
+{
+  "status": "unavailable",
+  "symbol": "OCSI",
+  "interval": "5min",
+  "start_date": "2021-01-01",
+  "end_date": "2021-03-19",
+  "timezone": "America/New_York",
+  "session": "regular",
+  "adjustment": "raw",
+  "provider": "alpha_vantage",
+  "retrieved_at": null,
+  "missing_months": [
+    "2021-01",
+    "2021-02",
+    "2021-03"
+  ],
+  "warnings": [
+    {
+      "month": "2021-01",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-02",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    },
+    {
+      "month": "2021-03",
+      "reasons": [
+        "provider_rejected_request"
+      ]
+    }
+  ],
+  "data": [],
+  "corporate_actions": {
+    "status": "ready",
+    "provider": "alpha_vantage",
+    "coverage_start_date": "2016-01-01",
+    "coverage_end_date": "2021-03-19",
+    "retrieved_at": "2026-10-13T09:19:07.887266+00:00",
+    "cache_status": "hit_db",
+    "payment_date_sources": [
+      "fmp"
+    ],
+    "symbol": "OCSI",
+    "start_date": "2021-01-01",
+    "end_date": "2021-03-19",
+    "missing_payment_dates": [],
+    "events": [
+      {
+        "effective_date": "2021-02-11",
+        "action_type": "dividend",
+        "cash_amount": 0.155,
+        "split_coefficient": null,
+        "reference_close": null,
+        "payment_date": "2021-02-26",
+        "payment_date_source": "fmp",
+        "payment_date_retrieved_at": "2026-10-13T09:19:09.488969+00:00",
+        "payment_date_payload_hash": "bda6a0185f40aefff61c47dfb5211344fb327a5218c4b0d9a1abb7fc61098fc6"
+      }
+    ],
+    "cache_key": "external-data:market-data:corporate-actions:payment-dates:v2:alpha_vantage:2749ffec8cf7daab84ea075f6c44593ee2d6d1e78bfe977218b0db4c27025cd7",
+    "cache_expires_at": "2027-10-13T09:19:25.159079+00:00"
+  }
+}
