@@ -1,0 +1,301 @@
+symbol,name,origin,size_group,sector,delisted,retirement_category,download_start_date,download_end_date,data_path,baseline_listing_basis
+AEE,Ameren Corporation,pilot_50,large,Utilities,False,,2016-01-01,2025-12-31,../pilot_50/AEE/daily.json,
+AVEO,"AVEO Pharmaceuticals, Inc.",pilot_50,small,Healthcare,True,acquisition_or_merger,2016-01-01,2023-01-19,../pilot_50/AVEO/daily.json,
+BA,The Boeing Company,pilot_50,large,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/BA/daily.json,
+BMI,"Badger Meter, Inc.",pilot_50,small,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/BMI/daily.json,
+BSM,"Black Stone Minerals, L.P.",pilot_50,mid,Energy,False,,2016-01-01,2025-12-31,../pilot_50/BSM/daily.json,
+CLB,Core Laboratories N.V.,pilot_50,mid,Energy,False,,2016-01-01,2025-12-31,../pilot_50/CLB/daily.json,
+COO,"The Cooper Companies, Inc.",pilot_50,mid,Healthcare,False,,2016-01-01,2025-12-31,../pilot_50/COO/daily.json,
+DBI,Designer Brands Inc.,pilot_50,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,../pilot_50/DBI/daily.json,
+DHC,Diversified Healthcare Trust,pilot_50,mid,Real Estate,False,,2016-01-01,2025-12-31,../pilot_50/DHC/daily.json,
+DTE,DTE Energy Company,pilot_50,large,Utilities,False,,2016-01-01,2025-12-31,../pilot_50/DTE/daily.json,
+ED,"Consolidated Edison, Inc.",pilot_50,large,Utilities,False,,2016-01-01,2025-12-31,../pilot_50/ED/daily.json,
+FNWB,First Northwest Bancorp,pilot_50,small,Financial Services,False,,2016-01-01,2025-12-31,../pilot_50/FNWB/daily.json,
+FTLF,"FitLife Brands, Inc.",pilot_50,small,Consumer Defensive,False,,2016-01-01,2025-12-31,../pilot_50/FTLF/daily.json,
+GOOG,Alphabet Inc.,pilot_50,large,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/GOOG/daily.json,
+HII,"Huntington Ingalls Industries, Inc.",pilot_50,mid,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/HII/daily.json,
+ISRG,"Intuitive Surgical, Inc.",pilot_50,large,Healthcare,False,,2016-01-01,2025-12-31,../pilot_50/ISRG/daily.json,
+KR,The Kroger Co.,pilot_50,large,Consumer Defensive,False,,2016-01-01,2025-12-31,../pilot_50/KR/daily.json,
+M,"Macy's, Inc.",pilot_50,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,../pilot_50/M/daily.json,
+META,"Meta Platforms, Inc.",pilot_50,large,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/META/daily.json,
+MSB,Mesabi Trust,pilot_50,small,Basic Materials,False,,2016-01-01,2025-12-31,../pilot_50/MSB/daily.json,
+MTG,MGIC Investment Corporation,pilot_50,mid,Financial Services,False,,2016-01-01,2025-12-31,../pilot_50/MTG/daily.json,
+OCSI,Oaktree Strategic Income Corporation,pilot_50,small,Financial Services,True,acquisition_or_merger,2016-01-01,2021-03-19,../pilot_50/OCSI/daily.json,
+OII,"Oceaneering International, Inc.",pilot_50,mid,Energy,False,,2016-01-01,2025-12-31,../pilot_50/OII/daily.json,
+OMEX,"Odyssey Marine Exploration, Inc.",pilot_50,small,Basic Materials,False,,2016-01-01,2025-12-31,../pilot_50/OMEX/daily.json,
+OMF,"OneMain Holdings, Inc.",pilot_50,mid,Financial Services,False,,2016-01-01,2025-12-31,../pilot_50/OMF/daily.json,
+OVV,Ovintiv Inc.,pilot_50,mid,Energy,False,,2016-01-01,2025-12-31,../pilot_50/OVV/daily.json,
+PCYO,Pure Cycle Corporation,pilot_50,small,Utilities,False,,2016-01-01,2025-12-31,../pilot_50/PCYO/daily.json,
+PEP,"PepsiCo, Inc.",pilot_50,large,Consumer Defensive,False,,2016-01-01,2025-12-31,../pilot_50/PEP/daily.json,
+PNC,"The PNC Financial Services Group, Inc.",pilot_50,large,Financial Services,False,,2016-01-01,2025-12-31,../pilot_50/PNC/daily.json,
+PODD,Insulet Corp.,pilot_50,mid,Healthcare,False,,2016-01-01,2025-12-31,../pilot_50/PODD/daily.json,
+PRA,ProAssurance Corporation,pilot_50,mid,Financial Services,False,,2016-01-01,2025-12-31,../pilot_50/PRA/daily.json,
+PSX,Phillips 66,pilot_50,large,Energy,False,,2016-01-01,2025-12-31,../pilot_50/PSX/daily.json,
+QNST,"QuinStreet, Inc.",pilot_50,small,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/QNST/daily.json,
+RKDA,"Arcadia Biosciences, Inc.",pilot_50,small,Basic Materials,False,,2016-01-01,2025-12-31,../pilot_50/RKDA/daily.json,
+RMTI,"Rockwell Medical, Inc.",pilot_50,mid,Healthcare,False,,2016-01-01,2025-12-31,../pilot_50/RMTI/daily.json,
+ROL,"Rollins, Inc.",pilot_50,mid,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/ROL/daily.json,
+ROST,"Ross Stores, Inc.",pilot_50,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,../pilot_50/ROST/daily.json,
+RRC,Range Resources Corporation,pilot_50,mid,Energy,False,,2016-01-01,2025-12-31,../pilot_50/RRC/daily.json,
+SBUX,Starbucks Corporation,pilot_50,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,../pilot_50/SBUX/daily.json,
+SGA,"Saga Communications, Inc.",pilot_50,small,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/SGA/daily.json,
+SRG,Seritage Growth Properties,pilot_50,small,Real Estate,False,,2016-01-01,2025-12-31,../pilot_50/SRG/daily.json,
+SRT,"Startek, Inc.",pilot_50,small,Technology,True,acquisition_or_merger,2016-01-01,2024-01-05,../pilot_50/SRT/daily.json,
+SYY,Sysco Corporation,pilot_50,large,Consumer Defensive,False,,2016-01-01,2025-12-31,../pilot_50/SYY/daily.json,
+TAP,Molson Coors Beverage Company,pilot_50,large,Consumer Defensive,False,,2016-01-01,2025-12-31,../pilot_50/TAP/daily.json,
+TKR,The Timken Company,pilot_50,mid,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/TKR/daily.json,
+UIS,Unisys Corporation,pilot_50,small,Technology,False,,2016-01-01,2025-12-31,../pilot_50/UIS/daily.json,
+VEEV,Veeva Systems Inc.,pilot_50,mid,Technology,False,,2016-01-01,2025-12-31,../pilot_50/VEEV/daily.json,
+VIRC,Virco Mfg. Corporation,pilot_50,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,../pilot_50/VIRC/daily.json,
+XEL,Xcel Energy Inc.,pilot_50,large,Utilities,False,,2016-01-01,2025-12-31,../pilot_50/XEL/daily.json,
+YELP,Yelp Inc.,pilot_50,mid,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/YELP/daily.json,
+ABMD,"Abiomed, Inc.",expansion_250,mid,Healthcare,True,acquisition_or_merger,2016-01-01,2022-12-22,ABMD/daily.json,AV historical listing plus FMP profile and baseline cap
+ALXN,"Alexion Pharmaceuticals, Inc.",expansion_250,large,Healthcare,True,acquisition_or_merger,2016-01-01,2021-07-21,ALXN/daily.json,AV historical listing plus FMP profile and baseline cap
+ATVI,"Activision Blizzard, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2023-10-13,ATVI/daily.json,AV historical listing plus FMP profile and baseline cap
+CERN,Cerner Corporation,expansion_250,large,Healthcare,True,acquisition_or_merger,2016-01-01,2022-06-08,CERN/daily.json,AV historical listing plus FMP profile and baseline cap
+CSOD,"Cornerstone OnDemand, Inc.",expansion_250,small,Technology,True,acquisition_or_merger,2016-01-01,2021-10-15,CSOD/daily.json,AV historical listing plus FMP profile and baseline cap
+CTXS,"Citrix Systems, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2022-09-30,CTXS/daily.json,AV historical listing plus FMP profile and baseline cap
+DFS,Discover Financial Services,expansion_250,large,Financial Services,True,acquisition_or_merger,2016-01-01,2025-05-16,DFS/daily.json,AV historical listing plus FMP profile and baseline cap
+HES,Hess Corporation,expansion_250,large,Energy,True,acquisition_or_merger,2016-01-01,2025-07-18,HES/daily.json,AV historical listing plus FMP profile and baseline cap
+JNPR,"Juniper Networks, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2025-07-02,JNPR/daily.json,AV historical listing plus FMP profile and baseline cap
+KSU,Kansas City Southern,expansion_250,mid,Industrials,True,acquisition_or_merger,2016-01-01,2021-12-13,KSU/daily.json,AV historical listing plus FMP profile and baseline cap
+MRO,Marathon Oil Corporation,expansion_250,mid,Energy,True,acquisition_or_merger,2016-01-01,2024-11-22,MRO/daily.json,AV historical listing plus FMP profile and baseline cap
+NUAN,"Nuance Communications, Inc.",expansion_250,mid,Technology,True,acquisition_or_merger,2016-01-01,2022-03-04,NUAN/daily.json,AV historical listing plus FMP profile and baseline cap
+PFPT,"Proofpoint, Inc.",expansion_250,mid,Technology,True,acquisition_or_merger,2016-01-01,2021-08-31,PFPT/daily.json,AV historical listing plus FMP profile and baseline cap
+XLNX,"Xilinx, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2022-02-14,XLNX/daily.json,AV historical listing plus FMP profile and baseline cap
+AMRS,"Amyris, Inc.",expansion_250,small,Basic Materials,True,bankruptcy,2016-01-01,2023-08-20,AMRS/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+CLVS,"Clovis Oncology, Inc.",expansion_250,small,Healthcare,True,bankruptcy,2016-01-01,2022-12-20,CLVS/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+ACOR,"Acorda Therapeutics, Inc.",expansion_250,small,Healthcare,True,bankruptcy,2016-01-01,2024-04-11,ACOR/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+PRTY,Party City Holdco Inc.,expansion_250,small,Consumer Cyclical,True,bankruptcy,2016-01-01,2023-01-18,PRTY/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+REV,"Revlon, Inc.",expansion_250,small,Consumer Defensive,True,bankruptcy,2016-01-01,2022-10-20,REV/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+TUP,Tupperware Brands Corporation,expansion_250,mid,Consumer Cyclical,True,bankruptcy,2016-01-01,2024-09-18,TUP/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+EXPR,"Express, Inc.",expansion_250,small,Consumer Cyclical,True,financial_distress_delisting,2016-01-01,2024-03-06,EXPR/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+SQBG,"Sequential Brands Group, Inc.",expansion_250,small,Consumer Cyclical,True,bankruptcy,2016-01-01,2021-09-08,SQBG/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+WPG,Washington Prime Group Inc.,expansion_250,small,Real Estate,True,bankruptcy,2016-01-01,2021-09-29,WPG/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+SIVB,SVB Financial Group,expansion_250,mid,Financial Services,True,bank_failure_and_holding_company_bankruptcy,2016-01-01,2023-03-09,SIVB/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+GTT,"GTT Communications, Inc.",expansion_250,small,Communication Services,True,reporting_noncompliance_then_bankruptcy,2016-01-01,2021-07-02,GTT/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+FRC,First Republic Bank,expansion_250,mid,Financial Services,True,bank_receivership,2016-01-01,2023-05-02,FRC/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+GNCA,"Genocea Biosciences, Inc.",expansion_250,small,Healthcare,True,voluntary_wind_down,2016-01-01,2022-06-12,GNCA/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
+STRS,Stratus Properties Inc.,expansion_250,small,Real Estate,False,,2016-01-01,2025-12-31,STRS/daily.json,AV historical listing plus FMP profile and baseline cap
+NEU,NewMarket Corporation,expansion_250,mid,Basic Materials,False,,2016-01-01,2025-12-31,NEU/daily.json,AV historical listing plus FMP profile and baseline cap
+CDZI,Cadiz Inc.,expansion_250,small,Utilities,False,,2016-01-01,2025-12-31,CDZI/daily.json,AV historical listing plus FMP profile and baseline cap
+DIS,The Walt Disney Company,expansion_250,large,Communication Services,False,,2016-01-01,2025-12-31,DIS/daily.json,AV historical listing plus FMP profile and baseline cap
+KDP,Keurig Dr Pepper Inc.,expansion_250,mid,Consumer Defensive,False,,2016-01-01,2025-12-31,KDP/daily.json,AV historical listing plus FMP profile and baseline cap
+EME,"EMCOR Group, Inc.",expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,EME/daily.json,AV historical listing plus FMP profile and baseline cap
+AR,Antero Resources Corporation,expansion_250,mid,Energy,False,,2016-01-01,2025-12-31,AR/daily.json,AV historical listing plus FMP profile and baseline cap
+BBWI,"Bath & Body Works, Inc.",expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,BBWI/daily.json,AV historical listing plus FMP profile and baseline cap
+CFFI,C&F Financial Corporation,expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,CFFI/daily.json,AV historical listing plus FMP profile and baseline cap
+ROG,Rogers Corporation,expansion_250,small,Technology,False,,2016-01-01,2025-12-31,ROG/daily.json,AV historical listing plus FMP profile and baseline cap
+UTMD,"Utah Medical Products, Inc.",expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,UTMD/daily.json,AV historical listing plus FMP profile and baseline cap
+TRNO,Terreno Realty Corporation,expansion_250,small,Real Estate,False,,2016-01-01,2025-12-31,TRNO/daily.json,AV historical listing plus FMP profile and baseline cap
+FF,FutureFuel Corp.,expansion_250,small,Basic Materials,False,,2016-01-01,2025-12-31,FF/daily.json,AV historical listing plus FMP profile and baseline cap
+GNE,Genie Energy Ltd.,expansion_250,small,Utilities,False,,2016-01-01,2025-12-31,GNE/daily.json,AV historical listing plus FMP profile and baseline cap
+MSGS,Madison Square Garden Sports Corp.,expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,MSGS/daily.json,AV historical listing plus FMP profile and baseline cap
+CHD,"Church & Dwight Co., Inc.",expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,CHD/daily.json,AV historical listing plus FMP profile and baseline cap
+CHRW,"C.H. Robinson Worldwide, Inc.",expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,CHRW/daily.json,AV historical listing plus FMP profile and baseline cap
+DVN,Devon Energy Corporation,expansion_250,large,Energy,False,,2016-01-01,2025-12-31,DVN/daily.json,AV historical listing plus FMP profile and baseline cap
+HLT,Hilton Worldwide Holdings Inc.,expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,HLT/daily.json,AV historical listing plus FMP profile and baseline cap
+EQS,Equus Total Return Inc,expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,EQS/daily.json,AV historical listing plus FMP profile and baseline cap
+CTS,CTS Corporation,expansion_250,small,Technology,False,,2016-01-01,2025-12-31,CTS/daily.json,AV historical listing plus FMP profile and baseline cap
+ALNY,"Alnylam Pharmaceuticals, Inc.",expansion_250,mid,Healthcare,False,,2016-01-01,2025-12-31,ALNY/daily.json,AV historical listing plus FMP profile and baseline cap
+CBRE,"CBRE Group, Inc.",expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,CBRE/daily.json,AV historical listing plus FMP profile and baseline cap
+SXT,Sensient Technologies Corporation,expansion_250,mid,Basic Materials,False,,2016-01-01,2025-12-31,SXT/daily.json,AV historical listing plus FMP profile and baseline cap
+CPK,Chesapeake Utilities Corporation,expansion_250,small,Utilities,False,,2016-01-01,2025-12-31,CPK/daily.json,AV historical listing plus FMP profile and baseline cap
+EVC,Entravision Communications,expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,EVC/daily.json,AV historical listing plus FMP profile and baseline cap
+HELE,Helen of Troy Limited,expansion_250,mid,Consumer Defensive,False,,2016-01-01,2025-12-31,HELE/daily.json,AV historical listing plus FMP profile and baseline cap
+LUV,Southwest Airlines Co.,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,LUV/daily.json,AV historical listing plus FMP profile and baseline cap
+DK,"Delek US Holdings, Inc.",expansion_250,small,Energy,False,,2016-01-01,2025-12-31,DK/daily.json,AV historical listing plus FMP profile and baseline cap
+DIN,"Dine Brands Global, Inc.",expansion_250,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,DIN/daily.json,AV historical listing plus FMP profile and baseline cap
+MAIN,Main Street Capital Corporation,expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,MAIN/daily.json,AV historical listing plus FMP profile and baseline cap
+ELSE,"Electro-Sensors, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,ELSE/daily.json,AV historical listing plus FMP profile and baseline cap
+RVTY,"Revvity, Inc.",expansion_250,mid,Healthcare,False,,2016-01-01,2025-12-31,RVTY/daily.json,AV historical listing plus FMP profile and baseline cap
+CDP,COPT Defense Properties,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,CDP/daily.json,AV historical listing plus FMP profile and baseline cap
+ECL,Ecolab Inc.,expansion_250,large,Basic Materials,False,,2016-01-01,2025-12-31,ECL/daily.json,AV historical listing plus FMP profile and baseline cap
+AVA,Avista Corporation,expansion_250,mid,Utilities,False,,2016-01-01,2025-12-31,AVA/daily.json,AV historical listing plus FMP profile and baseline cap
+FWONA,Formula One Group,expansion_250,mid,Communication Services,False,,2016-01-01,2025-12-31,FWONA/daily.json,AV historical listing plus FMP profile and baseline cap
+NATR,"Nature's Sunshine Products, Inc.",expansion_250,small,Consumer Defensive,False,,2016-01-01,2025-12-31,NATR/daily.json,AV historical listing plus FMP profile and baseline cap
+OFLX,"Omega Flex, Inc.",expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,OFLX/daily.json,AV historical listing plus FMP profile and baseline cap
+NFG,National Fuel Gas Company,expansion_250,mid,Energy,False,,2016-01-01,2025-12-31,NFG/daily.json,AV historical listing plus FMP profile and baseline cap
+BZH,"Beazer Homes USA, Inc.",expansion_250,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,BZH/daily.json,AV historical listing plus FMP profile and baseline cap
+HNNA,"Hennessy Advisors, Inc.",expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,HNNA/daily.json,AV historical listing plus FMP profile and baseline cap
+BHE,"Benchmark Electronics, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,BHE/daily.json,AV historical listing plus FMP profile and baseline cap
+LFMD,"LifeMD, Inc.",expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,LFMD/daily.json,AV historical listing plus FMP profile and baseline cap
+HHH,Howard Hughes Holdings Inc.,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,HHH/daily.json,AV historical listing plus FMP profile and baseline cap
+NUE,Nucor Corporation,expansion_250,large,Basic Materials,False,,2016-01-01,2025-12-31,NUE/daily.json,AV historical listing plus FMP profile and baseline cap
+BKH,Black Hills Corporation,expansion_250,mid,Utilities,False,,2016-01-01,2025-12-31,BKH/daily.json,AV historical listing plus FMP profile and baseline cap
+MGNI,"Magnite, Inc.",expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,MGNI/daily.json,AV historical listing plus FMP profile and baseline cap
+MKC,"McCormick & Company, Incorporated",expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,MKC/daily.json,AV historical listing plus FMP profile and baseline cap
+TPC,Tutor Perini Corporation,expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,TPC/daily.json,AV historical listing plus FMP profile and baseline cap
+PROP,Prairie Operating Co.,expansion_250,small,Energy,False,,2016-01-01,2025-12-31,PROP/daily.json,AV historical listing plus FMP profile and baseline cap
+CAL,"Caleres, Inc.",expansion_250,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,CAL/daily.json,AV historical listing plus FMP profile and baseline cap
+STBA,"S&T Bancorp, Inc.",expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,STBA/daily.json,AV historical listing plus FMP profile and baseline cap
+ROP,"Roper Technologies, Inc.",expansion_250,large,Technology,False,,2016-01-01,2025-12-31,ROP/daily.json,AV historical listing plus FMP profile and baseline cap
+VNDA,Vanda Pharmaceuticals Inc.,expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,VNDA/daily.json,AV historical listing plus FMP profile and baseline cap
+VMRK,Vivmark Residential,expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,VMRK/daily.json,AV historical listing plus FMP profile and baseline cap
+WLKP,Westlake Chemical Partners LP,expansion_250,small,Basic Materials,False,,2016-01-01,2025-12-31,WLKP/daily.json,AV historical listing plus FMP profile and baseline cap
+NI,NiSource Inc,expansion_250,mid,Utilities,False,,2016-01-01,2025-12-31,NI/daily.json,AV historical listing plus FMP profile and baseline cap
+OMC,Omnicom Group Inc.,expansion_250,large,Communication Services,False,,2016-01-01,2025-12-31,OMC/daily.json,AV historical listing plus FMP profile and baseline cap
+MZTI,The Marzetti Company,expansion_250,mid,Consumer Defensive,False,,2016-01-01,2025-12-31,MZTI/daily.json,AV historical listing plus FMP profile and baseline cap
+MG,"Mistras Group, Inc.",expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,MG/daily.json,AV historical listing plus FMP profile and baseline cap
+PAA,"Plains All American Pipeline, L.P.",expansion_250,mid,Energy,False,,2016-01-01,2025-12-31,PAA/daily.json,AV historical listing plus FMP profile and baseline cap
+GNTX,Gentex Corporation,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,GNTX/daily.json,AV historical listing plus FMP profile and baseline cap
+PKBK,"Parke Bancorp, Inc.",expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,PKBK/daily.json,AV historical listing plus FMP profile and baseline cap
+TRUE,"TrueCar, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,TRUE/daily.json,AV historical listing plus FMP profile and baseline cap
+HSTM,"HealthStream, Inc.",expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,HSTM/daily.json,AV historical listing plus FMP profile and baseline cap
+WSR,Whitestone REIT,expansion_250,small,Real Estate,False,,2016-01-01,2025-12-31,WSR/daily.json,AV historical listing plus FMP profile and baseline cap
+MTX,Minerals Technologies Inc.,expansion_250,small,Basic Materials,False,,2016-01-01,2025-12-31,MTX/daily.json,AV historical listing plus FMP profile and baseline cap
+PCG,PG&E Corporation,expansion_250,large,Utilities,False,,2016-01-01,2025-12-31,PCG/daily.json,AV historical listing plus FMP profile and baseline cap
+TGNA,TEGNA Inc.,expansion_250,mid,Communication Services,False,,2016-01-01,2025-12-31,TGNA/daily.json,AV historical listing plus FMP profile and baseline cap
+FRPT,"Freshpet, Inc.",expansion_250,small,Consumer Defensive,False,,2016-01-01,2025-12-31,FRPT/daily.json,AV historical listing plus FMP profile and baseline cap
+CLH,"Clean Harbors, Inc.",expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,CLH/daily.json,AV historical listing plus FMP profile and baseline cap
+FTK,"Flotek Industries, Inc.",expansion_250,small,Energy,False,,2016-01-01,2025-12-31,FTK/daily.json,AV historical listing plus FMP profile and baseline cap
+BBW,"Build-A-Bear Workshop, Inc.",expansion_250,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,BBW/daily.json,AV historical listing plus FMP profile and baseline cap
+DHIL,"Diamond Hill Investment Group, Inc.",expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,DHIL/daily.json,AV historical listing plus FMP profile and baseline cap
+VSH,"Vishay Intertechnology, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,VSH/daily.json,AV historical listing plus FMP profile and baseline cap
+ENTA,"Enanta Pharmaceuticals, Inc.",expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,ENTA/daily.json,AV historical listing plus FMP profile and baseline cap
+SVC,Service Properties Trust,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,SVC/daily.json,AV historical listing plus FMP profile and baseline cap
+FMC,FMC Corporation,expansion_250,mid,Basic Materials,False,,2016-01-01,2025-12-31,FMC/daily.json,AV historical listing plus FMP profile and baseline cap
+ETR,Entergy Corporation,expansion_250,large,Utilities,False,,2016-01-01,2025-12-31,ETR/daily.json,AV historical listing plus FMP profile and baseline cap
+CNVS,Cineverse Corp.,expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,CNVS/daily.json,AV historical listing plus FMP profile and baseline cap
+BGS,"B&G Foods, Inc.",expansion_250,mid,Consumer Defensive,False,,2016-01-01,2025-12-31,BGS/daily.json,AV historical listing plus FMP profile and baseline cap
+PRIM,Primoris Services Corporation,expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,PRIM/daily.json,AV historical listing plus FMP profile and baseline cap
+HLX,"Helix Energy Solutions Group, Inc.",expansion_250,small,Energy,False,,2016-01-01,2025-12-31,HLX/daily.json,AV historical listing plus FMP profile and baseline cap
+EAT,"Brinker International, Inc.",expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,EAT/daily.json,AV historical listing plus FMP profile and baseline cap
+SRCE,1st Source Corporation,expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,SRCE/daily.json,AV historical listing plus FMP profile and baseline cap
+LPTH,"LightPath Technologies, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,LPTH/daily.json,AV historical listing plus FMP profile and baseline cap
+CAH,"Cardinal Health, Inc.",expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,CAH/daily.json,AV historical listing plus FMP profile and baseline cap
+AGNC,AGNC Investment Corp.,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,AGNC/daily.json,AV historical listing plus FMP profile and baseline cap
+VHI,"Valhi, Inc.",expansion_250,small,Basic Materials,False,,2016-01-01,2025-12-31,VHI/daily.json,AV historical listing plus FMP profile and baseline cap
+LNT,Alliant Energy Corporation,expansion_250,mid,Utilities,False,,2016-01-01,2025-12-31,LNT/daily.json,AV historical listing plus FMP profile and baseline cap
+GRPN,"Groupon, Inc.",expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,GRPN/daily.json,AV historical listing plus FMP profile and baseline cap
+MO,"Altria Group, Inc.",expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,MO/daily.json,AV historical listing plus FMP profile and baseline cap
+MRCY,"Mercury Systems, Inc.",expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,MRCY/daily.json,AV historical listing plus FMP profile and baseline cap
+USAC,"USA Compression Partners, LP",expansion_250,small,Energy,False,,2016-01-01,2025-12-31,USAC/daily.json,AV historical listing plus FMP profile and baseline cap
+PVH,PVH Corp.,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,PVH/daily.json,AV historical listing plus FMP profile and baseline cap
+KEY,KeyCorp,expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,KEY/daily.json,AV historical listing plus FMP profile and baseline cap
+SCSC,"ScanSource, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,SCSC/daily.json,AV historical listing plus FMP profile and baseline cap
+POCI,"Precision Optics Corporation, Inc.",expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,POCI/daily.json,AV historical listing plus FMP profile and baseline cap
+JLL,Jones Lang LaSalle Incorporated,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,JLL/daily.json,AV historical listing plus FMP profile and baseline cap
+SXC,"SunCoke Energy, Inc.",expansion_250,small,Basic Materials,False,,2016-01-01,2025-12-31,SXC/daily.json,AV historical listing plus FMP profile and baseline cap
+EXC,Exelon Corporation,expansion_250,large,Utilities,False,,2016-01-01,2025-12-31,EXC/daily.json,AV historical listing plus FMP profile and baseline cap
+RDIB,"Reading International, Inc.",expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,RDIB/daily.json,AV historical listing plus FMP profile and baseline cap
+USNA,"USANA Health Sciences, Inc.",expansion_250,small,Consumer Defensive,False,,2016-01-01,2025-12-31,USNA/daily.json,AV historical listing plus FMP profile and baseline cap
+UFI,"Unifi, Inc.",expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,UFI/daily.json,AV historical listing plus FMP profile and baseline cap
+EPD,Enterprise Products Partners L.P.,expansion_250,large,Energy,False,,2016-01-01,2025-12-31,EPD/daily.json,AV historical listing plus FMP profile and baseline cap
+TMHC,Taylor Morrison Home Corporation,expansion_250,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,TMHC/daily.json,AV historical listing plus FMP profile and baseline cap
+ENVA,"Enova International, Inc.",expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,ENVA/daily.json,AV historical listing plus FMP profile and baseline cap
+KVHI,"KVH Industries, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,KVHI/daily.json,AV historical listing plus FMP profile and baseline cap
+LIXT,"Lixte Biotechnology Holdings, Inc.",expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,LIXT/daily.json,AV historical listing plus FMP profile and baseline cap
+INN,"Summit Hotel Properties, Inc.",expansion_250,small,Real Estate,False,,2016-01-01,2025-12-31,INN/daily.json,AV historical listing plus FMP profile and baseline cap
+VMC,Vulcan Materials Company,expansion_250,large,Basic Materials,False,,2016-01-01,2025-12-31,VMC/daily.json,AV historical listing plus FMP profile and baseline cap
+EIX,Edison International,expansion_250,large,Utilities,False,,2016-01-01,2025-12-31,EIX/daily.json,AV historical listing plus FMP profile and baseline cap
+ATNI,"ATN International, Inc.",expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,ATNI/daily.json,AV historical listing plus FMP profile and baseline cap
+CHEF,"The Chefs' Warehouse, Inc.",expansion_250,small,Consumer Defensive,False,,2016-01-01,2025-12-31,CHEF/daily.json,AV historical listing plus FMP profile and baseline cap
+CYRX,"Cryoport, Inc.",expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,CYRX/daily.json,AV historical listing plus FMP profile and baseline cap
+WKC,World Kinect Corporation,expansion_250,mid,Energy,False,,2016-01-01,2025-12-31,WKC/daily.json,AV historical listing plus FMP profile and baseline cap
+ODP,The ODP Corporation,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,ODP/daily.json,AV historical listing plus FMP profile and baseline cap
+CMTV,Community Bancorp,expansion_250,small,Financial Services,False,,2016-01-01,2025-12-31,CMTV/daily.json,AV historical listing plus FMP profile and baseline cap
+FIS,"Fidelity National Information Services, Inc.",expansion_250,large,Technology,False,,2016-01-01,2025-12-31,FIS/daily.json,AV historical listing plus FMP profile and baseline cap
+EXAS,Exact Sciences Corporation,expansion_250,small,Healthcare,False,,2016-01-01,2025-12-31,EXAS/daily.json,AV historical listing plus FMP profile and baseline cap
+DX,"Dynex Capital, Inc.",expansion_250,small,Real Estate,False,,2016-01-01,2025-12-31,DX/daily.json,AV historical listing plus FMP profile and baseline cap
+AWI,"Armstrong World Industries, Inc.",expansion_250,mid,Basic Materials,False,,2016-01-01,2025-12-31,AWI/daily.json,AV historical listing plus FMP profile and baseline cap
+WEC,"WEC Energy Group, Inc.",expansion_250,large,Utilities,False,,2016-01-01,2025-12-31,WEC/daily.json,AV historical listing plus FMP profile and baseline cap
+SSP,The E.W. Scripps Company,expansion_250,small,Communication Services,False,,2016-01-01,2025-12-31,SSP/daily.json,AV historical listing plus FMP profile and baseline cap
+INGR,Ingredion Incorporated,expansion_250,mid,Consumer Defensive,False,,2016-01-01,2025-12-31,INGR/daily.json,AV historical listing plus FMP profile and baseline cap
+AP,Ampco-Pittsburgh Corp.,expansion_250,small,Industrials,False,,2016-01-01,2025-12-31,AP/daily.json,AV historical listing plus FMP profile and baseline cap
+MTR,Mesa Royalty Trust,expansion_250,small,Energy,False,,2016-01-01,2025-12-31,MTR/daily.json,AV historical listing plus FMP profile and baseline cap
+DLTH,Duluth Holdings Inc.,expansion_250,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,DLTH/daily.json,AV historical listing plus FMP profile and baseline cap
+MRSH,"Marsh & McLennan Companies, Inc.",expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,MRSH/daily.json,AV historical listing plus FMP profile and baseline cap
+HUBS,"HubSpot, Inc.",expansion_250,small,Technology,False,,2016-01-01,2025-12-31,HUBS/daily.json,AV historical listing plus FMP profile and baseline cap
+MCK,McKesson Corporation,expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,MCK/daily.json,AV historical listing plus FMP profile and baseline cap
+RITM,Rithm Capital Corp.,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,RITM/daily.json,AV historical listing plus FMP profile and baseline cap
+CMP,"Compass Minerals International, Inc.",expansion_250,mid,Basic Materials,False,,2016-01-01,2025-12-31,CMP/daily.json,AV historical listing plus FMP profile and baseline cap
+POR,Portland General Electric Company,expansion_250,mid,Utilities,False,,2016-01-01,2025-12-31,POR/daily.json,AV historical listing plus FMP profile and baseline cap
+EPC,Edgewell Personal Care Company,expansion_250,mid,Consumer Defensive,False,,2016-01-01,2025-12-31,EPC/daily.json,AV historical listing plus FMP profile and baseline cap
+GWW,"W.W. Grainger, Inc.",expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,GWW/daily.json,AV historical listing plus FMP profile and baseline cap
+EOG,"EOG Resources, Inc.",expansion_250,large,Energy,False,,2016-01-01,2025-12-31,EOG/daily.json,AV historical listing plus FMP profile and baseline cap
+TSLA,"Tesla, Inc.",expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,TSLA/daily.json,AV historical listing plus FMP profile and baseline cap
+PGR,The Progressive Corporation,expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,PGR/daily.json,AV historical listing plus FMP profile and baseline cap
+QCOM,QUALCOMM Incorporated,expansion_250,large,Technology,False,,2016-01-01,2025-12-31,QCOM/daily.json,AV historical listing plus FMP profile and baseline cap
+CNC,Centene Corp.,expansion_250,mid,Healthcare,False,,2016-01-01,2025-12-31,CNC/daily.json,AV historical listing plus FMP profile and baseline cap
+PEB,Pebblebrook Hotel Trust,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,PEB/daily.json,AV historical listing plus FMP profile and baseline cap
+PPG,"PPG Industries, Inc.",expansion_250,large,Basic Materials,False,,2016-01-01,2025-12-31,PPG/daily.json,AV historical listing plus FMP profile and baseline cap
+MNST,Monster Beverage Corporation,expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,MNST/daily.json,AV historical listing plus FMP profile and baseline cap
+UHAL,U-Haul Holding Company,expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,UHAL/daily.json,AV historical listing plus FMP profile and baseline cap
+XPRO,Expro Group Holdings N.V.,expansion_250,large,Energy,False,,2016-01-01,2025-12-31,XPRO/daily.json,AV historical listing plus FMP profile and baseline cap
+CASY,"Casey's General Stores, Inc.",expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,CASY/daily.json,AV historical listing plus FMP profile and baseline cap
+MET,"MetLife, Inc.",expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,MET/daily.json,AV historical listing plus FMP profile and baseline cap
+CIEN,Ciena Corporation,expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,CIEN/daily.json,AV historical listing plus FMP profile and baseline cap
+UHS,"Universal Health Services, Inc.",expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,UHS/daily.json,AV historical listing plus FMP profile and baseline cap
+BDN,Brandywine Realty Trust,expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,BDN/daily.json,AV historical listing plus FMP profile and baseline cap
+IFF,International Flavors & Fragrances Inc.,expansion_250,mid,Basic Materials,False,,2016-01-01,2025-12-31,IFF/daily.json,AV historical listing plus FMP profile and baseline cap
+WMT,Walmart Inc.,expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,WMT/daily.json,AV historical listing plus FMP profile and baseline cap
+AAL,American Airlines Group Inc.,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,AAL/daily.json,AV historical listing plus FMP profile and baseline cap
+GM,General Motors Company,expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,GM/daily.json,AV historical listing plus FMP profile and baseline cap
+AJG,Arthur J. Gallagher & Co.,expansion_250,mid,Financial Services,False,,2016-01-01,2025-12-31,AJG/daily.json,AV historical listing plus FMP profile and baseline cap
+SAIC,Science Applications International Corporation,expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,SAIC/daily.json,AV historical listing plus FMP profile and baseline cap
+WST,"West Pharmaceutical Services, Inc.",expansion_250,mid,Healthcare,False,,2016-01-01,2025-12-31,WST/daily.json,AV historical listing plus FMP profile and baseline cap
+HST,"Host Hotels & Resorts, Inc.",expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,HST/daily.json,AV historical listing plus FMP profile and baseline cap
+RPM,RPM International Inc.,expansion_250,mid,Basic Materials,False,,2016-01-01,2025-12-31,RPM/daily.json,AV historical listing plus FMP profile and baseline cap
+CAG,"Conagra Brands, Inc.",expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,CAG/daily.json,AV historical listing plus FMP profile and baseline cap
+JBLU,JetBlue Airways Corporation,expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,JBLU/daily.json,AV historical listing plus FMP profile and baseline cap
+UAA,"Under Armour, Inc.",expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,UAA/daily.json,AV historical listing plus FMP profile and baseline cap
+TROW,"T. Rowe Price Group, Inc.",expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,TROW/daily.json,AV historical listing plus FMP profile and baseline cap
+QRVO,"Qorvo, Inc.",expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,QRVO/daily.json,AV historical listing plus FMP profile and baseline cap
+ABT,Abbott Laboratories,expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,ABT/daily.json,AV historical listing plus FMP profile and baseline cap
+STWD,"Starwood Property Trust, Inc.",expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,STWD/daily.json,AV historical listing plus FMP profile and baseline cap
+KHC,The Kraft Heinz Company,expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,KHC/daily.json,AV historical listing plus FMP profile and baseline cap
+CTAS,Cintas Corporation,expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,CTAS/daily.json,AV historical listing plus FMP profile and baseline cap
+GT,The Goodyear Tire & Rubber Company,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,GT/daily.json,AV historical listing plus FMP profile and baseline cap
+TFC,Truist Financial Corporation,expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,TFC/daily.json,AV historical listing plus FMP profile and baseline cap
+TTWO,"Take-Two Interactive Software, Inc.",expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,TTWO/daily.json,AV historical listing plus FMP profile and baseline cap
+ILMN,"Illumina, Inc.",expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,ILMN/daily.json,AV historical listing plus FMP profile and baseline cap
+CSGP,"CoStar Group, Inc.",expansion_250,mid,Real Estate,False,,2016-01-01,2025-12-31,CSGP/daily.json,AV historical listing plus FMP profile and baseline cap
+DLTR,"Dollar Tree, Inc.",expansion_250,large,Consumer Defensive,False,,2016-01-01,2025-12-31,DLTR/daily.json,AV historical listing plus FMP profile and baseline cap
+UAL,"United Airlines Holdings, Inc.",expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,UAL/daily.json,AV historical listing plus FMP profile and baseline cap
+CAKE,The Cheesecake Factory Incorporated,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,CAKE/daily.json,AV historical listing plus FMP profile and baseline cap
+CME,CME Group Inc.,expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,CME/daily.json,AV historical listing plus FMP profile and baseline cap
+TYL,"Tyler Technologies, Inc.",expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,TYL/daily.json,AV historical listing plus FMP profile and baseline cap
+ATR,"AptarGroup, Inc.",expansion_250,mid,Healthcare,False,,2016-01-01,2025-12-31,ATR/daily.json,AV historical listing plus FMP profile and baseline cap
+ESS,"Essex Property Trust, Inc.",expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,ESS/daily.json,AV historical listing plus FMP profile and baseline cap
+LII,Lennox International Inc.,expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,LII/daily.json,AV historical listing plus FMP profile and baseline cap
+WEN,The Wendy's Company,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,WEN/daily.json,AV historical listing plus FMP profile and baseline cap
+VIRT,"Virtu Financial, Inc.",expansion_250,mid,Financial Services,False,,2016-01-01,2025-12-31,VIRT/daily.json,AV historical listing plus FMP profile and baseline cap
+CDNS,"Cadence Design Systems, Inc.",expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,CDNS/daily.json,AV historical listing plus FMP profile and baseline cap
+BDX,"Becton, Dickinson and Company",expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,BDX/daily.json,AV historical listing plus FMP profile and baseline cap
+SBAC,SBA Communications Corporation,expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,SBAC/daily.json,AV historical listing plus FMP profile and baseline cap
+TXT,Textron Inc.,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,TXT/daily.json,AV historical listing plus FMP profile and baseline cap
+MCD,McDonald's Corporation,expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,MCD/daily.json,AV historical listing plus FMP profile and baseline cap
+ORI,Old Republic International Corporation,expansion_250,mid,Financial Services,False,,2016-01-01,2025-12-31,ORI/daily.json,AV historical listing plus FMP profile and baseline cap
+ACIW,"ACI Worldwide, Inc.",expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,ACIW/daily.json,AV historical listing plus FMP profile and baseline cap
+CYH,"Community Health Systems, Inc.",expansion_250,mid,Healthcare,False,,2016-01-01,2025-12-31,CYH/daily.json,AV historical listing plus FMP profile and baseline cap
+EQIX,"Equinix, Inc.",expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,EQIX/daily.json,AV historical listing plus FMP profile and baseline cap
+GHC,Graham Holdings Company,expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,GHC/daily.json,AV historical listing plus FMP profile and baseline cap
+LEA,Lear Corporation,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,LEA/daily.json,AV historical listing plus FMP profile and baseline cap
+HAPN,"Happen, Inc. Common Stock",expansion_250,mid,Financial Services,False,,2016-01-01,2025-12-31,HAPN/daily.json,AV historical listing plus FMP profile and baseline cap
+LDOS,"Leidos Holdings, Inc.",expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,LDOS/daily.json,AV historical listing plus FMP profile and baseline cap
+DHR,Danaher Corporation,expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,DHR/daily.json,AV historical listing plus FMP profile and baseline cap
+PLD,"Prologis, Inc.",expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,PLD/daily.json,AV historical listing plus FMP profile and baseline cap
+URI,"United Rentals, Inc.",expansion_250,mid,Industrials,False,,2016-01-01,2025-12-31,URI/daily.json,AV historical listing plus FMP profile and baseline cap
+BWA,BorgWarner Inc.,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,BWA/daily.json,AV historical listing plus FMP profile and baseline cap
+CBSH,"Commerce Bancshares, Inc.",expansion_250,mid,Financial Services,False,,2016-01-01,2025-12-31,CBSH/daily.json,AV historical listing plus FMP profile and baseline cap
+MPWR,"Monolithic Power Systems, Inc.",expansion_250,mid,Technology,False,,2016-01-01,2025-12-31,MPWR/daily.json,AV historical listing plus FMP profile and baseline cap
+HSIC,"Henry Schein, Inc.",expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,HSIC/daily.json,AV historical listing plus FMP profile and baseline cap
+SPG,"Simon Property Group, Inc.",expansion_250,large,Real Estate,False,,2016-01-01,2025-12-31,SPG/daily.json,AV historical listing plus FMP profile and baseline cap
+FAST,Fastenal Company,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,FAST/daily.json,AV historical listing plus FMP profile and baseline cap
+COLM,Columbia Sportswear Company,expansion_250,mid,Consumer Cyclical,False,,2016-01-01,2025-12-31,COLM/daily.json,AV historical listing plus FMP profile and baseline cap
+HOMB,"Home Bancshares, Inc.",expansion_250,mid,Financial Services,False,,2016-01-01,2025-12-31,HOMB/daily.json,AV historical listing plus FMP profile and baseline cap
+TXN,Texas Instruments Incorporated,expansion_250,large,Technology,False,,2016-01-01,2025-12-31,TXN/daily.json,AV historical listing plus FMP profile and baseline cap
+ELV,Elevance Health Inc.,expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,ELV/daily.json,AV historical listing plus FMP profile and baseline cap
+NSC,Norfolk Southern Corporation,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,NSC/daily.json,AV historical listing plus FMP profile and baseline cap
+BKNG,Booking Holdings Inc.,expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,BKNG/daily.json,AV historical listing plus FMP profile and baseline cap
+LNC,Lincoln National Corporation,expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,LNC/daily.json,AV historical listing plus FMP profile and baseline cap
+WDC,Western Digital Corporation,expansion_250,large,Technology,False,,2016-01-01,2025-12-31,WDC/daily.json,AV historical listing plus FMP profile and baseline cap
+BIIB,Biogen Inc.,expansion_250,large,Healthcare,False,,2016-01-01,2025-12-31,BIIB/daily.json,AV historical listing plus FMP profile and baseline cap
+PCAR,PACCAR Inc,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,PCAR/daily.json,AV historical listing plus FMP profile and baseline cap
+YUM,"Yum! Brands, Inc.",expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,YUM/daily.json,AV historical listing plus FMP profile and baseline cap
+COF,Capital One Financial Corporation,expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,COF/daily.json,AV historical listing plus FMP profile and baseline cap
+CAT,Caterpillar Inc.,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,CAT/daily.json,AV historical listing plus FMP profile and baseline cap
+BNED,"Barnes & Noble Education, Inc.",expansion_250,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,BNED/daily.json,AV historical listing plus FMP profile and baseline cap
+AIG,"American International Group, Inc.",expansion_250,large,Financial Services,False,,2016-01-01,2025-12-31,AIG/daily.json,AV historical listing plus FMP profile and baseline cap
+UNP,Union Pacific Corporation,expansion_250,large,Industrials,False,,2016-01-01,2025-12-31,UNP/daily.json,AV historical listing plus FMP profile and baseline cap

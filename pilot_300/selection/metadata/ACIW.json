@@ -1,0 +1,54 @@
+{
+  "symbol": "ACIW",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ACIW",
+      "price": 51.07,
+      "marketCap": 5191856380,
+      "beta": 0.986,
+      "lastDividend": 0,
+      "range": "38.05-61.08",
+      "change": -0.13,
+      "changePercentage": -0.25391,
+      "volume": 602207,
+      "averageVolume": 945763,
+      "companyName": "ACI Worldwide, Inc.",
+      "currency": "USD",
+      "cik": "0000935036",
+      "isin": "US0044981019",
+      "cusip": "004498101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Infrastructure",
+      "website": "https://www.aciworldwide.com",
+      "description": "ACI Worldwide, Inc. operates as a global software enterprise, specializing in the development, distribution, implementation, and ongoing support of digital payment solutions. These sophisticated offerings cater to the diverse needs of banks, merchants, and billing organizations worldwide. The company boasts an extensive portfolio of specialized platforms, which includes: ACI Acquiring: A merchant management system engineered to foster digital innovation, bolster fraud prevention, and help reduce interchange fees. ACI Issuing: A robust solution for the digital issuance of payments. ACI Enterprise Payments Platform: Delivers advanced capabilities for the processing and orchestration of digital payments. Real-Time Payments Solutions: This category features ACI Low Value Real-Time Payments for standard real-time transactions, and ACI High Value Real-Time Payments, a powerful engine supporting multi-bank, multi-currency, 24/7 payment processing, complete with SWIFT messaging integration. ACI Omni Commerce: A scalable platform designed for comprehensive omni-channel payment processing. ACI Secure eCommerce: A dedicated solution ensuring the security of online transactions. ACI Fraud Management: Employs a real-time methodology for effective fraud detection and prevention. ACI Digital Business Banking: A cloud-based platform offering modern digital banking services. ACI Speedpay: An integrated suite providing digital billing, payment, disbursement, and communication services. Beyond its core software products, ACI Worldwide provides electronic bill presentment and payment services to a broad array of sectors, including consumer finance, insurance, healthcare, higher education, utilities, government, and mortgage. The company also offers essential support services such as implementation (encompassing product installation, configuration, and tailored software modifications), along with business and technical consulting, on-site assistance, product education, and comprehensive testing. Furthermore, ACI acts as a distributor and sales representative for third-party software products. All its solutions and services are marketed under the consistent ACI Worldwide brand. Initially known as Transaction Systems Architects, Inc., the company officially rebranded to ACI Worldwide, Inc. in July 2007. Founded in 1975, its operational headquarters are situated in Coral Gables, Florida.",
+      "ceo": "Thomas Woodrow Warsop",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2930",
+      "phone": "305 894 2200",
+      "address": "6060 Coventry Drive",
+      "city": "Elkhorn",
+      "state": "NE",
+      "zip": "68022-6482",
+      "image": "https://images.financialmodelingprep.com/symbol/ACIW.png",
+      "ipoDate": "1995-02-24",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ACIW",
+      "date": "2015-12-31",
+      "marketCap": 2539730600
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040982.2119048
+}

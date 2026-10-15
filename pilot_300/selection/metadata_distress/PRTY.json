@@ -1,0 +1,54 @@
+{
+  "symbol": "PRTY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PRTY",
+      "price": 0.3742,
+      "marketCap": 0,
+      "beta": 0,
+      "lastDividend": 0,
+      "range": "0.08-5.285",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 886349,
+      "averageVolume": 17922402,
+      "companyName": "Party City Holdco Inc.",
+      "currency": "USD",
+      "cik": "0001592058",
+      "isin": "US7021491052",
+      "cusip": "702149105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Specialty Retail",
+      "website": "https://www.partycity.com",
+      "description": "Party City Holdco Inc. is a global enterprise dedicated to the design, manufacturing, sourcing, and distribution of party merchandise. The company operates through two main divisions: Retail and Wholesale. Their extensive product catalog features items such as paper and plastic tableware, metallic and latex balloons, a variety of costumes for Halloween and other events, along with accessories, novelty items, gifts, and stationery. As of February 28, 2022, Party City managed approximately 830 specialized party supply retail locations across North America, encompassing both company-owned and franchised stores under the Party City and Halloween City brands, complemented by e-commerce operations principally via PartyCity.com. Products are made available to consumers through a diverse network including Party City's own stores, independent party supply shops, large retailers, grocery stores, online vendors, and dollar stores. Established in 1947, Party City Holdco Inc. is headquartered in Elmsford, New York.",
+      "ceo": "Bradley Morgan Weston",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "6400",
+      "phone": "914 345 2020",
+      "address": "80 Grasslands Road",
+      "city": "Elmsford",
+      "state": "NY",
+      "zip": "10523",
+      "image": "https://images.financialmodelingprep.com/symbol/PRTY.png",
+      "ipoDate": "2015-04-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PRTY",
+      "date": "2015-12-31",
+      "marketCap": 1540059384
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041221.7979357
+}

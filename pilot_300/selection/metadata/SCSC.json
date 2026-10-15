@@ -1,0 +1,54 @@
+{
+  "symbol": "SCSC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SCSC",
+      "price": 60.56,
+      "marketCap": 1219848695,
+      "beta": 1.252,
+      "lastDividend": 0,
+      "range": "33.76-66.78",
+      "change": -1.41,
+      "changePercentage": -2.27529,
+      "volume": 190972,
+      "averageVolume": 256760,
+      "companyName": "ScanSource, Inc.",
+      "currency": "USD",
+      "cik": "0000918965",
+      "isin": "US8060371072",
+      "cusip": "806037107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Technology Distributors",
+      "website": "https://www.scansource.com",
+      "description": "ScanSource, Inc. is an international technology distributor, providing a wide array of products and solutions across the United States, Canada, and other global regions. The company's business activities are structured into two distinct segments: Specialty Technology Solutions and Modern Communications & Cloud. The Specialty Technology Solutions division offers a comprehensive suite of products focusing on enterprise mobile computing, data capture, barcode printing, point-of-sale (POS) systems, payment processing, networking, electronic physical security, and cybersecurity. Specifically, its data capture and POS solutions are engineered to automate the collection, processing, and transmission of information for diverse commercial and industrial uses, spanning retail, distribution, shipping, inventory control, materials handling, warehouse management, and healthcare applications. This segment also provides electronic physical security items, such as identification systems, access control, video surveillance, intrusion detection, and wireless and networking infrastructure. The Modern Communications & Cloud segment is dedicated to an extensive portfolio of communication technologies and services. This includes voice solutions, video conferencing, wireless connectivity, data networking, cable infrastructure, unified communications and collaboration (UC&C), cloud services, general technology services, and IP networks. These offerings are often customized for specific vertical markets, including education, healthcare, and government. ScanSource serves a broad spectrum of industries, such as manufacturing, warehousing and distribution, retail and e-commerce, hospitality, transportation and logistics, government, education, and healthcare. Founded in 1992, the company maintains its headquarters in Greenville, South Carolina.",
+      "ceo": "Michael L. Baur",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2100",
+      "phone": "864 288 2432",
+      "address": "6 Logue Court",
+      "city": "Greenville",
+      "state": "SC",
+      "zip": "29615",
+      "image": "https://images.financialmodelingprep.com/symbol/SCSC.png",
+      "ipoDate": "1994-03-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SCSC",
+      "date": "2015-12-31",
+      "marketCap": 833305860
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040368.3958886
+}

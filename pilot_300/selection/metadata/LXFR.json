@@ -1,0 +1,54 @@
+{
+  "symbol": "LXFR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LXFR",
+      "price": 17.25,
+      "marketCap": 465632700,
+      "beta": 1.107,
+      "lastDividend": 0.52,
+      "range": "11.26-19.45",
+      "change": -0.01,
+      "changePercentage": -0.05793743,
+      "volume": 542095,
+      "averageVolume": 323887,
+      "companyName": "Luxfer Holdings PLC",
+      "currency": "USD",
+      "cik": "0001096056",
+      "isin": "GB00BNK03D49",
+      "cusip": "G5698W116",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.luxfer.com",
+      "description": "Luxfer Holdings PLC is a company that develops, produces, and distributes advanced materials, specialized components, and high-pressure gas containment solutions. These offerings cater to critical sectors such as defense and emergency services, healthcare, transportation, and a wide array of general industrial applications. The company's operations are divided into two primary divisions: Elektron and Gas Cylinders. The Elektron segment focuses on crafting specialty materials from magnesium and zirconium. This includes providing magnesium alloys for various industrial applications, magnesium powders utilized in products like countermeasure flares and self-heating food packages, and photoengraving plates for graphic arts. Furthermore, it supplies zirconium-based materials and oxides, which are crucial for catalysts, advanced ceramic production, fiber-optic fuel cells, and other high-performance items. The Gas Cylinders segment specializes in manufacturing and marketing robust pressurized cylinders constructed from carbon composites and aluminum. These specialized vessels are employed in diverse scenarios, including self-contained breathing apparatus (SCBA) for firefighters, storage of oxygen and other medical gases for healthcare facilities, alternative fuel vehicle systems, and general industrial purposes. With a history dating back to its founding in 1898, Luxfer Holdings PLC maintains a significant international presence, with operations spanning the United States, the United Kingdom, Germany, Italy, France, the broader European region, the Asia Pacific, and other global markets. Its headquarters are located in Manchester, United Kingdom.",
+      "ceo": "Andrew William John Butcher",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "1350",
+      "phone": "414 269 2419",
+      "address": "3016 Kansas Avenue",
+      "city": "Riverside",
+      "state": "CA",
+      "zip": "92507",
+      "image": "https://images.financialmodelingprep.com/symbol/LXFR.png",
+      "ipoDate": "2012-10-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LXFR",
+      "date": "2015-12-31",
+      "marketCap": 264882832
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041543.3003895
+}

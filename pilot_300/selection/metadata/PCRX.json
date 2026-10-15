@@ -1,0 +1,54 @@
+{
+  "symbol": "PCRX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PCRX",
+      "price": 36.4,
+      "marketCap": 1450972541,
+      "beta": 0.252,
+      "lastDividend": 0,
+      "range": "18.8-36.48",
+      "change": 0.09,
+      "changePercentage": 0.24787,
+      "volume": 2331848,
+      "averageVolume": 954961,
+      "companyName": "Pacira BioSciences, Inc.",
+      "currency": "USD",
+      "cik": "0001396814",
+      "isin": "US6951271005",
+      "cusip": "695127100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Drug Manufacturers - Specialty & Generic",
+      "website": "https://www.pacira.com",
+      "description": "Operating within the United States, Pacira BioSciences, Inc. is dedicated to providing healthcare professionals and their patients with non-opioid solutions for pain management and regenerative health. Its offerings include EXPAREL, an injectable liposomal bupivacaine suspension, and ZILRETTA, an extended-release injectable suspension of triamcinolone acetonide. Furthermore, the company offers the iovera system, a non-opioid, handheld cryoanalgesia device capable of delivering precisely controlled cold temperatures to targeted nerves. Pacira also develops its unique multivesicular liposome (MVL) drug delivery technology, which encapsulates therapeutic compounds while preserving their inherent molecular structure. Established in 2006, the firm was formerly known as Pacira Pharmaceuticals, Inc. until its name change to Pacira BioSciences, Inc. in April 2019. Its main corporate office is situated in Tampa, Florida.",
+      "ceo": "Frank D. Lee",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "827",
+      "phone": "813 553 6680",
+      "address": "2000 Sierra Point Parkway",
+      "city": "Brisbane",
+      "state": "CA",
+      "zip": "94005",
+      "image": "https://images.financialmodelingprep.com/symbol/PCRX.png",
+      "ipoDate": "2011-02-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PCRX",
+      "date": "2015-12-31",
+      "marketCap": 2842765800
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041879.06007
+}

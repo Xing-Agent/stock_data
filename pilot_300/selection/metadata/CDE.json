@@ -1,0 +1,54 @@
+{
+  "symbol": "CDE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CDE",
+      "price": 14.98,
+      "marketCap": 15496971275,
+      "beta": 1.371,
+      "lastDividend": 0.02,
+      "range": "13.55-27.77",
+      "change": -1.28,
+      "changePercentage": -7.87208,
+      "volume": 41795209,
+      "averageVolume": 37491280,
+      "companyName": "Coeur Mining, Inc.",
+      "currency": "USD",
+      "cik": "0000215466",
+      "isin": "US1921085049",
+      "cusip": "192108504",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Gold",
+      "website": "https://www.coeur.com",
+      "description": "Coeur Mining, Inc. is a company primarily focused on the exploration and development of precious metal deposits across North America, with operations spanning the United States, Canada, and Mexico. The company's key activities involve discovering and extracting resources such as gold, silver, zinc, and lead. Coeur Mining maintains a 100% ownership stake in several significant mining assets. These include the Palmarejo gold and silver mine in Chihuahua, Northern Mexico, which encompasses approximately 67,296 net acres. In northwestern Nevada, the Rochester silver and gold mine covers about 43,441 net acres. The Kensington gold mine, situated north of Juneau, Alaska, spans 3,972 net acres. Additionally, the Wharf gold mine occupies roughly 3,243 net acres in the northern Black Hills of western South Dakota, and the Silvertip silver-zinc-lead mine in northern British Columbia, Canada, extends over 97,298 net acres. Beyond these fully-owned sites, Coeur Mining also holds interests in the Crown and Sterling projects located in southern Nevada, as well as the La Preciosa project in Mexico. The concentrates produced from its operations are then marketed and sold to various third-party customers and smelters through established off-take agreements. Historically, the company was known as Coeur d'Alene Mines Corporation before rebranding to Coeur Mining, Inc. in May 2013. Established in 1928, its corporate headquarters are located in Chicago, Illinois.",
+      "ceo": "Mitchell J. Krebs",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "2620",
+      "phone": "312 489 5800",
+      "address": "104 South Michigan Avenue",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60606",
+      "image": "https://images.financialmodelingprep.com/symbol/CDE.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CDE",
+      "date": "2015-12-31",
+      "marketCap": 361300570
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041637.8572454
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CHMI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CHMI",
+      "price": 2.48,
+      "marketCap": 91629537,
+      "beta": 1.102,
+      "lastDividend": 0.4,
+      "range": "2.17-2.98",
+      "change": -0.06,
+      "changePercentage": -2.3622,
+      "volume": 93603,
+      "averageVolume": 295466,
+      "companyName": "Cherry Hill Mortgage Investment Corporation",
+      "currency": "USD",
+      "cik": "0001571776",
+      "isin": "US1646511014",
+      "cusip": "164651101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Mortgage",
+      "website": "https://www.chmireit.com",
+      "description": "Cherry Hill Mortgage Investment Corporation (CHMI) is a financial entity specializing in residential real estate, dedicated to the acquisition, investment, and oversight of home loan-backed assets across the United States. The company structures its operations across distinct divisions, including Investments in Residential Mortgage-Backed Securities (RMBS), Investments in Servicing Related Assets, and an \"All Other\" segment. It actively manages a diverse portfolio composed of both RMBS and assets linked to mortgage servicing. For federal income tax purposes, Cherry Hill Mortgage Investment Corporation holds the designation of a real estate investment trust. This status generally exempts the company from federal corporate income taxes, contingent on its distribution of at least 90% of its taxable profits to its investors. Established in 2012, CHMI is headquartered in Farmingdale, New Jersey.",
+      "ceo": "Jeffrey Lown",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "14",
+      "phone": "877 870 7005",
+      "address": "1451 Route 34",
+      "city": "Tinton Falls",
+      "state": "NJ",
+      "zip": "07753",
+      "image": "https://images.financialmodelingprep.com/symbol/CHMI.png",
+      "ipoDate": "2013-10-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CHMI",
+      "date": "2015-12-31",
+      "marketCap": 97624059
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040987.3883622
+}

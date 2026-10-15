@@ -1,0 +1,63 @@
+{
+  "symbol": "PGR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PGR",
+      "price": 213.46,
+      "marketCap": 124041606000,
+      "beta": 0.236,
+      "lastDividend": 13.9,
+      "range": "189.2-239.38",
+      "change": -9.42001,
+      "changePercentage": -4.22649,
+      "volume": 7205217,
+      "averageVolume": 2892047,
+      "companyName": "The Progressive Corporation",
+      "currency": "USD",
+      "cik": "0000080661",
+      "isin": "US7433151039",
+      "cusip": "743315103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Property & Casualty",
+      "website": "https://www.progressive.com",
+      "description": "The Progressive Corporation, an insurance holding company, offers a comprehensive range of insurance products and associated services across the United States. Its portfolio includes personal and commercial vehicle coverage, residential and commercial property protection, general liability, and various other specialized property-casualty insurance options. The company's operations are structured into three main divisions: Personal Lines, Commercial Lines, and Property. Within the Personal Lines segment, Progressive provides coverage for individual automobiles and recreational vehicles. Offerings range from standard personal auto policies to specialized options for motorcycles, all-terrain vehicles (ATVs), RVs, watercraft, snowmobiles, and similar forms of personal transport. The Commercial Lines division focuses on providing primary liability and physical damage insurance for business vehicles, alongside general liability and property insurance tailored for commercial applications. This segment insures a diverse array of vehicles, including cars, vans, pickup trucks, and dump trucks for small businesses; tractors, trailers, and straight trucks for regional freight, expedited shipping, and long-haul transport companies; heavy-duty vehicles like dump trucks, log trucks, and garbage trucks used in industries such as construction, logging, and mining; and tow trucks and wreckers for towing and service stations, as well as various non-fleet taxis and premium car services. The Property segment offers residential insurance solutions for homeowners, other property owners, and renters. Its portfolio further extends to include personal umbrella policies and both primary and excess flood insurance. Beyond underwriting, the company facilitates policy issuance and claims adjusting. It also serves as an agent for various additional insurance products, such as homeowner general liability and workers' compensation, and provides reinsurance services. Progressive's products are distributed through independent insurance agencies, as well as directly to consumers via its online platforms (including mobile access) and telephone channels. Established in 1937, The Progressive Corporation maintains its headquarters in Mayfield, Ohio.",
+      "ceo": "Susan Patricia Griffith",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "70053",
+      "phone": "440 461 5000",
+      "address": "300 North Commons Blvd.",
+      "city": "Mayfield Village",
+      "state": "OH",
+      "zip": "44143",
+      "image": "https://images.financialmodelingprep.com/symbol/PGR.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PGR",
+      "date": "2015-12-31",
+      "marketCap": 18545760000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040840.2723906,
+  "previous_attempts": [
+    {
+      "symbol": "PGR",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040411.7781985
+    }
+  ]
+}

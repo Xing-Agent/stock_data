@@ -1,0 +1,63 @@
+{
+  "symbol": "MZTI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MZTI",
+      "price": 101.21,
+      "marketCap": 2775419181,
+      "beta": 0.363,
+      "lastDividend": 4,
+      "range": "97-176.26",
+      "change": 0.26,
+      "changePercentage": 0.25755,
+      "volume": 267643,
+      "averageVolume": 370118,
+      "companyName": "The Marzetti Company",
+      "currency": "USD",
+      "cik": "0000057515",
+      "isin": "US5138471033",
+      "cusip": "513847103",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Packaged Foods",
+      "website": "https://www.marzetticompany.com",
+      "description": "The Marzetti Company is a producer and distributor of various specialized food items. Their extensive product line includes garlic breads, dinner rolls, salad dressings, dips, pasta, and croutons. These offerings are supplied to both retail outlets for consumers and the commercial foodservice industry across the United States.",
+      "ceo": "David A. Ciesinski",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "3500",
+      "phone": "614 224 7141",
+      "address": "380 Polaris Parkway",
+      "city": "Westerville",
+      "state": "OH",
+      "zip": "43082",
+      "image": "https://images.financialmodelingprep.com/symbol/MZTI.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MZTI",
+      "date": "2015-12-31",
+      "marketCap": 3156445480
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040941.4988072,
+  "previous_attempts": [
+    {
+      "symbol": "MZTI",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040591.2365332
+    }
+  ]
+}

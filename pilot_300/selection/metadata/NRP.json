@@ -1,0 +1,54 @@
+{
+  "symbol": "NRP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NRP",
+      "price": 111.22,
+      "marketCap": 1473709488,
+      "beta": 0.167,
+      "lastDividend": 3.12,
+      "range": "95.51-128.6",
+      "change": -0.53,
+      "changePercentage": -0.47427,
+      "volume": 21804,
+      "averageVolume": 40207,
+      "companyName": "Natural Resource Partners L.P.",
+      "currency": "USD",
+      "cik": "0001171486",
+      "isin": "US63900P6088",
+      "cusip": "63900P608",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Coal",
+      "website": "https://www.nrplp.com",
+      "description": "Natural Resource Partners L.P. (NRP) is engaged in the ownership, management, and leasing of a diverse portfolio of mineral assets across the United States. The company's operations are structured into two primary segments: Mineral Rights and Soda Ash. Its holdings encompass interests in various natural resources, including coal, soda ash, and trona. Key coal reserves are strategically located in the Appalachian, Illinois, and Northern Powder River Basins, while industrial minerals and aggregates are distributed throughout the U.S. Oil and gas properties are situated in Louisiana, and timber assets are found in West Virginia. Notably, the firm's trona ore mining and soda ash refining facilities are located in Wyoming's Green River Basin. A core aspect of its business model involves leasing out a portion of these reserves to generate royalty payments. Additionally, NRP owns and operates crucial transportation and processing infrastructure linked to its coal properties. Incorporated in 2002, Natural Resource Partners L.P. is headquartered in Houston, Texas, with NRP (GP) LP serving as its general partner.",
+      "ceo": "Corbin J. Robertson Jr.",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "56",
+      "phone": "713 751 7507",
+      "address": "1201 Louisiana Street",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77002",
+      "image": "https://images.financialmodelingprep.com/symbol/NRP.png",
+      "ipoDate": "2002-10-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NRP",
+      "date": "2015-12-31",
+      "marketCap": 155346400
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041838.0623631
+}

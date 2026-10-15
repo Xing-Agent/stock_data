@@ -1,0 +1,54 @@
+{
+  "symbol": "HELE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HELE",
+      "price": 28.55,
+      "marketCap": 664988342,
+      "beta": 1.337,
+      "lastDividend": 0,
+      "range": "13.85-31.98",
+      "change": 0.73,
+      "changePercentage": 2.62401,
+      "volume": 439878,
+      "averageVolume": 491109,
+      "companyName": "Helen of Troy Limited",
+      "currency": "USD",
+      "cik": "0000916789",
+      "isin": "BMG4388N1065",
+      "cusip": "G4388N106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Household & Personal Products",
+      "website": "https://www.helenoftroy.com",
+      "description": "Helen of Troy Limited is a global consumer products enterprise that markets a diverse array of goods across the United States, Canada, Europe, the Middle East, Africa, the Asia Pacific region, and Latin America. The company's operations are structured into three primary divisions: Home & Outdoor, Health & Wellness, and Beauty. The Home & Outdoor segment provides a variety of household essentials, including kitchen tools, storage and organization solutions, cleaning items, baby feeding and nursery products, insulated drinkware and food containers, and technical outdoor gear like backpacks and luggage. Within the Health & Wellness segment, offerings include health monitoring devices such as thermometers and blood pressure monitors, air quality appliances like purifiers, heaters, and humidifiers, and water purification systems. The Beauty division focuses on hair care, supplying grooming brushes, styling tools, decorative accessories, and a range of shampoos, conditioners, and styling products. Helen of Troy distributes its products through an extensive network that encompasses mass merchandisers, drugstore chains, warehouse clubs, home improvement centers, grocery stores, specialty retailers, beauty supply outlets, e-commerce platforms, wholesalers, and various distributors, in addition to direct-to-consumer sales. Notable brands under its umbrella include OXO, Hydro Flask, Osprey, PUR, Honeywell, Braun, Vicks, Drybar, Hot Tools, Revlon, and Bed Head. Incorporated in 1968, the company is headquartered in El Paso, Texas.",
+      "ceo": "George Scott Uzzell",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "1854",
+      "phone": "915 225 8000",
+      "address": "201 E. Main Street",
+      "city": "El Paso",
+      "state": "TX",
+      "zip": "79901",
+      "image": "https://images.financialmodelingprep.com/symbol/HELE.png",
+      "ipoDate": "1976-07-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HELE",
+      "date": "2015-12-31",
+      "marketCap": 2669958957
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040482.8389933
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "LII",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LII",
+      "price": 348.84,
+      "marketCap": 12056154588,
+      "beta": 1.163,
+      "lastDividend": 5.32,
+      "range": "340.32-587.27",
+      "change": -1.29,
+      "changePercentage": -0.36843,
+      "volume": 626452,
+      "averageVolume": 487453,
+      "companyName": "Lennox International Inc.",
+      "currency": "USD",
+      "cik": "0001069202",
+      "isin": "US5261071071",
+      "cusip": "526107107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "http://www.lennox.com",
+      "description": "Lennox International Inc. is a global manufacturer and distributor specializing in heating, ventilation, air conditioning (HVAC), and refrigeration solutions. The company operates across three divisions: Residential Heating & Cooling, Commercial Heating & Cooling, and Refrigeration. Its Residential Heating & Cooling division supplies homeowners with systems like furnaces, air conditioners, and heat pumps, along with indoor air quality products, comfort controls, and replacement components, catering to both new construction and existing residential upgrades. The Commercial Heating & Cooling division serves the light commercial sector, providing unitary HVAC equipment, advanced applied systems, control technologies, and comprehensive installation and maintenance services, including variable refrigerant flow solutions. Lastly, the Refrigeration division delivers essential components such as condensing units, unit coolers, and industrial chillers. These are crucial for food preservation in retail, hospitality, and logistics (e.g., supermarkets, restaurants, warehouses), as well as for specialized cooling needs in data centers, machine tooling, and other industrial applications. The company distributes its offerings through direct sales, a network of distributors, and its proprietary parts and supplies retail locations. Established in 1895, Lennox International Inc. maintains its headquarters in Richardson, Texas.",
+      "ceo": "Alok Maskara",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "5400",
+      "phone": "972 497 5000",
+      "address": "2140 Lake Park Boulevard",
+      "city": "Richardson",
+      "state": "TX",
+      "zip": "75080",
+      "image": "https://images.financialmodelingprep.com/symbol/LII.png",
+      "ipoDate": "1999-07-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LII",
+      "date": "2015-12-31",
+      "marketCap": 5495600000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041205.9746468
+}

@@ -1,0 +1,63 @@
+{
+  "symbol": "TITN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TITN",
+      "price": 22.76,
+      "marketCap": 530357617,
+      "beta": 1.41,
+      "lastDividend": 0,
+      "range": "13.21-26.9",
+      "change": -0.8,
+      "changePercentage": -3.39559,
+      "volume": 182652,
+      "averageVolume": 236716,
+      "companyName": "Titan Machinery Inc.",
+      "currency": "USD",
+      "cik": "0001409171",
+      "isin": "US88830R1014",
+      "cusip": "88830R101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Industrial - Distribution",
+      "website": "https://www.titanmachinery.com",
+      "description": "Titan Machinery Inc. (TITN) operates an extensive network of retail outlets specializing in agricultural and construction machinery across both the United States and Europe. Its business is structured into three main segments: Agriculture, Construction, and International. The company's core offering includes the sale of both new and pre-owned agricultural and construction equipment. This machinery primarily comes from the CNH Industrial family of brands, alongside products from numerous other manufacturers. Agricultural equipment covers machinery and attachments essential for producing food, fiber, feed, and renewable energy, as well as for home and garden tasks, and maintaining commercial, residential, and public grounds. Its construction lineup features heavy machinery, light industrial equipment for various building projects, road and highway construction gear, and specialized tools for energy and forestry sectors. Beyond equipment sales, Titan Machinery also provides a comprehensive range of maintenance and replacement parts. Service offerings extend to extensive repair and maintenance, encompassing warranty work, mobile and in-store repairs, proactive off-season scheduling, and regular service reminders. Customer training programs are also provided. Equipment rental is another key service. Furthermore, the company delivers various ancillary support services, including equipment logistics, subscriptions for GPS signals and other precision farming technologies, farm data management solutions, and access to CNH Industrial's finance and insurance products. Geographically, Titan Machinery has a significant presence across several U.S. states including Colorado, Iowa, Minnesota, Montana, Nebraska, North Dakota, South Dakota, Wisconsin, and Wyoming. Internationally, its European operations span Bulgaria, Germany, Romania, and Ukraine. Established in 1980, Titan Machinery Inc. maintains its headquarters in West Fargo, North Dakota.",
+      "ceo": "Bryan J. Knutson",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "3114",
+      "phone": "701 356 0130",
+      "address": "644 East Beaton Drive",
+      "city": "West Fargo",
+      "state": "ND",
+      "zip": "58078-2648",
+      "image": "https://images.financialmodelingprep.com/symbol/TITN.png",
+      "ipoDate": "2007-12-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TITN",
+      "date": "2015-12-31",
+      "marketCap": 231215657
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040924.403469,
+  "previous_attempts": [
+    {
+      "symbol": "TITN",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040566.5289829
+    }
+  ]
+}

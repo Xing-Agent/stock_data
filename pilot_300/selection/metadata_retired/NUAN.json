@@ -1,0 +1,54 @@
+{
+  "symbol": "NUAN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NUAN",
+      "price": 55.99,
+      "marketCap": 0,
+      "beta": 1.087106,
+      "lastDividend": 0,
+      "range": "40.75-56.0",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 0,
+      "averageVolume": 5693606,
+      "companyName": "Nuance Communications, Inc.",
+      "currency": "USD",
+      "cik": "0001002517",
+      "isin": "US67020Y1001",
+      "cusip": "67020Y100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Application",
+      "website": "https://dragon.nuance.com/en-us/home",
+      "description": "Nuance Communications, Inc. pioneers advanced conversational and cognitive artificial intelligence (AI) solutions, integrating intelligent capabilities into both professional and personal spheres. The company's offerings are designed to interpret, analyze, and engage with human input, thereby enhancing human intellect to boost efficiency and bolster security. Within its Healthcare segment, Nuance provides specialized clinical speech and language comprehension tools aimed at streamlining the clinical documentation process. These solutions encompass the entire patient record lifecycle, from initial capture to improving documentation for quality and reimbursement. Key products include Dragon Medical One, a cloud-based speech recognition system; computer-assisted physician documentation; diagnostic imaging solutions; the voice-activated Nuance Dragon Ambient eXperience; and services for clinical documentation improvement and coding. The Enterprise segment focuses on deploying speech recognition, natural language understanding, and AI to deliver automated customer service and solutions across various communication channels, including voice, mobile, web, and messaging. This segment features intelligent engagement solutions, Conversational AI, Engagement AI, and Security AI. A separate Other segment offers voicemail transcription services. Nuance caters to a broad spectrum of industries, including healthcare, financial services, telecommunications, government, and retail. The company markets and distributes its technologies globally through a direct sales team, alongside a comprehensive network of channel partners such as system integrators, independent software vendors, value-added resellers, distributors, hardware vendors, telecommunications carriers, and e-commerce platforms. Initially incorporated in 1992 as ScanSoft, Inc., the company rebranded to Nuance Communications, Inc. in October 2005. Headquartered in Burlington, Massachusetts, Nuance Communications, Inc. has been a subsidiary of Microsoft Corporation since March 4, 2022.",
+      "ceo": "Mark Benjamin",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "6900",
+      "phone": "17815655000",
+      "address": "1 Wayside Rd",
+      "city": "Burlington",
+      "state": "MA",
+      "zip": "01803",
+      "image": "https://images.financialmodelingprep.com/symbol/NUAN.png",
+      "ipoDate": "1995-12-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NUAN",
+      "date": "2015-12-31",
+      "marketCap": 5927637690
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040457.2986863
+}

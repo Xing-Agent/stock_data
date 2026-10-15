@@ -1,0 +1,63 @@
+{
+  "symbol": "NATR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NATR",
+      "price": 12.61,
+      "marketCap": 221879255,
+      "beta": 0.809,
+      "lastDividend": 0,
+      "range": "12.31-28.14",
+      "change": -0.15,
+      "changePercentage": -1.17555,
+      "volume": 117639,
+      "averageVolume": 151841,
+      "companyName": "Nature's Sunshine Products, Inc.",
+      "currency": "USD",
+      "cik": "0000275053",
+      "isin": "US6390271012",
+      "cusip": "639027101",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Packaged Foods",
+      "website": "https://www.naturessunshine.com",
+      "description": "Nature's Sunshine Products, Inc. is a natural health and wellness enterprise that primarily manufactures and distributes a wide array of nutritional supplements and personal care products. The company's operational reach spans several continents, including Asia, Europe, North America, and Latin America. Its comprehensive nutritional offerings cater to general well-being, providing support for blood sugar regulation, bone density, cellular vitality, cognitive sharpness, joint mobility, mood balance, sexual wellness, sleep quality, athletic performance, and visual acuity. Additionally, it supplies specialized products for immune support, cardiovascular health, and digestive function, alongside solutions for weight management. In the personal care segment, their product line includes items such as essential oils and lotions, aloe vera gels, botanical shampoos, herbal skin treatments, dental care products like toothpaste, and skin cleansing formulations. These goods are sold under the company's proprietary Nature's Sunshine and Synergy WorldWide brands, primarily through an extensive network of independent sales consultants. Established in 1972, the organization is headquartered in Lehi, Utah.",
+      "ceo": "Kenneth G. Romanzi",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "806",
+      "phone": "801 341 7900",
+      "address": "2901 West Bluegrass Boulevard",
+      "city": "Lehi",
+      "state": "UT",
+      "zip": "84043",
+      "image": "https://images.financialmodelingprep.com/symbol/NATR.png",
+      "ipoDate": "2009-06-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NATR",
+      "date": "2015-12-31",
+      "marketCap": 189183280
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040913.9270437,
+  "previous_attempts": [
+    {
+      "symbol": "NATR",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040558.5275702
+    }
+  ]
+}

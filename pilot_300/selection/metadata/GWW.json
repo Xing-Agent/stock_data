@@ -1,0 +1,54 @@
+{
+  "symbol": "GWW",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GWW",
+      "price": 1330.62,
+      "marketCap": 62686237380,
+      "beta": 1.014,
+      "lastDividend": 9.5,
+      "range": "906.52-1419.91",
+      "change": 5.52,
+      "changePercentage": 0.41657,
+      "volume": 440928,
+      "averageVolume": 286230,
+      "companyName": "W.W. Grainger, Inc.",
+      "currency": "USD",
+      "cik": "0000277135",
+      "isin": "US3848021040",
+      "cusip": "384802104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Distribution",
+      "website": "https://www.grainger.com",
+      "description": "W.W. Grainger, Inc. stands as a significant global supplier of maintenance, repair, and operating (MRO) supplies and related services. Its market presence spans several international regions, including the United States, Japan, Canada, and the United Kingdom. The company structures its operations into two principal divisions: High-Touch Solutions N.A. and Endless Assortment. Grainger's extensive product offerings cover essential categories such as safety and security provisions, equipment for material handling and storage, plumbing and pump components, cleaning and facility upkeep items, and both metalworking and general hand tools. Furthermore, it delivers vital support functions, including inventory management and expert technical assistance. The firm serves a wide array of organizational customers, from private businesses and large corporations to government bodies and other institutions, reaching them through both dedicated sales and service teams and its robust digital and e-commerce platforms. Established in 1927, W.W. Grainger, Inc. maintains its corporate headquarters in Lake Forest, Illinois.",
+      "ceo": "Donald G. Macpherson",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "23550",
+      "phone": "847 535 1000",
+      "address": "100 Grainger Parkway",
+      "city": "Lake Forest",
+      "state": "IL",
+      "zip": "60045-5201",
+      "image": "https://images.financialmodelingprep.com/symbol/GWW.png",
+      "ipoDate": "1973-02-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GWW",
+      "date": "2015-12-31",
+      "marketCap": 12493522710
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040576.998385
+}

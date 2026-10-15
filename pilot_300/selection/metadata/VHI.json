@@ -1,0 +1,54 @@
+{
+  "symbol": "VHI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VHI",
+      "price": 14.33,
+      "marketCap": 405571859,
+      "beta": 1.061,
+      "lastDividend": 0.32,
+      "range": "11.44-19.19",
+      "change": -0.03,
+      "changePercentage": -0.20891,
+      "volume": 8788,
+      "averageVolume": 13755,
+      "companyName": "Valhi, Inc.",
+      "currency": "USD",
+      "cik": "0000059255",
+      "isin": "US9189052098",
+      "cusip": "918905209",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals",
+      "website": "https://www.valhi.net",
+      "description": "Valhi, Inc. is a diversified enterprise operating in three core sectors: chemicals, component manufacturing, and property management and development. Its global reach encompasses the Asia Pacific region, Europe, and North America. The chemicals division specializes in the production and global distribution of titanium dioxide (TiO2) pigments. These white inorganic pigments are critical raw materials for industries manufacturing paints, plastics, decorative laminates, and paper products, marketed under the KRONOS brand through a network of agents and distributors. In its component products segment, Valhi manufactures various mechanical and electrical locking devices, including cabinet locks and other security mechanisms. These are vital for applications such as vehicle ignition systems, postal boxes, office furniture (e.g., file cabinets, desk drawers), tool storage, vending and cash containment machines, advanced inventory and access control systems (like secure narcotics boxes), medical cabinetry, electronic circuit panels, general storage, and gas station security. This segment also produces specialized stainless steel marine components, such as exhaust systems, gauges, throttle controls, wake enhancement devices, trim tabs, and associated hardware, primarily for high-performance and ski/wakeboard boats. Valhi's real estate management and development segment provides utility services to industrial and municipal customers. It also maintains a portfolio of owned real properties and undertakes land development for commercial, industrial, and residential purposes. Additionally, this segment manages marketable securities and other financial investments. Established in 1932 and headquartered in Dallas, Texas, Valhi, Inc. operates as a subsidiary of Contran Corporation.",
+      "ceo": "Michael S. Simmons",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "2826",
+      "phone": "972 233 1700",
+      "address": "5430 LBJ Freeway",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75240-2620",
+      "image": "https://images.financialmodelingprep.com/symbol/VHI.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VHI",
+      "date": "2015-12-31",
+      "marketCap": 435500589
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040990.440553
+}

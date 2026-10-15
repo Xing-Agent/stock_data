@@ -1,0 +1,54 @@
+{
+  "symbol": "CBAN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CBAN",
+      "price": 19.7,
+      "marketCap": 418052991,
+      "beta": 0.551,
+      "lastDividend": 0.475,
+      "range": "15.8-22.46",
+      "change": -0.24,
+      "changePercentage": -1.20361,
+      "volume": 143761,
+      "averageVolume": 240815,
+      "companyName": "Colony Bankcorp, Inc.",
+      "currency": "USD",
+      "cik": "0000711669",
+      "isin": "US19623P1012",
+      "cusip": "19623P101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.colony.bank",
+      "description": "Colony Bankcorp, Inc. functions as the parent entity for Colony Bank, delivering a broad spectrum of financial products and services to both commercial enterprises and individual consumers. The bank offers various ways to save, such as checking, savings, and time deposit accounts (like certificates of deposit). Its lending portfolio is extensive, encompassing loans for small and medium-sized businesses, residential and commercial construction, land development, commercial real estate, general commercial purposes, and agri-business production. Additionally, it provides residential mortgage loans, home equity loans, and consumer credit. Beyond traditional banking, customers can access conveniences such as internet banking, electronic bill payment, safe deposit boxes, telephone banking, credit and debit card services, and remote deposit capture. An ATM network is also accessible to clients. As of January 20, 2022, Colony Bank operated 39 branches across Georgia. The company, established in 1975, has its corporate headquarters situated in Fitzgerald, Georgia.",
+      "ceo": "T. Heath Fountain",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "528",
+      "phone": "229 426 6000",
+      "address": "115 South Grant Street",
+      "city": "Fitzgerald",
+      "state": "GA",
+      "zip": "31750",
+      "image": "https://images.financialmodelingprep.com/symbol/CBAN.png",
+      "ipoDate": "1998-04-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CBAN",
+      "date": "2015-12-31",
+      "marketCap": 80426128
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041784.5671828
+}

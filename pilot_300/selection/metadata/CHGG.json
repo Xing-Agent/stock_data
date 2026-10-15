@@ -1,0 +1,54 @@
+{
+  "symbol": "CHGG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CHGG",
+      "price": 0.7004,
+      "marketCap": 77763648,
+      "beta": 2.164,
+      "lastDividend": 0,
+      "range": "0.45-1.56",
+      "change": -0.0129,
+      "changePercentage": -1.8085,
+      "volume": 731748,
+      "averageVolume": 1153823,
+      "companyName": "Chegg, Inc.",
+      "currency": "USD",
+      "cik": "0001364954",
+      "isin": "US1630921096",
+      "cusip": "163092109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Education & Training Services",
+      "website": "https://www.chegg.com",
+      "description": "Chegg, Inc. is an educational technology company that provides a direct-to-student learning platform. Its purpose is to assist students throughout their academic studies and into their professional lives, offering resources designed to deepen their comprehension of course content. The company's services generally fall into two main categories: its subscription-based \"Chegg Services\" and essential academic materials, including physical and digital textbooks. Among its subscription offerings, Chegg presents several key products: Chegg Study: Helps students independently grasp challenging academic concepts. Chegg Writing: Delivers a comprehensive suite of tools, such as plagiarism detection, grammar and writing style improvements, tailored expert feedback, and advanced citation generation. Chegg Math: A step-by-step solver and calculator for mathematical problems. Chegg Study Pack: Bundles Chegg Study, Chegg Writing, and Chegg Math Solver into an integrated platform for holistic academic support. Busuu: An online language learning solution that combines self-paced lessons, live tutoring sessions with experts, and opportunities to practice with a community of learners. Thinkful: A skills-focused learning platform offering professional development courses, along with networking, interview coaching, and career assistance. Beyond these, Chegg also provides other services like Chegg Life, Chegg Prep, and Chegg Internships, in addition to training for personal and professional skill development. The company also manages the rental and sale of both print and eTextbooks. Chegg, Inc. was established in 2005 and is based in Santa Clara, California.",
+      "ceo": "Daniel Lee Rosensweig",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "580",
+      "phone": "408 855 5700",
+      "address": "3990 Freedom Circle",
+      "city": "Santa Clara",
+      "state": "CA",
+      "zip": "95054",
+      "image": "https://images.financialmodelingprep.com/symbol/CHGG.png",
+      "ipoDate": "2013-11-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CHGG",
+      "date": "2015-12-31",
+      "marketCap": 599764140
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041437.82415
+}

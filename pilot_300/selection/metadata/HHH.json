@@ -1,0 +1,63 @@
+{
+  "symbol": "HHH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HHH",
+      "price": 68.29,
+      "marketCap": 4078241650,
+      "beta": 1.136,
+      "lastDividend": 0,
+      "range": "60.09-91.07",
+      "change": -4.2,
+      "changePercentage": -5.7939,
+      "volume": 770496,
+      "averageVolume": 542523,
+      "companyName": "Howard Hughes Holdings Inc.",
+      "currency": "USD",
+      "cik": "0001981792",
+      "isin": "US44267T1025",
+      "cusip": "44267T102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Real Estate - Development",
+      "website": "https://www.howardhughes.com",
+      "description": "Howard Hughes Holdings Inc. is an American real estate development firm that operates through its subsidiaries across the United States. The company organizes its diverse activities into four primary divisions: Operating Assets, Master Planned Communities (MPCs), Seaport, and Strategic Developments. Its Operating Assets division oversees a portfolio of retail, office, and multi-family properties, which have either been developed or acquired, in addition to other retail investments. The Master Planned Communities (MPCs) segment focuses on the creation, sale, and leasing of both residential and commercial land for extensive, long-term community projects, primarily located in and around Las Vegas, Nevada; Houston, Texas; and Phoenix, Arizona. This segment largely serves homebuilders. The Seaport division is responsible for landlord operations, business management, and event/sponsorship services for its collection of restaurant, retail, and entertainment venues in New York City, including Pier 17, the Historic Area/Uplands, the Tin Building, 250 Water Street, and the Jean-Georges restaurants. Finally, the Strategic Developments segment undertakes the development and redevelopment of residential condominiums and commercial properties. Established in 2010, Howard Hughes Holdings Inc. maintains its corporate headquarters in The Woodlands, Texas.",
+      "ceo": "David R. O'Reilly",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "500",
+      "phone": "281 719 6100",
+      "address": "9950 Woodloch Forest Drive",
+      "city": "The Woodlands",
+      "state": "TX",
+      "zip": "77380",
+      "image": "https://images.financialmodelingprep.com/symbol/HHH.png",
+      "ipoDate": "2010-11-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HHH",
+      "date": "2015-12-31",
+      "marketCap": 4293060637
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040865.774781,
+  "previous_attempts": [
+    {
+      "symbol": "HHH",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040442.0692859
+    }
+  ]
+}

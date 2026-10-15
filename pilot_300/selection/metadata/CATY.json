@@ -1,0 +1,54 @@
+{
+  "symbol": "CATY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CATY",
+      "price": 59.05,
+      "marketCap": 3939451189,
+      "beta": 0.884,
+      "lastDividend": 1.48,
+      "range": "44.57-65.26",
+      "change": -0.29,
+      "changePercentage": -0.48871,
+      "volume": 406396,
+      "averageVolume": 482671,
+      "companyName": "Cathay General Bancorp",
+      "currency": "USD",
+      "cik": "0000861842",
+      "isin": "US1491501045",
+      "cusip": "149150104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.cathaygeneralbancorp.com",
+      "description": "Cathay General Bancorp serves as the parent entity for Cathay Bank, a financial institution that delivers a broad spectrum of commercial banking solutions. These services are tailored for individual clients, professional practices, and small to medium-sized enterprises, primarily within the United States. The bank offers a diverse array of deposit products, encompassing passbook, checking, and money market accounts, alongside certificates of deposit (CDs), individual retirement accounts (IRAs), and public sector fund deposits. On the lending side, Cathay Bank provides various loan offerings, including commercial mortgages, general commercial loans, Small Business Administration (SBA) loans, residential mortgages, and real estate construction financing, as well as home equity lines of credit. It also extends personal installment loans designed for household and other consumer expenditures. Beyond its core banking activities, the company furnishes services such as trade financing, letters of credit, wire transfers, foreign currency spot and forward contracts, and traveler's checks. Additional conveniences include safe deposit boxes, night deposit facilities, Social Security payment deposits, collection services, bank-by-mail, drive-up and walk-up windows, automatic teller machines (ATMs), and internet banking. Furthermore, it offers investment services, various other customary banking provisions, and both securities and insurance products. As of March 1, 2022, Cathay General Bancorp maintained a substantial physical presence, operating 31 branches in Southern California, 16 in Northern California, 10 in New York, four in Washington, and two each in Illinois and Texas. Single branches are located in Maryland, Massachusetts, Nevada, New Jersey, and Hong Kong. The corporation also maintains representative offices in Beijing, Taipei, and Shanghai. Established in 1962, the company maintains its headquarters in Los Angeles, California.",
+      "ceo": "Chang Ming Liu",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1268",
+      "phone": "213 625 4700",
+      "address": "777 North Broadway",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90012",
+      "image": "https://images.financialmodelingprep.com/symbol/CATY.png",
+      "ipoDate": "1990-12-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CATY",
+      "date": "2015-12-31",
+      "marketCap": 2498097550
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041286.245864
+}

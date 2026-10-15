@@ -1,0 +1,54 @@
+{
+  "symbol": "TVE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TVE",
+      "price": 23.23,
+      "marketCap": 12195750,
+      "beta": 0.119,
+      "lastDividend": 0.554,
+      "range": "22.83-24.73",
+      "change": 0.05,
+      "changePercentage": 0.2157,
+      "volume": 7748,
+      "averageVolume": 9327,
+      "companyName": "Tennessee Valley Authority PARRS A 2029",
+      "currency": "USD",
+      "cik": "0001376986",
+      "isin": "US8805914095",
+      "cusip": "880591409",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Independent Power Producers",
+      "website": "https://www.tva.com",
+      "description": "Tennessee Valley Authority provides electricity for utility and business customers in the United States. The firm sells power to distributor who then resells power to their customers at retail rates. Its distributor customers consist of municipalities and other local government entities, and customer-owned entities. It also sells power to directly served customers, consisting primarily of federal agencies and customers with large or unusual loads. The firm operates hydroelectric dams, coal-fired power plants, nuclear plants and natural gas-fired power facilities, which generate electricity. The company was founded on May 18, 1933 and is headquartered in Knoxville, TN.",
+      "ceo": "Michael D. Skaggs",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "192",
+      "phone": "865 632 2101",
+      "address": "Suite 3700, 888 - 3rd Street SW",
+      "city": "Knoxville",
+      "state": "TN",
+      "zip": "T2P 5C5",
+      "image": "https://images.financialmodelingprep.com/symbol/TVE.png",
+      "ipoDate": "1999-05-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TVE",
+      "date": "2015-12-31",
+      "marketCap": 13056750
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041911.7435794
+}

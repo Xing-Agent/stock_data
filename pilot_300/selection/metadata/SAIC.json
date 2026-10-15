@@ -1,0 +1,54 @@
+{
+  "symbol": "SAIC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SAIC",
+      "price": 131.57,
+      "marketCap": 5512472100,
+      "beta": 0.309,
+      "lastDividend": 1.48,
+      "range": "81.08-142.66",
+      "change": -1.74,
+      "changePercentage": -1.30523,
+      "volume": 472322,
+      "averageVolume": 492007,
+      "companyName": "Science Applications International Corporation",
+      "currency": "USD",
+      "cik": "0001571123",
+      "isin": "US8086251076",
+      "cusip": "808625107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Information Technology Services",
+      "website": "https://www.saic.com",
+      "description": "Science Applications International Corporation (SAIC), a U.S.-based firm, specializes in providing a wide array of advanced technical, engineering, and comprehensive information technology (IT) solutions. Its diverse offerings span crucial areas such as specialized engineering, seamless technology integration, and vital IT modernization initiatives. The company also handles the upkeep of land-based and naval systems, offers logistics management, and develops training and simulation programs. Furthermore, SAIC delivers full lifecycle IT services, covering everything from the initial design and development to integration, deployment, ongoing management, operations, sustainment, and robust security for client IT infrastructures. This extensive portfolio also includes services like cloud migration strategies, managed IT services, infrastructure upgrades, and complete enterprise IT-as-a-service solutions. SAIC's clientele primarily consists of various U.S. government entities. These include all branches of the U.S. military—the Army, Air Force, Navy, Marines, and Coast Guard—along with Department of Defense agencies. Key civilian agencies and departments such as the National Aeronautics and Space Administration (NASA), the U.S. Department of State, the Department of Justice, the Department of Homeland Security, and numerous intelligence community organizations also benefit from its services. Established in 1969, Science Applications International Corporation maintains its headquarters in Reston, Virginia. The company previously operated as SAIC Gemini, Inc., before adopting its current name in September 2013.",
+      "ceo": "James C. Reagan",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "23000",
+      "phone": "703 676 4300",
+      "address": "12010 Sunset Hills Road",
+      "city": "Reston",
+      "state": "VA",
+      "zip": "20190",
+      "image": "https://images.financialmodelingprep.com/symbol/SAIC.png",
+      "ipoDate": "2013-09-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SAIC",
+      "date": "2015-12-31",
+      "marketCap": 2078412000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040423.194864
+}

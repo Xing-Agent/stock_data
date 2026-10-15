@@ -1,0 +1,54 @@
+{
+  "symbol": "WSR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WSR",
+      "price": 18.99,
+      "marketCap": 975971623,
+      "beta": 0.785,
+      "lastDividend": 0.555,
+      "range": "11.4307-19.1",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 633668,
+      "averageVolume": 589060,
+      "companyName": "Whitestone REIT",
+      "currency": "USD",
+      "cik": "0001175535",
+      "isin": "US9660842041",
+      "cusip": "966084204",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Retail",
+      "website": "https://www.whitestonereit.com",
+      "description": "Whitestone operates as a real estate investment trust (REIT) focused on enhancing local communities through its retail properties. The company strategically acquires, develops, manages, and repositions high-quality, open-air neighborhood retail hubs. Its portfolio is primarily concentrated in the most dynamic, rapidly expanding, and affluent markets across the Sunbelt region. Whitestone's core mission is to cultivate thriving community environments. It achieves this by fostering strong local connections between residents and a thoughtfully curated blend of national, regional, and independent businesses, which collectively offer essential goods, vital services, leisure activities, and unique experiences. For investors, Whitestone provides a reliable monthly dividend, a practice it has maintained consistently for more than 15 years. Underpinning this strategy is a robust and well-managed capital structure. This foundation not only ensures financial stability and flexibility for ongoing growth but also positions the company for resilience and sustained performance across various economic cycles.",
+      "ceo": "David K. Holeman",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "70",
+      "phone": "713-827-9595",
+      "address": "2600 South Gessner Road",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77063",
+      "image": "https://images.financialmodelingprep.com/symbol/WSR.png",
+      "ipoDate": "2010-08-26",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WSR",
+      "date": "2015-12-31",
+      "marketCap": 319514040
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040552.9755943
+}

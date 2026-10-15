@@ -1,0 +1,54 @@
+{
+  "symbol": "CRS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CRS",
+      "price": 379.73,
+      "marketCap": 18820863673,
+      "beta": 1.289,
+      "lastDividend": 0.8,
+      "range": "233.78-625.99",
+      "change": -0.69,
+      "changePercentage": -0.18138,
+      "volume": 666300,
+      "averageVolume": 773328,
+      "companyName": "Carpenter Technology Corporation",
+      "currency": "USD",
+      "cik": "0000017843",
+      "isin": "US1442851036",
+      "cusip": "144285103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Steel",
+      "website": "https://www.carpentertechnology.com",
+      "description": "Carpenter Technology Corporation is a global leader in the production and supply of high-performance metallic materials, serving markets across the United States, Europe, Asia Pacific, Mexico, and Canada. The company's operations are structured into two primary divisions: Specialty Alloys Operations and Performance Engineered Products. Its diverse product portfolio encompasses advanced alloys like titanium, stainless, alloy, and tool steels, alongside various powder metals, additives, and custom-fabricated metal components. These specialized materials are critical to numerous industries, including aerospace, defense, medical devices, transportation, energy generation, general manufacturing, and consumer goods. Established in 1889, Carpenter Technology maintains its corporate headquarters in Philadelphia, Pennsylvania.",
+      "ceo": "Brian J. Malloy",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "4500",
+      "phone": "610 208 2000",
+      "address": "1735 Market Street",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip": "19103",
+      "image": "https://images.financialmodelingprep.com/symbol/CRS.png",
+      "ipoDate": "1987-11-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CRS",
+      "date": "2015-12-31",
+      "marketCap": 1418535291
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041835.872739
+}

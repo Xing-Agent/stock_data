@@ -1,0 +1,54 @@
+{
+  "symbol": "CLMB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CLMB",
+      "price": 33.02,
+      "marketCap": 616173012,
+      "beta": 1.073,
+      "lastDividend": 0.17,
+      "range": "15.25-35.07",
+      "change": -0.73,
+      "changePercentage": -2.16296,
+      "volume": 92203,
+      "averageVolume": 157671,
+      "companyName": "Climb Global Solutions, Inc.",
+      "currency": "USD",
+      "cik": "0000945983",
+      "isin": "US9467601053",
+      "cusip": "946760105",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Technology Distributors",
+      "website": "https://www.climbglobalsolutions.com",
+      "description": "Climb Global Solutions Inc. operates as a comprehensive, value-added information technology (IT) distribution and solutions provider with a global footprint, serving clients across the United States, Canada, Europe, and the United Kingdom, as well as other international markets. The company's operations are divided into two main divisions: Distribution and Solutions. Within its Distribution segment, Climb supplies technical software and hardware to a wide range of partners, including corporate resellers, value-added resellers (VARs), consultants, and systems integrators, primarily under its \"Climb Channel Solutions\" and \"Sigma Software Distribution\" brands. Its \"TechXtend\" and \"Grey Matter\" divisions focus on distributing software, hardware, and associated services. Beyond its distribution channels, Climb Global Solutions also functions as a reseller of computer software and hardware developed by third parties, and it delivers technical services directly to end-user customers. Its extensive product catalog encompasses offerings from numerous software vendors, providing essential tools for areas such as virtualization and cloud computing, cybersecurity, networking, data storage, infrastructure management, and application lifecycle management (ALM), alongside a variety of computer hardware. To engage its diverse clientele, Climb Global Solutions Inc. employs a multi-faceted marketing strategy. This includes leveraging its dedicated websites, hosting both local and online seminars, participating in industry events and webinars, utilizing social media platforms, and conducting direct email campaigns alongside traditional printed materials. The company specializes in delivering IT distribution and solutions tailored for businesses operating in critical sectors such as cybersecurity, data management, cloud infrastructure, network connectivity, storage (including hyperconverged infrastructure or HCI), virtualization, and software development/ALM. Climb Global Solutions Inc. was originally established in 1982 under the name Wayside Technology Group, Inc., and officially adopted its current corporate identity in October 2022. Its corporate headquarters are situated in Eatontown, New Jersey.",
+      "ceo": "Dale Richard Foster",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "402",
+      "phone": "732 389 0932",
+      "address": "4 Industrial Way West",
+      "city": "Eatontown",
+      "state": "NJ",
+      "zip": "07724",
+      "image": "https://images.financialmodelingprep.com/symbol/CLMB.png",
+      "ipoDate": "1995-07-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CLMB",
+      "date": "2015-12-31",
+      "marketCap": 84309120
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041305.386382
+}

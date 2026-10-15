@@ -1,0 +1,54 @@
+{
+  "symbol": "SHOO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SHOO",
+      "price": 44.74,
+      "marketCap": 3269842407,
+      "beta": 1.179,
+      "lastDividend": 0.84,
+      "range": "31.33-49.7",
+      "change": -0.01000015,
+      "changePercentage": -0.02234671,
+      "volume": 1162415,
+      "averageVolume": 1082735,
+      "companyName": "Steven Madden, Ltd.",
+      "currency": "USD",
+      "cik": "0000913241",
+      "isin": "US5562691080",
+      "cusip": "556269108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Apparel - Footwear & Accessories",
+      "website": "https://www.stevemadden.com",
+      "description": "Steven Madden, Ltd. (SHOO) is a prominent global fashion company dedicated to the design, production, marketing, and sale of contemporary footwear, accessories, and apparel. The firm offers both its own branded products and private label items, catering to women, men, and children across both domestic U.S. and international markets. The company's operations are divided into several key segments: Wholesale Footwear: This division supplies a broad range of shoes under proprietary brands such as Steve Madden, Steven by Steve Madden, Madden Girl, BB Dakota, Dolce Vita, DV Dolce Vita, Betsey Johnson, GREATS, Blondo, Anne Klein, Mad Love, Superga, Madden NYC, and COOL Planet. It also produces private label footwear for other retailers. Wholesale Accessories/Apparel: This segment distributes an extensive array of products, including handbags, clothing, small leather goods, belts, soft accessories, fashion scarves, wraps, and gifting items. These are offered under brand names like Steve Madden, BB Dakota, Anne Klein, Betsey Johnson, Cejon, Madden NYC, and Dolce Vita, in addition to private label handbags and accessories. The distribution network for these goods spans department stores, mass merchants, off-price retailers, online platforms, specialty boutiques, and independent stores. Direct-to-Consumer: This segment encompasses the company's direct sales channels. It operates Steve Madden and Superga full-price retail stores, Steve Madden outlet stores, and Steve Madden shop-in-shops. Furthermore, it manages several digital e-commerce websites, including SteveMadden.com, DolceVita.com, betseyjohnson.com, Blondo.com, GREATS.com, and Superga-USA.com. Licensing: Through this segment, Steven Madden licenses the use of its well-known trademarks, including Steve Madden, Madden Girl, and Betsey Johnson, to other businesses. First Cost: This division acts as a purchasing agent, primarily for private label footwear, serving a diverse clientele ranging from national chains and specialty retailers to value-priced retail outlets. As of December 31, 2021, Steven Madden, Ltd. maintained a significant retail presence with 214 brick-and-mortar stores (comprising 147 Steve Madden full-price stores, 66 Steve Madden outlet stores, and 1 Superga store), alongside its 6 dedicated e-commerce websites. The company was founded in 1990 and its corporate headquarters are located in Long Island City, New York.",
+      "ceo": "Edward R. Rosenfeld",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "6300",
+      "phone": "718 446 1800",
+      "address": "52-16 Barnett Avenue",
+      "city": "Long Island City",
+      "state": "NY",
+      "zip": "11104",
+      "image": "https://images.financialmodelingprep.com/symbol/SHOO.png",
+      "ipoDate": "1993-12-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SHOO",
+      "date": "2015-12-31",
+      "marketCap": 1744254524
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041326.589791
+}

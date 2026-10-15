@@ -1,0 +1,54 @@
+{
+  "symbol": "SLRX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SLRX",
+      "price": 0.84,
+      "marketCap": 4924230,
+      "beta": 0.324,
+      "lastDividend": 0,
+      "range": "0.515-52.95",
+      "change": 0.19,
+      "changePercentage": 29.23077,
+      "volume": 5962438,
+      "averageVolume": 1938226,
+      "companyName": "Salarius Pharmaceuticals, Inc.",
+      "currency": "USD",
+      "cik": "0001615219",
+      "isin": "US79400X5032",
+      "cusip": "79400X503",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.salariuspharma.com",
+      "description": "Salarius Pharmaceuticals, Inc. is a clinical-stage biotechnology firm dedicated to advancing epigenetic-based cancer therapies. Its flagship investigational product, Seclidemstat (SP-2577), a small molecule inhibitor, is currently undergoing Phase I/II clinical evaluation. This compound is being developed to treat Ewing sarcoma and a range of advanced solid tumors. Another promising program involves SP-3164, a small molecule protein degrader designed to target both hematological and solid malignancies. The company has cultivated several key alliances. These include an exclusive licensing agreement with The University of Utah Research Foundation for the intellectual property associated with SP-2577 and related compounds. A collaboration with HLB Life Sciences grants rights for the comprehensive development, production, and commercialization of the drug in South Korea. Furthermore, Salarius partners with the Cancer Prevention and Research Institute of Texas (CPRIT) to accelerate product development activities. A research collaboration with the Cancer Epigenetics Institute at Fox Chase Cancer Center aims to uncover new indications and biomarkers for SP-2577. Corporate operations are managed from its headquarters in Houston, Texas.",
+      "ceo": "Frederick E. Pierce",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "2",
+      "phone": "832 834 6992",
+      "address": "2450 Holcombe Boulevard",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77021",
+      "image": "https://images.financialmodelingprep.com/symbol/SLRX.png",
+      "ipoDate": "2015-01-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SLRX",
+      "date": "2015-12-31",
+      "marketCap": 1585507500
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040634.6704855
+}

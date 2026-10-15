@@ -1,0 +1,54 @@
+{
+  "symbol": "DXR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DXR",
+      "price": 10.09,
+      "marketCap": 58907640,
+      "beta": 0.257,
+      "lastDividend": 0,
+      "range": "8.56-14.76",
+      "change": -0.26,
+      "changePercentage": -2.51208,
+      "volume": 15502,
+      "averageVolume": 13333,
+      "companyName": "Daxor Corporation",
+      "currency": "USD",
+      "cik": "0000027367",
+      "isin": "US2394671034",
+      "cusip": "239467103",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.daxor.com",
+      "description": "Based in Oak Ridge, Tennessee, Daxor Corporation is a medical technology enterprise founded in 1971. The company specializes in blood volume measurement, developing and commercializing the BVA-100 Blood Volume Analyzer. This diagnostic instrument offers a precise, objective method for quantifying a patient's blood volume status and composition, comparing these metrics against their unique physiological norms. It is utilized across a wide spectrum of medical and surgical contexts. Prior to May 1973, the organization operated under the name Idant Corporation.",
+      "ceo": "Michael Richard Feldschuh",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "37",
+      "phone": "12123308500",
+      "address": "109 Meco Lane",
+      "city": "Oak Ridge",
+      "state": "TN",
+      "zip": "37830",
+      "image": "https://images.financialmodelingprep.com/symbol/DXR.png",
+      "ipoDate": "1983-07-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DXR",
+      "date": "2015-12-31",
+      "marketCap": 29278908
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041296.8710535
+}

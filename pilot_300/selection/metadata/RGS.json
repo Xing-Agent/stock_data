@@ -1,0 +1,54 @@
+{
+  "symbol": "RGS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RGS",
+      "price": 28.77,
+      "marketCap": 71929488,
+      "beta": 1.424,
+      "lastDividend": 0,
+      "range": "19.31-31.5",
+      "change": -0.6,
+      "changePercentage": -2.0429,
+      "volume": 4982,
+      "averageVolume": 6765,
+      "companyName": "Regis Corporation",
+      "currency": "USD",
+      "cik": "0000716643",
+      "isin": "US7589322061",
+      "cusip": "758932206",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Personal Products & Services",
+      "website": "https://www.regiscorp.com",
+      "description": "Regis Corporation is a leading beauty services enterprise primarily involved in the ownership, operation, and franchising of hair styling and treatment salons. Its operations span across the United States, Canada, Puerto Rico, and the United Kingdom. The company organizes its business into two core segments: its network of franchised salons and those it directly owns. These establishments offer a comprehensive suite of services, including haircuts, styling (encompassing shampooing and conditioning), hair coloring, and other related treatments, in addition to selling a variety of hair care and cosmetic products. Beyond its salon business, Regis also develops mobile applications and oversees accredited cosmetology schools. Its portfolio features well-known salon brands such as SmartStyle, Supercuts, Cost Cutters, Roosters, First Choice Haircutters, and Magicuts. By June 30, 2022, the corporation managed a significant global footprint of 5,576 salons, specifically comprising 5,395 franchised units, 105 company-owned locations, and 76 salons where it held a non-controlling interest. Founded in 1922, Regis Corporation is headquartered in Minneapolis, Minnesota.",
+      "ceo": "Susan Lintonsmith",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "1611",
+      "phone": "952 947 7777",
+      "address": "3701 Wayzata Boulevard",
+      "city": "Minneapolis",
+      "state": "MN",
+      "zip": "55416",
+      "image": "https://images.financialmodelingprep.com/symbol/RGS.png",
+      "ipoDate": "1991-06-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RGS",
+      "date": "2015-12-31",
+      "marketCap": 664922650
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040560.9854398
+}

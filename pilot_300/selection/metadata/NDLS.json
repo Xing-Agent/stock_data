@@ -1,0 +1,54 @@
+{
+  "symbol": "NDLS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NDLS",
+      "price": 13.45,
+      "marketCap": 80251577,
+      "beta": 1.351,
+      "lastDividend": 0,
+      "range": "3.57-19",
+      "change": -0.95,
+      "changePercentage": -6.59722,
+      "volume": 71761,
+      "averageVolume": 45418,
+      "companyName": "Noodles & Company",
+      "currency": "USD",
+      "cik": "0001275158",
+      "isin": "US65540B3033",
+      "cusip": "65540B303",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Restaurants",
+      "website": "https://www.noodles.com",
+      "description": "Noodles & Company is a fast-casual dining enterprise, engaged in both the conceptualization and operation of its eateries. Patrons can choose from an extensive menu of meals prepared fresh to order, featuring a variety of noodle and pasta dishes, comforting soups, crisp salads, and enticing appetizers. By December 28, 2021, the company's operational reach spanned 29 U.S. states, with a total of 448 restaurants in service. This total was composed of 372 company-owned locations and 76 independently operated franchise outlets. The organization was established in 1995 and its corporate headquarters are situated in Broomfield, Colorado.",
+      "ceo": "Joseph D. Christina",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "6500",
+      "phone": "720 214 1900",
+      "address": "520 Zang Street",
+      "city": "Broomfield",
+      "state": "CO",
+      "zip": "80021",
+      "image": "https://images.financialmodelingprep.com/symbol/NDLS.png",
+      "ipoDate": "2013-06-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NDLS",
+      "date": "2015-12-31",
+      "marketCap": 255495842
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041458.3132167
+}

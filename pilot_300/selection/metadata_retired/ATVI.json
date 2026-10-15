@@ -1,0 +1,54 @@
+{
+  "symbol": "ATVI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ATVI",
+      "price": 94.42,
+      "marketCap": 74289468671,
+      "beta": 0.37,
+      "lastDividend": 0.99,
+      "range": "70.94-94.57",
+      "change": -0.05,
+      "changePercentage": -0.0529,
+      "volume": 7127746,
+      "averageVolume": 6082473,
+      "companyName": "Activision Blizzard, Inc.",
+      "currency": "USD",
+      "cik": "0000718877",
+      "isin": "US00507V1098",
+      "cusip": "00507V109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Electronic Gaming & Multimedia",
+      "website": "https://www.activisionblizzard.com",
+      "description": "Activision Blizzard, Inc. is a leading global creator and distributor of interactive entertainment content and services, operating through its subsidiaries. The company serves markets across the Americas, Europe, the Middle East, Africa, and the Asia Pacific. Its operations are structured into three main divisions: Activision, Blizzard, and King. The firm designs and releases its diverse range of content and services for video game consoles, personal computers, and mobile platforms. Its revenue streams include sales from subscriptions, full game purchases, in-game items, and the licensing of its software to third-party or affiliated companies for the distribution of Activision and Blizzard products. Activision Blizzard also manages Battle.net, a proprietary online gaming service that supports digital content delivery, cultivates online social connectivity, and enables the creation of user-generated content. Additionally, the company organizes professional esports leagues and offers digital advertising opportunities. Beyond its core gaming business, it provides warehousing, logistics, and sales distribution assistance to external publishers of interactive entertainment software and manufacturers of gaming hardware. Its impressive catalog of key franchises includes popular titles such as Call of Duty, World of Warcraft, Diablo, Hearthstone, Overwatch, the Overwatch League, and Candy Crush. Activision Blizzard distributes its products to consumers via a wide network of retailers and distributors, such as large-scale retailers, consumer electronics chains, discount warehouses, and specialized game stores, often utilizing third-party distribution and licensing agreements. The company's primary corporate office is situated in Santa Monica, California.",
+      "ceo": "Robert A. Kotick",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "13000",
+      "phone": "310 255 2000",
+      "address": "2701 Olympic Boulevard Building B",
+      "city": "Santa Monica",
+      "state": "CA",
+      "zip": "90404",
+      "image": "https://images.financialmodelingprep.com/symbol/ATVI.png",
+      "ipoDate": "1993-10-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ATVI",
+      "date": "2015-12-31",
+      "marketCap": 28451850000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040428.3149424
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "ATNI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ATNI",
+      "price": 25.71,
+      "marketCap": 395441731,
+      "beta": 0.641,
+      "lastDividend": 1.13,
+      "range": "14.15-33.41",
+      "change": -0.18,
+      "changePercentage": -0.69525,
+      "volume": 82300,
+      "averageVolume": 83757,
+      "companyName": "ATN International, Inc.",
+      "currency": "USD",
+      "cik": "0000879585",
+      "isin": "US00215F1075",
+      "cusip": "00215F107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Telecommunications Services",
+      "website": "https://www.atni.com",
+      "description": "ATN International, Inc. operates a diverse portfolio of telecommunications services through its subsidiary companies. Its business is organized into three primary divisions: International Telecom, US Telecom, and Renewable Energy. The International Telecom segment delivers an array of offerings, including fixed data, voice communication, carrier services, managed solutions, and mobile connectivity, to clients located in Bermuda, the Cayman Islands, Guyana, and the US Virgin Islands. This segment also provides video services to customers in Bermuda, the Cayman Islands, and the US Virgin Islands. Furthermore, it supplies mobile, data, and voice services to both retail and corporate customers across Bermuda, Guyana, and the US Virgin Islands, utilizing brands such as One, GTT+, and Viya, in addition to offering roaming services, handsets, and related accessories. The US Telecom segment provides a variety of carrier services, including wholesale roaming. It extends fixed, mobile, carrier, and managed services to business and individual consumers, alongside private network solutions for enterprise and consumer clients. This division also manages site maintenance services and international long-distance communication, and leases crucial network infrastructure like towers and transport facilities. In its Renewable Energy division, the company focuses on supplying distributed generation solar power to industrial and commercial customers throughout India. As of December 31, 2021, ATN International, Inc. operated seven retail establishments within its US Telecom segment and twenty-one retail locations as part of its International Telecom segment. The company, which was originally known as Atlantic Tele-Network, Inc., officially changed its name to ATN International, Inc. in June 2016. Incorporated in 1987, its corporate headquarters are situated in Beverly, Massachusetts.",
+      "ceo": "Naji N. Khoury",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "2100",
+      "phone": "978 619 1300",
+      "address": "500 Cummings Center",
+      "city": "Beverly",
+      "state": "MA",
+      "zip": "01915",
+      "image": "https://images.financialmodelingprep.com/symbol/ATNI.png",
+      "ipoDate": "1991-11-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ATNI",
+      "date": "2015-12-31",
+      "marketCap": 1258877160
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041737.2430103
+}

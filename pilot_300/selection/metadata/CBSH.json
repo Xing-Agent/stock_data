@@ -1,0 +1,54 @@
+{
+  "symbol": "CBSH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CBSH",
+      "price": 54.42,
+      "marketCap": 7933184340,
+      "beta": 0.591,
+      "lastDividend": 1.1,
+      "range": "46.99-60.92",
+      "change": 0.13,
+      "changePercentage": 0.23945,
+      "volume": 963499,
+      "averageVolume": 1113448,
+      "companyName": "Commerce Bancshares, Inc.",
+      "currency": "USD",
+      "cik": "0000022356",
+      "isin": "US2005251036",
+      "cusip": "200525103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.commercebank.com",
+      "description": "Commerce Bancshares, Inc. functions as the parent organization for Commerce Bank, delivering a comprehensive suite of financial products and services. These offerings span retail banking, mortgage services, corporate finance, investment solutions, trust administration, and asset management, catering to both individuals and businesses across the United States. Its operational structure is divided into three principal divisions: Consumer, Commercial, and Wealth Management. The Consumer division focuses on individual clients, providing essential banking services such as deposit accounts and a diverse range of personal loans. These include financing for automobiles, motorcycles, marine vehicles, tractor/trailers, recreational vehicles, fixed-rate and revolving home equity loans, and other personal credit products. This segment also facilitates patient healthcare funding, real estate loans, various indirect consumer financing options, personalized mortgage banking, installment lending, and consumer debit and credit cards. The Commercial segment offers robust support to businesses and institutional clients through corporate lending, equipment leasing, international banking, merchant and commercial card services, and secure securities safekeeping with bond accounting. It also manages specific business products, government deposit accounts, and extensive commercial cash management solutions. Additionally, this segment trades fixed-income securities to correspondent banks, corporate entities, public institutions, municipalities, and individual investors. Within the Wealth Management division, the company delivers traditional trust and estate planning, expert advisory and discretionary investment portfolio management, brokerage services, and exclusive private banking accounts. Beyond these core segments, Commerce Bancshares further offers private equity investment opportunities, securities brokerage, insurance agency functions, specialized lending, and additional leasing services. It also ensures convenient access to banking through its online and mobile platforms. The company maintains a significant physical presence with 287 branch locations distributed across Missouri, Kansas, Illinois, Oklahoma, and Colorado, complemented by several dedicated commercial offices. Established in 1865, Commerce Bancshares, Inc. is headquartered in Kansas City, Missouri.",
+      "ceo": "John W. Kemper",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "4976",
+      "phone": "816 234 2000",
+      "address": "1000 Walnut",
+      "city": "Kansas City",
+      "state": "MO",
+      "zip": "64106",
+      "image": "https://images.financialmodelingprep.com/symbol/CBSH.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CBSH",
+      "date": "2015-12-31",
+      "marketCap": 3935108600
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041016.1086972
+}

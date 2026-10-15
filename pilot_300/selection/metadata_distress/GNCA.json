@@ -1,0 +1,54 @@
+{
+  "symbol": "GNCA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GNCA",
+      "price": 0.0001,
+      "marketCap": 0,
+      "beta": 0,
+      "lastDividend": 0,
+      "range": "1.0E-4-1.45",
+      "change": -0.0006,
+      "changePercentage": -85.7143,
+      "volume": 30268,
+      "averageVolume": 96883,
+      "companyName": "Genocea Biosciences, Inc.",
+      "currency": "USD",
+      "cik": "0001457612",
+      "isin": "US3724274010",
+      "cusip": "372427401",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.rapidpizzava.com",
+      "description": "Genocea Biosciences, Inc. is a biopharmaceutical company focused on pioneering novel cancer immunotherapies. It leverages its distinctive ATLAS discovery platform to meticulously profile each patient's CD4+ and CD8+ T cell immune responses against specific targets or antigens, which are identified through next-generation sequencing of their individual tumors. Among its lead clinical-stage candidates is GEN-011, an adoptive T cell therapy currently in Phase 1/2a trials for solid tumors. Also undergoing Phase 1/2a clinical evaluation is GEN-009, an investigational neoantigen vaccine designed to deliver adjuvanted synthetic long peptides corresponding to anti-tumor neoantigens pinpointed by ATLAS. Established in 2006 and based in Cambridge, Massachusetts, the company notably filed a voluntary petition for reorganization under Chapter 11 in the U.S. Bankruptcy Court for the District of Massachusetts on July 5, 2022.",
+      "ceo": "William Clark",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "74",
+      "phone": "16178768191",
+      "address": "100 Acorn Park Dr",
+      "city": "Cambridge",
+      "state": "MA",
+      "zip": "02140",
+      "image": "https://images.financialmodelingprep.com/symbol/GNCA.png",
+      "ipoDate": "2014-02-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GNCA",
+      "date": "2015-12-31",
+      "marketCap": 18545130
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041203.0951548
+}

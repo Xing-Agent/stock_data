@@ -1,0 +1,54 @@
+{
+  "symbol": "FF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FF",
+      "price": 5.45,
+      "marketCap": 239055089,
+      "beta": 0.953,
+      "lastDividend": 0.19,
+      "range": "3.09-6.99",
+      "change": 0.24,
+      "changePercentage": 4.60653,
+      "volume": 384235,
+      "averageVolume": 376585,
+      "companyName": "FutureFuel Corp.",
+      "currency": "USD",
+      "cik": "0001337298",
+      "isin": "US36116M1062",
+      "cusip": "36116M106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.futurefuelcorporation.com",
+      "description": "Operating through its subsidiary, FutureFuel Chemical Company, FutureFuel Corp. manufactures and distributes a broad spectrum of chemical products across the United States, encompassing both bio-based fuels and specialized bio-based chemicals. The enterprise is structured into two principal business segments: Chemicals and Biofuels. The Chemicals division delivers tailored chemical solutions to various sectors, including agricultural chemicals, coatings, industrial and consumer cleaning, oil and gas, and specialty polymers. It additionally produces performance-enhancing chemicals such as polymer modifiers, glycerin-based compounds, and an assortment of other specialty chemicals and solvents. Meanwhile, the Biofuels segment focuses on the production and sale of biodiesel and petrodiesel blends. This segment also manages the acquisition, distribution, and pipeline transportation of refined petroleum products. Its biodiesel output is directly supplied to clients via a logistics network involving trucks, rail, and barges. FutureFuel Corp.'s corporate headquarters are located in Saint Louis, Missouri.",
+      "ceo": "Roeland H. Polet",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "493",
+      "phone": "314 854 8352",
+      "address": "2800 Gap Road",
+      "city": "Batesville",
+      "state": "AR",
+      "zip": "72501",
+      "image": "https://images.financialmodelingprep.com/symbol/FF.png",
+      "ipoDate": "2011-03-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FF",
+      "date": "2015-12-31",
+      "marketCap": 586926000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040288.7407138
+}

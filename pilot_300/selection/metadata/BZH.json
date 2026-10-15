@@ -1,0 +1,54 @@
+{
+  "symbol": "BZH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BZH",
+      "price": 33.31,
+      "marketCap": 888698275,
+      "beta": 2.19,
+      "lastDividend": 0,
+      "range": "17.83-34.54",
+      "change": -0.13,
+      "changePercentage": -0.38876,
+      "volume": 7340428,
+      "averageVolume": 654525,
+      "companyName": "Beazer Homes USA, Inc.",
+      "currency": "USD",
+      "cik": "0000915840",
+      "isin": "US07556Q8814",
+      "cusip": "07556Q881",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Residential Construction",
+      "website": "https://www.beazer.com",
+      "description": "Beazer Homes USA, Inc. operates as a residential property developer and builder across the United States. The company is responsible for the planning, construction, and marketing of both detached and attached dwellings, which are sold under its distinct brands: Beazer Homes, Gatherings, and Choice Plans. Its properties are marketed through commissioned in-house sales consultants and external real estate agents. Beazer Homes' operational footprint covers a wide geographical area, including Arizona, California, Nevada, Texas, Delaware, Maryland, Indiana, Tennessee, Virginia, Florida, Georgia, North Carolina, and South Carolina. Founded in 1985, the company maintains its corporate headquarters in Atlanta, Georgia.",
+      "ceo": "Allan Merrill",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "1018",
+      "phone": "770 829 3700",
+      "address": "2002 Summit Blvd NE",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30319",
+      "image": "https://images.financialmodelingprep.com/symbol/BZH.png",
+      "ipoDate": "1994-02-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BZH",
+      "date": "2015-12-31",
+      "marketCap": 365473920
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040326.3563483
+}

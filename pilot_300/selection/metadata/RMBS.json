@@ -1,0 +1,54 @@
+{
+  "symbol": "RMBS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RMBS",
+      "price": 92.11,
+      "marketCap": 9990397976,
+      "beta": 1.847,
+      "lastDividend": 0,
+      "range": "77.89-174.1",
+      "change": -6.06,
+      "changePercentage": -6.17297,
+      "volume": 1884427,
+      "averageVolume": 2737987,
+      "companyName": "Rambus Inc.",
+      "currency": "USD",
+      "cik": "0000917273",
+      "isin": "US7509171069",
+      "cusip": "750917106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.rambus.com",
+      "description": "Rambus Inc. is a global provider of semiconductor solutions, operating across key regions including the United States, Taiwan, South Korea, Japan, Europe, Canada, Singapore, and China. Their product portfolio encompasses advanced DDR memory interface chips, such as DDR5, DDR4, and DDR3, which are supplied to module manufacturers and original equipment manufacturers (OEMs). Additionally, Rambus delivers silicon intellectual property (IP), offering interface and security solutions vital for moving and safeguarding data in sophisticated applications. They also provide physical interface and digital controller IP, enabling the creation of industry-leading, integrated memory and interconnect subsystems. The company further holds an extensive patent portfolio, encompassing innovations in memory architecture, high-speed serial link technologies, and security products. Rambus distributes its offerings via a direct sales team and a network of distributors. Established in 1990, Rambus Inc. maintains its corporate headquarters in San Jose, California.",
+      "ceo": "Luc Seraphin",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "791",
+      "phone": "408 462 8000",
+      "address": "4453 North First Street",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95134",
+      "image": "https://images.financialmodelingprep.com/symbol/RMBS.png",
+      "ipoDate": "1997-05-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RMBS",
+      "date": "2015-12-31",
+      "marketCap": 1271805470
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040987.4736562
+}

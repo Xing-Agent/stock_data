@@ -1,0 +1,54 @@
+{
+  "symbol": "CIEN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CIEN",
+      "price": 359.6,
+      "marketCap": 50902430751,
+      "beta": 1.289,
+      "lastDividend": 0,
+      "range": "159.56-637.51",
+      "change": -40.8,
+      "changePercentage": -10.18981,
+      "volume": 3312652,
+      "averageVolume": 2742923,
+      "companyName": "Ciena Corporation",
+      "currency": "USD",
+      "cik": "0000936395",
+      "isin": "US1717793095",
+      "cusip": "171779309",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Communication Equipment",
+      "website": "https://www.ciena.com",
+      "description": "Ciena Corporation is a global technology company focused on telecommunications infrastructure. It delivers integrated solutions – including specialized hardware, software applications, and professional services – designed to facilitate the efficient transmission, routing, switching, aggregation, delivery, and overall management of video, data, and voice traffic across communication networks worldwide. Within its Networking Platforms division, Ciena develops and supplies advanced hardware and integrated solutions. These products are specifically engineered to optimize the convergence of various optical transport methods (like coherent optical transport and optical transport network switching) with packet switching, enabling high-performance data handling. The product portfolio spans a range of packet-optical platforms (e.g., the 6500, 5400, and Z-Series), reconfigurable switching systems (such as the 5430), Waveserver interconnect systems, and dedicated switches for service delivery and aggregation (including the 3000 and 5000 families). This segment also provides the essential operating system software and advanced features embedded within its hardware offerings. Ciena's Blue Planet Automation Software and Services arm is dedicated to intelligent network automation. It offers solutions for orchestrating services across multiple network domains, maintaining precise network inventory, optimizing data routes, coordinating virtualized network functions (NFV), and delivering insightful analytics, alongside related support. The Platform Software and Services segment provides unified management platforms, exemplified by its OneControl system, as well as other software tools for comprehensive network planning, operational control, and ongoing oversight. Finally, the Global Services segment delivers end-to-end client support. This includes strategic consulting, detailed network architecture design, expert installation and deployment, ongoing maintenance, and comprehensive training programs. The company distributes its cutting-edge products and services to network operators through both direct sales forces and indirect channel partners. Established in 1992, Ciena Corporation maintains its corporate headquarters in Hanover, Maryland.",
+      "ceo": "Gary Smith",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "8989",
+      "phone": "410 694 5700",
+      "address": "8150 Maple Lawn Boulevard",
+      "city": "Fulton",
+      "state": "MD",
+      "zip": "20759",
+      "image": "https://images.financialmodelingprep.com/symbol/CIEN.png",
+      "ipoDate": "1997-02-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CIEN",
+      "date": "2015-12-31",
+      "marketCap": 2827805750
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040414.2223704
+}

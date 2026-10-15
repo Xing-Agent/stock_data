@@ -1,0 +1,63 @@
+{
+  "symbol": "ALXN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ALXN",
+      "price": 182.5,
+      "marketCap": 0,
+      "beta": 1.259521,
+      "lastDividend": 0,
+      "range": "180.21-182.67",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 3,
+      "averageVolume": 4222993,
+      "companyName": "Alexion Pharmaceuticals, Inc.",
+      "currency": "USD",
+      "cik": "0000899866",
+      "isin": "US0153511094",
+      "cusip": "015351109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "http://www.alexion.com",
+      "description": "Alexion Pharmaceuticals, Inc. is a biopharmaceutical company focused on the development and commercialization of a diverse range of therapeutic solutions. The company's established product portfolio features ULTOMIRIS (ALXN1210/ravulizumab-cwvz), a C5 inhibitor approved for paroxysmal nocturnal hemoglobinuria (PNH) and atypical hemolytic uremic syndrome (aHUS). Another key offering is SOLIRIS (eculizumab), a monoclonal antibody addressing a broader range of conditions including PNH, aHUS, generalized myasthenia gravis (gMG), and neuromyelitis optica spectrum disorder (NMOSD). Beyond these, the company markets Strensiq (asfotase alfa), a specialized enzyme replacement therapy for individuals with hypophosphatasia, and Kanuma (sebelipase alfa), indicated for lysosomal acid lipase deficiency. Alexion also maintains a robust development pipeline, featuring several promising candidates: Phase III clinical trials: ALXN1210 (intravenous formulation) for gMG and NMOSD; ALXN1210 (subcutaneous formulation) for PNH and aHUS; and ALXN1840 (WTX101) for Wilson disease. Phase I clinical trials: ALXN1810 (subcutaneous) targeting renal diseases; ALXN1720 (subcutaneous) for conditions characterized by dysregulated terminal complement activity; and ALXN1830 and ABY-039, both focused on the neonatal Fc receptor pathway. The company distributes its therapies to a broad network of healthcare stakeholders, including distributors, pharmacies, hospitals, and hospital buying groups, reaching patients both within the United States and across international markets. To bolster its research and development efforts and expand its reach, Alexion engages in various strategic alliances and collaborations. These include a collaboration and license agreement with Halozyme Therapeutics, Inc.; collaborations with Caelum Biosciences, Inc., Dicerna Pharmaceuticals, Inc., and Zealand Pharma A/S; a strategic agreement also with Caelum Biosciences, Inc.; an agreement with Stealth BioTherapeutics Corp.; and a partnership with Affibody AB. Established in 1992, the company maintains its corporate headquarters in Boston, Massachusetts.",
+      "ceo": "Ludwig Hantson",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "3837",
+      "phone": "14752302596",
+      "address": "121 Seaport Blvd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "image": "https://images.financialmodelingprep.com/symbol/ALXN.png",
+      "ipoDate": "1996-02-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ALXN",
+      "date": "2015-12-31",
+      "marketCap": 42930195000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040611.6651154,
+  "previous_attempts": [
+    {
+      "symbol": "ALXN",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040425.9518976
+    }
+  ]
+}

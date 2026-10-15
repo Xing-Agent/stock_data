@@ -1,0 +1,54 @@
+{
+  "symbol": "ATR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ATR",
+      "price": 120.27,
+      "marketCap": 7675669405,
+      "beta": 0.342,
+      "lastDividend": 1.92,
+      "range": "103.23-146.91",
+      "change": 1.06,
+      "changePercentage": 0.88919,
+      "volume": 452108,
+      "averageVolume": 465462,
+      "companyName": "AptarGroup, Inc.",
+      "currency": "USD",
+      "cik": "0000896622",
+      "isin": "US0383361039",
+      "cusip": "038336103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.aptar.com",
+      "description": "AptarGroup, Inc. specializes in developing and manufacturing solutions for dispensing, sealing, and advanced material science, catering to a broad spectrum of industries such as beauty, personal care, home care, and the pharmaceutical sector (including prescription drugs, consumer health care, and injectables), alongside the food and beverage markets. Its operations are structured into three key segments: Pharma, Beauty + Home, and Food + Beverage. The Pharma division offers critical components for the pharmaceutical industry, including pumps for nasal allergy remedies, metered dose inhaler valves vital for managing respiratory conditions like asthma and chronic obstructive pulmonary disease (COPD), elastomeric primary packaging for injectables, and sophisticated active material science innovations. The Beauty + Home segment primarily supplies the personal care and home care sectors with essential products such as pumps, various closures, aerosol valves, accompanying accessories, and sealing mechanisms. It also furnishes the beauty market with pumps and decorative elements. For the food and beverage industries, its Food + Beverage segment delivers a variety of dispensing and non-dispensing closures, specialized elastomeric flow control components, spray pumps, and aerosol valves. AptarGroup markets its offerings globally, utilizing its internal sales team, complemented by independent representatives and distributors across Asia, Europe, Latin America, and North America. The company is engaged in a strategic partnership with PureCycle Technologies LLC to pioneer the integration of ultra-pure recycled polypropylene into advanced dispensing applications. Additionally, it collaborates with Sonmol on the development of a digital platform providing therapies and services, with a particular focus on respiratory and other health conditions. Established in 1992, AptarGroup, Inc. maintains its corporate headquarters in Crystal Lake, Illinois.",
+      "ceo": "Gael Touya",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "14000",
+      "phone": "815 477 0424",
+      "address": "265 Exchange Drive",
+      "city": "Crystal Lake",
+      "state": "IL",
+      "zip": "60014",
+      "image": "https://images.financialmodelingprep.com/symbol/ATR.png",
+      "ipoDate": "1993-04-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ATR",
+      "date": "2015-12-31",
+      "marketCap": 4556753300
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040623.2778294
+}

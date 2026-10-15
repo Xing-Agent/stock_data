@@ -1,0 +1,54 @@
+{
+  "symbol": "HBNC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HBNC",
+      "price": 18.99,
+      "marketCap": 975032055,
+      "beta": 0.831,
+      "lastDividend": 0.64,
+      "range": "14.99-21.04",
+      "change": -0.14,
+      "changePercentage": -0.73183,
+      "volume": 640678,
+      "averageVolume": 649226,
+      "companyName": "Horizon Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0000706129",
+      "isin": "US4404071049",
+      "cusip": "440407104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.horizonbank.com",
+      "description": "Horizon Bancorp, Inc. acts as the parent organization for Horizon Bank, overseeing the delivery of a full spectrum of commercial and retail banking services. The company provides a variety of deposit options and extends diverse loan products, including commercial, residential real estate, specialized mortgage warehouse, and consumer credit facilities. Furthermore, it offers corporate and individual trust and agency services, investment management, and real estate investment trust (REIT) solutions, alongside a selection of insurance offerings. With a footprint of 78 full-service branch locations, Horizon Bancorp serves customers across northern and central Indiana, and southern and central Michigan. This organization, which was founded in 1873, maintains its principal office in Michigan City, Indiana.",
+      "ceo": "Thomas Prame",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "478",
+      "phone": "219 879 0211",
+      "address": "515 Franklin Street",
+      "city": "Michigan City",
+      "state": "IN",
+      "zip": "46360",
+      "image": "https://images.financialmodelingprep.com/symbol/HBNC.png",
+      "ipoDate": "2002-01-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HBNC",
+      "date": "2015-12-31",
+      "marketCap": 334192980
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041906.8104231
+}

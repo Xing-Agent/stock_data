@@ -1,0 +1,7 @@
+{
+  "symbol": "CLVS",
+  "endpoint": "https://financialmodelingprep.com/stable/historical-price-eod/non-split-adjusted",
+  "from": "2016-01-01",
+  "to": "2022-12-20",
+  "error_class": "ConnectError"
+}

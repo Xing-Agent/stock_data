@@ -1,0 +1,54 @@
+{
+  "symbol": "PRIM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PRIM",
+      "price": 78.03,
+      "marketCap": 4233512266,
+      "beta": 1.443,
+      "lastDividend": 0.32,
+      "range": "65-205.5",
+      "change": -4.49,
+      "changePercentage": -5.44111,
+      "volume": 1781514,
+      "averageVolume": 1657470,
+      "companyName": "Primoris Services Corporation",
+      "currency": "USD",
+      "cik": "0001361538",
+      "isin": "US74164F1030",
+      "cusip": "74164F103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Engineering & Construction",
+      "website": "https://www.prim.com",
+      "description": "Primoris Services Corporation functions as a prominent specialized contracting firm, offering a wide array of services that include construction, fabrication, upkeep, modernization, and advanced engineering expertise throughout the United States and Canada. The company's operations are divided into three primary divisions: Utilities, Energy/Renewables, and Pipeline Services. The Utilities segment focuses on installing and maintaining both new and existing natural gas distribution networks, electrical transmission and distribution systems, and communications infrastructure. Within the Energy/Renewables segment, Primoris delivers comprehensive services such as engineering, procurement, and construction (EPC), alongside major civil projects like highway and bridge construction, demolition, site preparation, mass excavation, and flood control. This segment also provides retrofits, upgrades, repairs, and routine maintenance for industries ranging from renewable energy and energy storage to renewable fuels, petroleum refining, petrochemicals, and state departments of transportation. Finally, the Pipeline Services segment concentrates on the construction, maintenance, and integrity management of pipelines, in addition to installing compressor and pump stations and metering facilities for clients in the petroleum and petrochemical sectors, as well as gas, water, and sewer utility providers. Founded in 1960, Primoris Services Corporation is headquartered in Dallas, Texas.",
+      "ceo": "Koti Vadlamudi",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "18526",
+      "phone": "214 740 5600",
+      "address": "2300 North Field Street",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75201",
+      "image": "https://images.financialmodelingprep.com/symbol/PRIM.png",
+      "ipoDate": "2008-08-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PRIM",
+      "date": "2015-12-31",
+      "marketCap": 1139501750
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040454.0969806
+}

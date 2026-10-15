@@ -1,0 +1,63 @@
+{
+  "symbol": "TRUE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TRUE",
+      "price": 2.54,
+      "marketCap": 225907727,
+      "beta": 2.22,
+      "lastDividend": 0,
+      "range": "1.0515-3.83",
+      "change": 0.33,
+      "changePercentage": 14.93213,
+      "volume": 14731479,
+      "averageVolume": 906386,
+      "companyName": "TrueCar, Inc.",
+      "currency": "USD",
+      "cik": "0001327318",
+      "isin": "US89785L1070",
+      "cusip": "89785L107",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Software - Services",
+      "website": "https://www.truecar.com",
+      "description": "TrueCar, Inc. operates as an internet-based information, technology, and communication services company in the United States. The company operates its platform on the TrueCar website and mobile applications. Its platform enables users to obtain market-based pricing data on new and used cars, and to connect with its network of TrueCar certified dealers. It also provides TrueCar Access, which offers trade and payments solutions; and Sell Your Car and Trade solutions gives consumers information on the value of their trade-in vehicles and enables them to obtain a guaranteed trade-in price before setting foot in the dealership. The company was formerly known as Zag.com Inc. TrueCar, Inc. was incorporated in 2005 and is headquartered in Santa Monica, California.",
+      "ceo": "Scott Painter",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "349",
+      "phone": "800 200 2000",
+      "address": "225 Santa Monica Blvd",
+      "city": "Santa Monica",
+      "state": "CA",
+      "zip": "90401",
+      "image": "https://images.financialmodelingprep.com/symbol/TRUE.png",
+      "ipoDate": "2014-05-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TRUE",
+      "date": "2015-12-31",
+      "marketCap": 796227479
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040790.9307122,
+  "previous_attempts": [
+    {
+      "symbol": "TRUE",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040334.926608
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "GM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GM",
+      "price": 83.05,
+      "marketCap": 72872388600,
+      "beta": 1.4,
+      "lastDividend": 0.69,
+      "range": "56.81-91.85",
+      "change": -0.95,
+      "changePercentage": -1.13095,
+      "volume": 6101486,
+      "averageVolume": 7164566,
+      "companyName": "General Motors Company",
+      "currency": "USD",
+      "cik": "0001467858",
+      "isin": "US37045V1008",
+      "cusip": "37045V100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Auto - Manufacturers",
+      "website": "https://www.gm.com",
+      "description": "General Motors Company, a prominent global automotive enterprise, is engaged in the design, manufacturing, and distribution of a wide array of vehicles—including trucks, crossovers (SUVs), and passenger cars—along with related parts and accessories. Its expansive reach covers numerous regions such as North America, the Asia Pacific, the Middle East, Africa, South America, with significant operations in the United States and China. The company organizes its business into distinct segments: GM North America, GM International, Cruise, and GM Financial. It markets its diverse vehicle lineup under well-known brand names like Buick, Cadillac, Chevrolet, GMC, Holden, Baojun, and Wuling. Beyond selling to individual consumers through dealerships, GM also supplies its vehicles—including specialized models—to a variety of fleet clients, such as daily rental companies, commercial businesses, leasing firms, and government agencies. GM further extends its offerings with a comprehensive suite of advanced services for both retail and fleet customers. These include vital safety and security features like automated crash response, emergency support, roadside assistance, crisis intervention, stolen vehicle recovery, and turn-by-turn navigation. Additionally, it provides a robust set of connected services, encompassing mobile applications for remote vehicle control and locating electric vehicle charging stations, on-demand diagnostics, smart driver insights, integrated in-vehicle commerce, voice assistants, a navigation and app ecosystem, connected navigation, SiriusXM with 360L, and 4G LTE wireless connectivity. The company is also actively involved in pioneering and commercializing autonomous vehicle technology. Furthermore, GM offers automotive financing and insurance solutions, alongside various software-enabled services and subscription models. Established in 1908, General Motors Company maintains its corporate headquarters in Detroit, Michigan.",
+      "ceo": "Mary T. Barra",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "156000",
+      "phone": "313 667 1500",
+      "address": "1240 Woodward Avenue",
+      "city": "Detroit",
+      "state": "MI",
+      "zip": "48265",
+      "image": "https://images.financialmodelingprep.com/symbol/GM.png",
+      "ipoDate": "2010-11-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GM",
+      "date": "2015-12-31",
+      "marketCap": 52579460000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041063.794016
+}

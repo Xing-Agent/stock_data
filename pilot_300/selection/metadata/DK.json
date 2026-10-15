@@ -1,0 +1,54 @@
+{
+  "symbol": "DK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DK",
+      "price": 78.97,
+      "marketCap": 4835506834,
+      "beta": 0.602,
+      "lastDividend": 1.02,
+      "range": "25.85-82.27",
+      "change": -1.78,
+      "changePercentage": -2.20434,
+      "volume": 1459663,
+      "averageVolume": 1717745,
+      "companyName": "Delek US Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001694426",
+      "isin": "US24665A1034",
+      "cusip": "24665A103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Refining & Marketing",
+      "website": "https://www.delekus.com",
+      "description": "Delek US Holdings, Inc. is an integrated downstream energy corporation operating within the United States. Its operations are divided into three core segments: Refining, Logistics, and Retail. The Refining segment processes crude oil and other raw materials to produce a variety of petroleum-based goods, such as gasoline, diesel, aviation fuel, and asphalt. These products are distributed through both company-owned and third-party facilities. This segment maintains and runs four independent refineries situated in Tyler, Texas; El Dorado, Arkansas; Big Spring, Texas; and Krotz Springs, Louisiana, alongside three biodiesel production plants located in Crossett, Arkansas; Cleburne, Texas; and New Albany. The Logistics division focuses on the collection, transportation, and storage of crude oil, intermediate products, and refined petroleum. It also handles the marketing, distribution, transport, and storage of refined products for external clients. Its infrastructure includes approximately 400 miles of crude oil pipelines, around 450 miles of refined product pipelines, and a crude oil gathering network spanning roughly 900 miles. Additionally, it features associated crude oil storage tanks with a combined active capacity of about 10.2 million barrels, and it operates ten light product distribution terminals. Marketing of light products also occurs through external terminals. The Retail segment manages 248 convenience stores, which are either owned or leased, primarily concentrated in West Texas and New Mexico. These stores provide various types of gasoline and diesel under the DK or Alon brands, as well as an assortment of food items, services, tobacco products, alcoholic and non-alcoholic beverages, general merchandise, and money order services to the public. These retail outlets largely operate under the 7-Eleven, DK, or Alon brand names. Delek US Holdings, Inc. serves a broad customer base, including major oil companies, independent refiners and marketers, jobbers, distributors, utility and transportation firms, the U.S. government, and independent retail fuel operators. The company was established in 2001, and its corporate headquarters are located in Brentwood, Tennessee.",
+      "ceo": "Avigal Soreq",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "1902",
+      "phone": "615 771 6701",
+      "address": "310 Seven Springs Way",
+      "city": "Brentwood",
+      "state": "TN",
+      "zip": "37027",
+      "image": "https://images.financialmodelingprep.com/symbol/DK.png",
+      "ipoDate": "2006-05-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DK",
+      "date": "2015-12-31",
+      "marketCap": 1515740906
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040471.6629033
+}

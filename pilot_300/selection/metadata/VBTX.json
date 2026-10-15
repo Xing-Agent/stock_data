@@ -1,0 +1,54 @@
+{
+  "symbol": "VBTX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VBTX",
+      "price": 30.26,
+      "marketCap": 1656583700,
+      "beta": 1.045,
+      "lastDividend": 1.06,
+      "range": "20.37-34.96",
+      "change": 0.3,
+      "changePercentage": 1.00134,
+      "volume": 25682857,
+      "averageVolume": 1441300,
+      "companyName": "Veritex Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001501570",
+      "isin": "US9234511080",
+      "cusip": "923451108",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.veritexbank.com",
+      "description": "Veritex Holdings, Inc. serves as the parent entity for Veritex Community Bank, a financial institution specializing in a broad spectrum of commercial banking services. The bank primarily caters to the needs of small to medium-sized businesses and various professionals. Its deposit offerings encompass demand accounts, savings accounts, money market accounts, and certificates of deposit (time accounts). The comprehensive loan portfolio covers financing for commercial real estate, general business operations, mortgage warehouse lending, residential real estate, construction and land development, agricultural ventures (including farmland), and consumer loans. Additionally, the bank participated in the Paycheck Protection Program and extended loans for 1-4 family residential units, multi-family residential projects, and purchased receivables financing. Beyond lending and deposits, Veritex Holdings, Inc. provides interest rate swap services and a robust suite of digital banking features. These include secure online access to account balances, electronic funds transfers, online bill payment, and paperless customer statements, alongside ATM access and mobile banking applications. Clients can also conduct banking through mail or by scheduling personal appointments. Further services include debit cards, convenient night depository options, direct deposit facilities, cashier's checks, and letters of credit. The company offers extensive treasury management solutions, featuring balance reporting, inter-account transfers, wire transfer initiation, automated clearinghouse (ACH) origination, and stop payment services. Its cash management deposit products and services comprise lockbox solutions, remote deposit capture, positive pay, reverse positive pay, account reconciliation services, zero balance accounts, and sweep accounts. As of December 31, 2021, Veritex Holdings, Inc. operated 18 full-service branches across the Dallas-Fort Worth metroplex, complemented by an additional 10 full-service branches situated in the Houston metropolitan area. The company was founded in 2009 and is headquartered in Dallas, Texas.",
+      "ceo": "Charles Malcolm Holland III",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "858",
+      "phone": "972 349 6200",
+      "address": "8214 Westchester Drive",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75225",
+      "image": "https://images.financialmodelingprep.com/symbol/VBTX.png",
+      "ipoDate": "2014-10-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VBTX",
+      "date": "2015-12-31",
+      "marketCap": 173349740
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041571.0518603
+}

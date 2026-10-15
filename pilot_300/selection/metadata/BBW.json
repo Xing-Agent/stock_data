@@ -1,0 +1,54 @@
+{
+  "symbol": "BBW",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BBW",
+      "price": 25.18,
+      "marketCap": 315691732,
+      "beta": 1.011,
+      "lastDividend": 0.91,
+      "range": "24.15-72.19",
+      "change": 0.15,
+      "changePercentage": 0.59928,
+      "volume": 318426,
+      "averageVolume": 522689,
+      "companyName": "Build-A-Bear Workshop, Inc.",
+      "currency": "USD",
+      "cik": "0001113809",
+      "isin": "US1200761047",
+      "cusip": "120076104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Specialty Retail",
+      "website": "https://www.buildabear.com",
+      "description": "Build-A-Bear Workshop, Inc. functions as a multi-channel vendor specializing in stuffed toys and their complementary merchandise. The business organizes its operations across three primary divisions: Direct-to-Consumer sales, Commercial activities, and International Franchising. Its inventory features a diverse assortment of plush creatures, available both unstuffed for customization and as pre-made items. Customers can personalize their creations with various sounds and unique scents. Additionally, the company provides a comprehensive selection of apparel, footwear, accessories, and other playful novelty goods. Products are distributed via its namesake Build-A-Bear Workshop retail outlets and through its official e-commerce platforms. As of January 29, 2022, the firm directly managed 346 stores globally, with 305 located in the United States and Canada, and 41 in the United Kingdom and Ireland. An additional 72 franchised establishments extend its international presence. The enterprise was founded in 1997 and maintains its corporate headquarters in St. Louis, Missouri.",
+      "ceo": "J. Christopher Hurt",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "5500",
+      "phone": "314 423 8000",
+      "address": "415 South 18th Street",
+      "city": "Saint Louis",
+      "state": "MO",
+      "zip": "63103",
+      "image": "https://images.financialmodelingprep.com/symbol/BBW.png",
+      "ipoDate": "2004-10-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BBW",
+      "date": "2015-12-31",
+      "marketCap": 188626955
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040419.8928554
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "PEB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PEB",
+      "price": 19.11,
+      "marketCap": 2156429730,
+      "beta": 1.44,
+      "lastDividend": 0.04,
+      "range": "9.99-19.93",
+      "change": -0.55,
+      "changePercentage": -2.79756,
+      "volume": 1729407,
+      "averageVolume": 2421500,
+      "companyName": "Pebblebrook Hotel Trust",
+      "currency": "USD",
+      "cik": "0001474098",
+      "isin": "US70509V1008",
+      "cusip": "70509V100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Hotel & Motel",
+      "website": "https://www.pebblebrookhotels.com",
+      "description": "Pebblebrook Hotel Trust, identified by its NYSE ticker PEB, operates as a publicly listed real estate investment trust (REIT) and stands as the foremost proprietor of urban and resort lifestyle hotels throughout the United States. Its substantial portfolio encompasses 53 properties, collectively offering approximately 13,200 guestrooms, situated across 14 distinct urban and resort destinations, with a particular emphasis on key West Coast metropolitan areas.",
+      "ceo": "Jon E. Bortz",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "52",
+      "phone": "240-507-1300",
+      "address": "4747 Bethesda Avenue",
+      "city": "Bethesda",
+      "state": "MD",
+      "zip": "20814",
+      "image": "https://images.financialmodelingprep.com/symbol/PEB.png",
+      "ipoDate": "2009-12-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PEB",
+      "date": "2015-12-31",
+      "marketCap": 4396466807
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040993.2138326
+}

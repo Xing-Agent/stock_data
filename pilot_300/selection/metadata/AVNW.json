@@ -1,0 +1,54 @@
+{
+  "symbol": "AVNW",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AVNW",
+      "price": 19.44,
+      "marketCap": 251543161,
+      "beta": 0.698,
+      "lastDividend": 0,
+      "range": "13.92-27.02",
+      "change": -0.96,
+      "changePercentage": -4.70588,
+      "volume": 133971,
+      "averageVolume": 147141,
+      "companyName": "Aviat Networks, Inc.",
+      "currency": "USD",
+      "cik": "0001377789",
+      "isin": "US05366Y2019",
+      "cusip": "05366Y201",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Communication Equipment",
+      "website": "https://www.aviatnetworks.com",
+      "description": "Aviat Networks, Inc. operates globally, specializing in the provision of wireless transport solutions. The company furnishes an extensive portfolio of products complemented by localized professional and support services, all designed to empower customers in simplifying their network infrastructure and enhancing their operational ease. Its core offerings primarily feature advanced wireless transmission systems, tailored for both microwave and millimeter wave networking applications. Aviat Networks caters to a broad clientele, including major communications service providers and a variety of private network operators such as state and local government bodies, utility companies, federal government agencies, and defense organizations. The firm distributes its solutions through a dedicated direct sales, service, and support organization, augmented by indirect channels like dealers, resellers, and sales representatives, in addition to online platforms. Established in 2006, Aviat Networks, Inc. maintains its corporate headquarters in Austin, Texas.",
+      "ceo": "Peter A. Smith",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "899",
+      "phone": "408 941 7100",
+      "address": "200 Parker Drive",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78728",
+      "image": "https://images.financialmodelingprep.com/symbol/AVNW.png",
+      "ipoDate": "1987-05-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AVNW",
+      "date": "2015-12-31",
+      "marketCap": 48141245
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041601.9031816
+}

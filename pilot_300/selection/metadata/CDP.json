@@ -1,0 +1,54 @@
+{
+  "symbol": "CDP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CDP",
+      "price": 33.22,
+      "marketCap": 3767480200,
+      "beta": 0.786,
+      "lastDividend": 1.265,
+      "range": "27.06-38.9",
+      "change": -0.33,
+      "changePercentage": -0.98361,
+      "volume": 911926,
+      "averageVolume": 959691,
+      "companyName": "COPT Defense Properties",
+      "currency": "USD",
+      "cik": "0000860546",
+      "isin": "US22002T1088",
+      "cusip": "22002T108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Office",
+      "website": "https://www.copt.com",
+      "description": "COPT is a Real Estate Investment Trust (REIT) that focuses on the ownership, management, leasing, development, and strategic acquisition of office and data center assets. The majority of its portfolio is dedicated to serving the United States Government and its contractors, particularly those engaged in national security, defense, and information technology (IT) operations, which the company identifies as growing, resilient, and high-priority missions. Furthermore, COPT maintains a collection of Class-A office properties located in select urban submarkets across the greater Washington, DC/Baltimore metropolitan area, distinguished by strong market characteristics. As of June 30, 2023, 90% of COPT's core portfolio's annual rental income originated from its Defense/IT locations, while the remaining 10% came from its Regional Office properties. On the same date, COPT's core portfolio, including 24 properties held via unconsolidated joint ventures, comprised 192 properties spanning 22.9 million square feet and maintained a 95% occupancy rate.",
+      "ceo": "Stephen E. Budorick",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "430",
+      "phone": "443 285 5400",
+      "address": "6711 Columbia Gateway Drive",
+      "city": "Columbia",
+      "state": "MD",
+      "zip": "21046-2383",
+      "image": "https://images.financialmodelingprep.com/symbol/CDP.png",
+      "ipoDate": "1991-12-31",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CDP",
+      "date": "2015-12-31",
+      "marketCap": 2055600119
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040419.8620625
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "FWONA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FWONA",
+      "price": 83.06,
+      "marketCap": 20815310106,
+      "beta": 0.735,
+      "lastDividend": 0,
+      "range": "73.7-98.79",
+      "change": -2.15,
+      "changePercentage": -2.52318,
+      "volume": 408433,
+      "averageVolume": 171023,
+      "companyName": "Formula One Group",
+      "currency": "USD",
+      "cik": "0001560385",
+      "isin": "US5312297717",
+      "cusip": "531229771",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Entertainment",
+      "website": "https://www.libertymedia.com/tracking-stocks/formula-one-group",
+      "description": "Formula One Group is involved in the motorsports industry, conducting business both in the United States and globally. Its primary function is holding the commercial rights to the Formula One World Championship, an extensive motor racing series that unfolds over approximately nine months each year. In this competition, teams contend for the constructors' championship, while individual drivers vie for the drivers' championship. The company was founded in 1950 and maintains its headquarters in Englewood, Colorado. Formula One Group operates as a subsidiary of Liberty Media Corporation.",
+      "ceo": "Stefano Domenicali",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "1674",
+      "phone": "720 875 5400",
+      "address": "12300 Liberty Boulevard",
+      "city": "Englewood",
+      "state": "CO",
+      "zip": "80112",
+      "image": "https://images.financialmodelingprep.com/symbol/FWONA.png",
+      "ipoDate": "2013-01-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FWONA",
+      "date": "2015-12-31",
+      "marketCap": 6703060000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040593.7627609
+}

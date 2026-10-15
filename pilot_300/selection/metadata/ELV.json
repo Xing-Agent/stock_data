@@ -1,0 +1,54 @@
+{
+  "symbol": "ELV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ELV",
+      "price": 428.09,
+      "marketCap": 92839574356,
+      "beta": 0.711,
+      "lastDividend": 6.87,
+      "range": "274.84-436.24",
+      "change": 2.82,
+      "changePercentage": 0.66311,
+      "volume": 2115843,
+      "averageVolume": 1339304,
+      "companyName": "Elevance Health Inc.",
+      "currency": "USD",
+      "cik": "0001156039",
+      "isin": "US0367521038",
+      "cusip": "036752103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Healthcare Plans",
+      "website": "https://www.elevancehealth.com",
+      "description": "Operating as a major health benefits organization, Elevance Health Inc. commits to guiding consumers, families, and communities across their entire health and wellness path. It facilitates access to vital care, assistance, and tools designed to enable healthier living for approximately 118 million individuals. The company's comprehensive offerings span medical, digital, pharmaceutical, behavioral health, clinical, and other care solutions. Founded in 1944 and based in Indianapolis, Indiana, this entity adopted its current name, Elevance Health Inc., in June 2022, having previously operated as Anthem, Inc.",
+      "ceo": "Gail Koziara Boudreaux",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "96615",
+      "phone": "800 331 1476",
+      "address": "220 Virginia Avenue",
+      "city": "Indianapolis",
+      "state": "IN",
+      "zip": "46204",
+      "image": "https://images.financialmodelingprep.com/symbol/ELV.png",
+      "ipoDate": "2001-10-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ELV",
+      "date": "2015-12-31",
+      "marketCap": 36650537327
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041400.2414372
+}

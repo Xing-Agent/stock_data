@@ -1,0 +1,54 @@
+{
+  "symbol": "COF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "COF",
+      "price": 194.35,
+      "marketCap": 119230809750,
+      "beta": 1.04,
+      "lastDividend": 3.2,
+      "range": "174.24-259.64",
+      "change": -3.71999,
+      "changePercentage": -1.87812,
+      "volume": 4200615,
+      "averageVolume": 3976415,
+      "companyName": "Capital One Financial Corporation",
+      "currency": "USD",
+      "cik": "0000927628",
+      "isin": "US14040H1059",
+      "cusip": "14040H105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Financial - Credit Services",
+      "website": "https://www.capitalone.com",
+      "description": "Capital One Financial Corporation, identified by its ticker COF, operates as a prominent financial services holding company. It oversees essential subsidiaries such as Capital One Bank (USA), National Association, and Capital One, National Association, which collectively offer a broad spectrum of financial products and services throughout the United States, Canada, and the United Kingdom. The company structures its extensive operations into three core divisions: Credit Card, Consumer Banking, and Commercial Banking. Clients can utilize various deposit instruments, including checking accounts, money market accounts, negotiable order of withdrawal (NOW) accounts, savings accounts, and time deposits. Capital One's lending solutions are equally comprehensive, encompassing credit card financing, personal auto and retail banking loans, as well as significant commercial and multifamily real estate loans, and broader commercial and industrial credit facilities. Furthermore, the corporation provides credit and debit card issuance, robust online direct banking capabilities, and specialized treasury management and custodial services. Capital One serves a diverse clientele that includes individual consumers, small enterprises, and large commercial entities. It reaches these customers through a multi-channel approach, leveraging digital platforms, traditional physical branches, innovative café locations, and other distribution points, particularly within key states like New York, Louisiana, Texas, Maryland, Virginia, New Jersey, and California. Established in 1988, Capital One Financial Corporation maintains its primary executive offices in McLean, Virginia.",
+      "ceo": "Richard D. Fairbank",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "78400",
+      "phone": "703 720 1000",
+      "address": "1680 Capital One Drive",
+      "city": "McLean",
+      "state": "VA",
+      "zip": "22102",
+      "image": "https://images.financialmodelingprep.com/symbol/COF.png",
+      "ipoDate": "1994-11-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "COF",
+      "date": "2015-12-31",
+      "marketCap": 37786230000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041286.2643876
+}

@@ -1,0 +1,63 @@
+{
+  "symbol": "CERN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CERN",
+      "price": 94.92,
+      "marketCap": 0,
+      "beta": 0.761343,
+      "lastDividend": 0.98,
+      "range": "94.92-94.99",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 38200339,
+      "averageVolume": 3526650,
+      "companyName": "Cerner Corporation",
+      "currency": "USD",
+      "cik": "0000804753",
+      "isin": "US1567821046",
+      "cusip": "156782104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Healthcare Information Services",
+      "website": "https://www.oracle.com/health",
+      "description": "Cerner Corporation, an Oracle subsidiary since June 8, 2022, is a global provider of healthcare information technology solutions and tech-enabled services. Its flagship offering, the Cerner Millennium architecture, provides a person-centric computing framework. This framework integrates clinical, financial, and management information systems, empowering a wide array of healthcare professionals—including physicians, nurses, laboratory technicians, pharmacists, and administrative staff, as well as consumers—to efficiently access and manage an individual's electronic health record (EHR) directly at the point of care. Beyond Millennium, the company offers the cloud-based HealtheIntent platform for aggregating, transforming, and reconciling health data across the entire care continuum, and CareAware, an EHR-agnostic platform that facilitates seamless connectivity between medical devices and EHRs. Cerner’s comprehensive portfolio also includes various clinical and financial healthcare IT solutions, alongside specialized departmental and care coordination tools. In addition to its software, Cerner delivers a broad spectrum of tech-enabled services such as implementation, training, remote hosting, application management, revenue cycle optimization, support, maintenance, healthcare data analysis, real-world evidence solutions, clinical process optimization, transaction processing, and the management of employer health centers, all powered by data-driven insights. It also supplies complementary hardware and devices from third parties. Cerner serves an extensive client base, including integrated delivery networks, physician groups, managed care organizations, hospitals, medical centers, freestanding reference laboratories, home health agencies, blood banks, imaging centers, pharmacies, pharmaceutical manufacturers, employers, governments, and public health organizations. The company was founded in 1979 and is headquartered in North Kansas City, Missouri.",
+      "ceo": "Brent Shafer",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "25150",
+      "phone": "18162211024",
+      "address": "2800 Rock Creek Pkwy",
+      "city": "Kansas City",
+      "state": "MO",
+      "zip": "64117",
+      "image": "https://images.financialmodelingprep.com/symbol/CERN.png",
+      "ipoDate": "1986-12-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CERN",
+      "date": "2015-12-31",
+      "marketCap": 20509064840
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040614.3288226,
+  "previous_attempts": [
+    {
+      "symbol": "CERN",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040433.8366952
+    }
+  ]
+}

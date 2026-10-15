@@ -1,0 +1,54 @@
+{
+  "symbol": "CROX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CROX",
+      "price": 117.54,
+      "marketCap": 5635467054,
+      "beta": 1.557,
+      "lastDividend": 0,
+      "range": "73.21-141.28",
+      "change": 0.01,
+      "changePercentage": 0.00850847,
+      "volume": 990204,
+      "averageVolume": 1081834,
+      "companyName": "Crocs, Inc.",
+      "currency": "USD",
+      "cik": "0001334036",
+      "isin": "US2270461096",
+      "cusip": "227046109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Apparel - Footwear & Accessories",
+      "website": "https://www.crocs.com",
+      "description": "Crocs, Inc., along with its affiliated entities, specializes in the design, development, production, promotion, and distribution of everyday footwear and accessories for men, women, and children. Operating under its well-known Crocs brand, the company provides a diverse range of footwear items, such as its signature clogs, sandals, slides, flip-flops, boots, flats, wedges, platforms, loafers, sneakers, and slippers. Complementing these are accessories like socks and shoe charms. Crocs distributes its merchandise across roughly 85 countries, utilizing multiple sales channels including wholesale partners, its own retail outlets, proprietary e-commerce platforms, and external online marketplaces. By December 31, 2021, its extensive retail network featured 193 outlet stores, 107 traditional retail locations, and an additional 373 company-operated stores, along with 73 kiosks and store-in-store concessions. Furthermore, Crocs managed 14 dedicated e-commerce websites. Geographically, the company's reach extends to the Americas, the Asia Pacific region, Europe, the Middle East, and Africa. Crocs, Inc. was established in 1999 and maintains its corporate headquarters in Broomfield, Colorado.",
+      "ceo": "Andrew Rees",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "8010",
+      "phone": "303 848 7000",
+      "address": "Building 5",
+      "city": "Broomfield",
+      "state": "CO",
+      "zip": "80021",
+      "image": "https://images.financialmodelingprep.com/symbol/CROX.png",
+      "ipoDate": "2006-02-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CROX",
+      "date": "2015-12-31",
+      "marketCap": 748410880
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041866.153487
+}

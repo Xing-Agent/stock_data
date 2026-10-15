@@ -1,0 +1,54 @@
+{
+  "symbol": "LEA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LEA",
+      "price": 119.38,
+      "marketCap": 5888394624,
+      "beta": 1.302,
+      "lastDividend": 3.08,
+      "range": "98.79-150.33",
+      "change": -0.22,
+      "changePercentage": -0.18395,
+      "volume": 368771,
+      "averageVolume": 639183,
+      "companyName": "Lear Corporation",
+      "currency": "USD",
+      "cik": "0000842162",
+      "isin": "US5218652049",
+      "cusip": "521865204",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Auto - Parts",
+      "website": "https://www.lear.com",
+      "description": "Lear Corporation, established in 1917 and headquartered in Southfield, Michigan, stands as a premier global supplier to the automotive industry. The company specializes in the conceptualization, development, engineering, manufacturing, and assembly of complete automotive seating solutions and sophisticated electrical distribution systems, along with related components. These critical products are supplied to original equipment manufacturers (OEMs) across North America, Europe, Africa, Asia, and South America. Its Seating segment delivers a comprehensive range of products, including full seat systems, critical seat subsystems, various key components, trim covers, mechanisms, foam components, and headrests. They also provide surface materials, such as premium leather and fabric, for a diverse array of vehicles, from passenger cars and compact vehicles to light trucks, pick-up trucks, and sport utility vehicles. The E-Systems segment focuses on advanced electrical distribution and connection technologies. This includes systems designed to efficiently route electrical signals and networks, and to precisely manage electrical power for different powertrain configurations within a vehicle. Product offerings in this segment encompass wire harnesses, terminals, connectors, custom-engineered components, and junction boxes. Additionally, it supplies complex electronic system products like body domain control modules, smart and passive junction boxes, gateway and communication modules, integrated power modules, and high-voltage switching and power control systems. Beyond hardware, this segment provides cutting-edge software and connected services, featuring Xevo Market – an in-vehicle commerce and service platform – alongside various software solutions and services for cloud, vehicle, and mobile applications. It further extends to cybersecurity software, advanced vehicle positioning systems crucial for automated and autonomous driving, and protocols for both short-range communication and cellular vehicle connectivity. Lear Corporation markets its extensive product portfolio under well-known brands such as XEVO, GUILFORD, EAGLE OTTAWA, ConfigurE+, INTUTM, LEAR CONNEXUSTM, EXO, JOURNEYWARE, ProTec, SMART JUNCTION BOX, STRUCSURE, AVENTINO, and TeXstyle.",
+      "ceo": "Raymond E. Scott Jr.",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "164300",
+      "phone": "248 447 1500",
+      "address": "21557 Telegraph Road",
+      "city": "Southfield",
+      "state": "MI",
+      "zip": "48033",
+      "image": "https://images.financialmodelingprep.com/symbol/LEA.png",
+      "ipoDate": "2009-11-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LEA",
+      "date": "2015-12-31",
+      "marketCap": 9174108214
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041402.6563342
+}

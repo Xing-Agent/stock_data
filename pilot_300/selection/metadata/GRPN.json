@@ -1,0 +1,54 @@
+{
+  "symbol": "GRPN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GRPN",
+      "price": 17.76,
+      "marketCap": 721823143,
+      "beta": 0.236,
+      "lastDividend": 0,
+      "range": "9.17-29.9",
+      "change": -0.71,
+      "changePercentage": -3.84407,
+      "volume": 993724,
+      "averageVolume": 1365978,
+      "companyName": "Groupon, Inc.",
+      "currency": "USD",
+      "cik": "0001490281",
+      "isin": "US3994732069",
+      "cusip": "399473206",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Internet Content & Information",
+      "website": "https://www.groupon.com",
+      "description": "Groupon, Inc., encompassing its various subsidiary entities, operates a digital platform designed to connect shoppers with businesses. The company's operational scope is geographically segmented into two primary areas: North America and its International markets. Its business model involves facilitating the sale of goods and services provided by external merchants, alongside offering items directly from its own inventory. Access to these offerings is primarily granted to customers via its proprietary mobile applications and official websites. The organization was originally established as ThePoint.com, Inc., before officially adopting the name Groupon, Inc. in October 2008. Founded in 2008, Groupon's corporate headquarters are situated in Chicago, Illinois.",
+      "ceo": "Dusan Senkypl",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "1734",
+      "phone": "312 334 1579",
+      "address": "35 West Wacker Drive",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60601",
+      "image": "https://images.financialmodelingprep.com/symbol/GRPN.png",
+      "ipoDate": "2011-11-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GRPN",
+      "date": "2015-12-31",
+      "marketCap": 1789047596
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041343.1236405
+}

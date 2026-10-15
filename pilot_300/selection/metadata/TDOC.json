@@ -1,0 +1,54 @@
+{
+  "symbol": "TDOC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TDOC",
+      "price": 5.81,
+      "marketCap": 1055584040,
+      "beta": 2.144,
+      "lastDividend": 0,
+      "range": "4.4-9.89",
+      "change": -0.19,
+      "changePercentage": -3.16667,
+      "volume": 3512667,
+      "averageVolume": 4313176,
+      "companyName": "Teladoc Health, Inc.",
+      "currency": "USD",
+      "cik": "0001477449",
+      "isin": "US87918A1051",
+      "cusip": "87918A105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Healthcare Information Services",
+      "website": "https://www.teladochealth.com",
+      "description": "Teladoc Health, Inc. offers remote medical services to individuals both domestically in the United States and internationally. Their extensive range of solutions covers a wide array of health needs, from routine and acute conditions to complex and long-term illnesses such as diabetes, hypertension, chronic kidney disease, cancer, congestive heart failure, and various mental health issues. The company delivers numerous programs, including virtual primary and specialized medical care, management for chronic diseases, expert second opinion services, mental wellness support, and core platform and service offerings. They serve a diverse client base, including corporations, health insurance providers, hospitals and healthcare systems, financial service companies, and individual patients. The Teladoc, Livongo, and BetterHelp brands fall under their purview. Founded in 2002, the company, which operated as Teladoc, Inc. until its renaming in August 2018, is based in Purchase, New York.",
+      "ceo": "Charles Divita",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "5124",
+      "phone": "203 635 2002",
+      "address": "155 E 44th Street",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10017",
+      "image": "https://images.financialmodelingprep.com/symbol/TDOC.png",
+      "ipoDate": "2015-06-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TDOC",
+      "date": "2015-12-31",
+      "marketCap": 692974836
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041254.142599
+}

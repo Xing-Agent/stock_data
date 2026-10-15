@@ -1,0 +1,54 @@
+{
+  "symbol": "WDC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WDC",
+      "price": 364.1,
+      "marketCap": 125498716200,
+      "beta": 2.169,
+      "lastDividend": 0.5,
+      "range": "113.5-799.87",
+      "change": -16.61,
+      "changePercentage": -4.3629,
+      "volume": 6718334,
+      "averageVolume": 8375686,
+      "companyName": "Western Digital Corporation",
+      "currency": "USD",
+      "cik": "0000106040",
+      "isin": "US9581021055",
+      "cusip": "958102105",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Computer Hardware",
+      "website": "https://www.westerndigital.com",
+      "description": "Western Digital Corporation designs, manufactures, and markets a broad range of data storage devices and software solutions across the United States, China, Hong Kong, Europe, the Middle East, Africa, and the rest of Asia, serving an international market. The company's product lineup includes client devices such as hard disk drives (HDDs) and solid-state drives (SSDs) for computing platforms like desktops, notebooks, smart video systems, gaming consoles, and set-top boxes. They also provide flash-based embedded storage solutions for mobile phones, tablets, laptops, and various portable and wearable technologies, extending into automotive, Internet of Things (IoT), industrial, and connected home applications. Additionally, Western Digital produces flash-based memory wafers. For data centers, their offerings comprise enterprise helium hard drives and sophisticated flash-based SSDs, often bundled with software tailored for enterprise servers, online transaction processing, data analysis, and other business applications. This segment also includes comprehensive data storage systems, tiered storage models, and various data storage platforms. Consumer-oriented client solutions consist of external HDDs in both mobile and desktop configurations, portable SSDs, and removable memory cards compatible with mobile phones, tablets, imaging systems, cameras, and smart video systems. Furthermore, they offer universal serial bus (USB) flash drives for computing and general consumer markets, alongside wireless drive products designed for on-the-go content backup and high-definition streaming of media and documents to tablets, smartphones, and PCs. Western Digital sells its diverse portfolio through original equipment manufacturers (OEMs), distributors, dealers, resellers, and retailers, utilizing its prominent G-Technology, SanDisk, and WD brands. Founded in 1970, the corporation is headquartered in San Jose, California.",
+      "ceo": "Tiang Yew Tan",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "40000",
+      "phone": "408 717 6000",
+      "address": "5601 Great Oaks Parkway",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95119",
+      "image": "https://images.financialmodelingprep.com/symbol/WDC.png",
+      "ipoDate": "1978-10-31",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WDC",
+      "date": "2015-12-31",
+      "marketCap": 10528160000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041375.6187992
+}

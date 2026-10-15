@@ -1,0 +1,54 @@
+{
+  "symbol": "MKC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MKC",
+      "price": 44.8,
+      "marketCap": 12044549664,
+      "beta": 0.641,
+      "lastDividend": 1.92,
+      "range": "43.25-72.41",
+      "change": 0.16,
+      "changePercentage": 0.35842,
+      "volume": 3953478,
+      "averageVolume": 3786746,
+      "companyName": "McCormick & Company, Incorporated",
+      "currency": "USD",
+      "cik": "0000063754",
+      "isin": "US5797802064",
+      "cusip": "579780206",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Packaged Foods",
+      "website": "https://www.mccormickcorporation.com",
+      "description": "McCormick & Company, Incorporated is a global leader in the manufacture, marketing, and distribution of a wide array of flavorful products, including spices, seasoning mixes, and condiments, to the food industry. Its operations are divided into two primary segments: Consumer and Flavor Solutions. The Consumer segment provides an extensive range of items such as spices, herbs, seasonings, sauces, and desserts. These are sold under numerous prominent brands across various regions: McCormick, French's, Frank's RedHot, Lawry's Cholula Hot Sauce, Gourmet Garden, Club House, and OLD BAY in the Americas; Ducros, Schwartz, Kamis, Drogheria & Alimentari, and Vahiné throughout Europe, the Middle East, and Africa (EMEA); McCormick and DaQiao in China; and McCormick, Aeroplane, and Gourmet Garden in Australia. In addition, it offers specialized regional and ethnic brands like Zatarain's, Stubb's, Thai Kitchen, and Simply Asia, and also produces goods for private labels. Its customer base encompasses a broad spectrum of retailers, including grocery stores, mass merchandisers, warehouse clubs, discount and drug stores, and e-commerce platforms. Distribution to these outlets occurs both directly and indirectly via distributors and wholesale foodservice providers. The Flavor Solutions segment caters to large-scale food manufacturers and the wider foodservice industry. It supplies essential ingredients such as seasoning blends, spices, herbs, condiments, coating systems, and complex flavor formulations. These products are delivered directly to clients or through a network of distributors. Founded in 1889, the company maintains its headquarters in Hunt Valley, Maryland.",
+      "ceo": "Brendan Foley",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "14100",
+      "phone": "410 771 7301",
+      "address": "24 Schilling Road",
+      "city": "Hunt Valley",
+      "state": "MD",
+      "zip": "21031",
+      "image": "https://images.financialmodelingprep.com/symbol/MKC.png",
+      "ipoDate": "1999-04-26",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MKC",
+      "date": "2015-12-31",
+      "marketCap": 10874676000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040574.572032
+}

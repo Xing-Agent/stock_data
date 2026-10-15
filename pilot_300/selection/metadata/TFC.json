@@ -1,0 +1,54 @@
+{
+  "symbol": "TFC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TFC",
+      "price": 45.57,
+      "marketCap": 56774751600,
+      "beta": 0.906,
+      "lastDividend": 2.08,
+      "range": "40.78-56.2",
+      "change": -0.35,
+      "changePercentage": -0.7622,
+      "volume": 7566072,
+      "averageVolume": 8156503,
+      "companyName": "Truist Financial Corporation",
+      "currency": "USD",
+      "cik": "0000092230",
+      "isin": "US89832Q1094",
+      "cusip": "89832Q109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.truist.com",
+      "description": "Truist Financial Corporation operates as a diversified financial holding company, providing an extensive array of banking and trust services throughout the Southeastern and Mid-Atlantic regions of the United States. Its business activities are structured across three main segments: Consumer Banking and Wealth, Corporate and Commercial Banking, and Insurance Holdings. The corporation offers a broad spectrum of deposit products, including both interest-bearing and noninterest-bearing checking accounts, savings accounts, money market deposit accounts, certificates of deposit (CDs), and individual retirement accounts (IRAs). Beyond deposit services, Truist delivers a comprehensive suite of financial solutions. These include various lending options such as automobile, bankcard, consumer, home equity, mortgage, small business, and student loans, alongside specialized commercial financing for areas like floor plan, real estate, and mortgage warehousing, as well as lease and supply chain financing. The company also provides extensive wealth management and investment services, encompassing asset management, investment brokerage, private banking, capital markets, institutional trust, and private equity investment solutions. Further offerings include corporate and investment banking, securities underwriting, and advisory services. Additionally, Truist offers a wide range of insurance products, covering property and casualty, life, health, employee benefits, workers' compensation, professional liability, surety, and title insurance. Digital banking platforms (mobile and online), payment processing, international banking, merchant services, and treasury management are also integral parts of its service portfolio. Headquartered in Charlotte, North Carolina, Truist Financial Corporation was founded in 1872. As of December 31, 2021, the company maintained a substantial presence with 2,517 banking offices. The organization officially adopted its current name, Truist Financial Corporation, in December 2019, having previously operated as BB&T Corporation.",
+      "ceo": "Michael Lyons",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "37849",
+      "phone": "844 487 8478",
+      "address": "214 North Tryon Street",
+      "city": "Charlotte",
+      "state": "NC",
+      "zip": "28202",
+      "image": "https://images.financialmodelingprep.com/symbol/TFC.png",
+      "ipoDate": "1980-03-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TFC",
+      "date": "2015-12-31",
+      "marketCap": 29740098270
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040511.6346247
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "JAGX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "JAGX",
+      "price": 4.18,
+      "marketCap": 1814663,
+      "beta": -0.058,
+      "lastDividend": 0,
+      "range": "2.35-1207.5",
+      "change": 0.02000023,
+      "changePercentage": 0.48077,
+      "volume": 1250926,
+      "averageVolume": 1422045,
+      "companyName": "Jaguar Health, Inc.",
+      "currency": "USD",
+      "cik": "0001585608",
+      "isin": "US47010C8543",
+      "cusip": "47010C854",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://jaguar.health",
+      "description": "Jaguar Health, Inc., a commercial-stage pharmaceutical firm, specializes in developing prescription therapies for both human and animal patients afflicted by gastrointestinal ailments, particularly chronic and severe diarrhea. Its operations are structured into two distinct divisions: Human Health and Animal Health. Presently, the company markets Mytesi, an approved medication providing symptomatic relief for noninfectious diarrhea experienced by adults with HIV/AIDS undergoing antiretroviral therapy. Beyond its commercial product, Jaguar Health is actively advancing Crofelemer, the active pharmaceutical ingredient in Mytesi, for a broad spectrum of additional indications. These include managing diarrhea associated with cancer therapy, seeking orphan drug designation for symptomatic relief in infants and children with congenital diarrheal disorders, and for adult and pediatric patients suffering from short bowel syndrome with intestinal failure. Further potential applications encompass supportive care for diarrhea linked to inflammatory bowel diseases, diarrhea-predominant irritable bowel syndrome (IBS-D), and idiopathic or functional diarrhea. Their pipeline also features lechlemer, a next-generation anti-secretory agent being developed to combat cholera. In the animal health sector, they are developing Canalevia, an oral, plant-derived drug candidate designed to address chemotherapy-induced diarrhea and exercise-induced diarrhea in canines. Established in 2013, Jaguar Health, Inc. maintains its headquarters in San Francisco, California.",
+      "ceo": "Lisa A. Conte",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "47",
+      "phone": "415 371 8300",
+      "address": "200 Pine Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94104",
+      "image": "https://images.financialmodelingprep.com/symbol/JAGX.png",
+      "ipoDate": "2015-05-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "JAGX",
+      "date": "2015-12-31",
+      "marketCap": 1643744.02
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041283.754061
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "PVH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PVH",
+      "price": 81.56,
+      "marketCap": 3760576636,
+      "beta": 1.756,
+      "lastDividend": 0.15,
+      "range": "59.6-100.75",
+      "change": -1.19,
+      "changePercentage": -1.43807,
+      "volume": 837790,
+      "averageVolume": 979973,
+      "companyName": "PVH Corp.",
+      "currency": "USD",
+      "cik": "0000078239",
+      "isin": "US6936561009",
+      "cusip": "693656100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Apparel - Manufacturers",
+      "website": "https://www.pvh.com",
+      "description": "PVH Corp. functions as a global leader in the apparel industry. Its operations are structured into six key segments: Tommy Hilfiger North America, Tommy Hilfiger International, Calvin Klein North America, Calvin Klein International, Heritage Brands Wholesale, and Heritage Brands Retail. The company is involved in the design, marketing, and retail of a vast array of men's, women's, and children's clothing and accessories. Its extensive product portfolio encompasses everything from core apparel items like dress shirts, jeans, sportswear, performance wear, and intimate apparel to swimwear, footwear, handbags, and a variety of lifestyle goods such as watches, jewelry, eyewear, fragrances, and home furnishings including bedding and bath products. PVH boasts a strong brand portfolio, featuring globally recognized names like Tommy Hilfiger and Calvin Klein, alongside established labels such as Van Heusen, IZOD, ARROW, Warner's, Olga, Geoffrey Beene, and True&Co. Additionally, it manages other proprietary, licensed, and private label brands, and actively licenses its own brands for various product categories. The company employs a comprehensive, multi-channel distribution strategy. Its products are sold wholesale to a diverse network of retailers, including department, chain, and specialty stores, as well as warehouse clubs, mass market outlets, and off-price and independent retailers. Concurrently, PVH engages directly with consumers through its company-operated full-price stores, outlet locations, concession points, and various digital commerce sites. With a broad market reach, PVH distributes its merchandise to approximately 40 countries worldwide. Established in 1881, PVH Corp. maintains its corporate headquarters in New York, New York.",
+      "ceo": "Stefan Larsson",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "26000",
+      "phone": "212 381 3500",
+      "address": "285 Madison Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10017",
+      "image": "https://images.financialmodelingprep.com/symbol/PVH.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PVH",
+      "date": "2015-12-31",
+      "marketCap": 6024570000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040493.7332366
+}

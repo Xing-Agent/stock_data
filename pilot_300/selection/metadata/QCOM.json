@@ -1,0 +1,54 @@
+{
+  "symbol": "QCOM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "QCOM",
+      "price": 172.62,
+      "marketCap": 184330442752,
+      "beta": 1.65,
+      "lastDividend": 3.62,
+      "range": "121.99-259.92",
+      "change": -4.24,
+      "changePercentage": -2.39738,
+      "volume": 11157772,
+      "averageVolume": 14505370,
+      "companyName": "QUALCOMM Incorporated",
+      "currency": "USD",
+      "cik": "0000804328",
+      "isin": "US7475251036",
+      "cusip": "747525103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.qualcomm.com",
+      "description": "QUALCOMM Incorporated is a company dedicated to developing and bringing to market fundamental technologies crucial for the global wireless communication industry. Its operations are structured into three primary segments: Qualcomm CDMA Technologies (QCT), Qualcomm Technology Licensing (QTL), and Qualcomm Strategic Initiatives (QSI). The QCT division specializes in creating and supplying integrated circuits and system software, leveraging 3G, 4G, 5G, and other advanced wireless technologies. These components are essential for a range of products, including those used for wireless voice and data communication, networking, application processing, multimedia, and global positioning. The QTL segment generates revenue by licensing its extensive intellectual property portfolio, which encompasses various patent rights vital for the manufacture and sale of wireless devices, particularly those adhering to standards like CDMA2000, WCDMA, LTE, and OFDMA-based 5G. Through its QSI segment, Qualcomm invests in early-stage companies across diverse sectors such as 5G, artificial intelligence, automotive, consumer electronics, enterprise solutions, cloud computing, and the Internet of Things, aiming to support the introduction of new products and services for both existing and emerging communication applications. Furthermore, the company provides development services and related products to United States government agencies and their contractors. Founded in 1985, QUALCOMM Incorporated maintains its headquarters in San Diego, California.",
+      "ceo": "Cristiano Renno Amon",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "52000",
+      "phone": "858 587 1121",
+      "address": "5775 Morehouse Drive",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92121-1714",
+      "image": "https://images.financialmodelingprep.com/symbol/QCOM.png",
+      "ipoDate": "1991-12-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "QCOM",
+      "date": "2015-12-31",
+      "marketCap": 74335130000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040401.5231392
+}

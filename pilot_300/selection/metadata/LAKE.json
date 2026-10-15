@@ -1,0 +1,54 @@
+{
+  "symbol": "LAKE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LAKE",
+      "price": 9.31,
+      "marketCap": 92460822,
+      "beta": 1.448,
+      "lastDividend": 0.12,
+      "range": "7.15-17.72",
+      "change": -0.43,
+      "changePercentage": -4.41478,
+      "volume": 111236,
+      "averageVolume": 112521,
+      "companyName": "Lakeland Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000798081",
+      "isin": "US5117951062",
+      "cusip": "511795106",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Apparel - Footwear & Accessories",
+      "website": "https://www.lakeland.com",
+      "description": "Lakeland Industries, Inc., together with its subsidiaries, manufactures and sells industrial protective clothing and accessories for the industrial and first responder markets. It offers firefighter protective apparel and accessories; high-end chemical protective suits to provide protection from highly concentrated, toxic and/or lethal chemicals, and biological toxins; and limited use/disposable protective clothing, such as coveralls, laboratory coats, shirts, pants, hoods, aprons, sleeves, arm guards, caps, and smocks. The company provides durable woven garments; high performance FR/AR apparel; and services for the inspection, cleaning, decontamination, maintenance, and repair of firefighting protective apparel. The company sells its products to a network of safety and industrial supply distributors through in-house sales teams, customer service group, and independent sales representatives. It serves end users, such as integrated oil, chemical/petrochemical, automobile, steel, glass, construction, smelting, cleanroom, janitorial, pharmaceutical, and high technology electronics manufacturers, as well as scientific, medical laboratories, and the utilities industry; and federal, state, and local governmental agencies and departments. The company has operations in the United States, Europe, Mexico, Asia, Canada, Latin America, and internationally. Lakeland Industries, Inc. was incorporated in 1982 and is headquartered in Huntsville, Alabama.",
+      "ceo": "James Jenkins",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "2585",
+      "phone": "256 350 3873",
+      "address": "1525 Perimeter Parkway",
+      "city": "Huntsville",
+      "state": "AL",
+      "zip": "35806",
+      "image": "https://images.financialmodelingprep.com/symbol/LAKE.png",
+      "ipoDate": "1986-09-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LAKE",
+      "date": "2015-12-31",
+      "marketCap": 86476285
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041540.5217128
+}

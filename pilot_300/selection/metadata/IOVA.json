@@ -1,0 +1,54 @@
+{
+  "symbol": "IOVA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "IOVA",
+      "price": 14.21,
+      "marketCap": 6436717910,
+      "beta": 0.757,
+      "lastDividend": 0,
+      "range": "1.76-15.3",
+      "change": -0.29,
+      "changePercentage": -2,
+      "volume": 10599472,
+      "averageVolume": 16642696,
+      "companyName": "Iovance Biotherapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001425205",
+      "isin": "US4622601007",
+      "cusip": "462260100",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.iovance.com",
+      "description": "Iovance Biotherapeutics, Inc., a biotechnology firm currently in the clinical development stage, is committed to discovering and bringing to market cancer immunotherapy solutions. Its core mission involves leveraging the patient's own immune system to effectively combat and eradicate cancerous cells. The company is presently conducting six Phase 2 clinical trials. These include study C-144-01, evaluating its primary experimental compound, lifileucel, for individuals with advanced melanoma. Another trial, C-145-04, is assessing lifileucel's potential for treating cervical cancer that is recurrent, metastatic, or persistent. Additionally, investigational product LN-145 is undergoing evaluation in trial C-145-03 for recurrent and/or metastatic head and neck squamous cell carcinoma. Iovance Biotherapeutics, Inc. maintains strategic alliances and licensing arrangements with several distinguished entities, including H. Lee Moffitt Cancer Center, M.D. Anderson Cancer Center, Ohio State University, the Centre hospitalier de l'Université de Montreal, Cellectis S.A., and Novartis Pharma AG. Established in 2007, the company was previously known as Lion Biotechnologies, Inc. It adopted its current name, Iovance Biotherapeutics, Inc., in June 2017. Its corporate offices are located in San Carlos, California.",
+      "ceo": "Frederick G. Vogt",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "975",
+      "phone": "650 260 7120",
+      "address": "825 Industrial Road",
+      "city": "San Carlos",
+      "state": "CA",
+      "zip": "94070",
+      "image": "https://images.financialmodelingprep.com/symbol/IOVA.png",
+      "ipoDate": "2010-10-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "IOVA",
+      "date": "2015-12-31",
+      "marketCap": 374790560
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041294.1092606
+}

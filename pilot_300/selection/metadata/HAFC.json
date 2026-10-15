@@ -1,0 +1,54 @@
+{
+  "symbol": "HAFC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HAFC",
+      "price": 30.49,
+      "marketCap": 904007157,
+      "beta": 0.739,
+      "lastDividend": 1.11,
+      "range": "22.85-33.5",
+      "change": -0.4,
+      "changePercentage": -1.29492,
+      "volume": 240037,
+      "averageVolume": 242808,
+      "companyName": "Hanmi Financial Corporation",
+      "currency": "USD",
+      "cik": "0001109242",
+      "isin": "US4104952043",
+      "cusip": "410495204",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.hanmi.com",
+      "description": "Hanmi Financial Corporation serves as the parent company for Hanmi Bank, which delivers a wide spectrum of commercial banking solutions across the United States. The bank's diverse deposit offerings include checking accounts (both interest-bearing and non-interest-bearing), savings accounts, negotiable order of withdrawal (NOW) accounts, money market accounts, and certificates of deposit. Regarding lending, Hanmi provides various types of credit: Real Estate Loans: Covering commercial properties, construction projects, and residential homes. Commercial and Industrial Loans: Such as commercial term loans and lines of credit. International Finance and Trade Services: Including letters of credit and import/export financing. Consumer Loans: Encompassing general consumer loans, secured and unsecured options, home equity loans, residential mortgages, and credit cards. A significant focus is placed on assisting small and mid-sized businesses with Small Business Administration (SBA) and trade finance lending. These SBA programs support a range of business activities, including the acquisition of owner-occupied commercial real estate, funding for business acquisitions and startups, franchise financing, working capital, property improvements and renovations, inventory and equipment purchases, and debt refinancing. Additionally, equipment lease financing is available. As of February 28, 2022, Hanmi Financial operated a network comprising 35 full-service branches and 8 loan production offices situated across California, Texas, Illinois, Virginia, New Jersey, New York, Colorado, Washington, and Georgia. The institution was established in 1982 and maintains its headquarters in Los Angeles, California.",
+      "ceo": "Bonita I. Lee",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "608",
+      "phone": "213 382 2200",
+      "address": "900 Wilshire Boulevard",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90017",
+      "image": "https://images.financialmodelingprep.com/symbol/HAFC.png",
+      "ipoDate": "1994-04-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HAFC",
+      "date": "2015-12-31",
+      "marketCap": 755387120
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041150.9570649
+}

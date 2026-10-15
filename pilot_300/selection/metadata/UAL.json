@@ -1,0 +1,54 @@
+{
+  "symbol": "UAL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UAL",
+      "price": 98.96,
+      "marketCap": 32119420283,
+      "beta": 1.304,
+      "lastDividend": 0,
+      "range": "84.64-138.77",
+      "change": -4.27,
+      "changePercentage": -4.13639,
+      "volume": 5419148,
+      "averageVolume": 4354718,
+      "companyName": "United Airlines Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0000100517",
+      "isin": "US9100471096",
+      "cusip": "910047109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Airlines, Airports & Air Services",
+      "website": "https://www.united.com",
+      "description": "United Airlines Holdings, Inc., through its various subsidiaries, delivers air travel solutions on a global scale. Its vast network extends across North America, Europe, Asia, Africa, the Pacific, the Middle East, and Latin America, facilitating the movement of both passengers and freight. The company operates these services using a combination of its primary and regional aircraft fleets. Beyond its core transportation offerings, United also provides specialized support to external clients, encompassing catering, ground handling, aviation training, and aircraft maintenance. Established in 1968, the enterprise has its principal offices in Chicago, Illinois. Notably, it adopted its current name, United Airlines Holdings, Inc., in June 2019, having previously operated as United Continental Holdings, Inc.",
+      "ceo": "J. Scott Kirby",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "117500",
+      "phone": "872 825 4000",
+      "address": "233 South Wacker Drive",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60606",
+      "image": "https://images.financialmodelingprep.com/symbol/UAL.png",
+      "ipoDate": "2006-02-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UAL",
+      "date": "2015-12-31",
+      "marketCap": 20284200000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041203.5154068
+}

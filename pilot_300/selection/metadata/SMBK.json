@@ -1,0 +1,54 @@
+{
+  "symbol": "SMBK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SMBK",
+      "price": 49.76,
+      "marketCap": 850820016,
+      "beta": 0.71,
+      "lastDividend": 0.34,
+      "range": "33.01-54.14",
+      "change": -0.46,
+      "changePercentage": -0.91597,
+      "volume": 105616,
+      "averageVolume": 121416,
+      "companyName": "SmartFinancial, Inc.",
+      "currency": "USD",
+      "cik": "0001038773",
+      "isin": "US83190L2088",
+      "cusip": "83190L208",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.smartbank.com",
+      "description": "SmartFinancial, Inc. functions as the parent entity for SmartBank, which offers a broad spectrum of financial solutions to both individual clients and corporate entities. The company's operations are structured across distinct segments: Commercial Real Estate, Consumer Real Estate, Construction and Land Development, Commercial and Industrial, and a broader Consumer and Other division. Its suite of deposit products includes non-interest and interest-bearing checking accounts, interest-bearing demand accounts, savings and money market accounts, various time deposits, Individual Retirement Accounts (IRAs), and certificates of deposit (CDs). Additionally, SmartFinancial's lending portfolio encompasses financing for commercial and residential properties, consumer real estate, and construction and land development projects. It also extends commercial and financial loans, mortgage loans, direct consumer installment loans, educational and other revolving credit facilities, and provides overdraft services. Beyond these core offerings, the company delivers wealth management, insurance products, mortgage origination, and convenient digital banking services accessible via the internet and mobile devices. As of March 1, 2022, SmartFinancial maintained a significant regional footprint, operating 41 full-service branches and two dedicated loan production offices across East and Middle Tennessee, Alabama, and the Florida Panhandle. The corporate headquarters are located in Knoxville, Tennessee.",
+      "ceo": "William Young Carroll Jr.",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "585",
+      "phone": "865 437 5700",
+      "address": "5401 Kingston Pike",
+      "city": "Knoxville",
+      "state": "TN",
+      "zip": "37919",
+      "image": "https://images.financialmodelingprep.com/symbol/SMBK.png",
+      "ipoDate": "2003-10-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SMBK",
+      "date": "2015-12-31",
+      "marketCap": 93643800
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041599.2042103
+}

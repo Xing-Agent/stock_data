@@ -1,0 +1,54 @@
+{
+  "symbol": "ITGR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ITGR",
+      "price": 126.61,
+      "marketCap": 4304368400,
+      "beta": 0.58,
+      "lastDividend": 0,
+      "range": "62-126.8",
+      "change": 0.02,
+      "changePercentage": 0.01579904,
+      "volume": 680850,
+      "averageVolume": 881359,
+      "companyName": "Integer Holdings Corporation",
+      "currency": "USD",
+      "cik": "0001114483",
+      "isin": "US45826H1095",
+      "cusip": "45826H109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Devices",
+      "website": "https://www.integer.net",
+      "description": "Integer Holdings Corporation functions as a global leader in outsourced medical device manufacturing, maintaining operations across the United States, Puerto Rico, Costa Rica, and other international regions. The company organizes its business into two primary divisions: Medical and Non-Medical. Within its Medical segment, Integer delivers a broad array of devices and components essential for numerous advanced medical procedures. These solutions cater to areas such as interventional cardiology, structural heart conditions, heart failure management, peripheral and neurovascular interventions, interventional oncology, electrophysiology, vascular access, infusion therapy, hemodialysis, urology, and gastroenterology. Their extensive product portfolio includes cardiac rhythm management devices like implantable pacemakers, defibrillators, cardiac monitors, leads, and heart failure therapies. They also produce neuromodulation devices, such as implantable spinal cord stimulators, alongside critical components like non-rechargeable batteries, feedthroughs, device enclosures, precision-machined parts, and lead sub-assemblies. Furthermore, Integer provides rechargeable battery systems and chargers. A comprehensive range of surgical instruments and components is also offered for arthroscopic, laparoscopic, and general surgery, encompassing items like harmonic scalpels, various blades and shavers, radio frequency and biopsy probes, trocars, electrocautery components, wound dressings, GERD treatment parts, and phacoemulsification needles. Orthopedic offerings comprise specialized instruments for hip, knee, and spine surgeries, including reamers and chisels, among other general medical technologies. The Non-Medical segment concentrates on developing customized battery power and management systems, along with specialized battery solutions, designed for the energy, military, and environmental sectors. Integer primarily collaborates with multinational original equipment manufacturers (OEMs) and their affiliated subsidiaries, supporting their requirements across diverse markets, including cardiac, neuromodulation, orthopedics, vascular, advanced surgical, and portable medical applications. Established in 1970, Integer Holdings Corporation is headquartered in Plano, Texas.",
+      "ceo": "Payman Khales",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "11000",
+      "phone": "214 618 5243",
+      "address": "5830 Granite Parkway",
+      "city": "Plano",
+      "state": "TX",
+      "zip": "75024",
+      "image": "https://images.financialmodelingprep.com/symbol/ITGR.png",
+      "ipoDate": "2000-09-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ITGR",
+      "date": "2015-12-31",
+      "marketCap": 1612695000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041463.2112882
+}

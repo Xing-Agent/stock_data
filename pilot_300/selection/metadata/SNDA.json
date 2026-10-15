@@ -1,0 +1,54 @@
+{
+  "symbol": "SNDA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SNDA",
+      "price": 35.79,
+      "marketCap": 1696018023,
+      "beta": 0.739,
+      "lastDividend": 0,
+      "range": "24.95-44.39",
+      "change": -0.2,
+      "changePercentage": -0.55571,
+      "volume": 430894,
+      "averageVolume": 565815,
+      "companyName": "Sonida Senior Living, Inc.",
+      "currency": "USD",
+      "cik": "0001043000",
+      "isin": "US1404752032",
+      "cusip": "140475203",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Care Facilities",
+      "website": "https://www.sonidaseniorliving.com",
+      "description": "Sonida Senior Living, Inc. is a company dedicated to the senior housing sector within the United States, actively involved in the development, ownership, management, and operation of various communities. Their independent living options provide residents with a comprehensive suite of amenities, including daily meal service, scheduled transportation, social and recreational programs, laundry and housekeeping, and continuous on-site staff. Residents also have access to health screenings, periodic specialized offerings, nutritional guidance, and exercise classes. For those requiring more assistance, Sonida offers assisted living programs. These encompass personal care support for daily activities such as mobility, bathing, dressing, eating, grooming, maintaining personal hygiene, and medication management. Essential support services like meals, assistance with social and leisure activities, laundry, general maintenance, property upkeep, and transport are also provided. Additionally, optional supplemental services are available, covering extra transportation, personal maintenance requests, additional laundry, and specialized care for residents experiencing various forms of dementia. The company further extends its offerings to include dedicated memory care facilities and facilitates access to home care services through external partners. As of December 31, 2021, Sonida managed and operated 75 senior living communities across 18 states, providing accommodation for approximately 9,500 residents. Established in 1990 and headquartered in Addison, Texas, the company was formerly known as Capital Senior Living Corporation, adopting its current name, Sonida Senior Living, Inc., in November 2021.",
+      "ceo": "Brandon Ribar",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "5140",
+      "phone": "972 770 5600",
+      "address": "14755 Preston Road",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75254",
+      "image": "https://images.financialmodelingprep.com/symbol/SNDA.png",
+      "ipoDate": "1997-10-31",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SNDA",
+      "date": "2015-12-31",
+      "marketCap": 594410497
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041299.2733696
+}

@@ -1,0 +1,63 @@
+{
+  "symbol": "VSH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VSH",
+      "price": 28.89,
+      "marketCap": 4081601041,
+      "beta": 1.795,
+      "lastDividend": 0.4,
+      "range": "11.77-69.47",
+      "change": -2.87,
+      "changePercentage": -9.03652,
+      "volume": 3881013,
+      "averageVolume": 6003251,
+      "companyName": "Vishay Intertechnology, Inc.",
+      "currency": "USD",
+      "cik": "0000103730",
+      "isin": "US9282981086",
+      "cusip": "928298108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Semiconductors",
+      "website": "https://www.vishay.com",
+      "description": "Vishay Intertechnology, Inc. is a global manufacturer and supplier of discrete semiconductors and passive electronic components, serving customers across Asia, Europe, and the Americas. The company organizes its operations across six primary segments: Metal Oxide Semiconductor Field Effect Transistors (MOSFETs), Diodes, Optoelectronic Components, Resistors, Inductors, and Capacitors. The MOSFETs division offers a variety of products, including low- and medium-voltage TrenchFET MOSFETs, high-voltage planar MOSFETs, high-voltage Super Junction MOSFETs, along with power integrated circuits and integrated function power devices. Its Diodes segment provides rectifiers, small signal diodes, protection diodes, thyristors (also known as silicon-controlled rectifiers), and power modules. The Optoelectronic Components unit features a range of standard and custom-designed products such as infrared (IR) emitters and detectors, IR remote control receivers, optocouplers, solid-state relays, optical sensors, light-emitting diodes (LEDs), 7-segment displays, and IR data transceiver modules. The Resistors segment delivers fundamental electronic components that are essential for adjusting and regulating voltage and current levels within diverse electronic circuitry. The Inductors segment supplies components designed to create an internal magnetic field that modifies the phase of alternating current and provides resistance against it. The Capacitors segment offers devices specifically engineered to store electrical energy and then release it as needed. Vishay markets its extensive product portfolio under numerous recognized brand names, including Siliconix, Dale, Draloric, Beyschlag, Sfernice, MCB, UltraSource, Applied Thin-Film Products, IHLP, HiRel Systems, Sprague, Vitramon, Barry, Roederstein, ESTA, and BCcomponents. Its products cater to a wide array of end markets, such as industrial, computing, automotive, consumer, telecommunications, power supply, military, aerospace, and medical sectors. Established in 1962, Vishay Intertechnology, Inc. maintains its corporate headquarters in Malvern, Pennsylvania.",
+      "ceo": "Joel Smejkal",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "22600",
+      "phone": "610 644 1300",
+      "address": "63 Lancaster Avenue",
+      "city": "Malvern",
+      "state": "PA",
+      "zip": "19355-2143",
+      "image": "https://images.financialmodelingprep.com/symbol/VSH.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VSH",
+      "date": "2015-12-31",
+      "marketCap": 1781387650
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040793.978687,
+  "previous_attempts": [
+    {
+      "symbol": "VSH",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040343.04929
+    }
+  ]
+}

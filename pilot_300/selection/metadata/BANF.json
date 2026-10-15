@@ -1,0 +1,54 @@
+{
+  "symbol": "BANF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BANF",
+      "price": 106.73,
+      "marketCap": 3584675085,
+      "beta": 0.655,
+      "lastDividend": 1.99,
+      "range": "101.48-126.14",
+      "change": -0.04,
+      "changePercentage": -0.03746371,
+      "volume": 145313,
+      "averageVolume": 157051,
+      "companyName": "BancFirst Corporation",
+      "currency": "USD",
+      "cik": "0000760498",
+      "isin": "US05945F1030",
+      "cusip": "05945F103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.bancfirst.bank",
+      "description": "BancFirst Corporation functions as the parent bank holding company for BancFirst, delivering a wide spectrum of commercial banking services to both retail customers and small to mid-sized businesses. Its operations are organized into key divisions: Metropolitan Banks, Community Banks, Pegasus Bank, and a segment for Other Financial Services. The institution presents a comprehensive selection of deposit options, such as checking, negotiable order of withdrawal (NOW) accounts, savings, money market, sweep, and club accounts, in addition to individual retirement accounts (IRAs) and certificates of deposit (CDs). It also provides convenient features like overdraft protection and automatic drafting services. Regarding lending, BancFirst offers various commercial and financial loans tailored to support working capital, the acquisition or expansion of facilities, equipment purchases, and other business necessities. Its lending portfolio includes specialized areas like private banking, financing for the energy sector, commercial and residential real estate, and general commercial and industrial (C&I) loans. Moreover, it extends consumer loans to facilitate purchases of personal goods such as vehicles, boats, household items, as well as funding for vacations and educational pursuits. Beyond its core banking activities, the corporation engages in investment management and the administration of trusts for individuals, corporate entities, and employee benefit plans. It also acts as a bond trustee and paying agent for numerous municipal and governmental bodies throughout Oklahoma. Additional services encompass correspondent banking, including item processing and research, real estate investment ventures, and insurance agency operations. Rounding out its offerings are funds transfer, collection services, safe deposit boxes, and cash management solutions. BancFirst primarily caters to clients in Oklahoma's non-metropolitan trade centers and urban areas within its metropolitan statistical regions. The company maintains an extensive network of 108 banking branches across Oklahoma, supplemented by three locations in Dallas, Texas. Established in 1984, BancFirst Corporation was initially known as United Community Corporation before changing its name in November 1988, and its corporate headquarters are situated in Oklahoma City, Oklahoma.",
+      "ceo": "David R. Harlow",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "2260",
+      "phone": "405 270 1086",
+      "address": "100 North Broadway Avenue",
+      "city": "Oklahoma City",
+      "state": "OK",
+      "zip": "73102",
+      "image": "https://images.financialmodelingprep.com/symbol/BANF.png",
+      "ipoDate": "1990-03-26",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BANF",
+      "date": "2015-12-31",
+      "marketCap": 910632390
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040531.9907591
+}

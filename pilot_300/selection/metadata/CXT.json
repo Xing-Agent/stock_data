@@ -1,0 +1,54 @@
+{
+  "symbol": "CXT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CXT",
+      "price": 52.76,
+      "marketCap": 3036934188,
+      "beta": 1.082,
+      "lastDividend": 0.71,
+      "range": "35.71-68.54",
+      "change": 0.49,
+      "changePercentage": 0.93744,
+      "volume": 707377,
+      "averageVolume": 799837,
+      "companyName": "Crane NXT, Co.",
+      "currency": "USD",
+      "cik": "0000025445",
+      "isin": "US2244411052",
+      "cusip": "224441105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.cranenxt.com",
+      "description": "Crane NXT, Co. focuses its efforts on developing technologies for payment processing and merchandising. The company supplies integrated electronic hardware and accompanying software solutions. These offerings are underpinned by its deep and proprietary core capabilities, which include secure payment verification and authentication, as well as sophisticated tools for automation, field service management, remote diagnostics, and software designed to boost efficiency. Crane NXT is headquartered in Stamford, Connecticut.",
+      "ceo": "Aaron W. Saak",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "4800",
+      "phone": "610 430 2510",
+      "address": "950 Winter Street 4th FloorWaltham, 02451United States",
+      "city": "Waltham",
+      "state": "MA",
+      "zip": "02451",
+      "image": "https://images.financialmodelingprep.com/symbol/CXT.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CXT",
+      "date": "2015-12-31",
+      "marketCap": 972270000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040534.5905187
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "TILE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TILE",
+      "price": 35.14,
+      "marketCap": 2040094587,
+      "beta": 1.997,
+      "lastDividend": 0.1,
+      "range": "24.4-40.5",
+      "change": -0.5,
+      "changePercentage": -1.40292,
+      "volume": 586247,
+      "averageVolume": 513322,
+      "companyName": "Interface, Inc.",
+      "currency": "USD",
+      "cik": "0000715787",
+      "isin": "US4586653044",
+      "cusip": "458665304",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Furnishings, Fixtures & Appliances",
+      "website": "https://www.interface.com",
+      "description": "Interface, Inc. designs, produces, and sells modular carpet products in the United States, Canada, Latin America, Europe, Africa, Asia, and Australia. The company offers modular carpets; luxury vinyl tiles; modular resilient flooring products; rubber flooring; and carpet tiles used in commercial interiors, include offices, educational facilities, healthcare facilities, airports, hospitality spaces, retail spaces, and residential interiors. It also provides carpet replacement, installation, and maintenance services; and other products and services, including TacTiles carpet tile installation system and adhesives and products for carpet installation and maintenance, as well as project management services. The company sells its products under the Interface, FLOR, NORAPLAN, and NORAMENT brands through direct sales to end users and indirect sales through independent contractors, installers and distributors. Interface, Inc. was incorporated in 1973 and is headquartered in Atlanta, Georgia.",
+      "ceo": "Laurel Hurd",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "3570",
+      "phone": "770 437 6800",
+      "address": "1280 West Peachtree Street",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30309",
+      "image": "https://images.financialmodelingprep.com/symbol/TILE.png",
+      "ipoDate": "1983-04-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TILE",
+      "date": "2015-12-31",
+      "marketCap": 1257210900
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041440.3212664
+}

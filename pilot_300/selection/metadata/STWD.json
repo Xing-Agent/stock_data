@@ -1,0 +1,54 @@
+{
+  "symbol": "STWD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "STWD",
+      "price": 12.38,
+      "marketCap": 4589867297,
+      "beta": 1.052,
+      "lastDividend": 1.92,
+      "range": "12.27-19.06",
+      "change": -0.1,
+      "changePercentage": -0.80128,
+      "volume": 5542895,
+      "averageVolume": 4450709,
+      "companyName": "Starwood Property Trust, Inc.",
+      "currency": "USD",
+      "cik": "0001465128",
+      "isin": "US85571B1052",
+      "cusip": "85571B105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Mortgage",
+      "website": "https://www.starwoodpropertytrust.com",
+      "description": "Starwood Property Trust, Inc. operates as a real estate investment trust (REIT) in the United States and internationally. It operates through four segments: Commercial and Residential Lending; Infrastructure Lending; Property; and Investing and Servicing. The Commercial and Residential Lending segment originates, acquires, finances, and manages commercial first mortgages, non-agency residential mortgages, subordinated mortgages, mezzanine loans, preferred equity, commercial mortgage-backed securities (CMBS), and residential mortgage-backed securities, as well as other real estate and real estate-related debt investments, including distressed or non-performing loans. Its Infrastructure Lending segment originates, acquires, finances, and manages infrastructure debt investments. The Property segment engages primarily in acquiring and managing equity interests in stabilized and to be stabilized commercial real estate properties, including multifamily properties, multi-tenant medical office net lease properties and diversified single-tenant triple net lease properties that are held for investment. Its Investing and Servicing segment manages and works out problem assets; acquires and manages unrated, investment grade, and non-investment grade rated CMBS comprising subordinated interests of securitization and re-securitization transactions; originates conduit loans for the primary purpose of selling these loans into securitization transactions; and acquires commercial real estate assets that include properties acquired from CMBS trusts. The company qualifies as a REIT for federal income tax purposes and would not be subject to federal corporate income taxes if it distributes at least 90% of its taxable income to its stockholders. Starwood Property Trust, Inc. was incorporated in 2009 and is headquartered in Miami Beach, Florida.",
+      "ceo": "Barry S. Sternlicht",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "324",
+      "phone": "203 422 7700",
+      "address": "2340 Collins Avenue",
+      "city": "Miami Beach",
+      "state": "FL",
+      "zip": "33139",
+      "image": "https://images.financialmodelingprep.com/symbol/STWD.png",
+      "ipoDate": "2009-08-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "STWD",
+      "date": "2015-12-31",
+      "marketCap": 4863591360
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041236.9879677
+}

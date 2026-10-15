@@ -1,0 +1,54 @@
+{
+  "symbol": "INTG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "INTG",
+      "price": 32.59,
+      "marketCap": 70029783,
+      "beta": 0.039,
+      "lastDividend": 0,
+      "range": "19.79-52",
+      "change": -0.81,
+      "changePercentage": -2.42515,
+      "volume": 14160,
+      "averageVolume": 89824,
+      "companyName": "The InterGroup Corporation",
+      "currency": "USD",
+      "cik": "0000069422",
+      "isin": "US4586851044",
+      "cusip": "458685104",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Travel Lodging",
+      "website": "https://www.intgla.com",
+      "description": "The InterGroup Corporation, established in Los Angeles, California, in 1965, conducts its operations through three main segments: Hotel Operations, Real Estate Operations, and Investment Transactions. Within its Hotel Operations division, the company oversees the Hilton San Francisco Financial District, a prominent hotel located in San Francisco, California. This facility features 544 guest rooms and luxury suites, approximately 22,000 square feet of meeting space, a grand ballroom, a five-level underground parking garage, a pedestrian skybridge, and a dedicated Chinese cultural center. As of June 30, 2021, the company's Real Estate Operations portfolio encompassed 16 apartment complexes, 3 strategically held single-family residences, and 1 commercial real estate asset situated across the United States. It also owned roughly two undeveloped acres in Maui, Hawaii. The Investment Transactions segment actively engages in a diverse range of income-generating financial instruments. These include corporate debt and equity securities, shares in publicly traded investment funds, mortgage-backed securities, and holdings in Real Estate Investment Trusts (REITs) and other firms predominantly focused on real estate investments.",
+      "ceo": "John V. Winfield",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "214",
+      "phone": "310 889 2500",
+      "address": "1516 South Bundy Drive",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90025",
+      "image": "https://images.financialmodelingprep.com/symbol/INTG.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "INTG",
+      "date": "2015-12-31",
+      "marketCap": 60746034
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041271.6245086
+}

@@ -1,0 +1,63 @@
+{
+  "symbol": "AJG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AJG",
+      "price": 237.04,
+      "marketCap": 60895575763,
+      "beta": 0.547,
+      "lastDividend": 2.75,
+      "range": "190.75-304.57",
+      "change": 4.14,
+      "changePercentage": 1.77759,
+      "volume": 1005781,
+      "averageVolume": 1537287,
+      "companyName": "Arthur J. Gallagher & Co.",
+      "currency": "USD",
+      "cik": "0000354190",
+      "isin": "US3635761097",
+      "cusip": "363576109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Brokers",
+      "website": "https://www.ajg.com",
+      "description": "Arthur J. Gallagher & Co., alongside its various subsidiaries, operates globally, providing a wide array of services that encompass insurance brokerage, expert consulting, and outsourced claims settlement and administration. Its geographic reach extends across the United States, Australia, Bermuda, Canada, the Caribbean, New Zealand, India, and the United Kingdom. The company's business model is divided into two primary segments: Brokerage and Risk Management. The Brokerage division manages both retail and wholesale insurance operations. It also supports other brokers, including independent ones, in securing specialized or hard-to-place insurance coverage. This segment functions as a wholesale broker, managing general agent (MGA), and managing general underwriter (MGU) to distribute tailored insurance products to underwriting firms. Key activities within this segment include marketing, underwriting, policy issuance, premium collection, agent recruitment and supervision, claims payment, and reinsurance negotiations. It delivers essential brokerage and consulting solutions to a diverse client base, from commercial businesses, non-profit organizations, and public entities to individuals, specializing in insurance placement, managing loss exposure, and overseeing employer-sponsored benefit programs. The Risk Management segment focuses on offering contract-based claims settlement and administration services to businesses and public sector organizations. Its services also include comprehensive claims management, specialized loss control consulting, and independent insurance property appraisals. Arthur J. Gallagher & Co. delivers its extensive services through a broad network of associated insurance brokers and consultants. Its clientele is varied, serving commercial, industrial, public, religious, and non-profit organizations. The company was founded in 1927 and maintains its corporate headquarters in Rolling Meadows, Illinois.",
+      "ceo": "J. Patrick Gallagher Jr.",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "67456",
+      "phone": "630 773 3800",
+      "address": "2850 Golf Road",
+      "city": "Rolling Meadows",
+      "state": "IL",
+      "zip": "60008-4050",
+      "image": "https://images.financialmodelingprep.com/symbol/AJG.png",
+      "ipoDate": "1984-06-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AJG",
+      "date": "2015-12-31",
+      "marketCap": 7247935720
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040856.987394,
+  "previous_attempts": [
+    {
+      "symbol": "AJG",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040436.516868
+    }
+  ]
+}

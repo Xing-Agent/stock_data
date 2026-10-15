@@ -1,0 +1,54 @@
+{
+  "symbol": "USLM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "USLM",
+      "price": 104.88,
+      "marketCap": 3008835511,
+      "beta": 0.654,
+      "lastDividend": 0.24,
+      "range": "96.27-141.44",
+      "change": -1.57,
+      "changePercentage": -1.47487,
+      "volume": 109948,
+      "averageVolume": 196485,
+      "companyName": "United States Lime & Minerals, Inc.",
+      "currency": "USD",
+      "cik": "0000082020",
+      "isin": "US9119221029",
+      "cusip": "911922102",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Construction Materials",
+      "website": "https://www.uslm.com",
+      "description": "United States Lime & Minerals, Inc. (USLM) operates as a domestic producer and supplier of a diverse range of lime and limestone products. The company sources limestone through its open-pit quarries and an underground mine, subsequently processing it into various forms such as pulverized limestone, quicklime, hydrated lime, and lime slurry. These essential materials are distributed to a wide array of customers, including the construction sector (for roads, highways, and buildings), industrial clients (like paper and glass manufacturers), environmental applications (suchprising municipal sanitation, water treatment, and flue gas treatment), steel producers, oil and gas service companies, roof shingle manufacturers, and agricultural producers for poultry and cattle feed. Furthermore, USLM holds royalty and non-operating working interests in natural gas wells situated in the Barnett Shale Formation of Johnson County, Texas. The company was founded in 1950 and is headquartered in Dallas, Texas.",
+      "ceo": "Timothy W. Byrne",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "346",
+      "phone": "972 991 8400",
+      "address": "5429 LBJ Freeway",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75240",
+      "image": "https://images.financialmodelingprep.com/symbol/USLM.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "USLM",
+      "date": "2015-12-31",
+      "marketCap": 306456479
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041516.266449
+}

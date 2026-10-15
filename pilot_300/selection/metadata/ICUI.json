@@ -1,0 +1,54 @@
+{
+  "symbol": "ICUI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ICUI",
+      "price": 162.69,
+      "marketCap": 4068388830,
+      "beta": 0.755,
+      "lastDividend": 0,
+      "range": "113.37-192.85",
+      "change": -0.54,
+      "changePercentage": -0.33082,
+      "volume": 258438,
+      "averageVolume": 283766,
+      "companyName": "ICU Medical, Inc.",
+      "currency": "USD",
+      "cik": "0000883984",
+      "isin": "US44930G1076",
+      "cusip": "44930G107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.icumed.com",
+      "description": "ICU Medical, Inc., operating globally through its subsidiaries, is a medical technology firm that specializes in the development, manufacture, and sale of devices for both infusion therapy and critical care. Their extensive product line for infusion therapy encompasses: Needlefree Connectors: Such as the MicroClave, MicroClave Clear, and NanoClave brands. Catheter Maintenance & Disinfection: Including Neutron patency devices and SwabCap/SwabTip disinfecting caps. Hemodialysis Solutions: Like Tego connectors and ClearGuard HD antimicrobial caps. Hazardous Drug Handling: With closed system transfer devices (ChemoClave, ChemoLock) and the Diana compounding system for safe preparation. They also provide a comprehensive range of intravenous (IV) solutions, diluents, and irrigation fluids, available in diverse packaging options like flexible containers and pour bottles. These include common formulations such as sodium chloride, dextrose, balanced electrolytes, lactated ringer's, mannitol, and sterile water, alongside specialized irrigation solutions like acetic acid and glycine. In medication management, ICU Medical offers sophisticated infusion pumps, including the Plum 360 and LifeCare PCA brands. Its advanced ICU Medical MedNet software enhances medication safety by integrating smart pumps with hospital electronic health records (EHRs), asset tracking, and alarm notification platforms. Accompanying professional services are also provided. For critical care environments, their portfolio features: Hemodynamic Monitoring: Systems like Cogent 2-in-1 and CardioFlo. Cardiac Output & Oximetry: TDQ, OptiQ, and TriOx catheters. Blood Pressure Transducers: Such as Transpac. Blood Sampling Systems: Including the SafeSet closed blood sampling and conservation systems. The company distributes its products to a wide spectrum of healthcare providers, including acute care hospitals, wholesalers, ambulatory clinics, and various alternate site facilities such as outpatient clinics, home healthcare services, and long-term care centers. Established in 1984, ICU Medical maintains its headquarters in San Clemente, California.",
+      "ceo": "Vivek Jain",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "13000",
+      "phone": "949 366 2183",
+      "address": "951 Calle Amanecer",
+      "city": "San Clemente",
+      "state": "CA",
+      "zip": "92673",
+      "image": "https://images.financialmodelingprep.com/symbol/ICUI.png",
+      "ipoDate": "1992-03-31",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ICUI",
+      "date": "2015-12-31",
+      "marketCap": 1809216760
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040547.744587
+}

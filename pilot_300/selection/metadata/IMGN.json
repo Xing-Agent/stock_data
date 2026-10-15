@@ -1,0 +1,54 @@
+{
+  "symbol": "IMGN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "IMGN",
+      "price": 31.235,
+      "marketCap": 8725621690,
+      "beta": 1.171,
+      "lastDividend": 0,
+      "range": "3.61-31.25",
+      "change": 0.005,
+      "changePercentage": 0.016,
+      "volume": 19311442,
+      "averageVolume": 9187636,
+      "companyName": "ImmunoGen, Inc.",
+      "currency": "USD",
+      "cik": "0000855654",
+      "isin": "US45253H1014",
+      "cusip": "45253H101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.abbvie.com/immunogen.html",
+      "description": "ImmunoGen, Inc. is a clinical-stage biotechnology enterprise that specializes in the creation of antibody-drug conjugate (ADC) therapies for cancer treatment. A prominent drug in their pipeline is mirvetuximab soravtansine, an ADC designed to target folate-receptor alpha (FRa), which is currently undergoing Phase III clinical trials for patients with platinum-resistant ovarian cancer. Another significant candidate, Pivekimab sunirine, a CD123-targeting ADC, is progressing through Phase II studies for acute myeloid leukemia and blastic plasmacytoid dendritic cell neoplasm. Beyond its clinical efforts, the company's preclinical portfolio includes IMGC936, an ADC being co-developed with MacroGenics, Inc., and IMGN151, another anti-FRa therapeutic. ImmunoGen maintains strategic collaborations with a range of key industry players, such as Roche, Amgen/Oxford BioTherapeutics, Bayer HealthCare AG, Eli Lilly and Company, Novartis Institutes for BioMedical Research, Inc., CytomX Therapeutics, Inc., Fusion Pharmaceuticals Inc., Debiopharm International SA, and MacroGenics, Inc. Founded in 1980, ImmunoGen, Inc. is headquartered in Waltham, Massachusetts.",
+      "ceo": "Mark Joseph Enyedy",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "277",
+      "phone": "781 895 0600",
+      "address": "830 Winter Street",
+      "city": "Waltham",
+      "state": "MA",
+      "zip": "02451-1477",
+      "image": "https://images.financialmodelingprep.com/symbol/IMGN.png",
+      "ipoDate": "1989-11-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "IMGN",
+      "date": "2015-12-31",
+      "marketCap": 1181064950
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041378.0409243
+}

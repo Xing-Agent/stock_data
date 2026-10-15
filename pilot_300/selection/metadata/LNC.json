@@ -1,0 +1,54 @@
+{
+  "symbol": "LNC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LNC",
+      "price": 40.22,
+      "marketCap": 7699998340,
+      "beta": 1.151,
+      "lastDividend": 1.8,
+      "range": "32.18-47.67",
+      "change": -0.41,
+      "changePercentage": -1.00911,
+      "volume": 1507680,
+      "averageVolume": 1964280,
+      "companyName": "Lincoln National Corporation",
+      "currency": "USD",
+      "cik": "0000059558",
+      "isin": "US5341871094",
+      "cusip": "534187109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Life",
+      "website": "https://www.lincolnfinancial.com",
+      "description": "Lincoln National Corporation (LNC) is a U.S.-based financial services company primarily involved in the insurance and retirement sectors. Operating through various subsidiaries, its operations are structured across four key divisions: Annuities, Retirement Plan Services, Life Insurance, and Group Protection. The Annuities division provides a range of annuity products, including fixed, variable, and indexed variable options. Its Retirement Plan Services segment caters to employers, focusing predominantly on the defined contribution market. This unit delivers a suite of retirement solutions, encompassing individual and group variable and fixed annuities, alongside mutual fund-based programs. Furthermore, it offers comprehensive plan administration services such as recordkeeping, compliance verification, participant education, and trust and custodial support. The Life Insurance segment delivers various life coverage options, from term insurance to universal life products, specifically single and survivorship universal life, variable universal life, and indexed universal life policies. It also makes available critical illness and long-term care riders to enhance these plans. Finally, the Group Protection segment focuses on providing non-medical group insurance benefits and services to the employer sector. Its offerings include short-term and long-term disability, statutory disability, paid family medical leave administration, and absence management. Additionally, it offers group term life, dental, vision, accident, and critical illness coverage, all available through both employee-contributed and employer-funded schemes. Lincoln National distributes its financial products and services through an extensive network of consultants, brokers, planners, agents, financial advisors, third-party administrators, and other intermediary partners. Established in 1905, Lincoln National Corporation maintains its headquarters in Radnor, Pennsylvania.",
+      "ceo": "Ellen R. Gail Cooper",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "9423",
+      "phone": "484 583 1400",
+      "address": "150 North Radnor-Chester Road",
+      "city": "Radnor",
+      "state": "PA",
+      "zip": "19087",
+      "image": "https://images.financialmodelingprep.com/symbol/LNC.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LNC",
+      "date": "2015-12-31",
+      "marketCap": 12146654004
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041269.1725197
+}

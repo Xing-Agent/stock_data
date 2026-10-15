@@ -1,0 +1,54 @@
+{
+  "symbol": "MCFT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MCFT",
+      "price": 19.11,
+      "marketCap": 462887580,
+      "beta": 1.116,
+      "lastDividend": 0,
+      "range": "17.19-28.44",
+      "change": -0.48,
+      "changePercentage": -2.45023,
+      "volume": 173270,
+      "averageVolume": 192230,
+      "companyName": "MasterCraft Boat Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001638290",
+      "isin": "US57637H1032",
+      "cusip": "57637H103",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Auto - Recreational Vehicles",
+      "website": "https://www.mastercraft.com",
+      "description": "MasterCraft Boat Holdings, Inc., a company founded in 1968 and based in Vonore, Tennessee, operates as a designer, manufacturer, and marketer of recreational powerboats. Previously known as MCBC Holdings, Inc., the company adopted its current name in November 2018. Its operations are divided into three main segments: The MasterCraft segment delivers high-performance sport boats and luxury day boats under its MasterCraft and Aviara brands. These vessels are crafted for specialized activities such as water skiing, wakeboarding, and wake surfing, alongside general recreational boating. The NauticStar segment offers boats primarily tailored for saltwater fishing and broad recreational use. The Crest segment specializes in pontoon boats, also intended for diverse leisure pursuits on the water. Beyond these core product lines, MasterCraft Boat Holdings also provides various types of boats, including ski/wake, outboard, and sterndrive models, along with a selection of accessories like trailers and aftermarket components. Its products are distributed internationally and across North America through an extensive network of independent dealerships, under the MasterCraft, NauticStar, Crest, and Aviara brand names.",
+      "ceo": "Bradley Nelson",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "1400",
+      "phone": "423 884 2221",
+      "address": "100 Cherokee Cove Drive",
+      "city": "Vonore",
+      "state": "TN",
+      "zip": "37885",
+      "image": "https://images.financialmodelingprep.com/symbol/MCFT.png",
+      "ipoDate": "2015-07-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MCFT",
+      "date": "2015-12-31",
+      "marketCap": 254475951
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041321.7044988
+}

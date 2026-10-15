@@ -1,0 +1,54 @@
+{
+  "symbol": "FAST",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FAST",
+      "price": 52,
+      "marketCap": 59670000000,
+      "beta": 0.69,
+      "lastDividend": 0.96,
+      "range": "38.97-52.92",
+      "change": 0.57,
+      "changePercentage": 1.1083,
+      "volume": 25395555,
+      "averageVolume": 7461647,
+      "companyName": "Fastenal Company",
+      "currency": "USD",
+      "cik": "0000815556",
+      "isin": "US3119001044",
+      "cusip": "311900104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Industrial - Distribution",
+      "website": "https://www.fastenal.com",
+      "description": "Fastenal Company, along with its associated entities, operates as a global wholesale supplier of industrial and construction materials, with significant operations throughout North America, including the United States, Canada, and Mexico, and other international markets. Branded as Fastenal, the company offers a comprehensive range of fasteners, such as threaded bolts, nuts, screws, studs, and washers, which are vital for manufacturing processes, building developments, and equipment servicing. Beyond fasteners, its product catalog extends to diverse hardware and miscellaneous items like pins, machinery keys, concrete anchors, metal framing systems, wire ropes, strut products, and rivets, along with their related accessories. Fastenal serves a wide array of clients, including original equipment manufacturers, maintenance, repair, and operations departments within the manufacturing sector, and various non-residential construction contractors spanning general, electrical, plumbing, sheet metal, and road construction. Its customer base further encompasses agricultural businesses, transportation services (trucking, railroads), mining operations, educational institutions, retail establishments, the oil and gas exploration, production, and refinement industries, and governmental bodies at federal, state, and local levels. The company distributes its offerings through an extensive network of 3,209 in-market facilities and 15 major distribution centers. Established in 1967, Fastenal Company's corporate headquarters are located in Winona, Minnesota.",
+      "ceo": "Jeffery Michael Watts",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "22230",
+      "phone": "507 454 5374",
+      "address": "2001 Theurer Boulevard",
+      "city": "Winona",
+      "state": "MN",
+      "zip": "55987-1500",
+      "image": "https://images.financialmodelingprep.com/symbol/FAST.png",
+      "ipoDate": "1987-08-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FAST",
+      "date": "2015-12-31",
+      "marketCap": 11794918720
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041369.3959506
+}

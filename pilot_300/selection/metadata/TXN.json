@@ -1,0 +1,54 @@
+{
+  "symbol": "TXN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TXN",
+      "price": 280.65,
+      "marketCap": 256302963076,
+      "beta": 1.339,
+      "lastDividend": 5.68,
+      "range": "152.73-334.03",
+      "change": -7.2,
+      "changePercentage": -2.5013,
+      "volume": 6924604,
+      "averageVolume": 7254340,
+      "companyName": "Texas Instruments Incorporated",
+      "currency": "USD",
+      "cik": "0000097476",
+      "isin": "US8825081040",
+      "cusip": "882508104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.ti.com",
+      "description": "Texas Instruments Incorporated (TI) specializes in the global design, production, and sale of semiconductors to electronics engineers and manufacturers. Its operations are structured into two core segments: Analog and Embedded Processing. The Analog division provides a comprehensive suite of power management products, such as battery-management solutions, various DC/DC and AC/DC switching regulators and controllers, power switches, linear regulators, voltage supervisors, references, and lighting components, all critical for managing diverse power needs. This segment also delivers signal chain products designed to sense, condition, and measure electrical signals, facilitating information transfer or conversion for further processing and control, encompassing items like amplifiers, data converters, interface devices, motor drives, clocks, and sensing technologies. The Embedded Processing segment develops microcontrollers, integral to a wide array of electronic equipment; digital signal processors (DSPs) for complex mathematical computations; and applications processors tailored for specific computing tasks. Products from this segment are utilized across numerous markets, including industrial applications, the automotive sector, personal electronics, communication systems, enterprise solutions, and calculators. Beyond these, TI also produces DLP® products, primarily used in projectors to generate high-definition images; a range of calculators; and custom application-specific integrated circuits (ASICs). The company distributes its semiconductor offerings through a direct sales force, its network of authorized distributors, and its official website. Established in 1930, Texas Instruments is headquartered in Dallas, Texas.",
+      "ceo": "Haviv Ilan",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "33000",
+      "phone": "214 479 3773",
+      "address": "12500 TI Boulevard",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75243",
+      "image": "https://images.financialmodelingprep.com/symbol/TXN.png",
+      "ipoDate": "1972-06-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TXN",
+      "date": "2015-12-31",
+      "marketCap": 55170198165
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041167.8048184
+}

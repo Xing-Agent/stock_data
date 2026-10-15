@@ -1,0 +1,54 @@
+{
+  "symbol": "ORI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ORI",
+      "price": 38.41,
+      "marketCap": 9273441530,
+      "beta": 0.587,
+      "lastDividend": 3.735,
+      "range": "36.65-46.76",
+      "change": 0.26,
+      "changePercentage": 0.68152,
+      "volume": 2330879,
+      "averageVolume": 1405428,
+      "companyName": "Old Republic International Corporation",
+      "currency": "USD",
+      "cik": "0000074260",
+      "isin": "US6802231042",
+      "cusip": "680223104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Property & Casualty",
+      "website": "https://www.oldrepublic.com",
+      "description": "Old Republic International Corporation (ORI), through its various subsidiary entities, specializes in insurance underwriting and related services, primarily conducting business in the United States and Canada. The company organizes its operations into three main divisions: General Insurance, Title Insurance, and the Republic Financial Indemnity Group Run-off Business. The General Insurance segment offers an extensive array of insurance products, such as extended auto warranties, aviation coverage, commercial vehicle policies, multi-peril and property insurance for businesses, general liability, home warranties, inland marine, travel accident, and workers' compensation. It also provides financial indemnity solutions, including specialty coverages like errors and omissions, fidelity bonds, guaranteed asset protection, and surety bonds. This segment serves a wide range of clients, encompassing businesses, government agencies, and other institutions across industries like transportation, commercial construction, healthcare, education, retail and wholesale trade, forest products, energy, general manufacturing, and financial services. The Title Insurance segment issues both lenders' and owners' title insurance policies, protecting real estate purchasers and investors. These policies are based on meticulous searches of public records. Additionally, this segment offers escrow closing and construction disbursement services, provides real estate information products, national default management services, and various other essential services related to real estate transfers and loan transactions. Lastly, the Republic Financial Indemnity Group Run-off Business segment focuses on private mortgage insurance coverage. This product protects mortgage lenders and investors from losses arising from defaults on residential mortgage loans, primarily those granted to homebuyers. Founded in 1923, the corporation is headquartered in Chicago, Illinois.",
+      "ceo": "Craig Richard Smiddy",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "9500",
+      "phone": "312 346 8100",
+      "address": "307 North Michigan Avenue",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60601",
+      "image": "https://images.financialmodelingprep.com/symbol/ORI.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ORI",
+      "date": "2015-12-31",
+      "marketCap": 4818797403
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040998.4719992
+}

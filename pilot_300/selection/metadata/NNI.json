@@ -1,0 +1,54 @@
+{
+  "symbol": "NNI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NNI",
+      "price": 126.06,
+      "marketCap": 4510356332,
+      "beta": 0.773,
+      "lastDividend": 1.32,
+      "range": "116.62-144.38",
+      "change": -0.87,
+      "changePercentage": -0.68542,
+      "volume": 111217,
+      "averageVolume": 136240,
+      "companyName": "Nelnet, Inc.",
+      "currency": "USD",
+      "cik": "0001258602",
+      "isin": "US64031N1081",
+      "cusip": "64031N108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Financial - Credit Services",
+      "website": "https://www.nelnet.com",
+      "description": "Nelnet, Inc. operates globally, encompassing a variety of businesses including loan management, telecommunications, educational technology, related services, and payment processing solutions. Its Loan Servicing and Systems division offers comprehensive support for loan operations. This includes converting and processing loan applications, managing borrower data, providing customer service, handling payments, executing due diligence, reconciling funds, and processing claims. The segment also develops specialized software for student loan servicing and delivers business process outsourcing, with a focus on contact center management through inbound calls, outreach campaigns, sales, and multi-channel customer engagement. The Education Technology, Services, and Payment Processing segment provides an extensive array of solutions. These span financial management services, school information system software, website design, and cost-effective admissions software. It also operates FACTS Giving, a dedicated donation platform, alongside tailored professional development, coaching, and educational instruction services, as well as technological tools for teacher and student assessments. This segment facilitates tuition payment plans and offers end-to-end technology and services for student billing, payments, and refunds. Furthermore, it supports on-campus payment options (in-person, online, mobile) and general payment processing via credit card and electronic transfers. Additional offerings include services and technologies for faith community engagement, giving management, and learning management. A core offering is an integrated commerce payment platform, combined with financial management and tuition payment plan services, alongside a robust K-12 school management platform that handles administrative, informational, financial, and communication functions. The Communications unit supplies fiber optic services for internet, television, and telephone to both residential and business clients. Through its Asset Generation and Management segment, Nelnet is engaged in the acquisition, oversight, and ownership of various loan assets. Finally, the Nelnet Bank segment manages and operates internet-based industrial banks. Nelnet, Inc. was established in 1978 and is headquartered in Lincoln, Nebraska.",
+      "ceo": "Jeffrey R. Noordhoek",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "5744",
+      "phone": "402 458 2370",
+      "address": "121 South 13th Street",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "68508",
+      "image": "https://images.financialmodelingprep.com/symbol/NNI.png",
+      "ipoDate": "2003-12-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NNI",
+      "date": "2015-12-31",
+      "marketCap": 1446464160
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041897.5144768
+}

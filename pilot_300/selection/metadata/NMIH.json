@@ -1,0 +1,54 @@
+{
+  "symbol": "NMIH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NMIH",
+      "price": 39.7,
+      "marketCap": 2986148685,
+      "beta": 0.563,
+      "lastDividend": 0,
+      "range": "34.84-46.74",
+      "change": 0.14,
+      "changePercentage": 0.35389,
+      "volume": 685848,
+      "averageVolume": 587238,
+      "companyName": "NMI Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001547903",
+      "isin": "US6292093050",
+      "cusip": "629209305",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Insurance - Specialty",
+      "website": "https://www.nationalmi.com",
+      "description": "NMI Holdings, Inc. is a company operating within the United States that offers private mortgage guaranty insurance. In addition to its core insurance products, the firm also delivers outsourced loan assessment services, specifically catering to mortgage loan originators. Its diverse client roster includes national and regional mortgage banks, prominent money center banks, credit unions, local community banks, builder-owned lenders, internet-based lending platforms, and other non-bank mortgage providers. The company commenced operations after its incorporation in 2011 and is based in Emeryville, California.",
+      "ceo": "Adam S. Pollitzer",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "225",
+      "phone": "855 530 6642",
+      "address": "2100 Powell Street",
+      "city": "EmeryVille",
+      "state": "CA",
+      "zip": "94608",
+      "image": "https://images.financialmodelingprep.com/symbol/NMIH.png",
+      "ipoDate": "2013-11-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NMIH",
+      "date": "2015-12-31",
+      "marketCap": 399001418
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041838.2090483
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "TXT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TXT",
+      "price": 73.8,
+      "marketCap": 12692640600,
+      "beta": 0.908,
+      "lastDividend": 0.08,
+      "range": "71.87-101.57",
+      "change": -0.64,
+      "changePercentage": -0.85975,
+      "volume": 1405331,
+      "averageVolume": 1712480,
+      "companyName": "Textron Inc.",
+      "currency": "USD",
+      "cik": "0000217346",
+      "isin": "US8832031012",
+      "cusip": "883203101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Aerospace & Defense",
+      "website": "https://www.textron.com",
+      "description": "Textron Inc. (TXT) is a diverse global enterprise with significant involvement in the aerospace, defense, industrial, and financial sectors. Its Textron Aviation division is responsible for the production, sale, and maintenance of a variety of aircraft, including corporate jets, turboprop and piston-engine planes, and military trainer and defense aircraft. This segment also delivers extensive maintenance, inspection, and repair services, alongside selling commercial aircraft components. The Bell segment stands as a primary provider of military and civilian helicopters, in addition to tiltrotor aircraft, supported by related spare parts and services. Textron Systems focuses on developing and supplying advanced unmanned aerial platforms, sophisticated electronic systems and solutions, specialized marine vessels, piston aircraft engines, realistic live military air-to-air and air-to-ship training systems, weaponry and associated components, and a range of armored and specialty vehicles. Within its Industrial segment, Textron creates specialized plastic fuel containment systems, including innovative pressurized versions designed for hybrid vehicles, clear-vision systems, and plastic tanks for catalytic reduction systems, primarily serving original equipment manufacturers (OEMs) in the automotive sector. This segment also manufactures a broad array of recreational and utility vehicles, such as golf carts, off-road vehicles (including ATVs and side-by-sides), snowmobiles, and light transportation solutions. Additionally, it produces specialized equipment for aviation ground support, as well as professional-grade turf management and landscaping machinery. Its varied customer base spans golf courses and resorts, government entities, municipalities, individual consumers, outdoor enthusiasts, and diverse commercial and industrial enterprises. Finally, the Finance segment extends financial services, facilitating the acquisition of new and pre-owned aircraft from Textron Aviation and Bell helicopters. Textron's operational footprint is worldwide, with a presence across the United States, Europe, Asia, Australia, and other international markets. The company, founded in 1923, maintains its corporate headquarters in Providence, Rhode Island.",
+      "ceo": "Lisa Atherton",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "34000",
+      "phone": "401 421 2800",
+      "address": "40 Westminster Street",
+      "city": "Providence",
+      "state": "RI",
+      "zip": "02903",
+      "image": "https://images.financialmodelingprep.com/symbol/TXT.png",
+      "ipoDate": "1947-12-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TXT",
+      "date": "2015-12-31",
+      "marketCap": 11288969210
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041217.3609312
+}

@@ -1,0 +1,301 @@
+symbol,name,size_group,market_cap_usd,sector,origin,delisted,retirement_category,baseline_listing_basis
+AEE,Ameren Corporation,large,10487598000,Utilities,pilot_50,False,,
+AVEO,"AVEO Pharmaceuticals, Inc.",small,73289160,Healthcare,pilot_50,True,acquisition_or_merger,
+BA,The Boeing Company,large,95226974000,Industrials,pilot_50,False,,
+BMI,"Badger Meter, Inc.",small,845085250,Industrials,pilot_50,False,,
+BSM,"Black Stone Minerals, L.P.",mid,2763041970,Energy,pilot_50,False,,
+CLB,Core Laboratories N.V.,mid,4609673023,Energy,pilot_50,False,,
+COO,"The Cooper Companies, Inc.",mid,6481859999,Healthcare,pilot_50,False,,
+DBI,Designer Brands Inc.,small,1954563480,Consumer Cyclical,pilot_50,False,,
+DHC,Diversified Healthcare Trust,mid,3569819074,Real Estate,pilot_50,False,,
+DTE,DTE Energy Company,large,12213170000,Utilities,pilot_50,False,,
+ED,"Consolidated Edison, Inc.",large,18876099000,Utilities,pilot_50,False,,
+FNWB,First Northwest Bancorp,small,181322146,Financial Services,pilot_50,False,,
+FTLF,"FitLife Brands, Inc.",small,8308712,Consumer Defensive,pilot_50,False,,
+GOOG,Alphabet Inc.,large,521612797901,Communication Services,pilot_50,False,,
+HII,"Huntington Ingalls Industries, Inc.",mid,5961950000,Industrials,pilot_50,False,,
+ISRG,"Intuitive Surgical, Inc.",large,20588724000,Healthcare,pilot_50,False,,
+KR,The Kroger Co.,large,40407780000,Consumer Defensive,pilot_50,False,,
+M,"Macy's, Inc.",large,10920755999,Consumer Cyclical,pilot_50,False,,
+META,"Meta Platforms, Inc.",large,302988109141,Communication Services,pilot_50,False,,
+MSB,Mesabi Trust,small,59302399,Basic Materials,pilot_50,False,,
+MTG,MGIC Investment Corporation,mid,3003471520,Financial Services,pilot_50,False,,
+OCSI,Oaktree Strategic Income Corporation,small,252530201,Financial Services,pilot_50,True,acquisition_or_merger,
+OII,"Oceaneering International, Inc.",mid,3679144076,Energy,pilot_50,False,,
+OMEX,"Odyssey Marine Exploration, Inc.",small,24433199,Basic Materials,pilot_50,False,,
+OMF,"OneMain Holdings, Inc.",mid,5595230300,Financial Services,pilot_50,False,,
+OVV,Ovintiv Inc.,mid,4291379000,Energy,pilot_50,False,,
+PCYO,Pure Cycle Corporation,small,114019670,Utilities,pilot_50,False,,
+PEP,"PepsiCo, Inc.",large,144484320000,Consumer Defensive,pilot_50,False,,
+PNC,"The PNC Financial Services Group, Inc.",large,47750310000,Financial Services,pilot_50,False,,
+PODD,Insulet Corp.,mid,2156304300,Healthcare,pilot_50,False,,
+PRA,ProAssurance Corporation,mid,2579709210,Financial Services,pilot_50,False,,
+PSX,Phillips 66,large,43496250200,Energy,pilot_50,False,,
+QNST,"QuinStreet, Inc.",small,194478570,Communication Services,pilot_50,False,,
+RKDA,"Arcadia Biosciences, Inc.",small,134411776,Basic Materials,pilot_50,False,,
+RMTI,"Rockwell Medical, Inc.",mid,4939990528,Healthcare,pilot_50,False,,
+ROL,"Rollins, Inc.",mid,5663420685,Industrials,pilot_50,False,,
+ROST,"Ross Stores, Inc.",large,21428702490,Consumer Cyclical,pilot_50,False,,
+RRC,Range Resources Corporation,mid,4105021830,Energy,pilot_50,False,,
+SBUX,Starbucks Corporation,large,87913935000,Consumer Cyclical,pilot_50,False,,
+SGA,"Saga Communications, Inc.",small,221125950,Communication Services,pilot_50,False,,
+SRG,Seritage Growth Properties,small,1262546020,Real Estate,pilot_50,False,,
+SRT,"Startek, Inc.",small,56202420,Technology,pilot_50,True,acquisition_or_merger,
+SYY,Sysco Corporation,large,23225988156,Consumer Defensive,pilot_50,False,,
+TAP,Molson Coors Beverage Company,large,19122112000,Consumer Defensive,pilot_50,False,,
+TKR,The Timken Company,mid,2280617466,Industrials,pilot_50,False,,
+UIS,Unisys Corporation,small,551118750,Technology,pilot_50,False,,
+VEEV,Veeva Systems Inc.,mid,3839848450,Technology,pilot_50,False,,
+VIRC,Virco Mfg. Corporation,small,49853430,Consumer Cyclical,pilot_50,False,,
+XEL,Xcel Energy Inc.,large,18266231970,Utilities,pilot_50,False,,
+YELP,Yelp Inc.,mid,2185459200,Communication Services,pilot_50,False,,
+ABMD,"Abiomed, Inc.",mid,3833559640,Healthcare,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+ALXN,"Alexion Pharmaceuticals, Inc.",large,42930195000,Healthcare,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+ATVI,"Activision Blizzard, Inc.",large,28451850000,Technology,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+CERN,Cerner Corporation,large,20509064840,Healthcare,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+CSOD,"Cornerstone OnDemand, Inc.",small,1893176310,Technology,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+CTXS,"Citrix Systems, Inc.",large,11691480550,Technology,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+DFS,Discover Financial Services,large,22359540000,Financial Services,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+HES,Hess Corporation,large,14515813921,Energy,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+JNPR,"Juniper Networks, Inc.",large,10576320000,Technology,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+KSU,Kansas City Southern,mid,8068616190,Industrials,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+MRO,Marathon Oil Corporation,mid,9190700000,Energy,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+NUAN,"Nuance Communications, Inc.",mid,5927637690,Technology,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+PFPT,"Proofpoint, Inc.",mid,2671455930,Technology,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+XLNX,"Xilinx, Inc.",large,12045456500,Technology,expansion_250,True,acquisition_or_merger,AV historical listing plus FMP profile and baseline cap
+AMRS,"Amyris, Inc.",small,335664963,Basic Materials,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+CLVS,"Clovis Oncology, Inc.",small,1342600000,Healthcare,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+ACOR,"Acorda Therapeutics, Inc.",small,319530.66,Healthcare,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+PRTY,Party City Holdco Inc.,small,1540059384,Consumer Cyclical,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+REV,"Revlon, Inc.",small,1461110377,Consumer Defensive,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+TUP,Tupperware Brands Corporation,mid,2804760000,Consumer Cyclical,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+EXPR,"Express, Inc.",small,1433340748,Consumer Cyclical,expansion_250,True,financial_distress_delisting,FMP IPO and baseline cap; missing AV listing; approval required
+SQBG,"Sequential Brands Group, Inc.",small,12104277,Consumer Cyclical,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+WPG,Washington Prime Group Inc.,small,1966111025,Real Estate,expansion_250,True,bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+SIVB,SVB Financial Group,mid,6140690732,Financial Services,expansion_250,True,bank_failure_and_holding_company_bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+GTT,"GTT Communications, Inc.",small,628732976,Communication Services,expansion_250,True,reporting_noncompliance_then_bankruptcy,FMP IPO and baseline cap; missing AV listing; approval required
+FRC,First Republic Bank,mid,9642315780,Financial Services,expansion_250,True,bank_receivership,FMP IPO and baseline cap; missing AV listing; approval required
+GNCA,"Genocea Biosciences, Inc.",small,18545130,Healthcare,expansion_250,True,voluntary_wind_down,FMP IPO and baseline cap; missing AV listing; approval required
+STRS,Stratus Properties Inc.,small,164729110,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+NEU,NewMarket Corporation,mid,4507462850,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CDZI,Cadiz Inc.,small,94138220,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DIS,The Walt Disney Company,large,173802320000,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+KDP,Keurig Dr Pepper Inc.,mid,2815876000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EME,"EMCOR Group, Inc.",mid,2925796213,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AR,Antero Resources Corporation,mid,6039690000,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BBWI,"Bath & Body Works, Inc.",large,21918200000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CFFI,C&F Financial Corporation,small,134496570,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ROG,Rogers Corporation,small,926506620,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+UTMD,"Utah Medical Products, Inc.",small,219700620,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TRNO,Terreno Realty Corporation,small,972549297,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+FF,FutureFuel Corp.,small,586926000,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+GNE,Genie Energy Ltd.,small,254119650,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MSGS,Madison Square Garden Sports Corp.,small,1974147627,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CHD,"Church & Dwight Co., Inc.",large,10983472000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CHRW,"C.H. Robinson Worldwide, Inc.",mid,8901420500,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DVN,Devon Energy Corporation,large,15168000896,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HLT,Hilton Worldwide Holdings Inc.,large,14446389999,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EQS,Equus Total Return Inc,small,22686460,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CTS,CTS Corporation,small,575628480,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ALNY,"Alnylam Pharmaceuticals, Inc.",mid,8027976780,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CBRE,"CBRE Group, Inc.",large,11549475692,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SXT,Sensient Technologies Corporation,mid,2809184760,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CPK,Chesapeake Utilities Corporation,small,867528283,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EVC,Entravision Communications,small,685399385,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HELE,Helen of Troy Limited,mid,2669958957,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LUV,Southwest Airlines Co.,large,27601460000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DK,"Delek US Holdings, Inc.",small,1515740906,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DIN,"Dine Brands Global, Inc.",small,1546074200,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MAIN,Main Street Capital Corporation,small,1469994000,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ELSE,"Electro-Sensors, Inc.",small,12155965,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+RVTY,"Revvity, Inc.",mid,6001661380,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CDP,COPT Defense Properties,mid,2055600119,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ECL,Ecolab Inc.,large,33673472000,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AVA,Avista Corporation,mid,2214338850,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+FWONA,Formula One Group,mid,6703060000,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+NATR,"Nature's Sunshine Products, Inc.",small,189183280,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+OFLX,"Omega Flex, Inc.",small,333136920,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+NFG,National Fuel Gas Company,mid,3625498480,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BZH,"Beazer Homes USA, Inc.",small,365473920,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HNNA,"Hennessy Advisors, Inc.",small,151740347,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BHE,"Benchmark Electronics, Inc.",small,1030358160,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LFMD,"LifeMD, Inc.",small,3841245,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HHH,Howard Hughes Holdings Inc.,mid,4293060637,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+NUE,Nucor Corporation,large,12865372000,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BKH,Black Hills Corporation,mid,2369972920,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MGNI,"Magnite, Inc.",small,734706350,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MKC,"McCormick & Company, Incorporated",large,10874676000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TPC,Tutor Perini Corporation,small,821582459,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PROP,Prairie Operating Co.,small,27108500,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CAL,"Caleres, Inc.",small,1136417040,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+STBA,"S&T Bancorp, Inc.",small,1068252020,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ROP,"Roper Technologies, Inc.",large,19182265090,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+VNDA,Vanda Pharmaceuticals Inc.,small,401302541,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+VMRK,Vivmark Residential,large,29747061280,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WLKP,Westlake Chemical Partners LP,small,595606925,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+NI,NiSource Inc,mid,6249053000,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+OMC,Omnicom Group Inc.,large,18158400000,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MZTI,The Marzetti Company,mid,3156445480,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MG,"Mistras Group, Inc.",small,551815540,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PAA,"Plains All American Pipeline, L.P.",mid,9193800000,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+GNTX,Gentex Corporation,mid,4630262042,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PKBK,"Parke Bancorp, Inc.",small,77601293,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TRUE,"TrueCar, Inc.",small,796227479,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HSTM,"HealthStream, Inc.",small,696652000,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WSR,Whitestone REIT,small,319514040,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MTX,Minerals Technologies Inc.,small,1595928000,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PCG,PG&E Corporation,large,26222670000,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TGNA,TEGNA Inc.,mid,3585326100,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+FRPT,"Freshpet, Inc.",small,284731507,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CLH,"Clean Harbors, Inc.",mid,2399748050,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+FTK,"Flotek Industries, Inc.",small,626271360,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BBW,"Build-A-Bear Workshop, Inc.",small,188626955,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DHIL,"Diamond Hill Investment Group, Inc.",small,640472427,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+VSH,"Vishay Intertechnology, Inc.",small,1781387650,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ENTA,"Enanta Pharmaceuticals, Inc.",small,603532196,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SVC,Service Properties Trust,mid,3959162300,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+FMC,FMC Corporation,mid,4537158000,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ETR,Entergy Corporation,large,12207628720,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CNVS,Cineverse Corp.,small,16553368,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BGS,"B&G Foods, Inc.",mid,2066215020,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PRIM,Primoris Services Corporation,small,1139501750,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HLX,"Helix Energy Solutions Group, Inc.",small,557076080,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EAT,"Brinker International, Inc.",mid,2717470350,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SRCE,1st Source Corporation,small,800273880,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LPTH,"LightPath Technologies, Inc.",small,43951524,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CAH,"Cardinal Health, Inc.",large,29280560000,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AGNC,AGNC Investment Corp.,mid,5745270384,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+VHI,"Valhi, Inc.",small,435500589,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LNT,Alliant Energy Corporation,mid,7003137090,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+GRPN,"Groupon, Inc.",small,1789047596,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MO,"Altria Group, Inc.",large,113858760000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MRCY,"Mercury Systems, Inc.",small,610488360,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+USAC,"USA Compression Partners, LP",small,611334159,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PVH,PVH Corp.,mid,6024570000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+KEY,KeyCorp,large,10900835930,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SCSC,"ScanSource, Inc.",small,833305860,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+POCI,"Precision Optics Corporation, Inc.",small,4711942.5,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+JLL,Jones Lang LaSalle Incorporated,mid,7208858564,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SXC,"SunCoke Energy, Inc.",small,222427000,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EXC,Exelon Corporation,large,17568816526,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+RDIB,"Reading International, Inc.",small,320154718,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+USNA,"USANA Health Sciences, Inc.",small,1527379000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+UFI,"Unifi, Inc.",small,502139700,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EPD,Enterprise Products Partners L.P.,large,52590101060,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TMHC,Taylor Morrison Home Corporation,small,510768000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ENVA,"Enova International, Inc.",small,219068620,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+KVHI,"KVH Industries, Inc.",small,146062328,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LIXT,"Lixte Biotechnology Holdings, Inc.",small,127562320,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+INN,"Summit Hotel Properties, Inc.",small,1032001999,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+VMC,Vulcan Materials Company,large,12708980370,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EIX,Edison International,large,19302460000,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ATNI,"ATN International, Inc.",small,1258877160,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CHEF,"The Chefs' Warehouse, Inc.",small,431745970,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CYRX,"Cryoport, Inc.",small,22953417,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WKC,World Kinect Corporation,mid,2672970000,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ODP,The ODP Corporation,mid,3096360000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CMTV,Community Bancorp,small,71252052,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+FIS,"Fidelity National Information Services, Inc.",large,19634400000,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EXAS,Exact Sciences Corporation,small,897580580,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DX,"Dynex Capital, Inc.",small,311410350,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AWI,"Armstrong World Industries, Inc.",mid,2164407667,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WEC,"WEC Energy Group, Inc.",large,16198567000,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SSP,The E.W. Scripps Company,small,1595335000,Communication Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+INGR,Ingredion Incorporated,mid,6900480000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AP,Ampco-Pittsburgh Corp.,small,112921560,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MTR,Mesa Royalty Trust,small,13976925,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DLTH,Duluth Holdings Inc.,small,431236630,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MRSH,"Marsh & McLennan Companies, Inc.",large,28889450000,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HUBS,"HubSpot, Inc.",small,1953506520,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MCK,McKesson Corporation,large,44771210000,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+RITM,Rithm Capital Corp.,mid,2802529816,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CMP,"Compass Minerals International, Inc.",mid,2540061420,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+POR,Portland General Electric Company,mid,3230856210,Utilities,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EPC,Edgewell Personal Care Company,mid,4655178000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+GWW,"W.W. Grainger, Inc.",large,12493522710,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EOG,"EOG Resources, Inc.",large,38701954850,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TSLA,"Tesla, Inc.",large,31842240000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PGR,The Progressive Corporation,large,18545760000,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+QCOM,QUALCOMM Incorporated,large,74335130000,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CNC,Centene Corp.,mid,8261989831,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PEB,Pebblebrook Hotel Trust,mid,4396466807,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PPG,"PPG Industries, Inc.",large,26377338469,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MNST,Monster Beverage Corporation,large,30247071840,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+UHAL,U-Haul Holding Company,mid,7628773875,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+XPRO,Expro Group Holdings N.V.,large,14640114348,Energy,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CASY,"Casey's General Stores, Inc.",mid,4701645300,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MET,"MetLife, Inc.",large,47290368000,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CIEN,Ciena Corporation,mid,2827805750,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+UHS,"Universal Health Services, Inc.",large,11663060430,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BDN,Brandywine Realty Trust,mid,2387617740,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+IFF,International Flavors & Fragrances Inc.,mid,9531240240,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WMT,Walmart Inc.,large,195269940000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AAL,American Airlines Group Inc.,large,25674475750,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+GM,General Motors Company,large,52579460000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AJG,Arthur J. Gallagher & Co.,mid,7247935720,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SAIC,Science Applications International Corporation,mid,2078412000,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WST,"West Pharmaceutical Services, Inc.",mid,4365950000,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HST,"Host Hotels & Resorts, Inc.",large,11498864000,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+RPM,RPM International Inc.,mid,5686736080,Basic Materials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CAG,"Conagra Brands, Inc.",large,14216891000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+JBLU,JetBlue Airways Corporation,mid,7284240000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+UAA,"Under Armour, Inc.",large,17477295930,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TROW,"T. Rowe Price Group, Inc.",large,18423821157,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+QRVO,"Qorvo, Inc.",mid,6975895900,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ABT,Abbott Laboratories,large,65979617802,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+STWD,"Starwood Property Trust, Inc.",mid,4863591360,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+KHC,The Kraft Heinz Company,large,88403400000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CTAS,Cintas Corporation,mid,9818026720,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+GT,The Goodyear Tire & Rubber Company,mid,8722890000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TFC,Truist Financial Corporation,large,29740098270,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TTWO,"Take-Two Interactive Software, Inc.",mid,2914505360,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ILMN,"Illumina, Inc.",large,27421380000,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CSGP,"CoStar Group, Inc.",mid,6631969500,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DLTR,"Dollar Tree, Inc.",large,18138978000,Consumer Defensive,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+UAL,"United Airlines Holdings, Inc.",large,20284200000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CAKE,The Cheesecake Factory Incorporated,mid,2237164980,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CME,CME Group Inc.,large,30533468399,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TYL,"Tyler Technologies, Inc.",mid,6371221680,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ATR,"AptarGroup, Inc.",mid,4556753300,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ESS,"Essex Property Trust, Inc.",large,15658767624,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LII,Lennox International Inc.,mid,5495600000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WEN,The Wendy's Company,mid,2943354840,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+VIRT,"Virtu Financial, Inc.",mid,2145214580,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CDNS,"Cadence Design Systems, Inc.",mid,6172558150,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BDX,"Becton, Dickinson and Company",large,25111711110,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SBAC,SBA Communications Corporation,large,13175569120,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TXT,Textron Inc.,large,11288969210,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MCD,McDonald's Corporation,large,105014646000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ORI,Old Republic International Corporation,mid,4818797403,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ACIW,"ACI Worldwide, Inc.",mid,2539730600,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CYH,"Community Health Systems, Inc.",mid,2924875911,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+EQIX,"Equinix, Inc.",large,20523063052,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+GHC,Graham Holdings Company,mid,2726986310,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LEA,Lear Corporation,mid,9174108214,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HAPN,"Happen, Inc. Common Stock",mid,4201946316,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LDOS,"Leidos Holdings, Inc.",mid,4050720000,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+DHR,Danaher Corporation,large,42968640000,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PLD,"Prologis, Inc.",large,22498878600,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+URI,"United Rentals, Inc.",mid,6565595400,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BWA,BorgWarner Inc.,mid,8267265640,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CBSH,"Commerce Bancshares, Inc.",mid,3935108600,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+MPWR,"Monolithic Power Systems, Inc.",mid,2550183880,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HSIC,"Henry Schein, Inc.",large,10120190700,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+SPG,"Simon Property Group, Inc.",large,60162847040,Real Estate,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+FAST,Fastenal Company,large,11794918720,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+COLM,Columbia Sportswear Company,mid,3385943160,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+HOMB,"Home Bancshares, Inc.",mid,2844301400,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+TXN,Texas Instruments Incorporated,large,55170198165,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+ELV,Elevance Health Inc.,large,36650537327,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+NSC,Norfolk Southern Corporation,large,25140148000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BKNG,Booking Holdings Inc.,large,63278250000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+LNC,Lincoln National Corporation,large,12146654004,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+WDC,Western Digital Corporation,large,10528160000,Technology,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BIIB,Biogen Inc.,large,67060015000,Healthcare,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+PCAR,PACCAR Inc,large,16651620000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+YUM,"Yum! Brands, Inc.",large,21799950000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+COF,Capital One Financial Corporation,large,37786230000,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+CAT,Caterpillar Inc.,large,39607088000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+BNED,"Barnes & Noble Education, Inc.",large,19139024000,Consumer Cyclical,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+AIG,"American International Group, Inc.",large,94505037514,Financial Services,expansion_250,False,,AV historical listing plus FMP profile and baseline cap
+UNP,Union Pacific Corporation,large,66000800000,Industrials,expansion_250,False,,AV historical listing plus FMP profile and baseline cap

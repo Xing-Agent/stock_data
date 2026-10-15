@@ -1,0 +1,54 @@
+{
+  "symbol": "GTT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GTT",
+      "price": 2.36,
+      "marketCap": 0,
+      "beta": 1.444567,
+      "lastDividend": 0,
+      "range": "2.335-2.5993",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 16942,
+      "averageVolume": 6228219,
+      "companyName": "GTT Communications, Inc.",
+      "currency": "USD",
+      "cik": "0001315255",
+      "isin": "US3623931009",
+      "cusip": "362393100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Telecommunications Services",
+      "website": "http://www.gtt.net",
+      "description": "GTT Communications, Inc. specializes in delivering extensive cloud networking solutions to a diverse client base, including global corporations, telecommunications carriers, and governmental organizations across the United States, Europe, and other international markets. Their service portfolio encompasses a broad spectrum of wide area network (WAN) capabilities, notably technologies like software-defined WAN (SD-WAN), Multiprotocol Label Switching (MPLS), and Virtual Private LAN Service (VPLS). They also provide high-capacity Internet connectivity, IP transit, and both broadband and wireless internet access. The company offers managed equipment services and robust security solutions. Moreover, their unified communication (UC) services span Session Initiation Protocol (SIP) trunking, cloud-based UC platforms, and conventional analog voice options. Beyond this, GTT delivers specialized transport services, such as Ethernet offerings tailored for network infrastructure design, and video transport services crucial for broadcasting high-quality live events, sports, and news content to the media and entertainment sector. Their infrastructure services facilitate the movement of substantial data volumes among data centers, corporate sites, and media hubs. This extensive infrastructure support includes wavelength services for scalable, high-performance optical connections, in addition to colocation, turnkey solutions, duct leasing, and dark fiber services. Furthermore, GTT provides advanced solutions covering security enhancements, hybrid cloud management, database services, and application administration. The company operates an expansive IP network featuring approximately 600 points of presence (PoPs). GTT distributes its comprehensive suite of products and services via both its direct sales teams and a network of indirect sales channels. Established in 2005 and headquartered in McLean, Virginia, GTT Communications, Inc. was previously known as Global Telecom & Technology, Inc., adopting its current name in January 2014.",
+      "ceo": "Richard Calder",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "3100",
+      "phone": "17034425500",
+      "address": "7900 Tysons One Pl Ste 1450",
+      "city": "Mc Lean",
+      "state": "VA",
+      "zip": "",
+      "image": "https://images.financialmodelingprep.com/symbol/GTT.png",
+      "ipoDate": "2005-04-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GTT",
+      "date": "2015-12-31",
+      "marketCap": 628732976
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041214.5287097
+}

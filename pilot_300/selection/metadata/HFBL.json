@@ -1,0 +1,54 @@
+{
+  "symbol": "HFBL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HFBL",
+      "price": 24.19,
+      "marketCap": 73310069,
+      "beta": 0.385,
+      "lastDividend": 0.555,
+      "range": "14-28",
+      "change": 0.03,
+      "changePercentage": 0.12417,
+      "volume": 1114,
+      "averageVolume": 1982,
+      "companyName": "Home Federal Bancorp, Inc. of Louisiana",
+      "currency": "USD",
+      "cik": "0001500375",
+      "isin": "US43708L1089",
+      "cusip": "43708L108",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.hfb.bank",
+      "description": "Home Federal Bancorp, Inc. of Louisiana functions as the parent entity for Home Federal Bank, which delivers a comprehensive suite of financial solutions. These services are provided to a diverse clientele, including private individuals, businesses, and other institutional clients. The bank's deposit offerings encompass traditional savings accounts, certificates of deposit (CDs), and transactional checking accounts. Its extensive array of lending options features mortgages for single to four-unit residential properties, credit lines secured by commercial real estate, financing for multi-family dwellings, and loans for business operations. Further credit facilities include financing for land purchases, construction projects, home equity loans (both first and second liens), and lines of credit utilizing property equity. Moreover, the company provides consumer-oriented loans not tied to real estate, such as those collateralized by deposit accounts, vehicle financing, overdraft services, and unsecured personal loans. As of August 25, 2021, Home Federal Bancorp operated a network of seven full-service banking branches. The company, established in 1924, has its primary location in Shreveport, Louisiana.",
+      "ceo": "James R. Barlow",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "74",
+      "phone": "318 222 1145",
+      "address": "624 Market Street",
+      "city": "Shreveport",
+      "state": "LA",
+      "zip": "71101",
+      "image": "https://images.financialmodelingprep.com/symbol/HFBL.png",
+      "ipoDate": "2007-06-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HFBL",
+      "date": "2015-12-31",
+      "marketCap": 43054492
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041167.804832
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "EME",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EME",
+      "price": 745.35,
+      "marketCap": 32877314710,
+      "beta": 1.119,
+      "lastDividend": 1.45,
+      "range": "564.92-951.96",
+      "change": -30.7,
+      "changePercentage": -3.95593,
+      "volume": 338672,
+      "averageVolume": 413480,
+      "companyName": "EMCOR Group, Inc.",
+      "currency": "USD",
+      "cik": "0000105634",
+      "isin": "US29084Q1004",
+      "cusip": "29084Q100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Engineering & Construction",
+      "website": "https://www.emcorgroup.com",
+      "description": "EMCOR Group, Inc. specializes in delivering comprehensive electrical and mechanical construction services, alongside integrated facilities management solutions, primarily serving clients across the United States and the United Kingdom. The company's construction expertise spans the entire project lifecycle, encompassing initial design and integration through installation, commissioning, operation, and ongoing maintenance. This includes vital electrical infrastructure such as power transmission, distribution, and generation systems, advanced energy efficiency solutions, and premise-specific electrical and lighting systems. They also implement sophisticated process instrumentation for critical industries like refining, chemical processing, and food production, in addition to low-voltage networks covering fire alarms, security, process controls, and voice/data communications. Furthermore, EMCOR handles public infrastructure projects involving roadway and transit lighting, signaling, and fiber optic lines. On the mechanical front, EMCOR offers advanced HVAC, refrigeration, and geothermal climate control systems, specialized clean-room process ventilation, and essential fire protection and suppression systems. Their capabilities extend to plumbing, process, and high-purity piping, various controls and filtration systems, water and wastewater treatment, and central plant heating and cooling. The firm also undertakes heavy industrial tasks such as crane and rigging, millwright services, and steel fabrication, erection, and welding. Beyond construction, EMCOR provides extensive integrated facilities management and operational support. This encompasses day-to-day operations and maintenance for commercial and government sites, critical outage services for utilities and industrial plants, military base support, and mobile mechanical maintenance. Supplementary services include indoor air quality management, janitorial and landscaping duties, vendor coordination, call center operations, building systems installation and support, program management for energy systems, technical consulting, and the execution of infrastructure, building, and retrofit projects. The company also delivers specialized industrial services tailored for the oil, gas, and petrochemical sectors. EMCOR Group, Inc. was established in 1987 and maintains its headquarters in Norwalk, Connecticut.",
+      "ceo": "Anthony J. Guzzi",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "44000",
+      "phone": "203 849 7800",
+      "address": "301 Merritt Seven",
+      "city": "Norwalk",
+      "state": "CT",
+      "zip": "06851-1092",
+      "image": "https://images.financialmodelingprep.com/symbol/EME.png",
+      "ipoDate": "1995-01-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EME",
+      "date": "2015-12-31",
+      "marketCap": 2925796213
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040283.8527248
+}

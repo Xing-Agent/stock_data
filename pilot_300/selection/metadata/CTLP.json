@@ -1,0 +1,54 @@
+{
+  "symbol": "CTLP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CTLP",
+      "price": 11.2,
+      "marketCap": 825815928,
+      "beta": 1.003,
+      "lastDividend": 0,
+      "range": "7.64-11.21",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 0,
+      "averageVolume": 1298290,
+      "companyName": "Cantaloupe, Inc.",
+      "currency": "USD",
+      "cik": "0000896429",
+      "isin": "US1381031061",
+      "cusip": "138103106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Information Technology Services",
+      "website": "https://www.cantaloupe.com",
+      "description": "Cantaloupe, Inc., previously known as USA Technologies, Inc., specializes in providing innovative technology solutions, particularly digital payment and software services, for the self-service retail sector. The company furnishes a comprehensive array of integrated offerings, which include sophisticated payment processing, logistical management, and critical back-office administration. A cornerstone of their product line is the ePort device, an embedded payment terminal engineered for various unattended applications such as vending machines, entertainment arcades, commercial laundromats, and vehicle wash stations, enabling streamlined digital transactions. Complementing this, Cantaloupe offers integrated software services for wirelessly transferring data from these deployed payment devices. Serving a broad spectrum of clients, from operators of vending machines, car washes, and electric vehicle charging points to amusement parks and micro-markets, Cantaloupe empowers these businesses with modern payment capabilities. Furthermore, the company has established key strategic alliances, notably with Bakkt Holdings, LLC, to enable consumers to utilize digital assets for purchases in unattended retail environments, and with Castles Technology, aiming to introduce next-generation cashless payment device solutions. Established in 1992, Cantaloupe, Inc. maintains its headquarters in Malvern, Pennsylvania.",
+      "ceo": "Ravi Venkatesan",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "375",
+      "phone": "610 989 0340",
+      "address": "100 Deerfield Lane",
+      "city": "Malvern",
+      "state": "PA",
+      "zip": "19355",
+      "image": "https://images.financialmodelingprep.com/symbol/CTLP.png",
+      "ipoDate": "1999-06-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CTLP",
+      "date": "2015-12-31",
+      "marketCap": 111377808
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041534.5153027
+}

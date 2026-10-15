@@ -1,0 +1,54 @@
+{
+  "symbol": "DX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DX",
+      "price": 10.84,
+      "marketCap": 2690129272,
+      "beta": 0.965,
+      "lastDividend": 2.04,
+      "range": "10.36-14.93",
+      "change": -0.01,
+      "changePercentage": -0.0921659,
+      "volume": 5491166,
+      "averageVolume": 5972880,
+      "companyName": "Dynex Capital, Inc.",
+      "currency": "USD",
+      "cik": "0000826675",
+      "isin": "US26817Q8868",
+      "cusip": "26817Q886",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Mortgage",
+      "website": "https://www.dynexcapital.com",
+      "description": "Dynex Capital, Inc. operates as a mortgage real estate investment trust (mREIT), primarily engaging in the leveraged acquisition of various mortgage-backed securities (MBS) within the United States. Its investment portfolio includes both agency and non-agency MBS. Agency MBS are distinguished by a principal payment guarantee from a U.S. government entity or a government-sponsored enterprise (GSE), such as Fannie Mae or Freddie Mac. In contrast, non-agency MBS do not possess this governmental backing. Dynex's holdings specifically encompass residential MBS, commercial MBS (CMBS), and certain CMBS interest-only instruments. For federal income tax purposes, the company holds the designation of a real estate investment trust. This status typically exempts Dynex Capital from federal corporate income tax liabilities, provided it distributes a minimum of 90% of its taxable earnings to its shareholders. Established in 1987, the firm maintains its corporate headquarters in Glen Allen, Virginia.",
+      "ceo": "Byron L. Boston",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "28",
+      "phone": "804 217 5800",
+      "address": "140 East Shore Drive",
+      "city": "Glen Allen",
+      "state": "VA",
+      "zip": "23059-5755",
+      "image": "https://images.financialmodelingprep.com/symbol/DX.png",
+      "ipoDate": "1988-02-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DX",
+      "date": "2015-12-31",
+      "marketCap": 311410350
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040628.9616537
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "LUV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LUV",
+      "price": 39.34,
+      "marketCap": 19245442720,
+      "beta": 1.155,
+      "lastDividend": 0.72,
+      "range": "29.26-55.11",
+      "change": -1.31,
+      "changePercentage": -3.22263,
+      "volume": 5914138,
+      "averageVolume": 5803912,
+      "companyName": "Southwest Airlines Co.",
+      "currency": "USD",
+      "cik": "0000092380",
+      "isin": "US8447411088",
+      "cusip": "844741108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Airlines, Airports & Air Services",
+      "website": "https://www.southwest.com",
+      "description": "Southwest Airlines Co. functions as a passenger airline, offering scheduled air travel services predominantly across the United States and to select neighboring international markets. As of December 31, 2021, the company maintained a consistent fleet of 728 Boeing 737 aircraft. Its extensive route network served 121 different locations, spanning 42 U.S. states, the District of Columbia, and the Commonwealth of Puerto Rico, along with 10 international countries close by. These international destinations include Mexico, Jamaica, the Bahamas, Aruba, the Dominican Republic, Costa Rica, Belize, Cuba, the Cayman Islands, and Turks and Caicos. To enhance the passenger journey, Southwest provides in-flight entertainment and internet access on its Wi-Fi-enabled planes. The airline also runs the Rapid Rewards loyalty program, enabling members to accumulate points proportional to the money spent on Southwest's base fares. For customer convenience in travel planning, the company offers a range of digital tools, including its official websites and mobile applications, as well as SWABIZ, a dedicated online booking platform for business clients. Additional services available include EarlyBird Check-In, preferred boarding options, and transportation for pets and unaccompanied minors. The company was founded in 1967 and its corporate headquarters are situated in Dallas, Texas.",
+      "ceo": "Robert E. Jordan",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "73456",
+      "phone": "214 792 4000",
+      "address": "PO Box 36611",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75235-1611",
+      "image": "https://images.financialmodelingprep.com/symbol/LUV.png",
+      "ipoDate": "1980-01-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LUV",
+      "date": "2015-12-31",
+      "marketCap": 27601460000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040351.2409453
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CSGP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CSGP",
+      "price": 30.11,
+      "marketCap": 12200511780,
+      "beta": 0.796,
+      "lastDividend": 0,
+      "range": "25.89-79.08",
+      "change": 0.11,
+      "changePercentage": 0.36667,
+      "volume": 5750972,
+      "averageVolume": 6909506,
+      "companyName": "CoStar Group, Inc.",
+      "currency": "USD",
+      "cik": "0001057352",
+      "isin": "US22160N1090",
+      "cusip": "22160N109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Real Estate - Services",
+      "website": "https://www.costargroup.com",
+      "description": "CoStar Group, Inc. (CSGP) stands as a premier global provider of comprehensive information, sophisticated analytics, and dynamic online marketplace services. The company caters to professionals within the commercial real estate, hospitality, residential, and related industries, extending its reach across the United States, Canada, Europe, the Asia Pacific region, and Latin America. Its diverse suite of offerings encompasses powerful data platforms like CoStar Property, which meticulously catalogues an extensive inventory of various property types, including office, industrial, retail, multifamily, hospitality, student housing, and undeveloped land. Other key analytical tools comprise CoStar COMPS, a robust repository of comparable commercial real estate sales transactions; CoStar Market Analytics, designed for examining aggregated market and submarket trends; and CoStar Tenant, an online business-to-business prospecting and analytical resource providing detailed tenant information. Additionally, CoStar offers solutions for lease management, including Lease Comps and Analysis and CoStar Lease Analysis, alongside Public Record, a searchable database of commercially-zoned land parcels. Its software solutions feature CoStar Real Estate Manager, designed for comprehensive lease administration, portfolio oversight, and lease accounting compliance, as well as specialized CoStar Risk Analytics and CoStar Investment tools. Beyond its data and software platforms, CoStar operates a vast network of online marketplaces. These include prominent apartment marketing sites such as ApartmentFinder.com and ForRent.com; commercial property listing and advertising services through LoopNet (e.g., Premium Lister, Diamond, Platinum, and Gold Ads); and platforms dedicated to rural land sales like LandsofAmerica.com and LandAndFarm.com. It also facilitates the sale of operating businesses and franchises via sites like BizBuySell.com, and serves as an online auction platform for commercial real estate with Ten-X. Furthermore, CoStar supports the residential home-buying market through HomeSnap, an online and mobile software platform, and Homes.com, a comprehensive listings site for properties for sale. CoStar Group, Inc. was established in 1987 and maintains its corporate headquarters in Washington, D.C.",
+      "ceo": "Andrew C. Florance",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "8441",
+      "phone": "202 346 6500",
+      "address": "1201 Wilson Blvd",
+      "city": "Arlington",
+      "state": "VA",
+      "zip": "22209",
+      "image": "https://images.financialmodelingprep.com/symbol/CSGP.png",
+      "ipoDate": "1998-07-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CSGP",
+      "date": "2015-12-31",
+      "marketCap": 6631969500
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041364.0534816
+}

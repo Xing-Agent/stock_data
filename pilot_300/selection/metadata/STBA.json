@@ -1,0 +1,54 @@
+{
+  "symbol": "STBA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "STBA",
+      "price": 47.97,
+      "marketCap": 1691659028,
+      "beta": 0.843,
+      "lastDividend": 1.46,
+      "range": "34.38-53.5",
+      "change": -0.115,
+      "changePercentage": -0.23916,
+      "volume": 189324,
+      "averageVolume": 267773,
+      "companyName": "S&T Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0000719220",
+      "isin": "US7838591011",
+      "cusip": "783859101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.stbancorp.com",
+      "description": "S&T Bancorp, Inc. operates as the parent company for S&T Bank, providing a comprehensive range of retail and commercial banking products and services. The company's business activities are structured into six main divisions: Commercial Real Estate, Commercial and Industrial, Business Banking, Commercial Construction, Consumer Real Estate, and Other Consumer. This financial institution handles various deposit types, including both time-based and on-demand accounts. It extends loans to both commercial entities and individual consumers, alongside offering cash management services, and brokerage and trust administration. Furthermore, S&T Bancorp acts as a guardian and custodian for employee benefit plans and manages private investment portfolios for individuals and institutions alike. Beyond core banking, the company engages in distributing life insurance and long-term disability income insurance products. It also provides title insurance agency services to its commercial clients and serves as a reinsurer for credit life, accident, and health insurance policies. As of December 31, 2021, its operational presence encompassed 73 banking branches and 5 loan production offices. These facilities are strategically located across Western Pennsylvania, Eastern Pennsylvania, Northeast Ohio, Central Ohio, and Upstate New York. S&T Bancorp, Inc. was founded in 1902 and has its corporate headquarters in Indiana, Pennsylvania.",
+      "ceo": "Christopher J. McComish",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1209",
+      "phone": "800 325 2265",
+      "address": "800 Philadelphia Street",
+      "city": "Indiana",
+      "state": "PA",
+      "zip": "15701",
+      "image": "https://images.financialmodelingprep.com/symbol/STBA.png",
+      "ipoDate": "1992-04-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "STBA",
+      "date": "2015-12-31",
+      "marketCap": 1068252020
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040313.8656244
+}

@@ -1,0 +1,63 @@
+{
+  "symbol": "MSGS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MSGS",
+      "price": 404.1,
+      "marketCap": 9730703350,
+      "beta": 0.588,
+      "lastDividend": 0,
+      "range": "207.9-438.93",
+      "change": -0.05,
+      "changePercentage": -0.01237164,
+      "volume": 562613,
+      "averageVolume": 264631,
+      "companyName": "Madison Square Garden Sports Corp.",
+      "currency": "USD",
+      "cik": "0001636519",
+      "isin": "US55825T1034",
+      "cusip": "55825T103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Entertainment",
+      "website": "https://www.msgsports.com",
+      "description": "Madison Square Garden Sports Corp. operates as a professional sports company in the United States. The company owns and operates a portfolio of assets that consists of the New York Knickerbockers of the National Basketball Association (NBA) and the New York Rangers of the National Hockey League. Its other professional franchises include development league teams, the Hartford Wolf Pack of the American Hockey League and the Westchester Knicks of the NBA G League. It also operates the Madison Square Garden Training Center, a professional sports team performance center in Greenburgh. The company was formerly known as The Madison Square Garden Company. Madison Square Garden Sports Corp. was incorporated in 2015 and is based in New York, New York.",
+      "ceo": "James L. Dolan",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "1007",
+      "phone": "212 465 4111",
+      "address": "Two Pennsylvania Plaza",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10121",
+      "image": "https://images.financialmodelingprep.com/symbol/MSGS.png",
+      "ipoDate": "2015-09-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MSGS",
+      "date": "2015-12-31",
+      "marketCap": 1974147627
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040884.820608,
+  "previous_attempts": [
+    {
+      "symbol": "MSGS",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040488.4013228
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "SRCE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SRCE",
+      "price": 84.33,
+      "marketCap": 2029729578,
+      "beta": 0.565,
+      "lastDividend": 1.68,
+      "range": "56.89-91.46",
+      "change": 0.27,
+      "changePercentage": 0.3212,
+      "volume": 120041,
+      "averageVolume": 126838,
+      "companyName": "1st Source Corporation",
+      "currency": "USD",
+      "cik": "0000034782",
+      "isin": "US3369011032",
+      "cusip": "336901103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.1stsource.com",
+      "description": "As the parent company of 1st Source Bank, 1st Source Corporation delivers a comprehensive suite of financial solutions, encompassing commercial and retail banking, wealth management, and insurance offerings, to both individual and corporate customers. For individual clients, the bank provides essential services such as checking, savings, certificates of deposit, and individual retirement accounts, complemented by digital conveniences like online and mobile banking. Various lending options are available, including personal loans, home mortgages, and home equity lines of credit, along with financial planning, literacy programs, consultative support, and debit and credit card facilities. Businesses benefit from a range of financial products, including commercial, small business, agricultural, and real estate loans, which support diverse corporate needs from acquiring properties and equipment to financing accounts receivables and renewable energy projects. Additionally, the corporation provides commercial leasing, sophisticated treasury management, and retirement planning solutions. Through its wealth advisory segment, the company delivers trust, investment, agency, and custodial services, encompassing the administration of estates and personal trusts, along with the professional management of investment portfolios for individuals, employee benefit plans, and charitable organizations. A specialized focus includes financing and leasing a wide variety of equipment, such as construction machinery, new and used aircraft, various truck types (light, medium, heavy-duty, step vans, vocational work trucks), motor coaches, shuttle buses, funeral vehicles, and automobiles, among other specialized equipment. The company also offers a full spectrum of insurance solutions, spanning corporate and personal property, casualty coverage, and individual or group health and life policies. As of December 31, 2021, 1st Source Corporation maintained 79 banking branches across 18 counties in Indiana and Michigan, alongside a presence in Sarasota County, Florida. Established in 1863, its corporate headquarters are located in South Bend, Indiana.",
+      "ceo": "Andrea Gayle Short",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1190",
+      "phone": "574 235 2000",
+      "address": "100 North Michigan Street",
+      "city": "South Bend",
+      "state": "IN",
+      "zip": "46601",
+      "image": "https://images.financialmodelingprep.com/symbol/SRCE.png",
+      "ipoDate": "1983-08-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SRCE",
+      "date": "2015-12-31",
+      "marketCap": 800273880
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040323.8358338
+}

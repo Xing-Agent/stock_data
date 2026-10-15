@@ -1,0 +1,54 @@
+{
+  "symbol": "QUAD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "QUAD",
+      "price": 9.29,
+      "marketCap": 478987997,
+      "beta": 1.105,
+      "lastDividend": 0.375,
+      "range": "5.12-11.15",
+      "change": -0.25,
+      "changePercentage": -2.62055,
+      "volume": 153937,
+      "averageVolume": 305528,
+      "companyName": "Quad/Graphics, Inc.",
+      "currency": "USD",
+      "cik": "0001481792",
+      "isin": "US7473011093",
+      "cusip": "747301109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Specialty Business Services",
+      "website": "https://www.quad.com",
+      "description": "Quad/Graphics, Inc. is a global provider that offers a diverse array of marketing solutions. The company operates through two main divisions: its United States Print and Related Services segment, and an International segment. Their extensive printing capabilities encompass a wide range of products, including promotional inserts for retail, various publications such as catalogs, magazines, journals, and newspapers, as well as direct mail pieces, directories, in-store marketing materials, product packaging, bespoke printed items, and other specialized commercial print products. They also manage the procurement of paper. Beyond printing, Quad/Graphics provides a comprehensive suite of marketing and support services. These include generating consumer insights, precise audience targeting, content personalization, strategic media planning and placement, process optimization, full campaign planning and execution, pre-media production, videography, photography, multi-channel content delivery (both digital and print), and logistics management. Additionally, the company manufactures its own printing ink. Quad/Graphics serves prominent \"blue chip\" corporations across numerous sectors, alongside retailers, publishers, and direct marketers, addressing the needs of both businesses and end consumers. The company was founded in 1971 and its corporate headquarters are located in Sussex, Wisconsin.",
+      "ceo": "J. Joel Quadracci",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "10100",
+      "phone": "414 566 6000",
+      "address": "N61 W23044 Harry’s Way",
+      "city": "Sussex",
+      "state": "WI",
+      "zip": "53089-3995",
+      "image": "https://images.financialmodelingprep.com/symbol/QUAD.png",
+      "ipoDate": "2010-07-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "QUAD",
+      "date": "2015-12-31",
+      "marketCap": 442680000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041366.5780413
+}

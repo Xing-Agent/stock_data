@@ -1,0 +1,54 @@
+{
+  "symbol": "PPG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PPG",
+      "price": 104.87,
+      "marketCap": 23312601105,
+      "beta": 1.05,
+      "lastDividend": 2.87,
+      "range": "93.39-133.43",
+      "change": 0.32,
+      "changePercentage": 0.30607,
+      "volume": 1812724,
+      "averageVolume": 1772093,
+      "companyName": "PPG Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000079879",
+      "isin": "US6935061076",
+      "cusip": "693506107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.ppg.com",
+      "description": "PPG Industries, Inc. operates globally as a manufacturer and distributor of paints, protective coatings, and various specialty materials. Its Performance Coatings division offers an extensive range of products, including paints, solvents, adhesives, sealants, and software, designed for the repair and refurbishment of automotive and commercial vehicles, light industrial applications, and signage. This segment also supplies advanced coatings, sealants, transparent components (such as transparent armor), engineered materials, and chemical management services to the commercial, military, and general aviation aerospace sectors. Furthermore, it develops protective coatings and finishes for metals and large-scale structures, serving metal fabricators, heavy-duty maintenance contractors, and manufacturers of ships, bridges, and rail cars. Architectural offerings include paints, wood stains, adhesives, and sundry items for both professional contractors and individual consumers for the decoration and upkeep of residential and commercial buildings. Additionally, it provides paints, thermoplastics, and other advanced solutions for pavement marking. The Industrial Coatings segment delivers specialized coatings, adhesives, sealants, and metal pretreatment solutions. These are applied across a diverse array of manufactured goods, including appliances, agricultural and construction machinery, consumer electronics, automotive components, building materials, kitchenware, and transportation vehicles, often supported by on-site application services. This segment also produces coatings specifically for packaging, such as metal cans, closures, plastic tubes, and promotional or specialty containers. Beyond coatings, PPG innovates with unique materials like amorphous precipitated silica for tires and battery separators; TESLIN substrates utilized in labels, e-passports, driver's licenses, and identification cards; as well as organic light-emitting diode (OLED) materials, display and lighting lens components, optical lenses, color-changing technologies, and photochromic dyes. Founded in 1883, PPG Industries, Inc. is headquartered in Pittsburgh, Pennsylvania.",
+      "ceo": "Timothy Knavish",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "43500",
+      "phone": "412-434-3131",
+      "address": "One PPG Place",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15272",
+      "image": "https://images.financialmodelingprep.com/symbol/PPG.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PPG",
+      "date": "2015-12-31",
+      "marketCap": 26377338469
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041355.1112611
+}

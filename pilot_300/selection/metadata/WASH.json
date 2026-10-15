@@ -1,0 +1,54 @@
+{
+  "symbol": "WASH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WASH",
+      "price": 36.74,
+      "marketCap": 700470144,
+      "beta": 0.723,
+      "lastDividend": 2.24,
+      "range": "25.23-40.54",
+      "change": -0.33,
+      "changePercentage": -0.89021,
+      "volume": 169359,
+      "averageVolume": 155545,
+      "companyName": "Washington Trust Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0000737468",
+      "isin": "US9406101082",
+      "cusip": "940610108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.washtrust.com",
+      "description": "Washington Trust Bancorp, Inc. functions as the holding company for The Washington Trust Company, delivering a diverse range of banking and financial solutions to individuals and corporate clients. The company is structured into two primary divisions: Commercial Banking and Wealth Management Services. The Commercial Banking division extends a wide array of credit products to businesses and individuals. This includes financing for commercial real estate (like mortgages and construction projects), commercial and industrial ventures, residential properties (such as mortgages and home construction), and various consumer needs, including home equity lines, personal installment loans, and even loans for general aviation aircraft. Alongside lending, it provides a comprehensive suite of deposit options, including interest-bearing and non-interest-bearing checking accounts, savings accounts, money market accounts, retirement accounts, and certificates of deposit. Customers also benefit from modern banking conveniences such as debit cards, ATMs, telephone banking, online and mobile platforms, remote deposit capture, and tailored cash management services. The Wealth Management Services segment delivers specialized financial guidance, encompassing investment management, financial planning, and comprehensive trust and estate services for both individual and institutional clients. These services include acting as a trustee, personal representative, custodian, and guardian, managing the settlement of estates, and offering institutional custody and fiduciary support. Additionally, the company operates as a licensed broker-dealer, making available products like variable annuities and college savings plans. As of December 31, 2021, its physical presence included 10 branch locations across southern Rhode Island, 13 within the broader Providence metropolitan area in Rhode Island, and a single branch in southeastern Connecticut. Established in 1800, Washington Trust Bancorp, Inc. has its headquarters in Westerly, Rhode Island.",
+      "ceo": "Edward Otis Handy",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "642",
+      "phone": "401 348 1200",
+      "address": "23 Broad Street",
+      "city": "Westerly",
+      "state": "RI",
+      "zip": "02891",
+      "image": "https://images.financialmodelingprep.com/symbol/WASH.png",
+      "ipoDate": "1987-06-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WASH",
+      "date": "2015-12-31",
+      "marketCap": 672748960
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040547.8691282
+}

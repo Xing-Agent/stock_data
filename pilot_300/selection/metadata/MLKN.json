@@ -1,0 +1,54 @@
+{
+  "symbol": "MLKN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MLKN",
+      "price": 21.1,
+      "marketCap": 1451675590,
+      "beta": 1.355,
+      "lastDividend": 0.75,
+      "range": "13.77-24.71",
+      "change": -0.36,
+      "changePercentage": -1.67754,
+      "volume": 576217,
+      "averageVolume": 751898,
+      "companyName": "MillerKnoll, Inc.",
+      "currency": "USD",
+      "cik": "0000066382",
+      "isin": "US6005441000",
+      "cusip": "600544100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Furnishings, Fixtures & Appliances",
+      "website": "https://www.millerknoll.com",
+      "description": "MillerKnoll, Inc. is a global entity dedicated to the research, design, manufacturing, and distribution of a comprehensive range of interior furnishings. The company's operations are divided into four primary business segments: Americas Contract, International Contract, Global Retail, and Knoll. Its extensive product portfolio includes prominent office furniture brands such as Aeron, Mirra, Sayl, and Embody, alongside a variety of other seating options, storage solutions, and ergonomic accessories, featuring designs like Barcelona and the Flo monitor arm. Beyond these branded offerings, MillerKnoll provides a broad selection of office seating, integrated office furniture systems, freestanding furniture elements, textiles, leather, felt, home furnishings with related services, casegoods, and storage products. The company also specializes in furniture solutions tailored for residential, educational, and healthcare environments. As of May 28, 2022, MillerKnoll maintained a significant retail footprint, operating 70 studios globally. This network includes 35 stores under the DWR brand, 22 Herman Miller outlets, 7 HAY stores, 3 Knoll locations, 2 Muuto stores, and a single multi-brand flagship store in Chicago. MillerKnoll's products are utilized in a diverse array of settings, including institutional facilities, health and science centers, residential properties, transportation terminals, industrial sites, and educational institutions. The company distributes its offerings through a multi-channel approach, leveraging its internal sales force, independent dealers and retailers, and various e-commerce platforms. The company, originally incorporated in 1905, was formerly known as Herman Miller, Inc. before officially rebranding to MillerKnoll, Inc. in November 2021. Its corporate headquarters are located in Zeeland, Michigan.",
+      "ceo": "Jeffrey Stutz",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "10544",
+      "phone": "616 654 3000",
+      "address": "855 East Main Avenue",
+      "city": "Zeeland",
+      "state": "MI",
+      "zip": "49464-0302",
+      "image": "https://images.financialmodelingprep.com/symbol/MLKN.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MLKN",
+      "date": "2015-12-31",
+      "marketCap": 1718716633
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041934.3605633
+}

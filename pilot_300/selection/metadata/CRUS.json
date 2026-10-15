@@ -1,0 +1,54 @@
+{
+  "symbol": "CRUS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CRUS",
+      "price": 108.34,
+      "marketCap": 5429740784,
+      "beta": 1.166,
+      "lastDividend": 0,
+      "range": "105.77-180.42",
+      "change": 0.35,
+      "changePercentage": 0.3241,
+      "volume": 855693,
+      "averageVolume": 759899,
+      "companyName": "Cirrus Logic, Inc.",
+      "currency": "USD",
+      "cik": "0000772406",
+      "isin": "US1727551004",
+      "cusip": "172755100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.cirrus.com",
+      "description": "Cirrus Logic, Inc. (CRUS) is a semiconductor design firm that doesn't operate its own manufacturing plants. It specializes in crafting energy-efficient and highly accurate mixed-signal processing solutions for a worldwide customer base. The company's offerings for portable electronics include various audio components: integrated circuits known as codecs (which combine analog-to-digital and digital-to-analog converters), advanced \"smart codecs\" that feature built-in digital signal processors (DSPs), powerful amplifiers, and standalone DSPs. Their proprietary SoundClear technology, a suite of tools, software, and algorithms, further elevates the user experience by delivering features such as increased volume, high-fidelity sound reproduction, superior voice capture, hearing assistance, and active noise cancellation. These audio technologies are integrated into a wide array of devices, including smartphones, tablets, wireless headphones, laptops, augmented/virtual reality headsets, home cinema systems, in-car entertainment, and professional audio setups. Additionally, Cirrus Logic supplies high-performance mixed-signal products beyond the audio domain. These encompass haptic feedback drivers, sophisticated camera controllers, integrated circuits for power conversion and management, and rapid-charging solutions. These components find applications across diverse industrial and energy sectors, powering systems such as digital utility meters, power supply units, energy management, and exploration equipment. The company markets and distributes its products via a multi-channel approach, leveraging its direct sales team, independent sales representatives, and a network of distributors. Established in 1984, Cirrus Logic, Inc. maintains its corporate headquarters in Austin, Texas.",
+      "ceo": "John Forsyth",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "1660",
+      "phone": "512 851 4000",
+      "address": "800 West 6th Street",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78701",
+      "image": "https://images.financialmodelingprep.com/symbol/CRUS.png",
+      "ipoDate": "1989-06-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CRUS",
+      "date": "2015-12-31",
+      "marketCap": 1855753790
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041159.7167456
+}

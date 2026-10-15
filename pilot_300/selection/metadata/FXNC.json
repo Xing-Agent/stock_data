@@ -1,0 +1,54 @@
+{
+  "symbol": "FXNC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FXNC",
+      "price": 29.06,
+      "marketCap": 262778799,
+      "beta": 0.414,
+      "lastDividend": 0.68,
+      "range": "21.59-33.24",
+      "change": -0.38,
+      "changePercentage": -1.29076,
+      "volume": 25674,
+      "averageVolume": 51393,
+      "companyName": "First National Corporation",
+      "currency": "USD",
+      "cik": "0000719402",
+      "isin": "US32106V1070",
+      "cusip": "32106V107",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.fbvirginia.com",
+      "description": "First National Corporation serves as the holding company for First Bank, which offers a diverse array of financial solutions and commercial banking services. It caters to a broad clientele across Virginia, including individuals, small and medium-sized enterprises, estates, local governmental bodies, and non-profit organizations. The bank's deposit offerings encompass essential accounts such as checking, savings, money market, and individual retirement accounts (IRAs), along with certificates of deposit (CDs) and sophisticated treasury management services. Its lending portfolio is extensive, featuring construction financing for residential properties, land acquisition, and development. It also provides mortgages for 1-4 family homes and commercial real estate loans, which are secured by various property types like multi-family residences, office and retail buildings, hotels, industrial sites, and religious facilities. For businesses, the bank extends commercial and industrial (C&I) loans, often collateralized by assets such as accounts receivable, equipment, and inventory. Furthermore, personal financing options range from home equity loans to a variety of secured and unsecured consumer loans, including lines of credit, vehicle financing, loans against deposits, and both installment and demand loans. Beyond traditional banking, First National Corporation delivers comprehensive wealth management services. These include estate planning, investment management for assets, and acting as a trustee for agreements and wills, in addition to estate settlement. Complementary services provided by the company include title insurance and investment advisory. Customers also benefit from modern conveniences such as internet and mobile banking, and remote deposit capture. The bank's presence spans 20 branch locations, a dedicated loan production office, a customer service center, and an expansive network of ATMs. The company was established in 1907 and its headquarters are situated in Strasburg, Virginia.",
+      "ceo": "Scott C. Harvard",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "308",
+      "phone": "540 465 9121",
+      "address": "112 West King Street",
+      "city": "Strasburg",
+      "state": "VA",
+      "zip": "22657",
+      "image": "https://images.financialmodelingprep.com/symbol/FXNC.png",
+      "ipoDate": "1999-01-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FXNC",
+      "date": "2015-12-31",
+      "marketCap": 44074624
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041203.5154335
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "ARKR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ARKR",
+      "price": 4.5,
+      "marketCap": 16227707,
+      "beta": 0.364,
+      "lastDividend": 0,
+      "range": "4.32-9.5",
+      "change": 0.11,
+      "changePercentage": 2.50569,
+      "volume": 892,
+      "averageVolume": 5505,
+      "companyName": "Ark Restaurants Corp.",
+      "currency": "USD",
+      "cik": "0000779544",
+      "isin": "US0407121013",
+      "cusip": "040712101",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Restaurants",
+      "website": "https://arkrestaurants.com",
+      "description": "Ark Restaurants Corp. is a hospitality company that owns and manages a diverse portfolio of restaurants and bars throughout the United States, primarily operating through its subsidiary companies. By December 20, 2021, its holdings encompassed 17 full-service dining and drinking venues. These establishments were geographically dispersed, with four in New York City, one in Washington, D.C., five in Las Vegas, Nevada, one in Atlantic City, New Jersey, four positioned along Florida's east coast, and two on Alabama's Gulf Coast. Beyond these, the corporation also oversaw 17 fast-food concepts and catering services. Established in 1983, the company's corporate headquarters are situated in New York, New York.",
+      "ceo": "Michael Weinstein",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "1566",
+      "phone": "212 206 8800",
+      "address": "85 5th Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10003",
+      "image": "https://images.financialmodelingprep.com/symbol/ARKR.png",
+      "ipoDate": "1985-12-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ARKR",
+      "date": "2015-12-31",
+      "marketCap": 79400140
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041340.4943151
+}

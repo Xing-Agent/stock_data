@@ -1,0 +1,54 @@
+{
+  "symbol": "RJF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RJF",
+      "price": 157.25,
+      "marketCap": 30207725000,
+      "beta": 0.946,
+      "lastDividend": 2.16,
+      "range": "138.82-182.73",
+      "change": 0.49,
+      "changePercentage": 0.31258,
+      "volume": 1246412,
+      "averageVolume": 1280668,
+      "companyName": "Raymond James Financial, Inc.",
+      "currency": "USD",
+      "cik": "0000720005",
+      "isin": "US7547301090",
+      "cusip": "754730109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Asset Management",
+      "website": "https://www.raymondjames.com",
+      "description": "Raymond James Financial, Inc. operates as a comprehensive financial services firm, extending a wide array of services to individuals, businesses, and governmental entities throughout the United States, Canada, and Europe. Its diverse operations are categorized into several key segments: Private Client Group, Capital Markets, Asset Management, Banking, and an \"Other\" category. The Private Client Group division equips clients with various investment solutions, personalized portfolio management, a selection of insurance and annuity products, and mutual funds. This segment also provides essential backing to third-party product partners, covering aspects like sales and marketing support, distribution, accounting, and general administrative assistance. Additionally, it facilitates margin loans and offers securities borrowing and lending services. Within the Capital Markets segment, the company engages in investment banking activities, which include orchestrating equity and debt offerings, along with offering expert advisory services for mergers and acquisitions. It further provides robust brokerage services for both fixed income and equity securities. The Asset Management segment specializes in delivering sophisticated asset and portfolio management services, complemented by administrative support functions such as detailed record-keeping, for both individual (retail) and institutional clients. Raymond James Bank maintains a portfolio of insured deposit accounts and a diverse range of lending products. These include commercial and industrial loans, financing for commercial real estate (CRE) and CRE construction, tax-exempt loans, residential mortgages, and securities-based loans. The bank also plays a role in loan syndication. Finally, the Other segment encompasses the firm's private equity activities, comprising direct investments and those made through third-party private equity funds, as well as the management of legacy private equity portfolios. Established in 1962, the company's corporate headquarters are situated in St. Petersburg, Florida.",
+      "ceo": "Paul Marone Shoukry",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "19500",
+      "phone": "727 567 1000",
+      "address": "880 Carillon Parkway",
+      "city": "Saint Petersburg",
+      "state": "FL",
+      "zip": "33716",
+      "image": "https://images.financialmodelingprep.com/symbol/RJF.png",
+      "ipoDate": "1983-07-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RJF",
+      "date": "2015-12-31",
+      "marketCap": 8201839200
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041326.6777158
+}

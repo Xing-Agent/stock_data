@@ -1,0 +1,63 @@
+{
+  "symbol": "KEY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KEY",
+      "price": 19.79,
+      "marketCap": 21360705465,
+      "beta": 1.087,
+      "lastDividend": 0.82,
+      "range": "16.47-24.07",
+      "change": -0.12,
+      "changePercentage": -0.60271,
+      "volume": 21616814,
+      "averageVolume": 12227471,
+      "companyName": "KeyCorp",
+      "currency": "USD",
+      "cik": "0000091576",
+      "isin": "US4932671088",
+      "cusip": "493267108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.key.com",
+      "description": "KeyCorp functions as the parent entity for KeyBank National Association, delivering a wide array of banking services to retail and business clients across the United States. Its operations are distinctly segmented into a Consumer Bank and a Commercial Bank. Targeting both individual consumers and small to medium-sized businesses, the corporation extends a comprehensive suite of services. These offerings include various deposit accounts, investment solutions, personal financial planning and wellness programs, student loan refinancing, mortgage and home equity products, general lending, credit card services, treasury management, business advisory, wealth and asset management, and trust-related services. Moreover, the company furnishes middle-market clients with a robust selection of sophisticated banking and capital market products. These encompass syndicated lending, debt and equity capital market offerings, commercial payment solutions, equipment financing, commercial real estate mortgage banking, derivatives, foreign exchange services, financial advisory, and public finance. Its commercial mortgage portfolio encompasses loans across diverse sectors, including consumer, energy, healthcare, industrial, public sector, real estate, and technology. Additionally, KeyCorp engages in community development financing, securities underwriting, brokerage, and investment banking services. As of December 31, 2021, its operational reach extended across 15 states, supported by an extensive network of approximately 999 physical branches and 1,317 automated teller machines (ATMs). Beyond its physical footprint, the company offers online and mobile banking capabilities, alongside a dedicated telephone banking call center and other offices. Established in 1849, KeyCorp maintains its corporate headquarters in Cleveland, Ohio.",
+      "ceo": "Christopher Marrott Gorman",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "17883",
+      "phone": "216 689 3000",
+      "address": "127 Public Square",
+      "city": "Cleveland",
+      "state": "OH",
+      "zip": "44114-1306",
+      "image": "https://images.financialmodelingprep.com/symbol/KEY.png",
+      "ipoDate": "1987-11-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KEY",
+      "date": "2015-12-31",
+      "marketCap": 10900835930
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040802.3911848,
+  "previous_attempts": [
+    {
+      "symbol": "KEY",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040348.5789795
+    }
+  ]
+}

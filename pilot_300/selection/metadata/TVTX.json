@@ -1,0 +1,54 @@
+{
+  "symbol": "TVTX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TVTX",
+      "price": 53.27,
+      "marketCap": 4953731783,
+      "beta": 1.142,
+      "lastDividend": 0,
+      "range": "22.59-68.73",
+      "change": 1.47,
+      "changePercentage": 2.83784,
+      "volume": 2060842,
+      "averageVolume": 1763325,
+      "companyName": "Travere Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001438533",
+      "isin": "US89422G1076",
+      "cusip": "89422G107",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.travere.com",
+      "description": "Travere Therapeutics, Inc. is a biopharmaceutical company developing therapies for rare kidney and metabolic diseases. Its lead product, FILSPARI (sparsentan), is an oral, once-daily, non-immunosuppressive medication targeting two pathways of disease progression (endothelin-1 and angiotensin-II). Sparsentan received accelerated FDA approval in February 2023 and full approval in September 2024 to slow kidney function decline in adults with primary IgA nephropathy (IgAN) at risk of progression. In April 2026, the FDA approved FILSPARI to reduce proteinuria in adult and pediatric patients aged 8 and older with focal segmental glomerulosclerosis (FSGS) without nephrotic syndrome, making it the first and only FDA-approved medicine for FSGS.  The company also markets Thiola and Thiola EC (tiopronin tablets) for cystinuria, a rare genetic disorder causing recurring kidney stones. Its pipeline includes pegtibatinase, an investigational enzyme replacement therapy for classical homocystinuria (HCU).  Formerly Retrophin, Inc. (renamed November 2020), Travere is headquartered in San Diego, California, and incorporated in Delaware.",
+      "ceo": "Eric Dube",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "497",
+      "phone": "888 969 7879",
+      "address": "3611 Valley Centre Drive",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92130",
+      "image": "https://images.financialmodelingprep.com/symbol/TVTX.png",
+      "ipoDate": "2012-11-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TVTX",
+      "date": "2015-12-31",
+      "marketCap": 704474387
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041566.057801
+}

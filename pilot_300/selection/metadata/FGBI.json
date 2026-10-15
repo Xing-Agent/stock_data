@@ -1,0 +1,54 @@
+{
+  "symbol": "FGBI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FGBI",
+      "price": 7.95,
+      "marketCap": 131485797,
+      "beta": 0.431,
+      "lastDividend": 0.04,
+      "range": "4.31-11.02",
+      "change": -0.14,
+      "changePercentage": -1.73053,
+      "volume": 19591,
+      "averageVolume": 35491,
+      "companyName": "First Guaranty Bancshares, Inc.",
+      "currency": "USD",
+      "cik": "0001408534",
+      "isin": "US32043P1066",
+      "cusip": "32043P106",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.fgb.net",
+      "description": "First Guaranty Bancshares, Inc. functions as the parent company for First Guaranty Bank, a financial institution delivering commercial banking services primarily across Louisiana and Texas. The bank offers a comprehensive suite of deposit products, including various checking accounts for personal and business use, savings accounts, money market accounts, demand deposits, and certificates of deposit (time deposits). These services are extended to individual consumers, small and medium-sized businesses, and municipal entities. Its lending portfolio is diverse, providing credit solutions such as real estate-backed loans (including commercial, non-farm non-residential, single-to-four-family residential, multifamily, construction, and land development), commercial and industrial loans, agricultural loans (including farmland), and other consumer loans. These are primarily aimed at small to medium-sized businesses, professionals, and individuals. Additionally, First Guaranty Bank provides numerous customer-centric services. Individuals can access credit cards, mobile check deposit, safe deposit boxes, official checks, robust online and mobile banking platforms, ATM services, and online bill payment. Business clients benefit from specialized solutions like merchant services, remote deposit capture, and lockbox services. A portion of the company's assets is strategically invested in various securities. This includes debt instruments issued by the United States Government and its agencies, state and municipal obligations, corporate bonds, mutual funds, and equity securities. It also allocates funds to mortgage-backed securities, predominantly those issued or guaranteed by U.S. Government agencies or enterprises. The company operates a network of 36 banking facilities. These are primarily located in significant market areas across Louisiana (including Hammond, Baton Rouge, Lafayette, Shreveport-Bossier City, Lake Charles, and Alexandria) and Texas (notably Dallas-Fort Worth-Arlington and Waco), with a presence also extending to Kentucky and West Virginia. First Guaranty Bancshares, Inc. was established in 1934 and maintains its corporate headquarters in Hammond, Louisiana.",
+      "ceo": "Michael Ray Mineer",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "333",
+      "phone": "985 345 7685",
+      "address": "400 East Thomas Street",
+      "city": "Hammond",
+      "state": "LA",
+      "zip": "70401",
+      "image": "https://images.financialmodelingprep.com/symbol/FGBI.png",
+      "ipoDate": "2012-08-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FGBI",
+      "date": "2015-12-31",
+      "marketCap": 142701533
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041269.1443443
+}

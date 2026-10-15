@@ -1,0 +1,54 @@
+{
+  "symbol": "BHR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BHR",
+      "price": 1.31,
+      "marketCap": 89969907,
+      "beta": 0.825,
+      "lastDividend": 0.2,
+      "range": "1.18-3.19",
+      "change": 0.06000005,
+      "changePercentage": 4.8,
+      "volume": 752436,
+      "averageVolume": 596641,
+      "companyName": "Braemar Hotels & Resorts Inc.",
+      "currency": "USD",
+      "cik": "0001574085",
+      "isin": "US10482B1017",
+      "cusip": "10482B101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Hotel & Motel",
+      "website": "https://www.bhrreit.com",
+      "description": "Braemar Hotels & Resorts operates as a real estate investment trust (REIT), primarily dedicating its resources to the acquisition and development of high-end hotel and resort properties.",
+      "ceo": "Richard J. Stockton",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "116",
+      "phone": "972-490-9600",
+      "address": "14185 Dallas Parkway",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75254-4308",
+      "image": "https://images.financialmodelingprep.com/symbol/BHR.png",
+      "ipoDate": "2013-11-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BHR",
+      "date": "2015-12-31",
+      "marketCap": 407005480
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041413.9700649
+}

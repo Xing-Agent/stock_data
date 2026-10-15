@@ -1,0 +1,54 @@
+{
+  "symbol": "SCHW",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SCHW",
+      "price": 96.8,
+      "marketCap": 167400112000,
+      "beta": 0.783,
+      "lastDividend": 1.23,
+      "range": "83.96-114.53",
+      "change": 0.86,
+      "changePercentage": 0.89639,
+      "volume": 13127509,
+      "averageVolume": 8837172,
+      "companyName": "The Charles Schwab Corporation",
+      "currency": "USD",
+      "cik": "0000316709",
+      "isin": "US8085131055",
+      "cusip": "808513105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Financial - Capital Markets",
+      "website": "https://www.aboutschwab.com",
+      "description": "The Charles Schwab Corporation (SCHW) stands as a prominent financial services enterprise, delivering a comprehensive suite of offerings that encompass wealth management, securities trading and brokerage, banking services, asset administration, custodial solutions, and financial planning advice. Its operations are primarily structured around two core divisions: Investor Services and Advisor Services. The Investor Services segment caters directly to individual retail clients, furnishing a range of services such as brokerage accounts, investment guidance, banking and trust administration, retirement planning, and corporate brokerage offerings. It further assists businesses with the full-service recordkeeping of equity compensation plans (e.g., stock options, restricted stock, performance shares), provides clearing services for retail investors and mutual funds, and offers compliance solutions. Conversely, the Advisor Services segment provides a robust support system for independent investment advisors. This includes custodial services, trading platforms, banking infrastructure, and general operational support. Within this segment, offerings span diverse brokerage accounts for equities, fixed income, margin lending, options, and futures/forex trading. It also facilitates cash management through various instruments, provides access to a broad selection of proprietary and third-party mutual funds and ETFs, and offers comprehensive trading and clearing for these investment vehicles. Furthermore, it delivers sophisticated advice solutions like managed portfolios, separately managed accounts, customized personal financial guidance, and specialized planning. Complementing these are banking products such as checking and savings accounts, first-lien residential mortgages, home equity lines of credit, and pledged asset lines, alongside a full spectrum of trust services including custody, reporting, and administrative roles. As of December 31, 2021, the company maintained an extensive physical presence, with approximately 400 domestic branch offices located across 48 U.S. states and the District of Columbia, in addition to sites in Puerto Rico, the United Kingdom, Hong Kong, and Singapore. Established in 1971, its corporate headquarters are situated in Westlake, Texas.",
+      "ceo": "Richard Andrew Wurster",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "33700",
+      "phone": "817 859 5000",
+      "address": "3000 Schwab Way",
+      "city": "Westlake",
+      "state": "TX",
+      "zip": "76262",
+      "image": "https://images.financialmodelingprep.com/symbol/SCHW.png",
+      "ipoDate": "1987-09-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SCHW",
+      "date": "2015-12-31",
+      "marketCap": 43500530000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041560.7431571
+}

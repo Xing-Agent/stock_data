@@ -1,0 +1,54 @@
+{
+  "symbol": "PCAR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PCAR",
+      "price": 108.56,
+      "marketCap": 57142179298,
+      "beta": 0.988,
+      "lastDividend": 2.76,
+      "range": "88.35-139.24",
+      "change": 0.58,
+      "changePercentage": 0.53714,
+      "volume": 2748310,
+      "averageVolume": 3352919,
+      "companyName": "PACCAR Inc",
+      "currency": "USD",
+      "cik": "0000075362",
+      "isin": "US6937181088",
+      "cusip": "693718108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.paccar.com",
+      "description": "PACCAR Inc is a global leader specializing in the design, production, and distribution of commercial trucks, covering light, medium, and heavy-duty classes. Its market reach extends across the United States, Europe, Mexico, South America, Australia, and other international territories. The company's operations are divided into three principal segments: Truck, Parts, and Financial Services. The Truck division focuses on engineering, manufacturing, and supplying vehicles tailored for both long-distance highway travel and challenging off-highway applications, primarily for hauling commercial and consumer goods. These vehicles are sold worldwide through an expansive network of independent dealerships, prominently featuring the Kenworth, Peterbilt, and DAF brands. The Parts segment is dedicated to supplying aftermarket components for its trucks and associated commercial vehicles. Through its Financial Services arm, which encompasses full-service leasing under the PacLease trademark, PACCAR offers a wide array of financing and leasing products to both its customers and its dealer network. This segment also delivers equipment financing and administrative assistance to its franchisees. It provides retail loans and leasing options to a diverse clientele, including small, medium, and large commercial trucking firms, independent owner-operators, and various other businesses. Additionally, it facilitates truck inventory financing for independent dealers and directly extends loans and leases to customers for purchasing trucks and related equipment. Beyond its core truck business, PACCAR also fabricates and markets industrial winches under the Braden, Carco, and Gearmatic labels. Established in 1905, PACCAR Inc's corporate headquarters are situated in Bellevue, Washington.",
+      "ceo": "Preston R. Feight",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "25900",
+      "phone": "425 468 7400",
+      "address": "777 - 106th Avenue N.E.",
+      "city": "Bellevue",
+      "state": "WA",
+      "zip": "98004",
+      "image": "https://images.financialmodelingprep.com/symbol/PCAR.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PCAR",
+      "date": "2015-12-31",
+      "marketCap": 16651620000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041637.77919
+}

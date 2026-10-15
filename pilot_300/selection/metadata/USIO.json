@@ -1,0 +1,54 @@
+{
+  "symbol": "USIO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "USIO",
+      "price": 2.76,
+      "marketCap": 76164943,
+      "beta": 1.36,
+      "lastDividend": 0,
+      "range": "1.03-3.06",
+      "change": 0.09,
+      "changePercentage": 3.37079,
+      "volume": 176327,
+      "averageVolume": 289230,
+      "companyName": "Usio, Inc.",
+      "currency": "USD",
+      "cik": "0001088034",
+      "isin": "US9173131080",
+      "cusip": "917313108",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Software - Infrastructure",
+      "website": "https://www.usio.com",
+      "description": "Usio, Inc. provides integrated electronic payment processing services to merchants and businesses in the United States. The company offers various types of automated clearing house (ACH) processing, credit, prepaid card, and debit card-based processing services. It also provides a proprietary platform for businesses to handle e-checks and card payments, and an interactive voice response telephone system for companies to accept payments over the telephone. Additionally, the company offers prepaid and incentive card issuance services, a payment facilitation platform, and electronic bill presentment and printing services.",
+      "ceo": "Louis A. Hoch",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "107",
+      "phone": "210 249 4100",
+      "address": "3611 Paesanos Parkway",
+      "city": "San Antonio",
+      "state": "TX",
+      "zip": "78231",
+      "image": "https://images.financialmodelingprep.com/symbol/USIO.png",
+      "ipoDate": "1999-02-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "USIO",
+      "date": "2015-12-31",
+      "marketCap": 15361303
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041830.975033
+}

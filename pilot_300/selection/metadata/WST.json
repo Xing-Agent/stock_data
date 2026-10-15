@@ -1,0 +1,54 @@
+{
+  "symbol": "WST",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WST",
+      "price": 374.65,
+      "marketCap": 26366293470,
+      "beta": 1.125,
+      "lastDividend": 0.88,
+      "range": "223.83-386",
+      "change": 2.83,
+      "changePercentage": 0.76112,
+      "volume": 444569,
+      "averageVolume": 668158,
+      "companyName": "West Pharmaceutical Services, Inc.",
+      "currency": "USD",
+      "cik": "0000105770",
+      "isin": "US9553061055",
+      "cusip": "955306105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.westpharma.com",
+      "description": "West Pharmaceutical Services, Inc. (WST) specializes in the development, manufacturing, and global distribution of essential containment and delivery solutions for injectable pharmaceuticals and other healthcare products. The company's operations span across the Americas, Europe, the Middle East, Africa, and the Asia Pacific region, structured into two primary business units: Proprietary Products and Contract-Manufactured Products. The Proprietary Products segment offers a comprehensive array of components for injectable packaging, including stoppers and seals, alongside syringe and cartridge parts, which can be customized for specific injectable drug delivery requirements. It also provides advanced drug administration systems designed to enhance safe and effective delivery through sophisticated reconstitution, mixing, and transfer technologies. This segment further supplies ancillary services such as specialized films, protective coatings, cleaning, precision vision inspection, and sterilization processes to elevate the quality of packaging components. Innovative drug containment options, like Crystal Zenith – a cyclic olefin polymer used in vials, syringes, and cartridges – and user-friendly self-injection devices are also key offerings. Additionally, it provides a suite of integrated support services covering analytical laboratory analysis, primary packaging assistance during the pre-approval stage, engineering development, regulatory guidance, and post-purchase technical support. Its clientele primarily includes manufacturers of biologic, generic, and other pharmaceutical products. In contrast, the Contract-Manufactured Products division focuses on the design, production, and automated assembly of various devices for surgical, diagnostic, ophthalmic, and general drug delivery applications, alongside consumer items. This segment caters to pharmaceutical, diagnostic, and medical device manufacturers. The company's offerings reach customers worldwide through a dedicated sales team, an extensive distribution network, and partnerships with contract sales agents and regional distributors. Established in 1923, West Pharmaceutical Services, Inc. is headquartered in Exton, Pennsylvania.",
+      "ceo": "Michel Lagarde",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "10800",
+      "phone": "610 594 2900",
+      "address": "530 Herman O. West Drive",
+      "city": "Exton",
+      "state": "PA",
+      "zip": "19341-1147",
+      "image": "https://images.financialmodelingprep.com/symbol/WST.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WST",
+      "date": "2015-12-31",
+      "marketCap": 4365950000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040502.2584279
+}

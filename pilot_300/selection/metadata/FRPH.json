@@ -1,0 +1,54 @@
+{
+  "symbol": "FRPH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FRPH",
+      "price": 19.22,
+      "marketCap": 368452686,
+      "beta": 0.522,
+      "lastDividend": 0,
+      "range": "19.18-25.74",
+      "change": -0.765,
+      "changePercentage": -3.82787,
+      "volume": 121108,
+      "averageVolume": 88647,
+      "companyName": "FRP Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0000844059",
+      "isin": "US30292L1070",
+      "cusip": "30292L107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Real Estate - Services",
+      "website": "https://www.frpdev.com",
+      "description": "FRP Holdings, Inc. is a company actively involved in diverse real estate ventures across the United States. Its operations are structured into four distinct divisions: Asset Management, Mining Royalty Lands, Development, and Stabilized Joint Venture. The Asset Management division handles the ownership, leasing, and oversight of commercial properties. The Mining Royalty Lands segment holds approximately 15,000 acres of land, predominantly located in Florida, Georgia, and Virginia. These properties are leased for mining operations, generating rents and royalties. Additionally, this segment controls an extra 107 acres of investment property situated in Brooksville, Florida. The Development segment is tasked with acquiring and monitoring land parcels that are currently in various phases of development. Finally, the Stabilized Joint Venture division manages and holds interests in several key properties. These include a residential apartment building featuring 305 units, complemented by approximately 14,430 square feet of ground-floor retail space. It also encompasses another residential apartment building offering 264 units alongside 6,758 square feet of retail area. Furthermore, this segment includes a 294-unit garden-style apartment community located in Henrico County, Virginia, which comprises 19 three-story apartment buildings, totaling 273,940 rentable square feet. Established in 2014, FRP Holdings, Inc. maintains its headquarters in Jacksonville, Florida.",
+      "ceo": "John D. Baker",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "25",
+      "phone": "904 396 5733",
+      "address": "200 West Forsyth Street",
+      "city": "Jacksonville",
+      "state": "FL",
+      "zip": "32202",
+      "image": "https://images.financialmodelingprep.com/symbol/FRPH.png",
+      "ipoDate": "1986-07-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FRPH",
+      "date": "2015-12-31",
+      "marketCap": 334410820
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041766.5812094
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "WABC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WABC",
+      "price": 58.7,
+      "marketCap": 1356627440,
+      "beta": 0.557,
+      "lastDividend": 1.88,
+      "range": "44.93-63.61",
+      "change": 0.07,
+      "changePercentage": 0.11939,
+      "volume": 206418,
+      "averageVolume": 201842,
+      "companyName": "Westamerica Bancorporation",
+      "currency": "USD",
+      "cik": "0000311094",
+      "isin": "US9570901036",
+      "cusip": "957090103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.westamerica.com",
+      "description": "Westamerica Bancorporation (WABC) functions as a bank holding company, overseeing Westamerica Bank. Through its subsidiary, it delivers a comprehensive suite of financial products and services to both individual consumers and commercial enterprises. Its deposit offerings cater to retail customers, encompassing savings accounts, checking accounts, and certificates of deposit. The institution's lending activities are diverse, featuring commercial loans, financing for both commercial and residential real estate, construction loans, consumer installment loans, and indirect automobile lending. Geographically, WABC maintains a presence across 21 counties in Northern and Central California, operating 78 branch locations. Incorporated in 1972, the company was initially known as Independent Bankshares Corporation. It adopted its current name, Westamerica Bancorporation, in 1983. Its corporate headquarters are situated in San Rafael, California.",
+      "ceo": "David L. Payne",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "608",
+      "phone": "707 863 6000",
+      "address": "1108 Fifth Avenue",
+      "city": "San Rafael",
+      "state": "CA",
+      "zip": "94901",
+      "image": "https://images.financialmodelingprep.com/symbol/WABC.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WABC",
+      "date": "2015-12-31",
+      "marketCap": 1189553750
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041098.9730246
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "ADC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ADC",
+      "price": 65.58,
+      "marketCap": 7876345493,
+      "beta": 0.424,
+      "lastDividend": 3.174,
+      "range": "64.43-82.08",
+      "change": 0.17,
+      "changePercentage": 0.2599,
+      "volume": 1685019,
+      "averageVolume": 1426610,
+      "companyName": "Agree Realty Corporation",
+      "currency": "USD",
+      "cik": "0000917251",
+      "isin": "US0084921008",
+      "cusip": "008492100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Retail",
+      "website": "https://www.agreerealty.com",
+      "description": "Agree Realty Corporation functions as a publicly traded Real Estate Investment Trust (REIT), concentrating its efforts on the acquisition and development of commercial properties. These assets are primarily net-leased to leading companies within the retail sector. As of September 30, 2020, the firm oversaw a substantial portfolio of 1,027 properties, which were distributed across 45 U.S. states and encompassed a total gross leasable area of approximately 21.0 million square feet. Shares of Agree Realty's common stock are available for trade on the New York Stock Exchange, identified by the ticker symbol ADC.",
+      "ceo": "Joel N. Agree",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "90",
+      "phone": "248-737-4190",
+      "address": "32301 Woodward Avenue",
+      "city": "Royal Oak",
+      "state": "MI",
+      "zip": "48073",
+      "image": "https://images.financialmodelingprep.com/symbol/ADC.png",
+      "ipoDate": "1994-04-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ADC",
+      "date": "2015-12-31",
+      "marketCap": 694712398
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041291.3671708
+}

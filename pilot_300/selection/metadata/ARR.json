@@ -1,0 +1,54 @@
+{
+  "symbol": "ARR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ARR",
+      "price": 13.62,
+      "marketCap": 1584832475,
+      "beta": 1.396,
+      "lastDividend": 2.88,
+      "range": "13.16-19.31",
+      "change": 0.03,
+      "changePercentage": 0.22075,
+      "volume": 5293257,
+      "averageVolume": 4055083,
+      "companyName": "ARMOUR Residential REIT, Inc.",
+      "currency": "USD",
+      "cik": "0001428205",
+      "isin": "US0423157058",
+      "cusip": "042315705",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Mortgage",
+      "website": "https://www.armourreit.com",
+      "description": "ARMOUR Residential REIT, Inc. (ARR), founded in 2008 and based in Vero Beach, Florida, primarily allocates its capital to residential mortgage-backed securities (MBS) within the United States. Its investment holdings predominantly comprise MBS that are either issued or guaranteed by U.S. Government-sponsored entities (GSEs) and the Government National Mortgage Association (GNMA. These securities are underpinned by various home loans, including fixed-rate, hybrid adjustable-rate, and adjustable-rate mortgages. The company's portfolio also encompasses unsecured debt instruments and bonds from GSEs, U.S. Treasury securities, and money market funds. Furthermore, ARR invests in other residential mortgage-backed securities where the principal and interest payments lack a guarantee from a GSE or other government agency. As a Real Estate Investment Trust (REIT) under the Internal Revenue Code, the company benefits from an exemption from corporate income tax on the portion of its net earnings that is distributed to its shareholders.",
+      "ceo": "Scott Jeffrey Ulm",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "20",
+      "phone": "772 617 4340",
+      "address": "3001 Ocean Drive",
+      "city": "Vero Beach",
+      "state": "FL",
+      "zip": "32963",
+      "image": "https://images.financialmodelingprep.com/symbol/ARR.png",
+      "ipoDate": "2007-12-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ARR",
+      "date": "2015-12-31",
+      "marketCap": 797721600
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041337.7612264
+}

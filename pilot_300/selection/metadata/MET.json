@@ -1,0 +1,63 @@
+{
+  "symbol": "MET",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MET",
+      "price": 99.72,
+      "marketCap": 63369766440,
+      "beta": 0.775,
+      "lastDividend": 2.32,
+      "range": "67.33-101.44",
+      "change": -0.93,
+      "changePercentage": -0.92399,
+      "volume": 3698294,
+      "averageVolume": 3497627,
+      "companyName": "MetLife, Inc.",
+      "currency": "USD",
+      "cik": "0001099219",
+      "isin": "US59156R1086",
+      "cusip": "59156R108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Life",
+      "website": "https://www.metlife.com",
+      "description": "MetLife, Inc. operates as a leading global financial services entity, delivering an extensive array of services encompassing insurance, annuities, employee benefits, and asset management. The company manages its operations through five primary divisions: the U.S., Asia, Latin America, Europe, the Middle East and Africa (EMEA), and MetLife Holdings. Its broad insurance offerings include life, dental, group short-term and long-term disability, individual disability, pet, accidental death and dismemberment, vision, and accident and health coverages, as well as prepaid legal plans. MetLife also supports employers with administrative services-only (ASO) arrangements. Furthermore, it provides sophisticated financial instruments such as general and separate account contracts, synthetic guaranteed interest contracts, and private floating rate funding agreements. The company facilitates pension risk transfers, offers institutional income annuities, structures settlements, and delivers capital markets investment products. Specialized life insurance products and funding agreements are also available for post-retirement benefits, alongside company, bank, or trust-owned life insurance used to finance non-qualified executive benefit programs. In addition, MetLife offers a variety of annuity options including fixed, indexed-linked, and variable, alongside pension and regular savings products. Its life insurance portfolio features whole life, term life, endowments, universal and variable life, and group life policies. The company also provides longevity reinsurance solutions, credit insurance products, and protection for long-term healthcare services. MetLife, Inc. was founded in 1863 and is headquartered in New York City.",
+      "ceo": "Michel Abbas Khalaf",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "46000",
+      "phone": "212 578 9500",
+      "address": "200 Park Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10166-0188",
+      "image": "https://images.financialmodelingprep.com/symbol/MET.png",
+      "ipoDate": "2000-04-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MET",
+      "date": "2015-12-31",
+      "marketCap": 47290368000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040856.9481847,
+  "previous_attempts": [
+    {
+      "symbol": "MET",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040436.5160599
+    }
+  ]
+}

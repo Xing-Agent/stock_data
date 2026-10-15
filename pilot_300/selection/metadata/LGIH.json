@@ -1,0 +1,54 @@
+{
+  "symbol": "LGIH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LGIH",
+      "price": 42.35,
+      "marketCap": 984564277,
+      "beta": 1.857,
+      "lastDividend": 0,
+      "range": "33.55-66.25",
+      "change": -2.94,
+      "changePercentage": -6.4915,
+      "volume": 690673,
+      "averageVolume": 329747,
+      "companyName": "LGI Homes, Inc.",
+      "currency": "USD",
+      "cik": "0001580670",
+      "isin": "US50187T1060",
+      "cusip": "50187T106",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Residential Construction",
+      "website": "https://www.lgihomes.com",
+      "description": "LGI Homes, Inc. engages in the design, construction, and sale of new homes in the United States. It markets and sells attached and detached entry-level homes and active adult offerings under the LGI Homes brand; and luxury homes under the Terrata Homes brand. The company also engages in the wholesale business, which includes building and selling homes to large institutions interested in acquiring single-family rental properties through bulk sales agreements. It operates in Texas, Arizona, Florida, Georgia, New Mexico, Colorado, North Carolina, South Carolina, Washington, Tennessee, Minnesota, Oklahoma, Alabama, California, Oregon, Nevada, West Virginia, Virginia, Pennsylvania, Maryland, and Utah. LGI Homes, Inc. was founded in 2003 and is headquartered in The Woodlands, Texas.",
+      "ceo": "Eric Thomas Lipar",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "1056",
+      "phone": "281 362 8998",
+      "address": "1450 Lake Robbins Drive",
+      "city": "The Woodlands",
+      "state": "TX",
+      "zip": "77380",
+      "image": "https://images.financialmodelingprep.com/symbol/LGIH.png",
+      "ipoDate": "2013-11-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LGIH",
+      "date": "2015-12-31",
+      "marketCap": 493622100
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041239.4350586
+}

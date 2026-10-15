@@ -1,0 +1,54 @@
+{
+  "symbol": "DVN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DVN",
+      "price": 49.92,
+      "marketCap": 54912000000,
+      "beta": 0.426,
+      "lastDividend": 1.04,
+      "range": "31.47-52.71",
+      "change": -0.29,
+      "changePercentage": -0.57757,
+      "volume": 8928382,
+      "averageVolume": 12012247,
+      "companyName": "Devon Energy Corporation",
+      "currency": "USD",
+      "cik": "0001090012",
+      "isin": "US25179M1036",
+      "cusip": "25179M103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://www.devonenergy.com",
+      "description": "As an independent energy producer, Devon Energy Corporation primarily focuses on the exploration, development, and extraction of oil, natural gas, and natural gas liquids within the United States. The company manages roughly 5,134 gross wells. Established in 1971, its corporate headquarters are located in Oklahoma City, Oklahoma.",
+      "ceo": "Clay Gaspar",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "2200",
+      "phone": "405 235 3611",
+      "address": "Three Memorial City Plaza",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77024",
+      "image": "https://images.financialmodelingprep.com/symbol/DVN.png",
+      "ipoDate": "1985-07-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DVN",
+      "date": "2015-12-31",
+      "marketCap": 15168000896
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040262.5208695
+}

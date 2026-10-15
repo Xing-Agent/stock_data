@@ -1,0 +1,54 @@
+{
+  "symbol": "SSB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SSB",
+      "price": 99.17,
+      "marketCap": 9616628251,
+      "beta": 0.775,
+      "lastDividend": 2.46,
+      "range": "84.48-112.2",
+      "change": -0.68,
+      "changePercentage": -0.68102,
+      "volume": 675064,
+      "averageVolume": 794392,
+      "companyName": "SouthState Bank Corp.",
+      "currency": "USD",
+      "cik": "0000764038",
+      "isin": "US84472E1029",
+      "cusip": "84472E102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.southstatebank.com",
+      "description": "SouthState Bank Corporation operates as the bank holding company for SouthState Bank, National Association that provides a range of banking services and products to individuals and companies in the United States. The company offers checking accounts, savings accounts, money market accounts, and time deposit accounts; interest-bearing deposits, certificates of deposits, and other time deposits; and interest-bearing transaction accounts. It provides bond accounting services for correspondents, asset/liability consulting related activities, international wires, and other clearing and corporate checking account services. In addition, the company offers commercial real estate, residential real estate, and commercial and industrial loans, as well as consumer loans, including auto, boat, and personal installment, as well as business, agriculture, real estate-secured (mortgage), home improvement, and manufactured housing loans. Further, it provides debit and credit card, mobile services, funds transfer products and services, and treasury management services comprising merchant, automated clearing house, lock-box, remote deposit capture, and other treasury services, as well as asset and wealth management, and other fiduciary and private banking services. Additionally, the company offers safe deposit boxes, bank money orders, wire transfer and ACH services, brokerage services, and alternative investment products, such as annuities and mutual funds, trust and asset management services; letters of credit and home equity lines of credit; and online, mobile, and telephone banking platforms. The company was formerly known as SouthState Corporation and changed its name to SouthState Bank Corporation in September 2025. SouthState Bank Corporation was founded in 1933 and is headquartered in Winter Haven, Florida.",
+      "ceo": "John C. Corbett",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "6431",
+      "phone": "863 293 4710",
+      "address": "1101 First Street South",
+      "city": "Winter Haven",
+      "state": "FL",
+      "zip": "33880",
+      "image": "https://images.financialmodelingprep.com/symbol/SSB.png",
+      "ipoDate": "1997-01-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SSB",
+      "date": "2015-12-31",
+      "marketCap": 1724569550
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040618.0084822
+}

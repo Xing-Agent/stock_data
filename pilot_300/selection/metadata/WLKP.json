@@ -1,0 +1,54 @@
+{
+  "symbol": "WLKP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WLKP",
+      "price": 20.92,
+      "marketCap": 737343789,
+      "beta": 0.495,
+      "lastDividend": 1.8856,
+      "range": "17.75-23.88",
+      "change": -0.18,
+      "changePercentage": -0.85308,
+      "volume": 15843,
+      "averageVolume": 27890,
+      "companyName": "Westlake Chemical Partners LP",
+      "currency": "USD",
+      "cik": "0001604665",
+      "isin": "US9604171036",
+      "cusip": "960417103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals",
+      "website": "https://www.wlkpartners.com",
+      "description": "Westlake Chemical Partners LP concentrates on acquiring, developing, and operating facilities dedicated to ethylene production, along with related infrastructure, throughout the United States. These plants primarily function by converting ethane into ethylene. Furthermore, the partnership distributes a range of chemical co-products—such as propylene, crude butadiene, pyrolysis gasoline, and hydrogen—directly to external buyers, conducting these sales through either immediate spot transactions or established contractual agreements. Westlake Chemical Partners GP LLC serves as the entity's general partner. The company was founded in 2014 and its corporate headquarters are located in Houston, Texas.",
+      "ceo": "Jean-Marc Gilson",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "2169",
+      "phone": "713 585 2900",
+      "address": "2801 Post Oak Boulevard",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77056",
+      "image": "https://images.financialmodelingprep.com/symbol/WLKP.png",
+      "ipoDate": "2014-07-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WLKP",
+      "date": "2015-12-31",
+      "marketCap": 595606925
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040526.0815399
+}

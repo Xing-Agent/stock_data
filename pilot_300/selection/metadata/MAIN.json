@@ -1,0 +1,54 @@
+{
+  "symbol": "MAIN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MAIN",
+      "price": 53.5,
+      "marketCap": 5002702610,
+      "beta": 0.749,
+      "lastDividend": 4.33,
+      "range": "48.95-65.23",
+      "change": -0.27,
+      "changePercentage": -0.50214,
+      "volume": 454409,
+      "averageVolume": 570030,
+      "companyName": "Main Street Capital Corporation",
+      "currency": "USD",
+      "cik": "0001396440",
+      "isin": "US56035L1044",
+      "cusip": "56035L104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Asset Management",
+      "website": "https://www.mainstcapital.com",
+      "description": "Main Street Capital Corporation functions as a Business Development Company (BDC), providing diverse capital solutions across different market segments. Primarily, the firm supplies equity capital to lower middle market companies. These investments support various strategic objectives, including recapitalizations, management buyouts, refinancing, family estate planning, industry consolidation, and growth initiatives for both mature and later-stage emerging businesses. Main Street actively seeks to forge partnerships with entrepreneurs, business owners, and management teams, frequently offering comprehensive, \"one-stop\" financing alternatives for its lower middle market portfolio. Companies targeted for equity investment in this segment typically have annual revenues between $5 million and $300 million, with individual equity investments generally ranging from $2 million to $75 million, and an enterprise value for the target company usually falling between $3 million and $20 million. The firm is prepared to take stakes from a 5% minority position up to a 50% majority interest. In addition to its equity offerings, Main Street also extends debt capital to middle market companies. These funds are allocated to finance activities such as acquisitions, management buyouts, growth strategies, recapitalizations, and refinancing. Debt transactions in the middle market typically range from $5 million to $50 million per deal, targeting businesses with annual EBITDA between $1 million and $20 million. It is important to note that these middle market debt recipients are generally larger in scale than the companies within Main Street's lower middle market equity portfolio. The firm demonstrates a wide investment scope, engaging with numerous industries. These include, but are not limited to: air freight and logistics, auto components, building products, chemicals, commercial services, computing, construction and engineering, consumer finance and services, electronic equipment, energy (equipment, services, and consumables), financial services, healthcare (equipment and providers), hospitality, internet software and services, IT services, machinery, paper and forest products, professional and industrial services, road and rail transportation, software, specialty retail, and telecommunications. Broadly, this covers sectors within consumer discretionary, energy, materials, technology, and transportation. Main Street Capital Corporation was established in 2007, with its main operations based in Houston, Texas, and an additional office located in Chojnów, Poland.",
+      "ceo": "Dwayne Louis Hyzak",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "110",
+      "phone": "713 350 6000",
+      "address": "1300 Post Oak Boulevard",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77056",
+      "image": "https://images.financialmodelingprep.com/symbol/MAIN.png",
+      "ipoDate": "2007-10-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MAIN",
+      "date": "2015-12-31",
+      "marketCap": 1469994000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040273.0599906
+}

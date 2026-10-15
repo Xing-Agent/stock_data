@@ -1,0 +1,63 @@
+{
+  "symbol": "CBFV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CBFV",
+      "price": 37.7,
+      "marketCap": 191575566,
+      "beta": 0.28,
+      "lastDividend": 1.1,
+      "range": "30.97-38.86",
+      "change": 0.19,
+      "changePercentage": 0.50653,
+      "volume": 8218,
+      "averageVolume": 5913,
+      "companyName": "CB Financial Services, Inc.",
+      "currency": "USD",
+      "cik": "0001605301",
+      "isin": "US12479G1013",
+      "cusip": "12479G101",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.cb.bank",
+      "description": "CB Financial Services, Inc. functions as the parent company for Community Bank, delivering a broad spectrum of banking solutions and financial services to individuals and businesses. Its operational footprint spans southwestern Pennsylvania, West Virginia, and Ohio. The bank's core deposit offerings include checking accounts (comprising both demand and NOW accounts), money market accounts, savings accounts, and various time deposit products. A comprehensive suite of loan products is also provided. For residential borrowers, this includes real estate financing such as mortgages for single- to four-family homes, home equity installment loans, and home equity lines of credit. Commercial real estate loans are offered, typically secured by developed properties like retail centers, office buildings, and other non-residential structures. Construction financing is available for both individual residential dwellings and commercial projects, ranging from hotels and apartment buildings to housing developments and owner-occupied business properties. Furthermore, the institution extends commercial and industrial loans and lines of credit, alongside diverse consumer loans like indirect auto financing, secured and unsecured personal loans, and credit lines. Beyond traditional banking, CB Financial Services also operates an insurance agency, providing a variety of products such as property and casualty coverage, commercial liability policies, surety bonds, and other related services. Its physical presence comprises a main office and 13 branch locations distributed across Greene, Allegheny, Washington, Fayette, and Westmoreland counties in southwestern Pennsylvania; Marshall and Ohio counties in West Virginia; and Belmont County in Ohio. An additional loan production office is located in Allegheny County. Founded in 1901, the company's corporate headquarters are situated in Carmichaels, Pennsylvania.",
+      "ceo": "John H. Montgomery",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "169",
+      "phone": "724 966 5041",
+      "address": "100 North Market Street",
+      "city": "Carmichaels",
+      "state": "PA",
+      "zip": "15320",
+      "image": "https://images.financialmodelingprep.com/symbol/CBFV.png",
+      "ipoDate": "2003-10-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CBFV",
+      "date": "2015-12-31",
+      "marketCap": 93536909
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040936.3170183,
+  "previous_attempts": [
+    {
+      "symbol": "CBFV",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040580.1231644
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "EPAM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EPAM",
+      "price": 114.63,
+      "marketCap": 5913417810,
+      "beta": 1.386,
+      "lastDividend": 0,
+      "range": "73.06-222.53",
+      "change": -0.87,
+      "changePercentage": -0.75325,
+      "volume": 559030,
+      "averageVolume": 1430289,
+      "companyName": "EPAM Systems, Inc.",
+      "currency": "USD",
+      "cik": "0001352010",
+      "isin": "US29414B1044",
+      "cusip": "29414B104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Information Technology Services",
+      "website": "https://www.epam.com",
+      "description": "EPAM Systems, Inc. is a leading global provider of comprehensive digital platform engineering and software development solutions. The company's extensive service portfolio includes: Engineering Services: From initial requirements analysis and strategic platform selection to tailored customization, seamless cross-platform migration, and robust implementation and integration of new systems. Infrastructure Management: Covering the full lifecycle of software development, rigorous testing, and ongoing maintenance across private, public, and mobile infrastructures. This includes overseeing operations for applications, databases, networks, servers, storage, and broader systems management, alongside proactive monitoring, incident notification, and rapid resolution. Maintenance and Support: Ensuring the sustained performance and reliability of client systems. Operational Enhancement: Delivering solutions that streamline processes through integrated engineering practices and intelligent automation. Optimization Services: Focused on quality assurance, these include advanced software application testing, meticulous test management, automated testing, and consulting to elevate clients' existing QA practices. They also provide specialized testing to uncover potential threats and fortify business systems against information loss and cyber vulnerabilities. Consulting and Advisory: Offering expert guidance across various domains such as business strategy, user experience, technology roadmaps, data analytics, and technical advisory. Design and Innovation: Crafting digital and service design solutions, encompassing strategic planning, creative execution, and program management. Additionally, EPAM drives physical product development, leveraging cutting-edge technologies like artificial intelligence (AI), robotics, and virtual reality (VR). EPAM caters to a diverse global clientele across numerous sectors, including financial services, travel and consumer goods, software and high-tech, business information and media, and the life sciences and healthcare industries. Established in 1993, the company maintains its headquarters in Newtown, Pennsylvania.",
+      "ceo": "Balazs Fejes",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "62850",
+      "phone": "267 759 9000",
+      "address": "41 University Drive",
+      "city": "Newtown",
+      "state": "PA",
+      "zip": "18940",
+      "image": "https://images.financialmodelingprep.com/symbol/EPAM.png",
+      "ipoDate": "2012-02-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EPAM",
+      "date": "2015-12-31",
+      "marketCap": 3908514680
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041044.140508
+}

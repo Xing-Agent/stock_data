@@ -1,0 +1,54 @@
+{
+  "symbol": "IBIO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "IBIO",
+      "price": 0.7808,
+      "marketCap": 50211105,
+      "beta": 1.257,
+      "lastDividend": 0,
+      "range": "0.73-3.82",
+      "change": -0.000999977875,
+      "changePercentage": -0.12791,
+      "volume": 1433411,
+      "averageVolume": 824571,
+      "companyName": "iBio, Inc.",
+      "currency": "USD",
+      "cik": "0001420720",
+      "isin": "US4510337086",
+      "cusip": "451033708",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.ibioinc.com",
+      "description": "iBio, Inc., a United States-based biotechnology firm, delivers contract development and manufacturing (CDMO) services to its collaborators and external clients. Its operations are structured into two distinct segments: Biopharmaceuticals and Bioprocessing. The company's leading therapeutic candidate, IBIO-100, is currently progressing through investigational new drug (IND) development, aimed at addressing systemic scleroderma and idiopathic pulmonary fibrosis. Additionally, iBio is engaged in the preclinical development of vaccine candidates, including IBIO-200 and IBIO-201, designed to prevent severe acute respiratory syndrome coronavirus 2. Another candidate, IBIO-400, is in development for the treatment of classical swine fever. Beyond its proprietary pipeline, iBio provides recombinant proteins to third parties, available both as catalog items and custom-synthesized products. It also offers comprehensive services spanning process development, advanced manufacturing, filling and finishing, and bioanalytical support. iBio maintains several strategic partnerships: a licensing agreement with Planet Biotechnology, Inc. for infectious disease therapeutics; a collaborative effort with The Texas A&M University System focused on COVID-19 vaccine candidates; a licensing pact with the University of Natural Resources and Life Sciences, Vienna; and a collaboration with CC-Pharming Ltd. Its corporate headquarters are situated in Bryan, Texas.",
+      "ceo": "Martin Brenner",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "23",
+      "phone": "979 446 0027",
+      "address": "11750 Sorrento Valley Road",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92121",
+      "image": "https://images.financialmodelingprep.com/symbol/IBIO.png",
+      "ipoDate": "2008-08-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "IBIO",
+      "date": "2015-12-31",
+      "marketCap": 1817939200
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041532.0334675
+}

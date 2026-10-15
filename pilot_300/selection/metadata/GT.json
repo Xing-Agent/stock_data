@@ -1,0 +1,54 @@
+{
+  "symbol": "GT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GT",
+      "price": 4.38,
+      "marketCap": 1260996429,
+      "beta": 1.107,
+      "lastDividend": 0,
+      "range": "4.35-10.62",
+      "change": -0.18,
+      "changePercentage": -3.94737,
+      "volume": 7768478,
+      "averageVolume": 9776091,
+      "companyName": "The Goodyear Tire & Rubber Company",
+      "currency": "USD",
+      "cik": "0000042582",
+      "isin": "US3825501014",
+      "cusip": "382550101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Auto - Parts",
+      "website": "https://www.goodyear.com",
+      "description": "The Goodyear Tire & Rubber Company, along with its subsidiaries, functions as a global leader in the development, production, marketing, and sale of tires, alongside a suite of related products and services. Its diverse tire lineup caters to an extensive range of vehicles, from passenger automobiles, trucks, buses, and motorcycles to specialized equipment for aviation, earthmoving, mining, and industrial sectors. These products are offered under numerous proprietary brands, including Goodyear, Cooper, Dunlop, Kelly, Debica, Sava, Fulda, Mastercraft, and Roadmaster, as well as other house and private-label brands. Beyond new tire offerings, the company engages in the retreading of truck, aviation, and off-the-road tires, manufacturing and supplying essential retreading materials like tread rubber. It also distributes chemical and natural rubber products and delivers comprehensive maintenance and repair services for both automotive and commercial truck fleets, among other miscellaneous services. With approximately 1,000 retail outlets worldwide, Goodyear directly sells products and provides repair and other services to its customers. The company's global reach is facilitated by a broad distribution network comprising independent dealers, regional distributors, its own retail stores, and various other retailers. Incorporated in 1898, The Goodyear Tire & Rubber Company maintains its corporate headquarters in Akron, Ohio.",
+      "ceo": "Mark W. Stewart",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "63000",
+      "phone": "330-796-2121",
+      "address": "200 Innovation Way",
+      "city": "Akron",
+      "state": "OH",
+      "zip": "44316-0001",
+      "image": "https://images.financialmodelingprep.com/symbol/GT.png",
+      "ipoDate": "1927-08-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GT",
+      "date": "2015-12-31",
+      "marketCap": 8722890000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041208.4734724
+}

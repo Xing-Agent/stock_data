@@ -1,0 +1,56 @@
+{
+  "symbol": "SNA",
+  "status": "unavailable",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SNA",
+      "price": 363.51,
+      "marketCap": 18803326845,
+      "beta": 0.7,
+      "lastDividend": 9.76,
+      "range": "320.8-423.02",
+      "change": -0.16,
+      "changePercentage": -0.04399593,
+      "volume": 214829,
+      "averageVolume": 325199,
+      "companyName": "Snap-on Incorporated",
+      "currency": "USD",
+      "cik": "0000091440",
+      "isin": "US8330341012",
+      "cusip": "833034101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Manufacturing - Tools & Accessories",
+      "website": "https://www.snapon.com",
+      "description": "Snap-on Incorporated, a global provider based in Kenosha, Wisconsin, specializes in the production and distribution of an extensive range of tools, equipment, diagnostic systems, and repair information solutions for professional users worldwide. The company operates through its Commercial & Industrial Group, Snap-on Tools Group, Repair Systems & Information Group, and Financial Services segments. Its comprehensive product portfolio includes a diverse selection of hand tools like wrenches, sockets, pliers, screwdrivers, cutting and pruning tools, and torque measuring instruments. Snap-on also supplies various power tools (cordless, pneumatic, hydraulic, and corded) and robust tool storage solutions such as chests and roll cabinets. Beyond physical tools, the firm delivers advanced diagnostic offerings, spanning handheld and computer-based products, specialized software, service and repair information, electronic parts catalogs, business management systems, point-of-sale systems, and integrated solutions for vehicle service shops. Additionally, it provides services for OEM purchasing facilitation and warranty management systems with analytics. The company's specialized equipment for vehicle and industrial machinery service includes wheel alignment systems, balancers, tire changers, vehicle lifts, test lane apparatus, collision repair tools, AC service units, brake service equipment, fluid exchange systems, transmission troubleshooting gear, safety testing devices, battery chargers, and hoists, all backed by after-sales support and training programs. To facilitate product sales and support its franchise business, Snap-on also offers financing programs. Its diverse clientele extends across aviation, aerospace, agriculture, construction, government, military, mining, natural resources, power generation, and technical education industries, alongside vehicle dealerships and repair centers. Snap-on Incorporated was founded in 1920.",
+      "ceo": "Nicholas T. Pinchuk",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "13000",
+      "phone": "262 656 5200",
+      "address": "2801 80th Street",
+      "city": "Kenosha",
+      "state": "WI",
+      "zip": "53143",
+      "image": "https://images.financialmodelingprep.com/symbol/SNA.png",
+      "ipoDate": "2017-03-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "reason": "new_or_unknown_security_ipo",
+  "retrieved_at_unix": 1792040773.779413,
+  "previous_attempts": [
+    {
+      "symbol": "SNA",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040291.855504
+    }
+  ]
+}

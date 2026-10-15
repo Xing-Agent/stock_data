@@ -1,0 +1,54 @@
+{
+  "symbol": "PNFP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PNFP",
+      "price": 92.85,
+      "marketCap": 14030267494,
+      "beta": 1.031,
+      "lastDividend": 1.74,
+      "range": "81.08-110.33",
+      "change": -0.68,
+      "changePercentage": -0.72704,
+      "volume": 770067,
+      "averageVolume": 1179670,
+      "companyName": "Pinnacle Financial Partners, Inc.",
+      "currency": "USD",
+      "cik": "0002082866",
+      "isin": "US72348N1090",
+      "cusip": "72348N109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.pnfp.com",
+      "description": "Pinnacle Financial Partners, Inc. functions as a bank holding company, overseeing Pinnacle Bank, which delivers a comprehensive range of banking solutions and services across the United States. The company facilitates various types of deposit accounts for its clients, including savings accounts, standard checking accounts (both interest-bearing and noninterest-bearing), money market accounts, and certificates of deposit. Its lending portfolio is extensive, covering commercial loans for purposes like equipment financing and working capital, along with commercial real estate loans for investment properties and business ventures backed by real estate. For individual clients, Pinnacle Bank offers secured and unsecured installment loans, term loans, lines of credit, residential first mortgage loans, and home equity loans and lines of credit. Additionally, it issues credit cards for both consumers and businesses. Beyond traditional banking, Pinnacle Financial Partners provides a suite of securities and other financial offerings, diverse investment products, and comprehensive brokerage and investment advisory programs. It also specializes in fiduciary and investment management services, catering to personal trusts, endowments, foundations, individual retirement accounts (IRAs), pensions, and custody arrangements. Further expanding its services, the company operates an insurance agency, predominantly focusing on property and casualty coverage. It also offers expert advice on mergers and acquisitions, and provides specialized advisory services for private debt, equity, mezzanine financing, and other middle-market transactions. For day-to-day banking needs, Pinnacle offers treasury management, telephone and online banking, mobile banking, debit cards, direct deposit, remote and mobile deposit capture options, automated teller machines (ATMs), and various cash management services. Its diverse clientele includes individuals, small to medium-sized businesses, and professional organizations. As of December 31, 2020, the company maintained a network of 114 offices: 48 in Tennessee, 36 in North Carolina, 20 in South Carolina, 9 in Virginia, and 1 in Georgia. Pinnacle Financial Partners, Inc. was established in 2000 and its main corporate office is located in Nashville, Tennessee.",
+      "ceo": "Kevin S. Blair",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "8433",
+      "phone": "706 641 6500",
+      "address": "3400 Overton Park Drive",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30339",
+      "image": "https://images.financialmodelingprep.com/symbol/PNFP.png",
+      "ipoDate": "2000-08-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PNFP",
+      "date": "2015-12-31",
+      "marketCap": 2058662880
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041058.4766755
+}

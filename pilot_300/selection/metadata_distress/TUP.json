@@ -1,0 +1,54 @@
+{
+  "symbol": "TUP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TUP",
+      "price": 0.5099,
+      "marketCap": 23725953,
+      "beta": 2.919,
+      "lastDividend": 0,
+      "range": "0.48-2.72",
+      "change": -0.6901,
+      "changePercentage": -57.5083,
+      "volume": 363,
+      "averageVolume": 877336,
+      "companyName": "Tupperware Brands Corporation",
+      "currency": "USD",
+      "cik": "0001008654",
+      "isin": "US8998961044",
+      "cusip": "899896104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Packaging & Containers",
+      "website": "https://www.tupperware.com/discover",
+      "description": "Tupperware Brands Corporation operates as a global consumer goods enterprise. The company focuses on developing, marketing, and selling aesthetically and functionally designed items for kitchen preparation, storage, and serving. Its product range, all bearing the renowned Tupperware brand, also encompasses various cookware, cutlery, microwave-safe products, microfiber textiles, water filtration solutions, and portable goods catering to on-the-go lifestyles. These offerings are disseminated across approximately 70 countries, primarily through an extensive network of independent sales professionals, including individual distributors, directors, managers, and dealers. Originally known as Tupperware Corporation, the company officially rebranded to Tupperware Brands Corporation in December 2005. Established in 1946, its corporate headquarters are situated in Orlando, Florida.",
+      "ceo": "Laurie Ann Goldman",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "6600",
+      "phone": "407 826 5050",
+      "address": "14901 South Orange Blossom Trail",
+      "city": "Orlando",
+      "state": "FL",
+      "zip": "32837",
+      "image": "https://images.financialmodelingprep.com/symbol/TUP.png",
+      "ipoDate": "1996-05-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TUP",
+      "date": "2015-12-31",
+      "marketCap": 2804760000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041219.3444867
+}

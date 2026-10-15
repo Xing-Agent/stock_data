@@ -1,0 +1,63 @@
+{
+  "symbol": "ARCT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ARCT",
+      "price": 11.12,
+      "marketCap": 316064527,
+      "beta": 2.483,
+      "lastDividend": 0,
+      "range": "5.5-24.17",
+      "change": -0.91,
+      "changePercentage": -7.56442,
+      "volume": 588807,
+      "averageVolume": 808602,
+      "companyName": "Arcturus Therapeutics Holdings Inc.",
+      "currency": "USD",
+      "cik": "0001768224",
+      "isin": "US03969T1097",
+      "cusip": "03969T109",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://arcturusrx.com",
+      "description": "Arcturus Therapeutics Holdings Inc. is a biotechnology company focused on RNA-based medicines, developing a pipeline of vaccines for infectious diseases alongside treatments for rare liver and respiratory conditions across the United States. Its notable development programs encompass LUNAR-OTC, designed for ornithine transcarbamylase (OTC) deficiency, and LUNAR-CF, targeting cystic fibrosis lung disease caused by specific CFTR gene mutations. The company also advances vaccine initiatives such as LUNAR-COV19 and LUNAR-FLU. Arcturus has cultivated a range of strategic collaborations, including partnerships with Vinbiocare Biotechnology Joint Stock Company for manufacturing COVID-19 vaccines; Janssen Pharmaceuticals, Inc., to create nucleic acid-based therapies for hepatitis B virus; Ultragenyx Pharmaceutical, Inc., for developing mRNA therapeutics aimed at rare disease targets; CureVac AG, to progress mRNA therapeutic and vaccine candidates across various indications; the Singapore Economic Development Board and Duke-NUS Medical School, specifically for the LUNAR-COV19 vaccine; and Millennium Pharmaceuticals, Inc., focused on discovering siRNA medicines for non-alcoholic steatohepatitis (NASH). Founded in 2013, Arcturus Therapeutics maintains its corporate headquarters in San Diego, California.",
+      "ceo": "Joseph E. Payne",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "109",
+      "phone": "858 900 2660",
+      "address": "10628 Science Center Drive",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92121",
+      "image": "https://images.financialmodelingprep.com/symbol/ARCT.png",
+      "ipoDate": "2013-05-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ARCT",
+      "date": "2015-12-31",
+      "marketCap": 151578124
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040956.9709127,
+  "previous_attempts": [
+    {
+      "symbol": "ARCT",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040631.8826675
+    }
+  ]
+}

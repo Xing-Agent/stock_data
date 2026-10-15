@@ -1,0 +1,54 @@
+{
+  "symbol": "COLM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "COLM",
+      "price": 57.7,
+      "marketCap": 2953847178,
+      "beta": 0.929,
+      "lastDividend": 1.2,
+      "range": "47.47-69.06",
+      "change": 0.64,
+      "changePercentage": 1.12163,
+      "volume": 750972,
+      "averageVolume": 636046,
+      "companyName": "Columbia Sportswear Company",
+      "currency": "USD",
+      "cik": "0001050797",
+      "isin": "US1985161066",
+      "cusip": "198516106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Apparel - Manufacturers",
+      "website": "https://www.columbia.com",
+      "description": "Columbia Sportswear Company, including its various business units, operates as a global enterprise focused on the design, procurement, promotion, and sale of clothing, footwear, gear, and accessories. These products cater to outdoor adventures, active pursuits, and general daily wear. The company's extensive market presence spans across the United States, Latin America, the Asia Pacific region, Europe, the Middle East, Africa, and Canada. Its offerings support a wide array of activities such as skiing, snowboarding, hiking, climbing, mountaineering, camping, hunting, fishing, trail running, water sports, yoga, golf, and adventure travel. The footwear selection is particularly diverse, encompassing lightweight hiking boots, specialized trail running shoes, robust cold-weather boots for snow and ice, water-friendly sandals and shoes, and stylish yet functional casual options for everyday use. These items are marketed under well-known brand names: Columbia, Mountain Hardwear, SOREL, and prAna. Distribution occurs through multiple channels, including the company's own network of approximately 455 branded and outlet retail stores (as of December 31, 2021), dedicated brand e-commerce sites, and concession-based arrangements with third parties in outlet and shop-in-shop formats. Furthermore, products are available via independent specialty outdoor and sporting goods retailers, large sporting goods chains, department stores, various online merchants, and international distributors. Established in 1938, the company is headquartered in Portland, Oregon.",
+      "ceo": "Timothy Boyle",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "9620",
+      "phone": "503 985 4000",
+      "address": "14375 Northwest Science Park Drive",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "97229",
+      "image": "https://images.financialmodelingprep.com/symbol/COLM.png",
+      "ipoDate": "1998-03-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "COLM",
+      "date": "2015-12-31",
+      "marketCap": 3385943160
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041582.3515093
+}

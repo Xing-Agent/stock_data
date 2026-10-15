@@ -1,0 +1,54 @@
+{
+  "symbol": "HTLD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HTLD",
+      "price": 10.88,
+      "marketCap": 841378808,
+      "beta": 1.346,
+      "lastDividend": 0.08,
+      "range": "7-16.64",
+      "change": 0.02,
+      "changePercentage": 0.18416,
+      "volume": 582071,
+      "averageVolume": 707775,
+      "companyName": "Heartland Express, Inc.",
+      "currency": "USD",
+      "cik": "0000799233",
+      "isin": "US4223471040",
+      "cusip": "422347104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Trucking",
+      "website": "https://www.heartlandexpress.com",
+      "description": "Heartland Express, Inc., operating with its subsidiaries, functions as a transportation company primarily focusing on short to medium-distance truckload freight across the United States and Canada. The firm's main services encompass extensive asset-based dry van truckload hauling, covering the entire contiguous U.S. from coast to coast, as well as specialized temperature-controlled logistics. These services are delivered under its prominent brand names, Heartland Express and Millis Transfer. Its customer base largely comprises retailers and manufacturers within the consumer goods, appliance, foodstuff, and automotive industries. The company was established in 1978 and is headquartered in North Liberty, Iowa.",
+      "ceo": "Michael J. Gerdin",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "3630",
+      "phone": "319 626 3600",
+      "address": "901 Heartland Way",
+      "city": "North Liberty",
+      "state": "IA",
+      "zip": "52317",
+      "image": "https://images.financialmodelingprep.com/symbol/HTLD.png",
+      "ipoDate": "1986-11-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HTLD",
+      "date": "2015-12-31",
+      "marketCap": 1418940380
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041895.1967123
+}

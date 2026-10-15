@@ -1,0 +1,54 @@
+{
+  "symbol": "ABCB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ABCB",
+      "price": 78.1,
+      "marketCap": 5255544250,
+      "beta": 0.972,
+      "lastDividend": 0.8,
+      "range": "68.8-93.22",
+      "change": -0.82,
+      "changePercentage": -1.03903,
+      "volume": 449931,
+      "averageVolume": 481725,
+      "companyName": "Ameris Bancorp",
+      "currency": "USD",
+      "cik": "0000351569",
+      "isin": "US03076K1088",
+      "cusip": "03076K108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.amerisbank.com",
+      "description": "Ameris Bancorp operates as the bank holding company for Ameris Bank that provides various banking services to retail and commercial customers. It operates through four segments: Banking Division, Retail Mortgage Division, Warehouse Lending Division, and Premium Finance Division. The company offers commercial and retail checking, interest-bearing savings, money market, individual retirement, and certificates of deposit accounts. It also provides commercial real estate, residential real estate mortgage, agricultural, and commercial and industrial loans; consumer loans, including home improvement and home equity loans, as well as loans secured by savings accounts and personal credit lines. In addition, the company originates, administers, and services commercial insurance premium loans; equipment finance loans; and small business administration loans. Further, it operates full-service domestic banking offices, and mortgage and loan production offices. Ameris Bancorp was founded in 1971 and is headquartered in Atlanta, Georgia.",
+      "ceo": "H. Palmer Proctor",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "2673",
+      "phone": "404 639 6500",
+      "address": "3490 Piedmont Road N.E.",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30305",
+      "image": "https://images.financialmodelingprep.com/symbol/ABCB.png",
+      "ipoDate": "1994-05-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ABCB",
+      "date": "2015-12-31",
+      "marketCap": 1113240480
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041340.5552158
+}

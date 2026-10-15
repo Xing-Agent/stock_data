@@ -1,0 +1,54 @@
+{
+  "symbol": "BNTC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BNTC",
+      "price": 8.29,
+      "marketCap": 289177583,
+      "beta": 0.249,
+      "lastDividend": 0,
+      "range": "8.25-16.76",
+      "change": -0.34,
+      "changePercentage": -3.93975,
+      "volume": 162498,
+      "averageVolume": 153533,
+      "companyName": "Benitec Biopharma Inc.",
+      "currency": "USD",
+      "cik": "0001808898",
+      "isin": "US08205P2092",
+      "cusip": "08205P209",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://benitec.com",
+      "description": "Benitec Biopharma Inc., a clinical-stage biotechnology company, focuses on the development of novel genetic medicines. Its Silence and Replace, a DNA-directedRNA interference platform combines RNA interference with gene therapy to create medicines that simultaneously facilitate sustained silencing of disease-causing genes and concomitant delivery of wildtype replacement genes following a single administration of the therapeutic construct. The company is developing BB-301, an AAV-based gene therapy designed to silence the expression of the disease-causing gene for the treatment of oculopharyngeal muscular dystrophy related dysphagia. Benitec Biopharma Inc. is headquartered in Hayward, California.",
+      "ceo": "Jerel A. Banks",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "24",
+      "phone": "510 780 0819",
+      "address": "3940 Trust Way",
+      "city": "Hayward",
+      "state": "CA",
+      "zip": "94545",
+      "image": "https://images.financialmodelingprep.com/symbol/BNTC.png",
+      "ipoDate": "2014-06-24",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BNTC",
+      "date": "2015-12-31",
+      "marketCap": 116935207
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041393.5678759
+}

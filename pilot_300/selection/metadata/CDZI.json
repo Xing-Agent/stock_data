@@ -1,0 +1,54 @@
+{
+  "symbol": "CDZI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CDZI",
+      "price": 3.22,
+      "marketCap": 270757841,
+      "beta": 1.724,
+      "lastDividend": 0,
+      "range": "2.87-6.96",
+      "change": -0.18,
+      "changePercentage": -5.29412,
+      "volume": 2709509,
+      "averageVolume": 1053743,
+      "companyName": "Cadiz Inc.",
+      "currency": "USD",
+      "cik": "0000727273",
+      "isin": "US1275372076",
+      "cusip": "127537207",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Regulated Water",
+      "website": "https://www.cadizinc.com",
+      "description": "Operating within the United States, Cadiz Inc. functions as a natural resources development entity. Its primary activities revolve around water and agricultural development projects, predominantly situated across its vast landholdings in California's San Bernardino County. The company's property portfolio includes approximately 35,000 acres located in the Cadiz and Fenner valleys of eastern San Bernardino County, alongside an additional 11,000 acres in the eastern Mojave Desert region of the same county. Beyond its resource endeavors, Cadiz Inc. also cultivates various crops such as lemons, and undertakes seasonal plantings of vegetables and grains. This enterprise, founded in 1983, maintains its corporate headquarters in Los Angeles, California.",
+      "ceo": "Susan Kennedy",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "31",
+      "phone": "213 271 1600",
+      "address": "550 South Hope Street",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90071",
+      "image": "https://images.financialmodelingprep.com/symbol/CDZI.png",
+      "ipoDate": "1989-01-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CDZI",
+      "date": "2015-12-31",
+      "marketCap": 94138220
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040321.3784425
+}

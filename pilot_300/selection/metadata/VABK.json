@@ -1,0 +1,54 @@
+{
+  "symbol": "VABK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VABK",
+      "price": 50.69,
+      "marketCap": 274867032,
+      "beta": 0.452,
+      "lastDividend": 1.44,
+      "range": "37.35-51.04",
+      "change": 0.41,
+      "changePercentage": 0.81543,
+      "volume": 20512,
+      "averageVolume": 7646,
+      "companyName": "Virginia National Bankshares Corporation",
+      "currency": "USD",
+      "cik": "0001572334",
+      "isin": "US9280311039",
+      "cusip": "928031103",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.vnb.com",
+      "description": "Virginia National Bankshares Corporation operates as the parent entity for Virginia National Bank, delivering a comprehensive suite of commercial banking solutions. Its operations are structured into four distinct divisions: the primary banking segment, Sturman Wealth Advisors, VNB Trust and Estate Services, and Masonry Capital. The institution provides a diverse range of deposit products, including checking accounts, demand deposits, NOW accounts, money market savings, time deposits, certificates of deposit (CDs), and individual retirement accounts (IRAs), among other related savings options. Furthermore, it extends various lending services, such as financing for commercial and industrial ventures, real estate loans for construction and land development, commercial property loans, mortgages for 1-4 family homes, and consumer credit offerings like student loans, revolving lines of credit, and installment loans. Ancillary services include access to automated teller machines (ATMs), online banking platforms, treasury management solutions, cash handling services, and merchant and debit card processing. The company also delivers wealth management, investment advisory, brokerage, insurance, and consulting services. Its specialized offerings extend to investment management, acting as a corporate trustee, trust and estate administration, IRA administration, in-house investment management, and custodial services. Its clientele encompasses private individuals, businesses, and non-profit organizations. As of December 31, 2021, the corporation maintained a network of sixteen full-service banking branches situated in the cities of Charlottesville, Manassas, Richmond, and Winchester, alongside locations in the counties of Albemarle, Fauquier, and Prince William. Established in 1998, Virginia National Bankshares Corporation's main office is located in Charlottesville, Virginia.",
+      "ceo": "Glenn W. Rust",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "144",
+      "phone": "434 817 8621",
+      "address": "404 People Place",
+      "city": "Charlottesville",
+      "state": "VA",
+      "zip": "22911",
+      "image": "https://images.financialmodelingprep.com/symbol/VABK.png",
+      "ipoDate": "1999-05-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VABK",
+      "date": "2015-12-31",
+      "marketCap": 60162948
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041554.6642513
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CAH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CAH",
+      "price": 247.74,
+      "marketCap": 57366512626,
+      "beta": 0.501,
+      "lastDividend": 2.053,
+      "range": "152.46-258.3",
+      "change": 8.02001,
+      "changePercentage": 3.34557,
+      "volume": 1972117,
+      "averageVolume": 2034691,
+      "companyName": "Cardinal Health, Inc.",
+      "currency": "USD",
+      "cik": "0000721371",
+      "isin": "US14149Y1082",
+      "cusip": "14149Y108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Distribution",
+      "website": "https://www.cardinalhealth.com",
+      "description": "Cardinal Health, Inc. operates as a global, integrated provider of healthcare services and products, with its reach spanning the United States, Canada, Europe, Asia, and other international markets. The company delivers bespoke support to a diverse clientele, including hospitals, healthcare networks, pharmacies, outpatient surgical centers, clinical labs, physician practices, and individuals receiving care at home. It is structured into two core divisions: Pharmaceutical and Medical. The Pharmaceutical division oversees the distribution of a wide array of products, encompassing branded, generic, and specialty pharmaceuticals, along with over-the-counter health and consumer goods. This segment additionally offers specialized services to pharmaceutical manufacturers and healthcare providers, particularly for specialty pharmaceutical products. Its operations extend to managing nuclear pharmacies and facilities that produce radiopharmaceuticals. It also performs repackaging of generic drugs and OTC items. Further offerings include medication therapy management and patient outcomes services for hospitals, other healthcare providers, and payers, in addition to providing pharmacy management solutions to hospitals. The Medical division focuses on producing, sourcing, and supplying Cardinal Health-branded medical, surgical, and laboratory products and devices. This extensive product range encompasses items such as examination and surgical gloves, needles, syringes, sharps disposal units, compression products, incontinence aids, nutritional delivery systems, wound care supplies, single-use drapes, gowns, and apparel, fluid suction and collection devices, urological products, operating room essentials, and electrodes. Beyond its proprietary brands, this segment also distributes various national brand medical, surgical, and laboratory products. It offers comprehensive supply chain management for hospitals, ambulatory surgery centers, clinical laboratories, and other healthcare organizations, and manufactures and sells both sterile and non-sterile procedure kits. Established in 1979, the company maintains its headquarters in Dublin, Ohio.",
+      "ceo": "Jason Hollar",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "61344",
+      "phone": "614 757 5000",
+      "address": "7000 Cardinal Place",
+      "city": "Dublin",
+      "state": "OH",
+      "zip": "43017",
+      "image": "https://images.financialmodelingprep.com/symbol/CAH.png",
+      "ipoDate": "1983-08-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CAH",
+      "date": "2015-12-31",
+      "marketCap": 29280560000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040377.8307712
+}

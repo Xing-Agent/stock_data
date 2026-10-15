@@ -1,0 +1,54 @@
+{
+  "symbol": "CTAS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CTAS",
+      "price": 208.63,
+      "marketCap": 82841779573,
+      "beta": 0.917,
+      "lastDividend": 1.87,
+      "range": "161.16-219.17",
+      "change": 2.25001,
+      "changePercentage": 1.09023,
+      "volume": 2234977,
+      "averageVolume": 2113605,
+      "companyName": "Cintas Corporation",
+      "currency": "USD",
+      "cik": "0000723254",
+      "isin": "US1729081059",
+      "cusip": "172908105",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Specialty Business Services",
+      "website": "https://www.cintas.com",
+      "description": "Cintas Corporation specializes in supplying professional uniforms and a range of essential business services primarily across the United States, Canada, and Latin America. The company's operations are divided into three main divisions: Uniform Rental and Facility Services, First Aid and Safety Services, and an 'All Other' segment. Within its Uniform Rental and Facility Services division, Cintas offers rental and maintenance for various workwear, including flame-resistant apparel, alongside floor mats, mops, and industrial towels. This segment also manages restroom sanitation solutions, providing both cleaning services and supplies, and directly sells new uniforms. Additionally, its First Aid and Safety Services segment delivers comprehensive first aid programs, safety solutions, and fire suppression products and services. Cintas reaches its diverse clientele, ranging from small service and manufacturing businesses to large corporate entities, through an extensive distribution network, dedicated local delivery routes, and direct representatives. Established in 1968, Cintas Corporation maintains its headquarters in Cincinnati, Ohio.",
+      "ceo": "Todd Schneider",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "48100",
+      "phone": "513 459 1200",
+      "address": "6800 Cintas Boulevard",
+      "city": "Cincinnati",
+      "state": "OH",
+      "zip": "45262-5737",
+      "image": "https://images.financialmodelingprep.com/symbol/CTAS.png",
+      "ipoDate": "1983-08-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CTAS",
+      "date": "2015-12-31",
+      "marketCap": 9818026720
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041162.2968225
+}

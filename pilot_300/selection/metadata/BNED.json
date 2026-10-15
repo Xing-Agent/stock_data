@@ -1,0 +1,54 @@
+{
+  "symbol": "BNED",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BNED",
+      "price": 12.52,
+      "marketCap": 433735017,
+      "beta": 1.302,
+      "lastDividend": 0.08,
+      "range": "5.9-14.75",
+      "change": 0.32,
+      "changePercentage": 2.62295,
+      "volume": 220422,
+      "averageVolume": 311908,
+      "companyName": "Barnes & Noble Education, Inc.",
+      "currency": "USD",
+      "cik": "0001634117",
+      "isin": "US06777U2006",
+      "cusip": "06777U200",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Specialty Retail",
+      "website": "https://www.bned.com",
+      "description": "Barnes & Noble Education, Inc. operates bookstores for college and university campuses, and K-12 institutions primarily in the United States. The company sells and rents new and used print textbooks, digital textbooks, and publisher hosted digital courseware through physical and virtual bookstores, as well as directly to students through Textbooks.com. In addition, it offers First Day and First Day Complete access programs; and general merchandise, including collegiate and athletic apparel, school spirit products, lifestyle and wellness products, technology products, supplies, graduation products, and convenience items. Further, the company sources, sells, and distributes new and used textbooks; and sells hardware and a software suite of applications that provides inventory management and point-of-sale solutions to college bookstores. Additionally, it offers direct-to-student services. It operates physical college and university bookstores; virtual bookstores; True Spirit e apparel and spirit shop e-commerce websites; pop-up retail locations; customized cafés and stand-alone convenience stores; and a media channel for brands targeting the college demographic. Barnes & Noble Education, Inc. was founded in 1965 and is headquartered in Florham Park, New Jersey.",
+      "ceo": "Jonathan Shar",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "3613",
+      "phone": "908 991 2665",
+      "address": "180 Park Avenue",
+      "city": "Florham Park",
+      "state": "NJ",
+      "zip": "07932",
+      "image": "https://images.financialmodelingprep.com/symbol/BNED.png",
+      "ipoDate": "2015-07-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BNED",
+      "date": "2015-12-31",
+      "marketCap": 19139024000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041917.7349355
+}

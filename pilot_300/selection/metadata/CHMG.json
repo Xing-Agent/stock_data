@@ -1,0 +1,54 @@
+{
+  "symbol": "CHMG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CHMG",
+      "price": 79.18,
+      "marketCap": 381763995,
+      "beta": 0.592,
+      "lastDividend": 1.38,
+      "range": "49.82-86",
+      "change": -1.19,
+      "changePercentage": -1.48065,
+      "volume": 56769,
+      "averageVolume": 64490,
+      "companyName": "Chemung Financial Corporation",
+      "currency": "USD",
+      "cik": "0000763563",
+      "isin": "US1640241014",
+      "cusip": "164024101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.chemungcanal.com",
+      "description": "Chemung Financial Corporation (CFC) functions as the parent company for Chemung Canal Trust Company, providing a comprehensive suite of banking, financing, and fiduciary services. CFC offers a diverse array of deposit products, including demand, savings, and time accounts, alongside both interest-bearing and non-interest-bearing checking accounts, and insured money market accounts. The company's lending portfolio encompasses commercial and agricultural loans tailored for small to mid-sized businesses, commercial and residential mortgages, and various consumer loans, such as home equity lines of credit and home equity term loans. Beyond traditional banking, Chemung Financial extends financial solutions like interest rate swaps, letters of credit, wealth management, and support for employee benefit plans. They also facilitate access to mutual funds, various insurance products, brokerage services, and tax preparation services. Additionally, its trust and wealth services include guardian, custodian, and trustee roles. The corporation also acts as an agent for pension, profit-sharing, and other employee benefit trusts, while providing administrative support for investments, pensions, and estate planning. Operating through 31 branch locations, the company serves 13 counties in New York and Bradford County in Pennsylvania. Established in 1833, Chemung Financial Corporation is headquartered in Elmira, New York.",
+      "ceo": "Anders Tomson",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "348",
+      "phone": "607 737 3711",
+      "address": "One Chemung Canal Plaza",
+      "city": "Elmira",
+      "state": "NY",
+      "zip": "14901",
+      "image": "https://images.financialmodelingprep.com/symbol/CHMG.png",
+      "ipoDate": "1999-01-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CHMG",
+      "date": "2015-12-31",
+      "marketCap": 130625000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041805.3649619
+}

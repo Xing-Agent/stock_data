@@ -1,0 +1,54 @@
+{
+  "symbol": "ZEUS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ZEUS",
+      "price": 47.86,
+      "marketCap": 538983909,
+      "beta": 1.722,
+      "lastDividend": 0.64,
+      "range": "26.32-52.65",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 669068,
+      "averageVolume": 118138,
+      "companyName": "Olympic Steel, Inc.",
+      "currency": "USD",
+      "cik": "0000917470",
+      "isin": "US68162K1060",
+      "cusip": "68162K106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Steel",
+      "website": "https://www.olysteel.com",
+      "description": "Established in 1954 and headquartered in Bedford Heights, Ohio, Olympic Steel, Inc. is a leading provider of metal processing, distribution, and storage solutions, operating across both the United States and international markets. The company's operations are divided into three main business units: Carbon Flat Products: This segment specializes in the sale and delivery of processed carbon and coated flat-rolled sheets, coils, plates, and custom-fabricated components. Specialty Metals Flat Products: This division offers a diverse selection of processed aluminum and stainless steel flat-rolled sheets, coils, and flat bar products, along with fabricated parts. It also provides stainless steel and aluminum plates, sheets, angles, rounds, flat bars, tubing, pipe, and premium tin mill products. Tubular and Pipe Products: This unit focuses on the distribution of various metal tubing products, pipes, bars, valves, fittings, and pre-fabricated pressure components. Beyond its core distribution activities, Olympic Steel offers an extensive suite of value-added processing services. These capabilities encompass cutting (including cut-to-length, laser, and saw), slitting, shearing, roll forming, shape correction, and surface refinement. Additional services include blanking, tempering, plate burning, stamping, beveling, threading, grooving, shot blasting, grinding, edging, and polishing. The company further provides bending, drilling, milling, tapping, boring, and sawing metal, as well as machining, welding, assembly, and painting of individual component parts. Through these processes, Olympic Steel precisely transforms metals to meet specific length, width, shape, and surface finish requirements. The firm serves a wide array of metal-consuming industries via a direct sales force. Its clientele includes manufacturers and fabricators across sectors such as transportation, material handling, construction, mining, agriculture, energy generation, automotive, food service, commercial appliances, and electrical equipment. They also supply to the military for vehicles and equipment, general and plate fabricators, and various metals service centers.",
+      "ceo": "Richard T. Marabito",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "2187",
+      "phone": "216 292 3800",
+      "address": "22901 Millcreek Boulevard",
+      "city": "Bedford Heights",
+      "state": "OH",
+      "zip": "44122",
+      "image": "https://images.financialmodelingprep.com/symbol/ZEUS.png",
+      "ipoDate": "1994-03-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ZEUS",
+      "date": "2015-12-31",
+      "marketCap": 126883704
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041859.1906736
+}

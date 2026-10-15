@@ -1,0 +1,63 @@
+{
+  "symbol": "RITM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RITM",
+      "price": 8.35,
+      "marketCap": 4662698450,
+      "beta": 1.159,
+      "lastDividend": 1,
+      "range": "8.31-12.15",
+      "change": -0.15,
+      "changePercentage": -1.76471,
+      "volume": 6056031,
+      "averageVolume": 5722852,
+      "companyName": "Rithm Capital Corp.",
+      "currency": "USD",
+      "cik": "0001556593",
+      "isin": "US64828T2015",
+      "cusip": "64828T201",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Diversified",
+      "website": "https://www.rithmcap.com",
+      "description": "Rithm Capital Corp. operates as an asset manager focused on real estate, credit, and financial services in the United States. It operates through Origination and Servicing, Residential Transitional Lending, and Asset Management and Investment Portfolio. The company’s investment portfolio primarily comprises of single-family rental properties, title, appraisal and property preservation and maintenance businesses; real estate securities, call rights, SFR properties, residential mortgage loans, collateralized loan obligations and consumer loans, excess mortgage servicing rights, servicer advance investments, and asset management related investments. It also provides government-sponsored enterprise (GSE) and government guaranteed loans; non-GSE or non-government guaranteed loans; and residential transitional lending. The company qualifies as a real estate investment trust for federal income tax purposes. It generally would not be subject to federal corporate income taxes if it distributes at least 90% of its taxable income to its stockholders. The company was formerly known as New Residential Investment Corp. and changed its name to Rithm Capital Corp. in August 2022. Rithm Capital Corp. was incorporated in 2011 and is based in New York, New York.",
+      "ceo": "Michael Nierenberg",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "7240",
+      "phone": "212 850 7770",
+      "address": "799 Broadway",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10003",
+      "image": "https://images.financialmodelingprep.com/symbol/RITM.png",
+      "ipoDate": "2013-05-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RITM",
+      "date": "2015-12-31",
+      "marketCap": 2802529816
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040965.561698,
+  "previous_attempts": [
+    {
+      "symbol": "RITM",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040637.4426892
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "POCI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "POCI",
+      "price": 4.41,
+      "marketCap": 48266872,
+      "beta": 0.324,
+      "lastDividend": 0,
+      "range": "3.55-6.15",
+      "change": -0.15,
+      "changePercentage": -3.28947,
+      "volume": 35771,
+      "averageVolume": 46532,
+      "companyName": "Precision Optics Corporation, Inc.",
+      "currency": "USD",
+      "cik": "0000867840",
+      "isin": "US7402944000",
+      "cusip": "740294400",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.poci.com",
+      "description": "Precision Optics Corporation, Inc. (POCI) specializes in the engineering, manufacturing, and sale of advanced optical and illumination systems, along with their complementary components. Its main operational regions are the United States and the European Economic Area. The company's offerings include medical instruments such as various types of endoscopes and endocouplers. Moreover, POCI provides bespoke imaging and lighting solutions, encompassing high-precision Microprecision lenses, miniature medical cameras, and cutting-edge 3D endoscopes, all designed for application in minimally invasive surgical procedures carried out by hospitals and healthcare professionals. Beyond its medical division, POCI also produces individual parts and integrated assemblies for industrial and military purposes. POCI markets its medical device portfolio primarily to other corporations within the medical technology sector. Established in 1982, the firm's headquarters are located in Gardner, Massachusetts.",
+      "ceo": "Joseph N. Forkey",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "108",
+      "phone": "978 630 1800",
+      "address": "550 King Street",
+      "city": "Littleton",
+      "state": "MA",
+      "zip": "01460",
+      "image": "https://images.financialmodelingprep.com/symbol/POCI.png",
+      "ipoDate": "1992-01-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "POCI",
+      "date": "2015-12-31",
+      "marketCap": 4711942.5
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040383.8625085
+}

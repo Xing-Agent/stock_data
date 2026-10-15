@@ -1,0 +1,54 @@
+{
+  "symbol": "GNTX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GNTX",
+      "price": 20.78,
+      "marketCap": 4379048364,
+      "beta": 0.85,
+      "lastDividend": 0.48,
+      "range": "20.48-26.99",
+      "change": -0.09,
+      "changePercentage": -0.43124,
+      "volume": 2296884,
+      "averageVolume": 2501596,
+      "companyName": "Gentex Corporation",
+      "currency": "USD",
+      "cik": "0000355811",
+      "isin": "US3719011096",
+      "cusip": "371901109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Auto - Parts",
+      "website": "https://www.gentex.com",
+      "description": "Gentex Corporation, established in 1974 and headquartered in Zeeland, Michigan, is a global innovator specializing in the design, development, production, marketing, and distribution of advanced technology solutions. Its diverse product portfolio encompasses digital vision systems, connected car technologies, dimmable glass, and fire safety equipment, serving markets across the United States, Germany, Japan, Mexico, and other international regions. The company operates primarily through two segments: Automotive Products and Other. Within its Automotive Products division, Gentex offers a comprehensive range of components, including sophisticated electrochromic automatic-dimming rearview mirrors (for both interior and exterior applications), various automotive electronics, and standard rearview mirrors. These are supplied to original equipment manufacturers (OEMs), automotive suppliers, and aftermarket customers for integration into passenger cars, light trucks, pick-up trucks, sport utility vehicles, and vans. Beyond the automotive industry, Gentex also provides variable dimmable windows for the aerospace sector, specifically for use by aircraft manufacturers and airline operators. Furthermore, the company is a significant provider of fire protection solutions. Its offerings include photoelectric smoke detectors and alarms, electrochemical carbon monoxide alarms and detectors, and an array of audible and visual signaling devices such as bells and speakers. These products are crucial components for fire detection systems installed in a variety of settings, including office buildings, hotels, and other commercial and residential structures. Gentex also actively researches and develops nanofiber chemical sensing products. Fire protection products are sold directly, as well as through sales managers and manufacturer representatives, reaching fire protection and security product distributors, electrical wholesale houses, and OEMs of fire protection systems.",
+      "ceo": "Steven R. Downing",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "6398",
+      "phone": "616 772 1800",
+      "address": "600 North Centennial Street",
+      "city": "Zeeland",
+      "state": "MI",
+      "zip": "49464",
+      "image": "https://images.financialmodelingprep.com/symbol/GNTX.png",
+      "ipoDate": "1981-12-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GNTX",
+      "date": "2015-12-31",
+      "marketCap": 4630262042
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040391.9135764
+}

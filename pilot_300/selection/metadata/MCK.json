@@ -1,0 +1,54 @@
+{
+  "symbol": "MCK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MCK",
+      "price": 976.57,
+      "marketCap": 113858650795,
+      "beta": 0.298,
+      "lastDividend": 3.4,
+      "range": "723.68-999",
+      "change": 14.69,
+      "changePercentage": 1.52722,
+      "volume": 767917,
+      "averageVolume": 968935,
+      "companyName": "McKesson Corporation",
+      "currency": "USD",
+      "cik": "0000927653",
+      "isin": "US58155Q1031",
+      "cusip": "58155Q103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Distribution",
+      "website": "https://www.mckesson.com",
+      "description": "McKesson Corporation is a prominent global provider of healthcare services, operating extensively in both the United States and international markets. Its diverse operations are strategically organized into four key business segments. The U.S. Pharmaceutical division plays a crucial role in the distribution of a comprehensive array of pharmaceutical products, encompassing branded, generic, specialty, biosimilar, and over-the-counter medications, alongside other health-related merchandise. This segment also delivers specialized support to community-based oncology and other specialty medical practices through practice management tools, technology solutions, clinical guidance, and broader business services. Furthermore, it assists pharmacies with consulting, outsourcing, and technology services, while also furnishing financial, operational, and clinical software solutions. Internationally, the company's dedicated segment provides distribution and support services to wholesale, institutional, and retail clients across 13 European nations and Canada. The Medical-Surgical Solutions unit is focused on supplying healthcare providers with essential medical-surgical products, sophisticated logistics management, and a variety of associated services. Finally, the Prescription Technology Solutions (RxTS) segment is designed to address complex medication challenges for patients. It collaborates with biopharmaceutical companies and life sciences partners to improve patient journeys, leveraging innovative solutions for medication access and adherence by connecting pharmacies, healthcare providers, payers, and biopharma entities. This segment further offers third-party logistics and wholesale distribution assistance. Founded in 1833, McKesson Corporation maintains its corporate headquarters in Irving, Texas.",
+      "ceo": "Brian S. Tyler",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "42300",
+      "phone": "972 446 4800",
+      "address": "6555 State Highway 161",
+      "city": "Irving",
+      "state": "TX",
+      "zip": "75039",
+      "image": "https://images.financialmodelingprep.com/symbol/MCK.png",
+      "ipoDate": "1994-11-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MCK",
+      "date": "2015-12-31",
+      "marketCap": 44771210000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040445.6515796
+}

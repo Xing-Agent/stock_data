@@ -1,0 +1,54 @@
+{
+  "symbol": "RH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RH",
+      "price": 110.99,
+      "marketCap": 2100848354,
+      "beta": 1.908,
+      "lastDividend": 0,
+      "range": "106.3-239.4",
+      "change": -4.89,
+      "changePercentage": -4.21988,
+      "volume": 1323919,
+      "averageVolume": 842171,
+      "companyName": "Rh",
+      "currency": "USD",
+      "cik": "0001528849",
+      "isin": "US74967X1037",
+      "cusip": "74967X103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Specialty Retail",
+      "website": "https://www.rh.com",
+      "description": "RH, along with its various associated businesses, functions as a prominent retailer specializing in home furnishings. Its extensive product portfolio spans categories such as furniture, lighting, textiles, bathware, decor, outdoor and garden essentials, and specialized furnishings for children and teens. The company reaches its clientele through diverse sales channels. These include its distinctive retail galleries, the curated 'Source Books' catalogs, and an extensive online presence via rh.com, rhbabyandchild.com, rhteen.com, rhmodern.com, and waterworks.com. As of January 29, 2022, RH maintained a significant physical footprint, comprising 67 RH Galleries and 38 RH outlet stores spread across 30 U.S. states, the District of Columbia, and Canada. Furthermore, it managed 14 Waterworks showrooms throughout the United States and the United Kingdom. Historically, the enterprise was known as Restoration Hardware Holdings, Inc. before its rebranding to RH in January 2017. RH was founded in 2011 and its corporate headquarters are situated in Corte Madera, California.",
+      "ceo": "Gary G. Friedman",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "6870",
+      "phone": "415 924 1005",
+      "address": "15 Koch Road",
+      "city": "Corte Madera",
+      "state": "CA",
+      "zip": "94925",
+      "image": "https://images.financialmodelingprep.com/symbol/RH.png",
+      "ipoDate": "2012-11-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RH",
+      "date": "2015-12-31",
+      "marketCap": 3219492126
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041828.5767741
+}

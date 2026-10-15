@@ -1,0 +1,54 @@
+{
+  "symbol": "SGRP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SGRP",
+      "price": 0.2875,
+      "marketCap": 8164586,
+      "beta": 0.215,
+      "lastDividend": 0,
+      "range": "0.27-1.41",
+      "change": -0.1025,
+      "changePercentage": -26.28205,
+      "volume": 3311854,
+      "averageVolume": 214265,
+      "companyName": "SPAR Group, Inc.",
+      "currency": "USD",
+      "cik": "0001004989",
+      "isin": "US7849331035",
+      "cusip": "784933103",
+      "exchangeFullName": "Other OTC",
+      "exchange": "OTC",
+      "industry": "Specialty Business Services",
+      "website": "https://www.sparinc.com",
+      "description": "SPAR Group, Inc. operates as a global service provider, specializing in comprehensive brand marketing and retail merchandising solutions. The company's extensive range of offerings supports retailers, manufacturers, and distributors worldwide. Its core services include both shared (syndicated) and exclusive (dedicated) in-store merchandising assistance. This encompasses a variety of project-based work, such as facilitating new product launches, executing special seasonal or promotional merchandising efforts, providing product support, managing product recalls, and conducting in-store product demonstrations and sampling events. Operational support also extends to kiosk product replenishment, inventory control, setting up new stores, re-merchandising existing layouts, overseeing remodels, and implementing new category strategies. These services are delivered through either annual contracts or specific stand-alone project agreements. For its retail clients, SPAR Group provides specialized in-store assistance covering new store openings, initial store setups, and comprehensive resets and remodels of existing locations, also available under recurring or individual project terms. Additionally, the company offers assembly services for various products, including furniture and grills, performed both on-site at retail locations and directly in customers' homes and offices for items purchased from retailers. Routine, scheduled retail coverage is also a key offering. Furthermore, SPAR Group supplies experienced personnel for both retail environments and distribution centers. It conducts crucial retail compliance and price auditing services for both retailers and consumer goods manufacturers. These audits involve verifying promotional execution, ensuring adherence to branding and signage guidelines, confirming optimal product placement and display integrity, monitoring inventory levels, identifying out-of-stock situations, and gathering competitive pricing intelligence. Internally, the company also assists with maintaining accurate and consistent pricing across retail operations. Its diverse client base spans numerous retail sectors, including grocery, drug, discount, dollar, convenience, cash and carry, and home improvement stores, alongside consumer electronics, automotive, and office supply retailers, as well as pharmacies and mass merchandisers. SPAR Group, Inc. was established in 1967 and maintains its corporate headquarters in Auburn Hills, Michigan.",
+      "ceo": "William Linnane",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "4522",
+      "phone": "248 364 7727",
+      "address": "110 East Boulevard",
+      "city": "Charlotte",
+      "state": "NC",
+      "zip": "28203",
+      "image": "https://images.financialmodelingprep.com/symbol/SGRP.png",
+      "ipoDate": "1996-03-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SGRP",
+      "date": "2015-12-31",
+      "marketCap": 20974260
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041324.1944773
+}

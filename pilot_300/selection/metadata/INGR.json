@@ -1,0 +1,54 @@
+{
+  "symbol": "INGR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "INGR",
+      "price": 97.32,
+      "marketCap": 6137386436,
+      "beta": 0.64,
+      "lastDividend": 3.29,
+      "range": "93.72-123.49",
+      "change": 0.06,
+      "changePercentage": 0.06169031,
+      "volume": 490386,
+      "averageVolume": 767648,
+      "companyName": "Ingredion Incorporated",
+      "currency": "USD",
+      "cik": "0001046257",
+      "isin": "US4571871023",
+      "cusip": "457187102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Packaged Foods",
+      "website": "https://www.ingredion.com",
+      "description": "Ingredion Incorporated, along with its affiliated entities, specializes in the global production and sale of starches and sweeteners, catering to a diverse range of industries. The company's operations are strategically organized into four geographical segments: North America, South America, Asia-Pacific, and Europe, the Middle East, and Africa. Its extensive product portfolio includes a variety of sweetener solutions such as glucose, high maltose, and high fructose corn syrups, as well as caramel colors, dextrose, polyols, maltodextrins, and glucose syrup solids. Beyond sweeteners, Ingredion also provides food-grade and industrial starches, biomaterials, and key nutrition ingredients. The company further offers specific corn-derived products like edible corn oil, and refined corn oil supplied to manufacturers of cooking oils, margarine, salad dressings, shortening, and mayonnaise. It also produces corn gluten feed, a protein source for poultry, pet food, and aquaculture. Additionally, Ingredion processes fruit and vegetable products, delivering concentrates, purees, essences, pulse proteins, and hydrocolloid systems and blends. These ingredients are predominantly extracted from corn, alongside other starch-rich raw materials such as tapioca, potatoes, and rice. Ingredion's primary clientele hails from the food, beverage, brewing, and animal nutrition sectors. Established in 1906, the firm was initially known as Corn Products International, Inc., before officially rebranding to Ingredion Incorporated in June 2012. Its corporate headquarters are situated in Westchester, Illinois.",
+      "ceo": "James Zallie",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "11200",
+      "phone": "708 551 2600",
+      "address": "5 Westbrook Corporate Center",
+      "city": "Westchester",
+      "state": "IL",
+      "zip": "60154",
+      "image": "https://images.financialmodelingprep.com/symbol/INGR.png",
+      "ipoDate": "1997-12-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "INGR",
+      "date": "2015-12-31",
+      "marketCap": 6900480000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041219.892899
+}

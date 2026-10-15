@@ -1,0 +1,54 @@
+{
+  "symbol": "WMT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WMT",
+      "price": 116.16,
+      "marketCap": 924410474645,
+      "beta": 0.578,
+      "lastDividend": 0.9775,
+      "range": "98.88-135.16",
+      "change": 3.88,
+      "changePercentage": 3.45565,
+      "volume": 25862870,
+      "averageVolume": 23576463,
+      "companyName": "Walmart Inc.",
+      "currency": "USD",
+      "cik": "0000104169",
+      "isin": "US9311421039",
+      "cusip": "931142103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Discount Stores",
+      "website": "https://corporate.walmart.com",
+      "description": "Walmart Inc., established in 1945 and based in Bentonville, Arkansas, operates as a global retail powerhouse, having officially adopted its current name in February 2018, formerly Wal-Mart Stores, Inc. The company's diverse operations, encompassing retail, wholesale, and e-commerce, are managed across three primary divisions: Walmart U.S., Walmart International, and Sam's Club. Its extensive physical presence includes a variety of store formats such as supercenters, supermarkets, hypermarkets, membership-only warehouse clubs (like Sam's Club), cash-and-carry outlets, and discount stores, primarily operating under the Walmart and Walmart Neighborhood Market banners. Digitally, the company engages customers through numerous e-commerce platforms, including walmart.com.mx, walmart.ca, flipkart.com, and PhonePe, as well as via dedicated mobile applications. Walmart offers an exceptionally broad range of products and services. Its inventory covers groceries and daily consumables, such as dairy, meats, baked goods, deli items, fresh produce, various packaged foods (dry, chilled, or frozen), alcoholic and non-alcoholic beverages, floral items, snacks, candies, health and beauty aids, paper products, laundry and home care essentials, baby care, and pet supplies, alongside fuel and tobacco. Furthermore, it features a comprehensive health and wellness segment, providing pharmacy, optical, and hearing services, over-the-counter medications, and other medical products. For home and personal needs, shoppers can find items ranging from home improvement goods, outdoor living products, gardening supplies, furniture, apparel, and jewelry, to tools, power equipment, housewares, toys, seasonal items, mattresses, and automotive services like tire and battery centers. The electronics department includes consumer electronics, accessories, software, video games, office supplies, appliances, and third-party gift cards. Beyond merchandise, Walmart provides a suite of financial services. These include digital payment platforms, money transfer options, bill payment services, money orders, check cashing, prepaid access solutions, co-branded credit cards, installment lending, and earned wage access programs. The company also markets several proprietary brands, notably Allswell, Athletic Works, Equate, and Free Assembly.",
+      "ceo": "John Furner",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "2100000",
+      "phone": "479 273 4000",
+      "address": "1 Customer Drive",
+      "city": "Bentonville",
+      "state": "AR",
+      "zip": "72716",
+      "image": "https://images.financialmodelingprep.com/symbol/WMT.png",
+      "ipoDate": "1972-08-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WMT",
+      "date": "2015-12-31",
+      "marketCap": 195269940000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041532.0827408
+}

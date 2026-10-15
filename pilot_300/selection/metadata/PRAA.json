@@ -1,0 +1,54 @@
+{
+  "symbol": "PRAA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PRAA",
+      "price": 19.81,
+      "marketCap": 745807019,
+      "beta": 1.134,
+      "lastDividend": 0,
+      "range": "10.25-22.55",
+      "change": -0.665,
+      "changePercentage": -3.24786,
+      "volume": 393778,
+      "averageVolume": 536766,
+      "companyName": "PRA Group, Inc.",
+      "currency": "USD",
+      "cik": "0001185348",
+      "isin": "US69354N1063",
+      "cusip": "69354N106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Financial - Credit Services",
+      "website": "https://www.pragroup.com",
+      "description": "PRA Group, Inc., a financial and business services enterprise, specializes in the acquisition, management, and recovery of defaulted loan portfolios. Its operations span the Americas, Australia, and Europe. The company primarily procures overdue financial obligations from individuals, which were initially extended by various credit originators like banks, consumer and retail finance firms, and automotive lenders. The types of non-performing assets it acquires are diverse, encompassing balances from Visa, MasterCard, private label, and other credit cards, as well as installment loans, lines of credit, deficiency balances, legal judgments, and trade payables. These assets are sourced from a broad spectrum of entities, including banks, credit unions, retailers, utilities, and other financial institutions. Furthermore, PRA Group offers fee-based services, such as facilitating recoveries from class action claims and servicing consumer bankruptcy accounts. The company, which was established in 1996, changed its name from Portfolio Recovery Associates, Inc. to PRA Group, Inc. in October 2014. Its corporate headquarters are situated in Norfolk, Virginia.",
+      "ceo": "Martin Sjolund",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "2417",
+      "phone": "888 772 7326",
+      "address": "120 Corporate Boulevard",
+      "city": "Norfolk",
+      "state": "VA",
+      "zip": "23502",
+      "image": "https://images.financialmodelingprep.com/symbol/PRAA.png",
+      "ipoDate": "2002-11-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PRAA",
+      "date": "2015-12-31",
+      "marketCap": 1604169670
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041800.8633392
+}

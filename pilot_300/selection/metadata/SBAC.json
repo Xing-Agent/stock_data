@@ -1,0 +1,54 @@
+{
+  "symbol": "SBAC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SBAC",
+      "price": 180.71,
+      "marketCap": 19166644730,
+      "beta": 0.994,
+      "lastDividend": 4.86,
+      "range": "156.6-224.46",
+      "change": -1.12,
+      "changePercentage": -0.61596,
+      "volume": 1035006,
+      "averageVolume": 1005267,
+      "companyName": "SBA Communications Corporation",
+      "currency": "USD",
+      "cik": "0001034054",
+      "isin": "US78410G1040",
+      "cusip": "78410G104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Specialty",
+      "website": "https://www.sbasite.com",
+      "description": "SBA Communications Corporation stands as a premier owner, operator, and provider of crucial wireless communication infrastructure across North, Central, and South America, in addition to South Africa. Guided by its mission to 'Build Better Wireless,' the company primarily earns revenue from two core business areas: the leasing of antenna space and providing comprehensive site development services. Its central activity revolves around renting out capacity on its shared communication towers to various wireless service providers through long-term contractual agreements. For further details, please visit www.sbasite.com.",
+      "ceo": "Brendan Thomas Cavanagh",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "1844",
+      "phone": "561-995-7670",
+      "address": "8051 Congress Avenue",
+      "city": "Boca Raton",
+      "state": "FL",
+      "zip": "33487-1307",
+      "image": "https://images.financialmodelingprep.com/symbol/SBAC.png",
+      "ipoDate": "1999-06-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SBAC",
+      "date": "2015-12-31",
+      "marketCap": 13175569120
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041635.371101
+}

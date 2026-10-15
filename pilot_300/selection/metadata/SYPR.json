@@ -1,0 +1,54 @@
+{
+  "symbol": "SYPR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SYPR",
+      "price": 1.8,
+      "marketCap": 41447520,
+      "beta": 0.879,
+      "lastDividend": 0,
+      "range": "1.67-4.74",
+      "change": -0.1,
+      "changePercentage": -5.26316,
+      "volume": 53184,
+      "averageVolume": 39799,
+      "companyName": "Sypris Solutions, Inc.",
+      "currency": "USD",
+      "cik": "0000864240",
+      "isin": "US8716551069",
+      "cusip": "871655106",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Auto - Parts",
+      "website": "https://www.sypris.com",
+      "description": "Sypris Solutions, Inc. is a manufacturing enterprise that primarily supplies components for the trucking industry, essential parts for oil and gas pipelines, and advanced electronic systems for aerospace and defense sectors. Its main operational reach extends across North America and Mexico. The company is structured into two principal operating segments: Sypris Technologies and Sypris Electronics. Sypris Technologies specializes in producing a variety of steel components, including those that are forged, machined, welded, and heat-treated. These products cater to a wide array of markets such as commercial, off-highway, and recreational vehicles, the general automotive industry, industrial applications, light trucks, and the energy sector. This division's offerings also encompass crucial drivetrain elements like axle shafts, transmission shafts, gear sets, and steer axle knuckles, which are provided to manufacturers of automobiles, trucks, and recreational vehicles. Additionally, it offers value-added assembly operations for drivetrain systems and manufactures pressure closures and other fabricated items for oil and gas pipelines. Sypris Electronics provides a comprehensive suite of electronic manufacturing services. Its capabilities range from circuit card and complete box build manufacturing to high-reliability production, systems assembly and integration, and expert design-for-manufacturability and design-for-specification work, predominantly for the aerospace and defense electronics markets. This segment is also adept at assembling circuit cards for various electronic sensors and intricate systems, including radar, tactical ground stations, navigation, weapons, targeting, and warning systems. It delivers flexible, value-added solutions, from low-volume prototype assembly to extensive, turnkey manufacturing projects. Furthermore, Sypris Solutions offers engineering design, repair, and inspection services. The company also sells some of its specialized engineered products under the distinctive Tube Turns brand. Incorporated in 1997, Sypris Solutions is headquartered in Louisville, Kentucky.",
+      "ceo": "Jeffrey T. Gill",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "548",
+      "phone": "502 329 2000",
+      "address": "One Oxmoor Place",
+      "city": "Louisville",
+      "state": "KY",
+      "zip": "40222",
+      "image": "https://images.financialmodelingprep.com/symbol/SYPR.png",
+      "ipoDate": "1994-05-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SYPR",
+      "date": "2015-12-31",
+      "marketCap": 21376576
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041529.6028597
+}

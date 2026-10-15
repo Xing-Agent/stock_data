@@ -1,0 +1,54 @@
+{
+  "symbol": "SWKH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SWKH",
+      "price": 15.9,
+      "marketCap": 192326066,
+      "beta": 0.304,
+      "lastDividend": 4,
+      "range": "12.54358-17.9",
+      "change": 0,
+      "changePercentage": -4.96,
+      "volume": 105554,
+      "averageVolume": 9398,
+      "companyName": "SWK Holdings Corporation",
+      "currency": "USD",
+      "cik": "0001089907",
+      "isin": "US78501P2039",
+      "cusip": "78501P203",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Asset Management",
+      "website": "https://www.swkhold.com",
+      "description": "SWK Holdings Corporation (SWKH) operates as a specialized financial institution, primarily concentrating its efforts within the healthcare sector. The company's operations are distinctly divided into two core segments: Finance Receivables and Pharmaceutical Development. Within its finance division, SWK offers bespoke funding solutions tailored to a diverse array of life science enterprises. These include companies spanning biotechnology, medical devices, diagnostic tools, animal health, and pharmaceuticals, alongside various institutions and individual innovators. Furthermore, the company extends non-discretionary investment advisory services, managing separate accounts for institutional clients keen on investing in the life science finance domain. Its Pharmaceutical Development segment involves the creation, formulation, production, and licensing of pharmaceutical products, leveraging its proprietary Peptelligence platform. A key strategic objective here is to license its internally developed product pipeline to external partners, aiming to generate innovative formulations through its unique technology, ultimately designed to benefit patients and their caregivers. Founded in 1996, the company underwent a name change from Kana Software, Inc. to SWK Holdings Corporation in December 2009. Its corporate headquarters are situated in Dallas, Texas.",
+      "ceo": "Jody. D Staggs",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "24",
+      "phone": "972 687 7250",
+      "address": "14755 Preston Road",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75254",
+      "image": "https://images.financialmodelingprep.com/symbol/SWKH.png",
+      "ipoDate": "1999-09-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SWKH",
+      "date": "2015-12-31",
+      "marketCap": 145598700
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041196.923742
+}

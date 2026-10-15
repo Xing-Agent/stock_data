@@ -1,0 +1,57 @@
+{
+  "symbol": "AIFC",
+  "status": "unavailable",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AIFC",
+      "price": 0.3997,
+      "marketCap": 55892653,
+      "beta": 1.926,
+      "lastDividend": 0,
+      "range": "0.359-2.8",
+      "change": -0.02,
+      "changePercentage": -4.76531,
+      "volume": 420915,
+      "averageVolume": 975847,
+      "companyName": "AI Financial Corporation",
+      "currency": "USD",
+      "cik": "0000862861",
+      "isin": "US47089W1045",
+      "cusip": "47089W104",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Software - Infrastructure",
+      "website": "https://www.aifi.co",
+      "description": "AI Financial Corporation, a global entity operating through its various subsidiaries, specializes in distributed ledger technology solutions. The company's activities are strategically divided into two primary segments: Fintech and Biotechnology. Its Fintech division manages the entire ecosystem of digital assets, covering everything from their initial creation (tokenization) to their trading, clearing, settlement, payment processing, and secure safekeeping. Within this sector, AI Financial offers significant products such as ALT 5 Prime, a sophisticated electronic over-the-counter (OTC) trading platform designed for the acquisition and divestiture of digital assets. Another key offering is ALT 5 Pay, a cryptocurrency payment gateway that empowers merchants to either accept and disburse payments in digital currencies directly or integrate this capability into their existing software applications. The biotechnology arm is dedicated to identifying, procuring, licensing, advancing, collaborating on, and commercializing innovative, non-opioid, and non-addictive therapeutic solutions for addressing pain and addiction. Noteworthy projects include JAN 101, an orally administered, sustained-release sodium nitrite compound that has successfully concluded Phase 2a clinical trials for the treatment of peripheral arterial disease and pain. Additionally, the company is developing JAN123, a low-dose naltrexone formulation specifically tailored for managing chronic regional pain syndrome. Established in 1976, the company is based in Las Vegas, Nevada. It officially adopted its current name, AI Financial Corporation, in April 2026, having previously been known as ALT5 Sigma Corporation.",
+      "ceo": "Antonios Isaac",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "16",
+      "phone": null,
+      "address": "8548 Rozita Lee Avenue",
+      "city": "Las Vegas",
+      "state": "NV",
+      "zip": "89113",
+      "image": "https://images.financialmodelingprep.com/symbol/AIFC.png",
+      "ipoDate": "1991-11-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [],
+  "reason": "missing_or_ambiguous_baseline_cap",
+  "retrieved_at_unix": 1792040854.4235804,
+  "previous_attempts": [
+    {
+      "symbol": "AIFC",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040430.96366
+    }
+  ]
+}

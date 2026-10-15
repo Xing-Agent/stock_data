@@ -1,0 +1,54 @@
+{
+  "symbol": "UNB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UNB",
+      "price": 22.89,
+      "marketCap": 105615605,
+      "beta": 0.273,
+      "lastDividend": 1.44,
+      "range": "20.65-26.41",
+      "change": -0.16,
+      "changePercentage": -0.69414,
+      "volume": 5220,
+      "averageVolume": 11447,
+      "companyName": "Union Bankshares, Inc.",
+      "currency": "USD",
+      "cik": "0000706863",
+      "isin": "US9054001071",
+      "cusip": "905400107",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.ublocal.com",
+      "description": "Union Bankshares, Inc., established in 1891 and based in Morrisville, Vermont, serves as the holding company for Union Bank. This institution provides a comprehensive suite of retail, commercial, and municipal banking services across northern Vermont and New Hampshire. For individuals, offerings include various deposit accounts like checking, savings, money market, and specialized retirement/health savings accounts, in addition to certificates of deposit. Lending products encompass residential construction, mortgage, and home improvement loans. Business clients can access commercial real estate loans, financing for plant and equipment, working capital, and real estate renovation, alongside Small Business Administration (SBA) guaranteed loans. The company further delivers sophisticated cash management tools, merchant credit card processing, remote deposit capture, and business checking accounts, complemented by standby letters of credit. Additional services include asset management, fiduciary, and trust provisions. Customers manage their finances through a network of 18 banking offices, 3 loan centers, and numerous ATMs, supported by extensive telephone, internet, and mobile banking capabilities, debit cards, and online mortgage application services.",
+      "ceo": "Jeffery F. Weidley",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "195",
+      "phone": "802 888 6600",
+      "address": "20 Lower Main Street",
+      "city": "Morrisville",
+      "state": "VT",
+      "zip": "05661-0667",
+      "image": "https://images.financialmodelingprep.com/symbol/UNB.png",
+      "ipoDate": "1999-08-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UNB",
+      "date": "2015-12-31",
+      "marketCap": 124427385
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041191.8900042
+}

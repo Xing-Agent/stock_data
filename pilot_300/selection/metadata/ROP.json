@@ -1,0 +1,54 @@
+{
+  "symbol": "ROP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ROP",
+      "price": 372.69,
+      "marketCap": 37610756730,
+      "beta": 0.751,
+      "lastDividend": 3.64,
+      "range": "305.96-519.1",
+      "change": 4.28,
+      "changePercentage": 1.16175,
+      "volume": 681739,
+      "averageVolume": 916688,
+      "companyName": "Roper Technologies, Inc.",
+      "currency": "USD",
+      "cik": "0000882835",
+      "isin": "US7766961061",
+      "cusip": "776696106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Application",
+      "website": "https://www.ropertech.com",
+      "description": "Roper Technologies, Inc., established in 1981 and based in Sarasota, Florida (formerly known as Roper Industries, Inc. until 2015), operates as a diversified technology company. It specializes in developing and delivering advanced software solutions alongside highly engineered products for a wide range of industries. Its extensive software portfolio includes enterprise and financial management systems, cloud-based analytics for sectors like insurance and healthcare, campus and supply chain management tools, and specialized applications for areas such as foodservice, visual effects, and data collaboration. Complementing this, Roper designs and manufactures a diverse array of engineered products, encompassing precision testing instruments for materials like rubber and plastic, medical devices (such as ultrasound accessories), flow and control components (including valves, pumps, and meters), automated dispensing and monitoring equipment (like leak detection and vibration monitoring systems), and various sensors for industrial and utility applications.",
+      "ceo": "Laurence Neil Hunn",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "19400",
+      "phone": "941 556 2601",
+      "address": "6901 Professional Parkway",
+      "city": "Sarasota",
+      "state": "FL",
+      "zip": "34240",
+      "image": "https://images.financialmodelingprep.com/symbol/ROP.png",
+      "ipoDate": "1992-02-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ROP",
+      "date": "2015-12-31",
+      "marketCap": 19182265090
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040332.1357448
+}

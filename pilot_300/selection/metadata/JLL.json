@@ -1,0 +1,54 @@
+{
+  "symbol": "JLL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "JLL",
+      "price": 295.25,
+      "marketCap": 13583774311,
+      "beta": 1.3,
+      "lastDividend": 0,
+      "range": "259.83-393.84",
+      "change": -3.07,
+      "changePercentage": -1.0291,
+      "volume": 414312,
+      "averageVolume": 376209,
+      "companyName": "Jones Lang LaSalle Incorporated",
+      "currency": "USD",
+      "cik": "0001037976",
+      "isin": "US48020Q1076",
+      "cusip": "48020Q107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Real Estate - Services",
+      "website": "https://www.jll.com/en-us",
+      "description": "Jones Lang LaSalle Incorporated (JLL) operates as a leading global professional services firm, specializing in comprehensive real estate and investment management solutions. Its extensive reach spans the Americas, Europe, the Middle East, Africa, and the Asia Pacific regions. JLL's real estate offerings are broad, encompassing services such as tenant and landlord representation. It also provides a robust suite of capital markets solutions, including financing advisory (debt and equity), loan servicing, strategic merger and acquisition guidance, and investment sales support. The company manages diverse property types on-site, including office, industrial, retail, and multifamily residential assets, while also delivering integrated facilities management. Furthermore, JLL offers project management and consulting services—covering design, construction, and strategic advice—for tenants of leased spaces, owner-occupiers, and real estate investors. Its advisory capabilities extend to general consulting, valuation, and energy and sustainability services. Beyond its real estate expertise, JLL provides investment management services to a varied client base, including institutional investors, retail investors, and high-net-worth individuals. The firm caters to a wide spectrum of clients, from property owners and occupiers to investors and developers, across an exceptionally diverse portfolio of property types. These include commercial assets like office, industrial, and retail, alongside residential spaces and highly specialized properties such as cultural, educational, government, healthcare, laboratory, hotel, and sports facilities. The company also handles critical environment, data, transportation, and fulfillment centers, as well as infrastructure projects and military housing. Founded in 1997 as LaSalle Partners Incorporated, the company officially adopted its current name, Jones Lang LaSalle Incorporated, in March 1999. Its global operations are headquartered in Chicago, Illinois.",
+      "ceo": "Christian Ulbrich",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "113200",
+      "phone": "312 782 5800",
+      "address": "200 East Randolph Drive",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60601",
+      "image": "https://images.financialmodelingprep.com/symbol/JLL.png",
+      "ipoDate": "1997-07-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "JLL",
+      "date": "2015-12-31",
+      "marketCap": 7208858564
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040599.3057091
+}

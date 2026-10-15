@@ -1,0 +1,63 @@
+{
+  "symbol": "AVA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AVA",
+      "price": 36.53,
+      "marketCap": 3059489784,
+      "beta": 0.211,
+      "lastDividend": 1.9675,
+      "range": "34.46-43.5",
+      "change": 0.31,
+      "changePercentage": 0.85588,
+      "volume": 600019,
+      "averageVolume": 713401,
+      "companyName": "Avista Corporation",
+      "currency": "USD",
+      "cik": "0000104918",
+      "isin": "US05379B1070",
+      "cusip": "05379B107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Diversified Utilities",
+      "website": "https://investor.avistacorp.com",
+      "description": "Avista Corporation operates as an energy utility, conducting business through its various subsidiaries. Its operations are divided into two primary segments: Avista Utilities and AEL&P. The Avista Utilities division is responsible for electric distribution and transmission, as well as natural gas distribution services, across parts of eastern Washington and northern Idaho. It also delivers natural gas services to areas of northeastern and southwestern Oregon. Additionally, this segment generates electricity in Washington, Idaho, Oregon, and Montana, and engages in the wholesale buying and selling of electricity and natural gas. The AEL&P segment, conversely, supplies electrical services to approximately 17,400 customers located in the city and borough of Juneau, Alaska. The company generates its electricity from hydroelectric, thermal, and wind power sources. As of February 23, 2022, Avista was serving 406,000 electric customers and 372,000 natural gas customers. Beyond its core utility business, the company also makes investments in venture funds, real estate, and other diverse ventures. Avista Corporation was established in 1889 and is headquartered in Spokane, Washington.",
+      "ceo": "Heather Lynn Rosentrater",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "1929",
+      "phone": "509 489 0500",
+      "address": "1411 East Mission Avenue",
+      "city": "Spokane",
+      "state": "WA",
+      "zip": "99202-2600",
+      "image": "https://images.financialmodelingprep.com/symbol/AVA.png",
+      "ipoDate": "1981-05-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AVA",
+      "date": "2015-12-31",
+      "marketCap": 2214338850
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040832.644628,
+  "previous_attempts": [
+    {
+      "symbol": "AVA",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040389.3969648
+    }
+  ]
+}

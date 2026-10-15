@@ -1,0 +1,54 @@
+{
+  "symbol": "ODP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ODP",
+      "price": 28,
+      "marketCap": 843289748,
+      "beta": 1.158,
+      "lastDividend": 1,
+      "range": "11.85-28.84",
+      "change": 0.01,
+      "changePercentage": 0.03572705,
+      "volume": 0,
+      "averageVolume": 1151276,
+      "companyName": "The ODP Corporation",
+      "currency": "USD",
+      "cik": "0000800240",
+      "isin": "US88337F1057",
+      "cusip": "88337F105",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Specialty Retail",
+      "website": "https://investor.theodpgroup.com",
+      "description": "The ODP Corporation delivers essential business services, supplies, products, and advanced digital workplace technology solutions to a diverse clientele, encompassing small, medium, and large enterprises. The company structures its operations into two core divisions: Business Solutions and Retail. The Business Solutions segment provides a comprehensive array of offerings, including traditional office supplies, janitorial and breakroom provisions, technology services, printing and copying solutions, and office furniture products and services. These are distributed through multiple channels such as direct sales forces, catalogs, telemarketing, and online platforms, serving clients in the United States, Puerto Rico, the U.S. Virgin Islands, and Canada. Conversely, the Retail division manages a widespread chain of physical stores. These outlets offer a broad selection of items like general office supplies, technology products and related solutions, business machinery and their consumables, facilities management goods (including cleaning and breakroom items), and furniture. They also provide in-store services such as printing, copying, mailing, and shipping. By December 31, 2021, this division operated 1,038 retail locations across the United States, Puerto Rico, and the U.S. Virgin Islands. The company markets its products under several recognized brands, notably Office Depot, OfficeMax, and Grand&Toy, among others. The ODP Corporation, founded in 1986, is headquartered in Boca Raton, Florida.",
+      "ceo": "Max W. Hood",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "19000",
+      "phone": "561 438 4800",
+      "address": "6600 North Military Trail",
+      "city": "Boca Raton",
+      "state": "FL",
+      "zip": "33496",
+      "image": "https://images.financialmodelingprep.com/symbol/ODP.png",
+      "ipoDate": "1988-06-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ODP",
+      "date": "2015-12-31",
+      "marketCap": 3096360000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040537.0543861
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "PGC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PGC",
+      "price": 42.84,
+      "marketCap": 759465378,
+      "beta": 0.724,
+      "lastDividend": 0.2,
+      "range": "24.71-49.14",
+      "change": -0.44,
+      "changePercentage": -1.01664,
+      "volume": 123022,
+      "averageVolume": 173240,
+      "companyName": "Peapack-Gladstone Financial Corporation",
+      "currency": "USD",
+      "cik": "0001050743",
+      "isin": "US7046991078",
+      "cusip": "704699107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.peapackprivate.com",
+      "description": "Peapack-Gladstone Financial Corporation (PGC) functions as the holding company for Peapack-Gladstone Bank, a financial institution primarily dedicated to delivering private banking and comprehensive wealth management services throughout the United States. Its operations are structured into two key divisions: Banking and Peapack Private. For deposit services, PGC provides a range of accounts including standard checking and savings, high-yield money market accounts, interest-bearing checking options, certificates of deposit (CDs), and individual retirement accounts (IRAs). On the lending side, the bank supports businesses with working capital lines of credit, term loans for acquiring fixed assets, commercial and multi-family real estate mortgages, and diverse forms of asset-based financing. It also engages in various commercial and industrial (C&I) lending, equipment finance, and commercial real estate activities. For individual clients, PGC offers residential mortgages, home equity lines of credit (HELOCs), and other second mortgage products. Beyond core banking, the corporation delivers specialized financial solutions such as treasury management, advisory services for corporate and industrial clients, escrow management, and strategic deposit generation. Its wealth management arm provides comprehensive asset and investment management services, personal trust services (including roles as executor, trustee, administrator, custodian, and guardian), alongside financial planning, tax preparation, and general advisory support. Customers also benefit from modern conveniences like telephone and online banking platforms, merchant credit card services, and dedicated customer support. Its private banking division caters to a diverse clientele including businesses, non-profit organizations, and individual consumers. Wealth management services are tailored for individuals, families, charitable foundations, endowments, trusts, and estates. Geographically, private banking facilities are situated in Bedminster, Morristown, Princeton, and Teaneck, New Jersey. Wealth management branches extend across Somerset, Morris, Hunterdon, and Union counties. The bank further maintains a network of 20 automated teller machines (ATMs). Established in 1921, Peapack-Gladstone Financial Corporation has its headquarters in Bedminster, New Jersey.",
+      "ceo": "Douglas L. Kennedy",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "682",
+      "phone": "908 234 0700",
+      "address": "500 Hills Drive",
+      "city": "Bedminster",
+      "state": "NJ",
+      "zip": "07921",
+      "image": "https://images.financialmodelingprep.com/symbol/PGC.png",
+      "ipoDate": "1999-04-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PGC",
+      "date": "2015-12-31",
+      "marketCap": 326997692
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041288.9077575
+}

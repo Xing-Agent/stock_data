@@ -1,0 +1,54 @@
+{
+  "symbol": "AAL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AAL",
+      "price": 11.79,
+      "marketCap": 7804625722,
+      "beta": 1.376,
+      "lastDividend": 0,
+      "range": "10.09-18.79",
+      "change": -0.71,
+      "changePercentage": -5.68,
+      "volume": 78449384,
+      "averageVolume": 94427980,
+      "companyName": "American Airlines Group Inc.",
+      "currency": "USD",
+      "cik": "0000006201",
+      "isin": "US02376R1023",
+      "cusip": "02376R102",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Airlines, Airports & Air Services",
+      "website": "https://www.aa.com",
+      "description": "American Airlines Group Inc. functions as a prominent network air carrier, delivering scheduled air transportation for both passengers and freight. Its operations are anchored by key hubs located in Charlotte, Chicago, Dallas/Fort Worth, Los Angeles, Miami, New York, Philadelphia, Phoenix, and Washington, D.C. Additionally, it expands its global reach through strategic partner gateways situated in London, Madrid, Seattle/Tacoma, Sydney, and Tokyo. As of December 31, 2021, the company maintained a substantial mainline fleet comprising 865 aircraft. This enterprise, established in 1930 and headquartered in Fort Worth, Texas, previously operated under the name AMR Corporation until its rebranding to American Airlines Group Inc. in December 2013.",
+      "ceo": "Robert D. Isom Jr.",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "143400",
+      "phone": "682 278 9000",
+      "address": "1 Skyview Drive",
+      "city": "Fort Worth",
+      "state": "TX",
+      "zip": "76155",
+      "image": "https://images.financialmodelingprep.com/symbol/AAL.png",
+      "ipoDate": "2005-09-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AAL",
+      "date": "2015-12-31",
+      "marketCap": 25674475750
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040990.061871
+}

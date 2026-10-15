@@ -1,0 +1,54 @@
+{
+  "symbol": "BFS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BFS",
+      "price": 29.43,
+      "marketCap": 727424253,
+      "beta": 0.891,
+      "lastDividend": 2.36,
+      "range": "29.16-38.42",
+      "change": -0.27,
+      "changePercentage": -0.90909,
+      "volume": 142816,
+      "averageVolume": 114031,
+      "companyName": "Saul Centers, Inc.",
+      "currency": "USD",
+      "cik": "0000907254",
+      "isin": "US8043951016",
+      "cusip": "804395101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Retail",
+      "website": "https://www.saulcenters.com",
+      "description": "Saul Centers, Inc. (BFS) is a self-managed and self-administered equity REIT, headquartered in Bethesda, Maryland. The company actively operates and oversees a real estate portfolio of 60 properties. This portfolio encompasses 50 community and neighborhood shopping centers, as well as seven mixed-use developments, which together provide approximately 9.8 million square feet of leasable area. Additionally, it includes three properties designated as land or for future development. A significant portion of the company's operational revenue, around 85%, originates from its properties located within the metropolitan Washington, DC, and Baltimore regions.",
+      "ceo": "Bernard Francis Saul",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "156",
+      "phone": "301-986-6200",
+      "address": "7501 Wisconsin Avenue",
+      "city": "Bethesda",
+      "state": "MD",
+      "zip": "20814-6522",
+      "image": "https://images.financialmodelingprep.com/symbol/BFS.png",
+      "ipoDate": "1993-08-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BFS",
+      "date": "2015-12-31",
+      "marketCap": 1092358620
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041197.5161903
+}

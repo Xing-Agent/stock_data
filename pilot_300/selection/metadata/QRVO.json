@@ -1,0 +1,54 @@
+{
+  "symbol": "QRVO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "QRVO",
+      "price": 114.17,
+      "marketCap": 10072260072,
+      "beta": 1.455,
+      "lastDividend": 0,
+      "range": "74.92-121.09",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 0,
+      "averageVolume": 1435944,
+      "companyName": "Qorvo, Inc.",
+      "currency": "USD",
+      "cik": "0001604778",
+      "isin": "US74736K1016",
+      "cusip": "74736K101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.qorvo.com",
+      "description": "Qorvo, Inc. is a global technology company focused on developing and bringing to market a diverse range of products and innovations for the wireless, wired, and power sectors. Its operations are organized into two primary divisions: Mobile Products, and Infrastructure and Defense Products. Within its Mobile Products segment, Qorvo supplies critical components for a wide array of consumer electronics, including smartphones, wearables, laptops, and tablets. These offerings encompass radio frequency (RF) power management integrated circuits (PMICs), ultra-wideband (UWB) system-on-a-chip (SoC) and system-in-package (SiP) solutions, MEMS sensors, antenna tuners and antennaplexers, along with various discrete components like multiplexers, duplexers, filters, and switches. The Infrastructure and Defense Products segment addresses a broad spectrum of industries: For cellular base stations, Qorvo provides components such as switch-low noise amplifier (LNA) modules, variable gain amplifiers (VGAs), integrated power amplifier (PA) Doherty modules, discrete LNAs, and high-power GaN amplifiers. It also manufactures Silicon Carbide (SiC) products, including Schottky diodes and transistors, vital for applications in the automotive, industrial, IT infrastructure, and renewable energy sectors. The company delivers smart home solutions through SoC hardware, firmware, and application software. Power management offerings include programmable PMICs and power application controllers. For defense and aerospace clients, particularly defense primes, Qorvo supplies RF products and specialized compound semiconductor foundry services. In automotive connectivity, it offers RF and UWB SoC solutions. Lastly, Wi-Fi products feature PAs, switches, LNAs, bulk acoustic wave (BAW) filters, and integrated front-end modules (FEMs). Qorvo distributes its products through a dual approach: direct sales to original equipment manufacturers (OEMs) and original design manufacturers (ODMs), and indirectly via a network of sales representatives and authorized distributors. Established in 1957, the company maintains its headquarters in Greensboro, North Carolina.",
+      "ceo": "Robert A. Bruggeworth",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "5200",
+      "phone": "336 664 1233",
+      "address": "7628 Thorndike Road",
+      "city": "Greensboro",
+      "state": "NC",
+      "zip": "27409-9421",
+      "image": "https://images.financialmodelingprep.com/symbol/QRVO.png",
+      "ipoDate": "2015-01-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "QRVO",
+      "date": "2015-12-31",
+      "marketCap": 6975895900
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040539.672858
+}

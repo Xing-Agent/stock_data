@@ -1,0 +1,54 @@
+{
+  "symbol": "CTS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CTS",
+      "price": 55.29,
+      "marketCap": 1578872298,
+      "beta": 0.992,
+      "lastDividend": 0.16,
+      "range": "36.21-69.55",
+      "change": -1.12,
+      "changePercentage": -1.98546,
+      "volume": 238773,
+      "averageVolume": 262398,
+      "companyName": "CTS Corporation",
+      "currency": "USD",
+      "cik": "0000026058",
+      "isin": "US1265011056",
+      "cusip": "126501105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.ctscorp.com",
+      "description": "CTS Corporation is a global enterprise specializing in the production and distribution of vital electronic components, such as sensors, actuators, and connectivity solutions, with operations spanning North America, Europe, and Asia. Its extensive product line includes specialized sensors and actuators developed for both passenger and commercial vehicles. Additionally, CTS provides advanced connectivity components crucial for telecommunications infrastructure, information technology networks, and other high-speed applications. The company also offers a broad array of switches, temperature sensors, and potentiometers, serving various industries. Furthermore, it fabricates piezoelectric materials and substrates primarily utilized in demanding sectors like medical, industrial, aerospace and defense, and information technology. CTS effectively markets and sells its offerings through a multi-faceted approach, leveraging its internal sales engineers, independent manufacturers' representatives, and an established network of distributors. The company, which traces its origins back to 1896, currently maintains its corporate headquarters in Lisle, Illinois.",
+      "ceo": "Pratik Trivedi",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "3492",
+      "phone": "630 577 8800",
+      "address": "4925 Indiana Avenue",
+      "city": "Lisle",
+      "state": "IL",
+      "zip": "60532",
+      "image": "https://images.financialmodelingprep.com/symbol/CTS.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CTS",
+      "date": "2015-12-31",
+      "marketCap": 575628480
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040286.3211443
+}

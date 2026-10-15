@@ -1,0 +1,54 @@
+{
+  "symbol": "TATT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TATT",
+      "price": 31.78,
+      "marketCap": 413079618,
+      "beta": 1.001,
+      "lastDividend": 0,
+      "range": "30.98-64.5",
+      "change": -0.04,
+      "changePercentage": -0.12571,
+      "volume": 120567,
+      "averageVolume": 172066,
+      "companyName": "TAT Technologies Ltd.",
+      "currency": "USD",
+      "cik": "0000808439",
+      "isin": "IL0010827264",
+      "cusip": "M8740S227",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Aerospace & Defense",
+      "website": "https://tat-technologies.com",
+      "description": "TAT Technologies Ltd., an Israeli firm founded in 1969 (and known as Galagraph Ltd. until 1992), delivers essential solutions and services to the commercial and military aerospace sectors, as well as ground defense industries, operating internationally across the United States, Israel, and other regions. The company's operations are divided into four main areas. First, it acts as an Original Equipment Manufacturer (OEM) for advanced heat transfer solutions and various aviation accessories. This includes the design and production of sophisticated systems like pre-coolers and oil/fuel hydraulic heat exchangers, crucial for mechanical and electronic systems in commercial, military, and business aircraft. They also develop environmental control and power electronics cooling systems for both airborne and ground applications, alongside mechanical aircraft accessories such as pumps, valves, and turbine power units. Second and third, TAT Technologies provides extensive Maintenance, Repair, and Overhaul (MRO) services. This covers both heat transfer components (including its own manufactured solutions) and a wide array of aviation components. The company operates a specialized repair station that offers heat transfer MRO services to a diverse clientele, including airlines, air cargo carriers, military organizations, and maintenance centers. Finally, the company specializes in the overhaul and protective coating of critical jet engine components. This expertise encompasses parts such as turbine vanes and blades, fan blades, variable inlet guide vanes, and afterburner flaps. TAT Technologies Ltd. is headquartered in Netanya, Israel.",
+      "ceo": "Igal Zamir",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "659",
+      "phone": "972 5 445 22565",
+      "address": "9335 Harris Corners Pkwy",
+      "city": "Charlotte",
+      "state": "NC",
+      "zip": "28269",
+      "image": "https://images.financialmodelingprep.com/symbol/TATT.png",
+      "ipoDate": "1987-03-31",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TATT",
+      "date": "2015-12-31",
+      "marketCap": 65181745
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041058.4766533
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "MTEX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MTEX",
+      "price": 7.25,
+      "marketCap": 13990108,
+      "beta": 0.759,
+      "lastDividend": 0,
+      "range": "3.8-12.45",
+      "change": -0.36,
+      "changePercentage": -4.73062,
+      "volume": 4589,
+      "averageVolume": 23514,
+      "companyName": "Mannatech, Incorporated",
+      "currency": "USD",
+      "cik": "0001056358",
+      "isin": "US5637712036",
+      "cusip": "563771203",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Food Distribution",
+      "website": "https://www.mannatech.com",
+      "description": "Mannatech, Incorporated operates as a global enterprise focused on health and wellness. The company specializes in the creation, marketing, and distribution of a diverse range of products, including dietary supplements, topical skincare and anti-aging solutions, and items designed for weight management. Its offerings reach consumers primarily through direct sales, complemented by e-commerce platforms and a network marketing approach. Established in 1993, Mannatech maintains its corporate headquarters in Flower Mound, Texas.",
+      "ceo": "Landen Granvel Fredrick",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "170",
+      "phone": "972 471 7400",
+      "address": "1410 Lakeside Parkway",
+      "city": "Flower Mound",
+      "state": "TX",
+      "zip": "75028",
+      "image": "https://images.financialmodelingprep.com/symbol/MTEX.png",
+      "ipoDate": "1999-02-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MTEX",
+      "date": "2015-12-31",
+      "marketCap": 50819600
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041563.3175323
+}

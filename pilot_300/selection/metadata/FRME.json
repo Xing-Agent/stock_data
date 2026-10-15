@@ -1,0 +1,54 @@
+{
+  "symbol": "FRME",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FRME",
+      "price": 38.78,
+      "marketCap": 2435439184,
+      "beta": 0.881,
+      "lastDividend": 1.46,
+      "range": "34.66-45.33",
+      "change": -0.28,
+      "changePercentage": -0.71685,
+      "volume": 443221,
+      "averageVolume": 455398,
+      "companyName": "First Merchants Corporation",
+      "currency": "USD",
+      "cik": "0000712534",
+      "isin": "US3208171096",
+      "cusip": "320817109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.firstmerchants.com",
+      "description": "First Merchants Corporation operates as a financial holding entity, primarily conducting its business through its subsidiary, First Merchants Bank. This institution delivers a full spectrum of community banking solutions. It accepts various types of deposits, including term, savings, and checking accounts. The company also extends a wide array of lending products, such as consumer, commercial, agricultural business, and real estate mortgage loans, in addition to public finance options. Beyond standard banking, First Merchants provides personal and corporate trust services, brokerage capabilities, and private wealth management. Its corporate offerings further include letters of credit, repurchase agreements, and other specialized financial services. The company maintains a network of 109 physical banking locations situated across counties in Indiana, Illinois, Ohio, and Michigan. Furthermore, it offers convenient access to its services via electronic and mobile platforms. First Merchants Corporation was established in 1893 and is headquartered in Muncie, Indiana.",
+      "ceo": "Mark K. Hardwick",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "2086",
+      "phone": "765 747 1500",
+      "address": "200 East Jackson Street",
+      "city": "Muncie",
+      "state": "IN",
+      "zip": "47305-2814",
+      "image": "https://images.financialmodelingprep.com/symbol/FRME.png",
+      "ipoDate": "1989-06-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FRME",
+      "date": "2015-12-31",
+      "marketCap": 1045956740
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041761.924578
+}

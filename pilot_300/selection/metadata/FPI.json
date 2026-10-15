@@ -1,0 +1,54 @@
+{
+  "symbol": "FPI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FPI",
+      "price": 10.55,
+      "marketCap": 460303885,
+      "beta": 0.701,
+      "lastDividend": 0.5,
+      "range": "9.21-13.23",
+      "change": -0.08,
+      "changePercentage": -0.75259,
+      "volume": 529126,
+      "averageVolume": 551526,
+      "companyName": "Farmland Partners Inc.",
+      "currency": "USD",
+      "cik": "0001591670",
+      "isin": "US31154R1095",
+      "cusip": "31154R109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Specialty",
+      "website": "https://www.farmlandpartners.com",
+      "description": "Farmland Partners Inc. functions as an internally managed real estate enterprise, primarily focused on acquiring and holding premium North American agricultural land. The company also provides secured loans to farmers, collateralized by their farm real estate. As of the most recent disclosure, its expansive portfolio includes approximately 155,000 acres distributed across 16 U.S. states, covering significant agricultural areas from Alabama to Virginia. This diversified land base supports nearly 26 different crop varieties and is utilized by over 100 distinct agricultural tenants. Farmland Partners Inc. chose to be taxed as a Real Estate Investment Trust (REIT) for U.S. federal income tax purposes, commencing with the fiscal year that ended December 31, 2014.",
+      "ceo": "Luca Fabbri",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "12",
+      "phone": "720-452-3100",
+      "address": "4600 South Syracuse Street",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "80237-2766",
+      "image": "https://images.financialmodelingprep.com/symbol/FPI.png",
+      "ipoDate": "2014-04-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FPI",
+      "date": "2015-12-31",
+      "marketCap": 129818980
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041217.3217494
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "BBWI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BBWI",
+      "price": 18.95,
+      "marketCap": 3819596337,
+      "beta": 1.4,
+      "lastDividend": 0.8,
+      "range": "14.28-27.4",
+      "change": 0.95,
+      "changePercentage": 5.27778,
+      "volume": 8102227,
+      "averageVolume": 6104423,
+      "companyName": "Bath & Body Works, Inc.",
+      "currency": "USD",
+      "cik": "0000701985",
+      "isin": "US0708301041",
+      "cusip": "070830104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Specialty Retail",
+      "website": "https://www.bbwinc.com",
+      "description": "Bath & Body Works, Inc. operates as a specialty retailer of personal care and home fragrance products. The company offers body and home fragrances, including 3-wick candles, home fragrance diffusers, fine fragrance mists, eau de parfum, body wash, hand soaps, body lotions, and body creams, as well as sanitizer and other products. It sells its products under the Bath & Body Works and other brand names through retail stores and e-commerce sites in the United States and Canada, as well as through international stores operated by partners under the franchise, license, and wholesale arrangements. The company was formerly known as L Brands, Inc. and changed its name to Bath & Body Works, Inc. in August 2021. Bath & Body Works, Inc. was founded in 1963 and is headquartered in Columbus, Ohio.",
+      "ceo": "Daniel Heaf",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "60735",
+      "phone": "614 415 7000",
+      "address": "Three Limited Parkway",
+      "city": "Columbus",
+      "state": "OH",
+      "zip": "43230",
+      "image": "https://images.financialmodelingprep.com/symbol/BBWI.png",
+      "ipoDate": "1982-04-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BBWI",
+      "date": "2015-12-31",
+      "marketCap": 21918200000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040265.1167881
+}

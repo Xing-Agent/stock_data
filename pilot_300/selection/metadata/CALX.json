@@ -1,0 +1,54 @@
+{
+  "symbol": "CALX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CALX",
+      "price": 36.04,
+      "marketCap": 2269222560,
+      "beta": 1.316,
+      "lastDividend": 0,
+      "range": "32.35-71.22",
+      "change": -0.27,
+      "changePercentage": -0.7436,
+      "volume": 627497,
+      "averageVolume": 1160278,
+      "companyName": "Calix, Inc.",
+      "currency": "USD",
+      "cik": "0001406666",
+      "isin": "US13100M5094",
+      "cusip": "13100M509",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Communication Equipment",
+      "website": "https://www.calix.com",
+      "description": "Headquartered in San Jose, California, Calix, Inc., established in 1999, is a global technology provider specializing in cloud and software platforms, robust systems, and comprehensive services. The company's innovative solutions empower broadband service providers (BSPs) to offer a diverse array of services to their customers. Calix's reach extends throughout the United States, the broader Americas, Europe, the Middle East, Africa, and the Asia Pacific region. A core offering is the Calix Cloud platform, an advanced, role-based analytics suite comprising Calix Marketing Cloud, Calix Support Cloud, and Calix Operations Cloud. This platform is highly configurable, delivering tailored insights that enable BSPs to proactively identify and pursue lucrative new revenue streams and applications, often through mobile interfaces. Additionally, Calix provides EXOS, a carrier-class operating system for premises equipment, seamlessly integrated with its GigaSpire family of systems to deliver complete subscriber experience solutions for both residential and business users. The company also offers AXOS, a software platform that optimizes the architecture and operations of the network's access edge. Calix distributes its portfolio of products through both its dedicated direct sales force and a network of resellers.",
+      "ceo": "Michael Weening",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "1921",
+      "phone": "408 514 3000",
+      "address": "3155 Olsen Drive",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95117",
+      "image": "https://images.financialmodelingprep.com/symbol/CALX.png",
+      "ipoDate": "2010-03-24",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CALX",
+      "date": "2015-12-31",
+      "marketCap": 382411170
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041051.546641
+}

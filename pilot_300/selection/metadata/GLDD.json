@@ -1,0 +1,54 @@
+{
+  "symbol": "GLDD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GLDD",
+      "price": 17,
+      "marketCap": 1135273600,
+      "beta": 1.366,
+      "lastDividend": 0,
+      "range": "7.51-17.02",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 2771468,
+      "averageVolume": 1771870,
+      "companyName": "Great Lakes Dredge & Dock Corporation",
+      "currency": "USD",
+      "cik": "0001372020",
+      "isin": "US3906071093",
+      "cusip": "390607109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Engineering & Construction",
+      "website": "https://www.gldd.com",
+      "description": "Great Lakes Dredge & Dock Corporation (GLDD) stands as a leading provider of dredging solutions across the United States. The company undertakes a diverse array of projects, encompassing significant capital dredging activities for port expansions, coastal restoration efforts, and the creation of new landmasses through reclamation. Additionally, GLDD specializes in excavating trenches for critical infrastructure like pipelines, tunnels, and cables, alongside the construction of various marine structures such as breakwaters, jetties, and canals. Beyond these large-scale endeavors, GLDD is actively involved in coastal protection initiatives, which entail relocating sand from the seabed to vulnerable shorelines to combat erosion. Their services also extend to maintenance dredging, a crucial process for re-clearing previously deepened waterways and harbors by removing accumulated silt, sand, and other sediments. Further operations include deepening channels, developing port infrastructure, performing lake and river dredging, constructing inland levees, undertaking environmental restoration and habitat enhancement, and other marine construction tasks. GLDD serves a broad client base, including federal, state, and local governments within the U.S., as well as foreign governments. Their private sector clients comprise both domestic and international entities, notably utilities, oil, and other energy companies. The company operates a substantial fleet consisting of 18 dredges, 17 material transportation barges, a drillboat, and various other essential support vessels. Established in 1890 as Lydon & Drews Partnership, the company adopted its current name, Great Lakes Dredge & Dock Corporation, in 1905. Its headquarters are located in Houston, Texas.",
+      "ceo": "Lasse J. Petterson",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "381",
+      "phone": "346 359 1010",
+      "address": "9811 Katy Freeway",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77024",
+      "image": "https://images.financialmodelingprep.com/symbol/GLDD.png",
+      "ipoDate": "2006-12-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GLDD",
+      "date": "2015-12-31",
+      "marketCap": 228265713
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041463.1912036
+}

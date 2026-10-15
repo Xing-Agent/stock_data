@@ -1,0 +1,54 @@
+{
+  "symbol": "EXAS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EXAS",
+      "price": 104.91,
+      "marketCap": 20026082216,
+      "beta": 1.442,
+      "lastDividend": 0,
+      "range": "38.81-104.98",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 21562141,
+      "averageVolume": 2533730,
+      "companyName": "Exact Sciences Corporation",
+      "currency": "USD",
+      "cik": "0001124140",
+      "isin": "US30063P1057",
+      "cusip": "30063P105",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Diagnostics & Research",
+      "website": "https://www.exactsciences.com",
+      "description": "Exact Sciences Corporation specializes in developing and distributing cancer screening and diagnostic tools across the United States and internationally. Their key product, Cologuard, is an innovative, non-invasive test that analyzes stool-based DNA to identify specific DNA and hemoglobin biomarkers indicative of colorectal cancer and precancerous conditions. The company's extensive portfolio also includes the Oncotype DX family of gene expression tests, designed for breast, prostate, and colon cancers. Within this suite, the Oncotype Test provides detailed tumor profiling from tissue samples, assisting in treatment selection for individuals battling advanced, metastatic, refractory, or recurrent cancers. Furthermore, they offer the Oncotype DX AR-V7 Nucleus Detect Test, a liquid biopsy designed for advanced-stage prostate cancer patients, and Oncomap ExTra, which delivers a comprehensive biological insight into challenging, rare, or aggressive malignancies. Exact Sciences also provides COVID-19 testing services. Future initiatives involve enhancing Cologuard's performance characteristics and pioneering novel blood- and other fluid-based diagnostic tests. The company maintains important license agreements with the MAYO Foundation for Medical Education and Research and Hologic, Inc. Established in 1995, Exact Sciences Corporation's corporate headquarters are located in Madison, Wisconsin.",
+      "ceo": "Kevin T. Conroy",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "6900",
+      "phone": "608 284 5700",
+      "address": "5505 Endeavor Lane",
+      "city": "Madison",
+      "state": "WI",
+      "zip": "53719",
+      "image": "https://images.financialmodelingprep.com/symbol/EXAS.png",
+      "ipoDate": "2001-02-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EXAS",
+      "date": "2015-12-31",
+      "marketCap": 897580580
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040429.8953621
+}

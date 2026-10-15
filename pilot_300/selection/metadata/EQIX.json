@@ -1,0 +1,54 @@
+{
+  "symbol": "EQIX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EQIX",
+      "price": 995.9,
+      "marketCap": 98267132087,
+      "beta": 0.97,
+      "lastDividend": 20.17,
+      "range": "720.62-1128.68",
+      "change": -23.5,
+      "changePercentage": -2.30528,
+      "volume": 450557,
+      "averageVolume": 564607,
+      "companyName": "Equinix, Inc.",
+      "currency": "USD",
+      "cik": "0001101239",
+      "isin": "US29444U7000",
+      "cusip": "29444U700",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Specialty",
+      "website": "https://www.equinix.com",
+      "description": "Equinix, Inc. shortens the path to boundless connectivity anywhere in the world. Its digital infrastructure, data center footprint and interconnected ecosystems empower innovations that enhance our work, life and planet. Equinix connects economies, countries, organizations and communities, delivering seamless digital experiences and cutting-edge AI quickly, efficiently and everywhere. Equinix, Inc. was established on June 22, 1998 and is based in Redwood City, United States.",
+      "ceo": "Adaire Rita Fox-Martin",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "13716",
+      "phone": "650-598-6000",
+      "address": "One Lagoon Drive",
+      "city": "Redwood City",
+      "state": "CA",
+      "zip": "94065-1562",
+      "image": "https://images.financialmodelingprep.com/symbol/EQIX.png",
+      "ipoDate": "2000-08-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EQIX",
+      "date": "2015-12-31",
+      "marketCap": 20523063052
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041892.484812
+}

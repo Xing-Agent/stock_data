@@ -1,0 +1,54 @@
+{
+  "symbol": "SRPT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SRPT",
+      "price": 16.83,
+      "marketCap": 1776844080,
+      "beta": 0.205,
+      "lastDividend": 0,
+      "range": "14.68-24.68",
+      "change": 0.32,
+      "changePercentage": 1.93822,
+      "volume": 2740139,
+      "averageVolume": 3206209,
+      "companyName": "Sarepta Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0000873303",
+      "isin": "US8036071004",
+      "cusip": "803607100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.sarepta.com",
+      "description": "Sarepta Therapeutics, Inc. is a commercial-stage biopharmaceutical company dedicated to the discovery and advancement of genetic treatment modalities, including RNA-targeted therapeutics and gene therapies, specifically for rare diseases. The company currently offers two approved treatments: EXONDYS 51, prescribed for Duchenne muscular dystrophy (DMD) patients with confirmed dystrophin gene mutations amenable to exon 51 skipping, and VYONDYS 53, for DMD patients with exon 53 skipping mutations. Sarepta's development pipeline includes AMONDYS 45, an exon-skipping product candidate utilizing phosphorodiamidate morpholino oligomer chemistry for exon 45; SRP-5051, a peptide-conjugated PMO designed to target exon 51 of dystrophin pre-mRNA; and gene therapy programs such as SRP-9001 for DMD and SRP-9003 for limb-girdle muscular dystrophies. The company maintains collaborative agreements with organizations like F. Hoffman-La Roche Ltd, Nationwide Children's Hospital, Lysogene, Duke University, Genethon, and StrideBio. Founded in 1980, Sarepta Therapeutics is headquartered in Cambridge, Massachusetts.",
+      "ceo": "Michael E. Severino",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "835",
+      "phone": "617 274 4000",
+      "address": "215 First Street",
+      "city": "Cambridge",
+      "state": "MA",
+      "zip": "02142",
+      "image": "https://images.financialmodelingprep.com/symbol/SRPT.png",
+      "ipoDate": "1997-06-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SRPT",
+      "date": "2015-12-31",
+      "marketCap": 1760249305
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041465.7748492
+}

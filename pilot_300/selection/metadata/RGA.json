@@ -1,0 +1,54 @@
+{
+  "symbol": "RGA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RGA",
+      "price": 261.05,
+      "marketCap": 17102211201,
+      "beta": 0.451,
+      "lastDividend": 3.77,
+      "range": "178.21-263.65",
+      "change": 2.72,
+      "changePercentage": 1.05292,
+      "volume": 773009,
+      "averageVolume": 367043,
+      "companyName": "Reinsurance Group of America, Incorporated",
+      "currency": "USD",
+      "cik": "0000898174",
+      "isin": "US7593516047",
+      "cusip": "759351604",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Reinsurance",
+      "website": "https://www.rgare.com",
+      "description": "Reinsurance Group of America, Inc. (RGA) primarily operates within the reinsurance sector. The company delivers a comprehensive portfolio of life and health reinsurance products, spanning both individual and group coverages. These include diverse life insurance options such as term, credit, universal, whole, and joint/last survivor policies, in addition to critical illness, disability, and longevity products. RGA also offers specialized asset-intensive and financial reinsurance, alongside other solutions focused on capital optimization. It further assists clients in managing risks associated with mortality, morbidity, policy lapses, and investment performance. Beyond its core reinsurance offerings, RGA is involved in developing and commercializing technology solutions, and provides expert consulting and outsourcing services to both the insurance and reinsurance industries. Its clientele comprises life insurance companies across a broad international footprint, including the United States, Latin America, Canada, Europe, the Middle East, Africa, Australia, and the Asia Pacific. Established in 1973, Reinsurance Group of America, Incorporated is headquartered in Chesterfield, Missouri.",
+      "ceo": "Tony Cheng",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "4300",
+      "phone": "636 736 7000",
+      "address": "16600 Swingley Ridge Road",
+      "city": "Chesterfield",
+      "state": "MO",
+      "zip": "63017",
+      "image": "https://images.financialmodelingprep.com/symbol/RGA.png",
+      "ipoDate": "2008-09-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RGA",
+      "date": "2015-12-31",
+      "marketCap": 5579314350
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041364.073229
+}

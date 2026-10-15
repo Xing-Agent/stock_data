@@ -1,0 +1,54 @@
+{
+  "symbol": "OCUL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "OCUL",
+      "price": 7.2,
+      "marketCap": 1581234178,
+      "beta": 0.992,
+      "lastDividend": 0,
+      "range": "6.23-16.44",
+      "change": -0.04,
+      "changePercentage": -0.55249,
+      "volume": 2205589,
+      "averageVolume": 2901252,
+      "companyName": "Ocular Therapeutix, Inc.",
+      "currency": "USD",
+      "cik": "0001393434",
+      "isin": "US67576A1007",
+      "cusip": "67576A100",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.ocutx.com",
+      "description": "Ocular Therapeutix, Inc. is a biopharmaceutical company specializing in the creation, advancement, and commercialization of ophthalmic treatments. Their innovative approach leverages a proprietary bioresorbable hydrogel technology to address a range of eye diseases and conditions. The company currently offers two key products: ReSure Sealant, an ophthalmic device designed to prevent fluid leakage from corneal incisions after cataract surgery, and DEXTENZA, a dexamethasone-based ophthalmic insert used to manage post-surgical inflammation and pain in the eye, as well as to treat allergic conjunctivitis. In addition to their commercial offerings, Ocular Therapeutix is actively developing several product candidates in various clinical stages, including: OTX-TKI, an axitinib intravitreal implant in Phase 1 clinical trials for wet age-related macular degeneration (AMD) and other retinal diseases. OTX-TIC, a travoprost intracameral implant, currently in Phase 2 studies for open-angle glaucoma and ocular hypertension. OTX-CSI, a cyclosporine intracanalicular insert that has successfully completed Phase 2 clinical trials for dry eye disease. OTX-DED, a dexamethasone intracanalicular insert undergoing Phase 2 evaluation for the temporary relief of dry eye symptoms. Strategic partnerships are also a significant part of Ocular Therapeutix's operations. This includes a collaboration with Regeneron Pharmaceuticals, Inc. focused on developing and commercializing products that combine Ocular Therapeutix's sustained-release hydrogel technology with Regeneron's large molecule VEGF-targeting compounds for retinal disease treatment. Another partnership with AffaMed Therapeutics Limited covers the development and commercialization of DEXTENZA and OTX-TIC. Additionally, a discovery-focused collaboration with Mosaic Biosciences aims to pinpoint novel targets and therapeutic agents for dry age-related macular degeneration (dAMD). Established in 2006, Ocular Therapeutix, Inc. maintains its headquarters in Bedford, Massachusetts.",
+      "ceo": "Pravin U. Dugel",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "325",
+      "phone": "781 357 4000",
+      "address": "24 Crosby Drive",
+      "city": "Bedford",
+      "state": "MA",
+      "zip": "01730",
+      "image": "https://images.financialmodelingprep.com/symbol/OCUL.png",
+      "ipoDate": "2014-07-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "OCUL",
+      "date": "2015-12-31",
+      "marketCap": 231923260
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041920.0920224
+}

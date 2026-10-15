@@ -1,0 +1,54 @@
+{
+  "symbol": "ST",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ST",
+      "price": 41.17,
+      "marketCap": 5991711439,
+      "beta": 1.243,
+      "lastDividend": 0.48,
+      "range": "28.16-53.89",
+      "change": -1.33,
+      "changePercentage": -3.12941,
+      "volume": 1792140,
+      "averageVolume": 1555933,
+      "companyName": "Sensata Technologies Holding plc",
+      "currency": "USD",
+      "cik": "0001477294",
+      "isin": "GB00BFMBMT84",
+      "cusip": "G8060N102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.sensata.com",
+      "description": "Sensata Technologies Holding plc is a global enterprise specializing in the design, production, and distribution of sensing devices, integrated sensor solutions, control systems, and associated technologies. Its market reach extends across the Americas, Europe, Asia, and other international territories. The company's operations are strategically divided into two principal business units: Performance Sensing and Sensing Solutions. The Performance Sensing segment is dedicated to engineering and manufacturing sensors, high-voltage contactors, and other crucial components integral to vital systems and demanding applications. These include functions such as tire pressure monitoring, thermal regulation, electrical circuit protection, regenerative braking mechanisms, powertrain management (for engines and transmissions), and exhaust system control. This division primarily caters to the automotive industry, alongside manufacturers of heavy vehicles and off-road equipment. Conversely, the Sensing Solutions segment focuses on developing and producing application-specific sensors and electrical safety products, with a primary focus on industrial and aerospace applications. Its comprehensive product offerings encompass pressure and position sensors, protective devices for motors and compressors, high-voltage switching contactors, solid-state relays, bimetallic electromechanical controls, power inverters, charge controllers, advanced battery management systems, operator interfaces, and Internet of Things (IoT) solutions. Established in 1916, Sensata Technologies Holding plc maintains its corporate headquarters in Attleboro, Massachusetts.",
+      "ceo": "Stephan Von Schuckmann",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "16700",
+      "phone": "508 236 3800",
+      "address": "529 Pleasant Street",
+      "city": "Attleboro",
+      "state": "MA",
+      "zip": "02703",
+      "image": "https://images.financialmodelingprep.com/symbol/ST.png",
+      "ipoDate": "2010-03-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ST",
+      "date": "2015-12-31",
+      "marketCap": 7848808240
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041803.0524738
+}

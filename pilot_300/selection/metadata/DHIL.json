@@ -1,0 +1,54 @@
+{
+  "symbol": "DHIL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DHIL",
+      "price": 174.99001,
+      "marketCap": 473290405,
+      "beta": 0.748,
+      "lastDividend": 10,
+      "range": "114.11-175",
+      "change": 1e-05,
+      "changePercentage": 5.714612e-06,
+      "volume": 0,
+      "averageVolume": 24203,
+      "companyName": "Diamond Hill Investment Group, Inc.",
+      "currency": "USD",
+      "cik": "0000909108",
+      "isin": "US25264R2076",
+      "cusip": "25264R207",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Asset Management",
+      "website": "https://www.diamond-hill.com",
+      "description": "Operating through its subsidiary, Diamond Hill Capital Management, Inc., Diamond Hill Investment Group, Inc. delivers investment guidance and comprehensive fund administration services throughout the United States. The firm provides these advisory and related offerings to clients via a range of solutions, including its proprietary Diamond Hill Funds (pooled investment vehicles), customized separately managed accounts, and model delivery programs. Its fund administration responsibilities extend to ensuring portfolio and regulatory compliance, managing treasury and financial oversight, overseeing the general business governance of the mutual fund complex, and supervising crucial back-office service providers such as custodians, fund accountants, and transfer agents. Founded in 1990, the company maintains its headquarters in Columbus, Ohio.",
+      "ceo": "Heather Elizabeth Brilliant",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "127",
+      "phone": "614 255 3333",
+      "address": "325 John H. McConnell Boulevard",
+      "city": "Columbus",
+      "state": "OH",
+      "zip": "43215",
+      "image": "https://images.financialmodelingprep.com/symbol/DHIL.png",
+      "ipoDate": "1996-06-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DHIL",
+      "date": "2015-12-31",
+      "marketCap": 640472427
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040321.1293516
+}

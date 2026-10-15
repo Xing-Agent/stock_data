@@ -1,0 +1,54 @@
+{
+  "symbol": "JNPR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "JNPR",
+      "price": 39.95,
+      "marketCap": 13358600850,
+      "beta": 0.773,
+      "lastDividend": 0.88,
+      "range": "33.42-39.96",
+      "change": 0.02,
+      "changePercentage": 0.05008765,
+      "volume": 8882272,
+      "averageVolume": 2400383,
+      "companyName": "Juniper Networks, Inc.",
+      "currency": "USD",
+      "cik": "0001043604",
+      "isin": "US48203R1041",
+      "cusip": "48203R104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Communication Equipment",
+      "website": "https://www.juniper.net",
+      "description": "Juniper Networks, Inc. operates globally, focusing on the design, development, and sale of advanced networking products and associated services. The company's offerings encompass a wide array of routing solutions, such as the ACX series of universal access routers tailored for high-bandwidth service delivery, the MX series Ethernet routers functioning as adaptable edge platforms, and PTX series packet transport routers. They further provide wide-area network (WAN) software-defined networking (SDN) controllers and intelligent session routers. In terms of switching, Juniper furnishes EX series Ethernet switches designed to fulfill the access, aggregation, and core layer networking demands of micro-branches, branch offices, and campus environments. Their portfolio also includes QFX series switches for data center core, spine, and top-of-rack applications, along with Juniper access points that ensure reliable Wi-Fi connectivity and robust performance. For security, their products feature SRX series services gateways, specifically engineered for data center protection. The Branch SRX family offers integrated, next-generation firewall functionalities. Additionally, they provide virtual firewalls that mirror the capabilities of physical firewalls, alongside advanced malware protection, known as Juniper ATP, delivered as a cloud-based service. Beyond hardware, Juniper delivers extensive software solutions, including Junos OS, their network operating system; Contrail Networking, an open-source, standards-based SDN platform; and Mist AI-driven assurance solutions for wired, wireless, and WAN networks to monitor and optimize key metrics. The Mist AI-powered Marvis Virtual Network Assistant is designed to intelligently pinpoint the root causes of issues. For network automation, they offer Juniper Paragon Automation, a modular suite of cloud-native software applications, and Juniper Apstra, which streamlines the entire network lifecycle within a unified system. Furthermore, the company extends various services such as software-as-a-service (SaaS), technical assistance, maintenance, specialized professional services, and comprehensive education and training programs. Juniper distributes its products through diverse channels, including direct sales, distributors, value-added resellers (VARs), and original equipment manufacturers (OEMs), serving end-users across cloud, service provider, and enterprise markets. Founded in 1996, Juniper Networks, Inc. is headquartered in Sunnyvale, California.",
+      "ceo": "Rami Rahim",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "11271",
+      "phone": "408 745 2000",
+      "address": "1133 Innovation Way",
+      "city": "Sunnyvale",
+      "state": "CA",
+      "zip": "94089",
+      "image": "https://images.financialmodelingprep.com/symbol/JNPR.png",
+      "ipoDate": "1999-06-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "JNPR",
+      "date": "2015-12-31",
+      "marketCap": 10576320000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040486.4635012
+}

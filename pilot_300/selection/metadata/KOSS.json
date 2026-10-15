@@ -1,0 +1,63 @@
+{
+  "symbol": "KOSS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KOSS",
+      "price": 3.79,
+      "marketCap": 35877800,
+      "beta": 1.633,
+      "lastDividend": 0,
+      "range": "3.3-5.7",
+      "change": -0.04,
+      "changePercentage": -1.04439,
+      "volume": 24083,
+      "averageVolume": 29461,
+      "companyName": "Koss Corporation",
+      "currency": "USD",
+      "cik": "0000056701",
+      "isin": "US5006921085",
+      "cusip": "500692108",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Consumer Electronics",
+      "website": "https://www.koss.com",
+      "description": "Koss Corporation, along with its affiliated companies, specializes in the design, manufacturing, and global distribution of stereo headphones and various related audio accessories. Their products are marketed across numerous countries, including the United States, the Czech Republic, Sweden, Canada, Russia, Japan, and Malaysia. The company's extensive product line encompasses high-fidelity headphones, wireless Bluetooth headphones and speakers, computer headsets, telecommunications headsets, and active noise-canceling headphones. They also offer compact disc recordings under their \"Koss Classics\" label. Koss employs a wide array of sales channels to reach customers. This includes domestic and international distributors, specialized audio retailers, its own online presence, major national retail chains, grocery stores, electronics outlets, military exchanges, and even prisons. Products are sold both under the Koss brand name and as private-label offerings. Furthermore, Koss supplies its products to distributors for subsequent resale to educational institutions, and it also conducts direct sales to other manufacturers. Founded in 1953, Koss Corporation is headquartered in Milwaukee, Wisconsin.",
+      "ceo": "Michael J. Koss",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "29",
+      "phone": "414 964 5000",
+      "address": "4129 North Port Washington Avenue",
+      "city": "Milwaukee",
+      "state": "WI",
+      "zip": "53212",
+      "image": "https://images.financialmodelingprep.com/symbol/KOSS.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KOSS",
+      "date": "2015-12-31",
+      "marketCap": 14765412
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040874.2676394,
+  "previous_attempts": [
+    {
+      "symbol": "KOSS",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040447.6154995
+    }
+  ]
+}

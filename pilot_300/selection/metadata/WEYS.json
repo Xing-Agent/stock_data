@@ -1,0 +1,54 @@
+{
+  "symbol": "WEYS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WEYS",
+      "price": 52.46,
+      "marketCap": 500059212,
+      "beta": 0.866,
+      "lastDividend": 3.1,
+      "range": "27.25-53.53",
+      "change": -0.27,
+      "changePercentage": -0.51204,
+      "volume": 45461,
+      "averageVolume": 25265,
+      "companyName": "Weyco Group, Inc.",
+      "currency": "USD",
+      "cik": "0000106532",
+      "isin": "US9621491003",
+      "cusip": "962149100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Apparel - Footwear & Accessories",
+      "website": "https://www.weycogroup.com",
+      "description": "Weyco Group, Inc. specializes in the creation and distribution of footwear for male, female, and juvenile consumers. Its operations are divided into two main segments: wholesale activities across North America and its retail presence within the same region. The company's diverse product line includes moderately priced leather dress shoes, casual options made from either synthetic materials or leather, and robust outdoor boots, shoes, and sandals. These products are sold under established brands such as Florsheim, Nunn Bush, Stacy Adams, BOGS, and Rafters. Weyco Group conducts extensive wholesale distribution, supplying its merchandise to approximately 10,000 various outlets, including dedicated footwear stores, department stores, specialized boutiques, and e-commerce platforms. As of December 31, 2021, the firm operated four physical retail stores in the United States. Additionally, it expands its brand influence through licensing agreements, permitting third parties to market branded apparel, accessories, and specialized footwear. The company's global reach extends to markets including the United States, Canada, Europe, Australia, Asia, and South Africa. Founded in 1906 as Weyenberg Shoe Manufacturing Company, the organization rebranded as Weyco Group, Inc. in April 1990 and maintains its corporate headquarters in Milwaukee, Wisconsin.",
+      "ceo": "Thomas W. Florsheim Jr.",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "569",
+      "phone": "414 908 1600",
+      "address": "333 West Estabrook Boulevard",
+      "city": "Glendale",
+      "state": "WI",
+      "zip": "53212",
+      "image": "https://images.financialmodelingprep.com/symbol/WEYS.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WEYS",
+      "date": "2015-12-31",
+      "marketCap": 285181320
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041813.4659956
+}

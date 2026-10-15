@@ -1,0 +1,54 @@
+{
+  "symbol": "ELSE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ELSE",
+      "price": 7.7401,
+      "marketCap": 27341307,
+      "beta": 0.628,
+      "lastDividend": 0,
+      "range": "4.05-7.75",
+      "change": 0.0001,
+      "changePercentage": 0.00129199,
+      "volume": 3653,
+      "averageVolume": 10855,
+      "companyName": "Electro-Sensors, Inc.",
+      "currency": "USD",
+      "cik": "0000351789",
+      "isin": "US2852331022",
+      "cusip": "285233102",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.electro-sensors.com",
+      "description": "Electro-Sensors, Inc. focuses on designing, manufacturing, and selling sophisticated industrial systems for monitoring production and controlling processes. The company provides a comprehensive range of solutions that accurately measure the output and operational rates of machinery, in addition to regulating the speed of associated equipment within production lines. Their product portfolio features advanced speed monitoring systems designed to quantify production counts or rates, such as parts, gallons, or board feet. These systems incorporate alarm functionalities, tachometers, and other devices that convert raw sensor impulses into actionable alarm signals, computer inputs, or digital displays. Beyond speed, Electro-Sensors offers specialized products for temperature applications, including sensors that monitor the heat of bearings, gearboxes, and motors. Their offerings also extend to other vital production monitoring tools, such as belt alignment and slide gate position monitors, vibration monitoring equipment, and tilt switches. A significant area of expertise is their comprehensive hazard monitoring systems. This includes Electro-Sentry, an integrated solution that combines the company's sensors for temperature, belt alignment, and shaft speed with programmable control logic. They also offer HazardPRO, a cutting-edge wireless technology for hazard surveillance, complemented by its HazardPRO site system manager software. Electro-Sensors serves a diverse client base across numerous processing sectors, including grain/feed/milling, bulk material handling, general manufacturing, food production, ethanol, and power generation. The company employs a multi-channel distribution strategy, utilizing its internal sales force, manufacturer's representatives, and an extensive network of distributors. This broad reach spans the United States, Canada, Mexico, various countries in South America, Europe, the Middle East, Africa, Asia, and Australia, including Germany, the UK, Ukraine, Egypt, Saudi Arabia, the UAE, South Africa, Tunisia, India, China, the Republic of Korea, Vietnam, Malaysia, the Philippines, Thailand, and Singapore. Established in 1968, Electro-Sensors, Inc. is based in Minnetonka, Minnesota.",
+      "ceo": "David L. Klenk",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "38",
+      "phone": "952 930 0100",
+      "address": "6111 Blue Circle Drive",
+      "city": "Minnetonka",
+      "state": "MN",
+      "zip": "55343-9108",
+      "image": "https://images.financialmodelingprep.com/symbol/ELSE.png",
+      "ipoDate": "1981-06-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ELSE",
+      "date": "2015-12-31",
+      "marketCap": 12155965
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040298.7659874
+}

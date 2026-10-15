@@ -1,0 +1,54 @@
+{
+  "symbol": "CNC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CNC",
+      "price": 70.16,
+      "marketCap": 34658689200,
+      "beta": 1.13,
+      "lastDividend": 0,
+      "range": "31.63-70.37",
+      "change": 1.3,
+      "changePercentage": 1.88789,
+      "volume": 3797930,
+      "averageVolume": 4795338,
+      "companyName": "Centene Corp.",
+      "currency": "USD",
+      "cik": "0001071739",
+      "isin": "US15135B1017",
+      "cusip": "15135B101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Healthcare Plans",
+      "website": "https://www.centene.com",
+      "description": "Centene Corporation operates as a managed care company that provides programs and services to under-insured families, and commercial organizations in the United States. It operates through four segments: Medicaid, Medicare, Commercial, and Other. The Medicaid segment offers the temporary assistance for needy families; medicaid expansion; aged, blind, or disabled; and children's health insurance programs, as well as long-term services and supports; foster care; and medicare-medicaid plans. This segment also provides healthcare products and services. The Medicare segment offers special needs and medicare supplement, and prescription drug plans. The Commercial segment provides health insurance marketplace product for individual and commercial group. The Other segment operates clinical healthcare and pharmacies, as well as offers vision and dental, behavioral health, and centralized services. It provides services through primary and specialty care physicians, hospitals, behavioral health practitioners, and ancillary providers. The company was founded in 1984 and is headquartered in Saint Louis, Missouri.",
+      "ceo": "Sarah McGinty London",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "61100",
+      "phone": "314 725 4477",
+      "address": "Centene Plaza",
+      "city": "St. Louis",
+      "state": "MO",
+      "zip": "63105",
+      "image": "https://images.financialmodelingprep.com/symbol/CNC.png",
+      "ipoDate": "2001-12-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CNC",
+      "date": "2015-12-31",
+      "marketCap": 8261989831
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040466.5326712
+}

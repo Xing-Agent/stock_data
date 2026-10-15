@@ -1,0 +1,63 @@
+{
+  "symbol": "HNNA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HNNA",
+      "price": 10.3,
+      "marketCap": 81415423,
+      "beta": 0.543,
+      "lastDividend": 0.5875,
+      "range": "8.9-10.87",
+      "change": -0.01,
+      "changePercentage": -0.09699321,
+      "volume": 2604,
+      "averageVolume": 6572,
+      "companyName": "Hennessy Advisors, Inc.",
+      "currency": "USD",
+      "cik": "0001145255",
+      "isin": "US4258851009",
+      "cusip": "425885100",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Asset Management",
+      "website": "https://www.hennessyadvisors.com",
+      "description": "Operating as a publicly traded entity, Hennessy Advisors, Inc. is an investment management firm that provides its expertise to the Hennessy Funds and other investment companies. The firm is responsible for establishing and overseeing a diverse array of mutual funds, including those focused on equities, fixed income, and balanced strategies. Their investment scope extends across public equity and fixed income markets worldwide, with a primary emphasis on growth-oriented stocks. All investment decisions are underpinned by comprehensive, proprietary in-house research. Founded in 1989, Hennessy Advisors, Inc. maintains its headquarters in Novato, California, complemented by additional offices in Boston, Massachusetts, and Chapel Hill, North Carolina.",
+      "ceo": "Neil Joseph Hennessy",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "18",
+      "phone": "415 899 1555",
+      "address": "7250 Redwood Boulevard",
+      "city": "Novato",
+      "state": "CA",
+      "zip": "94945",
+      "image": "https://images.financialmodelingprep.com/symbol/HNNA.png",
+      "ipoDate": "2005-03-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HNNA",
+      "date": "2015-12-31",
+      "marketCap": 151740347
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040762.7550654,
+  "previous_attempts": [
+    {
+      "symbol": "HNNA",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040276.1819782
+    }
+  ]
+}

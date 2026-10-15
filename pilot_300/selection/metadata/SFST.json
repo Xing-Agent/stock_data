@@ -1,0 +1,63 @@
+{
+  "symbol": "SFST",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SFST",
+      "price": 59.22,
+      "marketCap": 559934575,
+      "beta": 0.717,
+      "lastDividend": 0,
+      "range": "40.9-65.09",
+      "change": -0.87,
+      "changePercentage": -1.44783,
+      "volume": 65066,
+      "averageVolume": 114093,
+      "companyName": "Southern First Bancshares, Inc.",
+      "currency": "USD",
+      "cik": "0001090009",
+      "isin": "US8428731017",
+      "cusip": "842873101",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.southernfirst.com",
+      "description": "Southern First Bancshares, Inc. acts as the parent organization for Southern First Bank, providing a comprehensive range of banking and financial services to individuals and businesses in South Carolina, North Carolina, and Georgia. Its operations are structured into three primary divisions: Commercial and Retail Banking, Mortgage Banking, and Corporate Operations. The institution accepts various deposit products, including standard and commercial checking accounts, savings accounts, money market accounts, and long-term certificates of deposit. Its diverse loan offerings encompass commercial and construction real estate, business financing for sectors such as manufacturing, service, and professional services, alongside consumer real estate and home equity loans. Furthermore, it extends other consumer credit options like secured and unsecured installment loans and revolving lines of credit. Complementary services include online and mobile banking, cash management, safe deposit boxes, direct deposit, automated drafts, and bill payment. The company operates eight retail branches in South Carolina (Greenville, Charleston, and Columbia), three in North Carolina (Raleigh, Greensboro, and Charlotte areas), and one in Atlanta, Georgia. Founded in 1999, Southern First Bancshares, Inc. is based in Greenville, South Carolina.",
+      "ceo": "R. Arthur Seaver Jr.",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "315",
+      "phone": "864 679 9000",
+      "address": "100 Verdae Boulevard",
+      "city": "Greenville",
+      "state": "SC",
+      "zip": "29607",
+      "image": "https://images.financialmodelingprep.com/symbol/SFST.png",
+      "ipoDate": "1999-10-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SFST",
+      "date": "2015-12-31",
+      "marketCap": 142393626
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040899.0793953,
+  "previous_attempts": [
+    {
+      "symbol": "SFST",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040545.235532
+    }
+  ]
+}

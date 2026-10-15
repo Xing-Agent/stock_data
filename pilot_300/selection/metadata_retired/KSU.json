@@ -1,0 +1,54 @@
+{
+  "symbol": "KSU",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KSU",
+      "price": 293.59,
+      "marketCap": 0,
+      "beta": 1.104935,
+      "lastDividend": 2.06,
+      "range": "289.03-296.96",
+      "change": -5.05002,
+      "changePercentage": -1.69101,
+      "volume": 40645849,
+      "averageVolume": 1593707,
+      "companyName": "Kansas City Southern",
+      "currency": "USD",
+      "cik": "0000054480",
+      "isin": "US4851703029",
+      "cusip": "485170302",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Railroads",
+      "website": "https://www.cpkcr.com/en",
+      "description": "Kansas City Southern is a prominent North American railway operator, offering freight transportation services across the continent. Its extensive network encompasses approximately 6,700 route miles, connecting the US Midwest and Southeast regions with destinations deep into Mexico. Within the United States, KCS serves a ten-state area and is distinguished by its direct north-south rail corridor, linking Kansas City, Missouri, to Gulf Coast ports in Alabama, Louisiana, Mississippi, and Texas. South of the border, the company operates a critical commercial rail line within the Mexican system, providing a direct passageway between Mexico City and Laredo, Texas. KCS also ensures seamless cross-border trade by offering essential rail access to the US-Mexico border crossing at Nuevo Laredo, Tamaulipas, and fully manages the international rail bridge at Laredo, Texas. Furthermore, its operations extend to the Pacific Coast, serving the port of Lazaro Cardenas, and include a 157-mile rail line connecting Laredo to Corpus Christi, Texas. The company caters to a wide array of sectors, including chemicals and petroleum, industrial and consumer goods, agriculture and minerals, energy, intermodal freight, and automotive markets. Founded in 1887, Kansas City Southern is headquartered in Kansas City, Missouri.",
+      "ceo": "Patrick Ottensmeyer",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "6522",
+      "phone": "18169831360",
+      "address": "427 W 12th St",
+      "city": "Kansas City",
+      "state": "MO",
+      "zip": "64105",
+      "image": "https://images.financialmodelingprep.com/symbol/KSU.png",
+      "ipoDate": "2000-07-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KSU",
+      "date": "2015-12-31",
+      "marketCap": 8068616190
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040489.140135
+}

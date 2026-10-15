@@ -1,0 +1,54 @@
+{
+  "symbol": "FMBH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FMBH",
+      "price": 48.72,
+      "marketCap": 1296045153,
+      "beta": 0.795,
+      "lastDividend": 1.01,
+      "range": "34.16-53.36",
+      "change": -0.13,
+      "changePercentage": -0.26612,
+      "volume": 149967,
+      "averageVolume": 146775,
+      "companyName": "First Mid Bancshares, Inc.",
+      "currency": "USD",
+      "cik": "0000700565",
+      "isin": "US3208661062",
+      "cusip": "320866106",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.firstmid.com",
+      "description": "First Mid Bancshares, Inc. (FMBH) functions as a financial holding company, delivering a broad spectrum of community banking solutions to commercial, retail, and agricultural clients throughout the United States. The institution facilitates various deposit accounts, including checking, savings, money market, and certificates of deposit. Its comprehensive lending suite encompasses financing for commercial real estate, industrial operations, agricultural endeavors (including related real estate), residential properties, and consumer needs. Furthermore, it extends credit to municipalities for community development projects, such as infrastructure enhancements or equipment procurement. Beyond its core banking activities, First Mid Bancshares offers specialized wealth management services. These include estate planning, investment guidance, and farm management and brokerage services for individuals, alongside employee benefit programs for businesses. The company also provides a range of insurance products, featuring property and casualty, senior-specific plans, and group medical coverage for corporate clients, in addition to personal lines for individuals. Geographically, First Mid Bancshares maintains a substantial footprint, operating 52 banking branches across Illinois, 14 offices in Missouri, and a dedicated loan production facility in Indiana. Founded in 1865, the company is based in Mattoon, Illinois. It was previously known as First Mid-Illinois Bancshares, Inc., before rebranding to its current name in April 2019.",
+      "ceo": "Matthew K. Smith",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1316",
+      "phone": "217 234 7454",
+      "address": "1421 Charleston Avenue",
+      "city": "Mattoon",
+      "state": "IL",
+      "zip": "61938",
+      "image": "https://images.financialmodelingprep.com/symbol/FMBH.png",
+      "ipoDate": "1999-03-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FMBH",
+      "date": "2015-12-31",
+      "marketCap": 249912000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041189.3195384
+}

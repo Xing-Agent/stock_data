@@ -1,0 +1,54 @@
+{
+  "symbol": "SPG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SPG",
+      "price": 198.7,
+      "marketCap": 64434833400,
+      "beta": 1.333,
+      "lastDividend": 8.9,
+      "range": "172.19-238.5",
+      "change": -1.95,
+      "changePercentage": -0.97184,
+      "volume": 1236199,
+      "averageVolume": 1655705,
+      "companyName": "Simon Property Group, Inc.",
+      "currency": "USD",
+      "cik": "0001063761",
+      "isin": "US8288061091",
+      "cusip": "828806109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Retail",
+      "website": "https://www.simon.com",
+      "description": "Simon Property Group (NYSE: SPG) is a prominent S&P 100 real estate investment trust that specializes in owning and developing a portfolio of world-class shopping, dining, entertainment, and mixed-use destinations. These significant properties, strategically located across North America, Europe, and Asia, serve as vital community hubs, attracting millions of visitors daily and contributing billions in annual revenue.",
+      "ceo": "Eli Simon",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "3350",
+      "phone": "317-636-1600",
+      "address": "225 West Washington Street",
+      "city": "Indianapolis",
+      "state": "IN",
+      "zip": "46204-3438",
+      "image": "https://images.financialmodelingprep.com/symbol/SPG.png",
+      "ipoDate": "1993-12-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SPG",
+      "date": "2015-12-31",
+      "marketCap": 60162847040
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041958.280113
+}

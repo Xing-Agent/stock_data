@@ -1,0 +1,54 @@
+{
+  "symbol": "TYL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TYL",
+      "price": 350.11,
+      "marketCap": 14337809753,
+      "beta": 0.849,
+      "lastDividend": 0,
+      "range": "270.71-524.43",
+      "change": 3.21,
+      "changePercentage": 0.92534,
+      "volume": 729200,
+      "averageVolume": 848110,
+      "companyName": "Tyler Technologies, Inc.",
+      "currency": "USD",
+      "cik": "0000860731",
+      "isin": "US9022521051",
+      "cusip": "902252105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Software - Application",
+      "website": "https://www.tylertech.com",
+      "description": "Tyler Technologies, Inc. specializes in delivering comprehensive information management solutions and services tailored for the public sector. Its operations are organized into three primary divisions: Enterprise Software, Appraisal and Tax, and NIC. The company's extensive product portfolio encompasses financial management tools, such as modular fund accounting systems designed for government bodies and non-profit organizations, as well as utility billing platforms for managing both metered and unmetered services. Additionally, Tyler offers solutions that automate a wide array of municipal and county operations, ranging from municipal court and parking ticket administration to animal and business licensing, permits and inspections, code enforcement, citizen complaint resolution, ambulance billing, fleet maintenance, and cemetery records management. Educational institutions, particularly K-12 schools, benefit from their specialized student information and transportation management systems. Furthermore, the company delivers a comprehensive suite of judicial technologies, including systems for court case management, integrated court and law enforcement functions, prosecutor support, and supervision. These solutions are scalable for diverse needs, from single-county deployments to multi-jurisdictional or statewide implementations. Their offerings extend to public safety software, alongside systems designed for the automated appraisal and assessment of both real and personal property, complemented by tax billing and collection applications for relevant agencies. Public sector agencies also leverage Tyler's software for planning, regulatory compliance, and maintenance operations. Dedicated applications enhance and automate records and document management, while their data and insights solutions provide valuable analytical capabilities. Beyond core software, Tyler Technologies facilitates Software-as-a-Service (SaaS) deployments and provides electronic document filing solutions for legal and judicial entities. Their service portfolio is robust, encompassing software and hardware installation, data conversion, user training, product customization, and ongoing maintenance and support. They also offer outsourced property appraisal services to taxing authorities. A strategic collaboration agreement with Amazon Web Services (AWS) underscores the company's commitment to cloud-based hosting solutions. Established in 1966, Tyler Technologies, Inc. maintains its headquarters in Plano, Texas.",
+      "ceo": "H. Lynn Moore Jr.",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "7879",
+      "phone": "972 713 3700",
+      "address": "5101 Tennyson Parkway",
+      "city": "Plano",
+      "state": "TX",
+      "zip": "75024",
+      "image": "https://images.financialmodelingprep.com/symbol/TYL.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TYL",
+      "date": "2015-12-31",
+      "marketCap": 6371221680
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040550.3541164
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "UAA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UAA",
+      "price": 4.79,
+      "marketCap": 2043369807,
+      "beta": 1.617,
+      "lastDividend": 0,
+      "range": "4.13-8.15",
+      "change": -0.11,
+      "changePercentage": -2.2449,
+      "volume": 7140862,
+      "averageVolume": 8861420,
+      "companyName": "Under Armour, Inc.",
+      "currency": "USD",
+      "cik": "0001336917",
+      "isin": "US9043111072",
+      "cusip": "904311107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Apparel - Manufacturers",
+      "website": "https://www.underarmour.com",
+      "description": "Under Armour, Inc. (UAA) specializes in the design, promotion, and distribution of athletic clothing, footwear, and accessories for men, women, and young people. Its apparel collection includes various fits such as compression, fitted, and loose styles. Additionally, the firm produces specialized footwear designed for running, training, basketball, cleated sports, post-exercise recovery, and outdoor activities. The product range extends to accessories like gloves, bags, headwear, and sports masks. Furthermore, Under Armour manages digital platforms, MapMyRun and MapMyRide, offering subscription and advertising services. Products are prominently featured under its core brands, including UNDER ARMOUR, UA, HEATGEAR, COLDGEAR, HOVR, PROTECT THIS HOUSE, I WILL, UA Logo, ARMOUR FLEECE, and ARMOUR BRA. Under Armour distributes its merchandise via extensive wholesale channels, encompassing major national and regional sporting goods chains, independent and specialized retailers, department stores, single-brand Under Armour retail outlets, institutional sports organizations, and athletic leagues and teams, along with independent distributors. Concurrently, it engages in direct-to-consumer sales through its network of 422 company-owned brand and factory house stores, as well as its e-commerce platforms. Its global operations span across the United States, Canada, Europe, the Middle East, Africa, the Asia-Pacific region, and Latin America. Founded in 1996, Under Armour, Inc. has its corporate headquarters situated in Baltimore, Maryland.",
+      "ceo": "Kevin A. Plank",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "14100",
+      "phone": "410 468 2512",
+      "address": "101 Performance Drive",
+      "city": "Baltimore",
+      "state": "MD",
+      "zip": "21230",
+      "image": "https://images.financialmodelingprep.com/symbol/UAA.png",
+      "ipoDate": "2005-11-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UAA",
+      "date": "2015-12-31",
+      "marketCap": 17477295930
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041109.709927
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CHRW",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CHRW",
+      "price": 139.45,
+      "marketCap": 16266626771,
+      "beta": 0.949,
+      "lastDividend": 2.52,
+      "range": "125.35-210.33",
+      "change": 1.48,
+      "changePercentage": 1.0727,
+      "volume": 1918687,
+      "averageVolume": 1780829,
+      "companyName": "C.H. Robinson Worldwide, Inc.",
+      "currency": "USD",
+      "cik": "0001043277",
+      "isin": "US12541W2098",
+      "cusip": "12541W209",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Integrated Freight & Logistics",
+      "website": "https://www.chrobinson.com",
+      "description": "C.H. Robinson Worldwide, Inc. serves as a global provider of diverse freight transportation and logistics solutions, assisting companies across numerous industries. The organization's business operations are segmented into two key areas: North American Surface Transportation and Global Forwarding. Its comprehensive range of services spans various shipping modalities. This includes brokerage for both full truckload (FTL) and less-than-truckload (LTL) freight, managing everything from single-pallet shipments to full container loads. C.H. Robinson also coordinates intermodal transport, which involves moving goods in containers or trailers through a combination of truck and rail networks, in addition to acting as a non-vessel operating common carrier (NVOCC) for ocean freight and arranging air cargo shipments. The company consistently provides end-to-end door-to-door delivery services. Beyond direct transportation, C.H. Robinson offers specialized logistics services like customs brokerage, managed transportation solutions (TMS), warehousing, and handling small parcel deliveries. These services are supported by an extensive network of approximately 85,000 contracted transportation partners, encompassing motor carriers, railroads, and both air and ocean carriers. Furthermore, C.H. Robinson operates a substantial fresh produce division under the \"Robinson Fresh\" brand. This unit focuses on the sourcing, sale, and marketing of fresh fruits, vegetables, and other perishable items. These products reach a wide customer base, including grocery retailers, restaurants, produce wholesalers, and foodservice distributors, leveraging a network of independent growers and suppliers. Founded in 1905, C.H. Robinson Worldwide, Inc. maintains its corporate headquarters in Eden Prairie, Minnesota.",
+      "ceo": "David Bozeman",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "11599",
+      "phone": "952 937 8500",
+      "address": "14701 Charlson Road",
+      "city": "Eden Prairie",
+      "state": "MN",
+      "zip": "55347",
+      "image": "https://images.financialmodelingprep.com/symbol/CHRW.png",
+      "ipoDate": "1997-10-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CHRW",
+      "date": "2015-12-31",
+      "marketCap": 8901420500
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040341.2897909
+}

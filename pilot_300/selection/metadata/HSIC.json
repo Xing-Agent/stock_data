@@ -1,0 +1,54 @@
+{
+  "symbol": "HSIC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HSIC",
+      "price": 85.56,
+      "marketCap": 9535405320,
+      "beta": 0.843,
+      "lastDividend": 0,
+      "range": "61.95-92.18",
+      "change": 0.53,
+      "changePercentage": 0.62331,
+      "volume": 1116059,
+      "averageVolume": 1249712,
+      "companyName": "Henry Schein, Inc.",
+      "currency": "USD",
+      "cik": "0001000228",
+      "isin": "US8064071025",
+      "cusip": "806407102",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Distribution",
+      "website": "https://www.henryschein.com",
+      "description": "Henry Schein, Inc. (HSIC) is a global leader in delivering a comprehensive suite of healthcare products and services. The company caters to a diverse clientele across the globe, including dental professionals and laboratories, physician practices, governmental entities, and various institutional and alternative healthcare facilities. Its operations are organized into two principal segments: Health Care Distribution, and Technology and Value-Added Services. The Health Care Distribution division supplies an extensive array of dental goods, encompassing consumables (such as infection control items, impression materials, composites, anesthetics, and artificial teeth), specialized tools and equipment (like handpieces, dental chairs, delivery units, X-ray machinery, and advanced digital restoration systems), and personal protective equipment. This segment also provides essential equipment repair services. Furthermore, it distributes a broad range of medical supplies, including pharmaceuticals (both branded and generic), vaccines, surgical instruments, diagnostic kits, infection prevention solutions, imaging products, equipment, and nutritional supplements. The Technology and Value-Added Services segment focuses on empowering practices with advanced software, technology, and supplementary solutions. This includes specialized practice management software systems tailored for both dental and medical professionals. Beyond software, it delivers crucial value-added practice support services, such as non-recourse financial assistance, electronic services, comprehensive technology and network infrastructure support, hardware services, ongoing professional development programs, and expert consulting. Established in 1932, Henry Schein, Inc. maintains its corporate headquarters in Melville, New York.",
+      "ceo": "Frederick Lowery",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "25000",
+      "phone": "631 843 5500",
+      "address": "135 Duryea Road",
+      "city": "Melville",
+      "state": "NY",
+      "zip": "11747",
+      "image": "https://images.financialmodelingprep.com/symbol/HSIC.png",
+      "ipoDate": "1995-11-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HSIC",
+      "date": "2015-12-31",
+      "marketCap": 10120190700
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041335.2664063
+}

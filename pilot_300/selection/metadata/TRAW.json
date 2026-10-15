@@ -1,0 +1,54 @@
+{
+  "symbol": "TRAW",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TRAW",
+      "price": 0.4012,
+      "marketCap": 6109594,
+      "beta": 1.526,
+      "lastDividend": 0,
+      "range": "0.39-3.23",
+      "change": -0.0089,
+      "changePercentage": -2.1702,
+      "volume": 148811,
+      "averageVolume": 544985,
+      "companyName": "Traws Pharma, Inc.",
+      "currency": "USD",
+      "cik": "0001130598",
+      "isin": "US68232V8845",
+      "cusip": "68232V884",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.trawspharma.com",
+      "description": "Traws Pharma, Inc., a biopharmaceutical firm in the clinical development stage, is dedicated to creating novel small-molecule medications delivered orally to combat both respiratory viral infections and various forms of cancer. Its pipeline includes experimental treatments specifically designed to overcome drug resistance in influenza and COVID-19. These promising candidates include TRX01 (travatrelvir), an Mpro/3CL inhibitor currently undergoing development for COVID-19, and TRX100 (viroxavir), an endonuclease inhibitor advancing through trials for pandemic influenza. Additionally, Traws Pharma's oncology portfolio features narazaciclib, a multi-kinase CDK4/6 inhibitor. This compound is presently in Phase 1/2 clinical trials in cancer patients, being evaluated both independently and in conjunction with letrozole, with the goal of establishing the recommended Phase 2 dosage for future work in endometrial cancer. The company is also investigating oral rigosertib, exploring its potential as a standalone therapy or in combination regimens across diverse cancer types. Originally established in 1998 as Onconova Therapeutics, Inc., the company officially adopted its current name, Traws Pharma, Inc., in April 2024. Its corporate headquarters are located in Newtown, Pennsylvania.",
+      "ceo": "Iain D. Dukes",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "7",
+      "phone": "267 759 3680",
+      "address": "12 Penns Trail",
+      "city": "Newtown",
+      "state": "PA",
+      "zip": "18940",
+      "image": "https://images.financialmodelingprep.com/symbol/TRAW.png",
+      "ipoDate": "2013-07-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TRAW",
+      "date": "2015-12-31",
+      "marketCap": 598752000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041602.7379944
+}

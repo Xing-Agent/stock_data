@@ -1,0 +1,63 @@
+{
+  "symbol": "EVC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EVC",
+      "price": 6.36,
+      "marketCap": 586953620,
+      "beta": 1.74,
+      "lastDividend": 0.2,
+      "range": "1.95-13.74",
+      "change": -0.14,
+      "changePercentage": -2.15385,
+      "volume": 1322375,
+      "averageVolume": 1618771,
+      "companyName": "Entravision Communications",
+      "currency": "USD",
+      "cik": "0001109116",
+      "isin": "US29382R1077",
+      "cusip": "29382R107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Broadcasting",
+      "website": "http://www.entravision.com",
+      "description": "Entravision Communications Corporation, a media and advertising technology company, owns and operates television and radio stations in the United States and internationally. It operates in two segments, Media and Advertising Technology & Services (ATS). The company offers AudioEngage, a proprietary digital audio advertising network; and Entravision+, which aggregate video inventory from internet-connected televisions and streaming services, including Netflix, and events like the World Cup. It also manages advertising campaigns on platforms including Facebook, Instagram, and TikTok; sells inventory on news and station websites; manage paid search campaigns to reach customers who are actively looking for an advertiser’s specific products or services; and provides additional digital services, including email marketing and display and digital out-of-home advertising. In addition, the company offers Smadex, a demand side platform that provides advertising solutions to the developers of mobile games, fintech apps, and entertainment services. Further, it provides various solution comprising mobile user acquisition, a mobile user acquisition that takes place on a single mobile device; Connected TV that provides ads that drive viewers to pick up a different device to download an app; and retargeting product that focuses on re-engaging users who have previously installed an app but have since stopped using it. Additionally, the company offers Adwake, a performance-based digital marketing agency. Entravision Communications Corporation was incorporated in 1995 and is headquartered in Burbank, California.",
+      "ceo": "Michael J. Christenson",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "1025",
+      "phone": "310 447 3870",
+      "address": "1 Estrella Way",
+      "city": "Burbank",
+      "state": "CA",
+      "zip": "91504",
+      "image": "https://images.financialmodelingprep.com/symbol/EVC.png",
+      "ipoDate": "2000-08-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EVC",
+      "date": "2015-12-31",
+      "marketCap": 685399385
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040944.0195959,
+  "previous_attempts": [
+    {
+      "symbol": "EVC",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040596.7909322
+    }
+  ]
+}

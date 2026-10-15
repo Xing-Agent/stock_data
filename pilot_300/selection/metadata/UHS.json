@@ -1,0 +1,63 @@
+{
+  "symbol": "UHS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UHS",
+      "price": 185.89,
+      "marketCap": 11253102473,
+      "beta": 1.029,
+      "lastDividend": 0.8,
+      "range": "140.08-246.33",
+      "change": 6.88,
+      "changePercentage": 3.84336,
+      "volume": 656079,
+      "averageVolume": 826634,
+      "companyName": "Universal Health Services, Inc.",
+      "currency": "USD",
+      "cik": "0000352915",
+      "isin": "US9139031002",
+      "cusip": "913903100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Care Facilities",
+      "website": "https://uhs.com",
+      "description": "Universal Health Services, Inc. (UHS), operating through its various divisions, is a healthcare entity that both owns and manages a network of acute care hospitals, along with outpatient and specialized behavioral health treatment centers. Its business operations are strategically bifurcated into two main segments: Acute Care Hospital Services and Behavioral Health Care Services. The hospitals under its management provide a comprehensive spectrum of medical provisions, encompassing general and specialty surgical interventions, internal medicine, obstetrics, urgent and emergency department services, diagnostic imaging (radiology), cancer therapy (oncology), advanced diagnostic procedures, cardiac care, pediatric medicine, pharmaceutical services, and mental health support. As of a reported date of February 24, 2022, the company's significant presence included the ownership or operation of 363 inpatient facilities, complemented by 40 outpatient and other specialized sites. These facilities are distributed across 39 U.S. states, the District of Columbia, the United Kingdom, and Puerto Rico. Beyond direct patient care, UHS also extends into commercial health insurance provision and offers a variety of crucial management support functions. These include centralized procurement, information technology infrastructure, financial oversight and control mechanisms, strategic facilities planning, physician talent acquisition, administrative staff management, marketing initiatives, and public relations efforts. Universal Health Services, Inc. was established in 1978 and maintains its principal executive offices in King of Prussia, Pennsylvania.",
+      "ceo": "Marc D. Miller",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "101500",
+      "phone": "610-768-3300",
+      "address": "Universal Corporate Center",
+      "city": "King of Prussia",
+      "state": "PA",
+      "zip": "19406-0958",
+      "image": "https://images.financialmodelingprep.com/symbol/UHS.png",
+      "ipoDate": "1981-07-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UHS",
+      "date": "2015-12-31",
+      "marketCap": 11663060430
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040884.8116288,
+  "previous_attempts": [
+    {
+      "symbol": "UHS",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040488.4012163
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CDNS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CDNS",
+      "price": 329.46,
+      "marketCap": 90730977780,
+      "beta": 1.128,
+      "lastDividend": 0,
+      "range": "262.75-416.69",
+      "change": -4.74,
+      "changePercentage": -1.41831,
+      "volume": 2909352,
+      "averageVolume": 2382530,
+      "companyName": "Cadence Design Systems, Inc.",
+      "currency": "USD",
+      "cik": "0000813672",
+      "isin": "US1273871087",
+      "cusip": "127387108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Application",
+      "website": "https://www.cadence.com",
+      "description": "Cadence Design Systems, Inc. operates globally, delivering a comprehensive suite of solutions that includes software, specialized hardware, professional services, and pre-designed integrated circuit (IC) building blocks. The company's robust functional verification offerings feature dedicated emulation and prototyping hardware. This portfolio encompasses JasperGold for formal verification, Xcelium for parallel logic simulation, Palladium as an enterprise-grade emulation platform, and Protium, a prototyping platform designed for thorough chip verification. Cadence additionally provides extensive products for digital IC design and final sign-off. These include the Genus logic synthesis solution, Joules for RTL power analysis, and the Modus software solution, which streamlines design-for-test (DFT) processes for systems-on-chip. Their tools further extend to physical implementation, covering place and route, optimization, and multiple patterning preparation, alongside essential sign-off products for validating designs prior to silicon manufacturing. Moreover, the company furnishes custom IC design and simulation tools capable of generating both schematic and physical representations of circuits down to the transistor level. These tools support a wide array of applications, such as analog, mixed-signal, custom digital, memory, and radio frequency (RF) designs. Cadence also offers system design and analysis products crucial for developing printed circuit boards (PCBs) and integrated circuit packages, along with capabilities to analyze complex multi-physics effects like electromagnetic and electro-thermal interactions. Furthermore, Cadence supplies intellectual property (IP) products, consisting of pre-verified, customizable functional blocks ready for integration into customer ICs. This includes verification IP and memory models used to simulate and characterize the behavior and interactions of standard industry system interface protocols. Complementing its product portfolio, Cadence provides a range of services, including methodology consulting, educational programs, hosted design solutions, and ongoing technical support and maintenance. Its diverse clientele spans sectors such as 5G communications, aerospace and defense, automotive, industrial and healthcare, mobile technology, consumer electronics, and hyperscale computing. Established in 1987, Cadence Design Systems, Inc. is headquartered in San Jose, California.",
+      "ceo": "Anirudh Devgan",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "13800",
+      "phone": "408 943 1234",
+      "address": "Building 5",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95134",
+      "image": "https://images.financialmodelingprep.com/symbol/CDNS.png",
+      "ipoDate": "1987-06-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CDNS",
+      "date": "2015-12-31",
+      "marketCap": 6172558150
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040569.6609228
+}

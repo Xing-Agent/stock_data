@@ -1,0 +1,63 @@
+{
+  "symbol": "MRO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MRO",
+      "price": 28.55,
+      "marketCap": 15971155043,
+      "beta": 2.161,
+      "lastDividend": 0.44,
+      "range": null,
+      "change": null,
+      "changePercentage": null,
+      "volume": 0,
+      "averageVolume": 6220020,
+      "companyName": "Marathon Oil Corporation",
+      "currency": "USD",
+      "cik": "0000101778",
+      "isin": "US5658491064",
+      "cusip": "565849106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://www.conocophillips.com/marathonoil",
+      "description": "Marathon Oil Corporation operates as an independent upstream energy company, primarily focusing on exploration, development, and production activities within the United States and international markets. The firm is engaged in discovering, extracting, and commercializing crude oil, condensate, natural gas liquids (NGLs), and natural gas. Additionally, it manufactures and sells refined natural gas products such as liquefied natural gas (LNG) and methanol. Its operational assets include 32 central gathering and treatment facilities, along with the Sugarloaf natural gas pipeline, a 42-mile system traversing Karnes and Atascosa Counties. Established in 1887, the company was formerly USX Corporation before rebranding to Marathon Oil Corporation in December 2001. Its corporate headquarters are located in Houston, Texas.",
+      "ceo": "Lee M. Tillman",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "1681",
+      "phone": "713 629 6600",
+      "address": "990 Town and Country Boulevard",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77024-2217",
+      "image": "https://images.financialmodelingprep.com/symbol/MRO.png",
+      "ipoDate": "1962-01-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MRO",
+      "date": "2015-12-31",
+      "marketCap": 9190700000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040619.005896,
+  "previous_attempts": [
+    {
+      "symbol": "MRO",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040483.974411
+    }
+  ]
+}

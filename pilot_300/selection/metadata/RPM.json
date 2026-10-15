@@ -1,0 +1,54 @@
+{
+  "symbol": "RPM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RPM",
+      "price": 97.95,
+      "marketCap": 12512230950,
+      "beta": 1.044,
+      "lastDividend": 2.16,
+      "range": "92.92-121.78",
+      "change": -0.49,
+      "changePercentage": -0.49777,
+      "volume": 1503733,
+      "averageVolume": 1163682,
+      "companyName": "RPM International Inc.",
+      "currency": "USD",
+      "cik": "0000110621",
+      "isin": "US7496851038",
+      "cusip": "749685103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.rpminc.com",
+      "description": "RPM International Inc. provides specialty chemicals for the construction, industrial, specialty, and consumer markets. It operates in four segments: CPG, PCG, Consumer, and SPG. The company offers waterproofing, coating, and traditional roofing systems; sealants, air barriers, tapes, and foams; residential home weatherization systems; roofing and building maintenance services; sealing and bonding, subfloor preparation, flooring, and glazing solutions; resin flooring systems, polyurethane, MMA waterproof, epoxy floor paint and coatings, concrete repair, and protection products; fire stopping and intumescent steel coating, and manufacturing industry solutions; and rolled asphalt roofing materials and chemical admixtures. It also provides concrete and masonry admixtures, concrete fibers, cement performance enhancers, curing and sealing compounds, structural grouts and mortars, epoxy adhesives, injection resins, polyurethane foams, floor hardeners and toppings, joint fillers, industrial and architectural coatings, decorative color/stains/stamps, restoration materials, concrete panel wall systems, flooring systems, fluorescent colorants and pigments, shellac-based-specialty and marine coatings, and fuel additives. It offers fiberglass reinforced plastic gratings and shapes; corrosion-control coating, containment and railcar lining, fire and sound proofing, heat and cryogenic insulation, and specialty construction products; amine curing agents, reactive diluents, and epoxy resins; fire and water damage restoration, carpet cleaning, and disinfecting products; wood treatments, coatings, and touch-up products; nail enamels, polishes, and coating components; paint contractors and DIYers, concrete restoration and flooring, metallic and faux finish coatings, cleaners, and hobby paints and cements; and caulks, adhesives, insulating foams, and patches, spackling, glazing, and repair products. The company was incorporated in 1947 and is headquartered in Medina, Ohio.",
+      "ceo": "Frank C. Sullivan",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "17546",
+      "phone": "330 273 5090",
+      "address": "2628 Pearl Road",
+      "city": "Medina",
+      "state": "OH",
+      "zip": "44256",
+      "image": "https://images.financialmodelingprep.com/symbol/RPM.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RPM",
+      "date": "2015-12-31",
+      "marketCap": 5686736080
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041754.4161718
+}

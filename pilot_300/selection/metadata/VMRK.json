@@ -1,0 +1,63 @@
+{
+  "symbol": "VMRK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VMRK",
+      "price": 60.8,
+      "marketCap": 22796595200,
+      "beta": 0.7466878,
+      "lastDividend": 2.8,
+      "range": "57.57-71.5",
+      "change": -0.4,
+      "changePercentage": -0.65359,
+      "volume": 5012066,
+      "averageVolume": 4488104,
+      "companyName": "Vivmark Residential",
+      "currency": "USD",
+      "cik": "0000906107",
+      "isin": "US29476L1070",
+      "cusip": "29476L107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Residential",
+      "website": "https://www.equityapartments.com",
+      "description": "Vivmark Residential is a real estate investment trust (REIT) and S&P 500 company formed through the August 2026 merger of equals between Equity Residential and AvalonBay Communities. The company focuses on the ownership, development, and management of high-quality apartment communities in premier U.S. markets, including major coastal cities and high-growth metro areas. Vivmark's portfolio consists of over 184,000 apartment homes with a substantial development pipeline. [25, 28, 40]",
+      "ceo": "Benjamin W. Schall",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "3011",
+      "phone": null,
+      "address": "Two North Riverside Plaza",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60606",
+      "image": "https://images.financialmodelingprep.com/symbol/VMRK.png",
+      "ipoDate": "1993-08-12",
+      "defaultImage": true,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VMRK",
+      "date": "2015-12-31",
+      "marketCap": 29747061280
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040877.1231925,
+  "previous_attempts": [
+    {
+      "symbol": "VMRK",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040453.168729
+    }
+  ]
+}

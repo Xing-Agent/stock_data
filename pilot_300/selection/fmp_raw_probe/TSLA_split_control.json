@@ -1,0 +1,27 @@
+{
+  "symbol": "TSLA",
+  "endpoint": "https://financialmodelingprep.com/stable/historical-price-eod/non-split-adjusted",
+  "from": "2020-08-28",
+  "to": "2020-08-31",
+  "http_status": 200,
+  "payload": [
+    {
+      "symbol": "TSLA",
+      "date": "2020-08-31",
+      "adjOpen": 444.6,
+      "adjHigh": 500.13,
+      "adjLow": 440.1,
+      "adjClose": 498.33,
+      "volume": 118374400
+    },
+    {
+      "symbol": "TSLA",
+      "date": "2020-08-28",
+      "adjOpen": 2295.15,
+      "adjHigh": 2318.55,
+      "adjLow": 2186.55,
+      "adjClose": 2213.4,
+      "volume": 20081200
+    }
+  ]
+}

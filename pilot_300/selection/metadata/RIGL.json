@@ -1,0 +1,63 @@
+{
+  "symbol": "RIGL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RIGL",
+      "price": 46.82,
+      "marketCap": 866268322,
+      "beta": 1.187,
+      "lastDividend": 0,
+      "range": "24.95-52.24",
+      "change": -0.32,
+      "changePercentage": -0.67883,
+      "volume": 160104,
+      "averageVolume": 314737,
+      "companyName": "Rigel Pharmaceuticals, Inc.",
+      "currency": "USD",
+      "cik": "0001034842",
+      "isin": "US7665597024",
+      "cusip": "766559702",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.rigel.com",
+      "description": "Rigel Pharmaceuticals, Inc., a biotechnology company, develops and provides therapies that enhance the lives of patients with hematologic disorders and cancer in the United States. The company offers TAVALISSE, an oral spleen tyrosine kinase inhibitor for the treatment of adult patients with chronic immune thrombocytopenia; REZLIDHIA, a non-intensive monotherapy to treat adult patients with relapsed or refractory (R/R) acute myeloid leukemia (AML) with a susceptible isocitrate dehydrogenase-1 (IDH1) mutation as detected by an FDA-approved test; and GAVRETO, a once daily, small molecule, oral, kinase inhibitor for the treatment of adult patients with metastatic rearranged during transfection (RET) fusion-positive non-small cell lung cancer (NSCLC), as well as to treat adult and pediatric patients twelve years of age and older with advanced or metastatic RET fusion-positive thyroid cancer. It also develops R289, an oral interleukin receptor-associated kinases 1 and 4 (IRAK1/4) inhibitor, which is being advanced to Phase 1b study for the treatment of hematology-oncology, autoimmune, and inflammatory diseases, as well as to treat lower-risk myelodysplastic syndrome. The company has strategic development collaboration with The University of Texas MD Anderson Cancer Center (MDACC) for the development of olutasidenib in AML and other hematologic cancers with IDH1mutations; and the Collaborative Network for Neuro-Oncology Clinical Trial (CONNECT) to conduct a Phase 2 clinical trial to evaluate olutasidenib in combination with temozolomide in patients with high-grade glioma harboring an IDH1 mutation. Rigel Pharmaceuticals, Inc. was incorporated in 1996 and is headquartered in South San Francisco, California.",
+      "ceo": "Raul R. Rodriguez",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "173",
+      "phone": "650 624 1100",
+      "address": "611 Gateway Boulevard",
+      "city": "South San Francisco",
+      "state": "CA",
+      "zip": "94080",
+      "image": "https://images.financialmodelingprep.com/symbol/RIGL.png",
+      "ipoDate": "2000-11-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RIGL",
+      "date": "2015-12-31",
+      "marketCap": 274396800
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040880.7075655,
+  "previous_attempts": [
+    {
+      "symbol": "RIGL",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040474.7164214
+    }
+  ]
+}

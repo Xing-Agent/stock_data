@@ -1,0 +1,54 @@
+{
+  "symbol": "CYRX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CYRX",
+      "price": 16.64,
+      "marketCap": 842801024,
+      "beta": 1.958,
+      "lastDividend": 0,
+      "range": "7.61-18.36",
+      "change": -0.31,
+      "changePercentage": -1.82891,
+      "volume": 558177,
+      "averageVolume": 678249,
+      "companyName": "Cryoport, Inc.",
+      "currency": "USD",
+      "cik": "0001124524",
+      "isin": "US2290503075",
+      "cusip": "229050307",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Integrated Freight & Logistics",
+      "website": "https://www.cryoportinc.com",
+      "description": "Cryoport, Inc. operates as a specialized service provider within the life sciences sector, delivering global temperature-controlled supply chain solutions across the Americas, Europe, the Middle East, Africa, and the Asia Pacific region. Central to their offerings is Cryoportal, a proprietary cloud-based platform designed to streamline the entire logistics process. This robust system facilitates order processing, generates necessary documentation (including customs paperwork), coordinates courier services, offers real-time shipment tracking and monitoring, aids in issue resolution, and ensures adherence to regulatory compliance standards. To guarantee the integrity of sensitive materials during transit, Cryoport provides CryoPort Express Shippers, engineered to maintain the stability of biological commodities throughout their journey. Furthermore, their SmartPak Condition Monitoring System collects vital environmental data, which is then utilized to produce informative dashboards and essential validation reports for each shipment. Their product range also includes specialized containment solutions such as vacuum insulated aluminum dewars and advanced cryogenic freezer systems. Beyond transportation, the company offers extensive biological specimen management services. These encompass cryopreservation storage and ongoing maintenance, meticulous archiving, continuous monitoring, precise tracking, and efficient receipt and delivery of samples. They also manage the transport of frozen biological specimens to and from client facilities and oversee the inbound and outbound flow of these critical materials. Additionally, Cryoport extends its expertise through comprehensive logistics support and management services, alongside short-term consulting in both logistics and engineering. The company primarily caters to the biopharmaceutical, animal health, and human reproductive medicine industries. Founded in 1999, Cryoport's headquarters are situated in Brentwood, Tennessee.",
+      "ceo": "Jerrell W. Shelton",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "688",
+      "phone": "949 470 2300",
+      "address": "112 Westwood Place",
+      "city": "Brentwood",
+      "state": "TN",
+      "zip": "37027",
+      "image": "https://images.financialmodelingprep.com/symbol/CYRX.png",
+      "ipoDate": "2005-08-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CYRX",
+      "date": "2015-12-31",
+      "marketCap": 22953417
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040491.3550315
+}

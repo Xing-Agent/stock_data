@@ -1,0 +1,54 @@
+{
+  "symbol": "TTWO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TTWO",
+      "price": 201.23,
+      "marketCap": 37625985400,
+      "beta": 0.974,
+      "lastDividend": 0,
+      "range": "187.63-265.94",
+      "change": 0.91,
+      "changePercentage": 0.45427,
+      "volume": 2610144,
+      "averageVolume": 2514513,
+      "companyName": "Take-Two Interactive Software, Inc.",
+      "currency": "USD",
+      "cik": "0000946581",
+      "isin": "US8740541094",
+      "cusip": "874054109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Electronic Gaming & Multimedia",
+      "website": "https://www.take2games.com",
+      "description": "Established in 1993 and headquartered in New York, New York, Take-Two Interactive Software, Inc. is a global leader in the development, publishing, and marketing of interactive entertainment experiences for consumers worldwide. The company's extensive catalog is primarily distributed under its prominent labels: Rockstar Games, 2K, Private Division, and T2 Mobile Games. Rockstar Games is renowned for its action-adventure titles, including iconic franchises like Grand Theft Auto, Red Dead Redemption, Max Payne, and Midnight Club, alongside other fan favorites such as LA Noire, Bully, and Manhunt. The 2K label covers a broad spectrum of genres, offering popular series in shooter (Borderlands), action (BioShock, Mafia), role-playing, strategy (Sid Meier's Civilization, XCOM series), sports, and family/casual categories. This includes highly successful sports simulation games like the NBA 2K basketball series, WWE 2K professional wrestling, and PGA TOUR 2K. Private Division supports titles such as Kerbal Space Program, OlliOlli World, The Outer Worlds, and Ancestors: The Humankind Odyssey. For mobile device users, T2 Mobile Games provides free-to-play options like Dragon City, Monster Legends, Two Dots, and Top Eleven. Take-Two's diverse range of products is designed for major gaming platforms, encompassing current and previous generation consoles (PlayStation 4, PlayStation 5, Xbox One, Nintendo Switch), personal computers, and mobile devices (smartphones and tablets). Consumers can purchase these games through traditional physical retail channels, digital storefronts for download, various online platforms, and cloud streaming services.",
+      "ceo": "Strauss H. Zelnick",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "12909",
+      "phone": "646 536 2842",
+      "address": "110 West 44th Street",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10036",
+      "image": "https://images.financialmodelingprep.com/symbol/TTWO.png",
+      "ipoDate": "1997-04-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TTWO",
+      "date": "2015-12-31",
+      "marketCap": 2914505360
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040550.3788557
+}

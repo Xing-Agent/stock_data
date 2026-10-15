@@ -1,0 +1,54 @@
+{
+  "symbol": "SXT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SXT",
+      "price": 132.85,
+      "marketCap": 5655286336,
+      "beta": 0.828,
+      "lastDividend": 1.64,
+      "range": "82.6-138.82",
+      "change": 0.3,
+      "changePercentage": 0.22633,
+      "volume": 348035,
+      "averageVolume": 441042,
+      "companyName": "Sensient Technologies Corporation",
+      "currency": "USD",
+      "cik": "0000310142",
+      "isin": "US81725T1007",
+      "cusip": "81725T100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.sensient.com",
+      "description": "Sensient Technologies Corporation, operating alongside its various subsidiaries, specializes in the creation, production, and global distribution of colors, flavorings, and an array of other specialized ingredients. The company's extensive market presence spans across North America, Europe, the Asia Pacific region, and numerous other international territories. Its operations are strategically organized into three main divisions: the Flavors & Extracts Group, the Color Group, and the Asia Pacific Group. For the food, beverage, personal care, and household product sectors, Sensient supplies sophisticated flavor delivery systems, along with custom-compounded and pre-blended products. It also provides fundamental ingredient components such as essential oils, both natural and artificial flavors, and natural extracts. Furthermore, the company deals in various spices, including chili powder, paprika, and chili pepper, as well as dehydrated vegetables like parsley, celery, and spinach. Beyond flavors, Sensient offers natural and synthetic coloring solutions tailored for use in foods, beverages, pharmaceuticals, and nutraceuticals. For the cosmetics industry, it delivers colors and other crucial constituents, encompassing active ingredients, solubilizers, and surface-treated pigments. Its pharmaceutical and nutraceutical product lines feature excipients, which include specific colors, flavorings, coatings, and nutraceutical compounds. Additionally, the company produces specialized technical dyes for industrial applications, marketed under brands such as Sensient Food Colors, Sensient Pharmaceutical Coating Systems, Sensient Cosmetic Technologies, and Sensient Industrial Colors. The firm, established in 1882, maintains its corporate headquarters in Milwaukee, Wisconsin.",
+      "ceo": "Paul Manning",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "4070",
+      "phone": "414 271 6755",
+      "address": "777 East Wisconsin Avenue",
+      "city": "Milwaukee",
+      "state": "WI",
+      "zip": "53202-5304",
+      "image": "https://images.financialmodelingprep.com/symbol/SXT.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SXT",
+      "date": "2015-12-31",
+      "marketCap": 2809184760
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040406.247766
+}

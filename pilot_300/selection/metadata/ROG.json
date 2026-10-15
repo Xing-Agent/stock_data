@@ -1,0 +1,63 @@
+{
+  "symbol": "ROG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ROG",
+      "price": 139.72,
+      "marketCap": 2496558876,
+      "beta": 0.503,
+      "lastDividend": 0,
+      "range": "75.14-169",
+      "change": -6.74,
+      "changePercentage": -4.60194,
+      "volume": 222003,
+      "averageVolume": 263751,
+      "companyName": "Rogers Corporation",
+      "currency": "USD",
+      "cik": "0000084748",
+      "isin": "US7751331015",
+      "cusip": "775133101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.rogerscorp.com",
+      "description": "Rogers Corporation, established in 1832 and headquartered in Chandler, Arizona, operates as a global enterprise specializing in the engineering, production, and sale of advanced materials and components. Its business activities are organized into three primary divisions: Advanced Electronics Solutions (AES), Elastomeric Material Solutions (EMS), and Other. The Advanced Electronics Solutions (AES) division manufactures and supplies circuit materials, ceramic substrate materials, busbars, and innovative cooling solutions. These offerings cater to a diverse array of industries and applications, including electric and hybrid electric vehicles (EV/HEV), wireless infrastructure, general automotive use, telematics, thermal management, aerospace and defense, mass transit systems, clean energy initiatives, connected devices, and wired infrastructure. The products in this segment are distributed under a wide range of brand names, specifically curamik, ROLINX, RO4000, RO3000, RT/duroid, CLTE Series, TMM, AD Series, DiClad, CuClad Series, Kappa, COOLSPAN, TC Series, 92ML, IsoClad, MAGTREX, XTremeSpeed RO1200, IM Series, 2929 Bondply, 3001 Bondply Film, and SpeedWave. The Elastomeric Material Solutions (EMS) segment delivers specialized material solutions primarily utilizing polyurethane and silicone. These are employed for cushioning, gasketing, sealing, and vibration management applications. This segment also provides tailored silicones for flexible heaters and semiconductor thermal solutions, alongside polytetrafluoroethylene (PTFE) and ultra-high molecular weight polyethylene (UHMW-PE) materials. These latter materials find utility in safeguarding wires and cables, electrical insulation, conduction, and shielding, protecting hoses and belts, vibration management, cushioning, gasketing, sealing, and venting. Its portfolio of products is sold under the brand identities of PORON, BISCO, DeWAL, ARLON, eSORBA, Griswold, XRD, Silicone Engineering, and R/bak. Finally, the Other segment is responsible for providing various elastomer components and specialized elastomer floats. These floats are critical for level sensing in fuel tanks, motors, and other storage tanks, primarily serving the general industrial and automotive markets. Offerings from this division are marketed under the ENDUR and NITROPHYL trademarks.",
+      "ceo": "Ali El-Haj",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "3000",
+      "phone": "480 917 6000",
+      "address": "2225 West Chandler Boulevard",
+      "city": "Chandler",
+      "state": "AZ",
+      "zip": "85224-6155",
+      "image": "https://images.financialmodelingprep.com/symbol/ROG.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ROG",
+      "date": "2015-12-31",
+      "marketCap": 926506620
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040771.230654,
+  "previous_attempts": [
+    {
+      "symbol": "ROG",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040281.7191398
+    }
+  ]
+}

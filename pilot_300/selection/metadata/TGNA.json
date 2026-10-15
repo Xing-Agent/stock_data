@@ -1,0 +1,54 @@
+{
+  "symbol": "TGNA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TGNA",
+      "price": 20.03,
+      "marketCap": 3243011431,
+      "beta": 0.121,
+      "lastDividend": 0.5,
+      "range": "14.87-21.35",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 5817153,
+      "averageVolume": 1698974,
+      "companyName": "TEGNA Inc.",
+      "currency": "USD",
+      "cik": "0000039899",
+      "isin": "US87901J1051",
+      "cusip": "87901J105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Broadcasting",
+      "website": "https://www.tegna.com",
+      "description": "TEGNA Inc. functions as a prominent U.S. media entity. It manages a network of television stations, providing both traditional broadcast programming and various digital content. News and information reach consumers via diverse platforms such as online channels, mobile applications, and social media. TEGNA also oversees specialized multicast networks—True Crime Network, Quest, and Twist—which offer on-demand episodes. Additionally, its VAULT Studios division specializes in true crime and investigative content delivered as podcasts and original television series. Through TEGNA Marketing Solutions (TMS), the company extends its services to advertisers, facilitating effective campaigns across television, digital, and over-the-top (OTT) platforms, notably featuring its Premion OTT advertising network. By February 28, 2022, TEGNA's footprint included 64 television stations across 51 distinct markets. Founded in 1906, the company initially operated as Gannett Co., Inc. before adopting its current name, TEGNA Inc., in June 2015. Its corporate headquarters are situated in Tysons, Virginia.",
+      "ceo": "Michael F. Steib",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "5900",
+      "phone": "703 873 6600",
+      "address": "8350 Broad Street",
+      "city": "Tysons",
+      "state": "VA",
+      "zip": "22102-5151",
+      "image": "https://images.financialmodelingprep.com/symbol/TGNA.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TGNA",
+      "date": "2015-12-31",
+      "marketCap": 3585326100
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041310.8022466
+}

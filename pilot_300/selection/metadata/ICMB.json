@@ -1,0 +1,63 @@
+{
+  "symbol": "ICMB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ICMB",
+      "price": 0.68,
+      "marketCap": 9814081,
+      "beta": 0.69,
+      "lastDividend": 0.64,
+      "range": "0.65-3.12",
+      "change": -0.01,
+      "changePercentage": -1.44928,
+      "volume": 17845,
+      "averageVolume": 66604,
+      "companyName": "Investcorp Credit Management BDC, Inc.",
+      "currency": "USD",
+      "cik": "0001578348",
+      "isin": "US46090R1041",
+      "cusip": "46090R104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Asset Management",
+      "website": "https://icmbdc.com",
+      "description": "Investcorp Credit Management BDC, Inc. (ICMB) operates as a business development company, primarily focusing on providing debt and mezzanine financing. Its investments aim to support various corporate objectives, including growth capital, acquisitions, market and product expansion, organic development, refinancings, and recapitalizations, particularly within the middle market. ICMB also strategically acquires equity stakes in its portfolio companies, often through warrants or other structured instruments, to gain upside participation, typically as part of a more extensive investment partnership. Geographically, the company targets investments across the United States and Europe. Within the U.S., it specifically concentrates on the Midatlantic, Midwest, Northeast, Southeast, and West Coast regions. The fund's sector focus is diverse, encompassing cable and satellites, consumer services, healthcare equipment and services, industrials, information technology, telecommunication services, and utilities. ICMB typically deploys between $5 million and $25 million per investment into companies with robust financial profiles, requiring annual revenues of at least $50 million and a minimum EBITDA of $15 million.",
+      "ceo": "Suhail Ahmad Shaikh",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "2",
+      "phone": "646 690 5047",
+      "address": "280 Park Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10017",
+      "image": "https://images.financialmodelingprep.com/symbol/ICMB.png",
+      "ipoDate": "2014-02-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ICMB",
+      "date": "2015-12-31",
+      "marketCap": 136091443
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040951.8515887,
+  "previous_attempts": [
+    {
+      "symbol": "ICMB",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040620.7731109
+    }
+  ]
+}

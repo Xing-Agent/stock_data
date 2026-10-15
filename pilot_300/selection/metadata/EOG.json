@@ -1,0 +1,54 @@
+{
+  "symbol": "EOG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EOG",
+      "price": 154.19,
+      "marketCap": 80877157656,
+      "beta": 0.272,
+      "lastDividend": 4.08,
+      "range": "101.59-154.88",
+      "change": 1.02,
+      "changePercentage": 0.66593,
+      "volume": 2507096,
+      "averageVolume": 3300655,
+      "companyName": "EOG Resources, Inc.",
+      "currency": "USD",
+      "cik": "0000821189",
+      "isin": "US26875P1012",
+      "cusip": "26875P101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://www.eogresources.com",
+      "description": "EOG Resources, Inc., together with its subsidiaries, explores for, develops, produces, and markets crude oil, natural gas liquids, and natural gas in producing basins in the United States, the Republic of Trinidad and Tobago, and internationally. The company also offers crude oil and condensate, and gathering, processing and marketing. The company was formerly known as Enron Oil & Gas Company. EOG Resources, Inc. was incorporated in 1985 and is headquartered in Houston, Texas.",
+      "ceo": "Ezra Y. Yacob",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "3400",
+      "phone": "713 651 7000",
+      "address": "1111 Bagby Street",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77002",
+      "image": "https://images.financialmodelingprep.com/symbol/EOG.png",
+      "ipoDate": "1989-10-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EOG",
+      "date": "2015-12-31",
+      "marketCap": 38701954850
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041863.848619
+}

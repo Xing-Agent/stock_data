@@ -1,0 +1,54 @@
+{
+  "symbol": "FDS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FDS",
+      "price": 289.74,
+      "marketCap": 10304760429,
+      "beta": 0.766,
+      "lastDividend": 4.52,
+      "range": "185-320.48",
+      "change": -1.08,
+      "changePercentage": -0.37136,
+      "volume": 604783,
+      "averageVolume": 904470,
+      "companyName": "FactSet Research Systems Inc.",
+      "currency": "USD",
+      "cik": "0001013237",
+      "isin": "US3030751057",
+      "cusip": "303075105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Financial - Data & Stock Exchanges",
+      "website": "https://www.factset.com",
+      "description": "FactSet Research Systems Inc. is a financial intelligence firm providing a comprehensive suite of integrated data and analytical software. The company serves the global investment community, with its operations spanning the Americas, Europe, the Middle East, Africa, and the Asia Pacific region. FactSet delivers critical insights and information through specialized workflow solutions covering research, analytics, and trading, complemented by its content, technology platforms, and wealth management resources. Its diverse clientele includes portfolio managers, investment banks, asset managers, wealth advisors, corporate entities, and various other financial sector organizations. FactSet was established in 1978 and is headquartered in Norwalk, Connecticut.",
+      "ceo": "Sanoke Viswanathan",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "12694",
+      "phone": "203 810 1000",
+      "address": "45 Glover Avenue",
+      "city": "Norwalk",
+      "state": "CT",
+      "zip": "06850",
+      "image": "https://images.financialmodelingprep.com/symbol/FDS.png",
+      "ipoDate": "1996-06-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FDS",
+      "date": "2015-12-31",
+      "marketCap": 6666670560
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041830.8955674
+}

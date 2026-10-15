@@ -1,0 +1,54 @@
+{
+  "symbol": "CAL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CAL",
+      "price": 12.24,
+      "marketCap": 411138467,
+      "beta": 0.738,
+      "lastDividend": 0.28,
+      "range": "8.8-15.04",
+      "change": -0.06,
+      "changePercentage": -0.4878,
+      "volume": 403150,
+      "averageVolume": 549068,
+      "companyName": "Caleres, Inc.",
+      "currency": "USD",
+      "cik": "0000014707",
+      "isin": "US1295001044",
+      "cusip": "129500104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Apparel - Retail",
+      "website": "https://www.caleres.com",
+      "description": "Caleres, Inc. is a long-standing company primarily involved in the design, sourcing, retail, and wholesale distribution of various footwear products. Its operations span the United States, Canada, China, and Guam, organized into two main divisions: Famous Footwear and Brand Portfolio. The company's comprehensive product range includes athletic, casual, and dress footwear available under licensed, proprietary, and private-label brands, catering to women, men, and children. Through its numerous retail shoe stores, Caleres offers customers a wide selection of popular brand-name shoes from leading manufacturers like Nike, Skechers, adidas, and Dr. Martens. This is complemented by a substantial portfolio of company-owned and licensed brands such as Dr. Scholl's Shoes, Blowfish Malibu, LifeStride, Naturalizer, Franco Sarto, and Ryka. Beyond its physical storefronts, Caleres maintains a significant digital presence, managing a multitude of brand-specific e-commerce websites including naturalizer.com, samedelman.com, allenedmonds.com, and many others. The company also plays a crucial role in the broader footwear supply chain, engaging in the design, sourcing, manufacturing, and marketing of footwear to a diverse client base. This includes national chains, online retailers, department stores, mass merchandisers, independent retailers, and catalog businesses. Its wholesale division additionally distributes men's apparel, leather goods, and accessories under the Allen Edmonds brand, as well as specialized women's footwear lines such as LifeStride, Italian footwear by Franco Sarto, athletic shoes from Rykä, and collections from Vince, Bzees, Zodiac, Veronica Beard, and Via Spiga. With approximately 980 retail locations, the company has a strong market footprint. Founded in 1878 and formerly known as Brown Shoe Company, Inc., Caleres, Inc. is headquartered in St. Louis, Missouri.",
+      "ceo": "John W. Schmidt",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "10000",
+      "phone": "314 854 4000",
+      "address": "8300 Maryland Avenue",
+      "city": "Saint Louis",
+      "state": "MO",
+      "zip": "63105",
+      "image": "https://images.financialmodelingprep.com/symbol/CAL.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CAL",
+      "date": "2015-12-31",
+      "marketCap": 1136417040
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040386.785335
+}

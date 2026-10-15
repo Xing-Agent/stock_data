@@ -1,0 +1,54 @@
+{
+  "symbol": "GTLS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GTLS",
+      "price": 209.9,
+      "marketCap": 10047719052,
+      "beta": 1.528,
+      "lastDividend": 0,
+      "range": "170.25-209.96",
+      "change": -0.01,
+      "changePercentage": -0.00476395,
+      "volume": 1271817,
+      "averageVolume": 1245896,
+      "companyName": "Chart Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000892553",
+      "isin": "US16115Q3083",
+      "cusip": "16115Q308",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.chartindustries.com",
+      "description": "Chart Industries, Inc. is a global manufacturer and distributor of highly engineered equipment, primarily catering to the energy and industrial gas sectors. Its operations are organized into four distinct segments: Cryo Tank Solutions, Heat Transfer Systems, Specialty Products, and Repair, Service & Leasing. The company delivers a full spectrum of cryogenic solutions for the storage, transportation, vaporization, and end-use application of industrial gases, available in both bulk and packaged forms. For liquefied natural gas (LNG) applications, Chart provides critical infrastructure components such as cryogenic trailers, ISO containers, large-scale storage tanks, loading facilities, and regasification units, enabling what are known as \"virtual pipeline\" systems. It also supplies substantial vacuum insulated storage tanks for clients acquiring standard liquefaction plants. Chart is also a key provider of advanced process technology and essential equipment for LNG projects, ranging from small to mid-scale installations and floating LNG platforms to extensive base-load export facilities. Its heat transfer product line encompasses brazed aluminum and Core-in-Kettle heat exchangers, cold boxes, air-cooled heat exchangers, pressure vessels, and associated pipework. Additionally, the company offers air-cooled heat exchangers and axial cooling fans used in diverse fields such as power generation, heating, ventilation, air conditioning (HVAC), and refining. Furthermore, Chart engineers highly specialized equipment for a broad array of niche markets, including hydrogen, biogas, carbon dioxide (CO2) capture, food and beverage processing, aerospace, laser technology, cannabis production, and water treatment, in addition to LNG applications. The cryogenic components portfolio features vacuum insulated pipes, specialized liquid nitrogen equipment, various end-use devices, and cryogenic flow meters. Beyond equipment, Chart offers a comprehensive suite of services, including extended warranties, plant commissioning, spare parts provision, 24/7 technical support, system monitoring and process optimization, repair, routine maintenance, and upgrading. They also deliver specialized plant services for key components like brazed aluminum heat exchangers and cold boxes. Through a network of service locations, the company handles the installation, ongoing service, repair, maintenance, and refurbishment of cryogenic products, alongside providing equipment leasing solutions. Founded in 1859, Chart Industries, Inc. maintains its headquarters in Ball Ground, Georgia.",
+      "ceo": "Gerald F. Vinci",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "11777",
+      "phone": "770 721 8800",
+      "address": "8665 New Trails Drive",
+      "city": "The Woodlands",
+      "state": "TX",
+      "zip": "77381",
+      "image": "https://images.financialmodelingprep.com/symbol/GTLS.png",
+      "ipoDate": "2006-07-26",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GTLS",
+      "date": "2015-12-31",
+      "marketCap": 549001280
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041742.5654361
+}

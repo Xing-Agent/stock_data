@@ -1,0 +1,54 @@
+{
+  "symbol": "OMC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "OMC",
+      "price": 78.41,
+      "marketCap": 21511469860,
+      "beta": 0.703,
+      "lastDividend": 3.2,
+      "range": "66.33-89.57",
+      "change": -0.08,
+      "changePercentage": -0.10192,
+      "volume": 2093740,
+      "averageVolume": 3376708,
+      "companyName": "Omnicom Group Inc.",
+      "currency": "USD",
+      "cik": "0000029989",
+      "isin": "US6819191064",
+      "cusip": "681919106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Advertising Agencies",
+      "website": "https://www.omc.com",
+      "description": "Omnicom Group Inc., through its network of subsidiaries, stands as a premier global provider of comprehensive advertising, marketing, and corporate communications solutions. The company's core expertise extends across pivotal areas such as traditional and digital advertising, customer relationship management (CRM), public relations, and specialized healthcare communications. Its extensive service portfolio delivers a wide array of strategic and creative solutions. These offerings include branding, content creation, corporate social responsibility consulting, crisis management, data analytics, digital transformation, entertainment and experiential marketing, financial/corporate business-to-business advertising, graphic design, investor relations, media planning and purchasing, mobile and social media marketing, and package design. Additionally, Omnicom provides product placement, promotional marketing, public affairs, retail marketing, sales support, search engine optimization (SEO), shopper marketing, and diverse interactive and direct marketing initiatives, offering clients a complete suite of communication strategies. The company boasts a significant international footprint, conducting operations throughout the United States, Canada, Puerto Rico, South America, Mexico, Europe, the Middle East, Africa, Australia, Greater China, India, Japan, Korea, New Zealand, Singapore, and various other Asian nations. Established in 1944, Omnicom Group Inc. is headquartered in New York, New York.",
+      "ceo": "John D. Wren",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "120000",
+      "phone": "212 415 3600",
+      "address": "280 Park Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10017",
+      "image": "https://images.financialmodelingprep.com/symbol/OMC.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "OMC",
+      "date": "2015-12-31",
+      "marketCap": 18158400000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040977.0564451
+}

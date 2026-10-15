@@ -1,0 +1,54 @@
+{
+  "symbol": "GHC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GHC",
+      "price": 1186.33,
+      "marketCap": 5024022134,
+      "beta": 0.704,
+      "lastDividend": 7.44,
+      "range": "933.88-1262.35",
+      "change": 12.35001,
+      "changePercentage": 1.05198,
+      "volume": 21118,
+      "averageVolume": 28026,
+      "companyName": "Graham Holdings Company",
+      "currency": "USD",
+      "cik": "0000104889",
+      "isin": "US3846371041",
+      "cusip": "384637104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Conglomerates",
+      "website": "https://www.ghco.com",
+      "description": "Graham Holdings Company operates as a globally diversified enterprise, encompassing a wide array of education, media, and other ventures. Its extensive educational offerings include providing test preparation materials and services, specialized training in data science, and professional development courses along with exam preparation for various certifications and licensures. The company also offers non-academic operational support to Purdue University Global, delivers comprehensive training and degree programs tailored for accounting and financial services professionals, and facilitates English-language instruction, academic readiness initiatives, and preparation for English proficiency exams. Additionally, it aids in A-level examination readiness and manages a portfolio of educational institutions, including three colleges, a business school, a higher education institution, and an online learning platform. In the media sector, Graham Holdings owns and operates seven television broadcasting stations. It also develops social media management tools designed to connect newsrooms with their audiences and publishes the respected Foreign Policy magazine and its accompanying website. The company is responsible for the online magazine Slate, as well as its French-language counterparts, slate.fr and slateafrique.com. Beyond these core segments, the company's diverse operations extend to providing social media marketing solutions, offering home health and hospice care services, and manufacturing industrial components such as burners, igniters, dampers, and controls. It also produces linear motion technologies, including screw jacks, linear actuators, and various lifting systems, alongside specialized pressure-impregnated kiln-dried lumber and plywood products. Further ventures include developing cybersecurity training programs, offering digital advertising services, and providing power charging and data systems, commercial and industrial indoor lighting solutions, and electrical components and assemblies. Graham Holdings also owns and manages eleven restaurants and entertainment venues and is active in the automobile dealership industry. Established in 1877 and headquartered in Arlington, Virginia, the company was previously recognized as The Washington Post Company before rebranding to Graham Holdings Company in November 2013.",
+      "ceo": "Timothy J. O'Shaughnessy",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "19920",
+      "phone": "703 345 6300",
+      "address": "1812 North Moore Street",
+      "city": "Arlington",
+      "state": "VA",
+      "zip": "22209",
+      "image": "https://images.financialmodelingprep.com/symbol/GHC.png",
+      "ipoDate": "1947-08-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GHC",
+      "date": "2015-12-31",
+      "marketCap": 2726986310
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041272.62688
+}

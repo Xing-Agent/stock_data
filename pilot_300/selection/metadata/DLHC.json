@@ -1,0 +1,54 @@
+{
+  "symbol": "DLHC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DLHC",
+      "price": 4.03,
+      "marketCap": 58406790,
+      "beta": 1.522,
+      "lastDividend": 0,
+      "range": "3.38-8.1",
+      "change": 0.025,
+      "changePercentage": 0.62422,
+      "volume": 8308,
+      "averageVolume": 41237,
+      "companyName": "DLH Holdings Corp.",
+      "currency": "USD",
+      "cik": "0000785557",
+      "isin": "US23335Q1004",
+      "cusip": "23335Q100",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Specialty Business Services",
+      "website": "https://www.dlhcorp.com",
+      "description": "DLH Holdings Corp., headquartered in Atlanta, Georgia, was established in 1969 and operated as TeamStaff, Inc. until its name change in June 2012. The company specializes in offering a range of technology-enabled business process outsourcing, comprehensive program management solutions, and public health research and analytics services throughout the United States, with a primary focus on the federal health services market. A significant portion of DLH's work involves defense and veterans' health, where it delivers integrated healthcare, technology, and logistical support. Key clients in this sector include the Department of Veterans Affairs (VA), the Defense Health Agency, the Tele-medicine and Advanced Technology Research Center, the Navy Bureau of Medicine and Surgery, and the Army Medical Research and Material Command. Additionally, the company provides diverse human services and solutions, covering areas such as rigorous monitoring and evaluation, efficient electronic medical records migration, robust data collection and management, and thorough nutritional and social health assessments. It also offers expert IT system architecture design, strategic migration planning, and continuous maintenance services. In the sphere of public health and life sciences, DLH undertakes crucial initiatives like clinical trials, epidemiological studies, and disease prevention. It actively promotes health among underserved and at-risk communities through the creation of impactful strategic communication campaigns, research into emerging health trends, in-depth health informatics analyses, and the application of proven best practices.",
+      "ceo": "Kathryn Johnbull",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "2300",
+      "phone": "770 554 3545",
+      "address": "Building 3",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30305",
+      "image": "https://images.financialmodelingprep.com/symbol/DLHC.png",
+      "ipoDate": "1986-05-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DLHC",
+      "date": "2015-12-31",
+      "marketCap": 40185600
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041308.1034513
+}

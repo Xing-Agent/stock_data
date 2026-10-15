@@ -1,0 +1,54 @@
+{
+  "symbol": "FMC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FMC",
+      "price": 8.09,
+      "marketCap": 1013085128,
+      "beta": 0.456,
+      "lastDividend": 0.82,
+      "range": "8.035-31.3",
+      "change": -0.22,
+      "changePercentage": -2.64741,
+      "volume": 3029236,
+      "averageVolume": 4121941,
+      "companyName": "FMC Corporation",
+      "currency": "USD",
+      "cik": "0000037785",
+      "isin": "US3024913036",
+      "cusip": "302491303",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Agricultural Inputs",
+      "website": "https://www.fmc.com",
+      "description": "FMC Corporation functions as an agricultural science enterprise, delivering products for crop safeguarding, plant wellness, and professional pest and turf management. The company is responsible for creating, commercializing, and selling various crop protection chemicals, including insecticides, herbicides, and fungicides, alongside biologicals, crop nutrition supplements, and seed treatment solutions. These innovations are employed in farming to boost harvest quantity and quality by mitigating diverse insect infestations, weed growth, and plant ailments. Furthermore, its solutions cater to non-agricultural sectors for general pest control. FMC distributes its comprehensive product range through its proprietary sales teams, in collaboration with alliance partners, and via independent distributors and sales representatives. Established in 1883, FMC Corporation is based in Philadelphia, Pennsylvania, and conducts operations across North America, Latin America, Europe, the Middle East, Africa, and Asia.",
+      "ceo": "Pierre R. Brondeau",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "5500",
+      "phone": "215 299 6000",
+      "address": "FMC Tower at Cira Centre South",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip": "19104",
+      "image": "https://images.financialmodelingprep.com/symbol/FMC.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FMC",
+      "date": "2015-12-31",
+      "marketCap": 4537158000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040984.9171941
+}

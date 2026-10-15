@@ -1,0 +1,54 @@
+{
+  "symbol": "STE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "STE",
+      "price": 217.26,
+      "marketCap": 21173659902,
+      "beta": 0.925,
+      "lastDividend": 2.58,
+      "range": "195.14-269.44",
+      "change": -0.51,
+      "changePercentage": -0.23419,
+      "volume": 587194,
+      "averageVolume": 722701,
+      "companyName": "STERIS plc",
+      "currency": "USD",
+      "cik": "0001757898",
+      "isin": "IE00BFY8C754",
+      "cusip": null,
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Specialties",
+      "website": "https://www.steris.com",
+      "description": "STERIS plc provides infection prevention products and services in the United States, Ireland, and internationally. The company operates through three segments: Healthcare, Applied Sterilization Technologies, and Life Sciences. It offers a range of products including cleaning chemistries, sterility assurance products, automated endoscope reprocessing systems, surgical tables, lights, and connectivity solutions. It also provides services such as equipment maintenance, instrument repair, and contract sterilization for medical device and pharmaceutical manufacturers.",
+      "ceo": "Daniel A. Carestio",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "17937",
+      "phone": "353 1 232 2000",
+      "address": "5960 Heisley Road",
+      "city": "Mentor",
+      "state": "OH",
+      "zip": "44060",
+      "image": "https://images.financialmodelingprep.com/symbol/STE.png",
+      "ipoDate": "1992-06-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "STE",
+      "date": "2015-12-31",
+      "marketCap": 5817830140
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041477.2423217
+}

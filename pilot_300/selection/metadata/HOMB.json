@@ -1,0 +1,54 @@
+{
+  "symbol": "HOMB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HOMB",
+      "price": 28.29,
+      "marketCap": 5659414500,
+      "beta": 0.717,
+      "lastDividend": 0.86,
+      "range": "25.5-31.7",
+      "change": -0.07,
+      "changePercentage": -0.24683,
+      "volume": 1956249,
+      "averageVolume": 1699217,
+      "companyName": "Home Bancshares, Inc.",
+      "currency": "USD",
+      "cik": "0001331520",
+      "isin": "US4368932004",
+      "cusip": "436893200",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.homebancshares.com",
+      "description": "Based in Conway, Arkansas, Home Bancshares, Inc. functions as the parent company for Centennial Bank. Through Centennial Bank, it delivers a comprehensive suite of commercial and retail banking solutions, alongside other financial services, catering to a diverse clientele including businesses, property developers and investors, individual customers, and local government entities. The bank offers a variety of deposit options, such as checking accounts, savings accounts, money market accounts, and certificates of deposit. Its lending activities encompass a broad spectrum, including non-farm/non-residential real estate, construction and land development, residential mortgages, consumer loans, agricultural financing, and commercial and industrial loans. Beyond traditional banking, Centennial Bank also facilitates modern financial convenience through online and mobile banking platforms, voice response systems for information, cash management tools, overdraft protection, direct deposit services, and automated account transfers. Additionally, it offers safe deposit box rentals and access to United States savings bonds. Moreover, the company extends its services to include underwriting commercial and personal insurance policies, covering areas like property, casualty, life, health, and employee benefits. As of December 31, 2021, its operations spanned 160 branch locations, with 76 in Arkansas, 78 in Florida, 5 in Alabama, and a single branch in New York City. Home Bancshares, Inc., established in 1998, maintains its corporate headquarters in Conway, Arkansas.",
+      "ceo": "John W. Allison",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "2543",
+      "phone": "501 339 2929",
+      "address": "719 Harkrider Street",
+      "city": "Conway",
+      "state": "AR",
+      "zip": "72032",
+      "image": "https://images.financialmodelingprep.com/symbol/HOMB.png",
+      "ipoDate": "2006-06-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HOMB",
+      "date": "2015-12-31",
+      "marketCap": 2844301400
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041018.9694333
+}

@@ -1,0 +1,63 @@
+{
+  "symbol": "MRSH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MRSH",
+      "price": 178.4,
+      "marketCap": 85134490211,
+      "beta": 0.585,
+      "lastDividend": 3.78,
+      "range": "156.6-206.04",
+      "change": 1.39,
+      "changePercentage": 0.78527,
+      "volume": 2472018,
+      "averageVolume": 2539680,
+      "companyName": "Marsh & McLennan Companies, Inc.",
+      "currency": "USD",
+      "cik": "0000062709",
+      "isin": "US5717481023",
+      "cusip": "571748102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Brokers",
+      "website": "http://www.corporate.marsh.com",
+      "description": "Marsh & McLennan Companies, Inc. (MRSH) functions as a leading professional services organization, delivering expert guidance and innovative solutions to clients across the vital domains of risk management, strategic planning, and human capital. Based in New York City, the firm maintains a substantial global workforce, employing approximately 65,000 full-time professionals. This entity serves as the parent company for several prominent advisory and consulting brands. These include Marsh, renowned for its insurance brokerage services; Guy Carpenter, a specialist in risk and reinsurance; Mercer, which provides comprehensive human resources and investment-related financial advice; and Oliver Wyman Group, an influential management and economic consultancy. Marsh & McLennan structures its operations into two core business segments. The \"Risk and Insurance Services\" division encompasses activities such as risk management, along with comprehensive insurance and reinsurance brokerage and services. The \"Consulting\" division offers a broad spectrum of services, including health, retirement, talent, and investment consulting, as well as specialized advice in management, economics, and brand strategy. The Risk and Insurance Services segment's operations are primarily conducted through Marsh and Guy Carpenter, while Mercer and Oliver Wyman Group are the key contributors to the Consulting segment's offerings.",
+      "ceo": "John Q. Doyle",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "95000",
+      "phone": "212 345 5000",
+      "address": "1166 Avenue of the Americas",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10036-2774",
+      "image": "https://images.financialmodelingprep.com/symbol/MRSH.png",
+      "ipoDate": "1987-12-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MRSH",
+      "date": "2015-12-31",
+      "marketCap": 28889450000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040820.8806877,
+  "previous_attempts": [
+    {
+      "symbol": "MRSH",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040375.3100123
+    }
+  ]
+}

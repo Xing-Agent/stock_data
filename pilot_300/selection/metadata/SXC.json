@@ -1,0 +1,54 @@
+{
+  "symbol": "SXC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SXC",
+      "price": 10.13,
+      "marketCap": 859782180,
+      "beta": 0.994,
+      "lastDividend": 0.48,
+      "range": "5.52-10.68",
+      "change": -0.09,
+      "changePercentage": -0.88063,
+      "volume": 1380201,
+      "averageVolume": 1331674,
+      "companyName": "SunCoke Energy, Inc.",
+      "currency": "USD",
+      "cik": "0001514705",
+      "isin": "US86722A1034",
+      "cusip": "86722A103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Steel",
+      "website": "https://www.suncoke.com",
+      "description": "SunCoke Energy, Inc. (SXC) functions as a prominent, standalone manufacturer of coke, conducting its operations across the Americas and in Brazil. The company structures its business into three primary divisions: Domestic Coke, Brazil Coke, and Logistics. In addition to its core coke products, SXC also provides both metallurgical and thermal coal. It further supports a diverse client base—including steelmakers, coke producers, electric utilities, coal mining firms, and other manufacturers—by offering material handling and blending services. SunCoke Energy boasts a network of six cokemaking facilities, with five situated in the United States and one in Brazil. The company was founded in 1960 and is headquartered in Lisle, Illinois.",
+      "ceo": "Katherine T. Gates",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "2477",
+      "phone": "630 824 1000",
+      "address": "1011 Warrenville Road",
+      "city": "Lisle",
+      "state": "IL",
+      "zip": "60532",
+      "image": "https://images.financialmodelingprep.com/symbol/SXC.png",
+      "ipoDate": "2011-07-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SXC",
+      "date": "2015-12-31",
+      "marketCap": 222427000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041066.3555899
+}

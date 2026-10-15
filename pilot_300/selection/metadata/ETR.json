@@ -1,0 +1,54 @@
+{
+  "symbol": "ETR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ETR",
+      "price": 104.5,
+      "marketCap": 49923002151,
+      "beta": 0.448,
+      "lastDividend": 2.56,
+      "range": "90.87-118.45",
+      "change": -0.49,
+      "changePercentage": -0.46671,
+      "volume": 2989090,
+      "averageVolume": 2832348,
+      "companyName": "Entergy Corporation",
+      "currency": "USD",
+      "cik": "0000065984",
+      "isin": "US29364G1031",
+      "cusip": "29364G103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Electric",
+      "website": "https://www.entergy.com",
+      "description": "Entergy Corporation, headquartered in New Orleans, Louisiana, is a prominent American energy company primarily involved in generating and distributing electricity across the United States. Its operations are divided into two main divisions: Utility and Entergy Wholesale Commodities. The Utility division manages the end-to-end process of generating, transmitting, distributing, and selling electricity. This service covers specific regions of Arkansas, Louisiana, Mississippi, and Texas, including the metropolitan area of New Orleans, providing electricity to 3 million utility customers in these states. Additionally, this segment handles natural gas distribution. In contrast, the Entergy Wholesale Commodities division focuses on the ownership, operation, and decommissioning of nuclear power facilities. It also holds stakes in various non-nuclear power plants, selling their output to wholesale clients, and offers specialized services to other nuclear power plant operators. Entergy's electricity generation portfolio is diverse, utilizing natural gas, nuclear, coal, hydroelectric, and solar power. Collectively, its power plants boast an approximate generating capacity of 26,000 megawatts (MW), with 6,000 MW specifically from nuclear sources. Beyond its direct utility customers, Entergy also supplies energy to a range of wholesale clients, including other retail power providers, utility companies, electric power cooperatives, energy trading organizations, and fellow power generation firms. The company has a long history, established in 1913.",
+      "ceo": "Drew Marsh",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "12233",
+      "phone": "504 576 4000",
+      "address": "639 Loyola Avenue",
+      "city": "New Orleans",
+      "state": "LA",
+      "zip": "70113",
+      "image": "https://images.financialmodelingprep.com/symbol/ETR.png",
+      "ipoDate": "1972-06-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ETR",
+      "date": "2015-12-31",
+      "marketCap": 12207628720
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041015.9936092
+}

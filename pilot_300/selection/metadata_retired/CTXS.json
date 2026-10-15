@@ -1,0 +1,54 @@
+{
+  "symbol": "CTXS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CTXS",
+      "price": 103.9,
+      "marketCap": 0,
+      "beta": 0.076707,
+      "lastDividend": 1.48,
+      "range": null,
+      "change": 0.04,
+      "changePercentage": 0.0385,
+      "volume": 5783859,
+      "averageVolume": 1216142,
+      "companyName": "Citrix Systems, Inc.",
+      "currency": "USD",
+      "cik": "0000877890",
+      "isin": "US1773761002",
+      "cusip": "177376100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Application",
+      "website": "https://www.citrix.com",
+      "description": "Citrix Systems, Inc. is a global enterprise software provider specializing in solutions for workspace management, application delivery, security, and related professional services. Its extensive product portfolio encompasses workspace solutions like Citrix Workspace, Citrix Virtual Apps and Desktops, and tools for Collaborative Work Management. For secure data handling, Citrix Content Collaboration offers a cloud-based platform for enterprise-grade file sharing, digital transactions, and storage, accessible across corporate and personal mobile devices. The company also leverages advanced analytics: Citrix Analytics for Security monitors user behavior within its virtual environments to safeguard sensitive corporate data, while Citrix Analytics for Performance employs machine learning to evaluate and enhance user experience. Furthermore, it provides robust security offerings such as Citrix Secure Workspace Access, an end-to-end solution designed to enforce Zero Trust principles, and Citrix Secure Internet Access, which protects direct internet access for both branch and remote employees, particularly when using unapproved applications. Additionally, Citrix ADC functions as an application delivery controller, available for deployment on-premises, in the cloud, or as a SaaS offering. Complementing its software, Citrix delivers a suite of support services, including customer assistance, hardware upkeep, expert consulting, and comprehensive product training and certification programs. Its client base spans diverse sectors such as healthcare, financial services, technology, manufacturing, consumer goods, and various government entities. Citrix distributes and licenses its solutions through a broad network of partners, including resellers, distributors, system integrators, independent software vendors (ISVs), original equipment manufacturers (OEMs), and service providers. Established in 1989, the company initially operated as Citrus Systems, Inc. before rebranding to Citrix Systems, Inc. in March 2009. Its corporate headquarters are located in Fort Lauderdale, Florida. Notably, on September 30, 2022, Citrix Systems, Inc. transitioned from a public to a private entity.",
+      "ceo": "David Henshall",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "9000",
+      "phone": "19542673000",
+      "address": "851 W Cypress Creek Rd",
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "zip": "33309",
+      "image": "https://images.financialmodelingprep.com/symbol/CTXS.png",
+      "ipoDate": "1995-12-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CTXS",
+      "date": "2015-12-31",
+      "marketCap": 11691480550
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040445.7398055
+}

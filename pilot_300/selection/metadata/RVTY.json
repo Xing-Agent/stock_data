@@ -1,0 +1,63 @@
+{
+  "symbol": "RVTY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RVTY",
+      "price": 152.17,
+      "marketCap": 16976085200,
+      "beta": 1.064,
+      "lastDividend": 0.28,
+      "range": "81.22-166.25",
+      "change": -2.91,
+      "changePercentage": -1.87645,
+      "volume": 1602713,
+      "averageVolume": 1689770,
+      "companyName": "Revvity, Inc.",
+      "currency": "USD",
+      "cik": "0000031791",
+      "isin": "US7140461093",
+      "cusip": "714046109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Diagnostics & Research",
+      "website": "https://www.revvity.com",
+      "description": "Revvity, Inc., founded in 1937 and based in Waltham, Massachusetts, is a global enterprise that develops and delivers a wide array of products, services, and solutions. The company, which changed its name from PerkinElmer, Inc. in April 2023, caters to the diagnostics, life sciences, and applied services sectors worldwide. Its Discovery & Analytical Solutions division provides advanced instrumentation, reagents, informatics, software, subscriptions, and sophisticated detection and imaging technologies. These resources are designed to enable scientists to achieve significant breakthroughs in life sciences research. This segment also offers contract research and specialized laboratory services. Furthermore, it supplies analytical tools and services for assessing environmental health, including air, water, and soil, and delivers solutions to agricultural and food producers. It also serves the industrial market with analytical instrumentation for sectors such as chemical, semiconductor, electronics, energy, lubricants, petrochemicals, and polymers. The Diagnostics segment is dedicated to early detection, offering instruments, reagents, assay platforms, and software for identifying genetic disorders in pregnant individuals and young children, alongside infectious disease testing. Its products facilitate the screening of genetic abnormalities, disorders, and diseases like Down syndrome, hypothyroidism, muscular dystrophy, infertility, and various metabolic conditions. This division also innovates technologies that support genomic workflows, leveraging protein-coupled receptor and next-generation DNA sequencing for applications in oncology, immunodiagnostics, and drug discovery. Revvity serves a diverse clientele, including pharmaceutical and biotechnology firms, laboratories, academic and research institutions, public health authorities, private healthcare organizations, medical professionals, and government bodies.",
+      "ceo": "Prahlad R. Singh",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "11000",
+      "phone": "781 663 6900",
+      "address": "77 4th Avenue",
+      "city": "Waltham",
+      "state": "MA",
+      "zip": "02451",
+      "image": "https://images.financialmodelingprep.com/symbol/RVTY.png",
+      "ipoDate": "1965-07-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RVTY",
+      "date": "2015-12-31",
+      "marketCap": 6001661380
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040777.3281522,
+  "previous_attempts": [
+    {
+      "symbol": "RVTY",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040304.310736
+    }
+  ]
+}

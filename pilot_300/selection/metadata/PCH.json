@@ -1,0 +1,54 @@
+{
+  "symbol": "PCH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PCH",
+      "price": 41.73,
+      "marketCap": 3230610408,
+      "beta": 1.084,
+      "lastDividend": 1.8,
+      "range": "36.82-48.12",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 13280767,
+      "averageVolume": 784641,
+      "companyName": "PotlatchDeltic Corporation",
+      "currency": "USD",
+      "cik": "0001338749",
+      "isin": "US7376301039",
+      "cusip": "737630103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Specialty",
+      "website": "https://www.rayonier.com",
+      "description": "PotlatchDeltic (NASDAQ:PCH) is a prominent Real Estate Investment Trust (REIT) primarily recognized for its substantial holdings of 1.8 million acres of timberland, located across Alabama, Arkansas, Idaho, Louisiana, Minnesota, and Mississippi. Complementing these core assets, the company also operates a diverse range of businesses through its taxable REIT subsidiary. These include managing six sawmills, an industrial-grade plywood manufacturing facility, an active residential and commercial property development division, and a dedicated program for rural timberland sales. PotlatchDeltic is a recognized pioneer in sustainable forest management, deeply committed to ethical conduct and robust environmental, social, and governance (ESG) standards.",
+      "ceo": "Eric J. Cremers",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "1383",
+      "phone": "509-835-1500",
+      "address": "601 West First Avenue",
+      "city": "Spokane",
+      "state": "WA",
+      "zip": "99201",
+      "image": "https://images.financialmodelingprep.com/symbol/PCH.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PCH",
+      "date": "2015-12-31",
+      "marketCap": 1236060000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041184.303385
+}

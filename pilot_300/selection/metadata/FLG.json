@@ -1,0 +1,54 @@
+{
+  "symbol": "FLG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FLG",
+      "price": 11.11,
+      "marketCap": 4611683230,
+      "beta": 1.052,
+      "lastDividend": 0.04,
+      "range": "10.57-15.44",
+      "change": -0.1,
+      "changePercentage": -0.89206,
+      "volume": 4112400,
+      "averageVolume": 4931533,
+      "companyName": "Flagstar Financial, Inc.",
+      "currency": "USD",
+      "cik": "0000910073",
+      "isin": "US6494454001",
+      "cusip": "649445400",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.flagstar.com",
+      "description": "Flagstar Financial, Inc. serves as the holding company for Flagstar Bank, N.A., delivering a wide array of banking solutions and services throughout the United States. Its deposit portfolio features interest-bearing checking, money market, savings, and non-interest-bearing accounts, alongside retirement savings plans and certificates of deposit. The institution extends a diverse range of credit facilities, including financing for multi-family properties, commercial real estate ventures, and acquisition, development, and construction projects. Further offerings encompass commercial and industrial loans, mortgages for one-to-four family residences, specialized finance loans and leases, and warehouse lending. Additionally, Flagstar provides various consumer credit options, such as home equity lines of credit, indirect loans for boats and recreational vehicles, point-of-sale consumer financing, and overdraft facilities. Beyond traditional banking, the company offers cash management tools, a selection of non-deposit investment and insurance products, and convenient digital access through online, mobile, and telephone banking platforms. Its primary clientele consists of individual consumers, small to medium-sized businesses, and professional organizations. Established in 1859 and based in Hicksville, New York, the company recently changed its name to Flagstar Financial, Inc. in October 2024, having formerly been known as New York Community Bancorp, Inc.",
+      "ceo": "Joseph Otting",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "5631",
+      "phone": "516 683 4100",
+      "address": "102 Duffy Avenue",
+      "city": "Hicksville",
+      "state": "NY",
+      "zip": "11801",
+      "image": "https://images.financialmodelingprep.com/symbol/FLG.png",
+      "ipoDate": "1993-11-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FLG",
+      "date": "2015-12-31",
+      "marketCap": 7642509120
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041568.4991426
+}

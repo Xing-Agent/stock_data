@@ -1,0 +1,54 @@
+{
+  "symbol": "EXPR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EXPR",
+      "price": 0.83,
+      "marketCap": 3109396,
+      "beta": 1.449,
+      "lastDividend": 0,
+      "range": "0.35-17.84",
+      "change": 0.13,
+      "changePercentage": 18.5714,
+      "volume": 444124,
+      "averageVolume": 185033,
+      "companyName": "Express, Inc.",
+      "currency": "USD",
+      "cik": "0001483510",
+      "isin": "US30219E2028",
+      "cusip": "30219E202",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Apparel - Retail",
+      "website": "https://www.express.com",
+      "description": "Operating under the Express brand, Express, Inc. provides a diverse selection of clothing and fashion accessories for both men and women, catering to various occasions. Customers can purchase their items through the official e-commerce website, express.com, their dedicated mobile application, and via franchised Express retail stores located throughout Latin America. As of January 29, 2022, the company maintained a significant retail presence with 561 stores operating across 46 U.S. states and Puerto Rico. Established in 1980, the entity was initially named Express Parent LLC, officially changing to Express, Inc. in May 2010. The company's corporate headquarters are situated in Columbus, Ohio.",
+      "ceo": "Stewart F. Glendinning",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "3300",
+      "phone": "614 474 4001",
+      "address": "1 Express Drive",
+      "city": "Columbus",
+      "state": "OH",
+      "zip": "43230",
+      "image": "https://images.financialmodelingprep.com/symbol/EXPR.png",
+      "ipoDate": "2010-05-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EXPR",
+      "date": "2015-12-31",
+      "marketCap": 1433340748
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041224.1680567
+}

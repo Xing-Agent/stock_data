@@ -1,0 +1,54 @@
+{
+  "symbol": "SIEB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SIEB",
+      "price": 2.02,
+      "marketCap": 83273353,
+      "beta": 0.959,
+      "lastDividend": 0,
+      "range": "1.53-4.14",
+      "change": -0.07,
+      "changePercentage": -3.34928,
+      "volume": 50194,
+      "averageVolume": 78571,
+      "companyName": "Siebert Financial Corp.",
+      "currency": "USD",
+      "cik": "0000065596",
+      "isin": "US8261761097",
+      "cusip": "826176109",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Financial - Capital Markets",
+      "website": "https://www.siebert.com",
+      "description": "Siebert Financial Corp., operating through its various subsidiaries, functions as a financial services firm that specializes in providing retail discount brokerage and investment advisory services to clients across the United States and internationally. The company's extensive array of offerings includes platforms for self-directed trading, comprehensive wealth management solutions, and personalized financial guidance. It also facilitates investments in fixed income securities, offers market making capabilities, provides share borrowing and lending services, and administers equity compensation plans. Furthermore, Siebert supports independent retail trade execution and delivers dedicated customer support. Clients have access to self-directed retirement accounts and can secure loans backed by a percentage of their eligible securities holdings. Complementing its core services, the company utilizes a robust data technology platform. This infrastructure delivers a suite of essential tools, such as secure email and messaging, access to market data systems, integration with third-party trading platforms, business productivity applications, and advanced customer relationship management (CRM) systems. Siebert also offers a Robo-Advisor platform, which provides an automated solution for wealth management. Beyond investments, Siebert extends its services to include a diverse portfolio of insurance products. These offerings encompass fixed annuities, personal insurance, property and casualty insurance, natural disaster coverage, and life and disability policies. Maintaining a physical presence through 12 branch offices throughout the United States, Siebert Financial Corp. was established in 1934 and is headquartered in New York, New York.",
+      "ceo": "John J. Gebbia",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "166",
+      "phone": "212 644 2400",
+      "address": "653 Collins Avenue",
+      "city": "Miami Beach",
+      "state": "FL",
+      "zip": "33139",
+      "image": "https://images.financialmodelingprep.com/symbol/SIEB.png",
+      "ipoDate": "1980-03-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SIEB",
+      "date": "2015-12-31",
+      "marketCap": 28489812
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041060.9064045
+}

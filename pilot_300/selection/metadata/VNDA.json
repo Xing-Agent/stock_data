@@ -1,0 +1,54 @@
+{
+  "symbol": "VNDA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VNDA",
+      "price": 4.22,
+      "marketCap": 253772072,
+      "beta": 0.688,
+      "lastDividend": 0,
+      "range": "4.2-9.94",
+      "change": -0.08,
+      "changePercentage": -1.86047,
+      "volume": 1059343,
+      "averageVolume": 947134,
+      "companyName": "Vanda Pharmaceuticals Inc.",
+      "currency": "USD",
+      "cik": "0001347178",
+      "isin": "US9216591084",
+      "cusip": "921659108",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.vandapharma.com",
+      "description": "Vanda Pharmaceuticals Inc. is a biopharmaceutical company dedicated to developing and commercializing therapeutic solutions that address critical unmet medical needs. The company currently offers two approved treatments: HETLIOZ, prescribed for non-24-hour sleep-wake disorders, and Fanapt oral tablets, used in the management of schizophrenia. Vanda maintains an active and diverse development pipeline, exploring new applications for its existing therapies and advancing a range of novel compounds. This includes expanding HETLIOZ (tasimelteon) to potentially treat conditions such as jet lag disorder, Smith-Magenis Syndrome, pediatric Non-24, autism spectrum disorder, and delayed sleep phase disorder. Fanapt (iloperidone) is being investigated for bipolar disorder, alongside the creation of a long-acting injectable formulation for schizophrenia. Other promising candidates in development include: Tradipitant (VLY-686): A small molecule neurokinin-1 receptor (NK-1R) antagonist for atopic dermatitis, gastroparesis, and motion sickness. VTR-297: A small molecule histone deacetylase inhibitor, primarily for hematologic malignancies but with broader oncology potential. VQW-765: A small molecule nicotinic acetylcholine receptor partial agonist targeting psychiatric disorders. A portfolio of cystic fibrosis transmembrane conductance regulator (CFTR) activators and inhibitors aimed at dry eye and ocular inflammation. BPO-27: For secretory diarrhea disorders, including cholera. VHX-896: The active metabolite of iloperidone. Vanda Pharmaceuticals Inc. markets its products in the United States, Europe, and Israel. The company was established in 2002 and is headquartered in Washington, D.C.",
+      "ceo": "Mihael H. Polymeropoulos",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "533",
+      "phone": "202 734 3400",
+      "address": "2200 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "zip": "20037",
+      "image": "https://images.financialmodelingprep.com/symbol/VNDA.png",
+      "ipoDate": "2006-04-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VNDA",
+      "date": "2015-12-31",
+      "marketCap": 401302541
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040329.3969417
+}

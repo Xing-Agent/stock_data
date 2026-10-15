@@ -1,0 +1,54 @@
+{
+  "symbol": "ICFI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ICFI",
+      "price": 86.67,
+      "marketCap": 1554331113,
+      "beta": 0.526,
+      "lastDividend": 0.56,
+      "range": "58.83-98.03",
+      "change": -0.77,
+      "changePercentage": -0.8806,
+      "volume": 130222,
+      "averageVolume": 225597,
+      "companyName": "ICF International, Inc.",
+      "currency": "USD",
+      "cik": "0001362004",
+      "isin": "US44925C1036",
+      "cusip": "44925C103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Consulting Services",
+      "website": "https://www.icf.com",
+      "description": "ICF International, Inc. is a prominent global consultancy offering a wide array of management, marketing, technology, and policy advisory and implementation services to both government and commercial entities worldwide. The firm specializes in in-depth research into pivotal policy, industry, and stakeholder matters, alongside analyzing trends and behaviors, subsequently assessing and quantifying the impact of these initiatives. ICF provides strategic guidance to clients, helping them adeptly navigate an array of societal, market, business, communication, and technological obstacles. Their comprehensive services encompass the development and deployment of policies, programs, and business instruments utilizing both standard and bespoke methodologies. This includes conducting extensive survey research, collecting and analyzing diverse datasets to illuminate key issues, and furnishing clients with actionable business intelligence and streamlined data management solutions for integrated usage. Additionally, ICF focuses on optimizing customer and citizen interactions, modernizing information technology systems, and providing formidable cybersecurity measures to safeguard IT infrastructure against evolving threats. The company designs, develops, and implements critical technology systems and business tools essential for its clients' operational excellence and mission achievement. To ensure effective engagement, ICF also handles public relations, branding, marketing, and multichannel communication strategies, along with reputation management, for its clients' various constituents, customers, and employees. Its expertise spans critical sectors such as energy, environment, and infrastructure; health, education, and social programs; safety and security; and consumer and financial markets. Established in 1969, the company initially operated as ICF Consulting Group Holdings, LLC, before rebranding to ICF International, Inc. in 2006. Its headquarters are located in Fairfax, Virginia.",
+      "ceo": "John Wasson",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "7686",
+      "phone": "703 934 3000",
+      "address": "1902 Reston Metro Plaza",
+      "city": "Reston",
+      "state": "VA",
+      "zip": "20190",
+      "image": "https://images.financialmodelingprep.com/symbol/ICFI.png",
+      "ipoDate": "2006-09-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ICFI",
+      "date": "2015-12-31",
+      "marketCap": 675426640
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041495.3076441
+}

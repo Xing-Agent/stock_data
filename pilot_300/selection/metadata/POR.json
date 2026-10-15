@@ -1,0 +1,54 @@
+{
+  "symbol": "POR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "POR",
+      "price": 44.45,
+      "marketCap": 5227664043,
+      "beta": 0.511,
+      "lastDividend": 2.1525,
+      "range": "43.26-54.62",
+      "change": -0.13,
+      "changePercentage": -0.29161,
+      "volume": 2731768,
+      "averageVolume": 1252693,
+      "companyName": "Portland General Electric Company",
+      "currency": "USD",
+      "cik": "0000784977",
+      "isin": "US7365088472",
+      "cusip": "736508847",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Electric",
+      "website": "https://www.portlandgeneral.com",
+      "description": "Portland General Electric (PGE) functions as a fully integrated electric utility, overseeing the generation, wholesale procurement, transmission, distribution, and direct retail sale of electricity throughout Oregon. Its power generation assets include seven hydroelectric facilities, three wind farms, and six thermal plants. As of December 31, 2021, PGE's electric transmission system covered 1,274 circuit miles, which notably comprised 287 miles of 500 kilovolt lines, 415 miles of 230 kilovolt lines, and 572 miles of 115 kilovolt lines. The company also manages an extensive 28,206-circuit-mile network of distribution lines. In addition to its electricity operations, PGE engages in the wholesale buying and selling of natural gas across the United States and Canada. It provides service to roughly 917,000 residential, commercial, and industrial customers situated in 51 different cities. The company was founded in 1889 and maintains its primary office in Portland, Oregon.",
+      "ceo": "Maria MacGregor Pope",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "2877",
+      "phone": "503 464 8000",
+      "address": "121 South West Salmon Street",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "97204",
+      "image": "https://images.financialmodelingprep.com/symbol/POR.png",
+      "ipoDate": "2006-03-31",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "POR",
+      "date": "2015-12-31",
+      "marketCap": 3230856210
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041800.8726966
+}

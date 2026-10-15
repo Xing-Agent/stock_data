@@ -1,0 +1,54 @@
+{
+  "symbol": "CSGS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CSGS",
+      "price": 80.69,
+      "marketCap": 2300464154,
+      "beta": 0.816,
+      "lastDividend": 1.3,
+      "range": "60.54-80.73",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 4,
+      "averageVolume": 357653,
+      "companyName": "CSG Systems International, Inc.",
+      "currency": "USD",
+      "cik": "0001005757",
+      "isin": "US1263491094",
+      "cusip": "126349109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Infrastructure",
+      "website": "https://www.csgi.com",
+      "description": "CSG Systems International, Inc. (CSG) delivers comprehensive solutions designed for revenue optimization, digital asset monetization, customer interaction management, and secure payment processing. While primarily targeting the telecommunications sector across the Americas, Europe, the Middle East, Africa, and Asia-Pacific regions, CSG also extends its services to diverse industries such as retail, financial services, healthcare, insurance, and governmental organizations. A cornerstone of its offerings is the Advanced Convergent Platform, a proprietary Software-as-a-Service (SaaS) solution. Specifically for the North American cable and satellite industries, CSG furnishes supplementary tools including automated field operations, robust analytics capabilities, electronic billing presentment, and Automated Clearing House (ACH) services. Furthermore, the company extends its expertise through managed services and dedicated professional support, encompassing the implementation, configuration, and ongoing maintenance of its various solutions. It also grants licenses for specialized software applications covering areas like mediation, partner relationship management, tariff rating, and transaction charging. Established in 1994, CSG maintains its corporate headquarters in Greenwood Village, Colorado.",
+      "ceo": "Brian A. Shepherd",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "5800",
+      "phone": "303 200 2000",
+      "address": "6175 South Willow Drive",
+      "city": "Greenwood Village",
+      "state": "CO",
+      "zip": "80111",
+      "image": "https://images.financialmodelingprep.com/symbol/CSGS.png",
+      "ipoDate": "1996-02-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CSGS",
+      "date": "2015-12-31",
+      "marketCap": 1106816760
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041792.779082
+}

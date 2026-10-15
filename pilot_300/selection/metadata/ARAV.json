@@ -1,0 +1,54 @@
+{
+  "symbol": "ARAV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ARAV",
+      "price": 0.0401,
+      "marketCap": 2949860,
+      "beta": 2.186,
+      "lastDividend": 0,
+      "range": "0.04-2.46",
+      "change": -0.0062,
+      "changePercentage": -13.3909,
+      "volume": 4040076,
+      "averageVolume": 2162145,
+      "companyName": "Aravive, Inc.",
+      "currency": "USD",
+      "cik": "0001513818",
+      "isin": "US03890D1081",
+      "cusip": "03890D108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://aravive.com",
+      "description": "Aravive, Inc. is a clinical-stage biopharmaceutical company, based in Houston, Texas, dedicated to discovering and developing innovative treatments for life-threatening illnesses such as cancer and fibrosis. The company's primary therapeutic candidate, batiraxcept, is an ultrahigh-affinity decoy protein engineered to disrupt the GAS6-AXL signaling pathway. This drug is currently progressing through a Phase III clinical trial for platinum-resistant recurrent ovarian cancer, and is also being evaluated in Phase Ib/II studies for clear cell renal cell carcinoma and pancreatic adenocarcinoma. Aravive also has AVB-S6 in its pipeline, a soluble Fc-fusion protein aimed at blocking the activation of the same GAS6-AXL pathway. Beyond internal development, Aravive has forged strategic partnerships. This includes a collaboration with WuXi Biologics (Hong Kong) Limited to develop novel, high-affinity bispecific antibodies targeting cancer and fibrosis. Furthermore, a license agreement with 3D Medicines Inc. grants rights to develop and commercialize products featuring batiraxcept as the sole active ingredient for human oncological diseases across mainland China, Taiwan, Hong Kong, and Macau. Originally incorporated in 2008 as Versartis, Inc., the company adopted the name Aravive, Inc. in October 2018.",
+      "ceo": "Fredric N. Eshelman",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "23",
+      "phone": "936 355 1910",
+      "address": "River Oaks Tower",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77098",
+      "image": "https://images.financialmodelingprep.com/symbol/ARAV.png",
+      "ipoDate": "2014-03-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ARAV",
+      "date": "2015-12-31",
+      "marketCap": 364538456
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040511.6346977
+}

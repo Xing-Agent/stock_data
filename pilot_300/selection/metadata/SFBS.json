@@ -1,0 +1,54 @@
+{
+  "symbol": "SFBS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SFBS",
+      "price": 38.07,
+      "marketCap": 4162025592,
+      "beta": 0.906,
+      "lastDividend": 0.76,
+      "range": "33.6-46.04",
+      "change": -0.5,
+      "changePercentage": -1.29634,
+      "volume": 570973,
+      "averageVolume": 730503,
+      "companyName": "ServisFirst Bancshares, Inc.",
+      "currency": "USD",
+      "cik": "0001430723",
+      "isin": "US81768T1088",
+      "cusip": "81768T108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.servisfirstbank.com",
+      "description": "ServisFirst Bancshares, Inc. operates as the parent entity for ServisFirst Bank, providing a comprehensive range of financial solutions to both individual consumers and corporate clients. Its deposit offerings encompass checking, savings, money market, and individual retirement accounts, in addition to certificates of deposit. The company extends diverse lending options, including commercial credit facilities for working capital, business expansion, and the acquisition of property, plant, and equipment, alongside commercial lines of credit. It also finances commercial and residential real estate, as well as construction and development ventures. For individuals, consumer loans cover home equity, vehicle purchases, and both secured and unsecured personal financing. Beyond these core services, ServisFirst Bancshares offers modern conveniences such as telephone and mobile banking, direct deposit, online banking, ATMs, debit cards, and Visa credit cards. Specialized services include treasury and cash management, wire transfers, night depository, banking-by-mail, remote capture, and correspondent banking for other financial institutions. The company also manages its subsidiary's participations in residential mortgages and commercial real estate loans originated across Alabama, Florida, Georgia, and Tennessee. Founded in 2005 and based in Birmingham, Alabama, ServisFirst Bancshares maintains 23 full-service branches throughout Alabama, Florida, Georgia, South Carolina, and Tennessee, complemented by two loan production offices located in Florida.",
+      "ceo": "Thomas Ashford Broughton",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "684",
+      "phone": "205 949 0302",
+      "address": "2500 Woodcrest Place",
+      "city": "Birmingham",
+      "state": "AL",
+      "zip": "35209",
+      "image": "https://images.financialmodelingprep.com/symbol/SFBS.png",
+      "ipoDate": "2014-05-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SFBS",
+      "date": "2015-12-31",
+      "marketCap": 1241197100
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041391.149068
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CFBK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CFBK",
+      "price": 33.77,
+      "marketCap": 216651840,
+      "beta": 0.381,
+      "lastDividend": 0.36,
+      "range": "22.1-38.11",
+      "change": -0.34,
+      "changePercentage": -0.99677,
+      "volume": 28251,
+      "averageVolume": 62960,
+      "companyName": "CF Bankshares Inc.",
+      "currency": "USD",
+      "cik": "0001070680",
+      "isin": "US12520L1098",
+      "cusip": "12520L109",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.cf.bank",
+      "description": "As the parent company for CFBank, National Association, CF Bankshares Inc. provides a broad spectrum of banking products and services throughout the United States. Its offerings encompass various deposit accounts, including savings, retail and business checking, money market accounts, and certificates of deposit. The bank also facilitates a range of loans such as single-family mortgages, commercial real estate and multi-family residential mortgages, commercial loans, and construction and land loans. Furthermore, it provides consumer credit options like home equity lines, home improvement loans, and loans secured by deposits, along with other purchased loans. Customers can access modern conveniences such as internet and mobile banking, remote deposit, and treasury management depository services. As of December 31, 2021, the company operated five branch offices situated in Franklin, Cuyahoga, Hamilton, and Summit counties, Ohio, in addition to a loan production office in Franklin County, Ohio. Founded in 1892, the company was formerly named Central Federal Corporation before adopting its current name, CF Bankshares Inc., in July 2020, and is headquartered in Worthington, Ohio.",
+      "ceo": "Timothy T. O'Dell",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "98",
+      "phone": "614 334 7979",
+      "address": "4960 East Dublin Granville Road",
+      "city": "Columbus",
+      "state": "OH",
+      "zip": "43081",
+      "image": "https://images.financialmodelingprep.com/symbol/CFBK.png",
+      "ipoDate": "1998-12-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CFBK",
+      "date": "2015-12-31",
+      "marketCap": 21151930
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040563.6544218
+}

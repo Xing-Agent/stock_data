@@ -1,0 +1,54 @@
+{
+  "symbol": "CCLD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CCLD",
+      "price": 1.77,
+      "marketCap": 75214130,
+      "beta": 1.511,
+      "lastDividend": 0,
+      "range": "1.77-3.81",
+      "change": -0.18,
+      "changePercentage": -9.23077,
+      "volume": 329858,
+      "averageVolume": 287845,
+      "companyName": "CareCloud, Inc.",
+      "currency": "USD",
+      "cik": "0001582982",
+      "isin": "US14167R1005",
+      "cusip": "14167R100",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Healthcare Information Services",
+      "website": "https://www.carecloud.com",
+      "description": "CareCloud, Inc. operates as a specialized healthcare technology firm, delivering a comprehensive portfolio of cloud-powered solutions and related professional services. Its primary clientele consists of medical providers and hospitals throughout the United States. The company strategically organizes its activities into two core divisions: Healthcare IT and Medical Practice Management. Through its Software-as-a-Service (SaaS) platform, CareCloud provides essential tools for managing revenue cycles, administering practices, handling electronic health records, gleaning business insights, facilitating telehealth, and enhancing patient engagement. These offerings, complemented by various software utilities and tailored business services, are designed to empower diverse medical groups and health systems. Professionals such as doctors, nurses, physician assistants, and other clinical staff who render billable services are among its key users. Established in 1999 and based in Somerset, New Jersey, the entity was originally named MTBC, Inc. before officially adopting CareCloud, Inc. in March 2021.",
+      "ceo": "Stephen A. Snyder",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "3650",
+      "phone": "732 873 5133",
+      "address": "7 Clyde Road",
+      "city": "Somerset",
+      "state": "NJ",
+      "zip": "08873",
+      "image": "https://images.financialmodelingprep.com/symbol/CCLD.png",
+      "ipoDate": "2014-07-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CCLD",
+      "date": "2015-12-31",
+      "marketCap": 11679367
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040490.823172
+}

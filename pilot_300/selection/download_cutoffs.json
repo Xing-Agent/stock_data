@@ -1,0 +1,114 @@
+{
+  "reviewed_at": "2026-10-15T05:32:40.993Z",
+  "notes": [
+    "Upper bounds limit downloads to the original exchange-era security. They are not synthesized last-trade observations.",
+    "OTC continuation, cancellation proceeds, delisting returns and short-borrow availability are not covered.",
+    "WPG and GNCA retain announced-but-unconfirmed cutoff warnings; their exports cannot be labeled fully verified."
+  ],
+  "stocks": [
+    {
+      "symbol": "AMRS",
+      "download_end_date": "2023-08-20",
+      "basis": "before_open_suspension_2023-08-21",
+      "source_url": "https://ir.nasdaq.com/node/106656",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "CLVS",
+      "download_end_date": "2022-12-20",
+      "basis": "before_open_suspension_2022-12-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1466301/000119312522303183/d425649d8k.htm",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "ACOR",
+      "download_end_date": "2024-04-11",
+      "basis": "suspension_2024-04-12",
+      "source_url": "https://ir.nasdaq.com/news-releases/news-release-details/delisting-securities-northern-revival-acquisition-corporation",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "PRTY",
+      "download_end_date": "2023-01-18",
+      "basis": "same_day_exchange_suspension_upper_bound",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/876661/000087666123000086/ruleprovisionnotice.htm",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "REV",
+      "download_end_date": "2022-10-20",
+      "basis": "suspended_after_market_close",
+      "source_url": "https://ir.theice.com/press/news-details/2022/NYSE-Announces-Decision-to-Suspend-and-Remove-Revlon-Inc.-REV-From-the-List/default.aspx",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "TUP",
+      "download_end_date": "2024-09-18",
+      "basis": "same_day_exchange_suspension_upper_bound",
+      "source_url": "https://ir.theice.com/press/news-details/2024/NYSE-to-Commence-Delisting-Proceedings-Against-Tupperware-Brands-Corporation-TUP/default.aspx",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "EXPR",
+      "download_end_date": "2024-03-06",
+      "basis": "suspended_after_market_close",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1483510/000119312524060821/d747930dex991.htm",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "SQBG",
+      "download_end_date": "2021-09-08",
+      "basis": "suspension_2021-09-09",
+      "source_url": "https://ir.nasdaq.com/node/103896",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "WPG",
+      "download_end_date": "2021-09-29",
+      "basis": "announced_anticipated_last_trading_day_not_confirmed",
+      "source_url": "https://infomemo.theocc.com/infomemos?number=49245",
+      "cutoff_event_confirmed": false,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "SIVB",
+      "download_end_date": "2023-03-09",
+      "basis": "before_open_trading_halt_2023-03-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/719739/000119312523076760/d487549dex991.htm",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "GTT",
+      "download_end_date": "2021-07-02",
+      "basis": "same_day_exchange_suspension_upper_bound",
+      "source_url": "https://ir.theice.com/press/news-details/2021/NYSE-to-Suspend-Trading-in-GTT-Communications-Inc.-GTT-and-Commence-Delisting-Proceedings/default.aspx",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "FRC",
+      "download_end_date": "2023-05-02",
+      "basis": "same_day_exchange_suspension_upper_bound",
+      "source_url": "https://ir.theice.com/press/news-details/2023/NYSE-to-Suspend-Trading-Immediately-in-First-Republic-Bank-FRC-and-Commence-Delisting-Proceedings/default.aspx",
+      "cutoff_event_confirmed": true,
+      "last_trade_independently_verified": false
+    },
+    {
+      "symbol": "GNCA",
+      "download_end_date": "2022-06-12",
+      "basis": "announced_expected_legal_delisting_not_confirmed",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1457612/000145761222000058/gnca-20220520.htm",
+      "cutoff_event_confirmed": false,
+      "last_trade_independently_verified": false
+    }
+  ]
+}

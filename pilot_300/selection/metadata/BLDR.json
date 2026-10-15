@@ -1,0 +1,54 @@
+{
+  "symbol": "BLDR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BLDR",
+      "price": 50.52,
+      "marketCap": 5435749920,
+      "beta": 1.448,
+      "lastDividend": 0,
+      "range": "49.665-131.5",
+      "change": -1.19,
+      "changePercentage": -2.3013,
+      "volume": 3249484,
+      "averageVolume": 2574903,
+      "companyName": "Builders FirstSource, Inc.",
+      "currency": "USD",
+      "cik": "0001316835",
+      "isin": "US12008R1077",
+      "cusip": "12008R107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Construction Materials",
+      "website": "https://www.bldr.com",
+      "description": "Builders FirstSource, Inc. engages in the supply and manufacture of building materials, manufactured components, and construction services to professional homebuilders, sub-contractors, remodelers, and consumers. Its products include factory-built roof and floor trusses, wall panels and stairs, vinyl windows, custom millwork and trim, and engineered wood. The company was founded by Kevin P. O'Meara, Donald F. McAleenan and John D. Roach in March 1998 and is headquartered in Irving, TX.",
+      "ceo": "Peter Jackson",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "28000",
+      "phone": "214 880 3500",
+      "address": "6031 Connection Drive",
+      "city": "Irving",
+      "state": "TX",
+      "zip": "75039",
+      "image": "https://images.financialmodelingprep.com/symbol/BLDR.png",
+      "ipoDate": "2005-06-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BLDR",
+      "date": "2015-12-31",
+      "marketCap": 1217836040
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041859.1082814
+}

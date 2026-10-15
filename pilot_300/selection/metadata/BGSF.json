@@ -1,0 +1,54 @@
+{
+  "symbol": "BGSF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BGSF",
+      "price": 4.43,
+      "marketCap": 47311514,
+      "beta": 0.419,
+      "lastDividend": 2,
+      "range": "3.25-6.75",
+      "change": -0.12,
+      "changePercentage": -2.63736,
+      "volume": 6006,
+      "averageVolume": 9496,
+      "companyName": "BGSF, Inc.",
+      "currency": "USD",
+      "cik": "0001474903",
+      "isin": "US05601C1053",
+      "cusip": "05601C105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Staffing & Employment Services",
+      "website": "https://bgsf.com",
+      "description": "BGSF, Inc., headquartered in Plano, Texas, since its incorporation in 2007, offers extensive workforce solutions and talent acquisition services across the United States. The company's operations are divided into two main divisions: Real Estate and Professional. Through its Real Estate segment, BGSF supplies administrative and upkeep personnel for a range of apartment complexes and commercial structures. The Professional segment, conversely, specializes in providing adept IT professionals skilled in platforms such as SAP, Workday, Peoplesoft, Hyperion, Oracle, One Stream, cybersecurity, and project management, alongside other IT staffing needs. This division also sources experts in finance, accounting, legal, human resources, and related support functions. BGSF's clientele spans from large Fortune 500 corporations to small and medium-sized businesses, including consulting firms undertaking systems integration initiatives. The company was previously known as BG Staffing, Inc. until its rebranding to BGSF, Inc. in February 2021.",
+      "ceo": "Kelly Brown",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "189",
+      "phone": "972 692 2400",
+      "address": "14901 Quorum Drive",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75254",
+      "image": "https://images.financialmodelingprep.com/symbol/BGSF.png",
+      "ipoDate": "2014-04-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BGSF",
+      "date": "2015-12-31",
+      "marketCap": 110458613
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041178.2872095
+}

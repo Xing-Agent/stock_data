@@ -1,0 +1,54 @@
+{
+  "symbol": "DCO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DCO",
+      "price": 168.51,
+      "marketCap": 2544463591,
+      "beta": 1.037,
+      "lastDividend": 0,
+      "range": "84.76-210.39",
+      "change": -0.47,
+      "changePercentage": -0.27814,
+      "volume": 186695,
+      "averageVolume": 256819,
+      "companyName": "Ducommun Incorporated",
+      "currency": "USD",
+      "cik": "0000030305",
+      "isin": "US2641471097",
+      "cusip": "264147109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Aerospace & Defense",
+      "website": "https://www.ducommun.com",
+      "description": "Ducommun Incorporated, an established company founded in 1849 and based in Santa Ana, California, specializes in delivering advanced engineering and manufacturing solutions. Primarily, it caters to critical sectors within the United States, such as the aerospace and defense, industrial, and medical fields. The company's operations are divided into two principal segments: Electronic Systems and Structural Systems. The Electronic Systems division produces a wide array of sophisticated components. These offerings encompass various connectivity and wiring solutions like cable assemblies, wire harnesses, and interconnect systems, as well as printed circuit board assemblies and more complex electronic, electromechanical, and mechanical sub-assemblies. This segment also provides lightning diversion systems, radar housings, aircraft electronics racks, shipboard communication and control enclosures, surge suppressors, and conformal shields. Additionally, it develops precision-engineered products such as illuminated pushbutton switches and control panels for aviation and testing, high-frequency microwave and millimeter switches/filters for radio frequency systems, and motors and resolvers for motion control applications. A significant aspect of this division is its contribution of engineering expertise to aerospace system design, development, integration, and testing. The Structural Systems division focuses on designing, engineering, and fabricating intricate structural elements. Its product range includes meticulously contoured aerospace components crafted from aluminum, titanium, and Inconel alloys. This segment also creates complete structural assemblies, such as winglets, engine components, and fuselage panels. Furthermore, it is responsible for advanced metal and composite bonded structures and assemblies, examples of which include aircraft wing spoilers, large fuselage skins, rotor blades for rotary-wing aircraft, flight control surfaces, engine parts, ammunition handling systems, and magnetic seals. Ducommun's extensive portfolio of products and services supports a diverse range of applications, spanning commercial and military aviation (both fixed-wing and rotary-wing platforms), space exploration programs, and various industrial and medical end-use markets.",
+      "ceo": "Stephen G. Oswald",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "2130",
+      "phone": "657 335 3665",
+      "address": "600 Anton Boulevard",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "zip": "92626-7100",
+      "image": "https://images.financialmodelingprep.com/symbol/DCO.png",
+      "ipoDate": "1973-05-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DCO",
+      "date": "2015-12-31",
+      "marketCap": 180042000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041803.0485194
+}

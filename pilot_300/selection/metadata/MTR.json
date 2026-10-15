@@ -1,0 +1,54 @@
+{
+  "symbol": "MTR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MTR",
+      "price": 2.07,
+      "marketCap": 3857631,
+      "beta": 0.416,
+      "lastDividend": 0.21493,
+      "range": "2.02-5.83",
+      "change": -0.08,
+      "changePercentage": -3.72093,
+      "volume": 15175,
+      "averageVolume": 10404,
+      "companyName": "Mesa Royalty Trust",
+      "currency": "USD",
+      "cik": "0000313364",
+      "isin": "US5906601068",
+      "cusip": "590660106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://mtr.q4web.com/home/default.aspx",
+      "description": "Mesa Royalty Trust holds net overriding royalty interests, representing financial stakes, in numerous oil and natural gas production sites situated across the United States. Its key assets are found within Kansas's Hugoton field and the expansive San Juan Basin, an area spanning northwestern New Mexico and southwestern Colorado. Established in 1979, the trust operates from its headquarters in Houston, Texas.",
+      "ceo": "Elaina Conley-Rodgers",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "0",
+      "phone": "713 483 6020",
+      "address": "601 Travis Street",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77002",
+      "image": "https://images.financialmodelingprep.com/symbol/MTR.png",
+      "ipoDate": "1979-10-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MTR",
+      "date": "2015-12-31",
+      "marketCap": 13976925
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041605.5439463
+}

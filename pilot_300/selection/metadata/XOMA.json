@@ -1,0 +1,54 @@
+{
+  "symbol": "XOMA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "XOMA",
+      "price": 40.17,
+      "marketCap": 710155066,
+      "beta": 0.865,
+      "lastDividend": 0,
+      "range": "22.29-45.22",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 0,
+      "averageVolume": 327501,
+      "companyName": "XOMA Royalty Corp.",
+      "currency": "USD",
+      "cik": "0000791908",
+      "isin": "US98419J2069",
+      "cusip": "98419J206",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.xoma.com",
+      "description": "XOMA Royalty Corp. functions as a specialist in aggregating biotechnology royalties, with its operations extending across Europe, the United States, and the Asia Pacific region. The company is dedicated to fostering advancements in human health by collaborating with biotechnology firms. Its core business model involves acquiring the anticipated future economic benefits, such as royalties and milestone payments, associated with pre-market therapeutic candidates that have already been licensed to pharmaceutical or biotechnology firms. The firm focuses its investments on early to mid-stage clinical assets, typically those in Phase 1 and 2 trials, selected for their robust commercial potential and because they are licensed to development partners. Its extensive portfolio currently encompasses around 70 distinct assets. The parent company, XOMA Corporation, established in 1981, has its main office in Emeryville, California.",
+      "ceo": "Owen Hughes Jr.",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "14",
+      "phone": "510 204 7200",
+      "address": "2200 Powell Street",
+      "city": "EmeryVille",
+      "state": "CA",
+      "zip": "94608",
+      "image": "https://images.financialmodelingprep.com/symbol/XOMA.png",
+      "ipoDate": "1986-06-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "XOMA",
+      "date": "2015-12-31",
+      "marketCap": 159014800
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041740.2639825
+}

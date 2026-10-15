@@ -1,0 +1,54 @@
+{
+  "symbol": "ATRA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ATRA",
+      "price": 9.56,
+      "marketCap": 86137225,
+      "beta": 0.09,
+      "lastDividend": 0,
+      "range": "3.92-19.15",
+      "change": 0.255,
+      "changePercentage": 2.74046,
+      "volume": 39873,
+      "averageVolume": 60339,
+      "companyName": "Atara Biotherapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001604464",
+      "isin": "US0465132068",
+      "cusip": "046513206",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.atarabio.com",
+      "description": "Founded in 2012 and headquartered in South San Francisco, California, Atara Biotherapeutics, Inc. is dedicated to pioneering ready-to-use (off-the-shelf) T-cell immunotherapies. Their primary focus in the United States involves creating treatments for patients battling cancer, autoimmune disorders, and viral infections. A key therapeutic candidate, tabelecleucel, is currently undergoing Phase 3 clinical trials for Epstein-Barr virus (EBV)-driven post-transplant lymphoproliferative disease, as well as various hematologic and solid tumors, such as nasopharyngeal carcinoma. The company is also advancing a robust pipeline of next-generation CAR T immunotherapies designed to combat hematologic malignancies and solid tumors. This includes ATA2271 and ATA3271 targeting mesothelin, alongside ATA2431 and ATA3219 for B-cell malignancies. Furthermore, Atara is developing ATA188 for the treatment of multiple sclerosis and the ATA368 program specifically for cancers associated with human papillomavirus (HPV). To bolster its research and development efforts, Atara Biotherapeutics has established significant collaborations and licensing agreements. These include a licensing partnership with Memorial Sloan Kettering Cancer Center, a license and R&D collaboration with QIMR Berghofer Medical Research Institute, and a strategic alliance with H. Lee Moffitt Cancer Center. Additionally, the company holds a strategic partnership with Bayer AG focused on mesothelin-targeted CAR T-cell therapies for solid tumors.",
+      "ceo": "Anhco Nguyen",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "10",
+      "phone": "650 278 8930",
+      "address": "1280 Rancho Conejo Blvd",
+      "city": "Thousand Oaks",
+      "state": "CA",
+      "zip": "91320",
+      "image": "https://images.financialmodelingprep.com/symbol/ATRA.png",
+      "ipoDate": "2014-10-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ATRA",
+      "date": "2015-12-31",
+      "marketCap": 753794220
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041740.2061632
+}

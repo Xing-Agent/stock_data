@@ -1,0 +1,63 @@
+{
+  "symbol": "STRS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "STRS",
+      "price": 19.32,
+      "marketCap": 154226150,
+      "beta": 1.151,
+      "lastDividend": 5,
+      "range": "15.94-32.93",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 482348,
+      "averageVolume": 69114,
+      "companyName": "Stratus Properties Inc.",
+      "currency": "USD",
+      "cik": "0000885508",
+      "isin": "US8631672016",
+      "cusip": "863167201",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Real Estate - Diversified",
+      "website": "https://www.stratusproperties.com",
+      "description": "Stratus Properties Inc. is a real estate company primarily active in Texas, specializing in the entire property lifecycle from acquisition and obtaining necessary permits to development, ongoing management, and eventual sale. Their portfolio encompasses commercial, multi-unit, and single-family residential properties. The firm's business activities are structured into two principal divisions: Real Estate Operations and Leasing Operations. Through its Leasing Operations, the company offers rental spaces in various assets, including retail establishments, mixed-use complexes, and multi-family dwellings. Stratus Properties Inc. was founded in 1992 and has its corporate headquarters located in Austin, Texas.",
+      "ceo": "William H. Armstrong",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "34",
+      "phone": "512 478 5788",
+      "address": "212 Lavaca Street",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78701",
+      "image": "https://images.financialmodelingprep.com/symbol/STRS.png",
+      "ipoDate": "1992-07-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "STRS",
+      "date": "2015-12-31",
+      "marketCap": 164729110
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040785.8013365,
+  "previous_attempts": [
+    {
+      "symbol": "STRS",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040309.8440385
+    }
+  ]
+}

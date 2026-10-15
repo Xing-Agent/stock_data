@@ -1,0 +1,54 @@
+{
+  "symbol": "GE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GE",
+      "price": 307.02,
+      "marketCap": 318552442741,
+      "beta": 1.374,
+      "lastDividend": 1.66,
+      "range": "268.91-388.84",
+      "change": -0.61,
+      "changePercentage": -0.19829,
+      "volume": 3302020,
+      "averageVolume": 4221077,
+      "companyName": "GE Aerospace",
+      "currency": "USD",
+      "cik": "0000040545",
+      "isin": "US3696043013",
+      "cusip": "369604301",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Aerospace & Defense",
+      "website": "https://www.geaerospace.com",
+      "description": "Based in Evendale, Ohio, GE Aerospace is a prominent American aviation enterprise with roots tracing back to its 1878 founding by Thomas Alva Edison. The company specializes in manufacturing and supplying jet and turboprop engines, along with integrated systems, for an extensive range of aircraft, including those in commercial, military, business, and general aviation use. Its robust brand lineup features Avio Aero, Unison, GE Additive, and Dowty Propellers. GE Aerospace organizes its activities into two core segments: Commercial Engines & Services, and Defense & Propulsion Technologies. The Commercial Engines & Services division oversees the design, development, production, and maintenance of jet engines for commercial airframes, business aviation, and aeroderivative applications. Meanwhile, the Defense & Propulsion Technologies segment is dedicated to providing vital engines and critical systems for defense-related aerospace needs.",
+      "ceo": "H. Lawrence Culp Jr.",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "57000",
+      "phone": "617-443-3000",
+      "address": "1 Neumann Way",
+      "city": "Evendale",
+      "state": "OH",
+      "zip": "45215",
+      "image": "https://images.financialmodelingprep.com/symbol/GE.png",
+      "ipoDate": "1962-01-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GE",
+      "date": "2015-12-31",
+      "marketCap": 173070270000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041861.4926276
+}

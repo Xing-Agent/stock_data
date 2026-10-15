@@ -1,0 +1,54 @@
+{
+  "symbol": "DIN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DIN",
+      "price": 31.23,
+      "marketCap": 395345255,
+      "beta": 0.993,
+      "lastDividend": 1.08,
+      "range": "23.23-39.68",
+      "change": 0.31,
+      "changePercentage": 1.00259,
+      "volume": 347570,
+      "averageVolume": 383694,
+      "companyName": "Dine Brands Global, Inc.",
+      "currency": "USD",
+      "cik": "0000049754",
+      "isin": "US2544231069",
+      "cusip": "254423106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Restaurants",
+      "website": "https://www.dinebrands.com",
+      "description": "Dine Brands Global, Inc., along with its associated entities, manages a portfolio of full-service dining establishments, utilizing various models including direct ownership, franchising agreements, operational oversight, and property leasing, both domestically in the U.S. and across global markets. The enterprise structures its business into five principal divisions: Applebee's Franchise Management, IHOP Franchise Management, Real Estate Leasing, Financial Services, and Corporate Restaurant Operations. It holds ownership and franchising rights for two prominent restaurant brands: Applebee's Neighborhood Grill + Bar, a casual dining concept specializing in the bar and grill segment, and IHOP, a well-known name in the family dining sector. Applebee's locations feature classic American cuisine complemented by a selection of beverages, while IHOP establishments are recognized for their extensive table service and diverse food and drink menu. As of the close of 2021, the company's network encompassed 1,611 franchised Applebee's eateries and 1,751 IHOP outlets operating under either franchise or area license agreements. Furthermore, Dine Brands participates in the leasing or subleasing of 598 IHOP franchised properties and two Applebee's franchised properties, in addition to providing financial solutions for franchise fees and equipment acquisition. Formerly operating as DineEquity, Inc., the firm adopted its current designation, Dine Brands Global, Inc., in February 2018. Established in 1958, its corporate headquarters are situated in Glendale, California.",
+      "ceo": "John W. Peyton",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "992",
+      "phone": "818 240 6055",
+      "address": "10 West Walnut Street",
+      "city": "Pasadena",
+      "state": "CA",
+      "zip": "91103",
+      "image": "https://images.financialmodelingprep.com/symbol/DIN.png",
+      "ipoDate": "1991-07-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DIN",
+      "date": "2015-12-31",
+      "marketCap": 1546074200
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040317.6255498
+}

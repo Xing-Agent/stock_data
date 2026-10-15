@@ -1,0 +1,54 @@
+{
+  "symbol": "PANL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PANL",
+      "price": 8.17,
+      "marketCap": 534920668,
+      "beta": 0.809,
+      "lastDividend": 0.25,
+      "range": "4.705-9.39",
+      "change": -0.31,
+      "changePercentage": -3.65566,
+      "volume": 425698,
+      "averageVolume": 436616,
+      "companyName": "Pangaea Logistics Solutions, Ltd.",
+      "currency": "USD",
+      "cik": "0001606909",
+      "isin": "BMG6891L1054",
+      "cusip": "G6891L105",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Marine Shipping",
+      "website": "https://www.pangaeals.com",
+      "description": "Pangaea Logistics Solutions, Ltd., along with its subsidiary companies, offers specialized global seaborne transportation and logistics services for dry bulk commodities to industrial clients. The firm handles a wide variety of dry bulk cargoes, including grains, coal, iron ore, pig iron, hot briquetted iron, bauxite, alumina, cement clinker, dolomite, and limestone. Its marine logistics offerings encompass cargo handling (loading and discharge), vessel chartering, meticulous voyage planning, and professional technical management for its ships. As of March 16, 2022, Pangaea owned and operated a fleet of 25 vessels. Founded in 1996, the company's headquarters are located in Newport, Rhode Island.",
+      "ceo": "Mads Rosenberg Boye Petersen",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "170",
+      "phone": "401 846 7790",
+      "address": "109 Long Wharf",
+      "city": "Newport",
+      "state": "RI",
+      "zip": "02840",
+      "image": "https://images.financialmodelingprep.com/symbol/PANL.png",
+      "ipoDate": "2013-12-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PANL",
+      "date": "2015-12-31",
+      "marketCap": 92743757
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041437.7718892
+}

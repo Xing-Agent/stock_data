@@ -1,0 +1,54 @@
+{
+  "symbol": "HSTM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HSTM",
+      "price": 33.65,
+      "marketCap": 1029551530,
+      "beta": 0.422,
+      "lastDividend": 0.136,
+      "range": "19.5-34.48",
+      "change": -0.1,
+      "changePercentage": -0.2963,
+      "volume": 199690,
+      "averageVolume": 197075,
+      "companyName": "HealthStream, Inc.",
+      "currency": "USD",
+      "cik": "0001095565",
+      "isin": "US42222N1037",
+      "cusip": "42222N103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Healthcare Information Services",
+      "website": "https://www.healthstream.com",
+      "description": "HealthStream, Inc., established in 1990 and headquartered in Nashville, Tennessee, delivers specialized workforce and provider solutions to healthcare organizations throughout the United States. Its operations are divided into two primary segments: Workforce Solutions and Provider Solutions. The Workforce Solutions segment provides a suite of software-as-a-service (SaaS) and subscription-based tools. These comprehensive services address various aspects of healthcare staff development and management, encompassing clinical skill enhancement, talent acquisition and retention, training programs, educational resources, professional certification, scheduling logistics, competency evaluations, and performance reviews. Additionally, this segment offers support through implementation and account management. Specific applications under this umbrella cover learning platforms, performance assessment, competency tracking, disclosure management, clinical skill evaluation, simulation-based learning, quality assurance, and sector-specific training. Complementing this, the Provider Solutions segment focuses on administrative and operational needs. It includes VerityStream, an enterprise platform designed to optimize the experience for healthcare providers across diverse settings such as ambulatory surgery centers, urgent care clinics, medical groups, and other facilities. Furthermore, HealthStream offers EchoCredentialing and MSOW platforms to streamline the credentialing, enrollment, and privileging processes for medical staff in hospitals. EchoOneApp facilitates provider enrollment for medical groups. Other key offerings comprise CredentialMyDoc, a SaaS solution for credentialing and enrollment for medical groups and surgery centers; CredentialStream, another SaaS-based platform for provider credentialing, privileging, and enrollment; and NurseGrid Mobile, a dedicated application for nurse managers. These diverse solutions are marketed directly to a broad spectrum of healthcare entities, including private, non-profit, and governmental organizations, as well as pharmaceutical and medical device manufacturers.",
+      "ceo": "Robert A. Frist Jr.",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "1150",
+      "phone": "615 301 3100",
+      "address": "500 11th Avenue North",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "37203",
+      "image": "https://images.financialmodelingprep.com/symbol/HSTM.png",
+      "ipoDate": "2000-04-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HSTM",
+      "date": "2015-12-31",
+      "marketCap": 696652000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040353.6490526
+}

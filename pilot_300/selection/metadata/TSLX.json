@@ -1,0 +1,54 @@
+{
+  "symbol": "TSLX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TSLX",
+      "price": 17.18,
+      "marketCap": 1632436728,
+      "beta": 0.657,
+      "lastDividend": 1.8,
+      "range": "16.04-23.19",
+      "change": 0.06,
+      "changePercentage": 0.35047,
+      "volume": 522907,
+      "averageVolume": 541152,
+      "companyName": "Sixth Street Specialty Lending, Inc.",
+      "currency": "USD",
+      "cik": "0001508655",
+      "isin": "US83012A1097",
+      "cusip": "83012A109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Asset Management",
+      "website": "https://www.sixthstreetspecialtylending.com",
+      "description": "Sixth Street Specialty Lending, Inc. (TSLX) functions as a specialized Business Development Company. It provides a wide array of financing solutions, including various forms of debt such as senior secured loans (encompassing first-lien, second-lien, and unitranche facilities), unsecured loans, and mezzanine debt. The firm also strategically allocates capital to corporate bonds, equity securities, structured products, non-control structured equity, and common equity, frequently engaging in co-investments. These financial commitments primarily aim to facilitate corporate endeavors like organic expansion, strategic acquisitions, market or product diversification, restructuring initiatives, recapitalizations, and refinancing. Its investment focus covers a broad range of sectors, including business services, software and technology, healthcare, energy, consumer and retail, manufacturing, industrials, royalty-generating enterprises, education, and specialty finance. The company primarily targets middle-market companies, with a strong emphasis on those situated within the United States. Prospective portfolio companies typically exhibit an enterprise value between $50 million and more than $1 billion, alongside EBITDA figures ranging from $10 million to $250 million. Individual transaction sizes generally range from $15 million to $350 million. Sixth Street Specialty Lending is adept at investing across the entire capital structure, possesses the capacity to arrange syndicated transactions totaling up to $500 million, and can maintain significant ownership stakes within its credit exposures.",
+      "ceo": "Robert J. Stanley",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "0",
+      "phone": "469-621-3001",
+      "address": "2100 McKinney Avenue",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75201",
+      "image": "https://images.financialmodelingprep.com/symbol/TSLX.png",
+      "ipoDate": "2014-03-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TSLX",
+      "date": "2015-12-31",
+      "marketCap": 960640659
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040409.546755
+}

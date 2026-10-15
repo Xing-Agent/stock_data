@@ -1,0 +1,54 @@
+{
+  "symbol": "SOHO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SOHO",
+      "price": 2.25,
+      "marketCap": 46103627,
+      "beta": 0.676,
+      "lastDividend": 0,
+      "range": "0.59-2.25",
+      "change": 0.01,
+      "changePercentage": 0.44643,
+      "volume": 606425,
+      "averageVolume": 127159,
+      "companyName": "Sotherly Hotels Inc.",
+      "currency": "USD",
+      "cik": "0001301236",
+      "isin": "US83600C1036",
+      "cusip": "83600C103",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Hotel & Motel",
+      "website": "https://www.sotherlyhotels.com",
+      "description": "Sotherly Hotels Inc. functions as an internally managed and administered lodging real estate investment trust (REIT), with its primary focus being the acquisition, refurbishment, brand enhancement, and strategic repositioning of upscale to upper-upscale full-service hotels situated throughout the Southern United States. Presently, the company's investment portfolio includes twelve hotel properties, which collectively offer 3,156 guest rooms, along with stakes in two condominium hotels and their associated rental programs. These holdings comprise properties operating under renowned brands like Hilton Worldwide, Hyatt Hotels Corporation, and Marriott International, Inc., as well as several independent hotel establishments. Sotherly Hotels Inc. was established in 2004 and is headquartered in Williamsburg, Virginia.",
+      "ceo": "David R. Folsom",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "9",
+      "phone": "(757) 229-5648",
+      "address": "306 South Henry Street",
+      "city": "Williamsburg",
+      "state": "VA",
+      "zip": "23185",
+      "image": "https://images.financialmodelingprep.com/symbol/SOHO.png",
+      "ipoDate": "2004-12-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SOHO",
+      "date": "2015-12-31",
+      "marketCap": 91124331
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040998.5532079
+}

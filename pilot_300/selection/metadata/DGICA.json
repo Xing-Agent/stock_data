@@ -1,0 +1,54 @@
+{
+  "symbol": "DGICA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DGICA",
+      "price": 18.18,
+      "marketCap": 671145006,
+      "beta": -0.025,
+      "lastDividend": 0.75,
+      "range": "16.11-21.06",
+      "change": -0.08,
+      "changePercentage": -0.43812,
+      "volume": 149454,
+      "averageVolume": 128992,
+      "companyName": "Donegal Group Inc.",
+      "currency": "USD",
+      "cik": "0000800457",
+      "isin": "US2577012014",
+      "cusip": "257701201",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Insurance - Property & Casualty",
+      "website": "https://www.donegalgroup.com",
+      "description": "Donegal Group, Inc. is an insurance holding company, which engages in the provision of property and casualty insurance to businesses and individuals. It operates through the following segments: Investment Function, Personal Lines of Insurance, and Commercial Lines of Insurance. The Investment Function segment covers investment activities. The Personal Lines of Insurance segment consists of homeowners and private passenger automobile policies. The Commercial Lines of Insurance segment includes commercial automobile, commercial multi-peril, and workers compensation policies. The company was founded on August 26, 1986 and is headquartered in Marietta, PA.",
+      "ceo": "Kevin G. Burke",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "851",
+      "phone": "800 877 0600",
+      "address": "1205 River Road",
+      "city": "Marietta",
+      "state": "PA",
+      "zip": "17547-0302",
+      "image": "https://images.financialmodelingprep.com/symbol/DGICA.png",
+      "ipoDate": "2003-07-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DGICA",
+      "date": "2015-12-31",
+      "marketCap": 367790945
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041795.5639384
+}

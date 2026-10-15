@@ -1,0 +1,54 @@
+{
+  "symbol": "ETSY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ETSY",
+      "price": 82.93,
+      "marketCap": 7611460362,
+      "beta": 1.859,
+      "lastDividend": 0,
+      "range": "44-87.974",
+      "change": 3.65,
+      "changePercentage": 4.60394,
+      "volume": 3831386,
+      "averageVolume": 3001640,
+      "companyName": "Etsy, Inc.",
+      "currency": "USD",
+      "cik": "0001370637",
+      "isin": "US29786A1060",
+      "cusip": "29786A106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Specialty Retail",
+      "website": "https://www.etsy.com",
+      "description": "Etsy, Inc. oversees online retail platforms designed to link independent merchants with a global customer base. Its primary marketplace is dedicated to unique and handcrafted items, while its Depop division focuses on the resale of apparel. The company's revenue streams largely originate from diverse marketplace fees, such as those for product listings, transactions, and payment processing, as well as from advertising services and optional seller utilities like shipping labels. Furthermore, Etsy administers programs aimed at improving search placement, providing buyer protection for qualifying orders, and offering financial incentives for seller-driven traffic. The enterprise was founded in 2005, formally incorporated as Indieco, Inc. in 2006, and then rebranded as Etsy, Inc. in June of the same year. Its corporate headquarters are located in Brooklyn, New York.",
+      "ceo": "Kruti Patel Goyal",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "2375",
+      "phone": "718 880 3660",
+      "address": "117 Adams Street",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zip": "11201",
+      "image": "https://images.financialmodelingprep.com/symbol/ETSY.png",
+      "ipoDate": "2015-04-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ETSY",
+      "date": "2015-12-31",
+      "marketCap": 978810000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041315.7968576
+}

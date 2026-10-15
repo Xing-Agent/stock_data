@@ -1,0 +1,54 @@
+{
+  "symbol": "EXTR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EXTR",
+      "price": 22.46,
+      "marketCap": 2968553473,
+      "beta": 1.756,
+      "lastDividend": 0,
+      "range": "13.48-33.73",
+      "change": -1.03,
+      "changePercentage": -4.38484,
+      "volume": 1018326,
+      "averageVolume": 1781424,
+      "companyName": "Extreme Networks, Inc.",
+      "currency": "USD",
+      "cik": "0001078271",
+      "isin": "US30226D1063",
+      "cusip": "30226D106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Communication Equipment",
+      "website": "https://www.extremenetworks.com",
+      "description": "Extreme Networks, Inc. is a global provider specializing in software-driven networking solutions. The company designs, develops, and manufactures both wired and wireless network infrastructure equipment, in addition to creating sophisticated software for network administration, policy enforcement, data analytics, cybersecurity, and access control. Central to its product line is ExtremeCloud IQ, an ML/AI-powered cloud network management solution that provides advanced visibility and control over users, devices, and applications across wired and wireless networks. Complementing this is ExtremeCloud IQ – Site Engine, which offers task automation, access control, granular real-time analytics, and multi-vendor device management. Furthermore, ExtremeCloud IQ Essentials extends features like Wireless Intrusion Prevention Systems (WIPS), location services, IoT capabilities, and guest management. Hardware offerings include wireless access point products and the comprehensive ExtremeSwitching portfolio. This portfolio features access edge devices with standard Ethernet and various Power-over-Ethernet (PoE) options, including high-power universal PoE; aggregation/core switches for network backbone requirements; and data center switches and routers. The company also develops cloud-native platforms and applications tailored for service providers, alongside offering robust customer support and professional services. Its products are marketed and sold globally through distributors, resellers, and field sales organizations, serving diverse markets such as healthcare, education, government, manufacturing, retail, and hospitality. Incorporated in 1996, Extreme Networks, Inc. maintains its headquarters in Morrisville, North Carolina.",
+      "ceo": "Edward Meyercord",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2894",
+      "phone": "408 579 2800",
+      "address": "2121 RDU Center Drive",
+      "city": "Morrisville",
+      "state": "NC",
+      "zip": "27560",
+      "image": "https://images.financialmodelingprep.com/symbol/EXTR.png",
+      "ipoDate": "1999-04-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EXTR",
+      "date": "2015-12-31",
+      "marketCap": 424744320
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041795.4007924
+}

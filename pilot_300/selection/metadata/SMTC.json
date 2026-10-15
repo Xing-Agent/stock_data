@@ -1,0 +1,54 @@
+{
+  "symbol": "SMTC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SMTC",
+      "price": 160.26,
+      "marketCap": 14956360656,
+      "beta": 2.415,
+      "lastDividend": 0,
+      "range": "60.28-201.99",
+      "change": -12.52,
+      "changePercentage": -7.24621,
+      "volume": 3322223,
+      "averageVolume": 3352863,
+      "companyName": "Semtech Corporation",
+      "currency": "USD",
+      "cik": "0000088941",
+      "isin": "US8168501018",
+      "cusip": "816850101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.semtech.com",
+      "description": "Semtech Corporation is a technology firm specializing in the creation, production, and global distribution of advanced analog and mixed-signal semiconductor components, complemented by sophisticated algorithms. The company's extensive product portfolio begins with signal integrity solutions. These encompass crucial optical data communication and video transport products utilized in various infrastructure and industrial environments. It also provides integrated circuits specifically engineered for data centers, corporate networks, passive optical networks, wireless base station optical transceivers, and high-speed interface applications. Furthermore, Semtech develops video technologies for broadcast purposes and professional audio-visual (AV) needs, including innovative video-over-IP technology. Another significant offering involves protection products, which integrate filter and termination devices with transient voltage suppressors. These components are designed to shield electronic systems from harmful voltage spikes. Semtech also provides a range of wireless and sensing technologies, including specialized radio frequency (RF) products for diverse industrial, medical, and communications sectors, alongside advanced sensing components for both industrial and consumer markets. Its product line extends to power management devices, such as switching voltage regulators, combination switching and linear regulators, smart regulators, isolated switches, and wireless charging solutions. These are essential for controlling, modifying, regulating, and conditioning electrical power within electronic systems. Semtech primarily serves original equipment manufacturers (OEMs) and their suppliers within the enterprise computing, communications, consumer, and industrial end-markets. The company distributes its products directly, as well as through a network of independent sales representative firms and independent distributors, reaching customers across North America, Europe, Asia-Pacific, and other international regions. The corporation was established in 1960 and maintains its headquarters in Camarillo, California.",
+      "ceo": "Hong Q. Hou",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "1920",
+      "phone": "805 498 2111",
+      "address": "200 Flynn Road",
+      "city": "Camarillo",
+      "state": "CA",
+      "zip": "93012-8790",
+      "image": "https://images.financialmodelingprep.com/symbol/SMTC.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SMTC",
+      "date": "2015-12-31",
+      "marketCap": 1228551280
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041308.1091363
+}

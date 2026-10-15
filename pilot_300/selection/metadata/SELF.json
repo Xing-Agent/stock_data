@@ -1,0 +1,54 @@
+{
+  "symbol": "SELF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SELF",
+      "price": 5.07,
+      "marketCap": 57906599,
+      "beta": 0.025,
+      "lastDividend": 0.29,
+      "range": "4.73-5.75",
+      "change": 0.05000023,
+      "changePercentage": 0.99602,
+      "volume": 49335,
+      "averageVolume": 27651,
+      "companyName": "Global Self Storage, Inc.",
+      "currency": "USD",
+      "cik": "0001031235",
+      "isin": "US37955N1063",
+      "cusip": "37955N106",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Specialty",
+      "website": "https://www.globalselfstorage.us",
+      "description": "Global Self Storage functions as an independently administered and managed real estate investment trust (REIT). Its primary activities encompass the ownership, operation, management, acquisition, development, and renovation of self-storage facilities. These properties are specifically engineered to deliver secure, conveniently located, and budget-friendly storage solutions for both residential and commercial clientele. Through its fully owned subsidiaries, the company currently holds and/or oversees a portfolio of thirteen self-storage locations spread across Connecticut, Illinois, Indiana, New York, Ohio, Pennsylvania, South Carolina, and Oklahoma.",
+      "ceo": "Mark Campbell Winmill",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "36",
+      "phone": "212-785-0900",
+      "address": "3814 Route 44",
+      "city": "Millbrook",
+      "state": "NY",
+      "zip": "12545-2855",
+      "image": "https://images.financialmodelingprep.com/symbol/SELF.png",
+      "ipoDate": "1997-02-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SELF",
+      "date": "2015-12-31",
+      "marketCap": 27812895
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041173.5191288
+}

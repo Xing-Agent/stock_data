@@ -1,0 +1,54 @@
+{
+  "symbol": "KOP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KOP",
+      "price": 43.67,
+      "marketCap": 825869572,
+      "beta": 1.231,
+      "lastDividend": 0.35,
+      "range": "25-53",
+      "change": -0.74,
+      "changePercentage": -1.66629,
+      "volume": 116617,
+      "averageVolume": 177235,
+      "companyName": "Koppers Holdings Inc.",
+      "currency": "USD",
+      "cik": "0001315257",
+      "isin": "US50060P1066",
+      "cusip": "50060P106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.koppers.com",
+      "description": "Koppers Holdings Inc., established in 1988 and headquartered in Pittsburgh, Pennsylvania, operates as a global supplier of specialized treated wood products, wood preservation chemicals, and various carbon-based compounds. The company's reach extends across the United States, Australasia, Europe, and other international regions. Its comprehensive business activities are structured into three distinct segments: 1. Railroad and Utility Products and Services (RUPS): This division is responsible for the procurement and treatment of essential timber products such as crossties, switch ties, and lumber utilized in railroad bridges and crossings. Additionally, RUPS provides components like rail joint bars for track construction, transmission and distribution poles for electrical and telecommunication utilities, and pilings for structural foundations. The segment also offers critical services, including engineering, design, repair, and inspection for railroad bridges. 2. Performance Chemicals (PC): This segment focuses on the development, manufacturing, and marketing of a range of copper-based wood preservatives. Key offerings include micronized copper azole, micronized pigments, alkaline copper quaternary, amine copper azole, and chromated copper arsenate. These preservatives are vital for treating wood used in applications such as decking, fencing, utility poles, construction lumber and timbers, and various agricultural uses. Furthermore, the PC segment supplies fire-retardant chemicals specifically formulated for pressure-treating wood, primarily for commercial building projects. 3. Carbon Materials and Chemicals (CMC): Within this segment, Koppers produces a variety of carbon-derived products. These include creosote, which serves both as a wood treatment and a feedstock for carbon black; carbon pitch, a fundamental raw material for aluminum and steel manufacturing; naphthalene, used as a feedstock in phthalic anhydride production and as a surfactant in concrete; phthalic anhydride, an ingredient in plasticizers, polyester resins, and alkyd paints; and carbon black feedstock, crucial for the production of carbon black. Koppers Holdings Inc. serves a wide array of sectors, including the railroad, specialty chemical, utility, residential lumber, agriculture, aluminum, steel, rubber, and construction industries.",
+      "ceo": "Leroy Mangus Ball Jr.",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "1859",
+      "phone": "412 227 2001",
+      "address": "436 Seventh Avenue",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15219-1800",
+      "image": "https://images.financialmodelingprep.com/symbol/KOP.png",
+      "ipoDate": "2006-02-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KOP",
+      "date": "2015-12-31",
+      "marketCap": 375621500
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041443.6775105
+}

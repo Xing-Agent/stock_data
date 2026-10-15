@@ -1,0 +1,54 @@
+{
+  "symbol": "TRN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TRN",
+      "price": 26.13,
+      "marketCap": 2081763669,
+      "beta": 1.355,
+      "lastDividend": 1.24,
+      "range": "24.76-38.31",
+      "change": -0.12,
+      "changePercentage": -0.45714,
+      "volume": 774844,
+      "averageVolume": 728816,
+      "companyName": "Trinity Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000099780",
+      "isin": "US8965221091",
+      "cusip": "896522109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Railroads",
+      "website": "https://www.trin.net",
+      "description": "Trinity Industries, Inc. operates in North America, providing railway transportation solutions under its TrinityRail brand. The company is organized into two main divisions: Railcar Leasing and Management Services, and Rail Products. The Railcar Leasing and Management Services group focuses on leasing freight and tank railcars, overseeing railcar leases on behalf of third-party investors, and offering comprehensive fleet maintenance and management. As of December 31, 2021, this segment managed a fleet of 106,970 railcars, which it either owned or leased. Its customers are industrial shippers and railroad companies across various sectors, including agriculture, construction and metals, consumer goods, energy, and refined products and chemicals. Conversely, the Rail Products Group manufactures freight and tank railcars designed for transporting diverse liquids, gases, and dry cargo. This division also provides railcar maintenance and modification services. Its clientele includes railroads, leasing businesses, and industrial shippers in the same key markets: agriculture, construction and metals, consumer products, energy, and refined products and chemicals. Trinity Industries distributes its offerings via both its internal sales teams and independent representatives. Established in 1933, the company maintains its headquarters in Dallas, Texas.",
+      "ceo": "E. Jean Savage",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "6110",
+      "phone": "214 631 4420",
+      "address": "14221 North Dallas Parkway",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75254-2957",
+      "image": "https://images.financialmodelingprep.com/symbol/TRN.png",
+      "ipoDate": "1973-05-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TRN",
+      "date": "2015-12-31",
+      "marketCap": 2564107000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041932.007482
+}

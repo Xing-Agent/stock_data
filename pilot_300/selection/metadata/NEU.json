@@ -1,0 +1,54 @@
+{
+  "symbol": "NEU",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NEU",
+      "price": 890.21,
+      "marketCap": 8186736146,
+      "beta": 0.558,
+      "lastDividend": 12,
+      "range": "580.03-981.66",
+      "change": -8.77,
+      "changePercentage": -0.97555,
+      "volume": 126076,
+      "averageVolume": 119596,
+      "companyName": "NewMarket Corporation",
+      "currency": "USD",
+      "cik": "0001282637",
+      "isin": "US6515871076",
+      "cusip": "651587107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.newmarket.com",
+      "description": "NewMarket Corporation, through its various subsidiaries, operates primarily in the specialty chemicals sector, specializing in the creation and supply of petroleum additives. The company furnishes an extensive selection of lubricant additives that are vital for optimizing performance across a wide array of automotive and industrial machinery. These formulations cater to diverse applications, including engine oils (used in passenger cars, motorcycles, heavy-duty commercial vehicles, locomotives, and marine engines), driveline systems (such as transmission and axle fluids, and lubricants for off-road powertrains), and a variety of industrial fluids (like hydraulic fluids, greases, industrial gear lubricants, and specialized turbine oils). Essentially, these additives are engineered to enhance components wherever metal surfaces engage in motion. Additionally, NewMarket engineers fuel additives that contribute to the efficiency of the oil refining process and notably improve the properties and performance of different fuels, including gasoline, diesel, and biofuels. These essential products are distributed to a broad spectrum of clients, encompassing industrial enterprises, governmental entities, original equipment manufacturers, and individual end-users. Beyond its core additive offerings, the corporation is also involved in producing antiknock compounds, delivering contract manufacturing services, and owns and oversees a real estate holding located in Virginia. Founded in 1887, NewMarket Corporation is headquartered in Richmond, Virginia, and maintains a significant global footprint with operations spanning North America, Latin America, the Asia Pacific region, Europe, the Middle East, Africa, and India.",
+      "ceo": "Thomas E. Gottwald",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "2050",
+      "phone": "804 788 5000",
+      "address": "330 South Fourth Street",
+      "city": "Richmond",
+      "state": "VA",
+      "zip": "23219-4350",
+      "image": "https://images.financialmodelingprep.com/symbol/NEU.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NEU",
+      "date": "2015-12-31",
+      "marketCap": 4507462850
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040267.5379097
+}

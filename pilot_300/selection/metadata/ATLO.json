@@ -1,0 +1,63 @@
+{
+  "symbol": "ATLO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ATLO",
+      "price": 31.85,
+      "marketCap": 282102457,
+      "beta": 0.302,
+      "lastDividend": 0.92,
+      "range": "19.56-32.86",
+      "change": -0.05,
+      "changePercentage": -0.15674,
+      "volume": 26207,
+      "averageVolume": 56194,
+      "companyName": "Ames National Corporation",
+      "currency": "USD",
+      "cik": "0001132651",
+      "isin": "US0310011004",
+      "cusip": "031001100",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.amesnational.com",
+      "description": "Ames National Corporation operates as a multi-bank holding company that provides banking products and services primarily in Boone, Clarke, Hancock, Marshall, Polk, Story, Taylor, and Union Counties in central, north-central, and south-central Iowa. It accepts various deposit products, including checking and savings accounts; and time deposits, such as money market accounts and certificates of deposit. The company also provides loans, such as short-term and medium-term commercial, multi-family and agricultural real estate, residential real estate loans, equipment, vehicle, and home improvement loans; consumer loans to finance consumer purchases, such as automobiles, trucks, recreational vehicles, household furnishings, boats, personal loans, and lines of credit; agricultural and business operating loans and lines of credit; and originates mortgage loans for sale into the secondary market. In addition, it offers cash management, merchant credit card processing, safe deposit box, wire transfer, direct deposit, and automated/video teller machine access services; and automatic drafts for various accounts, as well as wealth management services. Further, it provides farm management, investment, and custodial services for individuals, businesses, and non-profit organizations; and online, mobile, and private banking services. Ames National Corporation was founded in 1903 and is headquartered in Ames, Iowa.",
+      "ceo": "John Nelson",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "261",
+      "phone": "515 232 6251",
+      "address": "323 Sixth Street",
+      "city": "Ames",
+      "state": "IA",
+      "zip": "50010",
+      "image": "https://images.financialmodelingprep.com/symbol/ATLO.png",
+      "ipoDate": "2000-02-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ATLO",
+      "date": "2015-12-31",
+      "marketCap": 225546932
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040891.1583312,
+  "previous_attempts": [
+    {
+      "symbol": "ATLO",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040520.1918132
+    }
+  ]
+}

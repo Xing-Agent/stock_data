@@ -1,0 +1,54 @@
+{
+  "symbol": "RGNX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RGNX",
+      "price": 6.88,
+      "marketCap": 355677816,
+      "beta": 0.933,
+      "lastDividend": 0,
+      "range": "5.455-16.19",
+      "change": -0.38,
+      "changePercentage": -5.23416,
+      "volume": 1564940,
+      "averageVolume": 1815734,
+      "companyName": "REGENXBIO Inc.",
+      "currency": "USD",
+      "cik": "0001590877",
+      "isin": "US75901B1070",
+      "cusip": "75901B107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.regenxbio.com",
+      "description": "REGENXBIO Inc. is a biotechnology company operating in the clinical stage, dedicated to developing gene therapy candidates. These therapies are designed to introduce genes into cells, aiming either to rectify genetic deficiencies or to stimulate the body's own cells to produce therapeutic proteins or antibodies to combat diseases. Central to its therapeutic development is the proprietary NAV Technology Platform, an adeno-associated virus-based gene delivery system. The company's primary investigational asset, RGX-314, is currently in Phase III clinical trials for treating wet age-related macular degeneration. Its pipeline also includes RGX-121 and RGX-111, both in Phase I/II trials for mucopolysaccharidosis type II and type I, respectively; RGX-181, which is in preclinical development for late-infantile neuronal ceroid lipofuscinosis type II disease; RGX-202, undergoing Phase I/II evaluation for Duchenne muscular dystrophy; and RGX-381, at the preclinical stage for addressing the ocular manifestations of CLN2 disease. In addition to its internal programs, REGENXBIO Inc. licenses its NAV Technology Platform to other biotech and pharmaceutical enterprises. It also maintains a collaborative and licensing agreement with Neurimmune AG for the advancement of innovative gene therapies. Founded in 2008, REGENXBIO Inc. maintains its headquarters in Rockville, Maryland.",
+      "ceo": "Curran Simpson",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "371",
+      "phone": "240 552 8181",
+      "address": "9804 Medical Center Drive",
+      "city": "Rockville",
+      "state": "MD",
+      "zip": "20850",
+      "image": "https://images.financialmodelingprep.com/symbol/RGNX.png",
+      "ipoDate": "2015-09-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RGNX",
+      "date": "2015-12-31",
+      "marketCap": 437028200
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041766.5847726
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "WTBA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WTBA",
+      "price": 28.35,
+      "marketCap": 483188895,
+      "beta": 0.696,
+      "lastDividend": 1.01,
+      "range": "19.03-30.5",
+      "change": -0.4,
+      "changePercentage": -1.3913,
+      "volume": 79936,
+      "averageVolume": 68149,
+      "companyName": "West Bancorporation, Inc.",
+      "currency": "USD",
+      "cik": "0001166928",
+      "isin": "US95123P1066",
+      "cusip": "95123P106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.westbankstrong.com",
+      "description": "West Bancorporation, Inc. functions as the holding company for West Bank, delivering a comprehensive suite of community banking and trust services. Serving individuals and small-to-medium enterprises throughout the United States, its financial offerings include a variety of deposit options such as checking, savings, money market accounts, and time certificates of deposit. The institution also provides diverse lending solutions, spanning commercial real estate, construction and land development, business lines of credit, and commercial term loans. Furthermore, it offers consumer loans for personal, household, and family expenditures not secured by property, alongside residential mortgages for 1-4 family homes and home equity loans. Beyond traditional banking, the company specializes in trust administration, managing estates, conservatorships, personal trusts, and agency accounts. Supplementary services encompass internet and mobile banking platforms, treasury management solutions—like cash management, client-generated ACH transactions, remote deposit capabilities, and fraud prevention—as well as merchant credit card processing and corporate credit cards. West Bancorporation, Inc. maintains a physical presence through seven offices in the Des Moines vicinity, one location in Coralville, Iowa, and individual branches situated in Rochester, Owatonna, Mankato, and St. Cloud, Minnesota. This entity, founded in 1893, is headquartered in West Des Moines, Iowa.",
+      "ceo": "David D. Nelson",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "180",
+      "phone": "515 222 2300",
+      "address": "3330 Westown Parkway",
+      "city": "West Des Moines",
+      "state": "IA",
+      "zip": "50266",
+      "image": "https://images.financialmodelingprep.com/symbol/WTBA.png",
+      "ipoDate": "1999-05-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WTBA",
+      "date": "2015-12-31",
+      "marketCap": 317382500
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040405.7325063
+}

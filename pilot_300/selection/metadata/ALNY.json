@@ -1,0 +1,54 @@
+{
+  "symbol": "ALNY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ALNY",
+      "price": 224.47,
+      "marketCap": 30036106230,
+      "beta": 0.27,
+      "lastDividend": 0,
+      "range": "197.81-495.55",
+      "change": 0.65,
+      "changePercentage": 0.29041,
+      "volume": 1105611,
+      "averageVolume": 1667110,
+      "companyName": "Alnylam Pharmaceuticals, Inc.",
+      "currency": "USD",
+      "cik": "0001178670",
+      "isin": "US02043Q1076",
+      "cusip": "02043Q107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.alnylam.com",
+      "description": "Alnylam Pharmaceuticals, Inc. is a biopharmaceutical company primarily dedicated to the discovery, development, and commercialization of innovative therapeutic solutions leveraging ribonucleic acid interference (RNAi) technology. Its robust pipeline of RNAi-based treatments addresses a range of critical therapeutic areas, including inherited genetic disorders, cardio-metabolic conditions, hepatic infectious diseases, and central nervous system (CNS) and ocular disorders. Currently, Alnylam offers several approved therapies: ONPATTRO (patisiran) for adults suffering from polyneuropathy associated with hereditary transthyretin-mediated amyloidosis; GIVLAARI for adult patients with acute hepatic porphyria (AHP); and OXLUMO (lumasiran) for primary hyperoxaluria type 1 (PH1). Beyond its commercial portfolio, the company maintains an active development pipeline. Key investigational therapies include givosiran, aimed at adolescent patients with AHP; patisiran, being explored for transthyretin amyloidosis (ATTR) with cardiomyopathy; cemdisiran for complement-mediated disorders; ALN-AAT02 for AAT deficiency-associated liver disease; ALN-HBV02 for chronic hepatitis B virus infection; Zilebesiran for hypertension; and ALN-HSD for non-alcoholic steatohepatitis (NASH). Additionally, other candidates such as Fitusiran for hemophilia and bleeding disorders, Inclisiran for hypercholesterolemia, an expanded indication for lumasiran for advanced PH1 and recurrent kidney stones, and vutrisiran for ATTR amyloidosis (currently in Phase 3 clinical trials) are also progressing. Alnylam also engages in strategic alliances with other pharmaceutical leaders. Notable collaborations include those with Regeneron Pharmaceuticals, Inc., focused on discovering and developing RNAi therapeutics for ocular and CNS targets, and with Sanofi Genzyme for broader RNAi therapeutic development and commercialization efforts. Further licensing and partnership agreements are in place with entities such as Novartis AG, Vir Biotechnology, Inc., Dicerna Pharmaceuticals, Inc., Ionis Pharmaceuticals, Inc., and PeptiDream, Inc. Established in 2002, Alnylam Pharmaceuticals maintains its corporate headquarters in Cambridge, Massachusetts.",
+      "ceo": "Yvonne L. Greenstreet",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "2500",
+      "phone": "617 551 8200",
+      "address": "675 West Kendall Street",
+      "city": "Cambridge",
+      "state": "MA",
+      "zip": "02142",
+      "image": "https://images.financialmodelingprep.com/symbol/ALNY.png",
+      "ipoDate": "2004-06-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ALNY",
+      "date": "2015-12-31",
+      "marketCap": 8027976780
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040298.7802246
+}

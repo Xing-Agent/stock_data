@@ -1,0 +1,54 @@
+{
+  "symbol": "SIVB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SIVB",
+      "price": 106.04,
+      "marketCap": 0,
+      "beta": 1.569273,
+      "lastDividend": 0,
+      "range": "0.01-578.63",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 0,
+      "averageVolume": 5858208,
+      "companyName": "SVB Financial Group",
+      "currency": "USD",
+      "cik": "0000719739",
+      "isin": "US78486Q1013",
+      "cusip": "78486Q101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.svb.com",
+      "description": "SVB Financial Group operates as a comprehensive financial services firm, delivering a broad spectrum of banking and financial solutions. Its operations are structured into four key divisions: Global Commercial Bank, SVB Private Bank, SVB Capital, and SVB Securities. The Global Commercial Bank division specializes in commercial banking, offering diverse credit facilities, robust treasury management tools, and international trade and foreign exchange solutions. Its credit portfolio includes offerings ranging from traditional term and equipment loans, asset-backed financing, and revolving credit lines to specialized facilities for warehouse funding, recurring revenue, acquisitions, and corporate working capital, alongside various credit card programs. Its treasury offerings encompass diverse account types—such as business and analysis checking, money market, multi-currency, and sweep accounts—as well as receivables services like merchant processing, remote capture, lockbox, and fraud control. Additionally, it facilitates payments via wire transfer and automated clearing house (ACH), and provides business bill pay, debit/credit cards, account analysis, and disbursement services. Furthermore, this segment offers foreign exchange and trade finance products, letters of credit, and investment services. SVB Private Bank extends its services to individuals, providing a suite of personal lending options including mortgages, home equity lines of credit, and loans secured by restricted or private stock, as well as general secured and unsecured lending. Beyond lending, it offers sophisticated wealth management, financial and tax planning, and trust and family office services, all underpinned by planning-based financial strategies. SVB Capital focuses on venture capital investments. Finally, SVB Securities operates as an investment bank, aiding clients with capital raising, merger and acquisition advisory, equity research, and sales and trading activities. The group maintains an extensive global presence with 56 offices across the United States and internationally. Founded in 1983, its corporate headquarters are situated in Santa Clara, California.",
+      "ceo": "Philip C. Cox",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "8553",
+      "phone": "408 654 7400",
+      "address": "3003 Tasman Drive",
+      "city": "Santa Clara",
+      "state": "CA",
+      "zip": "95054-1191",
+      "image": "https://images.financialmodelingprep.com/symbol/SIVB.png",
+      "ipoDate": "1987-10-26",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SIVB",
+      "date": "2015-12-31",
+      "marketCap": 6140690732
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041239.2118707
+}

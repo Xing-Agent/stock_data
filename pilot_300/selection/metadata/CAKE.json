@@ -1,0 +1,54 @@
+{
+  "symbol": "CAKE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CAKE",
+      "price": 112.85,
+      "marketCap": 5613464485,
+      "beta": 1.037,
+      "lastDividend": 1.17,
+      "range": "43.07-118.46",
+      "change": 0.48,
+      "changePercentage": 0.42716,
+      "volume": 1167612,
+      "averageVolume": 1564587,
+      "companyName": "The Cheesecake Factory Incorporated",
+      "currency": "USD",
+      "cik": "0000887596",
+      "isin": "US1630721017",
+      "cusip": "163072101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Restaurants",
+      "website": "https://www.thecheesecakefactory.com",
+      "description": "The Cheesecake Factory Incorporated primarily operates restaurants. The company also maintains two bakeries that produce its signature cheesecakes and other baked goods. These products are distributed to its own restaurant network, international licensees, external foodservice operators, third-party bakery customers, retailers, and distributors. The Cheesecake Factory operates 306 restaurants across the United States and Canada, featuring brands such as 208 The Cheesecake Factory locations, 29 North Italia outlets, and various Fox Restaurant Concepts. Furthermore, 29 The Cheesecake Factory restaurants are run internationally under licensing agreements. Founded in 1972, the company's headquarters are located in Calabasas, California.",
+      "ceo": "David Overton",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "48400",
+      "phone": "818 871 3000",
+      "address": "26901 Malibu Hills Road",
+      "city": "Calabasas",
+      "state": "CA",
+      "zip": "91301",
+      "image": "https://images.financialmodelingprep.com/symbol/CAKE.png",
+      "ipoDate": "1992-09-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CAKE",
+      "date": "2015-12-31",
+      "marketCap": 2237164980
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041248.1051073
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "EXLS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EXLS",
+      "price": 37.36,
+      "marketCap": 5664261680,
+      "beta": 0.839,
+      "lastDividend": 0,
+      "range": "24.85-43.88",
+      "change": 0.16,
+      "changePercentage": 0.43011,
+      "volume": 1422637,
+      "averageVolume": 2389743,
+      "companyName": "ExlService Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001297989",
+      "isin": "US3020811044",
+      "cusip": "302081104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Information Technology Services",
+      "website": "https://www.exlservice.com",
+      "description": "ExlService Holdings, Inc. functions as a global provider of data analytics, digital operational solutions, and comprehensive services, operating across the United States and internationally. The company organizes its operations into distinct segments: Insurance, Healthcare, Analytics, and Emerging Business. For the insurance sector, EXL delivers a suite of digital transformation and analytics-driven services. These offerings span a wide array of functions, including streamlined claims processing, administration of premiums and benefits, agency oversight, account reconciliation, policy research, underwriting assistance, new client acquisition, policy servicing, premium audits, various surveys (including commercial and residential), invoicing and collections, and enhanced customer support. These services are powered by cutting-edge digital technologies, artificial intelligence, machine learning, and sophisticated automation. Furthermore, EXL facilitates digital customer acquisition through a Software-as-a-Service (SaaS) model via its LifePRO and LISS platforms, and also provides subrogation services, including its comprehensive Subrosource software platform. In the healthcare domain, EXL presents CareRadius, an integrated care management system. It delivers diverse healthcare services such as care management, utilization review, disease management, payment accuracy, revenue enhancement, and customer interaction strategies for healthcare payers, service providers, pharmacy benefit management companies, and life sciences entities. Beyond these industry-specific services, EXL specializes in advanced predictive and prescriptive analytical capabilities. These are applied to critical areas like customer acquisition and lifecycle navigation, risk assessment and pricing, optimizing operational efficiency, oversight of credit and operational risks, ensuring payment accuracy and care coordination, and comprehensive data governance. Established in 1999, ExlService Holdings, Inc. maintains its corporate headquarters in New York, New York.",
+      "ceo": "Rohit Kapoor",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "65000",
+      "phone": "212 277 7100",
+      "address": "320 Park Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10022",
+      "image": "https://images.financialmodelingprep.com/symbol/EXLS.png",
+      "ipoDate": "2006-10-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EXLS",
+      "date": "2015-12-31",
+      "marketCap": 1544106982
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041950.2107947
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CCRN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CCRN",
+      "price": 13.25,
+      "marketCap": 428060913,
+      "beta": 0.447,
+      "lastDividend": 0,
+      "range": "7.43-14.99",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 1784165,
+      "averageVolume": 754302,
+      "companyName": "Cross Country Healthcare, Inc.",
+      "currency": "USD",
+      "cik": "0001141103",
+      "isin": "US2274831047",
+      "cusip": "227483104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Staffing & Employment Services",
+      "website": "https://www.crosscountry.com",
+      "description": "Cross Country Healthcare, Inc. is a U.S.-based provider specializing in talent management and consultative advisory services for healthcare organizations. The company operates through two main divisions: Nurse and Allied Staffing, and Physician Staffing. The Nurse and Allied Staffing segment offers a broad range of recruitment and personnel solutions under the Cross Country brand. This includes both temporary and direct-hire placements for travel nurses, local nurses, and various allied health professionals. It sources registered nurses, licensed practical nurses, certified nurse assistants, practitioners, and pharmacists for per diem or short-term engagements, as well as clinical and non-clinical specialists for longer contract durations. Additionally, this segment delivers comprehensive workforce solutions, including Managed Service Programs (MSP), Recruitment Process Outsourcing (RPO), and consulting, alongside retained and contingent search services for healthcare professionals. Its diverse clientele spans public and private hospitals (both acute and non-acute care), government facilities, national and local healthcare plans, managed care providers, public and charter schools, outpatient clinics, ambulatory care centers, and physician practice groups. The Physician Staffing segment, operating as Cross Country Locums, focuses on supplying independent contractor physicians across numerous specialties, certified registered nurse anesthetists (CRNAs), nurse practitioners, and physician assistants. These professionals are deployed on temporary assignments to various healthcare environments, such as acute and non-acute care facilities, medical group practices, government establishments, and managed care organizations. Cross Country Healthcare, Inc. was established in 1986 and is headquartered in Boca Raton, Florida.",
+      "ceo": "Kevin Cronin Clark",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "1106",
+      "phone": "561 998 2232",
+      "address": "5201 Congress Avenue",
+      "city": "Boca Raton",
+      "state": "FL",
+      "zip": "33487",
+      "image": "https://images.financialmodelingprep.com/symbol/CCRN.png",
+      "ipoDate": "2001-10-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CCRN",
+      "date": "2015-12-31",
+      "marketCap": 523758840
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040984.9845119
+}

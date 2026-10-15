@@ -1,0 +1,54 @@
+{
+  "symbol": "DVAX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DVAX",
+      "price": 15.5,
+      "marketCap": 1820087035,
+      "beta": 0.925,
+      "lastDividend": 0,
+      "range": "9.2-15.73",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 5659539,
+      "averageVolume": 3161713,
+      "companyName": "Dynavax Technologies Corporation",
+      "currency": "USD",
+      "cik": "0001029142",
+      "isin": "US2681582019",
+      "cusip": "268158201",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Drug Manufacturers - Specialty & Generic",
+      "website": "https://www.dynavax.com",
+      "description": "Dynavax Technologies Corporation is a biopharmaceutical firm specializing in the development and market introduction of innovative vaccines, primarily operating in the United States. The company's lead product is HEPLISAV-B, a vaccine approved for adults 18 years and older in the U.S. and Europe, which offers protection against all identified subtypes of the hepatitis B virus. Additionally, Dynavax produces and distributes CpG 1018, the specific adjuvant ingredient used in HEPLISAV-B. Dynavax maintains several strategic alliances, including a collaboration agreement with Valneva Scotland Limited, an agreement with Serum Institute of India Pvt. Ltd., and a sublicense agreement with Merck, Sharp & Dohme Corp. The company, incorporated in 1996, was originally named Double Helix Corporation before adopting the name Dynavax Technologies Corporation in September of that year. Its corporate headquarters are situated in Emeryville, California.",
+      "ceo": "Ryan Spencer",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "405",
+      "phone": "510 848 5100",
+      "address": "2100 Powell Street",
+      "city": "EmeryVille",
+      "state": "CA",
+      "zip": "94608",
+      "image": "https://images.financialmodelingprep.com/symbol/DVAX.png",
+      "ipoDate": "2004-02-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DVAX",
+      "date": "2015-12-31",
+      "marketCap": 929483520
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040968.0689914
+}

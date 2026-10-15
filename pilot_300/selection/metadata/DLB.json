@@ -1,0 +1,54 @@
+{
+  "symbol": "DLB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DLB",
+      "price": 58.84,
+      "marketCap": 5511471957,
+      "beta": 0.776,
+      "lastDividend": 1.44,
+      "range": "48.26-69.95",
+      "change": 0.48,
+      "changePercentage": 0.82248,
+      "volume": 617030,
+      "averageVolume": 927782,
+      "companyName": "Dolby Laboratories, Inc.",
+      "currency": "USD",
+      "cik": "0001308547",
+      "isin": "US25659T1079",
+      "cusip": "25659T107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Software - Application",
+      "website": "https://www.dolby.com",
+      "description": "Dolby Laboratories, Inc. develops pioneering audio and visual technologies designed to enhance entertainment and communication experiences across a broad spectrum of platforms. These include cinematic venues, digital television, various transmission and playback devices, mobile communications, online streaming video and music platforms, and home entertainment systems. The company is actively involved in inventing and licensing its advanced sound technologies. This portfolio features solutions like AAC & HE-AAC, a digital audio codec widely adopted for diverse media applications; AVC, a digital video codec recognized for its efficient bandwidth utilization in various media devices; Dolby AC-4, an innovative digital audio coding standard that introduces new auditory experiences to numerous playback systems; and the immersive Dolby Atmos technology, utilized in both cinemas and a wide array of consumer devices. Additional audio innovations encompass Dolby Digital, which delivers multichannel sound to various applications; Dolby Digital Plus, facilitating audio transmission for a multitude of media uses and devices; and Dolby TrueHD, a digital audio coding technology focused on media content encoding. Its imaging solutions include Dolby Vision, an advanced visual technology for film and media devices; Dolby Voice, specialized for audio conferencing; and HEVC, another digital video codec valued for its bandwidth efficiency in supporting media devices. Beyond its software and licensing activities, Dolby also designs and manufactures tangible products. This range includes digital cinema servers, professional cinema processors, amplifiers, loudspeakers, various hardware components, and video conferencing equipment. These products cater to the film, television, broadcasting, telecommunications, and broader entertainment industries. Furthermore, the corporation offers a variety of services to support theatrical and television production, spanning cinematic exhibition, broadcast operations, and home entertainment solutions. Dolby's diverse client base includes prominent film studios, content creators, post-production facilities, cinema operators, broadcasters, and video game designers. The company distributes its offerings directly to end-users, as well as through a global network of dealers and distributors. Founded in 1965, Dolby Laboratories, Inc. has its main offices located in San Francisco, California.",
+      "ceo": "Marc Whitten",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2051",
+      "phone": "415 558 0200",
+      "address": "1275 Market Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94103-1410",
+      "image": "https://images.financialmodelingprep.com/symbol/DLB.png",
+      "ipoDate": "2005-02-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DLB",
+      "date": "2015-12-31",
+      "marketCap": 3389699100
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041200.0528517
+}

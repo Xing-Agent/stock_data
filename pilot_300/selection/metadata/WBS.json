@@ -1,0 +1,54 @@
+{
+  "symbol": "WBS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WBS",
+      "price": 77.57,
+      "marketCap": 12568899810,
+      "beta": 1.005,
+      "lastDividend": 1.6,
+      "range": "52.6885-79.74",
+      "change": -0.4,
+      "changePercentage": -0.51302,
+      "volume": 91306424,
+      "averageVolume": 3983656,
+      "companyName": "Webster Financial Corporation",
+      "currency": "USD",
+      "cik": "0000801337",
+      "isin": "US9478901096",
+      "cusip": "947890109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Banks - Regional",
+      "website": "https://www.websterbank.com",
+      "description": "Webster Financial Corporation functions as the parent entity for Webster Bank, National Association, providing a comprehensive suite of banking, investment, and financial services throughout the United States. Its offerings cater to a diverse clientele, including individual consumers, families, and businesses. The company's operations are divided into three primary divisions: 1. Commercial Banking: This segment delivers core services such as lending, deposit management, and advanced cash management solutions. Its specialized financial products include commercial and industrial loans and leasing, commercial real estate financing, equipment and asset-based lending, along with treasury and payment services. Additionally, it offers extensive wealth management options, including trust services, asset management, financial planning, insurance, retirement solutions, and investment products for business owners, operators, and individual clients. 2. HSA Bank: Focused on health-related financial solutions, this division provides health savings accounts (HSAs), health reimbursement arrangements (HRAs), flexible spending accounts (FSAs), and commuter benefits. These products are distributed directly to employers and individuals, as well as through collaborations with national and regional insurance carriers, consultants, and financial advisors. 3. Retail Banking: Tailored for individual consumers, this segment offers traditional deposit and fee-based services, residential mortgages, home equity lines of credit, various secured and unsecured loans, and credit card products. In addition to its segmented services, Webster Financial Corporation ensures accessible banking through its online and mobile platforms. As of December 31, 2021, the company maintained a physical presence with 130 banking centers and 251 ATMs. Founded in 1935, its corporate headquarters are located in Stamford, Connecticut.",
+      "ceo": "John R. Ciulla",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "4550",
+      "phone": "203 578 2202",
+      "address": "200 Elm Street",
+      "city": "Stamford",
+      "state": "CT",
+      "zip": "06902",
+      "image": "https://images.financialmodelingprep.com/symbol/WBS.png",
+      "ipoDate": "1986-12-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WBS",
+      "date": "2015-12-31",
+      "marketCap": 3396488320
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041811.2409492
+}

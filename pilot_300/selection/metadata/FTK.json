@@ -1,0 +1,54 @@
+{
+  "symbol": "FTK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FTK",
+      "price": 24.83,
+      "marketCap": 898286903,
+      "beta": 1.42,
+      "lastDividend": 0,
+      "range": "13.19-39.67",
+      "change": -2.24,
+      "changePercentage": -8.27484,
+      "volume": 431162,
+      "averageVolume": 480949,
+      "companyName": "Flotek Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000928054",
+      "isin": "US3433894090",
+      "cusip": "343389409",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Equipment & Services",
+      "website": "https://www.flotekind.com",
+      "description": "Flotek Industries, Inc., founded in 1985 and headquartered in Houston, Texas, operates as an innovation-driven enterprise specializing in chemical and data solutions. Its global reach extends across industrial, commercial, and consumer sectors, with a presence in the United States, the United Arab Emirates, and other international markets. The company's operations are organized into two key divisions. The Chemistry Technologies (CT) segment focuses on the research, development, manufacturing, and distribution of environmentally friendly specialty chemicals. These products are designed to boost the profitability of hydrocarbon extraction and to sanitize commercial and personal environments, thereby mitigating the transmission of bacteria, viruses, and germs. This segment serves a wide array of energy clients, including integrated oil and gas companies, oilfield service providers, independent producers, national and state-owned oil entities, and firms engaged in geothermal, solar, and alternative energy. Concurrently, the Data Analytics (DA) segment provides sophisticated equipment and services that generate crucial insights into the composition and properties of hydrocarbon fluids for its energy industry clientele. This is achieved by combining the industry's field-deployable, inline optical analyzers with proprietary cloud-based visualization and analytics platforms. Flotek distributes its offerings through a combination of its dedicated internal sales teams and established contractual agency agreements.",
+      "ceo": "Ryan Gillis Ezell",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "159",
+      "phone": "713 849 9911",
+      "address": "8846 North Sam Houston Pkwy West",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77086",
+      "image": "https://images.financialmodelingprep.com/symbol/FTK.png",
+      "ipoDate": "2005-07-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FTK",
+      "date": "2015-12-31",
+      "marketCap": 626271360
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040601.9341311
+}

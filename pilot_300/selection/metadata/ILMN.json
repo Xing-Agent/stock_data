@@ -1,0 +1,63 @@
+{
+  "symbol": "ILMN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ILMN",
+      "price": 271.76,
+      "marketCap": 41035761902,
+      "beta": 1.422,
+      "lastDividend": 0,
+      "range": "90.1-309.35",
+      "change": 0.58,
+      "changePercentage": 0.21388,
+      "volume": 2120523,
+      "averageVolume": 2501150,
+      "companyName": "Illumina, Inc.",
+      "currency": "USD",
+      "cik": "0001110803",
+      "isin": "US4523271090",
+      "cusip": "452327109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Diagnostics & Research",
+      "website": "https://www.illumina.com",
+      "description": "Illumina, Inc. specializes in delivering advanced genetic and genomic analysis tools, primarily through sequencing and array technologies. The company's offerings empower clients across various sectors to integrate genomic insights into both research and clinical environments, with applications spanning critical fields like life sciences, cancer diagnostics, reproductive health, agriculture, and innovative new domains. Illumina's portfolio encompasses specialized instrumentation and necessary consumables for genetic analysis, alongside comprehensive genotyping and sequencing services. They also offer instrument maintenance agreements, collaborate through development and licensing deals, and perform cancer detection tests. Its diverse clientele comprises leading genomic research facilities, universities, state-funded laboratories, medical centers, pharmaceutical and biotechnology firms, commercial molecular diagnostic providers, and businesses focused on consumer genomics. Illumina employs a two-pronged distribution strategy, selling directly to clients across North America, Europe, Latin America, and the Asia-Pacific. Additionally, it partners with life-science distributors to reach markets in Europe, the Asia-Pacific, Latin America, the Middle East, and Africa. Established in 1998, the company maintains its corporate headquarters in San Diego, California.",
+      "ceo": "Jacob Thaysen",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "8600",
+      "phone": "858 202 4500",
+      "address": "5200 Illumina Way",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92122",
+      "image": "https://images.financialmodelingprep.com/symbol/ILMN.png",
+      "ipoDate": "2000-07-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ILMN",
+      "date": "2015-12-31",
+      "marketCap": 27421380000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040954.2966745,
+  "previous_attempts": [
+    {
+      "symbol": "ILMN",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040626.33038
+    }
+  ]
+}

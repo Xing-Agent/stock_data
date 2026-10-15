@@ -1,0 +1,54 @@
+{
+  "symbol": "ALL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ALL",
+      "price": 236.17,
+      "marketCap": 60795117570,
+      "beta": 0.138,
+      "lastDividend": 4.24,
+      "range": "188.08-277.22",
+      "change": -0.23,
+      "changePercentage": -0.09729272,
+      "volume": 1985231,
+      "averageVolume": 1880236,
+      "companyName": "The Allstate Corporation",
+      "currency": "USD",
+      "cik": "0000899051",
+      "isin": "US0200021014",
+      "cusip": "020002101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Property & Casualty",
+      "website": "https://www.allstate.com",
+      "description": "The Allstate Corporation, along with its affiliated entities, provides a comprehensive suite of property, casualty, and other insurance offerings throughout the United States and Canada. The company's operations are structured across four primary business segments: Allstate Protection; Protection Services; Allstate Health and Benefits; and Run-off Property-Liability. The Allstate Protection segment delivers a wide array of personal and commercial insurance solutions. This includes standard private passenger auto and homeowners policies, as well as specialized vehicle coverage for motorcycles, trailers, motor homes, and off-road vehicles. Additional personal lines encompass renter, condominium, landlord, boat, umbrella, manufactured home, and stand-alone scheduled personal property policies. Commercial lines products are also available, marketed under the Allstate and Encompass brand names. The Protection Services division focuses on consumer protection and related financial services. Its offerings include product protection plans and technical assistance for mobile phones, consumer electronics, furniture, and appliances. It also provides finance and insurance products such as vehicle service contracts, guaranteed asset protection (GAP) waivers, road hazard tire and wheel protection, and paint and fabric protection. Furthermore, this segment delivers roadside assistance, device and mobile data collection, advanced data and analytical insights leveraging automotive telematics, and identity protection services. Key brands within this segment include Allstate Protection Plans, Allstate Dealer Services, Allstate Roadside Services, Arity, and Allstate Identity Protection. The Allstate Health and Benefits segment specializes in various health-related insurance products, including life, accident, critical illness, short-term disability, and other health coverage options. Finally, the Run-off Property-Liability segment manages existing property and casualty insurance obligations. Allstate's products are distributed through a diverse network of channels, which include call centers, captive agents, financial specialists, independent agents, brokers, wholesale partners, and affinity groups, as well as directly via online platforms and mobile applications. The Allstate Corporation was founded in 1931 and is headquartered in Northbrook, Illinois.",
+      "ceo": "Thomas Joseph Wilson",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "53150",
+      "phone": "847 402 5000",
+      "address": "2775 Sanders Road",
+      "city": "Northbrook",
+      "state": "IL",
+      "zip": "60062",
+      "image": "https://images.financialmodelingprep.com/symbol/ALL.png",
+      "ipoDate": "1993-06-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ALL",
+      "date": "2015-12-31",
+      "marketCap": 23476229000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041835.7564385
+}

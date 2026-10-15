@@ -1,0 +1,54 @@
+{
+  "symbol": "MCY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MCY",
+      "price": 102.39,
+      "marketCap": 5671238754,
+      "beta": 0.906,
+      "lastDividend": 1.27,
+      "range": "74.29-113.06",
+      "change": -0.49,
+      "changePercentage": -0.47628,
+      "volume": 274489,
+      "averageVolume": 300017,
+      "companyName": "Mercury General Corporation",
+      "currency": "USD",
+      "cik": "0000064996",
+      "isin": "US5894001008",
+      "cusip": "589400100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Property & Casualty",
+      "website": "https://www.mercuryinsurance.com",
+      "description": "Mercury General Corporation, together with its subsidiaries, engages in writing personal automobile insurance in the United States. It also writes homeowners, commercial automobile, commercial property, mechanical protection, and umbrella insurance products. The company's automobile insurance products include collision, property damage, bodily injury, comprehensive, personal injury protection, underinsured and uninsured motorist, and other hazards; and homeowners insurance products comprise dwelling, liability, personal property, and other coverages. It sells its policies through a network of independent agents and insurance agencies, as well as directly through internet sales portals in Arizona, California, Florida, Georgia, Illinois, Nevada, New Jersey, New York, Oklahoma, Texas, and Virginia. Mercury General Corporation was incorporated in 1961 and is headquartered in Los Angeles, California.",
+      "ceo": "Gabriel Tirador",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "4380",
+      "phone": "323 937 1060",
+      "address": "4484 Wilshire Boulevard",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90010",
+      "image": "https://images.financialmodelingprep.com/symbol/MCY.png",
+      "ipoDate": "1985-11-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MCY",
+      "date": "2015-12-31",
+      "marketCap": 2570710570
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041883.8983335
+}

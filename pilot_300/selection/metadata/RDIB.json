@@ -1,0 +1,54 @@
+{
+  "symbol": "RDIB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RDIB",
+      "price": 12.13,
+      "marketCap": 50888443,
+      "beta": 0.767,
+      "lastDividend": 0,
+      "range": "8-24",
+      "change": -0.47,
+      "changePercentage": -3.73016,
+      "volume": 6009,
+      "averageVolume": 114572,
+      "companyName": "Reading International, Inc.",
+      "currency": "USD",
+      "cik": "0000716634",
+      "isin": "US7554082005",
+      "cusip": "755408200",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Entertainment",
+      "website": "https://www.readingrdi.com",
+      "description": "Reading International, Inc. oversees and expands a diverse collection of entertainment and real estate properties across the United States, Australia, and New Zealand. The company's operations are divided into two primary divisions: Cinema Exhibition and Real Estate. The Cinema Exhibition division operates multi-screen movie theaters under various brand names, including Reading Cinemas, Angelika Film Center, Consolidated Theatres, State Cinema, Event Cinemas, and Rialto Cinemas. Meanwhile, the Real Estate division focuses on constructing, leasing, or licensing commercial, retail, and live performance venues. As of December 31, 2020, Reading International's extensive holdings featured 63 movie theaters containing approximately 515 screens. Its portfolio also included ownership interests in two live theaters, the 44 Union Square property, a cinema in Manhattan, two cinemas in Australia, and three in New Zealand, alongside several entertainment-themed complexes and two office buildings. In total, the company possessed about 8.9 million square feet of developed and undeveloped real estate. The corporation was founded in 1999 and maintains its primary corporate offices in New York, New York.",
+      "ceo": "Ellen Marie Cotter",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "1956",
+      "phone": "213 235 2240",
+      "address": "189 Second Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10003",
+      "image": "https://images.financialmodelingprep.com/symbol/RDIB.png",
+      "ipoDate": "2000-01-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RDIB",
+      "date": "2015-12-31",
+      "marketCap": 320154718
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041568.4968169
+}

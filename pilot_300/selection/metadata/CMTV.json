@@ -1,0 +1,63 @@
+{
+  "symbol": "CMTV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CMTV",
+      "price": 42.05,
+      "marketCap": 235517845,
+      "beta": 0.373,
+      "lastDividend": 1.25,
+      "range": "22.4-43.95",
+      "change": -0.28,
+      "changePercentage": -0.66147,
+      "volume": 37650,
+      "averageVolume": 41399,
+      "companyName": "Community Bancorp",
+      "currency": "USD",
+      "cik": "0000718413",
+      "isin": "US20343A1016",
+      "cusip": "20343A101",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.communitybancorpvt.com",
+      "description": "Community Bancorp serves as the parent entity for Community National Bank, offering a broad spectrum of retail banking solutions. These services cater to the financial requirements of individual consumers, businesses, non-profit organizations, and local government bodies. For personal banking, the institution provides checking and savings accounts, convenient ATM and debit/credit card access, night deposit boxes, and contemporary online, mobile, and telephone banking platforms. Business clients benefit from diverse credit facilities, such as financing for commercial real estate, equipment, inventory, and accounts receivable, in addition to letters of credit. Their business offerings also include various checking and deposit accounts, sophisticated cash management services, repurchase agreements, ACH and wire transfer capabilities, and remote deposit capture. The bank specializes in commercial real estate lending, extending credit to commercial developers and investors, residential builders, and community development entities. This encompasses funding for land acquisition, construction ventures, development of residential or commercial properties for investment, real estate-secured financing for existing businesses, and support for emerging startups and small enterprises. Residential customers can secure both fixed and adjustable-rate mortgages, as well as home equity loans. Furthermore, the company provides retail credit for personal expenses, automobiles, and recreational vehicles. For state and local governments, educational institutions, charities, membership organizations, and other non-profit associations, Community Bancorp delivers customized municipal and institutional banking products, including deposit accounts, tax-exempt loans, lines of credit, term loans, and collateralized secured deposit services. The company's operations are centered around its main office in Derby, Vermont, supported by eleven additional branch locations strategically situated across northeastern and central Vermont. Established in 1851, Community Bancorp's corporate headquarters are located in Derby, Vermont.",
+      "ceo": "Christopher L. Caldwell",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "125",
+      "phone": "802 334 7915",
+      "address": "4811 US Route 5",
+      "city": "Derby",
+      "state": "VT",
+      "zip": "05829",
+      "image": "https://images.financialmodelingprep.com/symbol/CMTV.png",
+      "ipoDate": "1999-02-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CMTV",
+      "date": "2015-12-31",
+      "marketCap": 71252052
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040809.3757737,
+  "previous_attempts": [
+    {
+      "symbol": "CMTV",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040369.780866
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "IFF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "IFF",
+      "price": 89.6,
+      "marketCap": 22861436685,
+      "beta": 0.928,
+      "lastDividend": 1.6,
+      "range": "61.3-89.7",
+      "change": 1.4,
+      "changePercentage": 1.5873,
+      "volume": 2182561,
+      "averageVolume": 1780370,
+      "companyName": "International Flavors & Fragrances Inc.",
+      "currency": "USD",
+      "cik": "0000051253",
+      "isin": "US4595061015",
+      "cusip": "459506101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.iff.com",
+      "description": "International Flavors & Fragrances Inc. (IFF), through its various subsidiaries, operates as a global developer and purveyor of active cosmetic and natural health ingredients. These vital components are incorporated into a wide array of consumer goods distributed across significant markets such as Europe, Africa, the Middle East, Greater Asia, North America, and Latin America. The company's activities are organized into four principal divisions: 1. Nourish: This segment focuses on natural and plant-derived specialty food ingredients, offering items like flavor compounds, savory solutions, and inclusions. It also provides natural food protection solutions, including antioxidants and anti-microbials, for use in beverages, confectionery, and dairy items. 2. Scent: The Scent division creates fragrance compounds, encompassing luxurious fine fragrances (perfumes and colognes) and everyday consumer fragrances. It further supplies essential fragrance ingredients, both synthetic and natural, which are blended to formulate new scents. Additionally, this segment delivers cosmetic active ingredients, such as functional compounds, botanicals, and advanced delivery systems, designed to enhance customers' cosmetic and personal care product lines. 3. Health & Biosciences: This segment is dedicated to the research, development, and production of enzymes, food cultures, probiotics, and other specialized biological ingredients. 4. Pharma Solutions: This division is responsible for manufacturing and distributing cellulosic and seaweed-derived pharmaceutical excipients. IFF's diverse customer base primarily consists of manufacturers in sectors including perfumery, cosmetics, hair and personal care, soaps and detergents, cleaning products, dairy, meat and processed foods, beverages, snacks and savory items, sweet and baked goods, dietary supplements, infant and elderly nutrition, functional foods, and producers of pharmaceutical excipients and oral care products. Established in 1833, International Flavors & Fragrances Inc. is headquartered in New York, New York.",
+      "ceo": "Jon Erik Fyrwald",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "21500",
+      "phone": "212 765 5500",
+      "address": "521 West 57th Street",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10019-2960",
+      "image": "https://images.financialmodelingprep.com/symbol/IFF.png",
+      "ipoDate": "1974-12-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "IFF",
+      "date": "2015-12-31",
+      "marketCap": 9531240240
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041557.8435133
+}

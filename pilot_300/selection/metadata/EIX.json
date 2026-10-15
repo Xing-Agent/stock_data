@@ -1,0 +1,54 @@
+{
+  "symbol": "EIX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EIX",
+      "price": 55.44,
+      "marketCap": 21334086996,
+      "beta": 0.609,
+      "lastDividend": 3.51,
+      "range": "51.1-81.62",
+      "change": -0.04,
+      "changePercentage": -0.07209805,
+      "volume": 4484302,
+      "averageVolume": 4320208,
+      "companyName": "Edison International",
+      "currency": "USD",
+      "cik": "0000827052",
+      "isin": "US2810201077",
+      "cusip": "281020107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Electric",
+      "website": "https://www.edison.com",
+      "description": "Headquartered in Rosemead, California, and established in 1886, Edison International primarily operates through its subsidiaries to produce and supply electrical power. This utility company furnishes electricity to a vast client base of around 15 million, encompassing homes, businesses, industrial sites, governmental bodies, and agricultural enterprises throughout Southern, Central, and Coastal California. Beyond power delivery, Edison International also offers bespoke energy solutions tailored for its commercial and industrial clientele. Its extensive infrastructure includes a robust transmission network featuring lines that range from 55 kV to 500 kV, alongside numerous substations. The company's distribution system is equally substantial, comprising approximately 39,000 circuit-miles of overhead cabling, roughly 31,000 circuit-miles of underground lines, and 800 distribution substations.",
+      "ceo": "Pedro J. Pizarro",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "13725",
+      "phone": "626 302 2222",
+      "address": "2244 Walnut Grove Avenue",
+      "city": "Rosemead",
+      "state": "CA",
+      "zip": "91770",
+      "image": "https://images.financialmodelingprep.com/symbol/EIX.png",
+      "ipoDate": "1973-05-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EIX",
+      "date": "2015-12-31",
+      "marketCap": 19302460000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041411.1486387
+}

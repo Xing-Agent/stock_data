@@ -1,0 +1,54 @@
+{
+  "symbol": "USAU",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "USAU",
+      "price": 11.94,
+      "marketCap": 197023886,
+      "beta": 1.003,
+      "lastDividend": 0,
+      "range": "11.65-23.75",
+      "change": -1.38,
+      "changePercentage": -10.36036,
+      "volume": 347348,
+      "averageVolume": 217388,
+      "companyName": "U.S. Gold Corp.",
+      "currency": "USD",
+      "cik": "0000027093",
+      "isin": "US90291C2017",
+      "cusip": "90291C201",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Gold",
+      "website": "https://www.usgoldcorp.com",
+      "description": "U.S. Gold Corp., headquartered in Elko, Nevada, focuses on the exploration and development of gold and other precious metals across the United States. The company's operations also extend to prospecting for copper and silver deposits. It fully owns several key properties: The CK Gold project in Laramie County, Wyoming, which encompasses approximately 1,120 acres of various mining leases and mineral rights. The Keystone project in Eureka County, Nevada, covering roughly 20 square miles through 650 unpatented lode mining claims. The Challis Gold project in Lemhi County, Idaho, spanning about 1,710 acres via 87 unpatented lode mining claims. Furthermore, U.S. Gold Corp. is working to acquire a 50% ownership stake in the Maggie Creek project, also situated in Eureka County, Nevada, an area comprising 103 unpatented mining claims over approximately 3 square miles, through an existing earn-in agreement.",
+      "ceo": "George Michael Bee",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "4",
+      "phone": "800 557 4550",
+      "address": "1910 East Idaho Street",
+      "city": "Elko",
+      "state": "NV",
+      "zip": "89801",
+      "image": "https://images.financialmodelingprep.com/symbol/USAU.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "USAU",
+      "date": "2015-12-31",
+      "marketCap": 2784434.4
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041892.484763
+}

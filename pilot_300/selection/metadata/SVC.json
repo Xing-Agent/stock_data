@@ -1,0 +1,63 @@
+{
+  "symbol": "SVC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SVC",
+      "price": 5.85,
+      "marketCap": 757630505,
+      "beta": 1.699,
+      "lastDividend": 0.2,
+      "range": "5.65-12.15",
+      "change": -0.075,
+      "changePercentage": -1.26582,
+      "volume": 3190554,
+      "averageVolume": 1956018,
+      "companyName": "Service Properties Trust",
+      "currency": "USD",
+      "cik": "0000945394",
+      "isin": "US81761L2016",
+      "cusip": "81761L201",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Hotel & Motel",
+      "website": "https://www.svcreit.com",
+      "description": "Service Properties Trust (SVC) operates as a Real Estate Investment Trust (REIT), maintaining a broad and varied collection of hotels alongside retail properties that provide essential services and necessities under net lease agreements. These holdings are geographically spread throughout the United States, Puerto Rico, and Canada, featuring assets tied to 149 unique brands across 23 different sectors. Most of these properties are run via long-term management or lease contracts. The oversight and management of SVC are handled by the operating subsidiary of The RMR Group Inc. (Nasdaq: RMR), an alternative asset management company situated in Newton, Massachusetts.",
+      "ceo": "Christopher J. Bilotto",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "0",
+      "phone": "617-964-8389",
+      "address": "Two Newton Place",
+      "city": "Newton",
+      "state": "MA",
+      "zip": "02458-1634",
+      "image": "https://images.financialmodelingprep.com/symbol/SVC.png",
+      "ipoDate": "1995-08-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SVC",
+      "date": "2015-12-31",
+      "marketCap": 3959162300
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040938.8297153,
+  "previous_attempts": [
+    {
+      "symbol": "SVC",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040585.6780086
+    }
+  ]
+}

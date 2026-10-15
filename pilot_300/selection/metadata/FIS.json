@@ -1,0 +1,63 @@
+{
+  "symbol": "FIS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FIS",
+      "price": 35.47,
+      "marketCap": 18307651835,
+      "beta": 0.828,
+      "lastDividend": 1.72,
+      "range": "32.1-68.98",
+      "change": 0.27,
+      "changePercentage": 0.76705,
+      "volume": 5336253,
+      "averageVolume": 6211633,
+      "companyName": "Fidelity National Information Services, Inc.",
+      "currency": "USD",
+      "cik": "0001136893",
+      "isin": "US31620M1062",
+      "cusip": "31620M106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Information Technology Services",
+      "website": "https://www.fisglobal.com",
+      "description": "Fidelity National Information Services, Inc. provides solutions to financial institutions, businesses, and developers worldwide. The company operates through Banking Solutions, Capital Market Solutions, and Corporate and Other segments. It provides core processing and ancillary applications; mobile and online banking; fraud, risk management, and compliance; card and retail payment; electronic funds transfer and network; wealth and retirement; and item processing and output solutions. The company also offers trading and assets, lending, leveraged and syndicated loan markets, and treasury and risk solutions. Fidelity National Information Services, Inc. was founded in 1968 and is headquartered in Jacksonville, Florida.",
+      "ceo": "Stephanie L. Ferris",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "44000",
+      "phone": "904 438 6000",
+      "address": "347 Riverside Avenue",
+      "city": "Jacksonville",
+      "state": "FL",
+      "zip": "32202",
+      "image": "https://images.financialmodelingprep.com/symbol/FIS.png",
+      "ipoDate": "2001-06-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FIS",
+      "date": "2015-12-31",
+      "marketCap": 19634400000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040823.7315323,
+  "previous_attempts": [
+    {
+      "symbol": "FIS",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040380.8428404
+    }
+  ]
+}

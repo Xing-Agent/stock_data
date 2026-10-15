@@ -1,0 +1,54 @@
+{
+  "symbol": "NTCT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NTCT",
+      "price": 38.63,
+      "marketCap": 2808682999,
+      "beta": 0.689,
+      "lastDividend": 0,
+      "range": "25.29-45.28",
+      "change": -1.52,
+      "changePercentage": -3.7858,
+      "volume": 511582,
+      "averageVolume": 626015,
+      "companyName": "NetScout Systems, Inc.",
+      "currency": "USD",
+      "cik": "0001078075",
+      "isin": "US64115T1043",
+      "cusip": "64115T104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Infrastructure",
+      "website": "https://www.netscout.com",
+      "description": "NetScout Systems, Inc. specializes in delivering comprehensive service assurance and robust cybersecurity solutions, designed to protect digital business services from potential disruptions worldwide, with operations spanning the United States, Europe, and Asia. Their product portfolio includes the nGeniusONE management software, which empowers customers to anticipate, prevent, and resolve network and service delivery issues, while simultaneously optimizing and planning network infrastructure capacity. They also offer unique platforms and analytic modules specifically for analyzing and troubleshooting traffic within radio access and Wi-Fi environments. The company provides nGeniusPULSE, an active testing tool that enables enterprises to pinpoint infrastructure performance challenges and ascertain application availability, reliability, and speed. For service providers, the nGenius Business Analytics solution offers deep insights into network traffic patterns. Hardware offerings include ISNG, an advanced passive network probe; packet flow systems that ensure targeted network traffic access for various monitoring and security apparatus; and a suite of test access points facilitating non-disruptive observation of network traffic. Under its Arbor brand, NetScout delivers a suite of cybersecurity defenses against distributed denial of service (DDoS) attacks, featuring products such as Arbor Sightline, Arbor Threat Mitigation System, Arbor Insight, Arbor Edge Defense, and Arbor Cloud. Furthermore, advanced threat detection capabilities are provided through Omnis Cyber Investigator. NetScout serves a diverse clientele, encompassing enterprise customers in sectors like financial services, technology, manufacturing, healthcare, utilities, education, transportation, and retail, alongside telecommunications providers (including mobile, wireline, cable, internet, and cloud services), and governmental organizations. Their products are distributed through a direct sales force, as well as through indirect reseller and distribution channels. Established in 1984, NetScout Systems, Inc. maintains its headquarters in Westford, Massachusetts.",
+      "ceo": "Anil K. Singhal",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2063",
+      "phone": "978 614 4000",
+      "address": "310 Littleton Road",
+      "city": "Westford",
+      "state": "MA",
+      "zip": "01886-4105",
+      "image": "https://images.financialmodelingprep.com/symbol/NTCT.png",
+      "ipoDate": "1999-08-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NTCT",
+      "date": "2015-12-31",
+      "marketCap": 2960585200
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041024.552095
+}

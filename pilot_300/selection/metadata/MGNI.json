@@ -1,0 +1,54 @@
+{
+  "symbol": "MGNI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MGNI",
+      "price": 23.87,
+      "marketCap": 3423530880,
+      "beta": 2.321,
+      "lastDividend": 0,
+      "range": "10.82-26.84",
+      "change": -1.45,
+      "changePercentage": -5.7267,
+      "volume": 2224401,
+      "averageVolume": 2685077,
+      "companyName": "Magnite, Inc.",
+      "currency": "USD",
+      "cik": "0001595974",
+      "isin": "US55955D1000",
+      "cusip": "55955D100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Advertising Agencies",
+      "website": "https://www.magnite.com",
+      "description": "Magnite, Inc. manages an independent, global platform dedicated to the digital advertising marketplace. This sophisticated system furnishes publishers—entities controlling digital content such as connected TV channels, mobile applications, and websites—with the necessary applications and utilities to oversee and monetize their ad inventory. Concurrently, it delivers services and tools for advertising buyers, including advertisers, agencies, agency trading desks, and demand-side platforms, enabling them to procure digital ad space. The company employs sales teams operating from various international locations to market its advanced technological solutions to both buying and selling parties. Formed in 2007, the enterprise was formerly known as The Rubicon Project, Inc. before rebranding as Magnite, Inc. in July 2020. Its corporate headquarters are located in New York, New York.",
+      "ceo": "Michael G. Barrett",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "971",
+      "phone": "212 243 2769",
+      "address": "1250 Broadway",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10001",
+      "image": "https://images.financialmodelingprep.com/symbol/MGNI.png",
+      "ipoDate": "2014-04-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MGNI",
+      "date": "2015-12-31",
+      "marketCap": 734706350
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040977.1915824
+}

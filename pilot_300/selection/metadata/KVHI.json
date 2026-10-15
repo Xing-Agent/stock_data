@@ -1,0 +1,54 @@
+{
+  "symbol": "KVHI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KVHI",
+      "price": 6.09,
+      "marketCap": 110478690,
+      "beta": 0.408,
+      "lastDividend": 0,
+      "range": "5.09-13",
+      "change": -0.24,
+      "changePercentage": -3.79147,
+      "volume": 73051,
+      "averageVolume": 244661,
+      "companyName": "KVH Industries, Inc.",
+      "currency": "USD",
+      "cik": "0001007587",
+      "isin": "US4827381017",
+      "cusip": "482738101",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Communication Equipment",
+      "website": "https://www.kvh.com",
+      "description": "KVH Industries, Inc., together with its subsidiaries, designs, develops, manufactures, and markets mobile connectivity and managed services for the marine and land mobile markets. The company offers Internet and VoIP airtime services; AgilePlans, a connectivity as a Service solution; CommBox, a data management software for maritime communications; CommBox Edge, an advanced maritime network optimization and management solution; KVH Link, a crew wellbeing content subscription service; KVH ONE, a global hybrid communication network supporting Internet, VoIP, content delivery, and other; and KVH OneCare, a services and support for TracNet and TracPhone systems. It also provides MOVIElink, a movie distribution solution; MUSIClink, a music and karaoke delivery solution; NEWSlink, a maritime news delivery solution; OpenNet, a KVH VSAT data delivering service for non-KVH Ku-band VSAT terminals; TracNet, an integrated hybrid two-way communication terminal with VSAT, 5G/LTE, and shore-based Wi-Fi; TracPhone, a two-way VSAT-only satellite communications system; TracVision, a satellite television antenna system for vessels, recreational vehicles; TVlink, a television programming delivery solution; and Starlink terminals and data services. It sells its mobile communications products through a network of independent retailers, chain stores, distributors, and service providers, as well as to manufacturers of vessels, maritime equipment, and vehicles in the United States, Singapore, Canada, South American countries, European Union, European countries, Africa, the Middle East, the Asia Pacific, India, and internationally. KVH Industries, Inc. was founded in 1982 and is headquartered in Middletown, Rhode Island.",
+      "ceo": "Brent C. Bruun",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "272",
+      "phone": "401 847 3327",
+      "address": "75 Enterprise Center",
+      "city": "Middletown",
+      "state": "RI",
+      "zip": "02842",
+      "image": "https://images.financialmodelingprep.com/symbol/KVHI.png",
+      "ipoDate": "1996-04-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KVHI",
+      "date": "2015-12-31",
+      "marketCap": 146062328
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040372.299169
+}

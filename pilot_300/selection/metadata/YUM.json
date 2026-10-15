@@ -1,0 +1,54 @@
+{
+  "symbol": "YUM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "YUM",
+      "price": 146.69,
+      "marketCap": 40430844490,
+      "beta": 0.546,
+      "lastDividend": 2.96,
+      "range": "134.26-170.14",
+      "change": -0.37,
+      "changePercentage": -0.2516,
+      "volume": 2743207,
+      "averageVolume": 2488100,
+      "companyName": "Yum! Brands, Inc.",
+      "currency": "USD",
+      "cik": "0001041061",
+      "isin": "US9884981013",
+      "cusip": "988498101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Restaurants",
+      "website": "https://www.yum.com",
+      "description": "YUM! Brands, Inc. (YUM) is a leading global quick-service restaurant enterprise that focuses on the creation, management, and franchising of its restaurant concepts internationally. Its business is organized into four main divisions: KFC, Taco Bell, Pizza Hut, and The Habit Burger Grill. The company operates establishments under these well-known brands, offering diverse food categories such as chicken, pizza, Mexican-style dishes, and made-to-order chargrilled burgers and sandwiches, among other food products. As of December 31, 2021, YUM! Brands boasted a significant worldwide presence, comprising 26,934 KFC outlets, 18,381 Pizza Hut locations, 7,791 Taco Bell restaurants, and 318 The Habit Burger Grill units, spread across roughly 157 countries and territories. The company, which maintains its headquarters in Louisville, Kentucky, was established in 1997. It was formerly known as TRICON Global Restaurants, Inc., before officially adopting the name YUM! Brands, Inc. in May 2002.",
+      "ceo": "Christopher Lee Turner",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "49000",
+      "phone": "502 874 8300",
+      "address": "1441 Gardiner Lane",
+      "city": "Louisville",
+      "state": "KY",
+      "zip": "40213",
+      "image": "https://images.financialmodelingprep.com/symbol/YUM.png",
+      "ipoDate": "1997-09-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "YUM",
+      "date": "2015-12-31",
+      "marketCap": 21799950000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041764.307433
+}

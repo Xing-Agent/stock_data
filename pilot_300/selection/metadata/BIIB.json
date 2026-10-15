@@ -1,0 +1,54 @@
+{
+  "symbol": "BIIB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BIIB",
+      "price": 232.83,
+      "marketCap": 34401563354,
+      "beta": 0.171,
+      "lastDividend": 0,
+      "range": "138-238.24",
+      "change": 3.93,
+      "changePercentage": 1.71691,
+      "volume": 1947140,
+      "averageVolume": 1113846,
+      "companyName": "Biogen Inc.",
+      "currency": "USD",
+      "cik": "0000875045",
+      "isin": "US09062X1037",
+      "cusip": "09062X103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Drug Manufacturers - General",
+      "website": "https://www.biogen.com",
+      "description": "Biogen Inc. is a leading biotechnology firm dedicated to the discovery, development, production, and distribution of treatments for complex neurological and neurodegenerative conditions. Its established portfolio includes a range of medications addressing multiple sclerosis (MS), such as TECFIDERA, VUMERITY, AVONEX, PLEGRIDY, TYSABRI, and FAMPYRA. For spinal muscular atrophy (SMA), Biogen provides SPINRAZA, while FUMADERM is available for the treatment of plaque psoriasis. Among its other key offerings is ADUHELM, specifically developed for Alzheimer's disease. The company also markets a selection of biosimilar drugs, including BENEPALI (an etanercept biosimilar akin to ENBREL), IMRALDI (an adalimumab biosimilar comparable to HUMIRA), and FLIXABI (an infliximab biosimilar referencing REMICADE). Further extending its therapeutic reach, Biogen supplies RITUXAN, prescribed for conditions like non-Hodgkin's lymphoma, chronic lymphocytic leukemia (CLL), rheumatoid arthritis, certain types of ANCA-associated vasculitis, and pemphigus vulgaris. RITUXAN HYCELA targets non-Hodgkin's lymphoma and CLL, and GAZYVA is utilized for CLL and follicular lymphoma. OCREVUS addresses both relapsing and primary progressive forms of MS, complementing the company's broader efforts in anti-CD20 therapies. The company maintains a robust research and development pipeline, featuring numerous investigational therapies. These candidates are designed to tackle a wide spectrum of conditions, including multiple sclerosis and neuroimmunological disorders (e.g., BIIB135, BIIB061, BIIB091, BIIB107), Alzheimer's disease and other forms of dementia (e.g., Aducanumab, Lecanemab, BIIB076, BIIB080), neuromuscular disorders (e.g., BIIB067, BIIB078, BIIB105, BIIB100, BIIB110), Parkinson's disease and related movement disorders (e.g., BIIB124, BIIB094, BIIB118, BIIB101, BIIB122), neuropsychiatric conditions (e.g., BIIB125, BIIB104), immunology-related illnesses (e.g., Dapirolizumab pegol, BIIB059), acute neurological events (e.g., BIIB093, BIIB131), and neuropathic pain (e.g., BIIB074). Additionally, several biosimilar candidates, such as BYOOVIZ, BIIB800, and SB15, are progressing through various developmental stages. Biogen actively engages in strategic collaborations and licensing arrangements with various partners, including Acorda Therapeutics, Inc., Alkermes Pharma Ireland Limited, Denali Therapeutics Inc., Eisai Co., Ltd., Genentech, Inc., Neurimmune SubOne AG, Ionis Pharmaceuticals, Inc., Samsung Bioepis Co., Ltd., Sangamo Therapeutics, Inc., and Sage Therapeutics, Inc. Established in 1978, Biogen Inc. maintains its corporate headquarters in Cambridge, Massachusetts.",
+      "ceo": "Christopher A. Viehbacher",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "7500",
+      "phone": "617 679 2000",
+      "address": "225 Binney Street",
+      "city": "Cambridge",
+      "state": "MA",
+      "zip": "02142",
+      "image": "https://images.financialmodelingprep.com/symbol/BIIB.png",
+      "ipoDate": "1991-09-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BIIB",
+      "date": "2015-12-31",
+      "marketCap": 67060015000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041554.980779
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "GCBC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GCBC",
+      "price": 34.16,
+      "marketCap": 581591080,
+      "beta": 0.385,
+      "lastDividend": 0.41,
+      "range": "21.25-36.33",
+      "change": -0.24,
+      "changePercentage": -0.69767,
+      "volume": 17460,
+      "averageVolume": 42965,
+      "companyName": "Greene County Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0001070524",
+      "isin": "US3943571071",
+      "cusip": "394357107",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.thebankofgreenecounty.com",
+      "description": "Greene County Bancorp, Inc. serves as the parent organization for The Bank of Greene County, delivering a diverse range of financial solutions throughout the United States. Its array of deposit products encompasses savings accounts, interest-bearing NOW accounts, money market accounts, certificates of deposit, non-interest-bearing checking accounts, and individual retirement plans. The institution's lending activities include a comprehensive portfolio featuring residential, construction and land, and multi-family mortgage loans, alongside commercial real estate mortgages. Consumer credit options are also available, such as financing for new and used automobiles, personal loans, home equity loans, and various other installment loans including passbook-secured loans, unsecured home improvement loans, recreational vehicle loans, and deposit account overdraft facilities. Additionally, the company provides commercial loans. As of June 30, 2021, it maintained a network of 17 full-service banking branches. The company, founded in 1889, is headquartered in Catskill, New York, and operates as a subsidiary of Greene County Bancorp, MHC.",
+      "ceo": "Donald E. Gibson",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "215",
+      "phone": "518 943 2600",
+      "address": "302 Main Street",
+      "city": "Catskill",
+      "state": "NY",
+      "zip": "12414",
+      "image": "https://images.financialmodelingprep.com/symbol/GCBC.png",
+      "ipoDate": "1999-06-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GCBC",
+      "date": "2015-12-31",
+      "marketCap": 135262710
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040495.8131175
+}

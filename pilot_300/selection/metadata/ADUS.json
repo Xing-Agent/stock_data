@@ -1,0 +1,54 @@
+{
+  "symbol": "ADUS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ADUS",
+      "price": 116.62,
+      "marketCap": 2176688976,
+      "beta": 0.83,
+      "lastDividend": 0,
+      "range": "87.95-124.44",
+      "change": 2.09,
+      "changePercentage": 1.82485,
+      "volume": 249655,
+      "averageVolume": 225795,
+      "companyName": "Addus HomeCare Corporation",
+      "currency": "USD",
+      "cik": "0001468328",
+      "isin": "US0067391062",
+      "cusip": "006739106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Care Facilities",
+      "website": "https://addus.com",
+      "description": "Addus HomeCare Corporation, through its various subsidiaries, offers essential personal support services across the United States. The company primarily assists seniors, individuals with chronic illnesses or disabilities, and those at risk of hospitalization or institutionalization. Its operations are structured into three primary segments: Personal Care, Hospice, and Home Health. The Personal Care division delivers non-medical assistance with daily living activities, including help with personal hygiene (bathing, grooming, oral care), eating, dressing, medication reminders, meal preparation, household chores, and transportation. Through its Hospice segment, Addus provides compassionate palliative nursing care, social work, spiritual guidance, homemaker services, and bereavement support to terminally ill individuals and their families. The Home Health segment delivers professional skilled nursing care alongside physical, occupational, and speech therapy for patients recovering from illness or following a hospital discharge. Addus HomeCare's diverse client base includes federal, state, and local government entities, managed care organizations, commercial insurance providers, and private-paying individuals. As of December 31, 2021, the company served consumers through a network of 206 offices located across 22 states. Established in 1979, Addus HomeCare Corporation is headquartered in Frisco, Texas.",
+      "ceo": "R. Dirk Allison",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "50659",
+      "phone": "469 535 8200",
+      "address": "6303 Cowboys Way",
+      "city": "Frisco",
+      "state": "TX",
+      "zip": "75034",
+      "image": "https://images.financialmodelingprep.com/symbol/ADUS.png",
+      "ipoDate": "2009-10-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ADUS",
+      "date": "2015-12-31",
+      "marketCap": 259246080
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041513.7775273
+}

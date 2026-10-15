@@ -1,0 +1,54 @@
+{
+  "symbol": "MVBF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MVBF",
+      "price": 28.86,
+      "marketCap": 373650391,
+      "beta": 0.864,
+      "lastDividend": 0.68,
+      "range": "23.99-31.99",
+      "change": -0.2,
+      "changePercentage": -0.68823,
+      "volume": 63616,
+      "averageVolume": 53970,
+      "companyName": "MVB Financial Corp.",
+      "currency": "USD",
+      "cik": "0001277902",
+      "isin": "US5538101024",
+      "cusip": "553810102",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.mvbbanking.com",
+      "description": "MVB Financial Corp. operates as a financial holding company, delivering a comprehensive suite of financial services to both individual consumers and corporate clients. The company serves customers across the Mid-Atlantic region and extends its reach internationally. Its operations are structured into three primary divisions: CoRe Banking, Mortgage Banking, and Financial Holding Company. Within its core banking offerings, MVB provides a variety of deposit accounts, including checking, savings, money market, and certificates of deposit. The company also extends credit solutions, such as commercial, consumer, and real estate mortgage loans, alongside various lines of credit. An array of supplementary banking services includes debit cards, cashier's checks, safe deposit box rentals, and non-deposit investment options. Notably, it also specializes in financial technology (Fintech) banking services. Beyond traditional banking, MVB Financial Corp. offers title insurance. It further provides an integrated range of services encompassing regulatory compliance, state licensing, financial crime prevention, and enterprise risk management; these solutions cover consulting, outsourcing, testing, and training. Moreover, the firm delivers customizable fraud prevention services designed for merchants, credit agencies, Fintech companies, and other vendors. It also engages in consulting for the development of online and mobile banking platforms and digital products for Fintech entities, concurrently undertaking software development projects. As of December 31, 2021, MVB maintained a physical presence with eight full-service branches, comprising six in West Virginia and two in Virginia. Established in 1997, the company's headquarters are situated in Fairmont, West Virginia.",
+      "ceo": "Larry F. Mazza",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "403",
+      "phone": "304 363 4800",
+      "address": "301 Virginia Avenue",
+      "city": "Fairmont",
+      "state": "WV",
+      "zip": "26554",
+      "image": "https://images.financialmodelingprep.com/symbol/MVBF.png",
+      "ipoDate": "2012-08-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MVBF",
+      "date": "2015-12-31",
+      "marketCap": 105612173
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041833.1864483
+}

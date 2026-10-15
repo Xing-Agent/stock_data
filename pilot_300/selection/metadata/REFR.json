@@ -1,0 +1,54 @@
+{
+  "symbol": "REFR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "REFR",
+      "price": 0.6299,
+      "marketCap": 21963218,
+      "beta": 0.586,
+      "lastDividend": 0,
+      "range": "0.337-2.7",
+      "change": 0.038,
+      "changePercentage": 6.42,
+      "volume": 127223,
+      "averageVolume": 1163052,
+      "companyName": "Research Frontiers Incorporated",
+      "currency": "USD",
+      "cik": "0000793524",
+      "isin": "US7609111072",
+      "cusip": "760911107",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.smartglass.com",
+      "description": "Research Frontiers Incorporated (REFR) stands as a global innovator, focusing on the development and commercialization of advanced light-regulating technologies and associated devices. The company's core business revolves around its proprietary Suspended Particle Device (SPD-Smart) light-control technology, which it licenses to other businesses. These licensees then undertake the manufacturing and marketing of various components: the SPD-Smart chemical emulsion, the light-controlling film created from this emulsion, laminated light-control panels, and the necessary electronic systems to power final products that integrate the film. Additionally, Research Frontiers offers licenses for lamination services and the end-products themselves, such as dynamic windows, skylights, and sunroofs. The versatile SPD-Smart light-control technology is integrated into a diverse array of applications. This includes architectural elements like windows, sunshades, skylights, and interior partitions for both residential and commercial buildings. In the automotive sector, it's utilized in vehicle windows, sunroofs, sun-visors, sunshades, rear-view mirrors, instrument panels, and navigation systems. Beyond these, the technology enhances aircraft windows, museum display panels, specialized eyewear products, and flat panel displays for electronic goods. The company primarily caters to the architectural, automotive, marine, aerospace, and appliance industries. Research Frontiers Incorporated was established in 1965 and is based in Woodbury, New York.",
+      "ceo": "Joseph Harary",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "5",
+      "phone": "516 364 1902",
+      "address": "240 Crossways Park Drive",
+      "city": "Woodbury",
+      "state": "NY",
+      "zip": "11797-2033",
+      "image": "https://images.financialmodelingprep.com/symbol/REFR.png",
+      "ipoDate": "1986-07-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "REFR",
+      "date": "2015-12-31",
+      "marketCap": 125268437
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041611.2631457
+}

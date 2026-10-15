@@ -1,0 +1,54 @@
+{
+  "symbol": "BKNG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BKNG",
+      "price": 160.68,
+      "marketCap": 120731899080,
+      "beta": 1.129,
+      "lastDividend": 1.644,
+      "range": "150.14-220.81",
+      "change": 3.17,
+      "changePercentage": 2.01257,
+      "volume": 6719334,
+      "averageVolume": 7198695,
+      "companyName": "Booking Holdings Inc.",
+      "currency": "USD",
+      "cik": "0001075531",
+      "isin": "US09857L1089",
+      "cusip": "09857L108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Travel Services",
+      "website": "https://www.bookingholdings.com",
+      "description": "Booking Holdings Inc. is a leading global provider of online travel and dining reservation services. The company manages a portfolio of well-known digital platforms. Among these, Booking.com specializes in online accommodation bookings, while Rentalcars.com is dedicated to facilitating vehicle rentals. Priceline offers a comprehensive range of online travel booking options, encompassing hotels, flights, rental cars, vacation packages, and cruises, alongside hotel distribution services. Agoda also provides online lodging reservations, further expanding into flights, ground transportation, and activity bookings. For travelers seeking the best deals, KAYAK functions as an online price comparison service, enabling users to search and contrast prices for airline tickets, hotels, and car rentals. Additionally, OpenTable allows for convenient online restaurant reservations. Beyond its core booking services, Booking Holdings Inc. also supplies travel-related insurance products and restaurant management solutions to individual consumers, travel service providers, and restaurants. Established in 1997, the company is headquartered in Norwalk, Connecticut. It officially adopted its current name, Booking Holdings Inc., in February 2018, having previously operated as The Priceline Group Inc.",
+      "ceo": "Glenn D. Fogel",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "25550",
+      "phone": "203 299 8000",
+      "address": "800 Connecticut Avenue",
+      "city": "Norwalk",
+      "state": "CT",
+      "zip": "06854",
+      "image": "https://images.financialmodelingprep.com/symbol/BKNG.png",
+      "ipoDate": "1999-03-31",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BKNG",
+      "date": "2015-12-31",
+      "marketCap": 63278250000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041590.6934416
+}

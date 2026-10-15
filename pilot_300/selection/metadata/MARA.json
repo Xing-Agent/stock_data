@@ -1,0 +1,54 @@
+{
+  "symbol": "MARA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MARA",
+      "price": 8.23,
+      "marketCap": 3179240770,
+      "beta": 5.347,
+      "lastDividend": 0,
+      "range": "6.66-23.45",
+      "change": -0.88,
+      "changePercentage": -9.65971,
+      "volume": 38632805,
+      "averageVolume": 45315513,
+      "companyName": "Marathon Digital Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001507605",
+      "isin": "US5657881067",
+      "cusip": "565788106",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Financial - Capital Markets",
+      "website": "https://www.mara.com",
+      "description": "MARA Holdings, Inc. is a digital asset technology company, which engages in mining cryptocurrencies with a focus on the Bitcoin ecosystem. It also deals with owning and operating bitcoin mining facilities or data centers, selling proprietary software or technology to third parties operating in the Bitcoin ecosystem, offering advisory and consulting services to support Bitcoin mining ventures in domestic and international jurisdictions, and generating electricity from renewable energy resources or methane gas capture to power Bitcoin mining projects. The company was founded on February 23, 2010 and is headquartered in Hallandale Beach, FL.",
+      "ceo": "Frederick G. Thiel",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "266",
+      "phone": "702 945 2773",
+      "address": "1010 South Federal Highway",
+      "city": "Hallandale Beach",
+      "state": "FL",
+      "zip": "33009",
+      "image": "https://images.financialmodelingprep.com/symbol/MARA.png",
+      "ipoDate": "2012-05-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MARA",
+      "date": "2015-12-31",
+      "marketCap": 23947417
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041588.2047603
+}

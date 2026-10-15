@@ -1,0 +1,54 @@
+{
+  "symbol": "RGEN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RGEN",
+      "price": 178.2,
+      "marketCap": 10056823920,
+      "beta": 1.078,
+      "lastDividend": 0,
+      "range": "100.99-198.87",
+      "change": 2.78,
+      "changePercentage": 1.58477,
+      "volume": 1216919,
+      "averageVolume": 1151136,
+      "companyName": "Repligen Corporation",
+      "currency": "USD",
+      "cik": "0000730272",
+      "isin": "US7599161095",
+      "cusip": "759916109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.repligen.com",
+      "description": "Repligen Corporation specializes in the creation and distribution of advanced bioprocessing technologies and integrated systems. These solutions are vital for various stages of biological drug production, serving clients across North America, Europe, the Asia Pacific region, and other international markets. The company's diverse product portfolio includes crucial components for biomanufacturing. This encompasses Protein A ligands, which serve as the key binding elements within Protein A affinity chromatography resins, as well as specialized cell culture growth factors. In the realm of chromatography, Repligen offers a range of products: Its OPUS line features pre-packed chromatography columns, instrumental in purifying biologics, alongside smaller-scale OPUS columns designed for high-throughput process development screening, viral clearance validation studies, and the scaling-down of chromatography processes. Additionally, the company supplies ELISA test kits and chromatography resins marketed under the CaptivA brand. Repligen also boasts an extensive suite of filtration products. This includes XCell Alternating Tangential Flow systems, which are filtration devices utilized in upstream perfusion and cell culture processing. For downstream applications like biologic drug concentration and formulation, they provide TangenX flat sheet cassettes. Other filtration offerings encompass KrosFlo tangential flow filtration and tangential flow depth filtration systems, Spectra/Por laboratory and process dialysis products, SpectraFlo dynamic dialysis systems, and ProConnex single-use hollow fibers. Furthermore, Repligen addresses process analytics with its slope spectroscopy systems, branded as SoloVPE, FlowVPE, and FlowVPX. Their clientele is broad, consisting of life sciences organizations, biopharmaceutical and diagnostics companies, laboratory researchers, and contract manufacturing organizations. Repligen also collaborates with partners, such as Navigo Proteins GmbH, on the development of various affinity ligands. The corporation was founded in 1981 and maintains its corporate headquarters in Waltham, Massachusetts.",
+      "ceo": "Olivier Loeillot",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "2000",
+      "phone": "781 250 0111",
+      "address": "Building 1",
+      "city": "Waltham",
+      "state": "MA",
+      "zip": "02453",
+      "image": "https://images.financialmodelingprep.com/symbol/RGEN.png",
+      "ipoDate": "1986-04-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RGEN",
+      "date": "2015-12-31",
+      "marketCap": 934268225
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041922.893571
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "SRI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SRI",
+      "price": 5.96,
+      "marketCap": 168281792,
+      "beta": 1.882,
+      "lastDividend": 0,
+      "range": "4.6-9.71",
+      "change": -0.14,
+      "changePercentage": -2.29508,
+      "volume": 269236,
+      "averageVolume": 205366,
+      "companyName": "Stoneridge, Inc.",
+      "currency": "USD",
+      "cik": "0001043337",
+      "isin": "US86183P1021",
+      "cusip": "86183P102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Auto - Parts",
+      "website": "https://www.stoneridge.com",
+      "description": "Stoneridge, Inc. engineers and manufactures specialized electrical and electronic components, modules, and integrated systems for a broad spectrum of vehicle markets, including automotive, commercial, off-highway, motorcycle, and agricultural sectors, operating across North America, South America, Europe, and other international territories. The company's operations are divided into three core segments: Control Devices, Electronics, and Stoneridge Brazil. The Control Devices segment delivers critical parts such as sensors, switches, actuators, and connectors, designed to monitor, measure, or activate specific vehicle functions. The Electronics segment focuses on developing and producing driver information systems, camera-based vision technologies, connectivity solutions, and compliance products. These offerings gather, store, and display vital vehicle data, including speed, pressure, maintenance information, trip logs, operator performance metrics, temperature, distance covered, and driver alerts pertaining to vehicle operation. Additionally, this segment creates electronic control units (ECUs) that manage, coordinate, supervise, and guide the overall electrical system within a vehicle. The Stoneridge Brazil segment is dedicated to the design, production, and sale of vehicle tracking devices and related monitoring services, alongside vehicle security alarms, convenience accessories, in-vehicle audio and infotainment systems, and advanced telematics solutions. Stoneridge's advanced products and systems are provided to original equipment manufacturers (OEMs) and Tier 1 suppliers, as well as aftermarket distributors and mass merchandisers, for use across diverse vehicle platforms. Founded in 1965, Stoneridge, Inc. is headquartered in Novi, Michigan.",
+      "ceo": "Natalia Noblet",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "4200",
+      "phone": "248 489 9300",
+      "address": "39675 MacKenzie Drive",
+      "city": "Novi",
+      "state": "MI",
+      "zip": "48377",
+      "image": "https://images.financialmodelingprep.com/symbol/SRI.png",
+      "ipoDate": "1997-10-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SRI",
+      "date": "2015-12-31",
+      "marketCap": 409603882
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041021.6184533
+}

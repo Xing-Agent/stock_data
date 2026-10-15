@@ -1,0 +1,54 @@
+{
+  "symbol": "RFIL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RFIL",
+      "price": 7.34,
+      "marketCap": 79622852,
+      "beta": 1.341,
+      "lastDividend": 0,
+      "range": "5.54-22.3",
+      "change": -0.61,
+      "changePercentage": -7.67296,
+      "volume": 204239,
+      "averageVolume": 288223,
+      "companyName": "RF Industries, Ltd.",
+      "currency": "USD",
+      "cik": "0000740664",
+      "isin": "US7495521053",
+      "cusip": "749552105",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Electrical Equipment & Parts",
+      "website": "https://www.rfindustries.com",
+      "description": "Headquartered in San Diego, California, RF Industries, Ltd., established in 1979 and formerly known as Celltronics, Inc. until 1990, is a global enterprise that develops, produces, and markets interconnect products and systems across the United States, Canada, Mexico, and other international markets. The company's operations are divided into two primary segments. The RF Connector and Cable Assembly division focuses on designing, fabricating, and distributing coaxial connectors and integrated coaxial cable assemblies. Meanwhile, the Custom Cabling Manufacturing and Assembly segment specializes in engineering, manufacturing, marketing, and distributing custom copper and fiber optic cable assemblies, sophisticated hybrid fiber optic and power solution cables, energy-efficient cooling systems for wireless base stations and remote shelters, and bespoke pole-ready 5G small cell integrated enclosures. This segment further extends its offerings to include custom and standard cable assemblies, hybrid fiber optic power solutions, adapters, and electromechanical wiring harnesses for applications in communications, computing, local area networks, automotive, and medical fields. They also supply specialized cable assemblies and wiring harnesses to industrial, oilfield, instrumentation, and military clientele, alongside providing connectivity solutions to telecommunications and data communications distributors. RF Industries distributes its products through warehousing partners and an in-house sales team, serving a broad customer base that encompasses telecommunications carriers, equipment manufacturers, wireless and network infrastructure providers, and original equipment manufacturers.",
+      "ceo": "Robert D. Dawson",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "289",
+      "phone": "858 549 6340",
+      "address": "16868 Via Del Campo Court",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92127",
+      "image": "https://images.financialmodelingprep.com/symbol/RFIL.png",
+      "ipoDate": "1994-04-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RFIL",
+      "date": "2015-12-31",
+      "marketCap": 38353532
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041291.4497783
+}

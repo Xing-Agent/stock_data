@@ -1,0 +1,54 @@
+{
+  "symbol": "EPD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EPD",
+      "price": 35.79,
+      "marketCap": 77287789200,
+      "beta": 0.485,
+      "lastDividend": 2.205,
+      "range": "30.01-40.17",
+      "change": -0.25,
+      "changePercentage": -0.69367,
+      "volume": 6320710,
+      "averageVolume": 3004716,
+      "companyName": "Enterprise Products Partners L.P.",
+      "currency": "USD",
+      "cik": "0001061219",
+      "isin": "US2937921078",
+      "cusip": "293792107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Midstream",
+      "website": "https://www.enterpriseproducts.com",
+      "description": "Enterprise Products Partners L.P. delivers essential midstream energy services, connecting both producers and consumers of diverse commodities such as natural gas, natural gas liquids (NGLs), crude oil, petrochemicals, and refined products. Its operations are structured across four distinct business segments: NGL Pipelines & Services, Crude Oil Pipelines & Services, Natural Gas Pipelines & Services, and Petrochemical & Refined Products Services. The NGL Pipelines & Services division focuses on natural gas processing and associated NGL marketing. This segment oversees 19 natural gas processing facilities situated across Colorado, Louisiana, Mississippi, New Mexico, Texas, and Wyoming. Furthermore, it manages an extensive network of NGL pipelines, fractionation plants, storage sites for NGLs and related products, and NGL marine export/import terminals. Within the Crude Oil Pipelines & Services segment, the company manages crude oil pipelines, along with storage and marine terminals. A notable asset in this segment is its fleet of 255 tractor-trailer tank trucks, crucial for crude oil transportation. It also actively participates in crude oil marketing. The Natural Gas Pipelines & Services segment is dedicated to the gathering, treatment, and transmission of natural gas through its pipeline systems. This includes leasing underground salt dome natural gas storage facilities in Napoleonville, Louisiana, and owning a similar underground salt dome storage cavern in Wharton County, Texas. Natural gas marketing also forms part of its activities. Finally, the Petrochemical & Refined Products Services segment handles propylene fractionation and related marketing efforts. Its capabilities extend to butane isomerization complexes and associated deisobutanizer operations, as well as facilities for octane enhancement and the production of high-purity isobutylene. This segment additionally operates refined products pipelines and terminals, and ethylene export terminals, complementing these with refined products marketing and marine transportation solutions. Established in 1968, Enterprise Products Partners L.P. maintains its corporate headquarters in Houston, Texas.",
+      "ceo": "W. Randall Fowler",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "8000",
+      "phone": "713 381 6500",
+      "address": "1100 Louisiana Street",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77002",
+      "image": "https://images.financialmodelingprep.com/symbol/EPD.png",
+      "ipoDate": "1998-07-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EPD",
+      "date": "2015-12-31",
+      "marketCap": 52590101060
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041435.264708
+}

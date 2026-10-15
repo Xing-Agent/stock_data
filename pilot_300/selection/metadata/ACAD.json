@@ -1,0 +1,54 @@
+{
+  "symbol": "ACAD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ACAD",
+      "price": 19.25,
+      "marketCap": 3296293000,
+      "beta": 0.886,
+      "lastDividend": 0,
+      "range": "18.39-30.96",
+      "change": 0.63,
+      "changePercentage": 3.38346,
+      "volume": 1642726,
+      "averageVolume": 1804834,
+      "companyName": "Acadia Pharmaceuticals Inc.",
+      "currency": "USD",
+      "cik": "0001070494",
+      "isin": "US0042251084",
+      "cusip": "004225108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.acadia.com",
+      "description": "Acadia Pharmaceuticals Inc. operates as a biopharmaceutical company, primarily dedicated to discovering, developing, and commercializing small molecule therapeutics. Their core focus lies in addressing critical unmet medical needs within the realm of central nervous system (CNS) disorders. The company's marketed product, NUPLAZID (pimavanserin), is prescribed for the management of hallucinations and delusions associated with Parkinson's disease psychosis. Beyond its commercialized offering, ACADIA maintains a robust development pipeline, featuring several promising candidates: Pimavanserin: This compound is currently undergoing Phase 3 clinical trials for additional indications, specifically for Alzheimer's disease psychosis and the negative symptoms of schizophrenia. Trofinetide: A novel synthetic compound, Trofinetide is also in Phase 3 development, aimed at treating Rett syndrome. ACP-044: This orally administered, first-in-class non-opioid analgesic is progressing through Phase 2 studies for both acute and chronic pain. ACP-319: Identified as a positive allosteric modulator of the muscarinic receptor, ACP-319 is in Phase 1 development, exploring its potential for schizophrenia and improving cognition in Alzheimer's patients. Established in 1993, ACADIA Pharmaceuticals Inc. is headquartered in San Diego, California.",
+      "ceo": "Catherine E. Owen Adams",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "797",
+      "phone": "858 558 2871",
+      "address": "12830 El Camino Real",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92130",
+      "image": "https://images.financialmodelingprep.com/symbol/ACAD.png",
+      "ipoDate": "2004-05-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ACAD",
+      "date": "2015-12-31",
+      "marketCap": 3969484900
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041626.8990908
+}

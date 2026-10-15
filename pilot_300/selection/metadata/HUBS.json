@@ -1,0 +1,54 @@
+{
+  "symbol": "HUBS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HUBS",
+      "price": 226.23,
+      "marketCap": 11580874323,
+      "beta": 1.236,
+      "lastDividend": 0,
+      "range": "169.63-497.96",
+      "change": 4.95,
+      "changePercentage": 2.23698,
+      "volume": 1027877.01622,
+      "averageVolume": 1720220,
+      "companyName": "HubSpot, Inc.",
+      "currency": "USD",
+      "cik": "0001404655",
+      "isin": "US4435731009",
+      "cusip": "443573100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Software - Application",
+      "website": "https://www.hubspot.com",
+      "description": "HubSpot, Inc. offers an expansive, cloud-hosted customer relationship management (CRM) platform, catering to businesses across the Americas, Europe, and the Asia Pacific. This integrated system features fundamental modules for marketing, sales, customer service, and content management. Additionally, the platform is equipped with a wide array of specialized tools to optimize operations, such as search engine optimization (SEO), blogging, website management, instant messaging, AI-driven chatbots, social media management, marketing automation, email communications, and predictive lead scoring. It further includes functionalities for boosting sales productivity, creating knowledge bases, facilitating e-commerce, directing conversations, hosting videos, and managing ticketing and helpdesk inquiries. Customer satisfaction is also addressed through NPS surveys, complemented by comprehensive analytics and reporting features. Beyond the software, HubSpot offers professional services to educate and train clients on maximizing the CRM's potential, alongside accessible support options via phone, email, and live chat. The company focuses its services on mid-market business-to-business (B2B) organizations. Incorporated in 2005, HubSpot, Inc. has its main offices located in Cambridge, Massachusetts.",
+      "ceo": "Yamini Rangan",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "9016",
+      "phone": "888 482 7768",
+      "address": "2 Canal Park",
+      "city": "Cambridge",
+      "state": "MA",
+      "zip": "02141",
+      "image": "https://images.financialmodelingprep.com/symbol/HUBS.png",
+      "ipoDate": "2014-10-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HUBS",
+      "date": "2015-12-31",
+      "marketCap": 1953506520
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040394.3068597
+}

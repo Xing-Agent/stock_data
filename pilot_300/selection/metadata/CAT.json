@@ -1,0 +1,54 @@
+{
+  "symbol": "CAT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CAT",
+      "price": 748.98,
+      "marketCap": 344580442394,
+      "beta": 1.58,
+      "lastDividend": 6.16,
+      "range": "510.21-1073.46",
+      "change": -23.8,
+      "changePercentage": -3.07979,
+      "volume": 3352151,
+      "averageVolume": 2942500,
+      "companyName": "Caterpillar Inc.",
+      "currency": "USD",
+      "cik": "0000018230",
+      "isin": "US1491231015",
+      "cusip": "149123101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Agricultural - Machinery",
+      "website": "https://www.caterpillar.com",
+      "description": "Caterpillar Inc., a global enterprise founded in 1925 and headquartered in Deerfield, Illinois (having previously operated as Caterpillar Tractor Co. until its rebranding in 1986), is a premier manufacturer and vendor of heavy construction and mining equipment, diesel and natural gas power units, and industrial gas turbines across the world. The company's extensive offerings are organized into several operational divisions: Construction Industries: This segment delivers a broad spectrum of machinery for construction projects, including asphalt pavers, versatile backhoe and skid steer loaders, various sizes of excavators (from compact to heavy-duty), compactors, road-building equipment like cold planers and motorgraders, pipelayers, site preparation tractors, telehandlers, and utility vehicles, alongside a range of wheel loaders and track-type equipment. Resource Industries: Dedicated to the mining sector, this division supplies powerful equipment such as electric rope and hydraulic shovels, draglines, rotary drills, specialized hard rock vehicles, and a diverse fleet of mining, off-highway, and articulated trucks. It also offers longwall miners, wheel dozers, fleet management systems, autonomous vehicle solutions, crucial machinery components, selected work tools, and comprehensive safety and performance solutions for mining operations. Energy & Transportation: This segment focuses on power generation and propulsion systems. It provides reciprocating engines, generator sets, integrated power solutions, industrial turbines and associated services, remanufactured engines and parts, centrifugal gas compressors, and diesel-electric locomotives with related components and services. These products serve critical sectors including marine, oil and gas, industrial applications, and electric power generation. Financial Products: This segment supports customers with a variety of financial services, such as operating and finance leases, installment sale agreements, working capital loans, and wholesale financing schemes. It also offers insurance and risk management products tailored for vehicles, power generation facilities, and marine vessels. All Other: This encompassing segment is responsible for manufacturing essential consumables and components like filters, fluids, undercarriage parts, and ground engaging tools.",
+      "ceo": "Joseph E. Creed",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "118000",
+      "phone": "972 891 7700",
+      "address": "5205 N. O'Connor Boulevard Suite 100",
+      "city": "Irving",
+      "state": "TX",
+      "zip": "75039",
+      "image": "https://images.financialmodelingprep.com/symbol/CAT.png",
+      "ipoDate": "1929-12-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CAT",
+      "date": "2015-12-31",
+      "marketCap": 39607088000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041737.1976798
+}

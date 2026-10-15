@@ -1,0 +1,54 @@
+{
+  "symbol": "TDC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TDC",
+      "price": 29.89,
+      "marketCap": 2812649000,
+      "beta": 0.618,
+      "lastDividend": 0,
+      "range": "20.54-41.78",
+      "change": -0.59,
+      "changePercentage": -1.9357,
+      "volume": 1442176,
+      "averageVolume": 2630137,
+      "companyName": "Teradata Corporation",
+      "currency": "USD",
+      "cik": "0000816761",
+      "isin": "US88076W1036",
+      "cusip": "88076W103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Software - Infrastructure",
+      "website": "https://www.teradata.com",
+      "description": "Teradata Corporation, through its various entities, delivers a unified multi-cloud data platform specifically engineered for robust enterprise analytics. A cornerstone of its product suite is Teradata Vantage, a cutting-edge data platform designed to enable businesses to harness their data comprehensively across the entire organization. This platform excels at integrating diverse data sources, thereby simplifying intricate data ecosystems and assisting customers with their migration to cloud environments through an integrated approach. Beyond its core platform, Teradata offers specialized business consulting, which aids organizations in formulating a precise data and analytics vision, uncovering and putting into practice analytical opportunities, architecting effective multi-cloud environments, and ensuring their analytical infrastructure generates measurable value. The company further augments its offerings with essential support and maintenance services. Serving a broad spectrum of industries such as financial services, government, healthcare, manufacturing, retail, telecommunications, and travel/transportation, Teradata engages its global customer base through a direct sales network spanning the Americas, Europe, the Middle East, Africa, the Asia Pacific region, and Japan. Teradata Corporation, founded in 1979, maintains its principal offices in San Diego, California.",
+      "ceo": "Stephen McMillan",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "5100",
+      "phone": "866 548 8348",
+      "address": "17095 Via Del Campo",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92127",
+      "image": "https://images.financialmodelingprep.com/symbol/TDC.png",
+      "ipoDate": "2007-10-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TDC",
+      "date": "2015-12-31",
+      "marketCap": 3375888868
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041228.4297073
+}

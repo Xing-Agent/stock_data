@@ -1,0 +1,54 @@
+{
+  "symbol": "MO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MO",
+      "price": 73.155,
+      "marketCap": 122150119467,
+      "beta": 0.461,
+      "lastDividend": 4.29,
+      "range": "54.7-77.06",
+      "change": 1.595,
+      "changePercentage": 2.2289,
+      "volume": 5621141,
+      "averageVolume": 8432826,
+      "companyName": "Altria Group, Inc.",
+      "currency": "USD",
+      "cik": "0000764180",
+      "isin": "US02209S1033",
+      "cusip": "02209S103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Tobacco",
+      "website": "https://www.altria.com",
+      "description": "Operating across the United States through its subsidiaries, Altria Group, Inc. is a prominent manufacturer and marketer of both combustible and oral tobacco items. Its portfolio features cigarettes, primarily under the iconic Marlboro brand, alongside cigars and pipe tobacco mainly offered as Black & Mild. The enterprise further provides an assortment of moist smokeless tobacco products, including Copenhagen, Skoal, Red Seal, and Husky, in addition to its on! brand of oral nicotine pouches. Altria distributes its merchandise chiefly to wholesale partners, such as independent distributors, and directly to substantial retail organizations, including major chain stores. The corporation, founded in 1822, maintains its principal offices in Richmond, Virginia.",
+      "ceo": "Salvatore Mancuso",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "5900",
+      "phone": "804 274 2200",
+      "address": "6601 West Broad Street",
+      "city": "Richmond",
+      "state": "VA",
+      "zip": "23230",
+      "image": "https://images.financialmodelingprep.com/symbol/MO.png",
+      "ipoDate": "1985-07-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MO",
+      "date": "2015-12-31",
+      "marketCap": 113858760000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041039.7163033
+}

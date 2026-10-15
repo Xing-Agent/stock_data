@@ -1,0 +1,54 @@
+{
+  "symbol": "QXO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "QXO",
+      "price": 10.33,
+      "marketCap": 10717168400,
+      "beta": 2.276,
+      "lastDividend": 0,
+      "range": "10.17-27.61",
+      "change": -0.69,
+      "changePercentage": -6.26134,
+      "volume": 34000619,
+      "averageVolume": 21690745,
+      "companyName": "QXO, Inc.",
+      "currency": "USD",
+      "cik": "0001236275",
+      "isin": "US82846H4056",
+      "cusip": "82846H405",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Distribution",
+      "website": "https://www.qxo.com",
+      "description": "QXO, Inc. is a publicly traded distributor of roofing, waterproofing and complementary building products in the United States. It plans to become tech-enabled in the building products distribution industry and generate outsized value for shareholders. The company was founded on October 3, 2002, and is headquartered in Greenwich, CT.",
+      "ceo": "Bradley S. Jacobs",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "7794",
+      "phone": "888 998 6000",
+      "address": "Five American Lane",
+      "city": "Greenwich",
+      "state": "CT",
+      "zip": "06831",
+      "image": "https://images.financialmodelingprep.com/symbol/QXO.png",
+      "ipoDate": "2012-04-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "QXO",
+      "date": "2015-12-31",
+      "marketCap": 12085416
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041953.5668933
+}

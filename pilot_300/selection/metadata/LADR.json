@@ -1,0 +1,54 @@
+{
+  "symbol": "LADR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LADR",
+      "price": 8.63,
+      "marketCap": 1094847591,
+      "beta": 1.028,
+      "lastDividend": 0.92,
+      "range": "8.48-11.48",
+      "change": -0.11,
+      "changePercentage": -1.25858,
+      "volume": 1707586,
+      "averageVolume": 1217769,
+      "companyName": "Ladder Capital Corp",
+      "currency": "USD",
+      "cik": "0001577670",
+      "isin": "US5057431042",
+      "cusip": "505743104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Mortgage",
+      "website": "https://www.laddercapital.com",
+      "description": "Ladder Capital Corp engages in three core business activities. Its Lending division originates first mortgage loans, comprising \"conduit\" loans backed by stable, revenue-generating commercial real estate, and \"balance sheet\" loans for commercial properties undergoing significant change, such as lease-up, sale preparation, or rehabilitation. This segment also deploys capital into various structured real estate debt instruments, including note purchase financings, subordinated debt, and mezzanine financing. The Securities division focuses its investments on commercial mortgage-backed securities (CMBS), U.S. Agency Securities, corporate bonds, and equity holdings. Through its Real Estate division, the company acquires and maintains a diverse portfolio of commercial and residential properties, which spans office buildings, student housing, hotels, industrial sites, retail centers, and condominium units. Established in 2008 and headquartered in New York City, Ladder Capital Corp is recognized as a real estate investment trust (REIT) for federal income tax purposes, enabling it to generally bypass federal corporate income taxes by distributing at least 90% of its taxable earnings to shareholders.",
+      "ceo": "Brian Richard Harris",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "60",
+      "phone": "212 715 3170",
+      "address": "345 Park Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10022",
+      "image": "https://images.financialmodelingprep.com/symbol/LADR.png",
+      "ipoDate": "2014-02-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LADR",
+      "date": "2015-12-31",
+      "marketCap": 740194740
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041061.1924264
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "LPTH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LPTH",
+      "price": 7.93,
+      "marketCap": 555387478,
+      "beta": 1.383,
+      "lastDividend": 0,
+      "range": "5.83-18.94",
+      "change": -0.98,
+      "changePercentage": -10.99888,
+      "volume": 4416747,
+      "averageVolume": 3100226,
+      "companyName": "LightPath Technologies, Inc.",
+      "currency": "USD",
+      "cik": "0000889971",
+      "isin": "US5322578056",
+      "cusip": "532257805",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.lightpath.com",
+      "description": "LightPath Technologies, Inc. specializes in the engineering, production, and distribution of optical elements and integrated systems. Their product range includes precisely molded glass aspheric lenses, as well as infrared aspheric lenses created through molding or diamond-turning processes, along with a variety of other optical components. These solutions are fundamental for devices that manage light. Their advanced optics are utilized across numerous fields, such as defense mechanisms, medical instrumentation, industrial tools employing lasers, automotive safety features, barcode scanning systems, optical data storage, hybrid fiber coax data communication networks, telecommunications, machine vision applications, and various sensor technologies. The company markets its offerings directly to clients across North America, Europe, and Asia, and also leverages distributors and catalogs to serve both domestic and international markets. LightPath Technologies, Inc. was established in 1985 and is headquartered in Orlando, Florida.",
+      "ceo": "Shmuel Rubin",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "420",
+      "phone": "407 382 4003",
+      "address": "2603 Challenger Tech Court",
+      "city": "Orlando",
+      "state": "FL",
+      "zip": "32826",
+      "image": "https://images.financialmodelingprep.com/symbol/LPTH.png",
+      "ipoDate": "1996-02-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LPTH",
+      "date": "2015-12-31",
+      "marketCap": 43951524
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040351.1832879
+}

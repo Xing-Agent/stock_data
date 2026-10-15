@@ -1,0 +1,54 @@
+{
+  "symbol": "LNT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LNT",
+      "price": 67.51,
+      "marketCap": 17504309489,
+      "beta": 0.515,
+      "lastDividend": 2.1125,
+      "range": "62.54-78.81",
+      "change": 0.55,
+      "changePercentage": 0.82139,
+      "volume": 2397331,
+      "averageVolume": 2548177,
+      "companyName": "Alliant Energy Corporation",
+      "currency": "USD",
+      "cik": "0000352541",
+      "isin": "US0188021085",
+      "cusip": "018802108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Regulated Electric",
+      "website": "https://www.alliantenergy.com",
+      "description": "Alliant Energy Corporation functions as a utility holding company, specializing in the provision of regulated electricity and natural gas services. Its operational structure is divided into three principal segments: Utility Electric Operations, Utility Gas Operations, and Utility Other. Through its primary subsidiary, Interstate Power and Light Company (IPL), the corporation generates and distributes electricity, and manages the distribution and transportation of natural gas to retail customers throughout Iowa. IPL also markets electricity to wholesale buyers across Minnesota, Illinois, and Iowa, and generates and supplies steam in Cedar Rapids, Iowa. Similarly, its other subsidiary, Wisconsin Power and Light Company (WPL), is responsible for electricity generation and distribution, alongside natural gas distribution and transport, for retail clients within Wisconsin. WPL additionally sells wholesale electricity in Wisconsin. As of December 31, 2021, IPL catered to approximately 500,000 retail electric customers and 225,000 natural gas customers, while WPL provided services to about 485,000 retail electric accounts and 200,000 natural gas accounts. The company's diverse retail customer base includes businesses in farming, agriculture, industrial manufacturing, chemical production, packaging, and food processing. In addition to its core utility functions, Alliant Energy owns and operates a short-line rail freight service, a multi-modal freight terminal (encompassing barge, rail, and truck operations) on the Mississippi River, and a rail-served warehouse, all located in Iowa. It further provides freight brokerage services. The company also maintains interests in a 347-megawatt (MW) natural gas-fueled electric generating unit situated near Sheboygan Falls, Wisconsin, and a 225 MW wind farm located in Oklahoma. Alliant Energy Corporation was established in 1981 and maintains its headquarters in Madison, Wisconsin.",
+      "ceo": "Lisa Barton",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "2948",
+      "phone": "608 458 3311",
+      "address": "4902 North Biltmore Lane",
+      "city": "Madison",
+      "state": "WI",
+      "zip": "53718",
+      "image": "https://images.financialmodelingprep.com/symbol/LNT.png",
+      "ipoDate": "1988-01-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LNT",
+      "date": "2015-12-31",
+      "marketCap": 7003137090
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041251.5207605
+}

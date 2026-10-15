@@ -1,0 +1,54 @@
+{
+  "symbol": "CSV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CSV",
+      "price": 35.24,
+      "marketCap": 559692076,
+      "beta": 0.788,
+      "lastDividend": 0.45,
+      "range": "30.11-52.1",
+      "change": 0.63,
+      "changePercentage": 1.82028,
+      "volume": 225795,
+      "averageVolume": 170049,
+      "companyName": "Carriage Services, Inc.",
+      "currency": "USD",
+      "cik": "0001016281",
+      "isin": "US1439051079",
+      "cusip": "143905107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Personal Products & Services",
+      "website": "https://www.carriageservices.com",
+      "description": "Carriage Services, Inc. (CSV) delivers a comprehensive array of funeral and cemetery services, along with associated merchandise, throughout the United States. Its operations are structured into two distinct segments: Funeral Home Operations and Cemetery Operations. The Funeral Home Operations segment offers various services, including consultation, the use of funeral home facilities for visitations and memorial services, transportation, and the removal and preparation of remains. This segment also facilitates the sale of burial and cremation services, alongside related products such as caskets and urns. The Cemetery Operations segment provides rights to interment spaces like grave sites, lawn crypts, mausoleum sections, and niches. Furthermore, it supplies complementary cemetery merchandise, including outer burial containers, memorial markers, monuments, and floral arrangements, and performs interments, inurnments, and the installation of these items. As of December 31, 2021, the company oversaw 170 funeral homes located across 26 states and 31 cemeteries in 11 states. Carriage Services, Inc. was established in 1991 and maintains its corporate headquarters in Houston, Texas.",
+      "ceo": "Carlos R. Quezada",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "2321",
+      "phone": "713 332 8400",
+      "address": "3040 Post Oak Boulevard",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77056",
+      "image": "https://images.financialmodelingprep.com/symbol/CSV.png",
+      "ipoDate": "1996-08-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CSV",
+      "date": "2015-12-31",
+      "marketCap": 396661900
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041133.5906146
+}

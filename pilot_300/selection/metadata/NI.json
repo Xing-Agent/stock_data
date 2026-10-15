@@ -1,0 +1,54 @@
+{
+  "symbol": "NI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NI",
+      "price": 41.26,
+      "marketCap": 19781663249,
+      "beta": 0.549,
+      "lastDividend": 1.18,
+      "range": "38.42-49.21",
+      "change": -0.23,
+      "changePercentage": -0.55435,
+      "volume": 5778191,
+      "averageVolume": 5196231,
+      "companyName": "NiSource Inc",
+      "currency": "USD",
+      "cik": "0001111711",
+      "isin": "US65473P1057",
+      "cusip": "65473P105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Gas",
+      "website": "https://www.nisource.com",
+      "description": "NiSource Inc., an energy holding company, operates as a regulated natural gas and electric utility company in the United States. It operates in two segments, Columbia Operations and NIPSCO Operations. The company provides natural gas to residential, commercial, and industrial customers through approximately 37,300 miles of distribution main pipeline and the associated individual customer service lines; and 310 miles of transmission main pipeline in Ohio, Pennsylvania, Virginia, Kentucky, and Maryland. It also generates, transmits, and distributes electricity to approximately 0.5 million customers in various counties in the northern part of Indiana, as well as engages in wholesale electric and transmission transactions. It owns and operates steam coal generating stations in Wheatfield and Michigan City; combined cycle gas turbine in West Terre Haute; natural gas generating units in Wheatfield; hydro generating plants in Carroll County and White County; wind generating units in White County; and solar generating units in Sullivan County, Gibson County, Jasper County, and White County. The company was formerly known as NIPSCO Industries, Inc. and changed its name to NiSource Inc. in April 1999. NiSource Inc. was founded in 1847 and is headquartered in Merrillville, Indiana.",
+      "ceo": "Lloyd Yates",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "7703",
+      "phone": "614 460 6000",
+      "address": "801 East 86th Avenue",
+      "city": "Merrillville",
+      "state": "IN",
+      "zip": "46410",
+      "image": "https://images.financialmodelingprep.com/symbol/NI.png",
+      "ipoDate": "1973-02-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NI",
+      "date": "2015-12-31",
+      "marketCap": 6249053000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040539.6670525
+}

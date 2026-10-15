@@ -1,0 +1,54 @@
+{
+  "symbol": "HQI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HQI",
+      "price": 17.09,
+      "marketCap": 237551000,
+      "beta": 1.168,
+      "lastDividend": 0.24,
+      "range": "7.38-20.84",
+      "change": -0.22,
+      "changePercentage": -1.27094,
+      "volume": 34780,
+      "averageVolume": 22998,
+      "companyName": "HireQuest, Inc.",
+      "currency": "USD",
+      "cik": "0001140102",
+      "isin": "US4335351015",
+      "cusip": "433535101",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Staffing & Employment Services",
+      "website": "https://hirequest.com",
+      "description": "HireQuest, Inc. provides staffing solutions in the United States. The company offers direct-dispatch, executive search, commercial staffing, unskilled and semi-skilled industrial, construction personnel, skilled and semi-skilled industrial personnel, clerical and administrative personnel, permanent placement, commercial and non-CDL drivers, skilled personnel, and executive placement and consultant services. It offers its services under the HireQuest Direct, HireQuest, Snelling, DriverQuest, HireQuest Health, Northbound Executive Search, and MRI trade names. The company serves construction, recycling, warehousing, logistics, auctioneering, manufacturing, hospitality, landscaping, and retail industries, as well as dental practices. HireQuest, Inc. was founded in 2002 and is headquartered in Goose Creek, South Carolina.",
+      "ceo": "Richard F. Hermanns",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "88",
+      "phone": "843 723 7400",
+      "address": "111 Springhall Drive",
+      "city": "Goose Creek",
+      "state": "SC",
+      "zip": "29445",
+      "image": "https://images.financialmodelingprep.com/symbol/HQI.png",
+      "ipoDate": "2003-10-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HQI",
+      "date": "2015-12-31",
+      "marketCap": 31977774
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041735.0622807
+}

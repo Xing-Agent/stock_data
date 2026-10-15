@@ -1,0 +1,54 @@
+{
+  "symbol": "UNP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UNP",
+      "price": 286.43,
+      "marketCap": 170161044892,
+      "beta": 0.954,
+      "lastDividend": 5.56,
+      "range": "215.53-315.99",
+      "change": 4.07,
+      "changePercentage": 1.44142,
+      "volume": 2454439,
+      "averageVolume": 2623029,
+      "companyName": "Union Pacific Corporation",
+      "currency": "USD",
+      "cik": "0000100885",
+      "isin": "US9078181081",
+      "cusip": "907818108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Railroads",
+      "website": "https://www.up.com",
+      "description": "Union Pacific Corporation, a prominent American railway enterprise, conducts its primary operations through its subsidiary, Union Pacific Railroad Company. The company provides extensive freight transportation services for a wide array of commodities. Its diverse cargo includes agricultural products like grain, fertilizers, and refrigerated foods; energy resources such as coal, renewables, petroleum, and liquid petroleum gases; and industrial materials encompassing construction products, chemicals, plastics, forest products, metals, ores, soda ash, and sand. Union Pacific also facilitates the movement of finished automobiles, automotive parts, and general merchandise in intermodal containers, serving a varied clientele that spans agricultural processors, energy producers, and industrial manufacturers. As of December 31, 2021, the company's vast rail network stretched 32,452 route miles, strategically connecting major ports along the Pacific and Gulf Coasts with crucial gateways throughout the Midwestern and Eastern United States. Established in 1862, Union Pacific Corporation is headquartered in Omaha, Nebraska.",
+      "ceo": "Vincenzo James Vena",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "28716",
+      "phone": "402 544 5000",
+      "address": "1400 Douglas Street",
+      "city": "Omaha",
+      "state": "NE",
+      "zip": "68179",
+      "image": "https://images.financialmodelingprep.com/symbol/UNP.png",
+      "ipoDate": "1980-01-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UNP",
+      "date": "2015-12-31",
+      "marketCap": 66000800000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041745.1993904
+}

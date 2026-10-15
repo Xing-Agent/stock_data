@@ -1,0 +1,63 @@
+{
+  "symbol": "FLR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FLR",
+      "price": 47.63,
+      "marketCap": 6370087021,
+      "beta": 1.28,
+      "lastDividend": 0,
+      "range": "39.33-58.35",
+      "change": -2.12,
+      "changePercentage": -4.26131,
+      "volume": 1709507,
+      "averageVolume": 2458761,
+      "companyName": "Fluor Corporation",
+      "currency": "USD",
+      "cik": "0001124198",
+      "isin": "US3434121022",
+      "cusip": "343412102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Engineering & Construction",
+      "website": "https://www.fluor.com",
+      "description": "Fluor Corporation provides engineering, procurement, and construction (EPC); fabrication and modularization; and project management services worldwide. The company operates through three segments: Urban Solutions, Energy Solutions, and Mission Solutions. The Urban Solutions segment offers EPC and project management services to the advanced technologies and manufacturing, life sciences, mining and metals, and infrastructure industries. This segment also provides professional staffing services to the company and third-party clients with technical, professional, and craft resources on a contract or permanent placement basis, as well as maintenance services. The Energy Solutions segment offers EPC services for traditional oil and gas markets, including the production and fuels, chemicals, LNG, and power markets. This segment also provides solutions to the energy transition markets, including nuclear power and other low-carbon energy sources, asset decarbonization, carbon capture, renewable fuels, waste-to-energy, green chemicals, and hydrogen; and consulting services, such as feasibility studies, process assessments, and project finance structuring. The Mission Solutions segment offers technical solutions to the U.S. and other governments, as well as it provides site management, environmental remediation, and decommissioning for nuclear remediation at governmental facilities, as well as services to commercial nuclear clients. It also delivers solutions for nuclear security and operation, nuclear waste management, and laboratory management; and operation and maintenance, logistics, EPC, and life support solutions for mission-critical facilities across U.S. military service organizations. The company was founded in 1912 and is headquartered in Irving, Texas.",
+      "ceo": "James R. Breuer",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "22995",
+      "phone": "469 398 7000",
+      "address": "6700 Las Colinas Boulevard",
+      "city": "Irving",
+      "state": "TX",
+      "zip": "75039",
+      "image": "https://images.financialmodelingprep.com/symbol/FLR.png",
+      "ipoDate": "2000-11-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FLR",
+      "date": "2015-12-31",
+      "marketCap": 6561219000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041733.1491337,
+  "previous_attempts": [
+    {
+      "symbol": "FLR",
+      "status": "fetch_failed_not_missing_data",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792041511.3344517
+    }
+  ]
+}

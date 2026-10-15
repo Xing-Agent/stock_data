@@ -1,0 +1,63 @@
+{
+  "symbol": "MG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MG",
+      "price": 20.69,
+      "marketCap": 659190662,
+      "beta": 0.906,
+      "lastDividend": 0,
+      "range": "9.45-21.77",
+      "change": -0.15,
+      "changePercentage": -0.71977,
+      "volume": 295085,
+      "averageVolume": 291147,
+      "companyName": "Mistras Group, Inc.",
+      "currency": "USD",
+      "cik": "0001436126",
+      "isin": "US60649T1079",
+      "cusip": "60649T107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Security & Protection Services",
+      "website": "https://www.mistrasgroup.com",
+      "description": "Mistras Group, Inc. delivers advanced, technology-driven asset protection solutions across the globe. The company structures its operations into three main divisions: Services, International, and Products and Systems. Its extensive service portfolio encompasses non-destructive testing, proactive maintenance evaluations for both fixed and rotating assets, and specialized inline inspections for pipelines. Mistras develops sophisticated enterprise software for managing inspection data and overseeing plant conditions. Additionally, it offers various maintenance and light mechanical services, including corrosion prevention and removal, insulation installation and repair, electrical work, heat tracing, industrial cleaning, pipefitting, and welding. The company also provides engineering consulting, primarily focused on process equipment, technologies, and facilities, utilizing methods like scaffolding and rope access to reach elevated or confined assets. Specialized inspection capabilities include certified divers for subsea operations, alongside unmanned aerial, land-based, and underwater systems. Mistras further provides continuous online condition monitoring and comprehensive quality assurance and control for new and existing components made from metals, alloys, and composites. Regarding its products, Mistras designs, installs, and provides full support for monitoring systems, covering everything from commissioning and training to reporting, technical assistance, and annual maintenance. It also offers web-based applications and develops custom software. A core aspect of its product segment involves manufacturing and distributing acoustic emission sensors, instruments, and integrated systems for monitoring and testing materials, pressure components, processes, and structures, as well as automated ultrasonic systems and scanners. Mistras Group, Inc. serves a diverse clientele across numerous sectors, such as oil and gas, commercial aerospace and defense, power generation (fossil, nuclear, alternative, and renewable), industrial manufacturing, public infrastructure, petrochemicals, transportation, process industries, and various research and engineering organizations. Established in 1978, the company's corporate headquarters are located in Princeton Junction, New Jersey.",
+      "ceo": "Natalia Shuman",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "4800",
+      "phone": "609 716 4000",
+      "address": "195 Clarksville Road",
+      "city": "Princeton Junction",
+      "state": "NJ",
+      "zip": "08550",
+      "image": "https://images.financialmodelingprep.com/symbol/MG.png",
+      "ipoDate": "2009-10-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MG",
+      "date": "2015-12-31",
+      "marketCap": 551815540
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040851.0116768,
+  "previous_attempts": [
+    {
+      "symbol": "MG",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040425.4283824
+    }
+  ]
+}

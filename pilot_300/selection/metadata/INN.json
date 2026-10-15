@@ -1,0 +1,54 @@
+{
+  "symbol": "INN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "INN",
+      "price": 6.2,
+      "marketCap": 668691483,
+      "beta": 1.263,
+      "lastDividend": 0.32,
+      "range": "3.98-7.17",
+      "change": -0.15,
+      "changePercentage": -2.3622,
+      "volume": 1021727,
+      "averageVolume": 1354728,
+      "companyName": "Summit Hotel Properties, Inc.",
+      "currency": "USD",
+      "cik": "0001497645",
+      "isin": "US8660821005",
+      "cusip": "866082100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Hotel & Motel",
+      "website": "https://www.shpreit.com",
+      "description": "Summit Hotel Properties, Inc. is a publicly listed real estate investment trust (REIT) that concentrates on acquiring and managing premium-branded, efficiently operated hotels, primarily within the upscale segment of the hospitality sector. As of November 3, 2020, the company's diverse portfolio encompassed 72 hotels, 67 of which were wholly owned, providing a total of 11,288 guestrooms situated across 23 U.S. states.",
+      "ceo": "Jonathan Stanner",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "78",
+      "phone": "512-538-2300",
+      "address": "13215 Bee Cave Parkway",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78738",
+      "image": "https://images.financialmodelingprep.com/symbol/INN.png",
+      "ipoDate": "2011-02-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "INN",
+      "date": "2015-12-31",
+      "marketCap": 1032001999
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040612.1424062
+}

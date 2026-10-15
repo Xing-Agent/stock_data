@@ -1,0 +1,63 @@
+{
+  "symbol": "CHD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CHD",
+      "price": 102.63,
+      "marketCap": 24344236462,
+      "beta": 0.482,
+      "lastDividend": 1.2175,
+      "range": "81.33-106.04",
+      "change": 2.5,
+      "changePercentage": 2.49675,
+      "volume": 1833398,
+      "averageVolume": 1854226,
+      "companyName": "Church & Dwight Co., Inc.",
+      "currency": "USD",
+      "cik": "0000313927",
+      "isin": "US1713401024",
+      "cusip": "171340102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Household & Personal Products",
+      "website": "https://www.churchdwight.com",
+      "description": "Church & Dwight Co., Inc. is a company dedicated to the creation, production, and marketing of a diverse portfolio encompassing household, personal care, and specialized industrial goods. Its operations are structured into three principal divisions: Consumer Domestic, Consumer International, and the Specialty Products Division. The company offers a broad array of well-known consumer brands. Under the ARM & HAMMER umbrella, it provides cat litters, carpet fresheners, laundry detergents, baking soda, and various other baking soda-based items. Sexual health products, including condoms, lubricants, and vibrators, are marketed under the TROJAN brand. OXICLEAN delivers stain removers, cleaning solutions, laundry detergents, and bleach alternatives. SPINBRUSH offers both battery-operated and manual toothbrushes. Home pregnancy and ovulation test kits are available through FIRST RESPONSE. NAIR specializes in depilatories, while ORAJEL provides oral pain relief. XTRA is another prominent laundry detergent brand. Gummy dietary supplements are sold under the L'IL CRITTERS and VITAFUSION labels. BATISTE is known for its dry shampoos. WATERPIK manufactures water flossers and replacement showerheads. The company also includes its FLAWLESS range of products, ZICAM for cold symptom relief, and THERABREATH for oral care. Beyond consumer items, Church & Dwight supplies specialty products. These include advanced animal productivity solutions such as MEGALAC, a rumen bypass fat supplement designed to help cows sustain energy during peak milk production. BIO-CHLOR and FERMENTEN are utilized to mitigate health issues linked to calving and to provide essential protein. CELMANAX is a refined functional carbohydrate and yeast-based prebiotic. Furthermore, the company furnishes sodium bicarbonate for industrial use, as well as various cleaning and deodorizing compounds. Church & Dwight distributes its consumer goods through an extensive network of retail outlets, including supermarkets, large department stores, wholesale clubs, drugstores, convenience stores, home goods stores, dollar and other discount retailers, pet stores, specialized shops, and various online e-commerce channels. Its specialty products, conversely, reach industrial clients and livestock producers via dedicated distributors. Founded in 1846, Church & Dwight Co., Inc. maintains its corporate headquarters in Ewing, New Jersey.",
+      "ceo": "Richard A. Dierker",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "5550",
+      "phone": "609 806 1200",
+      "address": "Princeton South Corporate Center",
+      "city": "Ewing",
+      "state": "NJ",
+      "zip": "08628",
+      "image": "https://images.financialmodelingprep.com/symbol/CHD.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CHD",
+      "date": "2015-12-31",
+      "marketCap": 10983472000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040796.3586876,
+  "previous_attempts": [
+    {
+      "symbol": "CHD",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040348.579062
+    }
+  ]
+}

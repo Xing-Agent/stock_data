@@ -1,0 +1,54 @@
+{
+  "symbol": "SMSI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SMSI",
+      "price": 2.37,
+      "marketCap": 10652439,
+      "beta": 0.76,
+      "lastDividend": 0,
+      "range": "2.05-4.65",
+      "change": -0.03,
+      "changePercentage": -1.25,
+      "volume": 31602,
+      "averageVolume": 118748,
+      "companyName": "Smith Micro Software, Inc.",
+      "currency": "USD",
+      "cik": "0000948708",
+      "isin": "US8321545043",
+      "cusip": "832154504",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Software - Application",
+      "website": "https://www.smithmicro.com",
+      "description": "Smith Micro Software, Inc. engineers and distributes specialized software solutions globally, primarily to telecommunications and cable service providers, with the goal of enriching the mobile experience. Their product lineup includes the SafePath suite—encompassing SafePath Family, SafePath IoT, and SafePath Home—which provides users with essential tools to protect their digital activities and manage connected devices both within and beyond their households. Additionally, the company offers CommSuite, an advanced messaging platform that empowers mobile carriers to deliver state-of-the-art voicemail services, including multi-language voice-to-text transcription, to their subscribers. Another core offering is ViewSpot, a retail display management system that delivers interactive, on-screen demonstrations for wireless carriers and their retail partners. Beyond its software products, Smith Micro Software also furnishes comprehensive technical assistance and customer support. The company was established in 1982 and maintains its corporate headquarters in Pittsburgh, Pennsylvania.",
+      "ceo": "William W. Smith",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "118",
+      "phone": "412 837 5300",
+      "address": "5800 Corporate Drive",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15237",
+      "image": "https://images.financialmodelingprep.com/symbol/SMSI.png",
+      "ipoDate": "1995-09-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SMSI",
+      "date": "2015-12-31",
+      "marketCap": 168034325
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041186.7363746
+}

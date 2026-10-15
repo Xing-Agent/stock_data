@@ -1,0 +1,54 @@
+{
+  "symbol": "BHE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BHE",
+      "price": 74.37,
+      "marketCap": 2671362963,
+      "beta": 1.264,
+      "lastDividend": 0.68,
+      "range": "38.2-100.41",
+      "change": -4.38,
+      "changePercentage": -5.5619,
+      "volume": 320176,
+      "averageVolume": 432113,
+      "companyName": "Benchmark Electronics, Inc.",
+      "currency": "USD",
+      "cik": "0000863436",
+      "isin": "US08160H1014",
+      "cusip": "08160H101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.bench.com",
+      "description": "Benchmark Electronics, Inc., together with its subsidiaries, operates as a global provider, delivering a comprehensive suite of product design, engineering, technology solutions, and manufacturing services across the Americas, Asia, and Europe. Its capabilities span engineering and technology solutions, encompassing initial product design, prototyping, and comprehensive testing. This includes specialized custom testing setups and the development and construction of automation equipment. Furthermore, Benchmark excels in electronics manufacturing and rigorous testing. This involves the assembly and testing of printed circuit boards and subsystems, alongside thorough evaluations of circuitry and functionality. Their quality assurance extends to environmental, stress, and component reliability assessments, complemented by component engineering, manufacturing defect analysis, in-circuit testing, functional testing, lifecycle testing, and detailed failure analysis. The company also offers precision machining and electromechanical assembly, coupled with comprehensive subsystem and full system integration services that encompass assembly, configuration, and testing across diverse industrial sectors. Beyond core manufacturing, Benchmark provides value-added support systems, comprehensive supply chain management solutions, and direct order fulfillment. Crucially, they offer extensive aftermarket, non-warranty services that span a product's entire lifecycle, including repair, replacement, refurbishment, remanufacturing, exchange programs, system upgrades, and the production of spare parts. The company's clientele primarily consists of Original Equipment Manufacturers (OEMs) across critical sectors such as aerospace and defense, medical technologies, complex industrial applications, semiconductor capital equipment, telecommunications, and advanced computing. Benchmark promotes its services and solutions predominantly through a dedicated direct sales force. Established in 1979, the firm, previously known as Electronics, Inc., maintains its headquarters in Tempe, Arizona.",
+      "ceo": "David Moezidis",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "11840",
+      "phone": "623 300 7000",
+      "address": "56 South Rockford Drive",
+      "city": "Tempe",
+      "state": "AZ",
+      "zip": "85288",
+      "image": "https://images.financialmodelingprep.com/symbol/BHE.png",
+      "ipoDate": "1990-06-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BHE",
+      "date": "2015-12-31",
+      "marketCap": 1030358160
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040326.3917813
+}

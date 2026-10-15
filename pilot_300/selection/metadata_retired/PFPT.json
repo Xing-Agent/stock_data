@@ -1,0 +1,54 @@
+{
+  "symbol": "PFPT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PFPT",
+      "price": 175.9,
+      "marketCap": 0,
+      "beta": 1.199235,
+      "lastDividend": 0,
+      "range": "175.9-175.99",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 4847762,
+      "averageVolume": 877117,
+      "companyName": "Proofpoint, Inc.",
+      "currency": "USD",
+      "cik": "0001212458",
+      "isin": "US7434241037",
+      "cusip": "743424103",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Software - Infrastructure",
+      "website": "http://www.proofpoint.com",
+      "description": "Proofpoint, Inc. provides a robust array of cloud-based cybersecurity solutions, enabling mid-sized and large organizations worldwide to secure, protect, archive, and govern their critical information. The company specializes in countering advanced and targeted digital threats, including malicious attachments, constantly evolving polymorphic threats, newly discovered zero-day vulnerabilities, surreptitious \"drive-by\" downloads, hazardous web links, hybrid attacks, malware-free intrusions, and various other penetration strategies. Its offerings encompass integrated services for email security, cloud protection, advanced threat defense, information archiving and safeguarding, and digital risk management. Furthermore, Proofpoint facilitates secure business-to-business and business-to-consumer communications, offers encryption services for sensitive email delivery to diverse devices, provides secure file transfer capabilities for sharing documents and content, implements security-optimized cloud architectures, and maintains a flexible security-as-a-service platform. The company serves a diverse client base across industries such as aerospace and defense, education, financial services, government, healthcare, manufacturing, and retail. Proofpoint, Inc. was founded in 2002 and is headquartered in Sunnyvale, California.",
+      "ceo": "Gary Steele",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "3658",
+      "phone": "14085174710",
+      "address": "892 Ross Dr",
+      "city": "Sunnyvale",
+      "state": "CA",
+      "zip": "94089",
+      "image": "https://images.financialmodelingprep.com/symbol/PFPT.png",
+      "ipoDate": "2012-01-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PFPT",
+      "date": "2015-12-31",
+      "marketCap": 2671455930
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040470.9396274
+}

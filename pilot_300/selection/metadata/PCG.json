@@ -1,0 +1,54 @@
+{
+  "symbol": "PCG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PCG",
+      "price": 13.15,
+      "marketCap": 35241583382,
+      "beta": 0.279,
+      "lastDividend": 0.175,
+      "range": "11.77-19.16",
+      "change": -0.18,
+      "changePercentage": -1.35034,
+      "volume": 21532932,
+      "averageVolume": 32191737,
+      "companyName": "PG&E Corporation",
+      "currency": "USD",
+      "cik": "0001004980",
+      "isin": "US69331C1080",
+      "cusip": "69331C108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Electric",
+      "website": "https://www.pgecorp.com",
+      "description": "PG&E Corporation operates as a holding company, overseeing the generation, transmission, and distribution of electricity and natural gas to its clientele. The firm's expertise spans a broad range of energy-related services, including general utilities, power provision, gas supply, electrical grids, solar solutions, and sustainability initiatives. Established in 1995, the company maintains its corporate headquarters in Oakland, California.",
+      "ceo": "Patricia Kessler Poppe",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "29010",
+      "phone": "415 973 1000",
+      "address": "300 Lakeside Drive",
+      "city": "Oakland",
+      "state": "CA",
+      "zip": "94612",
+      "image": "https://images.financialmodelingprep.com/symbol/PCG.png",
+      "ipoDate": "1972-06-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PCG",
+      "date": "2015-12-31",
+      "marketCap": 26222670000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040993.2070866
+}

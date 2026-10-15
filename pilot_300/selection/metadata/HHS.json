@@ -1,0 +1,54 @@
+{
+  "symbol": "HHS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HHS",
+      "price": 4.33,
+      "marketCap": 32126305,
+      "beta": -0.036,
+      "lastDividend": 0,
+      "range": "2-4.67",
+      "change": -0.04,
+      "changePercentage": -0.91533,
+      "volume": 21165,
+      "averageVolume": 111502,
+      "companyName": "Harte Hanks, Inc.",
+      "currency": "USD",
+      "cik": "0000045919",
+      "isin": "US4161962026",
+      "cusip": "416196202",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Specialty Business Services",
+      "website": "https://www.hartehanks.com",
+      "description": "Harte Hanks, Inc. is an established global firm specializing in customer experience solutions, operating both domestically and internationally. Its business is structured around three primary divisions: Marketing Services, Customer Care, and Fulfillment & Logistics Services. Within Marketing Services, the company offers strategic guidance to clients, aiding in the design and execution of integrated omni-channel marketing initiatives. This comprehensive offering includes audience identification, detailed profiling, segmentation, prioritization, predictive analytics, and sophisticated data strategy development. Harte Hanks also ensures data quality through hygiene and cleansing services. The company implements campaigns across a wide array of channels, encompassing traditional media like print, broadcast, and direct mail, alongside digital platforms such as websites, mobile applications, display advertising, social media, search engine marketing, and voice interactions. Additionally, it provides digital infrastructure development, including website and app creation, e-commerce enablement, robust database construction and management, platform architecture design, marketing automation, and outsourced marketing operations solutions. The Customer Care segment focuses on managing client-consumer interactions, resolving issues ranging from hardware and software concerns to healthcare benefit plans, product recalls, and general service inquiries. This division leverages CRM and digital transformation strategies to facilitate meaningful customer engagement, ensuring seamless content integration between agent-assisted or AI-driven interfaces and self-service web tools or community forums. It also delivers intelligence-based B2B solutions, providing deep insights into audience behaviors and inspiring actions that drive measurable results. Finally, Fulfillment & Logistics Services covers product, print-on-demand, and mail fulfillment operations. This includes bespoke printing services, efficient management of product recalls, and the distribution of literature and promotional materials. The company further develops customized solutions tailored to engage specific audiences, target key customers, support conferences, and recognize employees, complemented by comprehensive third-party logistics (3PL) and freight optimization services. Harte Hanks, Inc. primarily serves diverse vertical markets, including business-to-business (B2B), consumer brands, financial services, retail, and healthcare sectors. The company was founded in 1923 and is headquartered in Chelmsford, Massachusetts.",
+      "ceo": "David Fisher",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "1719",
+      "phone": "512 434 1100",
+      "address": "2 Executive Drive",
+      "city": "Chelmsford",
+      "state": "MA",
+      "zip": "01824",
+      "image": "https://images.financialmodelingprep.com/symbol/HHS.png",
+      "ipoDate": "1993-11-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HHS",
+      "date": "2015-12-31",
+      "marketCap": 197345451
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041313.2661073
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "AMPH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AMPH",
+      "price": 26.08,
+      "marketCap": 1149943328,
+      "beta": 0.9,
+      "lastDividend": 0,
+      "range": "16.65-29.52",
+      "change": 0.03,
+      "changePercentage": 0.11516,
+      "volume": 364651,
+      "averageVolume": 497314,
+      "companyName": "Amphastar Pharmaceuticals, Inc.",
+      "currency": "USD",
+      "cik": "0001297184",
+      "isin": "US03209R1032",
+      "cusip": "03209R103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Drug Manufacturers - Specialty & Generic",
+      "website": "https://www.amphastar.com",
+      "description": "Amphastar Pharmaceuticals, Inc., established in 1996 and based in Rancho Cucamonga, California, functions as a biopharmaceutical enterprise. The company is engaged in the creation, production, commercialization, and distribution of both generic and proprietary pharmaceutical products, which include injectables, inhalants, and intranasal formulations. Its market presence extends across the United States, China, and France. Amphastar's operations are divided into two primary segments: Finished Pharmaceutical Products and Active Pharmaceutical Ingredients (API). The company's extensive product portfolio encompasses a variety of crucial medications. These feature Primatene Mist, an over-the-counter epinephrine inhaler for the temporary alleviation of mild asthma symptoms; Enoxaparin, a low molecular weight heparin utilized for the prevention and treatment of deep vein thrombosis; and Naloxone, an essential treatment for opioid overdose. Other significant offerings include emergency Glucagon injection kits; Cortrosyn, a diagnostic agent for adrenocortical insufficiency; and Amphadase, a bovine-sourced hyaluronidase injection that aids in the absorption and dispersion of other administered drugs. Amphastar additionally supplies Epinephrine injections for severe allergic reactions; various lidocaine products (such as a jelly for urological procedures and a topical solution for other applications); Phytonadione injection (Vitamin K1) for newborns; and specialized emergency syringe products for hospital use. Furthermore, the company provides Morphine injections for patient-controlled analgesia and Lorazepam injections for surgical and medical procedures. More advanced therapeutics consist of Neostigmine methylsulfate injection to manage myasthenia gravis and reverse muscle relaxant effects, and Isoproterenol hydrochloride injection for mild or transient episodes of heart block. Beyond its finished pharmaceutical goods, Amphastar also acts as a distributor for recombinant human insulin API and porcine insulin API. The company caters to a broad spectrum of healthcare providers, including hospitals, various care facilities, clinics, and physicians' offices.",
+      "ceo": "Yongfeng Zhang",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "1976",
+      "phone": "909 980 9484",
+      "address": "11570 6th Street",
+      "city": "Rancho Cucamonga",
+      "state": "CA",
+      "zip": "91730",
+      "image": "https://images.financialmodelingprep.com/symbol/AMPH.png",
+      "ipoDate": "2014-06-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AMPH",
+      "date": "2015-12-31",
+      "marketCap": 640933430
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041925.33384
+}

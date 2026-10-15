@@ -1,0 +1,54 @@
+{
+  "symbol": "UFI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UFI",
+      "price": 5.7,
+      "marketCap": 105947610,
+      "beta": 0.724,
+      "lastDividend": 0,
+      "range": "2.96-8.47",
+      "change": -0.39,
+      "changePercentage": -6.40394,
+      "volume": 115623,
+      "averageVolume": 105881,
+      "companyName": "Unifi, Inc.",
+      "currency": "USD",
+      "cik": "0000100726",
+      "isin": "US9046772003",
+      "cusip": "904677200",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Manufacturing - Textiles",
+      "website": "https://unifi.com",
+      "description": "Unifi, Inc., together with its subsidiaries, engages in the manufacture and sale of recycled and synthetic products in North America, Central America, South America, Asia, and Europe. It offers polyester products, including partially oriented yarn, textured, solution and package dyed, twisted, beamed, and draw wound yarns in virgin or recycled varieties; and nylon products comprise virgin or recycled textured, solution dyed, and spandex covered yarns. The company also provides recycled solutions made from pre-consumer and post-consumer waste, such as plastic bottle flakes, polyester polymer beads, and staple fiber. It offers recycled and synthetic products primarily to yarn manufacturers, knitters, and weavers that produces yarn and fabric for the apparel, hosiery, automotive, home furnishings, industrial, medical, and other end-use markets. The company sells its products through sales force and independent sales agents under the REPREVE brand. Unifi, Inc. was incorporated in 1969 and is headquartered in Greensboro, North Carolina.",
+      "ceo": "Edmund Ingle",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "2400",
+      "phone": "336 294 4410",
+      "address": "7201 West Friendly Avenue",
+      "city": "Greensboro",
+      "state": "NC",
+      "zip": "27410",
+      "image": "https://images.financialmodelingprep.com/symbol/UFI.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UFI",
+      "date": "2015-12-31",
+      "marketCap": 502139700
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040479.737829
+}

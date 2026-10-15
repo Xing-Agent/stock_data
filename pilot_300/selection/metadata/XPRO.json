@@ -1,0 +1,54 @@
+{
+  "symbol": "XPRO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "XPRO",
+      "price": 15.75,
+      "marketCap": 1769499097,
+      "beta": 0.999,
+      "lastDividend": 0,
+      "range": "12.31-19.23",
+      "change": -0.66,
+      "changePercentage": -4.02194,
+      "volume": 1087628,
+      "averageVolume": 1017484,
+      "companyName": "Expro Group Holdings N.V.",
+      "currency": "USD",
+      "cik": "0002126198",
+      "isin": "KYG3314M1096",
+      "cusip": "G3314M109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Equipment & Services",
+      "website": "https://www.expro.com",
+      "description": "Expro Group Holdings N.V. is a global provider of specialized energy services, operating across North and Latin America, Europe, Sub-Saharan Africa, the Middle East, North Africa, and the Asia-Pacific regions. The company delivers solutions crucial for both well construction and ongoing well management. Its construction offerings include advanced drilling technologies, tubular running services, and cementing and tubular goods. For well management, it provides services such as optimizing well flow, subsea well access, and maintaining well integrity through intervention. Expro supports exploration and production companies in both onshore and offshore environments. Established in 1938 and headquartered in Houston, Texas, the company boasts an extensive international presence, serving clients in approximately 60 countries from around 100 locations.",
+      "ceo": "Michael Jardon",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "7000",
+      "phone": "713 463 9776",
+      "address": "1311 Broadfield Boulevard",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77084",
+      "image": "https://images.financialmodelingprep.com/symbol/XPRO.png",
+      "ipoDate": "2013-08-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "XPRO",
+      "date": "2015-12-31",
+      "marketCap": 14640114348
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041909.394318
+}

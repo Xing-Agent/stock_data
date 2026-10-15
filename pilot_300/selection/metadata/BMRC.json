@@ -1,0 +1,54 @@
+{
+  "symbol": "BMRC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BMRC",
+      "price": 26.12,
+      "marketCap": 422992504,
+      "beta": 0.798,
+      "lastDividend": 1,
+      "range": "22.5-30.92",
+      "change": -0.215,
+      "changePercentage": -0.8164,
+      "volume": 104482,
+      "averageVolume": 155763,
+      "companyName": "Bank of Marin Bancorp",
+      "currency": "USD",
+      "cik": "0001403475",
+      "isin": "US0634251021",
+      "cusip": "063425102",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.bankofmarin.com",
+      "description": "Bank of Marin Bancorp functions as the parent organization for Bank of Marin, a financial institution delivering diverse services. It caters principally to small and mid-sized enterprises, independent professionals, non-profit groups, and private clientele across California. Deposit offerings include both personal and business checking and savings accounts, individual retirement accounts (IRAs), health savings accounts (HSAs), and specialized demand deposit marketplace accounts. Clients can also opt for time certificates of deposit (CDs), Certificate of Deposit Account Registry Service (CDARS), and Insured Cash Sweep (ICS) services. Its lending portfolio spans commercial real estate, commercial and industrial financing, and consumer loans, along with construction funding and home equity lines of credit. Beyond traditional banking, the bank provides business-focused solutions such as merchant and payroll services, comprehensive cash management, credit cards, and robust fraud detection tools. Digital conveniences include mobile and remote deposit capture, Automated Clearing House (ACH) transfers, wire services, and image lockbox functionality. Furthermore, the institution offers extensive wealth management and trust services, encompassing personalized investment portfolio management, financial planning, trust administration, estate settlement, custody services, and 401(k) plan administration. Customers also benefit from accessible ATMs and modern telephone and digital banking platforms. The bank maintains a physical network of twelve branch locations situated throughout Marin, southern Sonoma counties, and regions north of San Francisco, California, complemented by a dedicated loan production office within San Francisco. Founded in 1989, its corporate headquarters are based in Novato, California.",
+      "ceo": "Timothy D. Myers",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "311",
+      "phone": "415 763 4520",
+      "address": "504 Redwood Boulevard",
+      "city": "Novato",
+      "state": "CA",
+      "zip": "94947",
+      "image": "https://images.financialmodelingprep.com/symbol/BMRC.png",
+      "ipoDate": "1999-12-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BMRC",
+      "date": "2015-12-31",
+      "marketCap": 322963200
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041954.0631578
+}

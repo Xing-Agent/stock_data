@@ -1,0 +1,54 @@
+{
+  "symbol": "OXM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "OXM",
+      "price": 26.04,
+      "marketCap": 388801469,
+      "beta": 1.114,
+      "lastDividend": 2.78,
+      "range": "24.2-49.58",
+      "change": 0.32,
+      "changePercentage": 1.24416,
+      "volume": 889026,
+      "averageVolume": 506431,
+      "companyName": "Oxford Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000075288",
+      "isin": "US6914973093",
+      "cusip": "691497309",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Apparel - Manufacturers",
+      "website": "https://www.oxfordinc.com",
+      "description": "Oxford Industries, Inc. (OII) operates globally as a lifestyle apparel and accessories enterprise, engaged in the development, procurement, promotion, and sale of various branded products. Its portfolio includes several distinct labels: Tommy Bahama: Offers a diverse range of men's and women's casual wear and related merchandise. Lilly Pulitzer: Specializes in women's and girls' apparel, including dresses, sportswear, and an array of accessories like scarves, bags, jewelry, belts, footwear, and children's swimwear. Southern Tide: Focuses on men's clothing such as shirts, pants, shorts, outerwear, ties, and swimwear, complemented by footwear and accessories, with growing collections for women and youth. OII also manages additional brands: The Beaufort Bonnet Company: Provides upscale children's attire and accessories, encompassing bonnets, hats, clothing, and swimwear, sold through its e-commerce site and wholesale partners. Duck Head: Delivers men's apparel, specifically pants, shorts, and tops, available via its website and wholesale specialty retailers. Furthermore, OII extends its brand presence through licensing agreements. The Tommy Bahama brand is licensed for a broad spectrum of items, including indoor and outdoor furniture, beach equipment, bedding and bath textiles, various fabrics, leather goods, headwear, hosiery, sleepwear, personal care products (shampoo, toiletries, fragrances), cigar accessories, and distilled spirits. Lilly Pulitzer's trademark adorns stationery, gift items, home furnishings, and eyewear, while Southern Tide's brand is licensed for bed and bath products. The company's merchandise reaches consumers through a comprehensive multi-channel distribution network. This includes its own physical retail outlets, major department stores, specialized boutiques, various multi-branded e-commerce platforms, off-price retailers, and its dedicated online stores. As of January 29, 2022, Oxford Industries, Inc. maintained a physical presence comprising 186 full-price, brand-specific retail stores, 21 Tommy Bahama food and beverage establishments, and 35 Tommy Bahama outlet stores. Established in 1942, Oxford Industries, Inc. has its corporate headquarters situated in Atlanta, Georgia.",
+      "ceo": "Thomas Caldecot Chubb",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "6000",
+      "phone": "404 659 2424",
+      "address": "999 Peachtree Street, NE",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30309",
+      "image": "https://images.financialmodelingprep.com/symbol/OXM.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "OXM",
+      "date": "2015-12-31",
+      "marketCap": 1050860120
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041063.739947
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "HOPE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HOPE",
+      "price": 13.2,
+      "marketCap": 1686194400,
+      "beta": 0.853,
+      "lastDividend": 0.56,
+      "range": "9.8-14.59",
+      "change": -0.11,
+      "changePercentage": -0.82645,
+      "volume": 1041940,
+      "averageVolume": 1020243,
+      "companyName": "Hope Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0001128361",
+      "isin": "US43940T1097",
+      "cusip": "43940T109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.bankofhope.com",
+      "description": "Hope Bancorp, Inc., established in 2000 and headquartered in Los Angeles, California, functions as the parent entity for Bank of Hope. Through its subsidiary, Bank of Hope, it delivers a comprehensive suite of banking solutions to both individuals and small to medium-sized enterprises across the United States. Customers have access to a wide array of deposit accounts, encompassing personal and business checking, money market accounts, savings accounts, certificate of deposits, and individual retirement accounts. The institution's lending portfolio is extensive, covering various financial needs. For businesses, it offers commercial loans tailored for purposes such as working capital, inventory purchases, debt consolidation, business acquisitions, and other operational financing requirements. Furthermore, it provides real estate loans, Small Business Administration (SBA) loans, and a range of consumer credit products such as single-family mortgages, home equity lines, auto loans, credit cards, and personal loans. Beyond traditional banking, Hope Bancorp extends trade finance facilities, including the issuance and negotiation of letters of credit and management of documentary collections. It also offers warehouse lines of credit for mortgage originators and commercial equipment leasing solutions. Cash management services, such as remote deposit capture, lock box systems, and ACH origination, are available, alongside investment and wealth management advice. Digital banking options like mobile and internet banking are provided, complemented by debit card services, foreign exchange, automated teller machines, safe deposit boxes, and other standard banking provisions. As of December 31, 2021, the company maintained a significant physical presence, operating 47 full-service branches spanning California, Washington, Texas, Illinois, New York, New Jersey, Virginia, and Alabama. Its reach also includes SBA loan production offices in key metropolitan areas like Atlanta, Houston, Dallas, Denver, Portland, Seattle, Fremont, and Southern California, in addition to a representative office located in Seoul, Korea.",
+      "ceo": "Kevin Sung Kim",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1432",
+      "phone": "213 639 1700",
+      "address": "3200 Wilshire Boulevard",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90010",
+      "image": "https://images.financialmodelingprep.com/symbol/HOPE.png",
+      "ipoDate": "1998-01-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HOPE",
+      "date": "2015-12-31",
+      "marketCap": 1370419260
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041230.9045079
+}

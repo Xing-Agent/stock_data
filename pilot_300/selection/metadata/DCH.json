@@ -1,0 +1,54 @@
+{
+  "symbol": "DCH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DCH",
+      "price": 5.19,
+      "marketCap": 1233167884,
+      "beta": 1.693,
+      "lastDividend": 0,
+      "range": "4.92-9.25",
+      "change": -0.31,
+      "changePercentage": -5.63637,
+      "volume": 4872659,
+      "averageVolume": 3578044,
+      "companyName": "Dauch Corp.",
+      "currency": "USD",
+      "cik": "0001062231",
+      "isin": "US0240611030",
+      "cusip": "024061103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Auto - Parts",
+      "website": "https://www.dauch.com",
+      "description": "Dauch Corporation, together with its subsidiaries, designs, engineers, and manufactures driveline and metal forming technologies that supports electric, hybrid, and internal combustion vehicles. It operates through two segments, Driveline and Metal Forming segments. The Driveline segment offers front and rear axles, driveshafts, differential assemblies, clutch modules, balance shaft systems, disconnecting driveline technology, and electric and hybrid driveline products and systems for light trucks, sport utility vehicles, crossover vehicles, passenger cars, and commercial vehicles. The Metal Forming segment provides range of products, such as engine, transmission, driveline, and safety-critical components for traditional internal combustion engine and electric vehicle architectures, including light vehicles, commercial vehicles, and off-highway vehicles, as well as products for industrial markets. It operates in North America, Asia, Europe, and South America. Dauch Corporation was formerly known as American Axle & Manufacturing Holdings, Inc. and changed its name to Dauch Corporation in January 2026. The company was founded in 1994 and is headquartered in Detroit, Michigan.",
+      "ceo": "David C. Dauch",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "18000",
+      "phone": "313 758 2000",
+      "address": "One Dauch Drive",
+      "city": "Detroit",
+      "state": "MI",
+      "zip": "48211-1198",
+      "image": "https://images.financialmodelingprep.com/symbol/DCH.png",
+      "ipoDate": "1999-01-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DCH",
+      "date": "2015-12-31",
+      "marketCap": 1443228000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041296.871025
+}

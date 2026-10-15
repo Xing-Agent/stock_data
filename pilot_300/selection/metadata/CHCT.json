@@ -1,0 +1,54 @@
+{
+  "symbol": "CHCT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CHCT",
+      "price": 13.17,
+      "marketCap": 377370546,
+      "beta": 0.649,
+      "lastDividend": 1.7625,
+      "range": "13.14-19.17",
+      "change": -0.3,
+      "changePercentage": -2.22717,
+      "volume": 292340,
+      "averageVolume": 309101,
+      "companyName": "Community Healthcare Trust Incorporated",
+      "currency": "USD",
+      "cik": "0001631569",
+      "isin": "US20369C1062",
+      "cusip": "20369C106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Healthcare Facilities",
+      "website": "https://chct.reit",
+      "description": "Community Healthcare Trust Incorporated is a real estate investment trust. It focuses on owning income-producing real estate properties associated primarily with the delivery of outpatient healthcare services in our target sub-markets throughout the United States. As of December 31, 2025, the Company had investments of approximately 1.2 billion US dollars in 198 real estate properties (including one property with sales-type leases and one property classified as held for sale). The properties are in 36 states, totaling approximately 4.5 million square feet in the aggregate. Community Healthcare Trust Incorporated was incorporated in 2014 in Maryland, USA.",
+      "ceo": "David H. Dupuy",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "35",
+      "phone": "615-771-3052",
+      "address": "3326 Aspen Grove Drive",
+      "city": "Franklin",
+      "state": "TN",
+      "zip": "37067-2870",
+      "image": "https://images.financialmodelingprep.com/symbol/CHCT.png",
+      "ipoDate": "2015-05-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CHCT",
+      "date": "2015-12-31",
+      "marketCap": 138431102
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041756.6620367
+}

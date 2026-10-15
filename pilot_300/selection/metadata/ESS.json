@@ -1,0 +1,54 @@
+{
+  "symbol": "ESS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ESS",
+      "price": 269.37,
+      "marketCap": 17310184634,
+      "beta": 0.715,
+      "lastDividend": 10.34,
+      "range": "238.46-303.35",
+      "change": -2.51,
+      "changePercentage": -0.9232,
+      "volume": 358204,
+      "averageVolume": 490698,
+      "companyName": "Essex Property Trust, Inc.",
+      "currency": "USD",
+      "cik": "0000920522",
+      "isin": "US2971781057",
+      "cusip": "297178105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Residential",
+      "website": "https://www.essexapartmenthomes.com",
+      "description": "Essex Property Trust, Inc., a prominent S&P 500 constituent, operates as a vertically integrated real estate investment trust (REIT). The company focuses on the purchase, construction, renovation, and ongoing management of residential apartment complexes across select West Coast regions. Currently, Essex maintains ownership interests in 246 apartment communities, offering a total of roughly 60,000 homes, with an additional six properties actively advancing through various stages of development.",
+      "ceo": "Angela L. Kleiman",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "1688",
+      "phone": "650-655-7800",
+      "address": "1100 Park Place",
+      "city": "San Mateo",
+      "state": "CA",
+      "zip": "94403",
+      "image": "https://images.financialmodelingprep.com/symbol/ESS.png",
+      "ipoDate": "1994-06-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ESS",
+      "date": "2015-12-31",
+      "marketCap": 15658767624
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041402.7294376
+}

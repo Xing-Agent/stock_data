@@ -1,0 +1,54 @@
+{
+  "symbol": "LAND",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LAND",
+      "price": 9.53,
+      "marketCap": 411091541,
+      "beta": 1.096,
+      "lastDividend": 0.5604,
+      "range": "7.92-13",
+      "change": -0.14,
+      "changePercentage": -1.44778,
+      "volume": 400962,
+      "averageVolume": 683153,
+      "companyName": "Gladstone Land Corporation",
+      "currency": "USD",
+      "cik": "0001495240",
+      "isin": "US3765491010",
+      "cusip": "376549101",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Specialty",
+      "website": "https://www.gladstonefarms.com",
+      "description": "Established in 1997, Gladstone Land operates as a publicly traded real estate investment trust (REIT) focused on acquiring and owning agricultural land and related properties situated in key farming regions across the United States. It leases these assets to independent third-party farmers. The company regularly reports the fair value of its farmland holdings each quarter. Presently, its portfolio consists of 127 farms, covering approximately 94,000 acres in 13 different states, with an estimated worth of $1.0 billion. A significant portion of Gladstone Land's properties are located in areas suitable for growing fresh, annual row crops, such as berries and various vegetables, which are planted and harvested annually by its tenants. Additionally, the company's holdings include farms dedicated to permanent crops like almonds, apples, figs, olives, pistachios, other orchard fruits, blueberry groves, and vineyards. These permanent crops typically have a planting cycle of 10 to over 20 years but produce annual harvests. Beyond farmland, Gladstone Land may also acquire agricultural infrastructure, including cooling facilities, processing and packaging buildings, and distribution centers. Gladstone Land provides its stockholders with monthly distributions and has maintained an unbroken record of 93 consecutive monthly cash payouts on its common stock since its initial public offering in January 2013. Demonstrating consistent growth, the company has raised these common distributions 20 times over the last 23 quarters. The current per-share distribution on its common stock is $0.0449 per month, totaling $0.5388 annually.",
+      "ceo": "David John Gladstone",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "75",
+      "phone": "703-287-5800",
+      "address": "1521 Westbranch Drive",
+      "city": "McLean",
+      "state": "VA",
+      "zip": "22102-3211",
+      "image": "https://images.financialmodelingprep.com/symbol/LAND.png",
+      "ipoDate": "2013-01-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LAND",
+      "date": "2015-12-31",
+      "marketCap": 86438939
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041122.7491305
+}

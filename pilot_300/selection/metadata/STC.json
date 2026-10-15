@@ -1,0 +1,54 @@
+{
+  "symbol": "STC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "STC",
+      "price": 50.84,
+      "marketCap": 1546913764,
+      "beta": 1.053,
+      "lastDividend": 2.125,
+      "range": "48.74-78.61",
+      "change": -0.08,
+      "changePercentage": -0.15711,
+      "volume": 536143,
+      "averageVolume": 268669,
+      "companyName": "Stewart Information Services Corporation",
+      "currency": "USD",
+      "cik": "0000094344",
+      "isin": "US8603721015",
+      "cusip": "860372101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Insurance - Property & Casualty",
+      "website": "https://www.stewart.com",
+      "description": "Stewart Information Services Corporation (STC) operates as a key provider of title insurance and related services essential for real estate transactions, delivered through its various subsidiary entities. The company's operations are divided into two primary segments: \"Title\" and \"Ancillary Services and Corporate.\" The Title division is fundamentally involved in ensuring property security by conducting thorough title searches, examinations, and closings, culminating in the issuance of title insurance. This segment further extends its offerings to include personal and property insurance solutions, support for tax-deferred property exchanges, and advanced digital platforms designed to enhance customer engagement. Conversely, the Ancillary Services and Corporate segment furnishes a suite of support services, especially tailored for the mortgage industry. These encompass the management of appraisals, virtual notarization and closing capabilities, the provision of vital credit and real estate data, and specialized property search and valuation analyses. Stewart delivers its extensive range of products and services via multiple channels, including its directly managed policy-issuing offices, a broad network of independent agencies, and various other business units within the corporation. Its clientele is diverse, serving individual homebuyers and sellers, professionals across both residential and commercial real estate, title agencies, real estate attorneys and investors, home builders, and a wide array of mortgage industry participants such as lenders, servicers, brokers, and investors. Established in 1893, Stewart Information Services Corporation is headquartered in Houston, Texas, and maintains an international presence with operations spanning the United States, Canada, the United Kingdom, and Australia.",
+      "ceo": "Frederick Henry Eppinger Jr.",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "8100",
+      "phone": "713 625 8100",
+      "address": "1360 Post Oak Boulevard",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77056",
+      "image": "https://images.financialmodelingprep.com/symbol/STC.png",
+      "ipoDate": "1973-02-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "STC",
+      "date": "2015-12-31",
+      "marketCap": 870566695
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040588.2639787
+}

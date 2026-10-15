@@ -1,0 +1,54 @@
+{
+  "symbol": "RBCAA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RBCAA",
+      "price": 90.81,
+      "marketCap": 1587448520,
+      "beta": 0.569,
+      "lastDividend": 1.936,
+      "range": "63.97-102.22",
+      "change": -0.35,
+      "changePercentage": -0.38394,
+      "volume": 192671,
+      "averageVolume": 111650,
+      "companyName": "Republic Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0000921557",
+      "isin": "US7602812049",
+      "cusip": "760281204",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.republicbank.com",
+      "description": "Republic Bancorp, Inc., a financial holding company established in Louisville, Kentucky in 1974, provides a comprehensive suite of banking products and services throughout the United States. Its operations are strategically divided into five segments: Traditional Banking, Warehouse, Mortgage Banking, Tax Refund Solutions, and Republic Credit Solutions. The institution accepts a variety of deposits, including demand, money market, savings, individual retirement accounts, and various types of certificates of deposit. Its lending portfolio is extensive, featuring residential and commercial real estate loans, construction and land development financing, home improvement and equity loans, as well as secured and unsecured personal loans and aircraft financing. Beyond core banking, Republic Bancorp also offers credit cards, title insurance, and an array of sophisticated services such as memory banking, private banking, lockbox processing, remote deposit capture, and robust online and mobile banking solutions for businesses. Specialized services include providing short-term and revolving credit facilities for mortgage bankers, facilitating the processing and payment of federal and state tax refunds through partnerships with tax preparers and software companies, and distributing general purpose reloadable prepaid cards via third-party providers. Additionally, the company delivers consumer credit products and property and casualty insurance. As of January 28, 2022, Republic Bancorp operated 42 full-service banking locations.",
+      "ceo": "Steven E. Trager",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "973",
+      "phone": "502 584 3600",
+      "address": "601 West Market Street",
+      "city": "Louisville",
+      "state": "KY",
+      "zip": "40202",
+      "image": "https://images.financialmodelingprep.com/symbol/RBCAA.png",
+      "ipoDate": "1998-07-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RBCAA",
+      "date": "2015-12-31",
+      "marketCap": 552074640
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041782.290236
+}

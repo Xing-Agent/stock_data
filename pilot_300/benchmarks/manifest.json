@@ -1,0 +1,143 @@
+{
+  "analysis_window": [
+    "2016-01-01",
+    "2025-12-31"
+  ],
+  "download_window": [
+    "2014-01-01",
+    "2025-12-31"
+  ],
+  "status": "reference_inputs_available_with_disclosed_limitations",
+  "series": [
+    {
+      "symbol": "IVE",
+      "file": "IVE/daily.json",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "sha256": "011741860887510a4794c035cba8bc018c276819531acc0092d9d94985ab4317",
+      "ohlcv_sha256": "370f4d4e3a69533e1b74ce9f26b5c61181b4deeed4302f91523b9920691bb453",
+      "actions_status": "ready",
+      "payment_date_issues": [],
+      "missing_us_equity_sessions": [],
+      "dates_outside_us_equity_calendar": []
+    },
+    {
+      "symbol": "IVW",
+      "file": "IVW/daily.json",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "sha256": "3ee51e8abf0dfc6a0e3b09bb74950984115ae0641b44c8a767c6711c4161bf93",
+      "ohlcv_sha256": "2db3a4138248f9b550b970253a992b25af87ca6c89cd6f334c4d13e39b402e6f",
+      "actions_status": "ready",
+      "payment_date_issues": [],
+      "missing_us_equity_sessions": [],
+      "dates_outside_us_equity_calendar": []
+    },
+    {
+      "symbol": "IWM",
+      "file": "IWM/daily.json",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "sha256": "03587ade10c50e224a859fd00898c457d19ebf0c4b3de71a6be65542c665f76f",
+      "ohlcv_sha256": "50d047c9819d001b716f9a3f888560627270fe0f597aa97fde40e3c0412a22be",
+      "actions_status": "ready",
+      "payment_date_issues": [],
+      "missing_us_equity_sessions": [],
+      "dates_outside_us_equity_calendar": []
+    },
+    {
+      "symbol": "SPY",
+      "file": "SPY/daily.json",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "sha256": "397fb808e281cdbe7ac33dcb1d1c3b33be76eff54b50698a3f403e3b14e28645",
+      "ohlcv_sha256": "09b5ca7a38fc9bbef399e4a14f5faeed6e4d7ddd480c224b11ed782b3863ee61",
+      "actions_status": "unavailable",
+      "payment_date_issues": [
+        {
+          "effective_date": "2014-03-21",
+          "reason": "incomplete_primary_event"
+        },
+        {
+          "effective_date": "2015-12-18",
+          "reason": "incomplete_primary_event"
+        },
+        {
+          "effective_date": "2016-03-18",
+          "reason": "incomplete_primary_event"
+        },
+        {
+          "effective_date": "2016-06-17",
+          "reason": "incomplete_primary_event"
+        }
+      ],
+      "missing_us_equity_sessions": [],
+      "dates_outside_us_equity_calendar": []
+    },
+    {
+      "symbol": "TLT",
+      "file": "TLT/daily.json",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "sha256": "4f60f310920ff946106dcd8b88f74b88812ecd08d6761d1afe822ffd882fbfa5",
+      "ohlcv_sha256": "b5acdf25767c3561ed956cbc0e166ce3af258f2491d0968bba9bd4b58bdd1665",
+      "actions_status": "ready",
+      "payment_date_issues": [],
+      "missing_us_equity_sessions": [],
+      "dates_outside_us_equity_calendar": []
+    },
+    {
+      "symbol": "VIX",
+      "file": "VIX/daily.cboe.json",
+      "bars": 3045,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "sha256": "cbfc2b629d84806b98ea8b0382efd037cab807801cb2692293936aa043fca021",
+      "ohlcv_sha256": "61bec23d324eb8d6cd16aac52ad3262d92510a1f76ab4adf8b22925504b5cf64",
+      "actions_status": null,
+      "payment_date_issues": [],
+      "missing_us_equity_sessions": [],
+      "dates_outside_us_equity_calendar": [
+        "2022-05-30",
+        "2022-06-20",
+        "2022-07-04",
+        "2022-09-05",
+        "2022-11-24",
+        "2023-01-16",
+        "2023-02-20",
+        "2023-05-29",
+        "2023-06-19",
+        "2023-07-04",
+        "2023-09-04",
+        "2023-11-23",
+        "2024-01-15",
+        "2024-02-19",
+        "2024-05-27",
+        "2024-06-19",
+        "2024-07-04",
+        "2024-09-02",
+        "2024-11-28",
+        "2025-01-09",
+        "2025-01-20",
+        "2025-02-17",
+        "2025-05-26",
+        "2025-06-19",
+        "2025-07-04",
+        "2025-09-01",
+        "2025-11-27"
+      ]
+    }
+  ],
+  "notes": [
+    "Equities are raw OHLCV with separate corporate actions, not precomputed total-return series.",
+    "VIX prefers the CBOE snapshot; the unmodified FMP series and comparison report are retained.",
+    "SPY has four unresolved company-action reconciliation events; do not claim total-return data is fully ready.",
+    "For the regime gate, explicitly align VIX to SPY sessions and use only historical observations available by the decision time.",
+    "No 5-minute data was downloaded in this expansion."
+  ]
+}

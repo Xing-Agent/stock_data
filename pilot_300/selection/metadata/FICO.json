@@ -1,0 +1,54 @@
+{
+  "symbol": "FICO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FICO",
+      "price": 719.63,
+      "marketCap": 15542306075,
+      "beta": 1.341,
+      "lastDividend": 0,
+      "range": "586.05-1858.91",
+      "change": -3.4,
+      "changePercentage": -0.47024,
+      "volume": 644355,
+      "averageVolume": 541520,
+      "companyName": "Fair Isaac Corporation",
+      "currency": "USD",
+      "cik": "0000814547",
+      "isin": "US3032501047",
+      "cusip": "303250104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Software - Application",
+      "website": "https://www.fico.com",
+      "description": "Fair Isaac Corporation, also known as FICO, delivers advanced analytics, software solutions, and data management services designed to help businesses optimize, automate, and interconnect their crucial decision-making processes. These offerings reach clients across the Americas, Europe, the Middle East, Africa, and the Asia Pacific region. The company operates through two main divisions: Software and Scores. The Software segment provides pre-configured decision management solutions catering to a variety of business challenges and operations, including marketing strategy, account creation, customer relations, engagement, fraud detection, financial crime compliance, and debt collection, alongside related professional services. Key among its offerings is the FICO Platform, a modular software suite built to support sophisticated analytical and decision-making applications. This segment also supplies stand-alone analytical and decisioning software that customers can customize for a broad spectrum of business needs. Conversely, the Scores segment offers both business-to-business (B2B) and business-to-consumer (B2C) solutions. Its B2B scoring services empower corporate clients with analytics that can be integrated directly into their transaction flows and decision frameworks. For individual consumers, the segment provides B2C scoring via offerings such as myFICO.com subscriptions. FICO markets its diverse product and service portfolio primarily through its dedicated direct sales force, various indirect distribution channels, and its online presence. Established in 1956 as Fair Isaac & Company, Inc., the company officially adopted the name Fair Isaac Corporation in July 1992 and maintains its headquarters in Bozeman, Montana.",
+      "ceo": "William J. Lansing",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "3876",
+      "phone": "406 982 7276",
+      "address": "5 West Mendenhall",
+      "city": "Bozeman",
+      "state": "MT",
+      "zip": "59715",
+      "image": "https://images.financialmodelingprep.com/symbol/FICO.png",
+      "ipoDate": "1987-07-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FICO",
+      "date": "2015-12-31",
+      "marketCap": 2944820240
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041513.7476587
+}

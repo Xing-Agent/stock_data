@@ -1,0 +1,54 @@
+{
+  "symbol": "MFIC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MFIC",
+      "price": 8.34,
+      "marketCap": 686987718,
+      "beta": 0.678,
+      "lastDividend": 1.38,
+      "range": "8.31-12.5",
+      "change": -0.08,
+      "changePercentage": -0.95012,
+      "volume": 573682,
+      "averageVolume": 560656,
+      "companyName": "MidCap Financial Investment Corporation",
+      "currency": "USD",
+      "cik": "0001278752",
+      "isin": "US03761U5020",
+      "cusip": "03761U502",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Asset Management",
+      "website": "https://www.midcapfinancialic.com",
+      "description": "MidCap Financial Investment Corporation (MFIC) operates as an externally managed, non-diversified, closed-end investment fund, registered as a business development company (BDC) under the Investment Company Act of 1940. The firm specializes in providing private equity and debt capital to private middle-market companies, supporting initiatives such as leveraged buyouts, corporate acquisitions, recapitalizations, growth capital, and refinancing. MFIC offers a comprehensive range of financing instruments, including direct equity investments, preferred and common equity, warrants, and equity co-investments. Its debt solutions encompass mezzanine, first-lien secured, stretch senior, unitranche, second-lien secured, senior secured, unsecured, and subordinated loans. Beyond these core offerings, the fund also participates in Private Investments in Public Equity (PIPEs), acquires assets in the secondary market, and invests in structured products. While primarily focused on private ventures, MFIC may also allocate capital to thinly traded public company securities, cash equivalents, U.S. government debt, short-term high-quality debt, high-yield and distressed debt, and international investments, alongside collateralized loan obligations (CLOs) and credit-linked notes (CLNs). The company's investment focus is primarily within the United States, targeting a broad spectrum of industries. These include construction and building materials, diverse business services, manufacturing (plastics, rubber, chemicals, aerospace & defense), advertising, capital equipment, education, various technology sectors (cable television, telecommunications, high tech, automation), consumer goods and services (durable and non-durable products, retail, hospitality, food & beverage), energy (oil & gas, electricity, utilities), financial services, healthcare and pharmaceuticals, media (diversified, production, printing, publishing), wholesale, environmental services, and transportation (aviation, cargo, distribution). MFIC typically commits between $20 million and $250 million to each portfolio company, with investments generally structured to mature within five to ten years.",
+      "ceo": "Tanner Powell",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "0",
+      "phone": "212-822-0625",
+      "address": "Nine West 57th Street",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10019",
+      "image": "https://images.financialmodelingprep.com/symbol/MFIC.png",
+      "ipoDate": "2004-04-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MFIC",
+      "date": "2015-12-31",
+      "marketCap": 1208623876
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040522.928771
+}

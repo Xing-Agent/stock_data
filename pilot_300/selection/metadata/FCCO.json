@@ -1,0 +1,54 @@
+{
+  "symbol": "FCCO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FCCO",
+      "price": 32.02,
+      "marketCap": 300979355,
+      "beta": 0.332,
+      "lastDividend": 0.65,
+      "range": "25.92-35.74",
+      "change": -0.27,
+      "changePercentage": -0.83617,
+      "volume": 59211,
+      "averageVolume": 75071,
+      "companyName": "First Community Corporation",
+      "currency": "USD",
+      "cik": "0000932781",
+      "isin": "US3198351047",
+      "cusip": "319835104",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.firstcommunitysc.com",
+      "description": "First Community Corporation serves as the parent entity for First Community Bank, which delivers a comprehensive array of commercial and retail banking services. These offerings are designed for individuals, professional practices, and small to medium-sized businesses. The company's operations are organized into three primary divisions: Commercial and Retail Banking, Mortgage Banking, and Investment Advisory along with Non-Deposit services. Customers can access diverse deposit products, such as checking, NOW, savings, and individual retirement accounts, in addition to demand deposits, daily money market accounts, and various certificates of deposit. The bank's extensive loan portfolio encompasses commercial financing for working capital, business expansion, and equipment acquisition, available on both secured and unsecured terms. It also provides consumer loans for purposes like vehicle purchases, home improvements, educational expenses, and personal investments. Further loan options include real estate construction and acquisition financing, alongside both fixed and variable rate mortgage products. Beyond its core banking functions, First Community Bank offers a suite of additional services. These include online and internet banking platforms, cash management solutions, safe deposit box rentals, traveler's checks, direct deposit for payroll and social security, and automated draft capabilities. Moreover, the company extends its services to non-deposit investment products, investment brokerage, VISA and MasterCard credit card facilities, professional investment advisory, and insurance solutions. The corporation maintains 21 full-service branches throughout several counties in South Carolina, specifically Lexington, Richland, Newberry, Kershaw, Greenville, Anderson, Pickens, and Aiken. Its presence also spans into Georgia, with offices located in Richmond and Columbia Counties. Incorporated in 1994, First Community Corporation's headquarters are situated in Lexington, South Carolina.",
+      "ceo": "Michael C. Crapps",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "298",
+      "phone": "803 951 2265",
+      "address": "5455 Sunset Boulevard",
+      "city": "Lexington",
+      "state": "SC",
+      "zip": "29072",
+      "image": "https://images.financialmodelingprep.com/symbol/FCCO.png",
+      "ipoDate": "1999-03-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FCCO",
+      "date": "2015-12-31",
+      "marketCap": 98069160
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041426.6966197
+}

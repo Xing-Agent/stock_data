@@ -1,0 +1,63 @@
+{
+  "symbol": "AGNC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AGNC",
+      "price": 8.61,
+      "marketCap": 9883677300,
+      "beta": 1.342,
+      "lastDividend": 1.44,
+      "range": "8.41-12.19",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 24132363,
+      "averageVolume": 24237995,
+      "companyName": "AGNC Investment Corp.",
+      "currency": "USD",
+      "cik": "0001423689",
+      "isin": "US00123Q1040",
+      "cusip": "00123Q104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Mortgage",
+      "website": "https://www.agnc.com",
+      "description": "AGNC Investment Corp. functions as a U.S.-based real estate investment trust (REIT). The firm primarily concentrates its investments on residential mortgage-backed securities (RMBS) and collateralized mortgage obligations (CMOs). A defining feature of these securities is that their principal and interest payments are secured by guarantees from either U.S. government-sponsored entities or federal government agencies. To fund these investments, AGNC largely depends on secured borrowings, specifically organized as repurchase agreements. The company has opted for REIT tax status under the 1986 Internal Revenue Code, which exempts it from federal corporate income taxes, contingent on distributing a minimum of 90% of its taxable profits to its shareholders. Originally established in 2008, the entity, with its headquarters in Bethesda, Maryland, operated as American Capital Agency Corp. until it adopted its current name, AGNC Investment Corp., in September 2016.",
+      "ceo": "Peter J. Federico",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "54",
+      "phone": "301 968 9315",
+      "address": "7373 Wisconsin Avenue",
+      "city": "Bethesda",
+      "state": "MD",
+      "zip": "20814",
+      "image": "https://images.financialmodelingprep.com/symbol/AGNC.png",
+      "ipoDate": "2008-05-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AGNC",
+      "date": "2015-12-31",
+      "marketCap": 5745270384
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040938.8271463,
+  "previous_attempts": [
+    {
+      "symbol": "AGNC",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040585.6782234
+    }
+  ]
+}

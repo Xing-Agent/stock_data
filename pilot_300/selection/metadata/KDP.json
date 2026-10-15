@@ -1,0 +1,54 @@
+{
+  "symbol": "KDP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KDP",
+      "price": 33.12,
+      "marketCap": 45070557749,
+      "beta": 0.41,
+      "lastDividend": 0.92,
+      "range": "24.88-33.82",
+      "change": 0.46,
+      "changePercentage": 1.40845,
+      "volume": 9868301,
+      "averageVolume": 12792198,
+      "companyName": "Keurig Dr Pepper Inc.",
+      "currency": "USD",
+      "cik": "0001418135",
+      "isin": "US49271V1008",
+      "cusip": "49271V100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Beverages - Non-Alcoholic",
+      "website": "https://www.keurigdrpepper.com",
+      "description": "Keurig Dr Pepper Inc. is a prominent beverage firm with operations spanning both the United States and global markets. The company structures its business across four primary divisions: Coffee Systems, Packaged Beverages, Beverage Concentrates, and Latin America Beverages. Its Coffee Systems division is responsible for the production and distribution of an array of finished products linked to its coffee brewing systems, including K-Cup single-serve pods, brewing machines, and specialized coffee blends. Brewers are offered for sale via external distributors, various retail outlets, and directly through its official website, keurig.com. The Packaged Beverages segment focuses on manufacturing and distributing its proprietary packaged drink labels. It also undertakes contract manufacturing for a diverse range of private label and up-and-coming beverage brands, in addition to handling distribution for its partner brands' packaged offerings. The Beverage Concentrates division produces and markets liquid concentrates for a wide portfolio of well-known brands such as Dr Pepper, Canada Dry, A&W, 7UP, Sunkist, Squirt, Big Red, RC Cola, Vernors, Snapple, Mott's, Bai, Hawaiian Punch, Clamato, Yoo-Hoo, Core, ReaLemon, evian, Vita Coco, and Mr and Mrs T mixers; this segment also processes these concentrates into syrup form. In Latin America, the Beverages segment handles the production and distribution of sparkling mineral water, flavored carbonated soft drinks, purified bottled water, and vegetable juice products, marketed under brand names like Peñafiel, Clamato, Squirt, Dr Pepper, Crush, and Aguafiel. Its extensive client base includes retailers, bottling and distribution networks, restaurants, hotel groups, office coffee service providers, and individual consumers. Established in 1981, Keurig Dr Pepper Inc. maintains its corporate headquarters in Burlington, Massachusetts.",
+      "ceo": "Timothy Cofer",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "30600",
+      "phone": "800 527 7096",
+      "address": "6425 Hall of Fame Lane",
+      "city": "Frisco",
+      "state": "TX",
+      "zip": "75034",
+      "image": "https://images.financialmodelingprep.com/symbol/KDP.png",
+      "ipoDate": "2008-05-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KDP",
+      "date": "2015-12-31",
+      "marketCap": 2815876000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040337.3921854
+}

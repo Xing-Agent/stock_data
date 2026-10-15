@@ -1,0 +1,54 @@
+{
+  "symbol": "MTSI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MTSI",
+      "price": 291.33,
+      "marketCap": 22249134297,
+      "beta": 1.764,
+      "lastDividend": 0,
+      "range": "133.01-418.9",
+      "change": -17.42,
+      "changePercentage": -5.64211,
+      "volume": 1772525,
+      "averageVolume": 1529462,
+      "companyName": "MACOM Technology Solutions Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001493594",
+      "isin": "US55405Y1001",
+      "cusip": "55405Y100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.macom.com",
+      "description": "MACOM Technology Solutions Holdings, Inc., along with its affiliated entities, specializes in the design and production of sophisticated analog semiconductor solutions. These critical components are integral to both wireless and wired connectivity systems, spanning the entire electromagnetic spectrum from radio frequency (RF) to lightwave, including microwave and millimeter wave bands. The company operates globally, with a significant presence in the United States, China, the broader Asia Pacific region, and other international markets. Their diverse product portfolio includes a range of standard and custom-engineered devices, such as integrated circuits, multi-chip modules, diodes, amplifiers, various types of switches (including limiters), as well as both passive and active discrete components, and complete subsystems. These essential semiconductor products serve as fundamental building blocks within a wide array of electronic systems, including wireless base stations, advanced optical networking infrastructure, radar systems, medical equipment, and precision test and measurement instruments. MACOM caters to a broad spectrum of key markets: Telecommunications: Their solutions underpin carrier infrastructure for long-haul and metropolitan networks, 5G deployments, and fiber-to-the-X/passive optical network (PON) solutions. Industrial and Defense: This sector encompasses applications like military and commercial radar, RF jamming technology, electronic countermeasures, and secure communication data links. This also extends to multi-market uses in industrial automation, medical devices, scientific research, and general test and measurement equipment. Data Centers: Providing vital components for this rapidly growing industry. Their products reach customers via a multi-channel sales approach, utilizing direct sales teams, dedicated applications engineering support, independent sales representatives, and a network of resellers and distributors. Established in 1950, MACOM maintains its corporate headquarters in Lowell, Massachusetts.",
+      "ceo": "Stephen G. Daly",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2000",
+      "phone": "978 656 2500",
+      "address": "100 Chelmsford Street",
+      "city": "Lowell",
+      "state": "MA",
+      "zip": "01851",
+      "image": "https://images.financialmodelingprep.com/symbol/MTSI.png",
+      "ipoDate": "2012-03-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MTSI",
+      "date": "2015-12-31",
+      "marketCap": 2142891562
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041557.8314102
+}

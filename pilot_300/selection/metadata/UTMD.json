@@ -1,0 +1,54 @@
+{
+  "symbol": "UTMD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UTMD",
+      "price": 74.79,
+      "marketCap": 238133604,
+      "beta": 0.386,
+      "lastDividend": 1.24,
+      "range": "53.66-76.89",
+      "change": 0.08,
+      "changePercentage": 0.10708,
+      "volume": 22652,
+      "averageVolume": 30240,
+      "companyName": "Utah Medical Products, Inc.",
+      "currency": "USD",
+      "cik": "0000706698",
+      "isin": "US9174881089",
+      "cusip": "917488108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.utahmed.com",
+      "description": "Utah Medical Products, Inc. (UTMD) is a healthcare technology company focused on the creation, production, and supply of medical devices for the healthcare sector. UTMD offers a comprehensive portfolio of medical devices primarily serving labor and delivery departments and neonatal intensive care units. Key offerings include fetal monitoring accessories, vacuum-assisted delivery systems, and other specialized tools for childbirth. For newborns, they provide respiratory hoods (DISPOSA-HOOD), umbilical vessel catheters (GESCO), silicone oral protection devices (PALA-NATE), and lumbar sampling kits (MYELO-NATE). Beyond maternity care, the company supplies blood pressure monitoring systems (DELTRAN PLUS), disposable peritoneal dialysis sets (DIALY-NATE), urinary drainage systems (URI-CATH), and feeding devices (NUTRI-CATH/NUTRI-LOK). They also manufacture HEMO-NATE disposable filters, various catheterization procedure trays, and DELTRAN disposable pressure transducers along with related accessories and molded parts. A substantial portion of UTMD's offerings targets women's health and gynecological interventions. This includes advanced electrosurgical solutions like the LETZ system for cervical lesion excision, paired with FINESSE+ generators and various specialized electrodes (loop, ball, needle), and FILTRESSE evacuators. They also provide laparoscopic instruments (Femcare line), including trocars and cannulae, alongside EPITOME and OptiMicro electrosurgical devices. Complementing these are products for surgical contraception (Filshie Clip), endoscopic irrigation (PATHFINDER PLUS), suprapubic catheterization, and urinary incontinence management (LIBERTY systems). Specialized tools for uterine assessment and sampling, such as the ENDOCURETTE and TVUS/HSG-Cath, as well as the LUMIN uterine manipulator for laparoscopic procedures, complete this extensive portfolio. UTMD's diverse product range serves various healthcare settings, including neonatal intensive care units, labor and delivery wards, women's health centers within hospitals, outpatient clinics, and physicians' offices. The company facilitates distribution through a combination of direct customer service and sales teams, independent consultants, and manufacturer representatives. Established in 1978, Utah Medical Products, Inc. maintains its headquarters in Midvale, Utah.",
+      "ceo": "Kevin L. Cornwell",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "146",
+      "phone": "801 566 1200",
+      "address": "7043 South 300 West",
+      "city": "Midvale",
+      "state": "UT",
+      "zip": "84047-1048",
+      "image": "https://images.financialmodelingprep.com/symbol/UTMD.png",
+      "ipoDate": "1999-03-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UTMD",
+      "date": "2015-12-31",
+      "marketCap": 219700620
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040286.3211231
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "HLX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HLX",
+      "price": 10.6,
+      "marketCap": 1561411450,
+      "beta": 1.165,
+      "lastDividend": 0,
+      "range": "6.105-10.75",
+      "change": 0.3,
+      "changePercentage": 2.91262,
+      "volume": 3861889,
+      "averageVolume": 1636423,
+      "companyName": "Helix Energy Solutions Group, Inc.",
+      "currency": "USD",
+      "cik": "0000866829",
+      "isin": "US42330P1075",
+      "cusip": "42330P107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Equipment & Services",
+      "website": "https://www.helixesg.com",
+      "description": "Helix Energy Solutions Group, Inc., founded in 1979 and based in Houston, Texas, (and known as Cal Dive International, Inc., until its name change in March 2006) is an offshore energy services firm. It provides an array of specialized solutions to the offshore energy sector, primarily across major global regions such as Brazil, the Gulf of Mexico, the North Sea, Asia Pacific, and West Africa. The company's operations are divided into three core business units: Well Intervention, Robotics, and Production Facilities. The Robotics segment focuses on complex subsea infrastructure work, encompassing the installation of flowlines, control umbilicals, manifold assemblies, and risers. This also includes the trenching and burial of pipelines, precision tie-in of risers and manifold assemblies, as well as commissioning, testing, inspection activities, and the deployment and connection of cables and umbilicals. Within its Well Intervention segment, Helix offers critical services for well optimization, including intervention engineering and production enhancement. This segment also performs comprehensive inspection, repair, and maintenance for various subsea assets, such as production structures, well trees, jumpers, risers, pipelines, and general subsea equipment, supported by related technical assistance. The Production Facilities segment delivers a range of support services, from oil and natural gas processing facilities and rapid response systems to site clearance and general subsea support. Additionally, the company provides environmental reclamation and remediation services, complete well and pipeline plug-and-abandonment operations, and thorough site inspections. Helix serves a broad customer base, including independent oil and gas producers and suppliers, pipeline transmission companies, renewable energy businesses, and offshore engineering and construction firms.",
+      "ceo": "Owen Eugene Kratz",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "2212",
+      "phone": "281 618 0400",
+      "address": "3505 West Sam Houston Parkway North",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77043",
+      "image": "https://images.financialmodelingprep.com/symbol/HLX.png",
+      "ipoDate": "1997-07-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HLX",
+      "date": "2015-12-31",
+      "marketCap": 557076080
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041010.5940042
+}

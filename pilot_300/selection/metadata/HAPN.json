@@ -1,0 +1,54 @@
+{
+  "symbol": "HAPN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HAPN",
+      "price": 14.18,
+      "marketCap": 1636471260,
+      "beta": 1.888,
+      "lastDividend": 0,
+      "range": "13.05-21.67",
+      "change": -0.64,
+      "changePercentage": -4.31849,
+      "volume": 2315848,
+      "averageVolume": 1776873,
+      "companyName": "Happen, Inc. Common Stock",
+      "currency": "USD",
+      "cik": "0001409970",
+      "isin": "US52603A2087",
+      "cusip": "52603A208",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.happen.com",
+      "description": "Happen, Inc., operates as a bank holding company, that provides range of financial products and services in the United States. [8, 24, 33, 52, 60, 62] It offers deposit products, including savings accounts, checking accounts, and certificates of deposit; patient and education finance loans; and commercial loans, including small business loans. [8, 33] The company also provides consumer loans, such as Unsecured and unsecured, fixed-rate, and fixed-term consumer loans; and secured auto refinance loans. [8, 33]",
+      "ceo": "Scott Sanborn",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1075",
+      "phone": null,
+      "address": "88 Kearny Street, Suite 600",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94108",
+      "image": "https://images.financialmodelingprep.com/symbol/HAPN.png",
+      "ipoDate": "2014-12-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HAPN",
+      "date": "2015-12-31",
+      "marketCap": 4201946316
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041013.2744753
+}

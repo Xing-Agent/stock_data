@@ -1,0 +1,54 @@
+{
+  "symbol": "LFMD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LFMD",
+      "price": 2.37,
+      "marketCap": 114366336,
+      "beta": 1.99,
+      "lastDividend": 0,
+      "range": "2.355-6.53",
+      "change": -0.1,
+      "changePercentage": -4.04858,
+      "volume": 669534,
+      "averageVolume": 892668,
+      "companyName": "LifeMD, Inc.",
+      "currency": "USD",
+      "cik": "0000948320",
+      "isin": "US53216B1044",
+      "cusip": "53216B104",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Healthcare Information Services",
+      "website": "https://www.lifemd.com",
+      "description": "LifeMD, Inc. operates as a leading digital health company, specializing in direct-to-consumer telemedicine across the United States. The firm links individuals with licensed medical professionals to address a diverse spectrum of health concerns, including concierge services, men's sexual health, dermatological conditions, and more. Under its umbrella, LifeMD manages several specialized virtual care platforms: ShapiroMD is a telehealth brand focused on hair restoration, delivering virtual consultations, prescription medications, patented over-the-counter formulations, an FDA-cleared medical device, and custom-compounded topical treatments for both male and female hair loss. RexMD serves as a men's telehealth brand, providing virtual medical treatment from licensed providers for a wide array of male-specific health needs. LifeMD Primary Care offers a personalized, subscription-based virtual primary care solution, addressing routine, urgent, and chronic health management requirements. This mobile-centric platform integrates remote consultations, medication management, diagnostic services, and imaging referrals. Cleared is a telehealth service dedicated to offering personalized therapies for allergic, asthmatic, and immunological conditions. Nava MD stands as a skincare and tele-dermatology brand catering specifically to women, facilitating virtual access to dermatologists and other specialists for medical treatment. Additionally, the company provides PDFSimpli, a cloud-based software-as-a-service (SaaS) platform that empowers users to create, edit, convert, sign, and share PDF documents online. LifeMD distributes its offerings directly to individuals, via its own e-commerce channels, and through collaborations with external partners. Originally established in 1994 as Conversion Labs, Inc., the company rebranded to LifeMD, Inc. in February 2021 and is headquartered in New York City.",
+      "ceo": "Justin Schreiber",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "350",
+      "phone": "866 351 5907",
+      "address": "236 Fifth Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10001",
+      "image": "https://images.financialmodelingprep.com/symbol/LFMD.png",
+      "ipoDate": "2008-01-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LFMD",
+      "date": "2015-12-31",
+      "marketCap": 3841245
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040323.7823591
+}

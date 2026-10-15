@@ -1,0 +1,54 @@
+{
+  "symbol": "USAC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "USAC",
+      "price": 25.39,
+      "marketCap": 3680839080,
+      "beta": 0.195,
+      "lastDividend": 2.1,
+      "range": "21.85-30.55",
+      "change": -0.03,
+      "changePercentage": -0.11802,
+      "volume": 64393,
+      "averageVolume": 318105,
+      "companyName": "USA Compression Partners, LP",
+      "currency": "USD",
+      "cik": "0001522727",
+      "isin": "US90290N1090",
+      "cusip": "90290N109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Equipment & Services",
+      "website": "https://usacompression.com",
+      "description": "USA Compression Partners, LP, a growth-focused Delaware limited partnership, is a leading provider of natural gas compression services, notably possessing the industry's largest compression fleet by horsepower. The company delivers vital compression solutions to a broad spectrum of clients, including oil companies, independent producers, processors, gatherers, and transporters of natural gas and crude oil, while also managing its own operational stations. Its core business centers on supplying natural gas compression for critical infrastructure, such as centralized natural gas gathering networks and processing plants. Established in 1998, the firm maintains its corporate headquarters in Austin, Texas.",
+      "ceo": "Micah C. Green",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "885",
+      "phone": "512 473 2662",
+      "address": "8115 Preston Road",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75225",
+      "image": "https://images.financialmodelingprep.com/symbol/USAC.png",
+      "ipoDate": "2013-01-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "USAC",
+      "date": "2015-12-31",
+      "marketCap": 611334159
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041206.010897
+}

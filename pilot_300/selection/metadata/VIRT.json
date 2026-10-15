@@ -1,0 +1,54 @@
+{
+  "symbol": "VIRT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VIRT",
+      "price": 55.48,
+      "marketCap": 11811100694,
+      "beta": 0.647,
+      "lastDividend": 0.96,
+      "range": "31.55-68.76",
+      "change": -0.46,
+      "changePercentage": -0.82231,
+      "volume": 1382930,
+      "averageVolume": 1305942,
+      "companyName": "Virtu Financial, Inc.",
+      "currency": "USD",
+      "cik": "0001592386",
+      "isin": "US9282541013",
+      "cusip": "928254101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Financial - Capital Markets",
+      "website": "https://www.virtu.com",
+      "description": "Virtu Financial, Inc. stands as a leading financial services firm, delivering a comprehensive suite of data, analytical, and connectivity products to a global clientele. The company is structured around two core operational segments: Market Making and Execution Services. Its extensive portfolio of solutions encompasses capabilities for trade execution, efficient liquidity sourcing, advanced analytics, and broker-neutral, multi-dealer workflow technology platforms. These offerings empower clients to conduct trades across diverse venues internationally and within a broad spectrum of asset classes, including global equities, ETFs, foreign exchange, futures, fixed income, cryptocurrencies, and various other commodities. Furthermore, Virtu's advanced analytics platform furnishes clients with an array of pre- and post-trade services, valuable data products, and essential compliance tools, enabling them to effectively invest, trade, and manage risk exposures across various markets. Established in 2008, Virtu Financial maintains its headquarters in New York City.",
+      "ceo": "Aaron Simons",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1027",
+      "phone": "212 418 0100",
+      "address": "1633 Broadway",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10019",
+      "image": "https://images.financialmodelingprep.com/symbol/VIRT.png",
+      "ipoDate": "2015-04-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VIRT",
+      "date": "2015-12-31",
+      "marketCap": 2145214580
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040604.3949444
+}

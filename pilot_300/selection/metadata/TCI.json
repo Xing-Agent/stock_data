@@ -1,0 +1,54 @@
+{
+  "symbol": "TCI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TCI",
+      "price": 48.91,
+      "marketCap": 422549141,
+      "beta": 0.49,
+      "lastDividend": 0,
+      "range": "31.48-59.65",
+      "change": 0.15,
+      "changePercentage": 0.30763,
+      "volume": 9178,
+      "averageVolume": 36166,
+      "companyName": "Transcontinental Realty Investors, Inc.",
+      "currency": "USD",
+      "cik": "0000733590",
+      "isin": "US8936172092",
+      "cusip": "893617209",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Real Estate - Services",
+      "website": "https://www.transconrealty-invest.com",
+      "description": "Transcontinental Realty Investors, Inc., a real estate investment firm based in Dallas, manages a broad and varied collection of property holdings throughout the United States. Its diverse portfolio encompasses residential apartment complexes, commercial office spaces, retail shopping centers, and various plots of both developed and undeveloped land. The company executes its real estate investments through outright ownership, lease agreements, joint ventures, and by providing capital via mortgage loans secured by real estate.",
+      "ceo": "Erik L. Johnson",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "0",
+      "phone": "469-522-4200",
+      "address": "1603 Lyndon B. Johnson Freeway",
+      "city": "Dallas",
+      "state": "TX",
+      "zip": "75234",
+      "image": "https://images.financialmodelingprep.com/symbol/TCI.png",
+      "ipoDate": "1985-03-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TCI",
+      "date": "2015-12-31",
+      "marketCap": 89793000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041458.3110945
+}

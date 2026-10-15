@@ -1,0 +1,54 @@
+{
+  "symbol": "LIXT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LIXT",
+      "price": 7.21,
+      "marketCap": 89114771,
+      "beta": 1.251,
+      "lastDividend": 0,
+      "range": "2.02-8.38",
+      "change": -0.46,
+      "changePercentage": -5.99739,
+      "volume": 615057,
+      "averageVolume": 238595,
+      "companyName": "Lixte Biotechnology Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001335105",
+      "isin": "US5393193017",
+      "cusip": "539319301",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://lixte.com",
+      "description": "Lixte Biotechnology Holdings, Inc. is a drug discovery company focused on developing new treatments. It employs biomarker technology to identify crucial enzyme targets associated with serious, widespread diseases, then designs innovative compounds to act upon these targets. The company's primary focus lies in protein phosphatase inhibitors, which are being investigated for use both independently and in combination with cytotoxic agents, radiation therapy, and immune checkpoint blockers. Its pipeline includes two main categories of compounds, currently in various stages of pre-clinical and clinical development. The LB-100 series consists of novel chemical entities aimed at treating various cancers, vascular diseases, and metabolic disorders. Meanwhile, the LB-200 series is being developed to address chronic hereditary conditions, such as Gaucher's disease, as well as specific cancers and neurodegenerative ailments. Lixte Biotechnology Holdings, Inc. has forged significant alliances, including a clinical trial research agreement with the Moffitt Cancer Center and Research Institute Hospital Inc. Additionally, it has collaboration agreements for investigator-initiated clinical trials with the Spanish Sarcoma Group, the Netherlands Cancer Institute, and the Oncode Institute. Founded in 2005, the company is headquartered in Pasadena, California.",
+      "ceo": "Geordan G. Pursglove",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "3",
+      "phone": "631 830 7092",
+      "address": "433 Plaza Real",
+      "city": "Boca Raton",
+      "state": "FL",
+      "zip": "33432",
+      "image": "https://images.financialmodelingprep.com/symbol/LIXT.png",
+      "ipoDate": "2007-10-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LIXT",
+      "date": "2015-12-31",
+      "marketCap": 127562320
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040397.1231825
+}

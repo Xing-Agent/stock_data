@@ -1,0 +1,63 @@
+{
+  "symbol": "ABT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ABT",
+      "price": 102.97,
+      "marketCap": 178177575815,
+      "beta": 0.583,
+      "lastDividend": 2.48,
+      "range": "81.97-132.03",
+      "change": 0.36,
+      "changePercentage": 0.35084,
+      "volume": 5099565,
+      "averageVolume": 10654931,
+      "companyName": "Abbott Laboratories",
+      "currency": "USD",
+      "cik": "0000001800",
+      "isin": "US0028241000",
+      "cusip": "002824100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Devices",
+      "website": "https://www.abbott.com",
+      "description": "Abbott Laboratories, along with its affiliated entities, is a global healthcare enterprise dedicated to the research, development, manufacturing, and worldwide distribution of a diverse portfolio of health solutions. The company operates through four primary divisions: Established Pharmaceutical Products, Diagnostic Products, Nutritional Products, and Medical Devices. In the Established Pharmaceutical Products segment, Abbott provides generic medications designed to treat a wide array of conditions, including pancreatic exocrine insufficiency, irritable bowel syndrome or biliary spasm, intrahepatic cholestasis or depressive symptoms, gynecological disorders, hormone replacement therapy, dyslipidemia, hypertension, hypothyroidism, Ménière's disease and vestibular vertigo, pain, fever, inflammation, and migraine. This segment also supplies the anti-infective clarithromycin, influenza vaccines, and products aimed at regulating colon physiology. The Diagnostic Products division offers a comprehensive suite of diagnostic tools. These include laboratory systems for immunoassay, clinical chemistry, hematology, and transfusion; molecular diagnostics systems that automate the extraction, purification, and preparation of DNA and RNA from patient samples, as well as detect and quantify infectious agents. Additionally, this segment provides point-of-care systems, blood testing cartridges, rapid lateral flow testing products, and specialized molecular point-of-care tests for pathogens such as HIV, SARS-CoV-2, influenza A and B, RSV, and strep A. Its offerings also extend to cardiometabolic test systems, drug and alcohol screening solutions, remote patient monitoring, consumer self-test systems, and sophisticated informatics and automation solutions for laboratory use. The Nutritional Products segment is responsible for delivering nutritional formulations tailored for both pediatric and adult populations. Finally, the Medical Devices segment develops and commercializes rhythm management, electrophysiology, heart failure, vascular, and structural heart devices for the treatment of cardiovascular ailments. It also supplies diabetes care products and neuromodulation devices designed for the management of chronic pain and movement disorders. Founded in 1888, Abbott Laboratories maintains its corporate headquarters in North Chicago, Illinois.",
+      "ceo": "Robert Ford",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "115000",
+      "phone": "224 667 6100",
+      "address": "100 Abbott Park Road",
+      "city": "Abbott Park",
+      "state": "IL",
+      "zip": "60064-6400",
+      "image": "https://images.financialmodelingprep.com/symbol/ABT.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ABT",
+      "date": "2015-12-31",
+      "marketCap": 65979617802
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040949.3835795,
+  "previous_attempts": [
+    {
+      "symbol": "ABT",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040615.21957
+    }
+  ]
+}

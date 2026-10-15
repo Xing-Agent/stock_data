@@ -1,0 +1,54 @@
+{
+  "symbol": "MPWR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MPWR",
+      "price": 1243.11,
+      "marketCap": 61090154730,
+      "beta": 1.681,
+      "lastDividend": 7.12,
+      "range": "833.18-1714.09",
+      "change": -76.44004,
+      "changePercentage": -5.79289,
+      "volume": 1122052,
+      "averageVolume": 855705,
+      "companyName": "Monolithic Power Systems, Inc.",
+      "currency": "USD",
+      "cik": "0001280452",
+      "isin": "US6098391054",
+      "cusip": "609839105",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.monolithicpower.com",
+      "description": "Monolithic Power Systems, Inc. specializes in the creation, promotion, and sale of advanced semiconductor components for power management. Their innovative solutions cater to a broad spectrum of industries, including information technology, data storage, automotive, industrial applications, telecommunications, and consumer electronics. A core offering consists of direct current (DC) to DC integrated circuits (ICs), which are vital for regulating and transforming electrical voltages in diverse systems such as portable gadgets, wireless local area network access points, personal computers, displays, car entertainment systems, and medical devices. Additionally, they provide integrated circuits specifically designed for lighting control, essential for illuminating liquid crystal display (LCD) panels in laptops, monitors, vehicle navigation systems, and televisions, alongside general illumination products. The company reaches its clientele, which includes major equipment manufacturers, design firms, and electronics assembly providers, as well as other customers, through both direct sales and an extensive network of distributors and resellers across key global regions like China, Taiwan, Europe, South Korea, Southeast Asia, Japan, the United States, and beyond. Founded in 1997, the company's headquarters are situated in Kirkland, Washington.",
+      "ceo": "Michael R. Hsing",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "4501",
+      "phone": "561 839 3999",
+      "address": "1555 Palm Beach Lakes Boulevard",
+      "city": "West Palm Beach",
+      "state": "FL",
+      "zip": "33401",
+      "image": "https://images.financialmodelingprep.com/symbol/MPWR.png",
+      "ipoDate": "2004-11-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MPWR",
+      "date": "2015-12-31",
+      "marketCap": 2550183880
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041001.1963322
+}

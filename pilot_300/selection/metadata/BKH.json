@@ -1,0 +1,54 @@
+{
+  "symbol": "BKH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BKH",
+      "price": 76.43,
+      "marketCap": 5828024433,
+      "beta": 0.662,
+      "lastDividend": 2.785,
+      "range": "61.1-78.69",
+      "change": -0.81,
+      "changePercentage": -1.04868,
+      "volume": 1362819,
+      "averageVolume": 1005365,
+      "companyName": "Black Hills Corporation",
+      "currency": "USD",
+      "cik": "0001130464",
+      "isin": "US0921131092",
+      "cusip": "092113109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Gas",
+      "website": "https://ir.blackhillscorp.com",
+      "description": "Black Hills Corporation operates as an American utility firm, delivering both electric power and natural gas through its subsidiaries. Its business is organized into two primary divisions: Electric Utilities and Gas Utilities. The Electric Utilities segment is responsible for generating, transmitting, and distributing electricity to approximately 218,000 customers spanning Colorado, Montana, South Dakota, and Wyoming. This division manages 1,481.5 megawatts of power generation capacity and maintains 8,892 miles of electric transmission and distribution lines. Electric power generation is diversified, utilizing wind, natural gas, and coal-fired plants, and the company also operates a coal mine near Gillette, Wyoming. Conversely, the Gas Utilities segment provides natural gas to roughly 1,094,000 utility clients across Arkansas, Colorado, Iowa, Kansas, Nebraska, and Wyoming. This operation includes overseeing 4,732 miles of intrastate gas transmission pipelines, 41,644 miles of gas distribution mains and service lines, six natural gas storage facilities, around 50,000 horsepower of compression, and 515 miles of gathering lines. Beyond these core utility offerings, Black Hills Corporation also constructs and maintains gas infrastructure for various gas transportation customers. It provides appliance repair services for residential utility subscribers and offers electrical system construction to large industrial clients. Founded in 1941, the company's headquarters are situated in Rapid City, South Dakota.",
+      "ceo": "Linden R. Evans",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "2795",
+      "phone": "605 721 1700",
+      "address": "7001 Mount Rushmore Road",
+      "city": "Rapid City",
+      "state": "SD",
+      "zip": "57702",
+      "image": "https://images.financialmodelingprep.com/symbol/BKH.png",
+      "ipoDate": "1973-02-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BKH",
+      "date": "2015-12-31",
+      "marketCap": 2369972920
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040394.3902705
+}

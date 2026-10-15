@@ -1,0 +1,54 @@
+{
+  "symbol": "SNBR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SNBR",
+      "price": 0.125,
+      "marketCap": 2881125,
+      "beta": 2.491,
+      "lastDividend": 0,
+      "range": "0.0252-13.94",
+      "change": 0.09,
+      "changePercentage": 257.14286,
+      "volume": 36488227,
+      "averageVolume": 26021477,
+      "companyName": "Sleep Number Corp",
+      "currency": "USD",
+      "cik": "0000827187",
+      "isin": "US83125X1037",
+      "cusip": "83125X103",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Furnishings, Fixtures & Appliances",
+      "website": "https://www.sleepnumber.com",
+      "description": "Sleep Number Corporation, together with its subsidiaries, designs, manufactures, markets, distributes, retails, and services sleep solutions in the United States. It offers smart beds and adjustable bases, pillows, sheets, and other bedding products. The company sells its products direct-to-consumer retail touch points, including stores, online, phone, and chat. The company was formerly known as Select Comfort Corporation and changed its name to Sleep Number Corporation in November 2017. The company was incorporated in 1987 and is headquartered in Minneapolis, Minnesota.",
+      "ceo": "Linda Findley Kozlowski",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "3114",
+      "phone": "763 551 7000",
+      "address": "1001 Third Avenue South",
+      "city": "Minneapolis",
+      "state": "MN",
+      "zip": "55404",
+      "image": "https://images.financialmodelingprep.com/symbol/SNBR.png",
+      "ipoDate": "1998-12-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SNBR",
+      "date": "2015-12-31",
+      "marketCap": 1029821000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041248.1184852
+}

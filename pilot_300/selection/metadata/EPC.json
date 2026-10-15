@@ -1,0 +1,54 @@
+{
+  "symbol": "EPC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EPC",
+      "price": 28.23,
+      "marketCap": 1301089647,
+      "beta": 0.402,
+      "lastDividend": 0.6,
+      "range": "15.73-29.95",
+      "change": -0.3,
+      "changePercentage": -1.05152,
+      "volume": 451686,
+      "averageVolume": 728710,
+      "companyName": "Edgewell Personal Care Company",
+      "currency": "USD",
+      "cik": "0001096752",
+      "isin": "US28035Q1022",
+      "cusip": "28035Q102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Household & Personal Products",
+      "website": "https://edgewell.com",
+      "description": "Edgewell Personal Care Company, along with its associated businesses, is a global producer and distributor of a diverse range of personal care items. The company organizes its operations into three main divisions: Wet Shave, Sun and Skin Care, and Feminine Care. The Wet Shave segment provides complete shaving solutions, including razor handles and refillable blade systems, as well as disposable razors for both men and women. This category features well-known brands such as Schick, Wilkinson Sword, Edge, Skintimate, Shave Guard, and Personna. Within its Sun and Skin Care segment, Edgewell offers a broad spectrum of sun protection products—from general and sport formulations to those specifically for children, babies, tanning, and after-sun care—under the Banana Boat and Hawaiian Tropic brand names. This division also includes personal hygiene products like antibacterial and alcohol-based hand wipes, as well as hand sanitizer gels from the Wet Ones brand. Furthermore, it incorporates specialized men's skincare lines, including Bulldog and Jack Black, alongside a wider selection of skincare and grooming products from the Cremo brand. The Feminine Care segment focuses on menstrual hygiene products, offering tampons under established brands such as Playtex Gentle Glide 360°, Playtex Sport, Playtex, and o.b. This division also distributes sanitary pads and liners through the Stayfree and Carefree brands. Historically, the company operated as Energizer Holdings, Inc. before officially changing its name to Edgewell Personal Care Company in June 2015. Established in 1772, Edgewell Personal Care Company's corporate headquarters are situated in Shelton, Connecticut.",
+      "ceo": "Rod R. Little",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "6700",
+      "phone": "203 944 5500",
+      "address": "6 Research Drive",
+      "city": "Shelton",
+      "state": "CT",
+      "zip": "06484",
+      "image": "https://images.financialmodelingprep.com/symbol/EPC.png",
+      "ipoDate": "2000-03-27",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EPC",
+      "date": "2015-12-31",
+      "marketCap": 4655178000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041329.1223636
+}

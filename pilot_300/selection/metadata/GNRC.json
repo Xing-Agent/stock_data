@@ -1,0 +1,54 @@
+{
+  "symbol": "GNRC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GNRC",
+      "price": 198.06,
+      "marketCap": 11698196034,
+      "beta": 1.916,
+      "lastDividend": 0,
+      "range": "134.8-296.44",
+      "change": -16.23,
+      "changePercentage": -7.57385,
+      "volume": 1185929,
+      "averageVolume": 1150706,
+      "companyName": "Generac Holdings Inc.",
+      "currency": "USD",
+      "cik": "0001474735",
+      "isin": "US3687361044",
+      "cusip": "368736104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.generac.com",
+      "description": "Generac Holdings Inc. specializes in the engineering, manufacturing, and global distribution of diverse power generation systems, energy storage solutions, and related electrical products. The company caters to residential users, light commercial enterprises, and industrial sectors worldwide. At its core, Generac produces vital components such as engines, alternators, batteries, advanced electronic controls, and robust steel enclosures. For homeowners, the company provides a range of automatic standby generators, from 7.5kW up to 150kW, including air-cooled models (7.5kW-26kW) and more powerful liquid-cooled units (22kW-150kW). Many of these residential systems are compatible with Mobile Link, a remote monitoring platform. Generac also offers portable generators, spanning outputs from 800W to 17.5kW, alongside an extensive catalog of outdoor power equipment like trimmers, mowers, log splitters, and pressure washers. Its commitment to sustainable energy is evident through its clean energy offerings, marketed under the PWRcell and PWRview brands. Serving commercial and industrial clients, Generac supplies essential equipment such as light towers, mobile power units, and portable energy storage systems. Its portfolio extends to include commercial mobile pumps, dust-suppression apparatus, and various control systems for gaseous-fueled engines. Light-commercial standby generators, rated from 22kW to 150kW, deliver critical three-phase power to small and mid-sized businesses. For heavy-duty applications, industrial generators with capabilities from 10kW to a formidable 3,250kW are deployed as emergency backup power for vital infrastructure across healthcare, telecommunications, data centers, commercial offices, retail, municipal services, and manufacturing facilities. Beyond direct product sales, the company supports its offerings by supplying aftermarket service parts and product accessories to its vast dealer network. Generac's distribution strategy is multi-faceted, leveraging independent residential and industrial dealers, major national and regional retailers, e-commerce platforms, specialized wholesalers (electrical, HVAC, solar), catalogs, equipment rental firms, and direct engagement with end-users. Founded in 1959, Generac Holdings Inc. is proudly headquartered in Waukesha, Wisconsin.",
+      "ceo": "Aaron Jagdfeld",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "9400",
+      "phone": "262 544 4811",
+      "address": "S45 W29290 Highway 59",
+      "city": "Waukesha",
+      "state": "WI",
+      "zip": "53189",
+      "image": "https://images.financialmodelingprep.com/symbol/GNRC.png",
+      "ipoDate": "2010-02-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GNRC",
+      "date": "2015-12-31",
+      "marketCap": 1967789706
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040537.093787
+}

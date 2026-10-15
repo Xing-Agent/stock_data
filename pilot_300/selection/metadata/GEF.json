@@ -1,0 +1,54 @@
+{
+  "symbol": "GEF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GEF",
+      "price": 78.08,
+      "marketCap": 3607058403,
+      "beta": 0.788,
+      "lastDividend": 2.36,
+      "range": "55.75-90.57",
+      "change": -0.43,
+      "changePercentage": -0.5477,
+      "volume": 460077,
+      "averageVolume": 299513,
+      "companyName": "Greif, Inc.",
+      "currency": "USD",
+      "cik": "0000043920",
+      "isin": "US3976241071",
+      "cusip": "397624107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Packaging & Containers",
+      "website": "https://www.greif.com",
+      "description": "Greif, Inc. is a global enterprise specializing in the production and distribution of industrial packaging products and associated services. Established in 1877 and headquartered in Delaware, Ohio, Greif, Inc. adopted its current name in 2001, having previously operated as Greif Bros. Corporation. Its business operations are structured into three primary segments: Global Industrial Packaging, Paper Packaging & Services, and Land Management. Global Industrial Packaging: This segment is responsible for the manufacturing and global distribution of industrial packaging solutions. Its extensive product range includes drums made from steel, fiber, and plastic; both rigid and flexible intermediate bulk containers (IBCs); specialized closure systems; transit protection items; water bottles; and refurbished or remanufactured industrial containers. Complementing these products, the segment offers various services such as comprehensive container lifecycle management, filling, logistics, warehousing, and other bespoke packaging support. These offerings serve a broad spectrum of industries, including chemicals, paints and pigments, food and beverage, petroleum, industrial coatings, agriculture, pharmaceuticals, and mineral products. A specific focus within this segment involves providing flexible IBCs and related services to the agriculture, construction, and food sectors. Paper Packaging & Services: This segment focuses on the production and sale of paper-based packaging materials. This includes containerboards, corrugated sheets, and finished corrugated containers, as well as other specialized paper products, supplied to clients in the packaging, automotive, food, and building products sectors. The segment also manufactures and sells both coated and uncoated recycled paperboard, along with recycled fiber. Its corrugated products are integral for shipping a diverse array of goods, ranging from household appliances and small machinery to grocery items, automotive components, books, and furniture, among countless other uses. Land Management: Lastly, this segment manages timber resources through harvesting and regeneration activities, and also engages in the sale of timberland and special use properties. As of October 31, 2021, this segment possessed approximately 175,000 acres of timber properties located across the southeastern United States.",
+      "ceo": "Ole G. Rosgaard",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "12000",
+      "phone": "740 549 6000",
+      "address": "425 Winter Road",
+      "city": "Delaware",
+      "state": "OH",
+      "zip": "43015",
+      "image": "https://images.financialmodelingprep.com/symbol/GEF.png",
+      "ipoDate": "1996-02-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GEF",
+      "date": "2015-12-31",
+      "marketCap": 1473260903
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041162.2822921
+}

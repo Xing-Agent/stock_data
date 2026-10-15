@@ -1,0 +1,54 @@
+{
+  "symbol": "HES",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HES",
+      "price": 148.97,
+      "marketCap": 46072102062,
+      "beta": 0.626,
+      "lastDividend": 2,
+      "range": "123.79-161.69",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 2871117,
+      "averageVolume": 2006173,
+      "companyName": "Hess Corporation",
+      "currency": "USD",
+      "cik": "0000004447",
+      "isin": "US42809H1077",
+      "cusip": "42809H107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://www.hess.com",
+      "description": "Hess Corporation is an integrated energy company involved in the entire lifecycle of hydrocarbon assets. Its core business includes the exploration, development, production, acquisition, transportation, and sale of crude oil, natural gas liquids (NGLs), and natural gas. The firm's activities are organized into two primary divisions: Exploration and Production (E&P) and Midstream. Hess conducts production operations across the United States, Guyana, the Malaysia/Thailand Joint Development Area, and Malaysia. Simultaneously, its exploration ventures are focused offshore Guyana, within the U.S. Gulf of Mexico, and off the coasts of Suriname and Canada. Complementing its E&P efforts, the company's Midstream segment handles the gathering, compression, and processing of natural gas, along with NGL fractionation. It also manages the collection, storage, loading, and rail transport of crude oil and NGLs, in addition to propane storage and terminaling. These midstream services further encompass water handling, predominantly in the Bakken Shale region of North Dakota's Williston Basin. As of December 31, 2021, Hess reported proven reserves totaling 1,309 million barrels of oil equivalent. The company was established in 1920 and its corporate headquarters are located in New York, New York.",
+      "ceo": "John B. Hess",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "1797",
+      "phone": "212 997 8500",
+      "address": "1185 Avenue of the Americas",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10036",
+      "image": "https://images.financialmodelingprep.com/symbol/HES.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HES",
+      "date": "2015-12-31",
+      "marketCap": 14515813921
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040475.8618891
+}

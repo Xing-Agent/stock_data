@@ -1,0 +1,54 @@
+{
+  "symbol": "KHC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KHC",
+      "price": 22.7,
+      "marketCap": 26918199307,
+      "beta": 0.082,
+      "lastDividend": 1.6,
+      "range": "21.035-28.09",
+      "change": 0.27,
+      "changePercentage": 1.20374,
+      "volume": 12540089,
+      "averageVolume": 16199762,
+      "companyName": "The Kraft Heinz Company",
+      "currency": "USD",
+      "cik": "0001637459",
+      "isin": "US5007541064",
+      "cusip": "500754106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Packaged Foods",
+      "website": "https://www.kraftheinzcompany.com",
+      "description": "The Kraft Heinz Company, along with its subsidiaries, operates as a global entity focused on the manufacturing and marketing of a broad spectrum of food and beverage products. Its reach extends across key markets such as the United States, Canada, and the United Kingdom, as well as numerous other international territories. The company's diverse product offerings include popular condiments and sauces, a variety of cheese and dairy items, prepared meals, meat products, and refreshing beverages. Additionally, its portfolio features coffee, an assortment of healthy snacks, salad dressings, various spices and seasonings, and a range of other general grocery staples. Kraft Heinz employs a multi-faceted distribution strategy. It utilizes its internal sales organizations alongside independent brokers, agents, and third-party distributors to reach a wide array of customers. These include large grocery chains, wholesale providers, cooperative and independent grocers, convenience stores, pharmacies, value stores, bakeries, mass merchandisers, and club stores. Furthermore, the company supplies products to the foodservice sector and institutional clients, such as hotels, restaurants, hospitals, healthcare facilities, and government agencies. A significant portion of its sales also occurs online through various e-commerce platforms and digital retailers. Tracing its origins back to its founding in 1869, the company initially operated as H.J. Heinz Holding Corporation before officially changing its name to The Kraft Heinz Company in July 2015. Its corporate headquarters are located in Pittsburgh, Pennsylvania.",
+      "ceo": "Steven A. Cahillane",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "35000",
+      "phone": "412 456 5700",
+      "address": "One PPG Place",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15222",
+      "image": "https://images.financialmodelingprep.com/symbol/KHC.png",
+      "ipoDate": "2015-07-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KHC",
+      "date": "2015-12-31",
+      "marketCap": 88403400000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041861.4905388
+}

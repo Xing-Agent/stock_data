@@ -1,0 +1,54 @@
+{
+  "symbol": "DHR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DHR",
+      "price": 224.72,
+      "marketCap": 157975026055,
+      "beta": 0.797,
+      "lastDividend": 1.44,
+      "range": "160.93-242.8",
+      "change": 1.88,
+      "changePercentage": 0.84365,
+      "volume": 3594931,
+      "averageVolume": 4552821,
+      "companyName": "Danaher Corporation",
+      "currency": "USD",
+      "cik": "0000313616",
+      "isin": "US2358511028",
+      "cusip": "235851102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Diagnostics & Research",
+      "website": "https://www.danaher.com",
+      "description": "Danaher Corporation is a diversified global technology and science company that specializes in developing, manufacturing, and distributing a wide array of professional, medical, industrial, and commercial products and services across the world. The organization is structured into three primary operating segments: Life Sciences, Diagnostics, and Environmental & Applied Solutions. Within the Life Sciences segment, Danaher provides advanced instrumentation and solutions crucial for scientific research and development. This encompasses equipment like mass spectrometers, flow cytometry, genomics, lab automation, centrifugation, particle counting and characterization tools, and microscopes, alongside genomics consumables and technologies vital for Gene and Cell Therapy. Additionally, it delivers bioprocess technologies, consumables, and related services, as well as sophisticated filtration, separation, and purification systems. Its diverse clientele includes pharmaceutical, biopharmaceutical, food and beverage, medical, and life sciences companies, in addition to universities, medical schools, research institutions, and various industrial manufacturers. The Diagnostics segment is dedicated to furnishing essential tools for healthcare. Its offerings range from comprehensive systems for chemistry, immunoassay, microbiology, and automation to products for hematology, molecular, acute care, and pathology diagnostics. This segment equips hospitals, physicians' offices, reference laboratories, and other critical care settings with clinical instruments, reagents, consumables, software, and support services for accurate patient diagnosis and management. The Environmental & Applied Solutions segment addresses a broad spectrum of industrial and resource management requirements. It supplies instrumentation, consumables, software, services, and disinfection systems critical for the analysis, treatment, and management of various water types—including ultra-pure, potable, industrial, waste, ground, source, and ocean water—across residential, commercial, industrial, and natural resource applications. Furthermore, this segment delivers instruments, software, services, and consumables tailored for color and appearance management, packaging design and quality assurance, packaging converting, printing, marking, coding, and traceability applications for consumer, pharmaceutical, and industrial products. Established in 1969, the company was initially known as Diversified Mortgage Investors, Inc., before officially rebranding as Danaher Corporation in 1984. Its corporate headquarters are located in Washington, D.C.",
+      "ceo": "Julie Sawyer Montgomery",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "59000",
+      "phone": "202 828 0850",
+      "address": "2200 Pennsylvania Avenue, NW",
+      "city": "Washington",
+      "state": "DC",
+      "zip": "20037-1701",
+      "image": "https://images.financialmodelingprep.com/symbol/DHR.png",
+      "ipoDate": "1978-12-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DHR",
+      "date": "2015-12-31",
+      "marketCap": 42968640000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041186.786475
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "MSA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MSA",
+      "price": 181.57,
+      "marketCap": 7009344440,
+      "beta": 0.914,
+      "lastDividend": 2.14,
+      "range": "151.1-208.92",
+      "change": -0.22,
+      "changePercentage": -0.12102,
+      "volume": 207197,
+      "averageVolume": 282866,
+      "companyName": "MSA Safety Incorporated",
+      "currency": "USD",
+      "cik": "0000066570",
+      "isin": "US5534981064",
+      "cusip": "553498106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Security & Protection Services",
+      "website": "https://www.msasafety.com",
+      "description": "MSA Safety Incorporated is a prominent global manufacturer and provider of safety equipment, specializing in the engineering, production, and distribution of solutions designed to safeguard both personnel and critical infrastructure. The company serves a diverse range of high-risk sectors, including the energy industry (oil, gas, and petrochemical), emergency services (fire departments), construction, industrial manufacturing, utilities, military, and mining. Its international footprint extends significantly across North America, Latin America, and other global markets. Among its principal offerings are permanently installed systems for gas and flame detection, encompassing sophisticated monitoring units, flame sensors, and open-path infrared detectors. These are complemented by essential replacement parts and associated services, all crucial for identifying the presence or absence of various atmospheric gases. The company also provides advanced respiratory protection, including self-contained breathing apparatus (SCBA), alongside portable gas detection devices for on-the-go analysis. MSA Safety's product line further includes a comprehensive range of head protection solutions for industrial use, as well as specialized helmets and protective clothing tailored for firefighters. Additionally, the company offers robust fall protection systems, featuring confined space apparatus, safety harnesses, lanyards, and self-retracting lifelines, often integrated into custom-engineered safety setups. Further expanding its portfolio, the company supplies air-purifying respirators, eye and face shields, ballistic helmets, and gas masks. Distribution reaches both end-users and wholesale partners via direct and indirect sales channels. Its products are marketed under well-known brand names such as V-Gard, Cairns, and Gallet. Founded in 1914, MSA Safety Incorporated maintains its headquarters in Cranberry Township, Pennsylvania.",
+      "ceo": "Steven C. Blanco",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "5300",
+      "phone": "724 776 8600",
+      "address": "1000 Cranberry Woods Drive",
+      "city": "Cranberry Township",
+      "state": "PA",
+      "zip": "16066-5207",
+      "image": "https://images.financialmodelingprep.com/symbol/MSA.png",
+      "ipoDate": "1973-02-22",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MSA",
+      "date": "2015-12-31",
+      "marketCap": 1622735100
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041021.618432
+}

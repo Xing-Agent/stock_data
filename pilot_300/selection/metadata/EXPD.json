@@ -1,0 +1,54 @@
+{
+  "symbol": "EXPD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EXPD",
+      "price": 196.38,
+      "marketCap": 25536701212,
+      "beta": 1.064,
+      "lastDividend": 1.58,
+      "range": "116.77-197.4",
+      "change": 1.24999,
+      "changePercentage": 0.6406,
+      "volume": 1068336,
+      "averageVolume": 1146001,
+      "companyName": "Expeditors International of Washington, Inc.",
+      "currency": "USD",
+      "cik": "0000746515",
+      "isin": "US3021301094",
+      "cusip": "302130109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Integrated Freight & Logistics",
+      "website": "https://www.expeditors.com",
+      "description": "Expeditors International of Washington, Inc. functions as a prominent global logistics and supply chain management enterprise. With a vast operational footprint spanning the Americas, North and South Asia, Europe, the Middle East, Africa, and India, the company delivers an extensive portfolio of services to its clients. Their core transportation offerings include comprehensive air freight solutions, encompassing both consolidation and forwarding, alongside diverse ocean freight services ranging from consolidated cargo to direct vessel bookings, complemented by efficient order management. Beyond mere transport, Expeditors provides crucial ancillary services such as customs brokerage and clearance, intra-continental ground delivery, and warehousing and distribution. The company's advanced supply chain capabilities feature meticulous purchase order oversight, vendor consolidation, guaranteed time-critical transportation, temperature-controlled shipping environments, cargo insurance, and sophisticated cargo monitoring and tracking systems. Moreover, they offer strategic advisory services for supply chain optimization, trade compliance, general business consulting, and enhanced cargo security protocols. Expeditors frequently acts as a freight consolidator or an authorized agent for airlines facilitating shipments. Their support infrastructure further includes the detailed preparation of all required shipping and customs documentation, expert packing and crating services, arrangement of insurance, negotiation of letters of credit, and ensuring full compliance with local export regulations. Serving a broad spectrum of industries, their client base primarily consists of retailing, wholesaling, electronics, technology, and various industrial and manufacturing companies. Expeditors International of Washington, Inc. was founded in 1979 and maintains its corporate headquarters in Seattle, Washington.",
+      "ceo": "Daniel R. Wall",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "19800",
+      "phone": "206 674 3400",
+      "address": "Sterling Plaza 2",
+      "city": "Bellevue",
+      "state": "WA",
+      "zip": "98006",
+      "image": "https://images.financialmodelingprep.com/symbol/EXPD.png",
+      "ipoDate": "1984-09-26",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EXPD",
+      "date": "2015-12-31",
+      "marketCap": 8208651000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041881.4333146
+}

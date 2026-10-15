@@ -1,0 +1,54 @@
+{
+  "symbol": "MNST",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MNST",
+      "price": 44.22,
+      "marketCap": 86629191000,
+      "beta": 0.492,
+      "lastDividend": 0,
+      "range": "32.94-50.17",
+      "change": 0.91,
+      "changePercentage": 2.10113,
+      "volume": 11197663,
+      "averageVolume": 13855471,
+      "companyName": "Monster Beverage Corporation",
+      "currency": "USD",
+      "cik": "0000865752",
+      "isin": "US61174X1090",
+      "cusip": "61174X109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Beverages - Non-Alcoholic",
+      "website": "https://www.monsterbevcorp.com",
+      "description": "Monster Beverage Corporation is a global entity primarily involved in the innovation, marketing, sale, and distribution of energy beverages and concentrates. Its business operations are categorized into three main divisions: Monster Energy Drinks, Strategic Brands, and a segment designated as \"Other.\" The company boasts an extensive product portfolio, encompassing a wide array of carbonated energy drinks, alongside various non-carbonated options. These include ready-to-drink iced teas, lemonades, diverse juice cocktails, single-serving juices, and fruit beverages. Additionally, their offerings extend to ready-to-drink dairy and coffee-based concoctions, specialized sports drinks, single-serve still waters, and a selection of sodas described as natural, sparkling juices, and flavored sparkling beverages. Monster Beverage distributes its products through a comprehensive network, supplying bottlers and full-service beverage distributors. They also engage in direct sales to a multitude of retail outlets, including grocery and specialty chains, wholesalers, club stores, mass merchandisers, convenience stores, pharmacies, foodservice clients, value retailers, e-commerce platforms, and military establishments. Furthermore, the company provides concentrates and beverage bases to its authorized bottling and canning partners. Under its corporate umbrella, the company manages a vast collection of brands. Notable examples include the Monster Energy line (e.g., Monster Energy, Monster Energy Ultra, Monster Rehab, Monster Energy Nitro), Java Monster, Muscle Monster, Espresso Monster, Punch Monster, Juice Monster, and the Monster Hydro series (Energy Water, Super Sport, Super Fuel). Other significant brands feature Monster Dragon Tea, Reign Total Body Fuel, Reign Inferno Thermogenic Fuel, NOS, Full Throttle, Burn, Mother, Nalu, Ultra Energy, Play and Power Play (stylized), Relentless, BPM, BU, Gladiator, Samurai, Live+, Predator, Fury, and True North. Founded in 1985 under its previous name, Hansen Natural Corporation, the company rebranded to Monster Beverage Corporation in January 2012. Its corporate headquarters are located in Corona, California.",
+      "ceo": "Hilton H. Schlosberg",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "6332",
+      "phone": "951 739 6200",
+      "address": "1 Monster Way",
+      "city": "Corona",
+      "state": "CA",
+      "zip": "92879",
+      "image": "https://images.financialmodelingprep.com/symbol/MNST.png",
+      "ipoDate": "1985-12-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MNST",
+      "date": "2015-12-31",
+      "marketCap": 30247071840
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041460.738874
+}

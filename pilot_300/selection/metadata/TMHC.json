@@ -1,0 +1,54 @@
+{
+  "symbol": "TMHC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TMHC",
+      "price": 72.45,
+      "marketCap": 6665396812,
+      "beta": 1.443,
+      "lastDividend": 0,
+      "range": "54.15-72.5",
+      "change": -0.02,
+      "changePercentage": -0.02759763,
+      "volume": 2523108,
+      "averageVolume": 3040867,
+      "companyName": "Taylor Morrison Home Corporation",
+      "currency": "USD",
+      "cik": "0001562476",
+      "isin": "US87724P1066",
+      "cusip": "87724P106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Residential Construction",
+      "website": "https://www.taylormorrison.com",
+      "description": "Taylor Morrison Home Corporation functions as a publicly listed residential construction enterprise within the United States. The company's core business involves the design, development, and sale of various housing types, including both single and multi-family units, offered as detached or attached homes. Additionally, it specializes in creating comprehensive lifestyle and master-planned communities. Expanding its portfolio, Taylor Morrison also undertakes the construction and development of mixed-use properties, which integrate commercial, retail, and multi-family spaces, marketed under its Urban Form brand. Complementing its building activities, the firm provides ancillary services such as title insurance, closing settlement solutions, and financial products. The company's diverse housing offerings are presented through key brands like Taylor Morrison, William Lyon Signature, and Darling Homes, serving clients across a wide geographical area including Arizona, California, Colorado, Florida, Georgia, Nevada, North Carolina, South Carolina, Oregon, Texas, and Washington. Founded in 1936, Taylor Morrison Home Corporation is headquartered in Scottsdale, Arizona.",
+      "ceo": "Sheryl Denise Palmer",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "2800",
+      "phone": "480 840 8100",
+      "address": "4900 North Scottsdale Road",
+      "city": "Scottsdale",
+      "state": "AZ",
+      "zip": "85251",
+      "image": "https://images.financialmodelingprep.com/symbol/TMHC.png",
+      "ipoDate": "2013-04-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TMHC",
+      "date": "2015-12-31",
+      "marketCap": 510768000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040517.2211053
+}

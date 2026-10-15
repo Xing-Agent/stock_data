@@ -1,0 +1,54 @@
+{
+  "symbol": "NUE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NUE",
+      "price": 257.11,
+      "marketCap": 58332088360,
+      "beta": 1.852,
+      "lastDividend": 2.24,
+      "range": "131.32-280.11",
+      "change": 3.31,
+      "changePercentage": 1.30418,
+      "volume": 1032707,
+      "averageVolume": 1455415,
+      "companyName": "Nucor Corporation",
+      "currency": "USD",
+      "cik": "0000073309",
+      "isin": "US6703461052",
+      "cusip": "670346105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Steel",
+      "website": "https://www.nucor.com",
+      "description": "Nucor Corporation is a prominent producer and distributor of steel and diverse steel-related products. Within its Steel Mills division, the company manufactures a comprehensive range of steel goods. These include various sheet steel types like hot-rolled, cold-rolled, and galvanized, alongside plate steel. It also produces structural components such as wide-flange beams, beam blanks, H-piling, and sheet piling. Furthermore, this segment supplies bar steel products, encompassing blooms, billets, concrete reinforcing bars, merchant bars, and specialized bar quality items. Beyond manufacturing, Nucor's steel mills are involved in steel trading and the distribution of rebar. Its clientele primarily consists of steel service centers, fabricators, and manufacturers across the United States, Canada, and Mexico. The Steel Products segment provides an array of manufactured steel goods, such as hollow structural section tubing, electrical conduits, steel racking, joists and girders, steel decks, and fabricated concrete reinforcing steel. It also supplies cold finished steel, fasteners, complete metal building systems, insulated metal panels, steel grating, expanded metal, and various wire and wire mesh products. These offerings are largely directed towards nonresidential construction projects. Additionally, this segment manages a piling distribution operation. Nucor's Raw Materials division is responsible for producing direct reduced iron (DRI). It also acts as a broker for ferrous and nonferrous metals, pig iron, hot briquetted iron (HBI), and direct reduced iron (DRI). This segment supplies ferro-alloys, processes both ferrous and nonferrous scrap metals, and undertakes natural gas drilling activities. Its ferrous scrap is supplied to electric arc furnace steel mills and foundries for their manufacturing processes. Meanwhile, nonferrous scrap metal is sold to aluminum can manufacturers, secondary aluminum smelters, steel mills, various other processors, and direct consumers of diverse nonferrous metals. The corporation caters to a wide range of industries including agriculture, automotive, construction, energy and transmission, oil and gas, heavy equipment, infrastructure, and transportation. Sales are conducted via an in-house sales team and through the company's internal distribution and trading enterprises. Established in 1958, Nucor Corporation has its headquarters situated in Charlotte, North Carolina.",
+      "ceo": "Leon J. Topalian",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "33000",
+      "phone": "704 366 7000",
+      "address": "1915 Rexford Road",
+      "city": "Charlotte",
+      "state": "NC",
+      "zip": "28211",
+      "image": "https://images.financialmodelingprep.com/symbol/NUE.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NUE",
+      "date": "2015-12-31",
+      "marketCap": 12865372000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040498.4899309
+}

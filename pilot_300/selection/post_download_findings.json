@@ -1,0 +1,16 @@
+{
+  "basis": "Evidence found during post-download verification; frozen membership is unchanged.",
+  "stocks": [
+    {
+      "symbol": "ODP",
+      "finding": "Frozen vendor listing classified the stock as a survivor, but the exchange confirms a 2025 acquisition exit.",
+      "retired": true,
+      "retirement_category": "acquisition_or_merger",
+      "verified_last_trading_date": "2025-12-09",
+      "merger_completion_date": "2025-12-10",
+      "source_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2025-663",
+      "secondary_primary_source_url": "https://www.sec.gov/Archives/edgar/data/800240/000119312525314368/d76250d8k.htm",
+      "handling": "Do not change frozen sample or erase raw provider rows. Any price after the verified last trading date is excluded from validated trading history. Terminal merger consideration is not modeled."
+    }
+  ]
+}

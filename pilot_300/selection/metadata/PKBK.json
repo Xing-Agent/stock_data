@@ -1,0 +1,54 @@
+{
+  "symbol": "PKBK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PKBK",
+      "price": 32.39,
+      "marketCap": 380954985,
+      "beta": 0.521,
+      "lastDividend": 0.76,
+      "range": "19.71-35.7",
+      "change": 0.02,
+      "changePercentage": 0.0617856,
+      "volume": 42365,
+      "averageVolume": 51786,
+      "companyName": "Parke Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0001315399",
+      "isin": "US7008851062",
+      "cusip": "700885106",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.parkebank.com",
+      "description": "Parke Bancorp, Inc., the parent company of Parke Bank, delivers a comprehensive suite of financial services to individuals and small to medium-sized enterprises. Clients can access a variety of deposit options, such as checking, savings, and money market accounts, along with individual retirement accounts (IRAs) and certificates of deposit (CDs). Its lending activities encompass a diverse portfolio, featuring commercial and industrial financing, construction loans, mortgages for both commercial and residential properties, and consumer credit. Complementing these core offerings, Parke Bank also facilitates transactions through debit cards and modern digital platforms, including internet banking and online bill pay. The institution maintains a physical presence with seven branch offices, strategically located across New Jersey (Galloway Township, Northfield, Washington Township, and Collingswood) and in Philadelphia, Pennsylvania. Established in 1999, Parke Bancorp, Inc. operates from its headquarters in Washington Township, New Jersey.",
+      "ceo": "Vito S. Pantilione",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "103",
+      "phone": "856 256 2500",
+      "address": "601 Delsea Drive",
+      "city": "Washington Township",
+      "state": "NJ",
+      "zip": "08080",
+      "image": "https://images.financialmodelingprep.com/symbol/PKBK.png",
+      "ipoDate": "2003-06-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PKBK",
+      "date": "2015-12-31",
+      "marketCap": 77601293
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040317.638274
+}

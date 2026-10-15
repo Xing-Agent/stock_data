@@ -1,0 +1,54 @@
+{
+  "symbol": "OFLX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "OFLX",
+      "price": 25.87,
+      "marketCap": 261140110,
+      "beta": 0.44,
+      "lastDividend": 1.36,
+      "range": "24.75-37.92",
+      "change": -0.36,
+      "changePercentage": -1.37247,
+      "volume": 30845,
+      "averageVolume": 40846,
+      "companyName": "Omega Flex, Inc.",
+      "currency": "USD",
+      "cik": "0001317945",
+      "isin": "US6820951043",
+      "cusip": "682095104",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.omegaflexcorp.com",
+      "description": "Omega Flex, Inc. and its affiliated companies operate as an international manufacturer and distributor of flexible metal hosing and related accessories, catering to markets across North America and beyond. Their product portfolio includes versatile gas piping, complete with necessary fittings, engineered for installation in both residential and commercial properties. Additionally, they produce specialized corrugated medical tubing, which finds application in various healthcare environments such as hospitals, outpatient clinics, dental and veterinary practices, and research laboratories. These offerings are marketed under several recognized brand names, including TracPipe, CounterStrike, AutoSnap, AutoFlare, DoubleTrac, DEF-Trac, and MediTrac. Omega Flex serves a broad spectrum of industries, encompassing construction, manufacturing, transportation, petrochemical, and pharmaceutical sectors. The company employs a multi-channel distribution strategy, engaging independent sales representatives, authorized distributors, original equipment manufacturers (OEMs), direct sales teams, and its official website to reach customers. Established in 1975, the company was initially known as Tofle America, Inc. before officially changing its name to Omega Flex, Inc. in 1996. Its corporate headquarters are situated in Exton, Pennsylvania.",
+      "ceo": "Dean W. Rivest",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "172",
+      "phone": "610 524 7272",
+      "address": "451 Creamery Way",
+      "city": "Exton",
+      "state": "PA",
+      "zip": "19341-2509",
+      "image": "https://images.financialmodelingprep.com/symbol/OFLX.png",
+      "ipoDate": "2005-08-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "OFLX",
+      "date": "2015-12-31",
+      "marketCap": 333136920
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040364.2491372
+}

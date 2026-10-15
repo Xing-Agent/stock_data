@@ -1,0 +1,54 @@
+{
+  "symbol": "ACOR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ACOR",
+      "price": 0.661,
+      "marketCap": 821028,
+      "beta": 1.462,
+      "lastDividend": 0,
+      "range": "0.6116-24.2",
+      "change": -0.209,
+      "changePercentage": -24.023,
+      "volume": 321668,
+      "averageVolume": 139878,
+      "companyName": "Acorda Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001008848",
+      "isin": "US00484M7002",
+      "cusip": "00484M700",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Drug Manufacturers - Specialty & Generic",
+      "website": "https://www.acorda.com",
+      "description": "Acorda Therapeutics, Inc. is a biopharmaceutical firm dedicated to discovering, developing, and commercializing treatments for conditions affecting the nervous system, primarily within the United States. Its current product offerings include Ampyra (dalfampridine), an oral medication prescribed to enhance walking ability in individuals with multiple sclerosis (MS). The company also distributes Inbrija in Europe, which is used to manage \"OFF\" periods experienced by Parkinson's disease patients. Globally, Ampyra is recognized and sold as Fampyra across Europe, Asia, and the Americas. Beyond its existing products, Acorda is actively advancing several experimental therapies: ARCUS for the management of acute migraine attacks, rHIgM22 which has successfully completed Phase I clinical trials for MS, and Cimaglermin alfa, currently being investigated for patients with heart failure. The company holds a licensing and collaborative agreement with Biogen Inc. for the ongoing development and market distribution of Ampyra. Acorda Therapeutics, Inc. was founded in 1995 and operates from its headquarters in Ardsley, New York.",
+      "ceo": "Ron Cohen",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "102",
+      "phone": "914 347 4300",
+      "address": "420 Saw Mill River Road",
+      "city": "Ardsley",
+      "state": "NY",
+      "zip": "10502",
+      "image": "https://images.financialmodelingprep.com/symbol/ACOR.png",
+      "ipoDate": "2006-02-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ACOR",
+      "date": "2015-12-31",
+      "marketCap": 319530.66
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041211.7598217
+}

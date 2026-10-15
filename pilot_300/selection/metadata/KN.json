@@ -1,0 +1,54 @@
+{
+  "symbol": "KN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KN",
+      "price": 34.88,
+      "marketCap": 2979112380,
+      "beta": 1.591,
+      "lastDividend": 0,
+      "range": "20.57-42.93",
+      "change": -1.7,
+      "changePercentage": -4.64735,
+      "volume": 754829,
+      "averageVolume": 903569,
+      "companyName": "Knowles Corporation",
+      "currency": "USD",
+      "cik": "0001587523",
+      "isin": "US49926D1090",
+      "cusip": "49926D109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.knowles.com",
+      "description": "Knowles Corporation is a leading provider of specialized electronic components, offering an array of micro-acoustic microphones, sophisticated balanced armature speakers, comprehensive audio solutions, high-performance capacitors, and advanced radio frequency products. These precision technologies serve diverse industries, including consumer electronics, medical technology (medtech), defense, electric vehicles, industrial applications, and communications. The company operates through two distinct segments. Its Audio segment is dedicated to engineering and manufacturing innovative audio components, such as microphones, balanced armature speakers, and audio processors. These are integral to applications across mobile devices, hearing health solutions, True Wireless Stereo (TWS) products, the Internet of Things (IoT), and computing platforms. Concurrently, the Precision Devices (PD) segment focuses on the development and delivery of high-specification capacitor products and RF solutions. These critical components find use in demanding applications like power supplies, medical implants, satellite communications, radar systems, and general communications equipment. Knowles distributes its offerings directly to original equipment manufacturers (OEMs), their contract manufacturers, and suppliers, as well as through an established network of distributors. With a global footprint spanning Asia, the United States, Europe, and other parts of the Americas, the company, established in 1946, maintains its headquarters in Itasca, Illinois.",
+      "ceo": "Jeffrey S. Niew",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "5200",
+      "phone": "630 250 5100",
+      "address": "1151 Maplewood Drive",
+      "city": "Itasca",
+      "state": "IL",
+      "zip": "60143",
+      "image": "https://images.financialmodelingprep.com/symbol/KN.png",
+      "ipoDate": "2014-02-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KN",
+      "date": "2015-12-31",
+      "marketCap": 1180194744
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040974.6170719
+}

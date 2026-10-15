@@ -1,0 +1,54 @@
+{
+  "symbol": "EXC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EXC",
+      "price": 42.6,
+      "marketCap": 43888818994,
+      "beta": 0.389,
+      "lastDividend": 1.66,
+      "range": "39.73-50.65",
+      "change": 0.26,
+      "changePercentage": 0.61408,
+      "volume": 7093882,
+      "averageVolume": 8118220,
+      "companyName": "Exelon Corporation",
+      "currency": "USD",
+      "cik": "0001109357",
+      "isin": "US30161N1019",
+      "cusip": "30161N101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Regulated Electric",
+      "website": "https://www.exeloncorp.com",
+      "description": "Exelon Corporation, a utility holding company established in 1999 and headquartered in Chicago, Illinois, operates across the United States and Canada. The company primarily focuses on the generation, delivery, and marketing of energy. It maintains a diverse portfolio of power production facilities, utilizing nuclear, fossil fuel, wind, hydroelectric, biomass, and solar technologies. Exelon engages in the sale of electricity to both wholesale and retail clients, while also providing natural gas, renewable energy solutions, and various other energy-related products and services. Beyond generation, the corporation manages the regulated procurement and direct sale of electricity and natural gas to consumers, alongside overseeing the essential transmission and distribution infrastructure for both power and natural gas. To support its extensive operations, Exelon provides a wide array of internal services, including legal counsel, human resources, information technology, financial management, supply chain, accounting, engineering, customer support, infrastructure planning, asset management, system operations, and power acquisition. The company caters to a broad customer base, which includes distribution utilities, municipal entities, cooperatives, financial institutions, and commercial, industrial, governmental, and residential sectors.",
+      "ceo": "Calvin G. Butler Jr.",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "20571",
+      "phone": "800 483 3220",
+      "address": "10 South Dearborn Street",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60680-5379",
+      "image": "https://images.financialmodelingprep.com/symbol/EXC.png",
+      "ipoDate": "1973-05-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EXC",
+      "date": "2015-12-31",
+      "marketCap": 17568816526
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041366.6785603
+}

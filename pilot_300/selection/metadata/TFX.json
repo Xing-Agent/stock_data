@@ -1,0 +1,54 @@
+{
+  "symbol": "TFX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TFX",
+      "price": 123.29,
+      "marketCap": 5458072958,
+      "beta": 0.832,
+      "lastDividend": 1.36,
+      "range": "100.18-145",
+      "change": -1.15,
+      "changePercentage": -0.92414,
+      "volume": 706504,
+      "averageVolume": 609826,
+      "companyName": "Teleflex Incorporated",
+      "currency": "USD",
+      "cik": "0000096943",
+      "isin": "US8793691069",
+      "cusip": "879369106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.teleflex.com",
+      "description": "Teleflex Incorporated is a global medical technology company dedicated to designing, developing, manufacturing, and distributing single-use medical devices. These products are crucial for diagnostic and therapeutic procedures, particularly within critical care and surgical environments worldwide. Its comprehensive product portfolio includes: Vascular Access Solutions: Featuring the \"Arrow\" brand, these include catheters, advanced catheter navigation and tip positioning systems, and intraosseous access systems. They are essential for administering intravenous therapies, monitoring blood pressure, and drawing blood samples, all achievable through a single access point. Interventional Cardiology & Radiology Products: This segment covers various coronary catheters, therapies for structural heart conditions, and devices for peripheral intervention and cardiac assist. Key users include interventional cardiologists, radiologists, and vascular surgeons. Specific offerings comprise Arrow, Guideline, and Trapliner catheters, the Manta Vascular Closure Device, and Arrow Oncontrol systems. Anesthesia and Surgical Products: The company provides anesthesia and pain management products, serving hospitals, emergency medical services, and military health organizations. Its surgical division offers metal and polymer ligation clips, fascial closure systems for laparoscopic procedures, percutaneous surgical systems, and a range of other surgical instruments. Interventional Urology & General Urology: Teleflex's interventional urology offerings prominently feature the UroLift System, an innovative treatment for lower urinary tract symptoms associated with benign prostatic hyperplasia (BPH). Additionally, it supplies general urology products like catheters, urine collection devices, catheterization accessories, and tools for operative endourology, alongside providing bladder management services. Respiratory Care Products: This category includes oxygen and aerosol therapy devices, spirometry equipment, and ventilation management systems, applicable across diverse healthcare settings. Teleflex serves a broad customer base, encompassing hospitals, healthcare providers, medical device manufacturers, and the home care market. Established in 1943, the company maintains its headquarters in Wayne, Pennsylvania.",
+      "ceo": "Jason Weidman",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "15500",
+      "phone": "610 225 6800",
+      "address": "550 East Swedesford Road",
+      "city": "Wayne",
+      "state": "PA",
+      "zip": "19087-1603",
+      "image": "https://images.financialmodelingprep.com/symbol/TFX.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TFX",
+      "date": "2015-12-31",
+      "marketCap": 5474498150
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041793.0933645
+}

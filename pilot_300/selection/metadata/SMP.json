@@ -1,0 +1,54 @@
+{
+  "symbol": "SMP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SMP",
+      "price": 36.25,
+      "marketCap": 807044625,
+      "beta": 0.839,
+      "lastDividend": 1.3,
+      "range": "34.27-46",
+      "change": -0.78,
+      "changePercentage": -2.1064,
+      "volume": 123964,
+      "averageVolume": 156027,
+      "companyName": "Standard Motor Products, Inc.",
+      "currency": "USD",
+      "cik": "0000093389",
+      "isin": "US8536661056",
+      "cusip": "853666105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Auto - Parts",
+      "website": "https://www.smpcorp.com",
+      "description": "Standard Motor Products, Inc. (SMP) specializes in the production and distribution of replacement automotive components for the aftermarket, facilitating vehicle maintenance, repair, and service. Complementing this, the company also engineers bespoke original equipment (OE) parts for manufacturers in the agricultural, heavy-duty, and construction equipment sectors. Its Engine Management division offers a comprehensive array of parts crucial for vehicle operation. This includes ignition system elements such as electronic control modules, wires, and coils; a variety of sensors for camshaft/crankshaft position, pressure, temperature, variable valve timing, mass airflow, and fuel pressure; alongside exhaust gas recirculation (EGR) valves, electronic throttle bodies, and diesel injection systems. Furthermore, this segment provides advanced sensors for safety and driver assistance, encompassing those for anti-lock braking (ABS), vehicle speed, tire pressure monitoring (TPMS), and park assist. Products from this segment are marketed under numerous brands, including Standard, Blue Streak, BWD, Intermotor, OEM, SMP Blue Streak Canada, GP Sorensen, Locksmart, Standard Motorcycle, and Blue Streak Race Wires. The Temperature Control segment focuses on climate management and related systems within vehicles. This encompasses components for air conditioning, engine cooling, power windows, and windshield washers. Its extensive product portfolio features air conditioning compressors and associated repair kits, clutch assemblies, various motors (blower, radiator fan, window lift), filter-dryers, evaporators, accumulators, actuators, hose assemblies, thermal expansion devices, heater valves and cores, as well as A/C service tools and chemicals. It also supplies fan assemblies, fan clutches, oil coolers, window regulators, and windshield washer pumps. Key brands for this segment include Four Seasons, ACI, Hayden, Factory Air, and Maxair. SMP's clientele spans automotive aftermarket retailers, wholesale distributors, original equipment manufacturers (OEMs), and service parts divisions of OEs. The company maintains a global presence, serving markets in the United States, Canada, Europe, Asia, Mexico, and other nations across Latin America. Established in 1919, Standard Motor Products is headquartered in Long Island City, New York.",
+      "ceo": "Eric Philip Sills",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "5700",
+      "phone": "718 392 0200",
+      "address": "37-18 Northern Boulevard",
+      "city": "Long Island City",
+      "state": "NY",
+      "zip": "11101",
+      "image": "https://images.financialmodelingprep.com/symbol/SMP.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SMP",
+      "date": "2015-12-31",
+      "marketCap": 861539971
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041200.0676286
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "FUNC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FUNC",
+      "price": 43.4,
+      "marketCap": 280096482,
+      "beta": 0.513,
+      "lastDividend": 1.04,
+      "range": "33.54-46.3",
+      "change": -0.69,
+      "changePercentage": -1.56498,
+      "volume": 28174,
+      "averageVolume": 28035,
+      "companyName": "First United Corporation",
+      "currency": "USD",
+      "cik": "0000763907",
+      "isin": "US33741H1077",
+      "cusip": "33741H107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://mybank.com",
+      "description": "First United Corporation acts as the holding company for First United Bank & Trust, which delivers a wide array of retail and commercial banking solutions to both businesses and individual customers. The bank offers a diverse portfolio of deposit accounts, encompassing standard checking, savings, and money market options, in addition to specialized choices like regular and Individual Retirement Account (IRA) certificates of deposit, Christmas savings, college savings, and health savings accounts. It also provides advanced cash management programs, such as the Certificate of Deposit Account Registry Service (CDARS) and Insured Cash Sweep (ICS), available to governmental entities, businesses, and consumers. For its business clientele, First United extends comprehensive packages that feature treasury management, cash sweeping services, and various checking account opportunities. Regarding lending, the corporation provides an extensive range of loan products. These include commercial loans collateralized by real estate, equipment, vehicles, or other business assets. It also offers commercial real estate financing for residential and commercial developments, agricultural properties, and service industry buildings. Individual customers can access residential mortgage loans, home equity lines of credit, and residential real estate construction loans. Furthermore, the bank issues direct and indirect auto loans, student loans, and a variety of secured and unsecured term loans and lines of credit. Beyond traditional banking, the company furnishes a comprehensive suite of trust services, including personal and charitable trusts, investment agency accounts, and full-service retirement planning solutions (such as IRA rollovers, 401(k) accounts, and defined benefit plans), alongside estate administration and planning expertise. Supplementary services offered include insurance products, brokerage facilities, and practical amenities like safe deposit boxes and night depository facilities. First United Corporation's operational network consists of 26 banking branches, a dedicated customer care center, and 34 automated teller machines. This presence extends across Allegany, Frederick, Garrett, and Washington counties in Maryland, as well as Mineral, Berkeley, Monongalia, and Harrison counties in West Virginia. Established in 1900, the company's headquarters are situated in Oakland, Maryland.",
+      "ceo": "Jason Rush",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "329",
+      "phone": "301 334 9471",
+      "address": "19 South Second Street",
+      "city": "Oakland",
+      "state": "MD",
+      "zip": "21550-0009",
+      "image": "https://images.financialmodelingprep.com/symbol/FUNC.png",
+      "ipoDate": "1992-09-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FUNC",
+      "date": "2015-12-31",
+      "marketCap": 73183500
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041455.8693311
+}

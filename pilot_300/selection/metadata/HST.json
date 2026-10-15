@@ -1,0 +1,54 @@
+{
+  "symbol": "HST",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HST",
+      "price": 22.93,
+      "marketCap": 15709893320,
+      "beta": 1.117,
+      "lastDividend": 1.67,
+      "range": "15.61-25.71",
+      "change": -0.29,
+      "changePercentage": -1.24892,
+      "volume": 9244414,
+      "averageVolume": 9202945,
+      "companyName": "Host Hotels & Resorts, Inc.",
+      "currency": "USD",
+      "cik": "0001070750",
+      "isin": "US44107P1049",
+      "cusip": "44107P104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "REIT - Hotel & Motel",
+      "website": "https://www.hosthotels.com",
+      "description": "Host Hotels & Resorts, Inc., a distinguished member of the S&P 500 index, stands as the world's foremost lodging real estate investment trust (REIT) and a leading proprietor of luxury and upper-upscale hotel properties. The company boasts an extensive portfolio comprising roughly 46,100 rooms distributed among 74 locations across the United States and five international sites. Beyond these owned assets, it also holds non-controlling stakes in seven joint ventures—six domestically and one internationally. The firm's operational approach is characterized by a stringent capital allocation methodology and robust asset management tactics. It collaborates with a broad array of esteemed hospitality brands, including Marriott, Ritz-Carlton, Westin, Sheraton, W, St. Regis, The Luxury Collection, Hyatt, Fairmont, Hilton, Swissôtel, ibis, and Novotel, in addition to various independent hotel labels.",
+      "ceo": "James F. Risoleo",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "162",
+      "phone": "240-744-1000",
+      "address": "4747 Bethesda Avenue",
+      "city": "Bethesda",
+      "state": "MD",
+      "zip": "20814-1109",
+      "image": "https://images.financialmodelingprep.com/symbol/HST.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HST",
+      "date": "2015-12-31",
+      "marketCap": 11498864000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041133.6386123
+}

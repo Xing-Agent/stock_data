@@ -1,0 +1,54 @@
+{
+  "symbol": "BDX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BDX",
+      "price": 188.89,
+      "marketCap": 51451180430,
+      "beta": 0.276,
+      "lastDividend": 3.97515,
+      "range": "127.58648-193.07",
+      "change": 1.52,
+      "changePercentage": 0.81123,
+      "volume": 1647455,
+      "averageVolume": 2018118,
+      "companyName": "Becton, Dickinson and Company",
+      "currency": "USD",
+      "cik": "0000010795",
+      "isin": "US0758871091",
+      "cusip": "075887109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Instruments & Supplies",
+      "website": "https://www.bd.com",
+      "description": "Operating globally, Becton, Dickinson and Company (BD) is a prominent enterprise focused on the development, manufacturing, and distribution of a broad spectrum of medical technology. This includes essential medical supplies, sophisticated devices, advanced laboratory equipment, and critical diagnostic products. Its extensive customer base comprises healthcare providers, clinical institutions, medical researchers, pharmaceutical firms, and the general public around the world. The BD Medical division delivers a comprehensive suite of products primarily focused on medication management and drug delivery. This encompasses a variety of intravenous (IV) access solutions, such as peripheral and advanced catheters, central lines, acute dialysis catheters, and related vascular care items including needle-free connectors and closed-system drug transfer devices. It also provides essential injection equipment like hypodermic syringes, needles, anesthesia trays, enteral syringes, and sharps disposal systems. Additionally, this segment develops integrated systems for IV medication and infusion therapy, medication compounding workflow, automated dispensing, and supply chain optimization. Specialized products for diabetes management, including pen needles, along with prefillable drug delivery systems, are also key offerings. BD Life Sciences focuses on diagnostic and research tools, offering products for specimen and blood collection. This segment supplies automated systems for culturing blood and tuberculosis, molecular testing, microorganism identification, and drug susceptibility analysis. It also provides liquid-based cytology systems, rapid diagnostic assays, microbiology laboratory automation, and plated media. Furthermore, it offers advanced solutions for cell analysis, including fluorescence-activated cell sorters and analyzers, antibodies, kits, and reagent systems. These are crucial for single-cell gene expression analysis, as well as for clinical oncology, immunological, and transplantation diagnostics and monitoring. Finally, the BD Interventional segment delivers specialized products for surgical and interventional procedures. Its portfolio includes solutions for hernia and soft tissue repair, biological and bioresorbable grafts, and biosurgery, alongside other surgical products. This segment also addresses surgical infection prevention, provides a range of surgical and laparoscopic instrumentation, offers peripheral intervention products, and supplies urology and critical care devices. Established in 1897, the company maintains its headquarters in Franklin Lakes, New Jersey.",
+      "ceo": "Thomas E. Polen Jr.",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "72000",
+      "phone": "201 847 6800",
+      "address": "1 Becton Drive",
+      "city": "Franklin Lakes",
+      "state": "NJ",
+      "zip": "07417-1880",
+      "image": "https://images.financialmodelingprep.com/symbol/BDX.png",
+      "ipoDate": "1973-02-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BDX",
+      "date": "2015-12-31",
+      "marketCap": 25111711110
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041018.6280935
+}

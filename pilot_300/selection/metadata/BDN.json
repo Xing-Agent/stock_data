@@ -1,0 +1,54 @@
+{
+  "symbol": "BDN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BDN",
+      "price": 2.53,
+      "marketCap": 436971184,
+      "beta": 1.28,
+      "lastDividend": 0.32,
+      "range": "2.47-3.89",
+      "change": -0.14,
+      "changePercentage": -5.24345,
+      "volume": 1671088,
+      "averageVolume": 1928200,
+      "companyName": "Brandywine Realty Trust",
+      "currency": "USD",
+      "cik": "0000790816",
+      "isin": "US1053682035",
+      "cusip": "105368203",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Office",
+      "website": "https://www.brandywinerealty.com",
+      "description": "Brandywine Realty Trust (NYSE: BDN) is a prominent, publicly traded Real Estate Investment Trust (REIT) operating across the United States. The company stands as a full-service, integrated real estate enterprise, primarily concentrating its operations in key markets such as Philadelphia, Austin, and Washington, D.C. Brandywine actively acquires, develops, leases, and manages a diverse portfolio of urban, town center, and transit-oriented properties. As of December 31, 2020, this extensive portfolio comprised approximately 175 properties, totaling 24.7 million square feet, a figure which excludes assets held for sale. At its core, Brandywine aims to shape, connect, and inspire the environment around it, achieving this through its specialized expertise, the robust relationships it cultivates, its engagement with the communities it serves, and the lasting legacy it collectively builds.",
+      "ceo": "Gerard H. Sweeney",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "273",
+      "phone": "610-325-5600",
+      "address": "2929 Walnut Street",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip": "19104-5054",
+      "image": "https://images.financialmodelingprep.com/symbol/BDN.png",
+      "ipoDate": "1986-07-24",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BDN",
+      "date": "2015-12-31",
+      "marketCap": 2387617740
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041109.6368177
+}

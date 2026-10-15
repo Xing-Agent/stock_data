@@ -1,0 +1,63 @@
+{
+  "symbol": "XLNX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "XLNX",
+      "price": 194.92,
+      "marketCap": 0,
+      "beta": 0.980109,
+      "lastDividend": 0.74,
+      "range": "192.5-218.95",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 0,
+      "averageVolume": 4087709,
+      "companyName": "Xilinx, Inc.",
+      "currency": "USD",
+      "cik": "0000743988",
+      "isin": "US9839191015",
+      "cusip": "983919101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.amd.com/en.html",
+      "description": "Xilinx, Inc. is a global leader specializing in the creation, development, and worldwide distribution of programmable semiconductor devices and related advanced technologies. The company's product portfolio encompasses a variety of integrated circuits (ICs), primarily programmable logic devices (PLDs), including cutting-edge programmable System-on-Chips (SoCs) and innovative three-dimensional ICs. They also offer the Adaptive Compute Acceleration Platform (ACAP), alongside a comprehensive suite of software design tools specifically tailored for programming these PLDs. Further enhancing their ecosystem are robust software development environments, embedded platforms, pre-optimized reference designs, and custom printed circuit boards (PCBs). Xilinx also licenses a wide array of Intellectual Property (IP) cores, covering crucial interfaces like Ethernet, memory controllers, Interlaken, and PCI Express, as well as specialized IP for embedded systems, digital signal processing (DSP), connectivity, and various market-specific applications. To support product development, Xilinx provides development boards and complete kits – integrating hardware, design tools, IP, and reference designs – all engineered to streamline and accelerate the creation of specialized, market-specific applications. Additionally, their configuration products feature both one-time and in-system programmable storage devices, essential for configuring Field-Programmable Gate Arrays (FPGAs). Beyond its products, Xilinx extends its expertise through a suite of services, including design assistance, customer training, on-site field engineering, and comprehensive technical support. Their advanced solutions cater to electronic equipment manufacturers across a diverse spectrum of industries. These include data centers, wireless and wired communications, aerospace and defense, test and measurement, industrial, scientific and medical applications, automotive, audio/video/broadcast, and consumer electronics. Xilinx distributes its offerings via a global network of independent distributors, directly to Original Equipment Manufacturers (OEMs) and Electronic Manufacturing Service (EMS) providers, and through independent sales representatives. Established in 1984, Xilinx, Inc. is headquartered in San Jose, California. Since February 14, 2022, the company has operated as a subsidiary of Advanced Micro Devices, Inc. (AMD).",
+      "ceo": "Victor Peng",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "4890",
+      "phone": "14085597778",
+      "address": "2100 LOGIC DR",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95124",
+      "image": "https://images.financialmodelingprep.com/symbol/XLNX.png",
+      "ipoDate": "1990-06-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "XLNX",
+      "date": "2015-12-31",
+      "marketCap": 12045456500
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040637.2640896,
+  "previous_attempts": [
+    {
+      "symbol": "XLNX",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040451.2792404
+    }
+  ]
+}

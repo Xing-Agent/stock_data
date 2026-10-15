@@ -1,0 +1,54 @@
+{
+  "symbol": "TPST",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TPST",
+      "price": 0.6352,
+      "marketCap": 10150115,
+      "beta": -1.708,
+      "lastDividend": 0,
+      "range": "0.635-12.23",
+      "change": -0.0461,
+      "changePercentage": -6.76648,
+      "volume": 179071,
+      "averageVolume": 196579,
+      "companyName": "Tempest Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001544227",
+      "isin": "US87978U2078",
+      "cusip": "87978U207",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.tempesttx.com",
+      "description": "Tempest Therapeutics Inc. is an oncology company, currently in the clinical development phase, dedicated to advancing novel small molecule drugs designed to combat cancer. The firm's pipeline highlights two key therapeutic candidates: TPST-1495, a compound functioning as a dual inhibitor of EP2 and EP4 receptors (which are implicated in prostaglandin E2 signaling), currently undergoing initial human trials for solid tumor indications. The second candidate, TPST-1120, is a targeted blocker of peroxisome proliferator-activated receptor alpha, also progressing through Phase 1 studies for solid tumors. Beyond these clinical assets, Tempest is exploring TREX-1, a pivotal cellular enzyme known for its role in regulating the innate immune response within cancerous growths. Established in 2011, Tempest Therapeutics Inc. is headquartered in South San Francisco, California, having previously operated as a subsidiary of Inception Sciences, Inc.",
+      "ceo": "Matthew Angel",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "4",
+      "phone": "415 798 8589",
+      "address": "2000 Sierra Point Parkway",
+      "city": "Brisbane",
+      "state": "CA",
+      "zip": "94005",
+      "image": "https://images.financialmodelingprep.com/symbol/TPST.png",
+      "ipoDate": "2012-11-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TPST",
+      "date": "2015-12-31",
+      "marketCap": 3812983782
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041899.7306948
+}

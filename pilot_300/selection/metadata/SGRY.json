@@ -1,0 +1,54 @@
+{
+  "symbol": "SGRY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SGRY",
+      "price": 14.83,
+      "marketCap": 1939586040,
+      "beta": 1.906,
+      "lastDividend": 0,
+      "range": "11.41-23.44",
+      "change": 0.28,
+      "changePercentage": 1.9244,
+      "volume": 1440055,
+      "averageVolume": 1907031,
+      "companyName": "Surgery Partners, Inc.",
+      "currency": "USD",
+      "cik": "0001638833",
+      "isin": "US86881A1007",
+      "cusip": "86881A100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Care Facilities",
+      "website": "https://www.surgerypartners.com",
+      "description": "Surgery Partners, Inc. operates a nationwide network of surgical facilities and associated medical services across the United States. Its business is categorized into two segments: Surgical Facility Services and Ancillary Services. These surgical venues include both ambulatory surgery centers and dedicated surgical hospitals, delivering non-urgent surgical procedures across various specialties such as gastroenterology, general surgery, ophthalmology, orthopedics, and pain management. The surgical hospitals additionally offer comprehensive ancillary services, including diagnostic imaging, pharmacy, laboratory, obstetrics, oncology, physical therapy, and wound care. The dedicated Ancillary Services segment further encompasses multi-specialty physician practices, urgent care facilities, and anesthesia services. By December 31, 2021, the company's portfolio consisted of 126 surgical facilities—specifically, 108 ambulatory surgical centers and 18 surgical hospitals—situated across 31 states. Founded in 2004, Surgery Partners, Inc. maintains its headquarters in Brentwood, Tennessee.",
+      "ceo": "J. Eric Evans",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "16000",
+      "phone": "615 234 5900",
+      "address": "310 Seven Springs Way",
+      "city": "Brentwood",
+      "state": "TN",
+      "zip": "37027",
+      "image": "https://images.financialmodelingprep.com/symbol/SGRY.png",
+      "ipoDate": "2015-09-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SGRY",
+      "date": "2015-12-31",
+      "marketCap": 982153993
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040531.6941478
+}

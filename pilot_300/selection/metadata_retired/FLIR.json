@@ -1,0 +1,17 @@
+{
+  "symbol": "FLIR",
+  "status": "unavailable",
+  "market_cap_date": "2015-12-31",
+  "profiles": [],
+  "reason": "missing_or_ambiguous_profile",
+  "retrieved_at_unix": 1792040616.4732196,
+  "previous_attempts": [
+    {
+      "symbol": "FLIR",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040468.3613667
+    }
+  ]
+}

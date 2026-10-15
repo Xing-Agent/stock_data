@@ -1,0 +1,63 @@
+{
+  "symbol": "TRNO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TRNO",
+      "price": 64.81,
+      "marketCap": 6889756670,
+      "beta": 1.045,
+      "lastDividend": 2.13,
+      "range": "56.09-78.94",
+      "change": -1.06,
+      "changePercentage": -1.60923,
+      "volume": 557051,
+      "averageVolume": 834431,
+      "companyName": "Terreno Realty Corporation",
+      "currency": "USD",
+      "cik": "0001476150",
+      "isin": "US88146M1018",
+      "cusip": "88146M101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Industrial",
+      "website": "https://www.terreno.com",
+      "description": "Terreno Realty Corporation, together with its subsidiaries, focuses on the acquisition, ownership, and management of industrial real estate assets. Their operations are strategically located in six key coastal U.S. markets: Los Angeles, the Northern New Jersey/New York City metropolitan area, the San Francisco Bay Area, Seattle, Miami, and Washington, D.C. It should be noted that all measurements concerning property size (square footage, acreage), occupancy rates, and the total number of properties detailed within their condensed consolidated financial statements are provided on an unaudited basis. As of September 30, 2020, the company's portfolio included 219 buildings, encompassing a total area of approximately 13.1 million square feet. Additionally, they possessed 22 developed land parcels spanning about 85.0 acres, alongside one property currently undergoing redevelopment, which is projected to contribute roughly 0.2 million square feet upon completion. Terreno operates as an internally managed corporation chartered in Maryland. The company chose to be designated as a Real Estate Investment Trust (REIT) for tax purposes, pursuant to Sections 856 through 860 of the Internal Revenue Code of 1986, effective from its taxable year concluded on December 31, 2010.",
+      "ceo": "W. Blake Baird",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "47",
+      "phone": "14156554580",
+      "address": "10500 NE 8th Street",
+      "city": "Bellevue",
+      "state": "WA",
+      "zip": "98004-8617",
+      "image": "https://images.financialmodelingprep.com/symbol/TRNO.png",
+      "ipoDate": "2010-02-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TRNO",
+      "date": "2015-12-31",
+      "marketCap": 972549297
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040806.4201593,
+  "previous_attempts": [
+    {
+      "symbol": "TRNO",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040361.6452863
+    }
+  ]
+}

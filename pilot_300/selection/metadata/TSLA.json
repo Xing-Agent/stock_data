@@ -1,0 +1,54 @@
+{
+  "symbol": "TSLA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TSLA",
+      "price": 367.16,
+      "marketCap": 1450115821181,
+      "beta": 1.916,
+      "lastDividend": 0,
+      "range": "297.38-498.83",
+      "change": -8.07,
+      "changePercentage": -2.15068,
+      "volume": 30868569,
+      "averageVolume": 39978347,
+      "companyName": "Tesla, Inc.",
+      "currency": "USD",
+      "cik": "0001318605",
+      "isin": "US88160R1014",
+      "cusip": "88160R101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Auto - Manufacturers",
+      "website": "https://www.tesla.com",
+      "description": "Tesla, Inc. operates globally, specializing in the creation, production, and distribution of electric vehicles, alongside comprehensive energy generation and storage solutions. Its market reach extends across the United States, China, and various other international regions. The company's operations are primarily divided into two main segments: its Automotive business and its Energy Generation and Storage division. Within its Automotive division, Tesla not only provides a range of electric cars but also generates revenue from selling automotive regulatory credits. This segment further encompasses a variety of post-sale services, including non-warranty vehicle support, sales of pre-owned vehicles, various retail products, and car insurance offerings. Customers can acquire Tesla's sedans and sport utility vehicles through direct sales, purchases of used vehicles, or via in-app upgrades often facilitated by the extensive Tesla Supercharger network. The company supports these acquisitions with financing and leasing options. Furthermore, it ensures vehicle upkeep through its proprietary service centers and a fleet of mobile technicians, complemented by both standard and extended vehicle warranty programs. The Energy Generation and Storage segment focuses on the development, manufacturing, setup, sale, and rental of solar power systems and energy storage products, along with associated services. This caters to a diverse clientele, spanning residential users, commercial enterprises, industrial entities, and public utilities. Distribution channels include Tesla's online platform, physical stores, galleries, and a network of collaborative partners. The company also offers servicing and repairs for its energy products, including warranty support, and provides multiple financing avenues for those investing in its solar solutions. Founded in 2003, the corporation was initially named Tesla Motors, Inc., before officially rebranding to Tesla, Inc. in February 2017. Its corporate headquarters are situated in Austin, Texas.",
+      "ceo": "Elon R. Musk",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "134785",
+      "phone": "512 516 8177",
+      "address": "13101 Tesla Road",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78725",
+      "image": "https://images.financialmodelingprep.com/symbol/TSLA.png",
+      "ipoDate": "2010-06-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TSLA",
+      "date": "2015-12-31",
+      "marketCap": 31842240000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040607.028696
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "SSP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SSP",
+      "price": 2.73,
+      "marketCap": 217330113,
+      "beta": 0.717,
+      "lastDividend": 0,
+      "range": "1.5188-5.39",
+      "change": -0.11,
+      "changePercentage": -3.87324,
+      "volume": 542583,
+      "averageVolume": 691984,
+      "companyName": "The E.W. Scripps Company",
+      "currency": "USD",
+      "cik": "0000832428",
+      "isin": "US8110544025",
+      "cusip": "811054402",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Broadcasting",
+      "website": "https://www.scripps.com",
+      "description": "Operating as a diversified media organization, The E.W. Scripps Company, along with its affiliated entities, manages a collection of both regional and national media properties. Its operations are structured into three main divisions: Local Media, Scripps Network, and Other segments. Within the Local Media division, the company oversees broadcast television stations that generate news, informative, and entertainment programming, including their associated digital platforms. Furthermore, this segment handles network, syndicated, and proprietary content. The Scripps Network division encompasses a suite of national television networks. These networks reach audiences via over-the-air broadcasts, cable/satellite services, connected TV platforms, and various digital channels. Beyond these core segments, the company delivers content and services directly to users via the internet, smartphones, and tablet devices. Among its notable offerings are Newsy, a national news outlet covering politics, entertainment, science, and technology stories; the renowned Scripps National Spelling Bee; and an investigative reporting bureau located in Washington, D.C. The company also features ION, a national broadcast television channel specializing in popular crime and justice procedural shows, accessible via over-the-air transmission and subscription television platforms. Its services cater to both general audiences and corporate clients. Overall, The E.W. Scripps Company manages a vast network comprising 61 television stations. Established in 1878, the firm maintains its main offices in Cincinnati, Ohio.",
+      "ceo": "Adam Symson",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "4600",
+      "phone": "513 977 3000",
+      "address": "Scripps Center",
+      "city": "Cincinnati",
+      "state": "OH",
+      "zip": "45202",
+      "image": "https://images.financialmodelingprep.com/symbol/SSP.png",
+      "ipoDate": "1988-06-30",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SSP",
+      "date": "2015-12-31",
+      "marketCap": 1595335000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041909.0577586
+}

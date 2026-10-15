@@ -1,0 +1,54 @@
+{
+  "symbol": "CTO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CTO",
+      "price": 20.46,
+      "marketCap": 766952389,
+      "beta": 0.633,
+      "lastDividend": 1.52,
+      "range": "15.59-22.71",
+      "change": -0.33,
+      "changePercentage": -1.5873,
+      "volume": 254121,
+      "averageVolume": 375436,
+      "companyName": "CTO Realty Growth, Inc.",
+      "currency": "USD",
+      "cik": "0000023795",
+      "isin": "US22948Q1013",
+      "cusip": "22948Q101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Diversified",
+      "website": "https://www.ctoreit.com",
+      "description": "CTO Realty Growth, Inc., a publicly traded real estate enterprise headquartered in Florida, manages a diverse portfolio of income-generating properties. These assets span various markets throughout the United States, collectively encompassing around 2.4 million square feet. The company also holds a substantial stake, approximately 23.5%, in Alpine Income Property Trust, Inc., which is a publicly listed net lease real estate investment trust trading under the ticker PINE on the NYSE.",
+      "ceo": "John Albright",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "42",
+      "phone": "386-274-2202",
+      "address": "369 N. New York Avenue",
+      "city": "Winter Park",
+      "state": "FL",
+      "zip": "32789",
+      "image": "https://images.financialmodelingprep.com/symbol/CTO.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CTO",
+      "date": "2015-12-31",
+      "marketCap": 244652574
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041343.0376444
+}

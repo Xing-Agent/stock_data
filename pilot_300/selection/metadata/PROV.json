@@ -1,0 +1,54 @@
+{
+  "symbol": "PROV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PROV",
+      "price": 18.15,
+      "marketCap": 113146374,
+      "beta": 0.315,
+      "lastDividend": 0.56,
+      "range": "14.95-18.99",
+      "change": 0.05,
+      "changePercentage": 0.27624,
+      "volume": 30485,
+      "averageVolume": 11463,
+      "companyName": "Provident Financial Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001010470",
+      "isin": "US7438681014",
+      "cusip": "743868101",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.myprovident.com",
+      "description": "Provident Financial Holdings, Inc. operates as the bank holding company for Provident Savings Bank, F.S.B. that provides community banking and financial services in Southern California, the United States. The company offers deposit products, such as checking, savings, money market, and time deposit accounts; and merchant and wealth management services. It also provides lending services, including single-family, multi-family, commercial real estate, and other mortgage loans; and construction, commercial business, and consumer loans. In addition, the company offers investment services comprising the sale of alternative investment products, such as annuities and mutual funds; and trustee services for real estate secured loan transactions. It serves individuals, small to mid-sized businesses, and institutional clients. Provident Financial Holdings, Inc. was founded in 1956 and is headquartered in Riverside, California.",
+      "ceo": "Donavon Ternes",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "137",
+      "phone": "951 686 6060",
+      "address": "3756 Central Avenue",
+      "city": "Riverside",
+      "state": "CA",
+      "zip": "92506",
+      "image": "https://images.financialmodelingprep.com/symbol/PROV.png",
+      "ipoDate": "1996-06-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PROV",
+      "date": "2015-12-31",
+      "marketCap": 157128436
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041573.4508142
+}

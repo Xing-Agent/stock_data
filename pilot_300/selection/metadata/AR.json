@@ -1,0 +1,54 @@
+{
+  "symbol": "AR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AR",
+      "price": 36.63,
+      "marketCap": 11261490570,
+      "beta": 0.348,
+      "lastDividend": 0,
+      "range": "29.1-45.75",
+      "change": -0.91,
+      "changePercentage": -2.42408,
+      "volume": 3358022,
+      "averageVolume": 4308544,
+      "companyName": "Antero Resources Corporation",
+      "currency": "USD",
+      "cik": "0001433270",
+      "isin": "US03674X1063",
+      "cusip": "03674X106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://www.anteroresources.com",
+      "description": "Antero Resources Corporation functions as an independent energy enterprise, primarily engaged in identifying, acquiring, developing, and extracting natural gas, natural gas liquids (NGLs), and crude oil deposits throughout the United States. As of the close of 2021 (December 31st), the company held significant land positions, including roughly 502,000 net acres within the Appalachian Basin and an additional 174,000 net acres in the Upper Devonian Shale. Its infrastructure in the Appalachian Basin also featured 494 miles of operational gas gathering pipelines and 21 compressor stations. The firm's estimated proven reserves were substantial, totaling 17.7 trillion cubic feet of natural gas equivalent. This quantity was composed of 10.2 trillion cubic feet of natural gas, 718 million barrels of ethane expected to be recovered, 501 million barrels of other NGLs (such as propane, isobutane, normal butane, and natural gasoline), and 36 million barrels of oil. Established in 2002, Antero Resources Corporation originally operated under the name Antero Resources Appalachian Corporation, adopting its current identity in June 2013. The company's main office is situated in Denver, Colorado.",
+      "ceo": "Michael N. Kennedy",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "632",
+      "phone": "303 357 7310",
+      "address": "1615 Wynkoop Street",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "80202",
+      "image": "https://images.financialmodelingprep.com/symbol/AR.png",
+      "ipoDate": "2013-10-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AR",
+      "date": "2015-12-31",
+      "marketCap": 6039690000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040262.642907
+}

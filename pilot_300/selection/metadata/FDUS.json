@@ -1,0 +1,54 @@
+{
+  "symbol": "FDUS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FDUS",
+      "price": 19.09,
+      "marketCap": 724548809,
+      "beta": 0.733,
+      "lastDividend": 2.21,
+      "range": "16.86-21.15",
+      "change": -0.06,
+      "changePercentage": -0.31332,
+      "volume": 183640,
+      "averageVolume": 359643,
+      "companyName": "Fidus Investment Corporation",
+      "currency": "USD",
+      "cik": "0001513363",
+      "isin": "US3165001070",
+      "cusip": "316500107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Asset Management",
+      "website": "https://www.fdus.com",
+      "description": "Fidus Investment Corporation functions as a Business Development Company (BDC), offering capital solutions for diverse corporate endeavors. These encompass management buyouts, debt restructuring, ownership transitions, capital reorganizations, strategic acquisitions, and initiatives for growth and business expansion, frequently employing mezzanine financing. The firm's financial instruments span a variety of debt options, including senior secured, unitranche, subordinated, junior secured, and second lien loans, in addition to senior subordinated notes, preferred equity, and warrants. Notably, Fidus explicitly refrains from investing in distressed companies or those undergoing turnarounds. The company prioritizes investments in sectors such as aerospace and defense, a broad spectrum of business services, consumer products and services (including retail, food, and beverage), healthcare products and services, industrial goods and services, information technology services, specialized manufacturing, transportation and logistics, and value-added distribution. Its geographic focus is exclusively on enterprises located within the United States. Fidus typically commits between $5 million and $15 million per transaction, targeting companies with annual revenues ranging from $10 million to $150 million and annual EBITDA between $3 million and $20 million; however, it retains the flexibility to pursue opportunities beyond these standard financial parameters. Furthermore, the firm aims to secure minority equity positions and board observation rights in conjunction with its capital deployments.",
+      "ceo": "Edward H. Ross",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "0",
+      "phone": "847-859-3940",
+      "address": "1603 Orrington Avenue",
+      "city": "Evanston",
+      "state": "IL",
+      "zip": "60201",
+      "image": "https://images.financialmodelingprep.com/symbol/FDUS.png",
+      "ipoDate": "2011-06-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FDUS",
+      "date": "2015-12-31",
+      "marketCap": 223167521
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041037.1489873
+}

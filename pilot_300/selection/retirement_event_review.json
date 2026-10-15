@@ -1,0 +1,393 @@
+{
+  "reviewed_at": "2026-10-15T05:02:55.254Z",
+  "status": "event_review_not_frozen_cohort",
+  "notes": [
+    "Event verification is separate from old-security identity, daily-data coverage, and capitalization verification.",
+    "Transaction date, exchange suspension, legal delisting, OTC continuation, and final distributions must not be conflated.",
+    "The original cohort remains unchanged. SRT category corrected here only, not by overwriting pilot_50.",
+    "BBBY provider CIK mismatch and material alias cap conflicts block admission; do not silently choose the convenient alias."
+  ],
+  "events": [
+    {
+      "symbol": "AMRS",
+      "category": "bankruptcy",
+      "event_date": "2023-08-21",
+      "date_kind": "trading_suspension",
+      "expected_cik": "0001365916",
+      "source_url": "https://ir.nasdaq.com/node/106656",
+      "additional_source_url": "https://www.sec.gov/Archives/edgar/data/1365916/000136591623000094/amrs-20230804.htm",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "CLVS",
+      "category": "bankruptcy",
+      "event_date": "2022-12-21",
+      "date_kind": "trading_suspension",
+      "expected_cik": "0001466301",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1466301/000119312522303183/d425649d8k.htm",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "GNCA",
+      "category": "voluntary_wind_down",
+      "event_date": "2022-05-20",
+      "date_kind": "board_wind_down_decision_not_legal_delisting",
+      "expected_cik": "0001457612",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1457612/000145761222000058/gnca-20220520.htm",
+      "note": "Voluntary delisting and wind-down, not established as a forced bankruptcy exit; keep separate from the strict distress quota.",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "ACOR",
+      "category": "bankruptcy",
+      "event_date": "2024-05-05",
+      "date_kind": "legal_delisting",
+      "expected_cik": "0001008848",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1008848/000095017024076941/acor-20240621.htm",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "GTT",
+      "category": "reporting_noncompliance_then_bankruptcy",
+      "event_date": "2021-07-02",
+      "date_kind": "trading_suspension",
+      "expected_cik": "0001315255",
+      "source_url": "https://ir.theice.com/press/news-details/2021/NYSE-to-Suspend-Trading-in-GTT-Communications-Inc.-GTT-and-Commence-Delisting-Proceedings/default.aspx",
+      "additional_source_url": "https://www.sec.gov/Archives/edgar/data/1315255/000162828021020899/gtit-20211027.htm",
+      "note": "Exchange suspension for delayed filings preceded October bankruptcy; do not label the July delisting as caused by an October filing.",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "ABMD",
+      "category": "acquisition_or_merger",
+      "event_date": "2022-12-22",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.jnj.com/media-center/press-releases/johnson-johnson-completes-acquisition-of-abiomed",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "ALXN",
+      "category": "acquisition_or_merger",
+      "event_date": "2021-07-21",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.astrazeneca.com/media-centre/press-releases/2021/acquisition-of-alexion-completed.html",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "ATVI",
+      "category": "acquisition_or_merger",
+      "event_date": "2023-10-13",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://blogs.microsoft.com/blog/2023/10/13/welcoming-the-legendary-teams-at-activision-blizzard-king-to-team-xbox/",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "CERN",
+      "category": "acquisition_or_merger",
+      "event_date": "2022-06-08",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://infomemo.theocc.com/infomemos?number=50551",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "CTXS",
+      "category": "acquisition_or_merger",
+      "event_date": "2022-09-30",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.vistaequitypartners.com/news/vista-equity-partners-and-evergreen-coast-capital-announce-the-completion-of-the-transaction-to-acquire-citrix-systems-and-combine-it-with-tibco-software/",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "XLNX",
+      "category": "acquisition_or_merger",
+      "event_date": "2022-02-14",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-22-000031/amd-20220214.htm",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "NUAN",
+      "category": "acquisition_or_merger",
+      "event_date": "2022-03-04",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://blogs.microsoft.com/blog/2022/03/04/microsoft-nuance-better-together-to-transform-business-and-healthcare-outcomes-with-ai/",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "VAR",
+      "category": "acquisition_or_merger",
+      "event_date": "2021-04-15",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.siemens-healthineers.com/press/releases/varian-closing",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "FLIR",
+      "category": "acquisition_or_merger",
+      "event_date": "2021-05-14",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1094285/000119312521161542/d494339d8k.htm",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "PFPT",
+      "category": "acquisition_or_merger",
+      "event_date": "2021-08-31",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.proofpoint.com/us/newsroom/press-releases/thoma-bravo-completes-acquisition-proofpoint",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "CSOD",
+      "category": "acquisition_or_merger",
+      "event_date": "2021-10-15",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.cornerstoneondemand.com/company/news-room/press-releases/clearlake-capital-completes-acquisition-of-cornerstone-ondemand/",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "HES",
+      "category": "acquisition_or_merger",
+      "event_date": "2025-07-18",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://chevroncorp.gcs-web.com/news-releases/news-release-details/chevron-completes-acquisition-hess-corporation",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "DFS",
+      "category": "acquisition_or_merger",
+      "event_date": null,
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.capitalone.com/about/newsroom/capital-one-completes-acquisition-of-discover/",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "MRO",
+      "category": "acquisition_or_merger",
+      "event_date": "2024-11-22",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.conocophillips.com/news-media/story/conocophillips-completes-acquisition-of-marathon-oil-corporation/",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "JNPR",
+      "category": "acquisition_or_merger",
+      "event_date": "2025-07-02",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.hpe.com/us/en/newsroom/press-hub.html/topic/mergers-and-acquisitions-%28m-and-a%29",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "KSU",
+      "category": "acquisition_or_merger",
+      "event_date": "2021-12-14",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/54480/000119312521356252/d25745d8k.htm",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "AVEO",
+      "category": "acquisition_or_merger",
+      "event_date": "2023-01-19",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=eca2023-29",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "OCSI",
+      "category": "acquisition_or_merger",
+      "event_date": "2021-03-19",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2021-37",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "SRT",
+      "category": "acquisition_or_merger",
+      "event_date": "2024-01-05",
+      "date_kind": "transaction_completion_not_necessarily_last_trade",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1031029/000114036124000842/ny20017658x1_8k.htm",
+      "event_evidence_status": "primary_source_supports_transaction",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "BBBY",
+      "category": "bankruptcy",
+      "event_date": "2023-04-23",
+      "expected_cik": "0000886158",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000119312523115523/d89202dex991.htm",
+      "identity_or_cap_review": "provider_cik_mismatch",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "bankruptcy_filing",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "REV",
+      "category": "bankruptcy",
+      "event_date": "2022-06-15",
+      "expected_cik": "0000887921",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/887921/000095014222002955/eh220294233_8k.htm",
+      "identity_or_cap_review": "alias_cap_difference",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "bankruptcy_filing",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "YELL",
+      "category": "bankruptcy",
+      "event_date": "2023-08-06",
+      "expected_cik": "0000716006",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/716006/000095017023042071/yell-20230630.htm",
+      "identity_or_cap_review": "material_alias_cap_conflict",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "bankruptcy_filing",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "TUP",
+      "category": "bankruptcy",
+      "event_date": "2024-09-17",
+      "expected_cik": "0001008654",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1008654/000100865424000075/tup-20240927.htm",
+      "identity_or_cap_review": "pending",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "bankruptcy_filing",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "PRTY",
+      "category": "bankruptcy",
+      "event_date": "2023-01-18",
+      "expected_cik": "0001592058",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/876661/000087666123000086/ruleprovisionnotice.htm",
+      "identity_or_cap_review": "pending",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "trading_suspension",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "EXPR",
+      "category": "financial_distress_delisting",
+      "event_date": "2024-03-06",
+      "expected_cik": "0001483510",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1483510/000119312524060821/d747930dex991.htm",
+      "identity_or_cap_review": "alias_cap_difference",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "trading_suspension",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "SRNE",
+      "category": "bankruptcy",
+      "event_date": "2023-02-23",
+      "expected_cik": "0000850261",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/850261/000110465923023780/tm237365d1_8k.htm",
+      "identity_or_cap_review": "material_alias_cap_conflict",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "trading_suspension",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "SQBG",
+      "category": "bankruptcy",
+      "event_date": "2021-08-31",
+      "expected_cik": "0001648428",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1648428/000110465921111773/tm2126672d1_8k.htm",
+      "identity_or_cap_review": "pending",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "bankruptcy_filing",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "WPG",
+      "category": "bankruptcy",
+      "event_date": "2021-06-13",
+      "expected_cik": "0001594686",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1610911/000159468621000020/wpg-20210630.htm",
+      "identity_or_cap_review": "pending",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "bankruptcy_filing",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "SIVB",
+      "category": "bank_failure_and_holding_company_bankruptcy",
+      "event_date": "2023-03-17",
+      "expected_cik": "0000719739",
+      "source_url": "https://d3ka4b6b7wffw2.cloudfront.net/0000719739/100117344648/6b5387e3-4751-4215-92be-35d1c762970c.pdf",
+      "identity_or_cap_review": "alias_cap_difference",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "bankruptcy_filing",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    },
+    {
+      "symbol": "FRC",
+      "category": "bank_receivership",
+      "event_date": "2023-05-01",
+      "expected_cik": "0001132979",
+      "source_url": "https://www.fdic.gov/resources/resolutions/bank-failures/failed-bank-list/first-republic.html",
+      "identity_or_cap_review": "stock_delisting_requires_separate_verification",
+      "event_evidence_status": "primary_source_supports_event_not_complete_security_history",
+      "date_kind": "receivership",
+      "counts_toward_quota": false,
+      "admission_status": "pending_identity_market_cap_and_trading_cutoff"
+    }
+  ]
+}

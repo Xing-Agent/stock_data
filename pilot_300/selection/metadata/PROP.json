@@ -1,0 +1,54 @@
+{
+  "symbol": "PROP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PROP",
+      "price": 0.3676,
+      "marketCap": 35926347,
+      "beta": -0.953,
+      "lastDividend": 0,
+      "range": "0.365-2.55",
+      "change": -0.0303,
+      "changePercentage": -7.61498,
+      "volume": 1440822,
+      "averageVolume": 1892046,
+      "companyName": "Prairie Operating Co.",
+      "currency": "USD",
+      "cik": "0001162896",
+      "isin": "US7396501097",
+      "cusip": "739650109",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://www.prairieopco.com",
+      "description": "Prairie Operating Co., headquartered in Oklahoma City, Oklahoma, is focused on developing energy resources to meet growing global demand while simultaneously prioritizing environmental protection. The organization adopted its current name, Prairie Operating Co., in May 2023, having previously operated under the name Creek Road Miners, Inc.",
+      "ceo": "Gregory Patton",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "59",
+      "phone": "713 424 4247",
+      "address": "55 Waugh Drive",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77007",
+      "image": "https://images.financialmodelingprep.com/symbol/PROP.png",
+      "ipoDate": "2013-02-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PROP",
+      "date": "2015-12-31",
+      "marketCap": 27108500
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040514.6410909
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "TPC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TPC",
+      "price": 79.48,
+      "marketCap": 4191982325,
+      "beta": 2.061,
+      "lastDividend": 0.27,
+      "range": "57.9-102.3",
+      "change": -3.78,
+      "changePercentage": -4.54,
+      "volume": 432690,
+      "averageVolume": 625480,
+      "companyName": "Tutor Perini Corporation",
+      "currency": "USD",
+      "cik": "0000077543",
+      "isin": "US9011091082",
+      "cusip": "901109108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Engineering & Construction",
+      "website": "https://www.tutorperini.com",
+      "description": "Tutor Perini Corporation, a long-standing construction firm founded in 1894 and based in Sylmar, California (which operated as Perini Corporation until 2009), offers a comprehensive suite of general contracting, construction management, and design-build solutions to a global clientele of private entities and public sector organizations. The company's operations are segmented into three main areas. The Civil division focuses on significant public works projects, including the construction and rehabilitation of vital infrastructure such as roads, bridges, tunnels, mass transit systems, military facilities, and water treatment plants, alongside specialized drilling, foundation, and excavation services. Its Building division serves various specialized markets, including hospitality, healthcare, commercial offices, government buildings, educational institutions, sports complexes, and biotech facilities. Finally, the Specialty Contractors division provides essential building systems like electrical, mechanical, plumbing, fire protection, and HVAC services for industrial, commercial, hospitality, and mass transit applications. Beyond these specialized functions, Tutor Perini also delivers holistic project management, from initial planning and resource allocation to directly executing core construction tasks such as site preparation, concrete pouring, steel erection, and all electrical and mechanical installations.",
+      "ceo": "Gary G. Smalley",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "7400",
+      "phone": "818 362 8391",
+      "address": "15901 Olden Street",
+      "city": "Sylmar",
+      "state": "CA",
+      "zip": "91342",
+      "image": "https://images.financialmodelingprep.com/symbol/TPC.png",
+      "ipoDate": "1973-05-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TPC",
+      "date": "2015-12-31",
+      "marketCap": 821582459
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040383.8625
+}

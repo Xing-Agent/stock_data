@@ -1,0 +1,54 @@
+{
+  "symbol": "FNLC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FNLC",
+      "price": 33.46,
+      "marketCap": 377505758,
+      "beta": 0.481,
+      "lastDividend": 1.5,
+      "range": "24.3-36.3",
+      "change": -0.11,
+      "changePercentage": -0.32767,
+      "volume": 43012,
+      "averageVolume": 36980,
+      "companyName": "The First Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0000765207",
+      "isin": "US31866P1021",
+      "cusip": "31866P102",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.thefirst.com",
+      "description": "The First Bancorp, Inc. functions as the holding company for First National Bank, providing a comprehensive suite of banking products and financial services to both individual customers and commercial enterprises. Its deposit offerings encompass various account types, such as demand, NOW, savings, money market, and certificates of deposit. The institution also plays a key role in commercial real estate financing, issuing mortgage loans for investments in diverse property types including multi-family dwellings, retail outlets, offices, industrial sites, hotels, and educational facilities. It also funds commercial construction projects, whether for owner-occupied properties or other ventures. Additionally, it extends other commercial credit solutions like revolving lines and term loans, designed to assist businesses and corporations with their working capital needs or capital investments. Furthermore, First Bancorp furnishes loans to municipalities for capital expenditures, construction initiatives, or as tax-anticipation notes. Its residential lending portfolio includes amortizing home mortgages and construction loans for owner-occupied homes, along with home equity loans and lines of credit. For individuals, it provides consumer loans, which are typically amortizing and secured by assets such as automobiles, pleasure crafts, and recreational vehicles, or available as unsecured short-term notes. Beyond traditional banking, the company delivers specialized services including private banking, financial planning, investment management, and trust administration, catering to individuals, businesses, non-profit organizations, and municipalities. Payment processing solutions are also part of its service array. The company operates through 18 full-service banking branches strategically situated across Maine's Mid-Coast, Eastern, and Down East regions, specifically within Lincoln, Knox, Waldo, Penobscot, Hancock, and Washington counties. Established in 1864, the organization was originally known as First National Lincoln Corporation, adopting its current name, The First Bancorp, Inc., in April 2008. Its corporate headquarters are located in Damariscotta, Maine.",
+      "ceo": "Tony C. McKim",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "278",
+      "phone": "207 563 3195",
+      "address": "223 Main Street",
+      "city": "Damariscotta",
+      "state": "ME",
+      "zip": "04543",
+      "image": "https://images.financialmodelingprep.com/symbol/FNLC.png",
+      "ipoDate": "1999-07-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FNLC",
+      "date": "2015-12-31",
+      "marketCap": 219467651
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041283.7641091
+}

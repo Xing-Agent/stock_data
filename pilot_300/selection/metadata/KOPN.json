@@ -1,0 +1,54 @@
+{
+  "symbol": "KOPN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KOPN",
+      "price": 3.82,
+      "marketCap": 710033366,
+      "beta": 3.587,
+      "lastDividend": 0,
+      "range": "1.81-6.61",
+      "change": -0.4,
+      "changePercentage": -9.47867,
+      "volume": 3548459,
+      "averageVolume": 4564875,
+      "companyName": "Kopin Corp.",
+      "currency": "USD",
+      "cik": "0000771266",
+      "isin": "US5006001011",
+      "cusip": "500600101",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.kopin.com",
+      "description": "Kopin Corporation, together with its subsidiaries, develops, manufactures, and sells microdisplays, subassemblies, and related components for defense, enterprise, industrial, and consumer products in the United States, the Asia-Pacific, Europe, and internationally. It offers miniature active-matrix liquid crystal displays, ferroelectric liquid crystal on silicon displays, organic light emitting diode displays, MicroLED display technologies, application specific optical solutions, backlights, and optical lenses. The company’s products are used for soldier thermal weapon rifle sights, avionic fixed and rotary wing pilot helmets, armored vehicle targeting systems, and training and simulation headsets; industrial and medical headsets; 3D optical inspection systems; and consumer augmented reality and virtual reality wearable headsets systems. Kopin Corporation was incorporated in 1984 and is headquartered in Westborough, Massachusetts.",
+      "ceo": "Michael Murray",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "145",
+      "phone": "508 870 5959",
+      "address": "125 North Drive",
+      "city": "Westborough",
+      "state": "MA",
+      "zip": "01581-3335",
+      "image": "https://images.financialmodelingprep.com/symbol/KOPN.png",
+      "ipoDate": "1992-04-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KOPN",
+      "date": "2015-12-31",
+      "marketCap": 171447137
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040477.1800807
+}

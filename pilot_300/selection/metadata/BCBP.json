@@ -1,0 +1,54 @@
+{
+  "symbol": "BCBP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BCBP",
+      "price": 8.14,
+      "marketCap": 141336448,
+      "beta": 0.679,
+      "lastDividend": 0.48,
+      "range": "7.31-11.71",
+      "change": -0.02,
+      "changePercentage": -0.2451,
+      "volume": 330070,
+      "averageVolume": 248636,
+      "companyName": "BCB Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0001228454",
+      "isin": "US0552981039",
+      "cusip": "055298103",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.bcb.bank",
+      "description": "BCB Bancorp, Inc. functions as a bank holding entity for BCB Community Bank, delivering a comprehensive array of financial products and services to both businesses and individual clients across the United States. Its suite of deposit offerings includes savings and club accounts, interest-bearing and non-interest-bearing checking accounts, money market accounts, certificates of deposit (CDs), and individual retirement accounts (IRAs). The institution's lending activities span a broad spectrum, providing financing solutions such as commercial and multi-family property loans, mortgages for one-to-four family residences, commercial enterprise loans, Small Business Administration (SBA) loans, construction financing, home equity loans and lines of credit, and various consumer loans. This also encompasses residential mortgages backed by single to quad-family homes, condominiums, and cooperative housing units. Beyond these core services, the company furnishes additional retail and commercial banking features. These comprise wire transfers, money orders, secure safe deposit box rentals, night drop facilities, debit cards, comprehensive online and mobile banking platforms, fraud monitoring services, and automated teller machine (ATM) access. As of December 31, 2021, BCB Community Bank maintained a physical presence through 29 branch locations spread across numerous towns in New Jersey, including Bayonne, Carteret, Edison, Hoboken, Fairfield, Holmdel, Jersey City, Lyndhurst, Maplewood, Monroe Township, Newark, Parsippany, Plainsboro, River Edge, Rutherford, South Orange, Union, and Woodbridge. Additionally, it operated three branches in New York, specifically in Staten Island and Hicksville. Established in 2000, the firm's main offices are situated in Bayonne, New Jersey.",
+      "ceo": "Thomas O'Brien",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "295",
+      "phone": "800 680 6872",
+      "address": "104-110 Avenue C",
+      "city": "Bayonne",
+      "state": "NJ",
+      "zip": "07002",
+      "image": "https://images.financialmodelingprep.com/symbol/BCBP.png",
+      "ipoDate": "2003-10-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BCBP",
+      "date": "2015-12-31",
+      "marketCap": 116656800
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040397.376034
+}

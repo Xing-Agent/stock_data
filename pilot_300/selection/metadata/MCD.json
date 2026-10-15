@@ -1,0 +1,54 @@
+{
+  "symbol": "MCD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MCD",
+      "price": 238.31,
+      "marketCap": 168638165020,
+      "beta": 0.447,
+      "lastDividend": 7.44,
+      "range": "229.2-341.75",
+      "change": 2.49999,
+      "changePercentage": 1.06017,
+      "volume": 5186233,
+      "averageVolume": 5057537,
+      "companyName": "McDonald's Corporation",
+      "currency": "USD",
+      "cik": "0000063908",
+      "isin": "US5801351017",
+      "cusip": "580135101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Restaurants",
+      "website": "https://www.mcdonalds.com",
+      "description": "McDonald's Corporation operates and licenses its renowned fast-food chain worldwide, with a significant presence in both the United States and international markets. Their comprehensive menu offers classic items like hamburgers and cheeseburgers, a variety of chicken options including sandwiches and nuggets, alongside lighter choices such as wraps, french fries, and salads. For breakfast, patrons can select from offerings like biscuit and bagel sandwiches, breakfast burritos, and hotcakes. Additionally, the company provides oatmeal, an assortment of desserts including milkshakes, sundaes, and soft-serve ice cream, plus a selection of baked goods. A wide array of soft drinks, coffee, and other beverages completes their offering. By December 31, 2021, the corporation's global network encompassed 40,031 establishments. McDonald's Corporation, founded in 1940, has its main corporate office located in Chicago, Illinois.",
+      "ceo": "Christopher J. Kempczinski",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "150000",
+      "phone": "630 623 3000",
+      "address": "110 North Carpenter Street",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60607",
+      "image": "https://images.financialmodelingprep.com/symbol/MCD.png",
+      "ipoDate": "1965-04-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MCD",
+      "date": "2015-12-31",
+      "marketCap": 105014646000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041360.6749775
+}

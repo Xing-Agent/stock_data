@@ -1,0 +1,54 @@
+{
+  "symbol": "CFFI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CFFI",
+      "price": 101.84,
+      "marketCap": 331152211,
+      "beta": 0.336,
+      "lastDividend": 1.9,
+      "range": "66.48-105.38",
+      "change": -2.29,
+      "changePercentage": -2.19917,
+      "volume": 58525,
+      "averageVolume": 39552,
+      "companyName": "C&F Financial Corporation",
+      "currency": "USD",
+      "cik": "0000913341",
+      "isin": "US12466Q1040",
+      "cusip": "12466Q104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.cffc.com",
+      "description": "C&F Financial Corporation functions as a bank holding company, providing oversight for Citizens and Farmers Bank, which delivers a comprehensive range of banking services to both individuals and businesses. Its Retail Banking division offers a diverse suite of services, including checking and savings accounts, in addition to various loan products such as business, real estate, development, mortgage, home equity, and installment loans. This segment also ensures convenient access to amenities like ATMs, internet and mobile banking, and debit and credit cards. Further services include safe deposit box rentals, notary public assistance, electronic transfers, and other standard banking facilities. These retail services are provided through its main office situated in West Point, Virginia, supplemented by 30 additional branches across the state. One branch each is found in Albermarle, Goochland, Hanover, Middlesex, Powhatan, Stafford, York, Charlottesville, Hampton, Montross, Newport News, Richmond, Warsaw, and Williamsburg. Furthermore, two branches are located in each of Cumberland, James City, King George, and New Kent counties, while four branches serve both Chesterfield and Henrico counties. The Mortgage Banking segment specializes in a broad spectrum of residential mortgage loans. It facilitates conventional mortgages, those insured by the Federal Housing Administration (FHA), and loans guaranteed by both the United States Department of Agriculture (USDA) and the Veterans Administration (VA). This division also offers supporting services for mortgage origination, including residential appraisals, and extends various mortgage origination functions to third-party clients. Mortgage services are available through 11 offices in Virginia, one office in Maryland, two offices in North Carolina, and one office each in South Carolina and West Virginia. The company's Consumer Finance segment, with offices in Richmond and Hampton, Virginia, primarily provides automobile loans. Beyond these core banking operations, C&F Financial Corporation also furnishes brokerage and wealth management services, alongside various insurance products. Additionally, the company delivers title and settlement agency services. C&F Financial Corporation was established in 1927 and maintains its headquarters in West Point, Virginia.",
+      "ceo": "Thomas F. Cherry",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "575",
+      "phone": "804 843 2360",
+      "address": "3600 La Grange Parkway",
+      "city": "Toano",
+      "state": "VA",
+      "zip": "23168",
+      "image": "https://images.financialmodelingprep.com/symbol/CFFI.png",
+      "ipoDate": "1998-05-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CFFI",
+      "date": "2015-12-31",
+      "marketCap": 134496570
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040265.1061614
+}

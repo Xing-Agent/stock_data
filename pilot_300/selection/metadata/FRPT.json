@@ -1,0 +1,54 @@
+{
+  "symbol": "FRPT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FRPT",
+      "price": 68.1,
+      "marketCap": 3346624067,
+      "beta": 1.778,
+      "lastDividend": 0,
+      "range": "46.45-86",
+      "change": 1.94,
+      "changePercentage": 2.93229,
+      "volume": 1031602,
+      "averageVolume": 1283311,
+      "companyName": "Freshpet, Inc.",
+      "currency": "USD",
+      "cik": "0001611647",
+      "isin": "US3580391056",
+      "cusip": "358039105",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Packaged Foods",
+      "website": "https://www.freshpet.com",
+      "description": "Freshpet, Inc. produces and distributes natural, fresh, and ready-to-eat food and treats specifically formulated for dogs and cats. These products are available to consumers throughout the United States, Canada, and Europe. The company offers its pet nutrition items under its flagship Freshpet brand, alongside its Dognation and Dog Joy labels. They reach customers through a wide array of retail channels, including major grocery chains, mass-market retailers, warehouse clubs, specialized pet stores, and natural food outlets, as well as via online platforms. Freshpet, Inc. was established in 2004 and is based in Secaucus, New Jersey.",
+      "ceo": "William Cyr",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "1288",
+      "phone": "201 520 4000",
+      "address": "1450 US-206",
+      "city": "Bedminster",
+      "state": "NJ",
+      "zip": "07921",
+      "image": "https://images.financialmodelingprep.com/symbol/FRPT.png",
+      "ipoDate": "2014-11-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FRPT",
+      "date": "2015-12-31",
+      "marketCap": 284731507
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040606.97584
+}

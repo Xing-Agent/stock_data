@@ -1,0 +1,54 @@
+{
+  "symbol": "RLMD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "RLMD",
+      "price": 3.24,
+      "marketCap": 339843600,
+      "beta": 0.454,
+      "lastDividend": 0,
+      "range": "1.8-8",
+      "change": -0.12,
+      "changePercentage": -3.57143,
+      "volume": 1354315,
+      "averageVolume": 1627494,
+      "companyName": "Relmada Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001553643",
+      "isin": "US75955J4022",
+      "cusip": "75955J402",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.relmada.com",
+      "description": "Relmada Therapeutics, Inc. operates as a clinical-stage biotechnology company in the United States. The company focuses on the development of NDV-01, a controlled-release intravesical formulation of gemcitabine and docetaxel, which is in Phase 2 clinical trial for patients with aggressive forms of non-muscle invasive bladder cancer; and Sepranolone, a neurosteroid epimer of allopregnanolone, which is Phase 2b-ready for the potential treatment of prader-willi syndrome, tourette syndrome, excessive tremor, and other diseases related to excessive GABAergic activity. The company has an agreement with Asarina Pharma AB and Trigone. Relmada Therapeutics, Inc. was founded in 2004 and is headquartered in Coral Gables, Florida.",
+      "ceo": "Sergio Traversa",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "17",
+      "phone": "786 629 1376",
+      "address": "2222 Ponce de Leon Blvd.",
+      "city": "Coral Gables",
+      "state": "FL",
+      "zip": "33134",
+      "image": "https://images.financialmodelingprep.com/symbol/RLMD.png",
+      "ipoDate": "2014-06-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "RLMD",
+      "date": "2015-12-31",
+      "marketCap": 6002000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041759.6445909
+}

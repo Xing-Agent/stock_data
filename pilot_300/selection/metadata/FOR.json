@@ -1,0 +1,54 @@
+{
+  "symbol": "FOR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FOR",
+      "price": 24.73,
+      "marketCap": 1261665248,
+      "beta": 1.402,
+      "lastDividend": 0,
+      "range": "22.81-32.06",
+      "change": -0.68,
+      "changePercentage": -2.67611,
+      "volume": 189023,
+      "averageVolume": 150172,
+      "companyName": "Forestar Group Inc.",
+      "currency": "USD",
+      "cik": "0001406587",
+      "isin": "US3462321015",
+      "cusip": "346232101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Real Estate - Development",
+      "website": "https://www.forestar.com",
+      "description": "Forestar Group Inc. is an American company primarily engaged in developing residential lots. Its business model entails acquiring land, then preparing the necessary infrastructure for new single-family housing communities. These fully developed lots are subsequently sold to various home construction companies. Headquartered in Arlington, Texas, Forestar operates as a subsidiary of D.R. Horton, Inc.",
+      "ceo": "Anthony W. Oxley",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "402",
+      "phone": "817 769 1860",
+      "address": "2221 East Lamar Boulevard",
+      "city": "Arlington",
+      "state": "TX",
+      "zip": "76006",
+      "image": "https://images.financialmodelingprep.com/symbol/FOR.png",
+      "ipoDate": "2007-12-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FOR",
+      "date": "2015-12-31",
+      "marketCap": 375263880
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041142.2535777
+}

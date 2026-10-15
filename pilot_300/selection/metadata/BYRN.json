@@ -1,0 +1,63 @@
+{
+  "symbol": "BYRN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BYRN",
+      "price": 4.65,
+      "marketCap": 105524105,
+      "beta": 1.688,
+      "lastDividend": 0,
+      "range": "3.17-25.43",
+      "change": 0.1,
+      "changePercentage": 2.1978,
+      "volume": 1470774,
+      "averageVolume": 659979,
+      "companyName": "Byrna Technologies Inc.",
+      "currency": "USD",
+      "cik": "0001354866",
+      "isin": "US12448X2018",
+      "cusip": "12448X201",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Aerospace & Defense",
+      "website": "https://www.byrna.com",
+      "description": "Byrna Technologies Inc. (BYRN) specializes in less-lethal defense technology, focusing on the creation and manufacturing of non-lethal munitions and associated security equipment. The company's primary offerings include a line of Byrna-branded handheld personal protection instruments, such as the Byrna SD and Byrna SD .68 caliber models, which are specifically designed for both civilians and private security professionals. Complementing these devices, Byrna also provides related products like Byrna HD magazines, shoulder-fired launchers, and various projectiles. Its comprehensive catalog further extends to a range of accessories and safety gear, notably the Byrna Banshee, Byrna Shield, compressed carbon dioxide cartridges, aiming systems, holsters, and branded apparel. Incorporated in 2005 and headquartered in Andover, Massachusetts, the firm conducts its business in the United States and South Africa. It previously operated as Security Devices International, Inc., changing its name to Byrna Technologies Inc. in March 2020.",
+      "ceo": "Conn Davis",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "159",
+      "phone": "978 868 5011",
+      "address": "100 Burtt Road",
+      "city": "Andover",
+      "state": "MA",
+      "zip": "01810",
+      "image": "https://images.financialmodelingprep.com/symbol/BYRN.png",
+      "ipoDate": "2006-09-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BYRN",
+      "date": "2015-12-31",
+      "marketCap": 13653910
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040927.0981507,
+  "previous_attempts": [
+    {
+      "symbol": "BYRN",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040572.0807223
+    }
+  ]
+}

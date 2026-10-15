@@ -1,0 +1,54 @@
+{
+  "symbol": "AP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AP",
+      "price": 8.57,
+      "marketCap": 174197248,
+      "beta": 1.37,
+      "lastDividend": 0,
+      "range": "1.75-12.81",
+      "change": -0.77,
+      "changePercentage": -8.24411,
+      "volume": 96076,
+      "averageVolume": 149424,
+      "companyName": "Ampco-Pittsburgh Corp.",
+      "currency": "USD",
+      "cik": "0000006176",
+      "isin": "US0320371034",
+      "cusip": "032037103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Manufacturing - Metal Fabrication",
+      "website": "https://ampcopgh.com",
+      "description": "Ampco-Pittsburgh Corporation, together with its subsidiaries, engages in manufacture and sale of specialty metal products and customized equipment to commercial and industrial users worldwide. The company operates through two segments: Forged and Cast Engineered Products (FCEP); and Air and Liquid Processing (ALP). The FCEP segment produces forged hardened steel rolls, cast rolls, and forged engineered products that are used in hot and cold rolling mills by producers of steel, aluminum, and other metals; cast rolls for hot strip mills, medium/heavy section mills, roughing mills, and plate mills; and forged engineered products for narrow and wide strip and aluminum mills, back-up rolls for narrow strip mills, and leveling rolls and shafts for steel distribution market, oil and gas industry, and the aluminum and plastic extrusion industries. The ALP Aerofin segment produces custom-engineered finned tube heat exchange coils and related heat transfer products for various industries, including original equipment manufacturers and commercial, nuclear power generation, and industrial manufacturing; custom-designed air handling systems for institutional, pharmaceutical, and general industrial building markets; and manufactures centrifugal pumps for the fossil fueled power generation, marine defense, and industrial refrigeration industries. Ampco-Pittsburgh Corporation was incorporated in 1929 and is headquartered in Carnegie, Pennsylvania.",
+      "ceo": "James Brett McBrayer",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "1432",
+      "phone": "412 456 4400",
+      "address": "726 Bell Avenue",
+      "city": "Carnegie",
+      "state": "PA",
+      "zip": "15106",
+      "image": "https://images.financialmodelingprep.com/symbol/AP.png",
+      "ipoDate": "1973-02-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AP",
+      "date": "2015-12-31",
+      "marketCap": 112921560
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040523.6287062
+}

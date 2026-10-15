@@ -1,0 +1,54 @@
+{
+  "symbol": "ONCT",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ONCT",
+      "price": 0.5266,
+      "marketCap": 1558546,
+      "beta": 1.358,
+      "lastDividend": 0,
+      "range": "0.5266-10.613",
+      "change": -0.1674,
+      "changePercentage": -24.121,
+      "volume": 644135,
+      "averageVolume": 62268,
+      "companyName": "Oncternal Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001260990",
+      "isin": "US68236P2065",
+      "cusip": "68236P206",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.oncternal.com",
+      "description": "Oncternal Therapeutics, Inc. is a clinical-stage biopharmaceutical firm dedicated to creating cancer treatments for diseases where current medical options are insufficient. Its clinical-stage portfolio features zilovertamab, a humanized monoclonal antibody designed to bind to ROR1 (Receptor-tyrosine kinase-like Orphan Receptor 1), and ONCT-216, a small molecule that works by inhibiting the biological activity of ETS-family transcription factor oncoproteins. Additionally, Oncternal is advancing ONCT-808, a chimeric antigen receptor T-cell (CAR-T) therapy candidate also targeting ROR1, as well as ONCT-534, a dual-action androgen receptor inhibitor aimed at treating castration-resistant prostate cancer and other cancers driven by androgen receptors. The company holds various license agreements with institutions such as the Regents of the University of California, Georgetown University, The University of Texas MD Anderson Cancer Center, Shanghai Pharmaceutical (USA) Inc., and the University of Tennessee Research Foundation. Furthermore, it engages in a research collaboration with Celularity Inc. to explore placental-derived cellular therapies that also target ROR1. Its headquarters are located in San Diego, California.",
+      "ceo": "James B. Breitmeyer",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "27",
+      "phone": "858 434 1113",
+      "address": "12230 El Camino Real",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92130",
+      "image": "https://images.financialmodelingprep.com/symbol/ONCT.png",
+      "ipoDate": "2004-02-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ONCT",
+      "date": "2015-12-31",
+      "marketCap": 198130618
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041890.303805
+}

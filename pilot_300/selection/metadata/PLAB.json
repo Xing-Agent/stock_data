@@ -1,0 +1,63 @@
+{
+  "symbol": "PLAB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PLAB",
+      "price": 28.36,
+      "marketCap": 1672210532,
+      "beta": 1.32,
+      "lastDividend": 0,
+      "range": "20.05-56",
+      "change": -0.76,
+      "changePercentage": -2.60989,
+      "volume": 900359,
+      "averageVolume": 1216972,
+      "companyName": "Photronics, Inc.",
+      "currency": "USD",
+      "cik": "0000810136",
+      "isin": "US7194051022",
+      "cusip": "719405102",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.photronics.com",
+      "description": "Photronics, Inc., including its affiliated entities, operates as a global supplier focused on the production and distribution of photomask goods and associated services. The company's reach extends across the United States, Taiwan, Korea, Europe, and China, serving international markets. These photomasks are vital for the manufacturing of integrated circuits (ICs) and flat panel displays (FPDs), enabling the precise transfer of circuit patterns onto semiconductor wafers, FPD substrates, and various other electrical and optical components. Photronics markets its offerings to a broad customer base, encompassing semiconductor and FPD manufacturers, designers, foundries, and other producers of high-performance electronics, facilitated by its sales personnel and customer service representatives. Founded in 1969, the company was originally known as Photronic Labs, Inc., changing to Photronics, Inc. in 1990. Its principal office is situated in Brookfield, Connecticut.",
+      "ceo": "George C. Macricostas",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "1908",
+      "phone": "203 775 9000",
+      "address": "15 Secor Road",
+      "city": "Brookfield",
+      "state": "CT",
+      "zip": "06804",
+      "image": "https://images.financialmodelingprep.com/symbol/PLAB.png",
+      "ipoDate": "1987-03-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PLAB",
+      "date": "2015-12-31",
+      "marketCap": 831747150
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040837.1291168,
+  "previous_attempts": [
+    {
+      "symbol": "PLAB",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040402.9108694
+    }
+  ]
+}

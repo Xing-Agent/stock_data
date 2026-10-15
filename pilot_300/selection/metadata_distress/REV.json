@@ -1,0 +1,54 @@
+{
+  "symbol": "REV",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "REV",
+      "price": 3.8999,
+      "marketCap": 0,
+      "beta": 1.919675,
+      "lastDividend": 0,
+      "range": "0.85-17.65",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 569337,
+      "averageVolume": 3173727,
+      "companyName": "Revlon, Inc.",
+      "currency": "USD",
+      "cik": "0000887921",
+      "isin": "US7615256093",
+      "cusip": "761525609",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Household & Personal Products",
+      "website": "https://www.revlon.com",
+      "description": "Revlon, Inc. operates as a global enterprise involved in the creation, production, marketing, and distribution of a diverse range of beauty and personal care items. The company's primary Revlon segment features its namesake brand for color cosmetics and beauty tools, alongside hair color products sold under the Revlon ColorSilk and Revlon Professional labels. Its Elizabeth Arden division specializes in skincare, offering lines such as Elizabeth Arden Ceramide, Prevage, Eight Hour, SUPERSTART, Visible Difference, and Skin Illuminating. This segment also markets various fragrances, including Elizabeth Arden White Tea, Red Door, 5th Avenue, and Green Tea. Under its Portfolio segment, Revlon encompasses color cosmetics from Almay and SinfulColors, men's grooming products under American Crew, nail polishes, gels, and enhancements by CND, and nail care solutions from Cutex. This segment further includes anti-perspirant deodorants from Mitchum, hair care products from Creme of Nature, and the Llongueras hair color collection. The Fragrances segment is dedicated to developing, promoting, and distributing a broad array of both proprietary and licensed perfumes. It also handles the distribution of prestige fragrance brands owned by third parties, featuring popular names like Juicy Couture, John Varvatos, AllSaints, Britney Spears, Elizabeth Taylor, Christina Aguilera, Jennifer Aniston, Mariah Carey, Curve, Giorgio Beverly Hills, Ed Hardy, Charlie, Lucky Brand, Alfred Sung, Halston, Geoffrey Beene, and White Diamonds. Revlon reaches its customers through a multifaceted distribution network, which includes its own sales force, independent sales representatives, distributors, mass and prestige retailers, e-commerce platforms, department stores, and specialized cosmetics boutiques. Furthermore, the company licenses its Revlon and other trademarks to manufacturers for complementary beauty-related goods and accessories. Established in 1932, Revlon, Inc. is headquartered in New York, New York. A significant event in its recent history occurred on June 15, 2022, when Revlon, Inc. and its affiliated entities voluntarily initiated reorganization proceedings under Chapter 11 in the U.S. Bankruptcy Court for the Southern District of New York.",
+      "ceo": "Debra Perelman",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "5800",
+      "phone": "12125274000",
+      "address": "1 New York Plz",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10004",
+      "image": "https://images.financialmodelingprep.com/symbol/REV.png",
+      "ipoDate": "2008-09-16",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "REV",
+      "date": "2015-12-31",
+      "marketCap": 1461110377
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041216.9640472
+}

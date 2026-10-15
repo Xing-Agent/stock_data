@@ -1,0 +1,56 @@
+{
+  "symbol": "GIFT",
+  "status": "unavailable",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GIFT",
+      "price": 0.6604,
+      "marketCap": 23394786,
+      "beta": -1.406,
+      "lastDividend": 0,
+      "range": "0.44-1.29",
+      "change": 0.0879,
+      "changePercentage": 15.35371,
+      "volume": 231974,
+      "averageVolume": 128349,
+      "companyName": "Giftify, Inc.",
+      "currency": "USD",
+      "cik": "0001760233",
+      "isin": "US74940T1043",
+      "cusip": "74940T104",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Software - Services",
+      "website": "https://www.rdeholdings.com",
+      "description": "Giftify, Inc. owns and operates a restaurant deal space in the United States. The company operates Restaurant.com that connects digital consumers, businesses, and communities with dining and merchant deals. It also sells discount certificates for restaurants on behalf of third-party restaurants, as well as complementary entertainment and travel offerings, and consumer products. In addition, the company operates CardCash, a gift card exchange platform that facilitates the purchase and sale of unused gift cards at discounted rates for consumers and businesses. The company was founded in 1999 and is based in Schaumburg, Illinois.",
+      "ceo": "Ketan Thakker",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "40",
+      "phone": "847 506 9680",
+      "address": "1100 E Woodfield Road",
+      "city": "Schaumburg",
+      "state": "IL",
+      "zip": "60173",
+      "image": "https://images.financialmodelingprep.com/symbol/GIFT.png",
+      "ipoDate": "2021-01-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "reason": "new_or_unknown_security_ipo",
+  "retrieved_at_unix": 1792040898.694887,
+  "previous_attempts": [
+    {
+      "symbol": "GIFT",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040545.2272148
+    }
+  ]
+}

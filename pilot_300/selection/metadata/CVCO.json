@@ -1,0 +1,54 @@
+{
+  "symbol": "CVCO",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CVCO",
+      "price": 506.3,
+      "marketCap": 3893144233,
+      "beta": 1.271,
+      "lastDividend": 0,
+      "range": "443.34-713.01",
+      "change": -22.34,
+      "changePercentage": -4.22594,
+      "volume": 108343,
+      "averageVolume": 112697,
+      "companyName": "Cavco Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000278166",
+      "isin": "US1495681074",
+      "cusip": "149568107",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Residential Construction",
+      "website": "https://www.cavcohomes.com",
+      "description": "Cavco Industries, Inc. (CVCO) is a prominent American enterprise primarily focused on the manufacturing, marketing, and retail sale of prefabricated residential dwellings. Its operations are structured into two core divisions: Factory-Built Housing, which handles construction, and Financial Services. The company offers its extensive range of manufactured homes under numerous recognized brand names, including Cavco, Fleetwood, Palm Harbor, Nationwide, Fairmont, Friendship, Chariot Eagle, Destiny, Commodore, Colony, Pennwest, R-Anell, Manorwood, and MidCountry. Beyond traditional homes, Cavco's production capabilities encompass recreational park model vehicles, vacation cabins, and various factory-built commercial structures. This commercial portfolio includes multi-unit apartment buildings, condominiums, hotels, temporary housing for workforces, educational facilities, and accommodations for U.S. military personnel. The firm further diversifies its offerings with an assortment of modular homes, featuring designs such as single and multi-section ranches, split-level residences, Cape Cod-style houses, two- and three-story structures, and multi-family units. To support its housing sales, Cavco provides a suite of financial services, extending both conforming and non-conforming mortgages, as well as specialized home-only loans. These financial products are available to individuals purchasing factory-built homes sold through Cavco's proprietary retail outlets and its extensive network of independent distributors, builders, community operators, and developers. Moreover, the company furnishes property and casualty insurance solutions specifically tailored for owners of manufactured homes. As of April 3, 2022, Cavco maintained a retail footprint of 45 company-owned locations situated across Oregon, Arizona, Nevada, New Mexico, Texas, Indiana, Oklahoma, Florida, and New York. Its products are also distributed widely throughout 48 U.S. states and Canada via a broad network of independent dealerships, in addition to reaching customers through planned community developments and residential builders. Established in 1965, Cavco Industries, Inc. has its corporate headquarters situated in Phoenix, Arizona.",
+      "ceo": "William C. Boor",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "7700",
+      "phone": "602 256 6263",
+      "address": "3636 North Central Avenue",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85012",
+      "image": "https://images.financialmodelingprep.com/symbol/CVCO.png",
+      "ipoDate": "2003-07-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CVCO",
+      "date": "2015-12-31",
+      "marketCap": 742580352
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041822.6832213
+}

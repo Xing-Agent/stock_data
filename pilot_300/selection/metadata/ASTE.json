@@ -1,0 +1,54 @@
+{
+  "symbol": "ASTE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ASTE",
+      "price": 39.78,
+      "marketCap": 914646821,
+      "beta": 1.326,
+      "lastDividend": 0.52,
+      "range": "38.29-65.69",
+      "change": -0.65,
+      "changePercentage": -1.60772,
+      "volume": 348673,
+      "averageVolume": 230185,
+      "companyName": "Astec Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000792987",
+      "isin": "US0462241011",
+      "cusip": "046224101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.astecindustries.com",
+      "description": "Astec Industries, Inc. is a company dedicated to the creation, production, and global distribution of specialized machinery and essential components. These products primarily support road construction and various other heavy building and civil engineering endeavors, serving both domestic and international markets. Its operations are structured into two distinct divisions: Infrastructure Solutions and Materials Solutions. The Infrastructure Solutions division provides an extensive range of equipment vital for asphalt production, concrete handling, and overall construction support. This encompasses asphalt and concrete plants, storage tanks, heating and cooling units, various paving and material transfer vehicles, dust control systems, soil stabilization and remediation machinery, wood processing equipment like chippers and grinders, and advanced control systems. Furthermore, it delivers comprehensive engineering and environmental compliance services. Its clientele spans asphalt manufacturers, heavy civil and road construction contractors, ready-mix concrete suppliers, companies engaged in construction and demolition waste recycling, and government entities. Conversely, the Materials Solutions division specializes in designing and producing robust machinery for material processing. This includes crushing, screening, and vibrating equipment, along with mobile, modular, and portable plant configurations. It also provides bulk material handling and conveying systems, plant automation solutions, and specialized mineral processing equipment. This segment augments its product offerings with expert consulting and engineering support. Astec Industries, Inc. was established in 1972 and maintains its corporate headquarters in Chattanooga, Tennessee.",
+      "ceo": "Jaco G. van der Merwe",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "4468",
+      "phone": "423 899 5898",
+      "address": "1725 Shepherd Road",
+      "city": "Chattanooga",
+      "state": "TN",
+      "zip": "37421",
+      "image": "https://images.financialmodelingprep.com/symbol/ASTE.png",
+      "ipoDate": "1986-06-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ASTE",
+      "date": "2015-12-31",
+      "marketCap": 934675500
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040979.796035
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "QRHC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "QRHC",
+      "price": 1.17,
+      "marketCap": 24656010,
+      "beta": 0.145,
+      "lastDividend": 0,
+      "range": "0.81-2.41",
+      "change": 0.01,
+      "changePercentage": 0.86207,
+      "volume": 54612,
+      "averageVolume": 32195,
+      "companyName": "Quest Resource Holding Corporation",
+      "currency": "USD",
+      "cik": "0001442236",
+      "isin": "US74836W2035",
+      "cusip": "74836W203",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Waste Management",
+      "website": "https://investors.qrhc.com",
+      "description": "Quest Resource Holding Corporation (QRHC) is a U.S.-based enterprise dedicated to delivering holistic solutions for the management, recycling, and repurposing of diverse waste streams and recyclable materials. The company's extensive service portfolio includes the collection, processing, and responsible disposal of a wide array of waste products. This encompasses automotive-related waste like motor oil, lubricants, oil filters, scrap tires, and oily water, as well as services for goods destruction. QRHC also handles organic wastes such as food waste, meat renderings, cooking oil, and grease trap waste. Furthermore, they manage common recyclables including plastics, cardboard, metal, glass, and mixed paper, alongside construction debris, and a broad spectrum of both regulated and unregulated solid, liquid, and gaseous waste materials. Supplemental offerings include the provision of antifreeze and windshield washer fluid, waste containment and compaction equipment (like dumpsters and compactors), and other ancillary support services. A core aspect of their mission is to provide landfill diversion strategies. QRHC caters to a varied clientele across numerous industries. This includes major retail operations (such as big box stores, grocers, and other retailers); the automotive sector, encompassing maintenance facilities, quick lubes, dealerships, and collision repair centers; transportation and logistics companies, including those with internal fleet operations; manufacturing facilities; multi-family residences and commercial properties; restaurant chains and food service operations; and construction and demolition project sites. The company promotes its services to these sectors through a direct sales force and strategic collaborative partnerships. Founded in 2002, the organization initially operated under the name Infinity Resources Holdings Corp. before officially rebranding as Quest Resource Holding Corporation in October 2013. Its corporate headquarters are situated in The Colony, Texas.",
+      "ceo": "Perry W. Moss",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "195",
+      "phone": "972 464 0004",
+      "address": "3481 Plano Parkway",
+      "city": "The Colony",
+      "state": "TX",
+      "zip": "75056",
+      "image": "https://images.financialmodelingprep.com/symbol/QRHC.png",
+      "ipoDate": "2010-01-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "QRHC",
+      "date": "2015-12-31",
+      "marketCap": 77521752
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041096.354014
+}

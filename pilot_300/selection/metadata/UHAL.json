@@ -1,0 +1,54 @@
+{
+  "symbol": "UHAL",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "UHAL",
+      "price": 55.92,
+      "marketCap": 10932036391,
+      "beta": 1.108,
+      "lastDividend": 0,
+      "range": "41.95-76.45",
+      "change": 0.19,
+      "changePercentage": 0.34093,
+      "volume": 176188,
+      "averageVolume": 185419,
+      "companyName": "U-Haul Holding Company",
+      "currency": "USD",
+      "cik": "0000004457",
+      "isin": "US0235861004",
+      "cusip": "023586100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Rental & Leasing Services",
+      "website": "https://www.uhaul.com",
+      "description": "U-Haul Holding Company specializes in providing self-service moving and storage solutions for both residential and commercial clients across the United States and Canada. Its core business, the Moving and Storage segment, offers a comprehensive range of rental equipment, including trucks, trailers, and portable storage units. The company also rents specialty items and self-storage spaces, primarily catering to individuals relocating their households. Customers can also purchase essential moving supplies, towing accessories, and propane. U-Haul operates uhaul.com, an online platform that connects consumers with independent moving assistance and self-storage facility partners. This segment further provides vehicle transportation options, such as auto carriers and tow dollies, and sells specialized packing materials for delicate goods like electronics, alongside standard tapes, security locks, and general packing supplies. This extensive array of products and services is distributed through a vast network comprising approximately 2,100 company-owned retail moving centers and about 21,100 independent U-Haul dealerships. As of March 31, 2022, the company maintained an impressive rental fleet, including roughly 186,000 trucks, 128,000 trailers, and 46,000 towing devices. Its self-storage portfolio encompassed 1,844 locations, offering approximately 876,000 rentable storage units. The Property and Casualty Insurance segment handles loss adjusting and claims. It offers a suite of protection plans, such as the Safemove and Safetow packages, which provide moving and towing customers with benefits like damage waivers, cargo protection, and even medical and life insurance. Additionally, Safestor and Safestor Mobile safeguard customers' belongings in storage, while Safemove Plus offers an extra layer of primary liability protection for rental customers. A separate Life Insurance segment focuses on the senior market, delivering life and health insurance products through direct underwriting and by reinsuring policies like life insurance, Medicare supplements, and annuities. Founded in 1945 as AMERCO, U-Haul Holding Company is headquartered in Reno, Nevada.",
+      "ceo": "Edward Joseph Shoen",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "34700",
+      "phone": "775 688 6300",
+      "address": "5555 Kietzke Lane",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "89511",
+      "image": "https://images.financialmodelingprep.com/symbol/UHAL.png",
+      "ipoDate": "1994-11-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "UHAL",
+      "date": "2015-12-31",
+      "marketCap": 7628773875
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040601.860031
+}

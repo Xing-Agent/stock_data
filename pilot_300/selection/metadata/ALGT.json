@@ -1,0 +1,7 @@
+{
+  "symbol": "ALGT",
+  "status": "fetch_failed_not_missing_data",
+  "market_cap_date": "2015-12-31",
+  "reason": "ConnectError",
+  "retrieved_at_unix": 1792041972.649889
+}

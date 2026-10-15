@@ -1,0 +1,54 @@
+{
+  "symbol": "WTI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WTI",
+      "price": 3.65,
+      "marketCap": 543038598,
+      "beta": 0.281,
+      "lastDividend": 0.04,
+      "range": "1.5-5.08",
+      "change": -0.18,
+      "changePercentage": -4.69974,
+      "volume": 4256053,
+      "averageVolume": 3979894,
+      "companyName": "W&T Offshore, Inc.",
+      "currency": "USD",
+      "cik": "0001288403",
+      "isin": "US92922P1066",
+      "cusip": "92922P106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Exploration & Production",
+      "website": "https://www.wtoffshore.com",
+      "description": "W&T Offshore, Inc. operates as an independent energy producer, primarily focused on the identification, acquisition, and development of crude oil and natural gas assets within the Gulf of Mexico. The company markets and sells a range of products, including crude oil, natural gas liquids (NGLs), and natural gas. As of December 31, 2021, W&T Offshore held operational interests across 43 fields in both federal and state offshore territories. Its portfolio of leased properties encompassed approximately 606,000 gross acres, with a breakdown of roughly 419,000 gross acres situated on the Gulf of Mexico Shelf and about 187,000 gross acres in the Gulf's deepwater region. Founded in 1983, the firm maintains its corporate headquarters in Houston, Texas.",
+      "ceo": "Tracy W. Krohn",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "370",
+      "phone": "713 626 8525",
+      "address": "5718 Westheimer Road",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77057-5745",
+      "image": "https://images.financialmodelingprep.com/symbol/WTI.png",
+      "ipoDate": "2005-01-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WTI",
+      "date": "2015-12-31",
+      "marketCap": 176548680
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041629.5135584
+}

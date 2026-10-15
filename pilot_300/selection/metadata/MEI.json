@@ -1,0 +1,54 @@
+{
+  "symbol": "MEI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MEI",
+      "price": 14.25,
+      "marketCap": 505473150,
+      "beta": 1.565,
+      "lastDividend": 0.2,
+      "range": "4.88-20.38",
+      "change": -0.87,
+      "changePercentage": -5.75397,
+      "volume": 763272,
+      "averageVolume": 730202,
+      "companyName": "Methode Electronics, Inc.",
+      "currency": "USD",
+      "cik": "0000065270",
+      "isin": "US5915202007",
+      "cusip": "591520200",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.methode.com",
+      "description": "Methode Electronics, Inc. designs, engineers, produces, and sells mechatronic products internationally. The company operates in three segments: Automotive, Industrial, and Interface. The Automotive segment supplies electronic and electro-mechanical devices and related products to automobile original equipment manufacturers directly or through their tiered suppliers. This segment products include integrated overhead and center consoles, hidden and ergonomic switches, transmission lead-frames, complex insert molded solutions, LED-based lighting solutions, and sensors, which incorporate magneto-elastic sensing, or other sensing technologies that monitor the operation or status of a component or system. The Industrial segment manufactures exterior and interior lighting solutions, industrial safety radio remote controls, braided flexible cables, current-carrying laminated busbars and devices, custom power-product assemblies comprising PowerRail solutions, high-current high-voltage flexible power cabling systems, and powder-coated busbars that are used in various markets and applications, including aerospace, commercial vehicles, data centers, industrial equipment, military, power conversion, telecommunications, and transportation. The Interface segment provides a variety of high-speed digital communication over copper media solutions for the data center and broadband markets, and interface panel solutions for the appliance market; and solutions, including copper transceivers, distribution point units, and solid-state field-effect consumer touch panels. The company serves end markets of transportation, including automotive, commercial vehicle, e-bike, aerospace, bus, and rail; and cloud computing infrastructure, construction equipment, and consumer appliance industries. Methode Electronics, Inc. was incorporated in 1946 and is headquartered in Chicago, Illinois.",
+      "ceo": "Jonathan DeGaynor",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "6650",
+      "phone": "708 867 6777",
+      "address": "25650 West Eleven Mile Road",
+      "city": "Southfield",
+      "state": "MI",
+      "zip": "48034-2253",
+      "image": "https://images.financialmodelingprep.com/symbol/MEI.png",
+      "ipoDate": "1982-10-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MEI",
+      "date": "2015-12-31",
+      "marketCap": 1214626083
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041474.2134008
+}

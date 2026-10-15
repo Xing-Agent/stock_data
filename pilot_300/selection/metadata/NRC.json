@@ -1,0 +1,54 @@
+{
+  "symbol": "NRC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NRC",
+      "price": 20.43,
+      "marketCap": 451903428,
+      "beta": 0.377,
+      "lastDividend": 0.6,
+      "range": "11.2-23.68",
+      "change": 0.26,
+      "changePercentage": 1.28904,
+      "volume": 78775,
+      "averageVolume": 124067,
+      "companyName": "NRC Health",
+      "currency": "USD",
+      "cik": "0000070487",
+      "isin": "US6373722023",
+      "cusip": "637372202",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Healthcare Information Services",
+      "website": "https://nrchealth.com",
+      "description": "National Research Corporation (NRC) empowers healthcare organizations across the United States and Canada with data-driven analytics and actionable insights to enhance both patient and employee experiences. Through a comprehensive suite of subscription-based solutions, NRC supplies crucial information and analysis, addressing vital aspects such as the overall patient journey, service recovery initiatives, effective transitions of care, health risk assessments, fostering employee engagement, and enhancing reputation management and brand loyalty. Beyond these, NRC provides market intelligence to help organizations understand brand awareness, public perception, and competitive positioning. They offer advanced segmentation tools to analyze community needs, wants, and behaviors in real-time. Specialized health risk assessment tools are available to help clients pinpoint and support high-risk populations, fostering preventative care strategies and wellness initiatives. Similarly, transition management solutions assist in identifying and managing at-risk patients during care changes, aiming to reduce readmissions and ensure smooth, satisfactory transitions. NRC also offers transparency tools, empowering healthcare providers to present clear organizational information to consumers, thereby supporting informed decision-making. Furthermore, governance solutions are tailored for the leadership of non-profit hospitals and health systems, including boards of directors, executives, and physician leaders. Their clientele includes integrated health systems, post-acute care providers, and healthcare payer organizations. Established in 1981, National Research Corporation maintains its headquarters in Lincoln, Nebraska.",
+      "ceo": "Trent Green",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "357",
+      "phone": "402 475 2525",
+      "address": "1245 Q Street",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "68508",
+      "image": "https://images.financialmodelingprep.com/symbol/NRC.png",
+      "ipoDate": "2013-05-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NRC",
+      "date": "2015-12-31",
+      "marketCap": 388151960
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041275.0677657
+}

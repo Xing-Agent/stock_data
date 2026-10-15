@@ -1,0 +1,54 @@
+{
+  "symbol": "CMP",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CMP",
+      "price": 22.19,
+      "marketCap": 931555527,
+      "beta": 1.261,
+      "lastDividend": 0,
+      "range": "16.4-34.5",
+      "change": -1.03,
+      "changePercentage": -4.43583,
+      "volume": 278197,
+      "averageVolume": 439146,
+      "companyName": "Compass Minerals International, Inc.",
+      "currency": "USD",
+      "cik": "0001227654",
+      "isin": "US20451N1019",
+      "cusip": "20451N101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial Materials",
+      "website": "https://www.compassminerals.com",
+      "description": "Compass Minerals International, Inc. (CMP) operates as a significant global producer and supplier of vital minerals, concentrating its activities primarily across the United States, Canada, Brazil, and the United Kingdom, while also serving other international markets. The company organizes its diverse operations into three main business divisions: Salt, Plant Nutrition North America, and Plant Nutrition South America. Within its Salt segment, Compass Minerals offers a comprehensive suite of sodium chloride and magnesium chloride products. These include various forms such as rock salt, salt produced through mechanical and solar evaporation, and both brine and flake magnesium chloride. This division also procures potassium chloride and calcium chloride, which it either sells as standalone finished goods or integrates with salt to create specialized blends. The applications for these products are extensive: they function as de-icing agents for roadways, are used by both professional and consumer markets, serve as fundamental ingredients in chemical production, aid in water treatment, contribute to human and animal nutrition, and fulfill a wide spectrum of other industrial and consumer demands. An additional service provided by this segment is records management. The Plant Nutrition North America segment specializes in delivering sulfate of potash specialty fertilizers, available in a variety of grades. Its portfolio includes agricultural products suitable for methods like broadcast spreading, direct application, and liquid fertilizer solutions; turf products tailored for the ornamental market and for blends used on golf course greens; organic options marketed under the Protassium+ brand; and micronutrient products, including those under the Wolf Trax label and other brands. This segment's clientele includes agricultural input distributors and retailers, as well as direct growers. Finally, the Plant Nutrition South America segment provides a selection of specialized plant nutrients and supplements. It also supplies essential chemicals for water and wastewater purification, decontamination, and treatment processes, alongside various process chemicals designated for industrial applications. Initially incorporated as Salt Holdings Corporation, the company formally adopted its current name, Compass Minerals International, Inc., in December 2003. Established in 1993, its corporate headquarters are situated in Overland Park, Kansas.",
+      "ceo": "Edward C. Dowling Jr.",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "1849",
+      "phone": "913 344 9200",
+      "address": "9900 West 109th Street",
+      "city": "Overland Park",
+      "state": "KS",
+      "zip": "66210",
+      "image": "https://images.financialmodelingprep.com/symbol/CMP.png",
+      "ipoDate": "2003-12-12",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CMP",
+      "date": "2015-12-31",
+      "marketCap": 2540061420
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041251.4353046
+}

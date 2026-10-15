@@ -1,0 +1,54 @@
+{
+  "symbol": "PLD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PLD",
+      "price": 130.53,
+      "marketCap": 124046705430,
+      "beta": 1.325,
+      "lastDividend": 4.22,
+      "range": "116.51-153.35",
+      "change": -3.02,
+      "changePercentage": -2.26133,
+      "volume": 6440322,
+      "averageVolume": 4078840,
+      "companyName": "Prologis, Inc.",
+      "currency": "USD",
+      "cik": "0001045609",
+      "isin": "US74340W1036",
+      "cusip": "74340W103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "REIT - Industrial",
+      "website": "https://www.prologis.com",
+      "description": "Prologis, Inc. don't just lead the industry, they define it. The firm creates the intelligent infrastructure that powers global commerce, seamlessly connecting the digital and physical worlds. From agile supply chains to clean energy solutions, their ecosystems help your business move faster, operate smarter and grow sustainably. With unmatched scale, innovation and expertise, Prologis is a category of one–not just shaping the future of logistics but building what comes next. Prologis, Inc. was established in 1983 and is incorporated in Maryland.",
+      "ceo": "Daniel S. Letter",
+      "sector": "Real Estate",
+      "country": "US",
+      "fullTimeEmployees": "2802",
+      "phone": "415-394-9000",
+      "address": "Pier 1",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94111",
+      "image": "https://images.financialmodelingprep.com/symbol/PLD.png",
+      "ipoDate": "1997-11-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PLD",
+      "date": "2015-12-31",
+      "marketCap": 22498878600
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041920.023792
+}

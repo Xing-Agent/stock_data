@@ -1,0 +1,54 @@
+{
+  "symbol": "CPK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CPK",
+      "price": 129.65,
+      "marketCap": 3125401761,
+      "beta": 0.664,
+      "lastDividend": 2.84,
+      "range": "118.88-140.83",
+      "change": -0.11,
+      "changePercentage": -0.08477189,
+      "volume": 235660,
+      "averageVolume": 189448,
+      "companyName": "Chesapeake Utilities Corporation",
+      "currency": "USD",
+      "cik": "0000019745",
+      "isin": "US1653031088",
+      "cusip": "165303108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Gas",
+      "website": "https://www.chpk.com",
+      "description": "Chesapeake Utilities Corporation (CPK) operates as a diversified energy enterprise, delivering a range of energy solutions to its customers. The company's operations are distinctly divided into two primary segments: Regulated Energy and Unregulated Energy. The Regulated Energy division manages essential utility services, which include the distribution of natural gas across central and southern Delaware, Maryland's eastern shore, and various parts of Florida. This segment also handles the regulated transmission of natural gas throughout the Delmarva Peninsula and within Florida, in addition to providing regulated electricity distribution services in specific regions of northeast and northwest Florida. Conversely, the Unregulated Energy segment encompasses a broader array of activities. These include propane distribution across the Mid-Atlantic region, North Carolina, South Carolina, and Florida, along with unregulated natural gas transmission and supply services in central and eastern Ohio. This segment is also involved in generating electricity and steam, as well as offering specialized transportation and pipeline solutions for compressed natural gas (CNG), liquefied natural gas (LNG), and renewable natural gas (RNG), primarily serving utilities and other pipeline operators in the eastern U.S. Furthermore, it delivers additional non-regulated energy solutions, such as sales of energy-related merchandise, heating, ventilation, and air conditioning (HVAC) services, and plumbing and electrical repair services. Established in 1859, Chesapeake Utilities Corporation maintains its corporate headquarters in Dover, Delaware.",
+      "ceo": "Jeffry Householder",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "1300",
+      "phone": "302 734 6799",
+      "address": "500 Energy Lane",
+      "city": "Dover",
+      "state": "DE",
+      "zip": "19901",
+      "image": "https://images.financialmodelingprep.com/symbol/CPK.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CPK",
+      "date": "2015-12-31",
+      "marketCap": 867528283
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040356.1134467
+}

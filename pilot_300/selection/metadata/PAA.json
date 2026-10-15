@@ -1,0 +1,63 @@
+{
+  "symbol": "PAA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PAA",
+      "price": 24.98,
+      "marketCap": 17625038680,
+      "beta": 0.488,
+      "lastDividend": 1.6325,
+      "range": "15.79-26.39",
+      "change": 0.06,
+      "changePercentage": 0.24077,
+      "volume": 2009200,
+      "averageVolume": 2468044,
+      "companyName": "Plains All American Pipeline, L.P.",
+      "currency": "USD",
+      "cik": "0001070423",
+      "isin": "US7265031051",
+      "cusip": "726503105",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Oil & Gas Midstream",
+      "website": "http://www.plains.com",
+      "description": "Plains All American Pipeline, L.P., through its subsidiaries, engages in the pipeline transportation, terminalling, storage, and gathering of crude oil and natural gas liquids (NGL) in the United States and Canada. The company operates through two segments, Crude Oil and NGL. The Crude Oil segment offers gathering and transporting crude oil through pipelines, trucks, and on barges or railcars. This segment provides terminalling, storage, and other related services, as well as merchant activities. The NGL segment is involved in natural gas processing and NGL fractionation, storage, transportation, and terminaling. This segment also includes ethane, propane, normal butane, iso-butane, and natural gasoline derived from natural gas production and processing activities, as well as crude oil refining processes. Its NGL components are used for various applications, such as heating, engine, and industrial fuels.The company was founded in 1981 and is headquartered in Houston, Texas. Plains All American Pipeline, L.P. operates as a subsidiary of Plains GP Holdings, L.P.",
+      "ceo": "Willie Chiang",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "3900",
+      "phone": "713 646 4100",
+      "address": "333 Clay Street",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77002",
+      "image": "https://images.financialmodelingprep.com/symbol/PAA.png",
+      "ipoDate": "1998-11-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PAA",
+      "date": "2015-12-31",
+      "marketCap": 9193800000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040894.5698721,
+  "previous_attempts": [
+    {
+      "symbol": "PAA",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040529.1793516
+    }
+  ]
+}

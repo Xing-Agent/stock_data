@@ -1,0 +1,54 @@
+{
+  "symbol": "NFG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NFG",
+      "price": 79.2,
+      "marketCap": 7527571366,
+      "beta": 0.408,
+      "lastDividend": 2.18,
+      "range": "75.03-97.06",
+      "change": -1.89,
+      "changePercentage": -2.33074,
+      "volume": 2155965,
+      "averageVolume": 710027,
+      "companyName": "National Fuel Gas Company",
+      "currency": "USD",
+      "cik": "0000070145",
+      "isin": "US6361801011",
+      "cusip": "636180101",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Oil & Gas Integrated",
+      "website": "https://www.nationalfuel.com",
+      "description": "National Fuel Gas Company (NFG) operates as a multifaceted energy enterprise, with its business structured across four primary divisions: Exploration and Production, Pipeline and Storage, Gathering, and Utility. The Exploration and Production (E&P) division is dedicated to discovering, developing, and producing natural gas and oil. Its operations are concentrated in California and the Appalachian region of the United States. As of September 30, 2021, this segment reported substantial proved developed and undeveloped reserves, comprising 21,537 thousand barrels of oil and 3,723,433 million cubic feet of natural gas. NFG's Pipeline and Storage arm manages interstate natural gas transmission and storage services. This involves an integrated pipeline network spanning Pennsylvania and New York, alongside the operation of underground natural gas storage facilities. Beyond transporting natural gas for National Fuel Gas Distribution Corporation, this segment also provides services to various other utilities, industrial companies, and power producers throughout New York State. It notably owns and operates the Empire Pipeline. The Gathering segment focuses on the construction, ownership, and operation of natural gas processing and pipeline gathering infrastructure, primarily located in the Appalachian region. It also extends gathering services to Seneca Resources Company, LLC. The Utility division supplies natural gas or offers natural gas transportation services to approximately 753,000 customers. These customers are situated in Buffalo, Niagara Falls, and Jamestown, New York, as well as Erie and Sharon, Pennsylvania. The company actively markets natural gas to a broad spectrum of clients, including industrial, wholesale, commercial, public authority, and residential customers, predominantly within western and central New York and northwestern Pennsylvania. Beyond its core energy operations, as of September 30, 2021, NFG also held significant timber assets, comprising approximately 95,000 acres of owned timber property and management rights for an additional 2,500 acres of timber. National Fuel Gas Company was established in 1902 and its corporate headquarters are situated in Williamsville, New York.",
+      "ceo": "David Bauer",
+      "sector": "Energy",
+      "country": "US",
+      "fullTimeEmployees": "2322",
+      "phone": "716 857 7000",
+      "address": "6363 Main Street",
+      "city": "Williamsville",
+      "state": "NY",
+      "zip": "14221",
+      "image": "https://images.financialmodelingprep.com/symbol/NFG.png",
+      "ipoDate": "1973-05-03",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NFG",
+      "date": "2015-12-31",
+      "marketCap": 3625498480
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792040509.0536551
+}

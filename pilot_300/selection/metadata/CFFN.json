@@ -1,0 +1,54 @@
+{
+  "symbol": "CFFN",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CFFN",
+      "price": 8.18,
+      "marketCap": 1009162068,
+      "beta": 0.681,
+      "lastDividend": 0.38,
+      "range": "5.97-9.26",
+      "change": -0.08,
+      "changePercentage": -0.96852,
+      "volume": 1168858,
+      "averageVolume": 891673,
+      "companyName": "Capitol Federal Financial, Inc.",
+      "currency": "USD",
+      "cik": "0001490906",
+      "isin": "US14057J1016",
+      "cusip": "14057J101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://capfed.com",
+      "description": "Capitol Federal Financial, Inc. acts as the parent company for Capitol Federal Savings Bank, offering a comprehensive suite of retail banking services. The bank provides diverse deposit products, including savings, money market, interest-bearing and standard checking accounts, as well as certificates of deposit. Its lending portfolio is equally broad, featuring mortgages for one-to-four-family residences, commercial real estate, commercial and industrial, and construction loans. Additionally, consumer credit options are available, such as home equity loans and lines of credit, home improvement loans, vehicle loans, and loans secured by savings deposits. Beyond these, the institution delivers modern banking conveniences through mobile, telephone, and online platforms, alongside bill payment services, and operates a customer call center. It also engages in strategic securities investments. The bank's physical presence includes 54 branches—45 traditional and 9 in-store locations—spanning nine counties in Kansas and two in Missouri. Key service areas encompass the metropolitan regions of Topeka, Wichita, Lawrence, Manhattan, Emporia, and Salina in Kansas, plus a segment of the broader Kansas City metropolitan area. Capitol Federal Financial, Inc., founded in 1893, is headquartered in Topeka, Kansas.",
+      "ceo": "John Dicus",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "641",
+      "phone": "785 235 1341",
+      "address": "700 South Kansas Avenue",
+      "city": "Topeka",
+      "state": "KS",
+      "zip": "66603",
+      "image": "https://images.financialmodelingprep.com/symbol/CFFN.png",
+      "ipoDate": "1999-04-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CFFN",
+      "date": "2015-12-31",
+      "marketCap": 1670869360
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041281.18107
+}

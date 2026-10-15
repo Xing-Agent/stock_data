@@ -1,0 +1,54 @@
+{
+  "symbol": "KPRX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KPRX",
+      "price": 2.47,
+      "marketCap": 10928243,
+      "beta": -0.391,
+      "lastDividend": 0,
+      "range": "1.76-2.91",
+      "change": 0,
+      "changePercentage": -1.9841,
+      "volume": 18332,
+      "averageVolume": 18509,
+      "companyName": "Kiora Pharmaceuticals, Inc.",
+      "currency": "USD",
+      "cik": "0001372514",
+      "isin": "US49721T5074",
+      "cusip": "49721T507",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.kiorapharma.com",
+      "description": "Kiora Pharmaceuticals, Inc., a specialty pharmaceutical firm operating at the clinical stage, is dedicated to the creation and commercialization of treatments for various ophthalmic conditions across the United States. Its flagship therapeutic candidate, KIO-301, is a groundbreaking small molecule undergoing Phase 1 clinical trials. This innovative \"photoswitch\" aims to revitalize vision in individuals suffering from both inherited and age-related forms of retinal degeneration. The company's pipeline also includes KIO-101, an eye drop currently in Phase 2 trials for addressing the ocular manifestations of rheumatoid arthritis, as well as non-infectious posterior uveitis. Furthermore, Kiora is advancing KIO-201, another eye drop, which is in Phase 3 clinical trials, designed to facilitate corneal wound healing following PRK surgery. Established in 1998, the company adopted its current name in November 2021, having previously operated as Eyegate Pharmaceuticals, Inc. Kiora Pharmaceuticals maintains its corporate headquarters in Salt Lake City, Utah.",
+      "ceo": "Brian Strem",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "13",
+      "phone": "781 788 8869",
+      "address": "332 Encinitas Boulevard",
+      "city": "Encinitas",
+      "state": "CA",
+      "zip": "92024",
+      "image": "https://images.financialmodelingprep.com/symbol/KPRX.png",
+      "ipoDate": "2015-02-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KPRX",
+      "date": "2015-12-31",
+      "marketCap": 193487292
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040979.7960806
+}

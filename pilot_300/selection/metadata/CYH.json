@@ -1,0 +1,54 @@
+{
+  "symbol": "CYH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CYH",
+      "price": 2.98,
+      "marketCap": 420206820,
+      "beta": 1.889,
+      "lastDividend": 0,
+      "range": "2.4-4.43",
+      "change": -0.01,
+      "changePercentage": -0.33445,
+      "volume": 826372,
+      "averageVolume": 1514427,
+      "companyName": "Community Health Systems, Inc.",
+      "currency": "USD",
+      "cik": "0001108109",
+      "isin": "US2036681086",
+      "cusip": "203668108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Medical - Care Facilities",
+      "website": "https://www.chs.net",
+      "description": "Community Health Systems, Inc. (CYH) operates as a major healthcare provider across the United States, focusing on the ownership, leasing, and management of general acute care hospitals. The organization offers a comprehensive array of medical services, including emergency care, general and specialized surgical procedures, critical care, internal medicine, obstetrics, and various diagnostic capabilities. Additionally, they provide psychiatric services, rehabilitation programs, skilled nursing, and in-home care. Beyond its hospital-based offerings, the company delivers outpatient services through a diverse network of facilities. These encompass primary care practices, urgent care centers, independent emergency departments, ambulatory surgery centers, advanced imaging and diagnostic centers, retail health clinics, and direct-to-consumer virtual health consultations. As of December 31, 2021, CYH's holdings included 83 hospitals, either owned or leased. This total comprised 81 general acute care facilities and two specialized stand-alone rehabilitation or psychiatric hospitals, collectively providing a capacity of 13,289 licensed patient beds. The company was established in 1985 and its corporate headquarters are situated in Franklin, Tennessee.",
+      "ceo": "Kevin J. Hammons",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "50500",
+      "phone": "615 465 7000",
+      "address": "4000 Meridian Boulevard",
+      "city": "Franklin",
+      "state": "TN",
+      "zip": "37067",
+      "image": "https://images.financialmodelingprep.com/symbol/CYH.png",
+      "ipoDate": "2000-06-09",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CYH",
+      "date": "2015-12-31",
+      "marketCap": 2924875911
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041074.520192
+}

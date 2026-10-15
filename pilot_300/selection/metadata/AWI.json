@@ -1,0 +1,54 @@
+{
+  "symbol": "AWI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AWI",
+      "price": 163.43,
+      "marketCap": 6907013653,
+      "beta": 1.158,
+      "lastDividend": 1.356,
+      "range": "150.28-206.08",
+      "change": -1.23,
+      "changePercentage": -0.74699,
+      "volume": 268139,
+      "averageVolume": 422002,
+      "companyName": "Armstrong World Industries, Inc.",
+      "currency": "USD",
+      "cik": "0000007431",
+      "isin": "US04247X1028",
+      "cusip": "04247X102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Construction Materials",
+      "website": "https://www.armstrong.com",
+      "description": "Armstrong World Industries, Inc. (AWI) specializes in the design, manufacturing, and distribution of diverse ceiling systems, primarily catering to the construction and renovation needs of residential and commercial properties across the United States, Canada, and Latin America. The company operates through two main divisions: Mineral Fiber and Architectural Specialties. AWI's extensive product portfolio includes suspended ceilings made from mineral fiber, soft fiber, fiberglass wool, and metal, as well as ceiling and wall solutions crafted from wood, wood fiber, glass-reinforced-gypsum, and felt. They also provide crucial ceiling components such as perimeters, trims, and grid systems for drywall installations, in addition to commercial-grade ceilings and walls, acoustical control products, exterior facades, and room partitions. AWI sells its commercial ceiling and architectural specialty products to resale distributors and professional ceiling system contractors, while its residential offerings are distributed via wholesalers and prominent retailers, including large home improvement centers. The company was founded in 1891 and maintains its headquarters in Lancaster, Pennsylvania.",
+      "ceo": "Mark A. Hershey",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "4000",
+      "phone": "717-397-0611",
+      "address": "2500 Columbia Avenue",
+      "city": "Lancaster",
+      "state": "PA",
+      "zip": "17603",
+      "image": "https://images.financialmodelingprep.com/symbol/AWI.png",
+      "ipoDate": "2006-10-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AWI",
+      "date": "2015-12-31",
+      "marketCap": 2164407667
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041189.3166554
+}

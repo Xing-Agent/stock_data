@@ -1,0 +1,54 @@
+{
+  "symbol": "FONR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "FONR",
+      "price": 19.09,
+      "marketCap": 117759051,
+      "beta": 1.02,
+      "lastDividend": 0,
+      "range": "13.62-19.155",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 0,
+      "averageVolume": 80585,
+      "companyName": "Fonar Corp.",
+      "currency": "USD",
+      "cik": "0000355019",
+      "isin": "US3444374058",
+      "cusip": "344437405",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Medical - Equipment & Services",
+      "website": "https://www.fonar.com",
+      "description": "FONAR Corporation, together with its subsidiaries, engages in the designing, manufacturing, selling, and servicing of magnetic resonance imaging (MRI) scanners for the detection and diagnosis of human diseases, abnormalities, other medical conditions, and injuries in the United States. It operates in two segments: Medical Equipment, and Physician Management and Diagnostic Services. The company offers an Upright MRI scanner, which allows patients to be scanned in weight-bearing conditions, such as standing, sitting, bending, or lying down. It also provides non-medical management, including administrative services, billing and collection services, credentialing services, contract negotiations, compliance consulting, purchasing IT services, hiring, conducting interviews, training, supervision and management of non-medical personnel, storage of medical records, office space, equipment, repair maintenance services, accounting, assistance with legal and regulatory matters, and development and implementation of practice growth and marketing strategies. In addition, the company owns and operates diagnostic imaging facilities. The company markets its scanners to private diagnostic imaging centers and hospital outpatient imaging facilities. FONAR Corporation was founded in 1978 and is based in Melville, New York.",
+      "ceo": "Timothy R. Damadian",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "533",
+      "phone": "631 694 2929",
+      "address": "110 Marcus Drive",
+      "city": "Melville",
+      "state": "NY",
+      "zip": "11747",
+      "image": "https://images.financialmodelingprep.com/symbol/FONR.png",
+      "ipoDate": "1981-10-29",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "FONR",
+      "date": "2015-12-31",
+      "marketCap": 106632280
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040505.4505405
+}

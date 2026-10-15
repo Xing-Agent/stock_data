@@ -1,0 +1,565 @@
+{
+  "status": "metadata_probe_only_not_security_verification",
+  "checked_at": "2026-10-15T04:17:42.745Z",
+  "source": "FMP stable/profile and historical-market-capitalization; existing platform subscription",
+  "market_cap_date": "2015-12-31",
+  "records": [
+    {
+      "symbol": "BBBY",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "BBBY",
+        "companyName": "Bed Bath & Beyond Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "1992-06-01",
+        "sector": "Consumer Cyclical",
+        "cik": "0001130713",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "BBBY",
+          "date": "2015-12-31",
+          "marketCap": 1930759840
+        }
+      ]
+    },
+    {
+      "symbol": "BBBYQ",
+      "status": "unavailable"
+    },
+    {
+      "symbol": "REV",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "REV",
+        "companyName": "Revlon, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2008-09-16",
+        "sector": "Consumer Defensive",
+        "cik": "0000887921",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "REV",
+          "date": "2015-12-31",
+          "marketCap": 1461110377
+        }
+      ]
+    },
+    {
+      "symbol": "REVRQ",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "REVRQ",
+        "companyName": "Revlon, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "1996-02-29",
+        "sector": "Consumer Defensive",
+        "cik": "0000887921",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "REVRQ",
+          "date": "2015-12-31",
+          "marketCap": 1460389321
+        }
+      ]
+    },
+    {
+      "symbol": "ENDP",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "ENDP",
+        "companyName": "Endo International plc",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2014-03-03",
+        "sector": "Healthcare",
+        "cik": "0001593034",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "ENDP",
+          "date": "2015-12-31",
+          "marketCap": 13631090190
+        }
+      ]
+    },
+    {
+      "symbol": "ENDPQ",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "ENDPQ",
+        "companyName": "Endo International plc",
+        "country": "IE",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2000-07-18",
+        "sector": "Healthcare",
+        "cik": "0001593034",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "ENDPQ",
+          "date": "2015-12-31",
+          "marketCap": 13598448766
+        }
+      ]
+    },
+    {
+      "symbol": "SRNE",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "SRNE",
+        "companyName": "Sorrento Therapeutics, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2007-01-19",
+        "sector": "Healthcare",
+        "cik": "0000850261",
+        "isActivelyTrading": true
+      },
+      "historical_cap": [
+        {
+          "symbol": "SRNE",
+          "date": "2015-12-31",
+          "marketCap": 3306751.5
+        }
+      ]
+    },
+    {
+      "symbol": "SRNEQ",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "SRNEQ",
+        "companyName": "Sorrento Therapeutics, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2007-03-19",
+        "sector": "Healthcare",
+        "cik": null,
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "SRNEQ",
+          "date": "2015-12-31",
+          "marketCap": 4801657719
+        }
+      ]
+    },
+    {
+      "symbol": "TUP",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "TUP",
+        "companyName": "Tupperware Brands Corporation",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "1996-05-08",
+        "sector": "Consumer Cyclical",
+        "cik": "0001008654",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "TUP",
+          "date": "2015-12-31",
+          "marketCap": 2804760000
+        }
+      ]
+    },
+    {
+      "symbol": "TUPBQ",
+      "status": "unavailable"
+    },
+    {
+      "symbol": "YELL",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "YELL",
+        "companyName": "Yellow Corporation",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "1980-03-17",
+        "sector": "Industrials",
+        "cik": "0000716006",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "YELL",
+          "date": "2015-12-31",
+          "marketCap": 457503520
+        }
+      ]
+    },
+    {
+      "symbol": "YELLQ",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "YELLQ",
+        "companyName": "Yellow Corporation",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "1980-03-17",
+        "sector": "Industrials",
+        "cik": "0000716006",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "YELLQ",
+          "date": "2015-12-31",
+          "marketCap": 9669229.96
+        }
+      ]
+    },
+    {
+      "symbol": "PRTY",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "PRTY",
+        "companyName": "Party City Holdco Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2015-04-16",
+        "sector": "Consumer Cyclical",
+        "cik": "0001592058",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "PRTY",
+          "date": "2015-12-31",
+          "marketCap": 1540059384
+        }
+      ]
+    },
+    {
+      "symbol": "PRTYQ",
+      "status": "unavailable"
+    },
+    {
+      "symbol": "EXPR",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "EXPR",
+        "companyName": "Express, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2010-05-13",
+        "sector": "Consumer Cyclical",
+        "cik": "0001483510",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "EXPR",
+          "date": "2015-12-31",
+          "marketCap": 1433340748
+        }
+      ]
+    },
+    {
+      "symbol": "EXPRQ",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "EXPRQ",
+        "companyName": "Express, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2010-05-13",
+        "sector": "Consumer Cyclical",
+        "cik": "0001483510",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "EXPRQ",
+          "date": "2015-12-31",
+          "marketCap": 1359400320
+        }
+      ]
+    },
+    {
+      "symbol": "WPG",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "WPG",
+        "companyName": "Washington Prime Group Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2014-05-14",
+        "sector": "Real Estate",
+        "cik": "0001594686",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "WPG",
+          "date": "2015-12-31",
+          "marketCap": 1966111025
+        }
+      ]
+    },
+    {
+      "symbol": "WPGGQ",
+      "status": "unavailable"
+    },
+    {
+      "symbol": "SQBG",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "SQBG",
+        "companyName": "Sequential Brands Group, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2013-09-24",
+        "sector": "Consumer Cyclical",
+        "cik": "0001648428",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "SQBG",
+          "date": "2015-12-31",
+          "marketCap": 12104277
+        }
+      ]
+    },
+    {
+      "symbol": "SQBGQ",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "SQBGQ",
+        "companyName": "Sequential Brands Group, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2002-10-29",
+        "sector": "Consumer Cyclical",
+        "cik": "0001648428",
+        "isActivelyTrading": false
+      },
+      "historical_cap": []
+    },
+    {
+      "symbol": "DBD",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "DBD",
+        "companyName": "Diebold Nixdorf, Incorporated",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2023-08-14",
+        "sector": "Technology",
+        "cik": "0000028823",
+        "isActivelyTrading": true
+      }
+    },
+    {
+      "symbol": "DBDQQ",
+      "status": "unavailable"
+    },
+    {
+      "symbol": "WW",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "WW",
+        "companyName": "WW International, Inc.",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2001-11-15",
+        "sector": "Consumer Cyclical",
+        "cik": "0000105319",
+        "isActivelyTrading": true
+      },
+      "historical_cap": [
+        {
+          "symbol": "WW",
+          "date": "2015-12-31",
+          "marketCap": 1442163582
+        }
+      ]
+    },
+    {
+      "symbol": "WWIQ",
+      "status": "unavailable"
+    },
+    {
+      "symbol": "FRC",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "FRC",
+        "companyName": "First Republic Bank",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2010-12-09",
+        "sector": "Financial Services",
+        "cik": "0001132979",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "FRC",
+          "date": "2015-12-31",
+          "marketCap": 9642315780
+        }
+      ]
+    },
+    {
+      "symbol": "FRCB",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "FRCB",
+        "companyName": "First Republic Bank",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2010-12-10",
+        "sector": "Financial Services",
+        "cik": "0001132979",
+        "isActivelyTrading": true
+      },
+      "historical_cap": [
+        {
+          "symbol": "FRCB",
+          "date": "2015-12-31",
+          "marketCap": 9826557120
+        }
+      ]
+    },
+    {
+      "symbol": "SIVB",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "SIVB",
+        "companyName": "SVB Financial Group",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "1987-10-26",
+        "sector": "Financial Services",
+        "cik": "0000719739",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "SIVB",
+          "date": "2015-12-31",
+          "marketCap": 6140690732
+        }
+      ]
+    },
+    {
+      "symbol": "SIVBQ",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "SIVBQ",
+        "companyName": "SVB Financial Group",
+        "country": null,
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "1987-10-23",
+        "sector": "Financial Services",
+        "cik": "0000719739",
+        "isActivelyTrading": false
+      },
+      "historical_cap": [
+        {
+          "symbol": "SIVBQ",
+          "date": "2015-12-31",
+          "marketCap": 6172693500
+        }
+      ]
+    },
+    {
+      "symbol": "SBNY",
+      "status": "profile_available",
+      "profile": {
+        "symbol": "SBNY",
+        "companyName": "Signature Bank",
+        "country": "US",
+        "isEtf": false,
+        "isFund": false,
+        "isAdr": false,
+        "ipoDate": "2024-08-15",
+        "sector": "Financial Services",
+        "cik": "0001288784",
+        "isActivelyTrading": true
+      }
+    }
+  ],
+  "findings": [
+    {
+      "symbol": "BBBY",
+      "issue": "Provider CIK 0001130713 differs from old Bed Bath & Beyond CIK 0000886158; do not admit by name/ticker.",
+      "evidence_url": "https://www.sec.gov/Archives/edgar/data/886158/000119312523115523/d89202dex991.htm"
+    },
+    {
+      "symbol": "DBD",
+      "issue": "Provider profile IPO is 2023; same issuer/ticker does not establish old common-stock continuity."
+    },
+    {
+      "symbol": "SBNY",
+      "issue": "Provider profile IPO is 2024; cannot bind directly to the 2016 security."
+    },
+    {
+      "symbol": "YELL/YELLQ",
+      "issue": "Same-date provider market caps differ substantially across aliases; require resolution before size assignment."
+    },
+    {
+      "symbol": "SRNE/SRNEQ",
+      "issue": "Same-date provider market caps differ substantially across aliases; require resolution before size assignment."
+    }
+  ],
+  "next_step": "Verify old security identity, retirement event and consistent historical capitalization before freeze."
+}

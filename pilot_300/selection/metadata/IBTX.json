@@ -1,0 +1,54 @@
+{
+  "symbol": "IBTX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "IBTX",
+      "price": 60.67,
+      "marketCap": 2513928187,
+      "beta": 1.371,
+      "lastDividend": 1.52,
+      "range": "36.47-68.66",
+      "change": 0.28,
+      "changePercentage": 0.4637,
+      "volume": 1536709,
+      "averageVolume": 275938,
+      "companyName": "Independent Bank Group, Inc.",
+      "currency": "USD",
+      "cik": "0001564618",
+      "isin": "US45384B1061",
+      "cusip": "45384B106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.independent-bank.com",
+      "description": "Independent Bank Group, Inc. functions as the parent company for Independent Bank, which delivers a comprehensive array of commercial banking solutions to businesses, professionals, and individual customers throughout the United States. The institution's deposit offerings feature diverse options such as checking and savings accounts, demand deposits, money market accounts, and certificates of deposit. Its extensive lending portfolio encompasses financing for various needs: Real Estate: Commercial real estate, commercial construction, land acquisition, land development, residential real estate, and single-family interim construction loans. Commercial & Business: SBA-guaranteed loans, business term loans, equipment lease financing, lines of credit, and energy-related loans. Specialized: Agricultural loans tailored for farmers and ranchers, consumer installment loans for vehicles like cars, boats, and other recreational vehicles, standard residential mortgages, and specialized mortgage warehouse purchase loans. Beyond traditional banking and lending, Independent Bank provides a suite of convenient services, including debit cards, online and mobile banking platforms, electronic statements (eStatements), bank-by-mail, and direct deposit capabilities. For its business clientele, the company offers specialized accounts and management services, such as analyzed business checking, business savings accounts, and comprehensive treasury management solutions. As of December 31, 2021, the company operated through a network of 93 full-service branches. Independent Bank Group, Inc. was established in 2002 and is headquartered in McKinney, Texas.",
+      "ceo": "David R. Brooks",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1517",
+      "phone": "972 562 9004",
+      "address": "7777 Henneman Way",
+      "city": "McKinney",
+      "state": "TX",
+      "zip": "75070-1711",
+      "image": "https://images.financialmodelingprep.com/symbol/IBTX.png",
+      "ipoDate": "2013-04-04",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "IBTX",
+      "date": "2015-12-31",
+      "marketCap": 590217088
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041288.714469
+}

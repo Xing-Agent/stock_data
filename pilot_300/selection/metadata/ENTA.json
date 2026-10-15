@@ -1,0 +1,54 @@
+{
+  "symbol": "ENTA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ENTA",
+      "price": 11.18,
+      "marketCap": 325621972,
+      "beta": 0.962,
+      "lastDividend": 0,
+      "range": "10.2-17.15",
+      "change": -0.34,
+      "changePercentage": -2.95139,
+      "volume": 227614,
+      "averageVolume": 231632,
+      "companyName": "Enanta Pharmaceuticals, Inc.",
+      "currency": "USD",
+      "cik": "0001177648",
+      "isin": "US29251M1062",
+      "cusip": "29251M106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.enanta.com",
+      "description": "Enanta Pharmaceuticals, Inc. is a biotechnology firm dedicated to discovering and advancing small molecule therapies designed to combat a range of viral infections and various liver conditions. Its research and development efforts are primarily focused on addressing pathogens such as respiratory syncytial virus (RSV), SARS-CoV-2, human metapneumovirus (hMPV), and the hepatitis B virus (HBV). The company also holds a strategic partnership and licensing agreement with Abbott Laboratories. This collaboration involves the joint identification, development, and market introduction of specific HCV NS3 and NS3/4A protease inhibitor compounds, including known agents like paritaprevir and glecaprevir, which are utilized in the management of chronic hepatitis C virus. Founded in 1995, Enanta Pharmaceuticals, Inc. operates from its principal office located in Watertown, Massachusetts.",
+      "ceo": "Jay R. Luly",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "120",
+      "phone": "617 607 0800",
+      "address": "4 Kingsbury Avenue",
+      "city": "Watertown",
+      "state": "MA",
+      "zip": "02472",
+      "image": "https://images.financialmodelingprep.com/symbol/ENTA.png",
+      "ipoDate": "2013-03-21",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ENTA",
+      "date": "2015-12-31",
+      "marketCap": 603532196
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040364.1825101
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "LDOS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LDOS",
+      "price": 120.59,
+      "marketCap": 15133105483,
+      "beta": 0.59,
+      "lastDividend": 1.72,
+      "range": "98.86-205.77",
+      "change": 0.89,
+      "changePercentage": 0.74353,
+      "volume": 893638,
+      "averageVolume": 1509798,
+      "companyName": "Leidos Holdings, Inc.",
+      "currency": "USD",
+      "cik": "0001336920",
+      "isin": "US5253271028",
+      "cusip": "525327102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Information Technology Services",
+      "website": "https://www.leidos.com",
+      "description": "Leidos Holdings, Inc., along with its various subsidiaries, delivers a broad spectrum of services and innovative solutions across key markets: defense, intelligence, civil government, and health. The company operates both domestically within the United States and on an international scale. Its operations are organized into three principal divisions: Defense Solutions, Civil, and Health. The Defense Solutions segment is dedicated to providing national security systems and specialized support spanning air, land, sea, space, and cyberspace domains. Its extensive client base includes the U.S. Intelligence Community, the Department of Defense, NASA, various military branches, allied foreign governments, and other federal and commercial entities within the national security sector. This division's offerings encompass advanced technology, large-scale systems integration, command and control platforms, sophisticated data analytics, logistics, robust cybersecurity defenses, and crucial intelligence analysis and operational support for critical missions. The Civil segment offers systems integration capabilities primarily to air navigation service providers, such as the Federal Aviation Administration (FAA). This involves critical programs like En Route Automation Modernization (ERAM), Advanced Technology Oceanic Procedure (ATOP), Time Based Flow Management (TBFM), Terminal Flight Data Management (TFDM), GEO-7, and Future Flight Services, as well as developing enterprise-wide information display systems. Additionally, this segment provides security detection and automation services. Its portfolio further extends to comprehensive information technology (IT) solutions, covering areas like cloud computing, mobility, application modernization, DevOps, data center operations, network upgrades, asset management, help desk support, and digital workplace enablement. Environmental, energy, and infrastructure services also fall under this division. Finally, the Health segment furnishes solutions to both federal and commercial clients globally, focusing on initiatives that promote human health and well-being. This includes services such as health information management, managed healthcare programs, digital transformation projects, and support for life sciences research and development. Leidos Holdings, Inc. was established in 1969 and is based out of Reston, Virginia.",
+      "ceo": "Thomas A. Bell",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "50000",
+      "phone": "571 526 6000",
+      "address": "1750 Presidents Street",
+      "city": "Reston",
+      "state": "VA",
+      "zip": "20190",
+      "image": "https://images.financialmodelingprep.com/symbol/LDOS.png",
+      "ipoDate": "2006-10-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LDOS",
+      "date": "2015-12-31",
+      "marketCap": 4050720000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041008.0797093
+}

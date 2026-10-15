@@ -1,0 +1,54 @@
+{
+  "symbol": "CAG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CAG",
+      "price": 13.84,
+      "marketCap": 6623353440,
+      "beta": -0.049,
+      "lastDividend": 1.225,
+      "range": "12.53-20.32",
+      "change": 0.14,
+      "changePercentage": 1.0219,
+      "volume": 12114893,
+      "averageVolume": 15537931,
+      "companyName": "Conagra Brands, Inc.",
+      "currency": "USD",
+      "cik": "0000023217",
+      "isin": "US2058871029",
+      "cusip": "205887102",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Packaged Foods",
+      "website": "https://www.conagrabrands.com",
+      "description": "Conagra Brands, Inc., a prominent manufacturer of packaged food products, conducts its business across North America through its various subsidiary companies. The firm organizes its extensive operations into four distinct segments: Grocery & Snacks, Refrigerated & Frozen, International, and Foodservice. The Grocery & Snacks division primarily distributes non-perishable food items through various retail channels within the United States. In contrast, the Refrigerated & Frozen segment focuses on supplying temperature-sensitive food products to comparable U.S. retail outlets. Its International division caters to markets outside the United States, offering food products in all temperature states to both retail consumers and professional food service operators globally. Domestically, the Foodservice segment specializes in providing both proprietary and custom-engineered culinary offerings, such as prepared meals, entrees, sauces, and other specially manufactured gastronomic items, tailored for restaurants and institutional food providers throughout the United States. Conagra maintains an extensive portfolio of well-recognized brands, including Birds Eye, Duncan Hines, Healthy Choice, Marie Callender's, Reddi-wip, Slim Jim, Angie's BOOMCHICKAPOP, Duke's, Earth Balance, Gardein, and Frontera. The company, which traces its origins back to 1861, was formerly known as ConAgra Foods, Inc. until its rebranding to Conagra Brands, Inc. in November 2016. Its main corporate offices are located in Chicago, Illinois.",
+      "ceo": "John Brase",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "17400",
+      "phone": "312 549 5000",
+      "address": "222 West Merchandise Mart Plaza",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60654",
+      "image": "https://images.financialmodelingprep.com/symbol/CAG.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CAG",
+      "date": "2015-12-31",
+      "marketCap": 14216891000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041593.2135086
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "ANIX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ANIX",
+      "price": 2.655,
+      "marketCap": 92297886,
+      "beta": 0.597,
+      "lastDividend": 0,
+      "range": "2.32-5.46",
+      "change": -0.015,
+      "changePercentage": -0.5618,
+      "volume": 228416,
+      "averageVolume": 291739,
+      "companyName": "Anixa Biosciences, Inc.",
+      "currency": "USD",
+      "cik": "0000715446",
+      "isin": "US03528H1095",
+      "cusip": "03528H109",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.anixa.com",
+      "description": "Anixa Biosciences, Inc. (ANIX) is a biotechnology company dedicated to pioneering therapies and vaccines. Its core mission revolves around addressing critical, unmet medical needs, particularly within the fields of oncology (cancer) and infectious diseases. Among its therapeutic pipeline, Anixa is developing a novel chimeric endocrine receptor T-cell (CER-T) technology, an innovative adaptation of CAR-T, specifically for ovarian cancer treatment. The company is also engaged in the discovery and development of antiviral drug candidates to combat COVID-19, focusing on the inhibition of specific viral protein functions. On the vaccine front, Anixa's initiatives include a vaccine designed to target triple-negative breast cancer and a distinct preventative vaccine aimed at ovarian cancer. Beyond specific therapies and vaccines, Anixa also has immuno-therapy drugs for various cancers in its development portfolio. A key collaboration exists with MolGenie GmbH for the discovery and development of its COVID-19 antiviral candidates. Tracing its origins back to an incorporation in 1982, the company initially operated as ITUS Corporation before adopting the name Anixa Biosciences, Inc. in October 2018. It is headquartered in San Jose, California.",
+      "ceo": "Amit Kumar",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "4",
+      "phone": "408 708 9808",
+      "address": "3150 Almaden Expressway",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95118",
+      "image": "https://images.financialmodelingprep.com/symbol/ANIX.png",
+      "ipoDate": "1983-10-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ANIX",
+      "date": "2015-12-31",
+      "marketCap": 28862324
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040498.3324606
+}

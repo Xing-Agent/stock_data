@@ -1,0 +1,54 @@
+{
+  "symbol": "NECB",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NECB",
+      "price": 27.65,
+      "marketCap": 380632665,
+      "beta": 0.368,
+      "lastDividend": 1.05,
+      "range": "19.27-28.94",
+      "change": -0.15,
+      "changePercentage": -0.53957,
+      "volume": 61793,
+      "averageVolume": 44440,
+      "companyName": "Northeast Community Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0001847398",
+      "isin": "US6641211007",
+      "cusip": "664121100",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.necb.com",
+      "description": "Northeast Community Bancorp, Inc. functions as the parent entity for NorthEast Community Bank, a financial institution serving both individual clients and corporate entities. Its offerings include a range of deposit options such as checking accounts, money market accounts, standard savings accounts, and non-interest-bearing current accounts. The company also extends credit through various loan products, covering construction projects, commercial and industrial ventures, multi-family and mixed-use properties, general non-residential real estate, and consumer financing. Furthermore, it strategically invests in highly liquid assets. These encompass U.S. Treasury bonds, municipal bonds, funds deposited with the Federal Home Loan Bank of New York, certificates of deposit from institutions with federal insurance, and debt instruments issued by different federal agencies and state or local governments. Beyond banking, it provides specialized financial guidance, including investment advisory and financial planning services, along with offering life insurance policies and annuities with fixed interest rates. Its physical presence includes seven full-service branches across New York and three in Massachusetts, complemented by loan origination offices located in White Plains and New City, New York, and Danvers, Massachusetts. Established in 1934, the company's headquarters are situated in White Plains, New York.",
+      "ceo": "Kenneth A. Martinek",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "140",
+      "phone": "914 684 2500",
+      "address": "325 Hamilton Avenue",
+      "city": "White Plains",
+      "state": "NY",
+      "zip": "10601",
+      "image": "https://images.financialmodelingprep.com/symbol/NECB.png",
+      "ipoDate": "2006-07-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NECB",
+      "date": "2015-12-31",
+      "marketCap": 63512909
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040609.6293867
+}

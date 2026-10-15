@@ -1,0 +1,54 @@
+{
+  "symbol": "LRMR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "LRMR",
+      "price": 2.09,
+      "marketCap": 217115470,
+      "beta": 0.688,
+      "lastDividend": 0,
+      "range": "2.06-6.42",
+      "change": -0.07,
+      "changePercentage": -3.24074,
+      "volume": 2257005,
+      "averageVolume": 1742620,
+      "companyName": "Larimar Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001374690",
+      "isin": "US5171251003",
+      "cusip": "517125100",
+      "exchangeFullName": "NASDAQ Global Market",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.larimartx.com",
+      "description": "Headquartered in Bala Cynwyd, Pennsylvania, Larimar Therapeutics, Inc. operates as a clinical-stage biotechnology firm. Its core mission involves crafting therapies for rare diseases, leveraging a distinctive cell-penetrating peptide technology platform. The company's foremost experimental therapy, CTI-1601, is presently undergoing Phase 1 clinical trials. This drug candidate is being developed to combat Friedreich's ataxia, a genetic illness that is rare, relentlessly progressive, and ultimately fatal.",
+      "ceo": "Carole S. Ben-Maimon",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "71",
+      "phone": "844 511 9056",
+      "address": "Three Bala Plaza East",
+      "city": "Bala Cynwyd",
+      "state": "PA",
+      "zip": "19004",
+      "image": "https://images.financialmodelingprep.com/symbol/LRMR.png",
+      "ipoDate": "2014-06-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "LRMR",
+      "date": "2015-12-31",
+      "marketCap": 205784369
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041245.4687529
+}

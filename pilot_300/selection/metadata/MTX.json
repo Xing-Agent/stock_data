@@ -1,0 +1,54 @@
+{
+  "symbol": "MTX",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MTX",
+      "price": 63.11,
+      "marketCap": 1964536107,
+      "beta": 1.122,
+      "lastDividend": 0.48,
+      "range": "53.94-84.34",
+      "change": -0.72,
+      "changePercentage": -1.128,
+      "volume": 178334,
+      "averageVolume": 223067,
+      "companyName": "Minerals Technologies Inc.",
+      "currency": "USD",
+      "cik": "0000891014",
+      "isin": "US6031581068",
+      "cusip": "603158106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Chemicals - Specialty",
+      "website": "https://www.mineralstech.com",
+      "description": "Minerals Technologies Inc. is dedicated to the development, manufacturing, and distribution of a wide array of specialized mineral, mineral-based, and synthetic mineral products, complemented by related systems and services. The company's operations are structured across three main divisions: Performance Materials, Specialty Minerals, and Refractories. The Performance Materials segment delivers bentonite and its associated products, as well as leonardite. It also provides materials for metal casting, household, personal care, and other specialty applications, alongside fundamental minerals, environmental solutions, and building components. Moreover, this division serves customers involved in non-residential construction, environmental management, infrastructure development, and remediation projects. The Specialty Minerals segment is responsible for the production and sale of precipitated calcium carbonate and quicklime, in addition to offering natural mineral resources like limestone and talc. The products from this segment are extensively utilized in industries such as paper and packaging, construction, paints and coatings, glass, ceramics, polymers, food, automotive, and pharmaceuticals. The Refractories segment focuses on monolithic and pre-shaped refractory materials, specialized products, services, and equipment for application and measurement. It further supplies calcium metal and metallurgical wire products, primarily catering to the steel, non-ferrous metal, and glass sectors. The company markets its offerings predominantly through its in-house sales force and a network of regional distributors. Its geographical reach spans the United States, Canada, Latin America, Europe, Africa, and Asia. Minerals Technologies Inc. was founded in 1968 and is headquartered in New York, New York.",
+      "ceo": "Douglas T. Dietrich",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "3782",
+      "phone": "212 878 1800",
+      "address": "622 Third Avenue",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10017-6707",
+      "image": "https://images.financialmodelingprep.com/symbol/MTX.png",
+      "ipoDate": "1992-10-23",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MTX",
+      "date": "2015-12-31",
+      "marketCap": 1595928000
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040609.670257
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "KEYS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "KEYS",
+      "price": 357.59,
+      "marketCap": 61110474643,
+      "beta": 1.177,
+      "lastDividend": 0,
+      "range": "161.165-389.93",
+      "change": -12.63,
+      "changePercentage": -3.41149,
+      "volume": 1470178,
+      "averageVolume": 1323955,
+      "companyName": "Keysight Technologies, Inc.",
+      "currency": "USD",
+      "cik": "0001601046",
+      "isin": "US49338L1035",
+      "cusip": "49338L103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.keysight.com",
+      "description": "Keysight Technologies, Inc. specializes in providing advanced electronic design and testing solutions to a diverse array of global industries, spanning commercial communications, networking, aerospace, defense, government, automotive, energy, semiconductor manufacturing, general electronics, and education. The company's operations extend across the Americas, Europe, and the Asia Pacific region. Its Communications Solutions Group focuses on electronic design automation (EDA) software and sophisticated radio frequency (RF) and microwave testing systems, along with associated software. This segment also delivers cutting-edge hardware and virtual platforms for network testing, addressing areas such as data centers, routing and switching, software-defined networking (SDN), security, and encryption. Furthermore, it supplies a range of precision measurement instruments including oscilloscopes, logic and serial protocol analyzers, signal sources, arbitrary waveform generators, bit error rate testers, and optical analysis equipment like modulation analyzers, component analyzers, power meters, and laser sources. The group also facilitates the sale of certified refurbished Keysight equipment. Conversely, the Electronic Industrial Solutions Group offers a comprehensive suite of design and verification tools for industrial applications. Its product lineup encompasses essential laboratory and industrial instruments such as digital multimeters, function generators, frequency counters, data acquisition systems, audio analyzers, LCR meters, thermal imagers, source measure units, and ultra-high precision device current analyzers, alongside test executive software platforms. This segment also provides various power supply units, including AC/DC modular and electronically programmable loads, as well as printed-circuit-board-assembly testers, integrated circuit parametric testers, and sub-nanometer positioning sub-assemblies, complemented by general test and measurement products and software. Beyond its core products, Keysight provides extensive support services, including technical assistance, training, and consulting. The company employs a multifaceted distribution strategy, leveraging a direct sales force, distributors, resellers, and manufacturer's representatives. Keysight Technologies, Inc. was established in 1939 and is headquartered in Santa Rosa, California.",
+      "ceo": "Satish C. Dhanasekaran",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "16600",
+      "phone": "800 829 4444",
+      "address": "1400 Fountaingrove Parkway",
+      "city": "Santa Rosa",
+      "state": "CA",
+      "zip": "95403-1738",
+      "image": "https://images.financialmodelingprep.com/symbol/KEYS.png",
+      "ipoDate": "2014-10-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "KEYS",
+      "date": "2015-12-31",
+      "marketCap": 4844430000
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041745.5731814
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "CNVS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CNVS",
+      "price": 1.69,
+      "marketCap": 40173644,
+      "beta": 1.488,
+      "lastDividend": 0,
+      "range": "1.64-3.44",
+      "change": -0.115,
+      "changePercentage": -6.37119,
+      "volume": 310435,
+      "averageVolume": 237576,
+      "companyName": "Cineverse Corp.",
+      "currency": "USD",
+      "cik": "0001173204",
+      "isin": "US1724063086",
+      "cusip": "172406308",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Entertainment",
+      "website": "https://www.cineverse.com",
+      "description": "Cineverse Corp. operates as a dynamic streaming technology and entertainment enterprise. Leveraging its proprietary, in-house technology platform, the company owns and manages a diverse portfolio of streaming channels. Its offerings encompass a wide array of curated content, distributed through various models including subscription video on demand (SVOD), ad-supported video on demand (AVOD), and free ad-supported streaming television (FAST) channels. Beyond traditional streaming, Cineverse also provides social video streaming services, audio podcasts, and operates a suite of over-the-top (OTT) entertainment channels. Globally, Cineverse captivates audiences by offering an extensive library of feature films and television programs, alongside specialized enthusiast streaming channels and advanced technology services. Established in 2000, the company was formerly known as Cinedigm Corp. and officially rebranded as Cineverse Corp. in May 2023. Its headquarters are situated in New York, New York.",
+      "ceo": "Christopher J. McGurk",
+      "sector": "Communication Services",
+      "country": "US",
+      "fullTimeEmployees": "296",
+      "phone": "212 206 8600",
+      "address": "224 W. 35th St.",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10001",
+      "image": "https://images.financialmodelingprep.com/symbol/CNVS.png",
+      "ipoDate": "2003-11-10",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CNVS",
+      "date": "2015-12-31",
+      "marketCap": 16553368
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041324.1467495
+}

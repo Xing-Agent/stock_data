@@ -1,0 +1,54 @@
+{
+  "symbol": "EBS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EBS",
+      "price": 6.91,
+      "marketCap": 354298752,
+      "beta": 2.286,
+      "lastDividend": 0,
+      "range": "4.36-14.06",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 761077,
+      "averageVolume": 1097768,
+      "companyName": "Emergent BioSolutions Inc.",
+      "currency": "USD",
+      "cik": "0001367644",
+      "isin": "US29089Q1058",
+      "cusip": "29089Q105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Drug Manufacturers - Specialty & Generic",
+      "website": "https://www.emergentbiosolutions.com",
+      "description": "Emergent BioSolutions Inc. is a life sciences company dedicated to providing vital preparedness and response solutions for a wide range of public health threats (PHTs) across the United States. These threats encompass accidental, deliberate, and naturally occurring events, including chemical, biological, radiological, nuclear, and explosives (CBRNE) incidents, emerging infectious diseases, travel-related health risks, and acute emergency care situations. The company's current product portfolio features essential vaccines and treatments such as BioThrax for anthrax and ACAM2000 for smallpox. It also offers Botulism Antitoxin Heptavalent, vaccinia immune globulin intravenous to manage smallpox vaccine complications, and inhalational anthrax therapies like raxibacumab and Anthrasil. Other key offerings include reactive skin decontamination lotion kits, the Trobigard combination drug-device auto-injector, NARCAN nasal spray for emergency opioid overdose reversal, Vivotif, an oral typhoid fever vaccine, and Vaxchora, a single-dose oral cholera vaccine. Emergent is also actively engaged in developing a robust pipeline of future solutions. This includes AP003 (a multidose naloxone nasal spray), AP007 (a sustained-release nalmefene injection for opioid use disorder), AV7909 (an anthrax vaccine), CGRD-001 (a pralidoxime chloride/atropine auto-injector), CHIKV VLP (a chikungunya virus vaccine), COVID-HIG (for SARS-CoV2 treatment), EGRD-001 (a diazepam auto-injector), SIAN (a cyanide poisoning antidote), and UniFlu (a universal influenza vaccine). Furthermore, the company extends its expertise through comprehensive contract development and manufacturing services (CDMO). These services cover drug substance and product manufacturing, packaging, along with technology transfer and advanced process and analytical development. Emergent BioSolutions Inc., founded in 1998, is headquartered in Gaithersburg, Maryland.",
+      "ceo": "Joseph C. Papa Jr.",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "900",
+      "phone": "240 631 3200",
+      "address": "400 Professional Drive",
+      "city": "Gaithersburg",
+      "state": "MD",
+      "zip": "20879",
+      "image": "https://images.financialmodelingprep.com/symbol/EBS.png",
+      "ipoDate": "2006-11-15",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EBS",
+      "date": "2015-12-31",
+      "marketCap": 1582101666
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041922.8988142
+}

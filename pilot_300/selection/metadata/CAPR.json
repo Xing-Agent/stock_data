@@ -1,0 +1,54 @@
+{
+  "symbol": "CAPR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CAPR",
+      "price": 6.59,
+      "marketCap": 378995085,
+      "beta": 0.528,
+      "lastDividend": 0,
+      "range": "2.96-40.37",
+      "change": -0.29,
+      "changePercentage": -4.21512,
+      "volume": 2512093,
+      "averageVolume": 5356982,
+      "companyName": "Capricor Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001133869",
+      "isin": "US14070B3096",
+      "cusip": "14070B309",
+      "exchangeFullName": "NASDAQ",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.capricor.com",
+      "description": "Capricor Therapeutics, Inc. is a clinical-stage biotechnology company, which focuses on the development of transformative cell and exosome-based therapeutics for treating Duchenne muscular dystrophy (“DMD”), a rare form of muscular dystrophy which results in muscle degeneration and premature death, and other diseases with unmet medical needs. Its product candidate consists of CAP-1002, Engineered Exosomes, CAP-2003, and Exosome-Based Vaccine. The company was founded on June 17, 1996 and is headquartered in San Diego, CA.",
+      "ceo": "Linda Marbán",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "231",
+      "phone": "310 358 3200",
+      "address": "10865 Road to the Cure",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92121",
+      "image": "https://images.financialmodelingprep.com/symbol/CAPR.png",
+      "ipoDate": "2007-02-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CAPR",
+      "date": "2015-12-31",
+      "marketCap": 50777800
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041153.4688537
+}

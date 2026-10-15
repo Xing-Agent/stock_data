@@ -1,0 +1,54 @@
+{
+  "symbol": "TTMI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "TTMI",
+      "price": 103.31,
+      "marketCap": 10728743500,
+      "beta": 2.138,
+      "lastDividend": 0,
+      "range": "54.43-223.83",
+      "change": -12.79,
+      "changePercentage": -11.01637,
+      "volume": 4290307,
+      "averageVolume": 2605302,
+      "companyName": "TTM Technologies, Inc.",
+      "currency": "USD",
+      "cik": "0001116942",
+      "isin": "US87305R1095",
+      "cusip": "87305R109",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.ttm.com",
+      "description": "Operating globally, TTM Technologies, Inc. (TTMI) specializes in the production and distribution of printed circuit boards (PCBs). The company's operations are structured into two key segments: Printed Circuit Boards (PCBs) and RF&S Components. Their diverse product line encompasses a wide array of PCB solutions, from conventional and high-density interconnect (HDI) designs to substrate-like (SLP), flexible, and rigid-flex boards, as well as specialized RF and microwave circuits. Additionally, TTM offers integrated circuit (IC) substrates, custom assemblies, system integration products, multi-chip modules, and various RF components, including passive and advanced ceramic types, along with beamforming and switching networks. Furthermore, their capabilities extend to advanced printed circuits incorporating heavy copper cores, embedded or press-fit coins, and sophisticated thermal management features, such as electrically passive heat sinks and active thermal cores. To support clients, the firm provides an array of value-added services, including RF design-to-specification, design for manufacturability (DFM), PCB layout creation, simulation, testing, and expedited turnaround times. Their primary customers are original equipment manufacturers (OEMs) and electronic manufacturing services (EMS) companies. These clients serve critical markets such as aerospace and defense, data center computing, automotive components, medical devices, industrial applications, and instrumentation. Founded in 1978, TTM Technologies, Inc. maintains its corporate headquarters in Santa Ana, California.",
+      "ceo": "Edwin Roks",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "18200",
+      "phone": "714 327 3000",
+      "address": "200 East Sandpointe",
+      "city": "Santa Ana",
+      "state": "CA",
+      "zip": "92707",
+      "image": "https://images.financialmodelingprep.com/symbol/TTMI.png",
+      "ipoDate": "2000-09-25",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "TTMI",
+      "date": "2015-12-31",
+      "marketCap": 648369960
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040509.0222247
+}

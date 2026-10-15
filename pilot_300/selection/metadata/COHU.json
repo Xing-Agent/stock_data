@@ -1,0 +1,54 @@
+{
+  "symbol": "COHU",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "COHU",
+      "price": 58.24,
+      "marketCap": 2756988416,
+      "beta": 1.512,
+      "lastDividend": 0,
+      "range": "21.1-75.72",
+      "change": -4.55,
+      "changePercentage": -7.24638,
+      "volume": 1606421,
+      "averageVolume": 1154018,
+      "companyName": "Cohu, Inc.",
+      "currency": "USD",
+      "cik": "0000021535",
+      "isin": "US1925761066",
+      "cusip": "192576106",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Semiconductors",
+      "website": "https://www.cohu.com",
+      "description": "Cohu, Inc. stands as a prominent global provider of advanced semiconductor test equipment and comprehensive associated services. Operating through its various subsidiaries, the company extends its reach across key international markets including China, the United States, Taiwan, Malaysia, and the Philippines. Its diverse product portfolio caters to semiconductor and electronics manufacturers, as well as test subcontractors, encompassing crucial equipment such as automated test equipment (ATE) for both wafer-level and device package testing, and a wide array of test and inspection handlers. These handlers include specialized pick-and-place, turret, gravity, strip, and advanced micro-electromechanical system (MEMS) and thermal sub-systems. Cohu also offers vital interface components like test contactors, probe heads, and pins. Beyond hardware, Cohu delivers extensive post-sales support, including spare parts and kits, robust parts and labor warranties for its systems and instruments, and essential training for system maintenance and operation. The company further provides application and data management software, alongside expert consulting services related to its product offerings. A significant technological offering is the DI-Core data analytics product suite. This sophisticated software is engineered to optimize the performance of Cohu equipment, facilitating real-time online monitoring and precise process control. Cohu distributes its solutions through a combination of its direct sales force and a network of independent sales representatives. Established in 1947, the company originally operated as Cohu Electronics, Inc. before adopting its current name, Cohu, Inc., in 1972. Its corporate headquarters are located in Poway, California.",
+      "ceo": "Luis Antonio Müller",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2777",
+      "phone": "858 848 8100",
+      "address": "17087 Via Del Campo",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92127-1711",
+      "image": "https://images.financialmodelingprep.com/symbol/COHU.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "COHU",
+      "date": "2015-12-31",
+      "marketCap": 317646190
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041846.6136782
+}

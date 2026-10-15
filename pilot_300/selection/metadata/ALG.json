@@ -1,0 +1,54 @@
+{
+  "symbol": "ALG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ALG",
+      "price": 153.93,
+      "marketCap": 1873066419,
+      "beta": 1.078,
+      "lastDividend": 1.32,
+      "range": "145.76-219.88",
+      "change": -1.23999,
+      "changePercentage": -0.79912,
+      "volume": 149479,
+      "averageVolume": 169573,
+      "companyName": "Alamo Group Inc.",
+      "currency": "USD",
+      "cik": "0000897077",
+      "isin": "US0113111076",
+      "cusip": "011311107",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.alamo-group.com",
+      "description": "Alamo Group Inc. is a global enterprise specializing in the design, production, distribution, and servicing of equipment crucial for managing vegetation and maintaining public and private infrastructure. It serves a broad international clientele spanning governmental agencies, industrial operations, and agricultural businesses. The company operates through two main divisions: Vegetation Management Division: This segment provides a comprehensive range of machinery and associated components for controlling plant growth and preparing land. Offerings include robust, hydraulically-powered and tractor-mounted mowers, various types of cutters for intensive use, specialized agricultural implements such as rotary tillers, posthole diggers, and scraper blades, as well as zero-turn mowers, snow blowers, and rock removal equipment. It also supplies a wide array of replacement parts, from cutting blades to fertilizer application components and hydraulic boom-mounted hedge and grass cutters. Industrial Equipment Division: This division focuses on apparatus for public works and utility maintenance. Its product portfolio features a full spectrum of truck-mounted street sweepers (including air vacuum, mechanical broom, and regenerative air models), pothole repair machines, leaf collection systems, and excavators. The division also supplies catch basin cleaners, roadway debris vacuum systems, and combination sewer cleaners. Additionally, it provides essential ice and snow control equipment like snowplows, heavy-duty snow removal vehicles, graders, high-pressure cleaning systems, and trenchers. Established in 1955, Alamo Group Inc. is headquartered in Seguin, Texas.",
+      "ceo": "Robert Hureau",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "3800",
+      "phone": "830 379 1480",
+      "address": "1627 East Walnut Street",
+      "city": "Seguin",
+      "state": "TX",
+      "zip": "78155",
+      "image": "https://images.financialmodelingprep.com/symbol/ALG.png",
+      "ipoDate": "1993-03-19",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ALG",
+      "date": "2015-12-31",
+      "marketCap": 593366900
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041122.3591156
+}

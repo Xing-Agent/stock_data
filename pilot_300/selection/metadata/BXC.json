@@ -1,0 +1,54 @@
+{
+  "symbol": "BXC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "BXC",
+      "price": 70.73,
+      "marketCap": 555953078,
+      "beta": 1.425,
+      "lastDividend": 0,
+      "range": "44.78-93.8",
+      "change": -1.56,
+      "changePercentage": -2.15798,
+      "volume": 189816,
+      "averageVolume": 161292,
+      "companyName": "BlueLinx Holdings Inc.",
+      "currency": "USD",
+      "cik": "0001301787",
+      "isin": "US09624H2085",
+      "cusip": "09624H208",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Distribution",
+      "website": "https://www.bluelinxco.com",
+      "description": "BlueLinx Holdings Inc., operating alongside its various divisions, is a prominent supplier of construction materials for both residential and commercial projects across the U.S. Its extensive product portfolio encompasses a range of specialized items such as engineered wood, industrial components, cedar, trim, cladding, various metal products, and insulation materials. Additionally, it provides essential structural commodities like lumber, plywood, oriented strand boards (OSB), rebar, and diverse timber products, predominantly utilized for foundational support in building endeavors. Beyond material supply, BlueLinx delivers a suite of beneficial services and strategic solutions to both its clientele and vendor partners. Reaching a diverse client base, including independent dealers, specialized distributors, major home improvement retailers, and pre-fabricated housing manufacturers, the firm leverages an expansive logistics network of strategically located distribution facilities. Established in 2004, BlueLinx Holdings Inc. maintains its corporate headquarters in Marietta, Georgia.",
+      "ceo": "Shyam K. Reddy",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "2149",
+      "phone": "770 953 7000",
+      "address": "1950 Spectrum Circle",
+      "city": "Marietta",
+      "state": "GA",
+      "zip": "30067",
+      "image": "https://images.financialmodelingprep.com/symbol/BXC.png",
+      "ipoDate": "2004-12-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "BXC",
+      "date": "2015-12-31",
+      "marketCap": 47042800
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041228.4494288
+}

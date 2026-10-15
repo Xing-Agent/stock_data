@@ -1,0 +1,54 @@
+{
+  "symbol": "SQBG",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "SQBG",
+      "price": 6.24,
+      "marketCap": 0,
+      "beta": 1.548034,
+      "lastDividend": 0,
+      "range": "6.1-7.35",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 1168907,
+      "averageVolume": 2211268,
+      "companyName": "Sequential Brands Group, Inc.",
+      "currency": "USD",
+      "cik": "0001648428",
+      "isin": "US81734P1075",
+      "cusip": "81734P107",
+      "exchangeFullName": "NASDAQ Capital Market",
+      "exchange": "NASDAQ",
+      "industry": "Apparel - Manufacturers",
+      "website": "http://www.sequentialbrandsgroup.com",
+      "description": "Sequential Brands Group, Inc. primarily focuses on the development, marketing, and licensing of a varied assortment of consumer labels. Headquartered in New York City, the company employs 129 full-time individuals. Its brand portfolio encompasses recognizable names such as Jessica Simpson, Joe's Jeans, William Rast, Ellen Tracy, Revo, AND1, and Avia. These brands are strategically licensed across numerous product categories, including apparel, footwear, eyewear, fashion accessories, and home goods. The firm engages in licensing agreements with both wholesale distributors and direct-to-retail partners. Notably, The Jessica Simpson Collection stands as a signature lifestyle concept created in collaboration with Jessica Simpson, offering a broad range of products like footwear, clothing, fragrances, fashion accessories, maternity wear, children's clothing, and a home line. Furthermore, the Avia brand is specifically dedicated to running and activewear merchandise.",
+      "ceo": "David Conn",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "19",
+      "phone": "16465642577",
+      "address": "5 Bryant Park, 30Th Floor",
+      "city": "New York City",
+      "state": "NY",
+      "zip": "10001",
+      "image": "https://images.financialmodelingprep.com/symbol/SQBG.png",
+      "ipoDate": "2013-09-24",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "SQBG",
+      "date": "2015-12-31",
+      "marketCap": 12104277
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041236.7857008
+}

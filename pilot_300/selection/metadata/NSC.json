@@ -1,0 +1,54 @@
+{
+  "symbol": "NSC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NSC",
+      "price": 323.73,
+      "marketCap": 72712347840,
+      "beta": 1.283,
+      "lastDividend": 5.4,
+      "range": "277.8-358.6",
+      "change": 2.59,
+      "changePercentage": 0.8065,
+      "volume": 652004,
+      "averageVolume": 1086571,
+      "companyName": "Norfolk Southern Corporation",
+      "currency": "USD",
+      "cik": "0000702165",
+      "isin": "US6558441084",
+      "cusip": "655844108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Railroads",
+      "website": "https://www.norfolksouthern.com",
+      "description": "Norfolk Southern Corporation (NSC), operating through its various subsidiaries, is a prominent rail transport provider in the United States. The company's core business involves the conveyance of raw materials, semi-finished goods, and completed merchandise across the nation. Its extensive freight services cover a broad spectrum of commodities. This includes a variety of agricultural and forestry products like grains (e.g., soybeans, wheat, corn), fertilizers, animal feeds, and diverse foodstuffs such as oils, flour, sweeteners, beverages, and canned goods, alongside lumber and paper products. NSC also handles a wide range of chemicals, from sulfur and petroleum derivatives to chlorine compounds, plastics, industrial chemicals, and sand. Furthermore, the company moves metals and construction supplies, including steel, aluminum, heavy machinery, cement, aggregates, and specialized military equipment. Transportation of both finished motor vehicles and automotive components is a significant segment, as is the consistent shipment of coal. Beyond its principal freight operations, Norfolk Southern facilitates global trade by connecting with various Atlantic and Gulf Coast ports for overseas cargo. The corporation also manages an expansive intermodal network and offers commuter passenger rail services. As of the close of 2021, the company's vast railway infrastructure extended over roughly 19,300 route miles, serving 22 states and the District of Columbia. Norfolk Southern Corporation, originally incorporated in 1980, is based in Atlanta, Georgia.",
+      "ceo": "Mark R. George",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "19300",
+      "phone": "855 667 3655",
+      "address": "650 West Peachtree Street NW",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30308-1925",
+      "image": "https://images.financialmodelingprep.com/symbol/NSC.png",
+      "ipoDate": "1982-06-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NSC",
+      "date": "2015-12-31",
+      "marketCap": 25140148000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041430.1975105
+}

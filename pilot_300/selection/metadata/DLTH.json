@@ -1,0 +1,54 @@
+{
+  "symbol": "DLTH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DLTH",
+      "price": 3.98,
+      "marketCap": 151248239,
+      "beta": 1.353,
+      "lastDividend": 0,
+      "range": "2.02-5.09",
+      "change": 0.02,
+      "changePercentage": 0.50505,
+      "volume": 55060,
+      "averageVolume": 151503,
+      "companyName": "Duluth Holdings Inc.",
+      "currency": "USD",
+      "cik": "0001649744",
+      "isin": "US26443V1017",
+      "cusip": "26443V101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Apparel - Retail",
+      "website": "https://www.duluthtrading.com",
+      "description": "Duluth Holdings Inc., originally known as GEMPLER'S, Inc. and founded in 1989, is based in Mount Horeb, Wisconsin. This enterprise is a retailer specializing in durable casual apparel, workwear, and complementary accessories designed for both men and women across the United States. Under its primary Duluth Trading brand, the company offers a comprehensive range of items, including shirts, trousers, underwear, outerwear, footwear, various accessories, and hard goods. Duluth Holdings employs a rich portfolio of distinctive trademarks and product lines, such as Alaskan Hardgear, Armachillo, Ballroom, Cab Commander, Crouch Gusset, Dry on the Fly, Duluthflex, Fire Hose, Longtail T, No Polo Shirt, No Yank, Wild Boar Mocs, and Buck Naked. Customers can purchase these goods via the company's e-commerce platform, printed catalogs, and its network of physical retail outlets. As of January 30, 2022, its retail presence consisted of 62 standard stores and three additional outlet locations.",
+      "ceo": "Stephanie L. Pugliese",
+      "sector": "Consumer Cyclical",
+      "country": "US",
+      "fullTimeEmployees": "2057",
+      "phone": "608 424 1544",
+      "address": "201 East Front Street",
+      "city": "Mount Horeb",
+      "state": "WI",
+      "zip": "53572",
+      "image": "https://images.financialmodelingprep.com/symbol/DLTH.png",
+      "ipoDate": "2015-11-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DLTH",
+      "date": "2015-12-31",
+      "marketCap": 431236630
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040552.9379203
+}

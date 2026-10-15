@@ -1,0 +1,54 @@
+{
+  "symbol": "NFBK",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "NFBK",
+      "price": 15.31,
+      "marketCap": 639404574,
+      "beta": 0.698,
+      "lastDividend": 0.52,
+      "range": "9.905-15.605",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 1078251,
+      "averageVolume": 297323,
+      "companyName": "Northfield Bancorp, Inc.",
+      "currency": "USD",
+      "cik": "0001493225",
+      "isin": "US66611T1088",
+      "cusip": "66611T108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.enorthfield.com",
+      "description": "Northfield Bancorp, Inc. acts as the holding company for Northfield Bank, providing a diverse array of financial services primarily to individual consumers and business clients. The institution offers a wide selection of deposit products, including certificates of deposit, traditional passbook and statement savings accounts, and money market accounts. Its transactional services feature negotiable order of withdrawal (NOW) accounts, alongside both interest-bearing and non-interest-bearing checking options. Furthermore, it manages individual retirement accounts (IRAs) and accepts brokered deposits. Beyond deposits, Northfield Bank extends various lending solutions. These encompass financing for multifamily and other commercial real estate properties, construction and land development projects, and general commercial and industrial loans. For residential customers, it provides one-to-four family home loans, in addition to home equity loans and lines of credit. The company strategically acquires various investment securities, such as mortgage-backed securities and corporate bonds, and places funds with other financial institutions. Its asset portfolio also comprises mortgage loans, additional mortgage-backed securities, and diverse other investments. As of December 31, 2021, Northfield Bancorp operated 38 full-service banking branches. These offices are located across Staten Island and Brooklyn, New York, as well as throughout Hunterdon, Middlesex, Mercer, and Union counties in New Jersey. Northfield Bancorp, Inc. was established in 1887 and maintains its corporate headquarters in Woodbridge, New Jersey.",
+      "ceo": "Steven Klein",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "372",
+      "phone": "732 499 7200",
+      "address": "581 Main Street",
+      "city": "Woodbridge",
+      "state": "NJ",
+      "zip": "07095",
+      "image": "https://images.financialmodelingprep.com/symbol/NFBK.png",
+      "ipoDate": "2007-11-08",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "NFBK",
+      "date": "2015-12-31",
+      "marketCap": 699190480
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040560.9692407
+}

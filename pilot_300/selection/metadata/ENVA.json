@@ -1,0 +1,54 @@
+{
+  "symbol": "ENVA",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ENVA",
+      "price": 174.18,
+      "marketCap": 4336798261,
+      "beta": 1.284,
+      "lastDividend": 0,
+      "range": "106.46-267.45",
+      "change": -0.81,
+      "changePercentage": -0.46289,
+      "volume": 326606,
+      "averageVolume": 383941,
+      "companyName": "Enova International, Inc.",
+      "currency": "USD",
+      "cik": "0001529864",
+      "isin": "US29357K1034",
+      "cusip": "29357K103",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Financial - Credit Services",
+      "website": "https://www.enova.com",
+      "description": "Enova International, Inc., a technology and analytics company, provides online financial services in the United States, Brazil, and internationally. The company offers consumer and small business installment loans; consumer and small business line of credit accounts; CSO programs, including arranging loans with independent third-party lenders and assisting in the preparation of loan applications and loan documents; and bank programs, such as marketing services and loan servicing for near-prime unsecured consumer installment loan. It also provides money transfer services. The company markets its financing products under the CashNetUSA, NetCredit, OnDeck, Headway Capital, Simplic, and Pangea brands. Enova International, Inc. was founded in 2003 and is headquartered in Chicago, Illinois.",
+      "ceo": "Steven E. Cunningham",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "1836",
+      "phone": "312 568 4200",
+      "address": "175 West Jackson Blvd.",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60604",
+      "image": "https://images.financialmodelingprep.com/symbol/ENVA.png",
+      "ipoDate": "2014-11-13",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ENVA",
+      "date": "2015-12-31",
+      "marketCap": 219068620
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040356.048596
+}

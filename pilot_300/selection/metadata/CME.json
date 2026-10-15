@@ -1,0 +1,54 @@
+{
+  "symbol": "CME",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CME",
+      "price": 285.59,
+      "marketCap": 102692245433,
+      "beta": 0.27,
+      "lastDividend": 11.3,
+      "range": "218.31-329.16",
+      "change": 7.56,
+      "changePercentage": 2.71913,
+      "volume": 2003581,
+      "averageVolume": 2815970,
+      "companyName": "CME Group Inc.",
+      "currency": "USD",
+      "cik": "0001156375",
+      "isin": "US12572Q1058",
+      "cusip": "12572Q105",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Financial - Data & Stock Exchanges",
+      "website": "https://www.cmegroup.com",
+      "description": "CME Group Inc., through its various subsidiaries, manages international marketplaces for the exchange of futures and options on futures contracts worldwide. Its extensive array of product offerings includes futures and options linked to a broad spectrum of underlying assets, such as interest rates, equity indices, foreign exchange, agricultural commodities, energy, and metals, alongside fixed-income products. The company additionally furnishes essential clearinghouse services, which entail the verification, settlement, and guarantee of futures, options, and cleared swap agreements traded across its venues. It also offers services for transaction processing and risk mitigation. Furthermore, the organization provides diverse market data services, encompassing both real-time and historical data feeds. Its wide-ranging client base consists of professional traders, financial institutions, both institutional and individual investors, corporations, manufacturers, producers, governments, and central banks. Founded in Chicago, Illinois, in 1898, the enterprise was formerly known as Chicago Mercantile Exchange Holdings Inc. before rebranding as CME Group Inc. in July 2007.",
+      "ceo": "Terrence A. Duffy",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "3875",
+      "phone": "312 930 1000",
+      "address": "20 South Wacker Drive",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60606",
+      "image": "https://images.financialmodelingprep.com/symbol/CME.png",
+      "ipoDate": "2002-12-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CME",
+      "date": "2015-12-31",
+      "marketCap": 30533468399
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040514.2199676
+}

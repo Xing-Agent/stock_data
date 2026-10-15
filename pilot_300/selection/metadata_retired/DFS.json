@@ -1,0 +1,54 @@
+{
+  "symbol": "DFS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DFS",
+      "price": 200.05,
+      "marketCap": 50343181050,
+      "beta": 1.146,
+      "lastDividend": 2.8,
+      "range": "119.95-207.42",
+      "change": -0.43,
+      "changePercentage": -0.21449,
+      "volume": 31267850,
+      "averageVolume": 2908390,
+      "companyName": "Discover Financial Services",
+      "currency": "USD",
+      "cik": "0001393612",
+      "isin": "US2547091080",
+      "cusip": "254709108",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Financial - Credit Services",
+      "website": "https://www.discover.com",
+      "description": "Based in Riverwoods, Illinois, and founded in 1960, Discover Financial Services offers a comprehensive suite of digital banking and payment solutions throughout the United States. Its operations are organized into two primary divisions: Digital Banking and Payment Services. The Digital Banking segment caters to individuals with Discover-branded credit cards, various consumer loan products including private student, personal, and home loans, and a direct-to-consumer deposit portfolio featuring savings, certificates of deposit (CDs), money market, checking, and sweep accounts, alongside specialized IRA deposit options. The Payment Services segment is responsible for operating the PULSE network, which supports automated teller machines, debit transactions, and electronic funds transfers. It also oversees Diners Club International, a global payments network involved in issuing branded charge cards and facilitating card acceptance. Furthermore, this segment provides essential payment transaction processing and settlement services.",
+      "ceo": "J. Michael Shepherd",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "21000",
+      "phone": "224 405 0900",
+      "address": "2500 Lake Cook Road",
+      "city": "Riverwoods",
+      "state": "IL",
+      "zip": "60015",
+      "image": "https://images.financialmodelingprep.com/symbol/DFS.png",
+      "ipoDate": "2007-06-14",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DFS",
+      "date": "2015-12-31",
+      "marketCap": 22359540000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792040478.4373965
+}

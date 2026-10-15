@@ -1,0 +1,54 @@
+{
+  "symbol": "CHEF",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CHEF",
+      "price": 113,
+      "marketCap": 4609957379,
+      "beta": 1.443,
+      "lastDividend": 0,
+      "range": "56.46-118.51",
+      "change": 5.21,
+      "changePercentage": 4.83347,
+      "volume": 788887,
+      "averageVolume": 641363,
+      "companyName": "The Chefs' Warehouse, Inc.",
+      "currency": "USD",
+      "cik": "0001517175",
+      "isin": "US1630861011",
+      "cusip": "163086101",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Food Distribution",
+      "website": "https://www.chefswarehouse.com",
+      "description": "The Chefs' Warehouse, Inc. (CHEF), operating through its various subsidiaries, focuses on supplying high-end and gourmet food products across both the United States and Canada. The company maintains an extensive catalog, featuring more than 50,000 distinct stock-keeping units. This vast selection encompasses a diverse array of specialty items, such as artisanal charcuterie, premium cheeses, unique oils and vinegars, truffles, caviar, exquisite chocolates, and various pastry essentials. Beyond these niche offerings, Chefs' Warehouse also provides \"center-of-the-plate\" proteins, including custom-cut beef, fresh seafood, and hormone-free poultry. Their inventory further extends to everyday kitchen staples like cooking oils, butter, eggs, milk, and flour. The company serves a broad spectrum of professional culinary clients, which includes independent restaurants with distinctive menus, fine dining establishments, country clubs, hotels, catering services, culinary schools, bakeries, patisseries, chocolatiers, cruise lines, casinos, and specialized food retailers. Certain \"center-of-the-plate\" items are also made available directly to individual consumers via dedicated mail and e-commerce channels. Founded in 1985, the firm's corporate headquarters are situated in Ridgefield, Connecticut.",
+      "ceo": "Christopher Pappas",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "5156",
+      "phone": "203 894 1345",
+      "address": "100 East Ridge Road",
+      "city": "Ridgefield",
+      "state": "CT",
+      "zip": "06877",
+      "image": "https://images.financialmodelingprep.com/symbol/CHEF.png",
+      "ipoDate": "2011-07-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CHEF",
+      "date": "2015-12-31",
+      "marketCap": 431745970
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041225.9753523
+}

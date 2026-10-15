@@ -1,0 +1,63 @@
+{
+  "symbol": "EQS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "EQS",
+      "price": 0.87,
+      "marketCap": 12151026,
+      "beta": 0.123,
+      "lastDividend": 0,
+      "range": "0.765-2.27",
+      "change": 0.03,
+      "changePercentage": 3.57143,
+      "volume": 4571,
+      "averageVolume": 15054,
+      "companyName": "Equus Total Return Inc",
+      "currency": "USD",
+      "cik": "0000878932",
+      "isin": "US2947661003",
+      "cusip": "294766100",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Asset Management",
+      "website": "https://www.equuscap.com",
+      "description": "Equus Total Return, Inc. is a business development company (BDC) specializing in leveraged buyouts, management buyouts, corporate partnerships/joint ventures, growth and expansion capital, acquisition financing, roll-up acquisition strategies, operational turnarounds, recapitalizations of existing businesses, special situations, equity and equity-oriented securities issued by privately owned companies, debt securities including subordinate debt, debt convertible into common or preferred stock, or debt combined with warrants and common and preferred stock, and preferred equity financing. It invests in middle market companies and acts as a lead investor. It invests in technology, telecommunication, financial services, natural resource and industrial manufacturing and services. It invests in companies engaged in the alternative energy, real estate, healthcare, education, e-learning, leisure and entertainment, and foreign investment sector in the United States, China, India, and Europe. It investments include common and preferred stock, debt convertible into common or preferred stock, debt combined with warrants and options, and other rights to acquire common or preferred stock. It seeks to invest in companies between $1 million and $25 million with revenues between $5 million and $150 million with EBITDA between $2 million and $50 million. It seeks to take control and non-control equity positions. Equus Total Return, Inc. was founded in 1991 and is based in Houston, Texas with additional office in Vancouver, Canada.",
+      "ceo": "John A. Hardy",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "24",
+      "phone": "888-323-4533",
+      "address": "700 Louisiana Street",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77002",
+      "image": "https://images.financialmodelingprep.com/symbol/EQS.png",
+      "ipoDate": "1992-09-11",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "EQS",
+      "date": "2015-12-31",
+      "marketCap": 22686460
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040760.2698684,
+  "previous_attempts": [
+    {
+      "symbol": "EQS",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040270.6468306
+    }
+  ]
+}

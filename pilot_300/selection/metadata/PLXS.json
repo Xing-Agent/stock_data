@@ -1,0 +1,63 @@
+{
+  "symbol": "PLXS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PLXS",
+      "price": 245.72,
+      "marketCap": 6574587768,
+      "beta": 0.885,
+      "lastDividend": 0,
+      "range": "132.03-307.06",
+      "change": -12.08,
+      "changePercentage": -4.6858,
+      "volume": 263947,
+      "averageVolume": 277373,
+      "companyName": "Plexus Corp.",
+      "currency": "USD",
+      "cik": "0000785786",
+      "isin": "US7291321005",
+      "cusip": "729132100",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Hardware, Equipment & Parts",
+      "website": "https://www.plexus.com",
+      "description": "Operating globally across the Americas, Europe, the Middle East, Africa, and the Asia-Pacific regions, Plexus Corp. and its subsidiaries specialize in delivering advanced electronic manufacturing solutions. The company provides a comprehensive range of services, including design and development, efficient supply chain management, support for new product introductions, and core manufacturing capabilities, alongside essential aftermarket services. These offerings are tailored for businesses in key market segments such as healthcare/life sciences, industrial/commercial, aerospace/defense, and communications. Established in 1979, Plexus Corp. maintains its corporate headquarters in Neenah, Wisconsin.",
+      "ceo": "Todd Kelsey",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "20000",
+      "phone": "920 969 6000",
+      "address": "One Plexus Way",
+      "city": "Neenah",
+      "state": "WI",
+      "zip": "54956",
+      "image": "https://images.financialmodelingprep.com/symbol/PLXS.png",
+      "ipoDate": "1986-02-05",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PLXS",
+      "date": "2015-12-31",
+      "marketCap": 1166188320
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041731.4557028,
+  "previous_attempts": [
+    {
+      "symbol": "PLXS",
+      "status": "fetch_failed_not_missing_data",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792041492.773315
+    }
+  ]
+}

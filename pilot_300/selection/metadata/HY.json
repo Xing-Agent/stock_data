@@ -1,0 +1,54 @@
+{
+  "symbol": "HY",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "HY",
+      "price": 30.67,
+      "marketCap": 549925000,
+      "beta": 1.63,
+      "lastDividend": 1.45,
+      "range": "26.41-41.3",
+      "change": -1.26,
+      "changePercentage": -3.94613,
+      "volume": 138981,
+      "averageVolume": 110694,
+      "companyName": "Hyster-Yale Materials Handling, Inc.",
+      "currency": "USD",
+      "cik": "0001173514",
+      "isin": "US4491721050",
+      "cusip": "449172105",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.hyster-yale.com",
+      "description": "Hyster-Yale Materials Handling, Inc., established in 1991 and headquartered in Cleveland, Ohio, operates as a global entity specializing in comprehensive material handling solutions. The company is responsible for engineering, manufacturing, distributing, and servicing a broad array of lift trucks, specialized attachments, and replacement parts across the world. It undertakes the production of essential components such as frames, masts, and transmissions, which are then assembled into complete lift truck units. These vehicles are primarily marketed to independent dealerships under the prominent Hyster and Yale brand names. In addition to its core lift truck offerings, Hyster-Yale supplies aftermarket parts—including those under the UNISOURCE and PREMIER brands, alongside Hyster and Yale—to its dealer network. These parts facilitate the maintenance of both its own equipment and competitor lift trucks. The company further diversifies its product portfolio with attachments, forks, and lift tables marketed under the Bolzoni, Auramo, and Meyer brands, and by developing machinery for port operations and challenging rough terrain environments. Demonstrating a forward-looking approach, it also designs, produces, and sells hydrogen fuel-cell stacks and engines. Its extensive client base spans numerous industries, including light and heavy manufacturing, transportation, automotive, rental services, building materials, paper, lumber, metal products, warehousing, retail, food distribution, container handling, and various governmental agencies worldwide.",
+      "ceo": "Rajiv K. Prasad",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "7500",
+      "phone": "440 449 9600",
+      "address": "5875 Landerbrook Drive",
+      "city": "Cleveland",
+      "state": "OH",
+      "zip": "44124-4069",
+      "image": "https://images.financialmodelingprep.com/symbol/HY.png",
+      "ipoDate": "2012-10-01",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "HY",
+      "date": "2015-12-31",
+      "marketCap": 857662400
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041191.8065765
+}

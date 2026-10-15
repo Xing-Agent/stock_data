@@ -1,0 +1,54 @@
+{
+  "symbol": "AMRS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "AMRS",
+      "price": 0.05,
+      "marketCap": 0,
+      "beta": 1.18947,
+      "lastDividend": 0,
+      "range": "0.05-0.0643",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 46746028,
+      "averageVolume": 46746028,
+      "companyName": "Amyris, Inc.",
+      "currency": "USD",
+      "cik": "0001365916",
+      "isin": "US03236M2008",
+      "cusip": "03236M200",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Chemicals - Specialty",
+      "website": "https://amyris.com",
+      "description": "Amyris, Inc. is a synthetic biotechnology enterprise with global operations in the clean health, beauty, and flavors and fragrance sectors, covering Europe, North America, Asia, and South America. The company produces and sells a variety of consumer goods, including clean beauty, personal care, and health and wellness products, as well as specialized ingredients supplied to the flavor and fragrance, nutrition, food and beverage, and clean beauty and personal care industries. Its product offerings are marketed under brand names such as Biossance, Pipette, Purecane, Terasana, Costa Brazil, OLIKA, Rose Inc., and JVN. Amyris also engages in a collaborative agreement with the Infectious Disease Research Institute for the advancement of a COVID-19 vaccine. Founded in 2003 and based in Emeryville, California, the company operated as Amyris Biotechnologies, Inc. until it adopted its current name, Amyris, Inc., in June 2010.",
+      "ceo": "Hermanus Kieftenbeld",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "1598",
+      "phone": "510 450 0761",
+      "address": "5885 Hollis Street",
+      "city": "EmeryVille",
+      "state": "CA",
+      "zip": "94608",
+      "image": "https://images.financialmodelingprep.com/symbol/AMRS.png",
+      "ipoDate": "2010-09-28",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "AMRS",
+      "date": "2015-12-31",
+      "marketCap": 335664963
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041197.2962296
+}

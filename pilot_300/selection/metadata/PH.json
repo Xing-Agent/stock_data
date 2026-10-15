@@ -1,0 +1,54 @@
+{
+  "symbol": "PH",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "PH",
+      "price": 956.32,
+      "marketCap": 120603427840,
+      "beta": 1.119,
+      "lastDividend": 7.6,
+      "range": "721.17-1099.94",
+      "change": 2.88,
+      "changePercentage": 0.30206,
+      "volume": 710966,
+      "averageVolume": 608698,
+      "companyName": "Parker-Hannifin Corporation",
+      "currency": "USD",
+      "cik": "0000076334",
+      "isin": "US7010941042",
+      "cusip": "701094104",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://www.parker.com",
+      "description": "Parker-Hannifin Corporation is a global enterprise specializing in the production and distribution of advanced motion and control technologies and systems. These solutions serve a broad spectrum of international markets, including mobile applications, industrial operations, and the aerospace sector. Its organizational structure is primarily divided into two key business units: Diversified Industrial and Aerospace Systems. Within the Diversified Industrial division, the product portfolio is extensive, covering sealing, protective shielding, thermal management systems, bonding agents, surface coatings, and technologies designed to reduce noise, vibration, and harshness. This segment also provides filtration units, diagnostic tools, and related solutions for purifying fuel, air, oil, water, and various other liquids and gases by eliminating contaminants. Additionally, it produces connectors vital for fluid handling (controlling, transmitting, and containing), along with advanced control mechanisms engineered for demanding environments involving extreme corrosion, temperatures, pressures, and requiring precise flow regulation. Crucially, it supplies hydraulic, pneumatic, and electromechanical components and integrated systems to manufacturers and operators of both mobile and stationary industrial machinery. Products from this division are supplied to original equipment manufacturers (OEMs) as well as to distributors who cater to the aftermarket across a wide array of sectors. These include industries focused on manufacturing, packaging, processing, transportation, construction, climate control (refrigeration and air conditioning), agriculture, and military machinery and equipment. In contrast, the Aerospace Systems segment focuses on delivering specialized components and systems for both commercial and military aircraft structures and engine applications. Its comprehensive offerings encompass control actuation systems, parts for engine construction and exhaust, entire engine systems, fluid transport and fuel systems (including those for fuel tank inerting), hydraulic and lubrication components, pilot interface controls, pneumatic control elements, thermal regulation products, and landing gear wheels and brakes. The segment also provides devices for precise fluid measurement, distribution, and atomization. Sales within this particular division are conducted directly with original equipment manufacturers (OEMs) and final consumers. Overall, Parker-Hannifin distributes its solutions via a diversified sales network, comprising its own dedicated sales personnel, independent distributors, and authorized sales representatives. Established in 1917, the corporation maintains its global headquarters in Cleveland, Ohio.",
+      "ceo": "Jennifer A. Parmentier",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "59850",
+      "phone": "216 896 3000",
+      "address": "6035 Parkland Boulevard",
+      "city": "Cleveland",
+      "state": "OH",
+      "zip": "44124-4141",
+      "image": "https://images.financialmodelingprep.com/symbol/PH.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "PH",
+      "date": "2015-12-31",
+      "marketCap": 13073835977
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041764.2434146
+}

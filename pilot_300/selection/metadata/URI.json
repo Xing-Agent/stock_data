@@ -1,0 +1,54 @@
+{
+  "symbol": "URI",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "URI",
+      "price": 1034.81,
+      "marketCap": 64409161425,
+      "beta": 1.826,
+      "lastDividend": 7.7,
+      "range": "701.59-1179.18",
+      "change": -25.77,
+      "changePercentage": -2.4298,
+      "volume": 589841,
+      "averageVolume": 479098,
+      "companyName": "United Rentals, Inc.",
+      "currency": "USD",
+      "cik": "0001067701",
+      "isin": "US9113631090",
+      "cusip": "911363109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Rental & Leasing Services",
+      "website": "https://www.unitedrentals.com",
+      "description": "United Rentals, Inc., founded in 1997 and headquartered in Stamford, Connecticut, functions as a prominent equipment rental firm through its various subsidiaries. The company's operations are divided into two main divisions: General Rentals and Specialty. The General Rentals segment offers a broad selection of construction and industrial machinery, including heavy equipment like backhoes, skid-steer loaders, earthmoving machinery, and forklifts, alongside aerial work platforms such as boom and scissor lifts. This division also provides general tools and lighter equipment, ranging from pressure washers to power tools. Its client base is diverse, encompassing construction and industrial enterprises, manufacturers, utility companies, municipalities, government bodies, and individual homeowners. Conversely, the Specialty segment focuses on more specialized construction products. This includes comprehensive trench safety gear, such as trench shields, aluminum hydraulic shoring systems, and construction lasers, designed for underground work. It also supplies power generation and climate control equipment, featuring portable diesel generators, electrical distribution units, and temperature management systems. Additionally, the segment offers fluid solutions for containment, transfer, and treatment, as well as mobile storage units and modular office spaces. This segment primarily caters to companies undertaking infrastructure projects, municipalities, and industrial clients. Beyond rentals, United Rentals also sells new equipment, including aerial lifts, telehandlers, and compressors, along with construction consumables, tools, small equipment, and safety supplies. It further provides parts for customer-owned machinery and offers repair and maintenance services. The company remarkets its used equipment through its dedicated sales force, brokers, its website, direct sales to manufacturers, and auctions. United Rentals maintains an extensive network of 1,360 rental facilities across the United States, Canada, Europe, Australia, and New Zealand.",
+      "ceo": "Matthew J. Flannery",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "28500",
+      "phone": "203 622 3131",
+      "address": "100 First Stamford Place",
+      "city": "Stamford",
+      "state": "CT",
+      "zip": "06902",
+      "image": "https://images.financialmodelingprep.com/symbol/URI.png",
+      "ipoDate": "1997-12-18",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "URI",
+      "date": "2015-12-31",
+      "marketCap": 6565595400
+    }
+  ],
+  "size_group": "mid",
+  "retrieved_at_unix": 1792041352.2461226
+}

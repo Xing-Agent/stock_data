@@ -1,0 +1,54 @@
+{
+  "symbol": "ACRS",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "ACRS",
+      "price": 3.38,
+      "marketCap": 472063238,
+      "beta": 0.799,
+      "lastDividend": 0,
+      "range": "1.83-6.6",
+      "change": -0.09,
+      "changePercentage": -2.59366,
+      "volume": 2589436,
+      "averageVolume": 2478419,
+      "companyName": "Aclaris Therapeutics, Inc.",
+      "currency": "USD",
+      "cik": "0001557746",
+      "isin": "US00461U1051",
+      "cusip": "00461U105",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Biotechnology",
+      "website": "https://www.aclaristx.com",
+      "description": "Aclaris Therapeutics, Inc., a biopharmaceutical firm operating in the United States, is currently in the clinical development phase, focused on creating novel therapeutic agents for various immune-inflammatory conditions. The company's operations are divided into two primary divisions: the Therapeutics segment, dedicated to discovering and progressing innovative treatments to address crucial unmet needs in immuno-inflammatory disorders; and the Contract Research segment, which delivers specialized laboratory services. The company's pipeline features several investigational compounds. Among these is Zunsemetinib, an MK2 inhibitor, being developed to treat moderate to severe cases of rheumatoid arthritis, psoriatic arthritis, and hidradenitis suppurativa. Another significant candidate is ATI-1777, a soft JAK 1/3 inhibitor, intended for the management of moderate to severe atopic dermatitis. Additionally, Aclaris is advancing ATI-2138, an ITK/TXK/JAK3 inhibitor, as a potential intervention for T cell-mediated autoimmune diseases; a Gut-Biased Program targeting inflammatory bowel disease; and ATI-2231, an MK2 inhibitor, for the treatment of pancreatic and metastatic breast cancer. Established in 2012, Aclaris Therapeutics, Inc. has its corporate headquarters situated in Wayne, Pennsylvania.",
+      "ceo": "Neal S. Walker",
+      "sector": "Healthcare",
+      "country": "US",
+      "fullTimeEmployees": "71",
+      "phone": "484 324 7933",
+      "address": "640 Lee Road",
+      "city": "Wayne",
+      "state": "PA",
+      "zip": "19087",
+      "image": "https://images.financialmodelingprep.com/symbol/ACRS.png",
+      "ipoDate": "2015-10-06",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "ACRS",
+      "date": "2015-12-31",
+      "marketCap": 543420694
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041833.1865187
+}

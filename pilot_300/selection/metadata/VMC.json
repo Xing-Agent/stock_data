@@ -1,0 +1,54 @@
+{
+  "symbol": "VMC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "VMC",
+      "price": 241.77,
+      "marketCap": 31328314830,
+      "beta": 1.046,
+      "lastDividend": 2.05,
+      "range": "237.03-331.09",
+      "change": -1.77,
+      "changePercentage": -0.72678,
+      "volume": 1051306,
+      "averageVolume": 1129508,
+      "companyName": "Vulcan Materials Company",
+      "currency": "USD",
+      "cik": "0001396009",
+      "isin": "US9291601097",
+      "cusip": "929160109",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Construction Materials",
+      "website": "https://www.vulcanmaterials.com",
+      "description": "Vulcan Materials Company, alongside its affiliated entities, stands as a prominent producer and distributor of construction aggregates, primarily operating within the United States. The company's activities are organized into four distinct divisions: Aggregates, Asphalt, Concrete, and Calcium. The Aggregates division focuses on providing essential materials like crushed stone, sand, gravel, and other foundational aggregates, along with related services. These products are vital for building and maintaining highways, public infrastructure, residential properties, and various commercial, industrial, and other non-residential structures. Through its Asphalt Mix segment, the firm furnishes asphalt mixture to locations in Alabama, Arizona, California, New Mexico, Tennessee, and Texas, additionally performing asphalt paving work in Alabama, Tennessee, and Texas. The Concrete segment supplies ready-mixed concrete to customers in California, Maryland, New Jersey, New York, Oklahoma, Pennsylvania, Texas, Virginia, and Washington D.C. Lastly, the Calcium division is responsible for mining, manufacturing, and marketing calcium products for use in animal feed, plastics, and water treatment industries. Established in 1909, the corporation, initially known as Virginia Holdco, Inc. before its name change, is headquartered in Birmingham, Alabama.",
+      "ceo": "Ronnie A. Pruitt",
+      "sector": "Basic Materials",
+      "country": "US",
+      "fullTimeEmployees": "11548",
+      "phone": "205 298 3000",
+      "address": "1200 Urban Center Drive",
+      "city": "Birmingham",
+      "state": "AL",
+      "zip": "35242",
+      "image": "https://images.financialmodelingprep.com/symbol/VMC.png",
+      "ipoDate": "1957-01-02",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "VMC",
+      "date": "2015-12-31",
+      "marketCap": 12708980370
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041099.0538836
+}

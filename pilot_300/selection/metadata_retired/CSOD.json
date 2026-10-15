@@ -1,0 +1,54 @@
+{
+  "symbol": "CSOD",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "CSOD",
+      "price": 57.49,
+      "marketCap": 0,
+      "beta": 1.268253,
+      "lastDividend": 0,
+      "range": "57.48-57.505",
+      "change": 0,
+      "changePercentage": 0,
+      "volume": 3739087,
+      "averageVolume": 1328149,
+      "companyName": "Cornerstone OnDemand, Inc.",
+      "currency": "USD",
+      "cik": "0001401680",
+      "isin": "US21925Y1038",
+      "cusip": "21925Y103",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Software - Application",
+      "website": "http://www.cornerstoneondemand.com",
+      "description": "Cornerstone OnDemand, Inc., operating globally with its various entities, delivers comprehensive talent management and human capital development solutions through a cloud-based software-as-a-service (SaaS) model. Its enterprise platform for professional growth is structured into four distinct suites. The Recruiting Suite assists organizations in attracting, hiring, and effectively integrating new personnel. A sophisticated and modern Learning Suite is designed to facilitate regulatory adherence, promote knowledge sharing, and support employee-driven skill enhancement initiatives. The Performance Suite provides essential tools for strategic goal setting, conducting thorough performance evaluations, assessing competencies, crafting personalized development plans, offering continuous feedback, administering compensation, and planning for leadership succession. Lastly, the HR Suite centralizes an aggregated view of all employee data, enabling strategic workforce planning, empowering self-service functionalities for staff, and generating critical compliance reports. Beyond its core software offerings, the company also provides expert professional services, including application setup, system integration, business process optimization, change management guidance, and user training. Cornerstone OnDemand distributes its software, content, and services through a dual approach: directly via its internal sales force and indirectly through an extensive network of national and international distributors. It caters to a wide array of industries, such as business services, finance, healthcare, pharmaceuticals, insurance, manufacturing, retail, and technology. The company was established in 1999 and maintains its corporate headquarters in Santa Monica, California.",
+      "ceo": "Adam Miller",
+      "sector": "Technology",
+      "country": "US",
+      "fullTimeEmployees": "2714",
+      "phone": "13107520200",
+      "address": "1601 Cloverfield Blvd Ste 620",
+      "city": "Santa Monica",
+      "state": "CA",
+      "zip": "90404",
+      "image": "https://images.financialmodelingprep.com/symbol/CSOD.png",
+      "ipoDate": "2011-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": false,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "CSOD",
+      "date": "2015-12-31",
+      "marketCap": 1893176310
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040473.3471725
+}

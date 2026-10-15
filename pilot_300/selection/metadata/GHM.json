@@ -1,0 +1,54 @@
+{
+  "symbol": "GHM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GHM",
+      "price": 73.36,
+      "marketCap": 861026320,
+      "beta": 1.077,
+      "lastDividend": 0,
+      "range": "52.57-125.82",
+      "change": -4.22,
+      "changePercentage": -5.43955,
+      "volume": 603035,
+      "averageVolume": 223248,
+      "companyName": "Graham Corporation",
+      "currency": "USD",
+      "cik": "0000716314",
+      "isin": "US3845561063",
+      "cusip": "384556106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Industrial - Machinery",
+      "website": "https://grahamcorp.com",
+      "description": "Graham Corporation, founded in 1936 and based in Batavia, New York, is an engineering and manufacturing company that, along with its subsidiaries, specializes in creating advanced fluid, power, heat transfer, and vacuum equipment. This specialized machinery serves a broad spectrum of critical industries, including chemical and petrochemical processing, defense, aerospace, petroleum refining, cryogenic applications, and energy. The company's diverse product range includes: Power Generation Solutions: Such as ejectors and surface condensers for power plants, as well as turbines, generators, compressors, and pumps. Defense and Space Technologies: Providing torpedo ejection and power systems that integrate turbines, alternators, regulators, pumps, and blowers; also supplying rocket propulsion systems like turbopumps and fuel pumps. Thermal Management and Life Support Systems: Offering pumps, blowers, and electronics for thermal control, cooling systems featuring pumps, compressors, fans, and blowers, and life support equipment comprising fans, pumps, and blowers. Heat Transfer and Vacuum Equipment: Including ejectors, process and surface condensers, liquid ring pumps, heat exchangers, nozzles, and turbomachinery products. Beyond manufacturing, Graham Corporation also provides comprehensive servicing and supplies spare parts for its equipment. The company distributes its products directly across a global network, with operations in the United States, Canada, the Middle East, Asia, and South America, among other international regions.",
+      "ceo": "Matthew J. Malone",
+      "sector": "Industrials",
+      "country": "US",
+      "fullTimeEmployees": "732",
+      "phone": "585 343 2216",
+      "address": "20 Florence Avenue",
+      "city": "Batavia",
+      "state": "NY",
+      "zip": "14020",
+      "image": "https://images.financialmodelingprep.com/symbol/GHM.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GHM",
+      "date": "2015-12-31",
+      "marketCap": 163961360
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040604.579299
+}

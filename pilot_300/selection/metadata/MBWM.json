@@ -1,0 +1,54 @@
+{
+  "symbol": "MBWM",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "MBWM",
+      "price": 57.69,
+      "marketCap": 997223571,
+      "beta": 0.842,
+      "lastDividend": 1.56,
+      "range": "42.75-62.95",
+      "change": -0.34,
+      "changePercentage": -0.5859,
+      "volume": 149988,
+      "averageVolume": 126389,
+      "companyName": "Mercantile Bank Corporation",
+      "currency": "USD",
+      "cik": "0001042729",
+      "isin": "US5873761044",
+      "cusip": "587376104",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Banks - Regional",
+      "website": "https://www.mercbank.com",
+      "description": "Mercantile Bank Corporation serves as the parent holding company for Mercantile Bank of Michigan, providing a full spectrum of commercial and personal banking solutions to small and mid-sized businesses, as well as individual customers, across the United States. The institution facilitates a diverse range of deposit offerings, including checking, savings, term certificates, time deposits, and certificates of deposit (CDs). Its extensive lending portfolio encompasses commercial and industrial financing; loans for vacant land, property development, and new home construction; mortgages for both owner-occupied and investment real estate (such as multi-family and rental properties); single-family residential loans; home equity lines of credit (HELOCs); and various consumer loans, including funding for new and pre-owned vehicles, watercraft, credit cards, and overdraft protection, alongside residential mortgage and installment options. Beyond core banking, Mercantile Bank supplies additional conveniences like courier services and secure deposit boxes. It also markets a comprehensive array of insurance policies, such as coverage for private auto, homeowners, personal inland marine, boat owners, recreational vehicles, dwelling fire, umbrella liability, small business needs, and life insurance. The bank's infrastructure further includes 22 automated teller machines (ATMs) and 19 video banking machines. As of January 18, 2022, the company maintained 44 branch locations. Established in 1997, Mercantile Bank Corporation's main office is situated in Grand Rapids, Michigan.",
+      "ceo": "Raymond E. Reitsma",
+      "sector": "Financial Services",
+      "country": "US",
+      "fullTimeEmployees": "765",
+      "phone": "616 406 3000",
+      "address": "310 Leonard Street NW",
+      "city": "Grand Rapids",
+      "state": "MI",
+      "zip": "49504",
+      "image": "https://images.financialmodelingprep.com/symbol/MBWM.png",
+      "ipoDate": "1999-07-20",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "MBWM",
+      "date": "2015-12-31",
+      "marketCap": 399797189
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792041748.2099597
+}

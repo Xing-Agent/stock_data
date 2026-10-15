@@ -1,0 +1,54 @@
+{
+  "symbol": "GNE",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "GNE",
+      "price": 16.93,
+      "marketCap": 445591217,
+      "beta": 0.182,
+      "lastDividend": 0.3,
+      "range": "12.69-17.09",
+      "change": 0.04,
+      "changePercentage": 0.23683,
+      "volume": 72218,
+      "averageVolume": 81816,
+      "companyName": "Genie Energy Ltd.",
+      "currency": "USD",
+      "cik": "0001528356",
+      "isin": "US3722842081",
+      "cusip": "372284208",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Electric",
+      "website": "https://www.genie.com",
+      "description": "Genie Energy Ltd. is an energy solutions provider delivering electricity and natural gas to individual consumers and small businesses. The company's reach extends internationally, encompassing significant markets such as the United States, Finland, Sweden, and Japan. Its operations are structured into three primary divisions: Genie Retail Energy (GRE), GRE International, and Genie Renewables. Beyond utility provision, Genie Energy also offers energy advisory and brokerage services. Furthermore, it is involved in the renewable sector through solar panel production and distribution, the design of solar installations, and comprehensive project management. Genie Energy Ltd. was founded in 2011 and is based in Newark, New Jersey.",
+      "ceo": "Michael Stein",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "139",
+      "phone": "973 438 3500",
+      "address": "520 Broad Street",
+      "city": "Newark",
+      "state": "NJ",
+      "zip": "07102",
+      "image": "https://images.financialmodelingprep.com/symbol/GNE.png",
+      "ipoDate": "2011-10-26",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "GNE",
+      "date": "2015-12-31",
+      "marketCap": 254119650
+    }
+  ],
+  "size_group": "small",
+  "retrieved_at_unix": 1792040337.5137887
+}

@@ -1,0 +1,17 @@
+{
+  "symbol": "VAR",
+  "status": "unavailable",
+  "market_cap_date": "2015-12-31",
+  "profiles": [],
+  "reason": "missing_or_ambiguous_profile",
+  "retrieved_at_unix": 1792040621.414191,
+  "previous_attempts": [
+    {
+      "symbol": "VAR",
+      "status": "unavailable",
+      "market_cap_date": "2015-12-31",
+      "reason": "ConnectError",
+      "retrieved_at_unix": 1792040462.8252556
+    }
+  ]
+}

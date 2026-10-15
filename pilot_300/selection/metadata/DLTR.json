@@ -1,0 +1,54 @@
+{
+  "symbol": "DLTR",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "DLTR",
+      "price": 121.76,
+      "marketCap": 23399228000,
+      "beta": 0.716,
+      "lastDividend": 0,
+      "range": "85.88-142.4",
+      "change": 5.48,
+      "changePercentage": 4.71276,
+      "volume": 2007450,
+      "averageVolume": 2762257,
+      "companyName": "Dollar Tree, Inc.",
+      "currency": "USD",
+      "cik": "0000935703",
+      "isin": "US2567461080",
+      "cusip": "256746108",
+      "exchangeFullName": "NASDAQ Global Select",
+      "exchange": "NASDAQ",
+      "industry": "Discount Stores",
+      "website": "https://www.dollartree.com",
+      "description": "Dollar Tree, Inc. (DLTR) operates as a leading discount retailer, managing its extensive operations through two principal divisions: Dollar Tree and Family Dollar. The Dollar Tree segment distinguishes itself by offering all its merchandise at a consistent price of $1.25. Its product range is broad, encompassing essential consumables like confectionery, various food items, health and personal care products, household cleaning chemicals, paper goods, and frozen or refrigerated foods. Beyond these daily necessities, customers can find a diverse selection of general merchandise, including toys, resilient housewares, gifts, stationery, party essentials, greeting cards, softline apparel, and arts and crafts supplies. The segment also prominently features seasonal items for holidays such as Christmas, Easter, Halloween, and Valentine's Day. By January 29, 2022, this division maintained a substantial presence with 8,061 retail locations across its Dollar Tree and Dollar Tree Canada brands, supported by 15 distribution centers in the U.S. and an additional two in Canada. Conversely, the Family Dollar segment functions as a general merchandise discount chain with varying prices. Its inventory is comprehensive, covering a wide array of consumable goods such as groceries, beverages, tobacco, personal care and health products, household chemicals, paper products, hardware, automotive accessories, diapers, batteries, and pet food and supplies. Additionally, the segment provides home products, which include housewares, home décor, giftware, and domestics like bedding and towels. Shoppers can also find apparel and accessories, encompassing clothing, fashion items, and footwear. Seasonal and electronics merchandise, ranging from holiday-specific goods to pre-paid cellular phones and services, along with stationery, school supplies, and toys, are also key offerings. As of January 29, 2022, the Family Dollar brand operated 8,016 stores and was supported by 11 distribution centers. Founded in 1986, Dollar Tree, Inc. is headquartered in Chesapeake, Virginia.",
+      "ceo": "Michael C. Creedon Jr.",
+      "sector": "Consumer Defensive",
+      "country": "US",
+      "fullTimeEmployees": "150000",
+      "phone": "757 321 5000",
+      "address": "500 Volvo Parkway",
+      "city": "Chesapeake",
+      "state": "VA",
+      "zip": "23320",
+      "image": "https://images.financialmodelingprep.com/symbol/DLTR.png",
+      "ipoDate": "1995-03-07",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "DLTR",
+      "date": "2015-12-31",
+      "marketCap": 18138978000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041934.3606086
+}

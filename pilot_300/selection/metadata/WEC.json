@@ -1,0 +1,54 @@
+{
+  "symbol": "WEC",
+  "status": "metadata_available_not_pit_identity_verified",
+  "market_cap_date": "2015-12-31",
+  "profiles": [
+    {
+      "symbol": "WEC",
+      "price": 106.75,
+      "marketCap": 34771250500,
+      "beta": 0.442,
+      "lastDividend": 3.75,
+      "range": "99.8-119.91",
+      "change": 0.88,
+      "changePercentage": 0.83121,
+      "volume": 2317952,
+      "averageVolume": 2377936,
+      "companyName": "WEC Energy Group, Inc.",
+      "currency": "USD",
+      "cik": "0000783325",
+      "isin": "US92939U1060",
+      "cusip": "92939U106",
+      "exchangeFullName": "New York Stock Exchange",
+      "exchange": "NYSE",
+      "industry": "Regulated Electric",
+      "website": "https://www.wecenergygroup.com",
+      "description": "WEC Energy Group, Inc. is a major energy provider operating across the United States, delivering regulated natural gas and electricity, as well as both regulated and non-regulated renewable energy services. The company's operations are divided into six main business segments: Wisconsin, Illinois, Other States, Electric Transmission, Non-Utility Energy Infrastructure, and Corporate and Other. Its electricity generation relies on a diverse portfolio of sources, including coal, natural gas, oil, hydroelectric, wind, solar, and biomass. Beyond power generation, WEC Energy Group also provides electric transmission services, manages retail natural gas distribution, handles natural gas transportation, and is involved in the production, distribution, and sale of steam. As of December 31, 2021, the company's vast infrastructure network included approximately 35,800 miles of overhead electricity distribution lines and 35,600 miles of underground cables. This electrical system was supported by 440 distribution substations and 510,500 line transformers. For natural gas, its network comprised 50,900 miles of distribution mains, 1,200 miles of transmission mains, 2.3 million lateral services, and 500 distribution and transmission gate stations. Furthermore, WEC Energy Group managed 68.2 billion cubic feet of working gas capacity within its underground natural gas storage facilities. The company, founded in 1981, was previously known as Wisconsin Energy Corporation until it officially adopted the name WEC Energy Group, Inc. in June 2015. Its corporate headquarters are located in Milwaukee, Wisconsin.",
+      "ceo": "Scott J. Lauber",
+      "sector": "Utilities",
+      "country": "US",
+      "fullTimeEmployees": "7151",
+      "phone": "414 221 2345",
+      "address": "231 West Michigan Street",
+      "city": "Milwaukee",
+      "state": "WI",
+      "zip": "53201",
+      "image": "https://images.financialmodelingprep.com/symbol/WEC.png",
+      "ipoDate": "1980-03-17",
+      "defaultImage": false,
+      "isEtf": false,
+      "isActivelyTrading": true,
+      "isAdr": false,
+      "isFund": false
+    }
+  ],
+  "historical_cap_rows": [
+    {
+      "symbol": "WEC",
+      "date": "2015-12-31",
+      "marketCap": 16198567000
+    }
+  ],
+  "size_group": "large",
+  "retrieved_at_unix": 1792041756.6029167
+}
