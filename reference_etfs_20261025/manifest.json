@@ -1,0 +1,142 @@
+{
+  "download_window": {
+    "start_date": "2014-01-01",
+    "end_date": "2025-12-31"
+  },
+  "interval": "1d",
+  "price_basis": "raw",
+  "series": [
+    {
+      "symbol": "RSP",
+      "file": "RSP/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "7e6ce06f85a086fe9f7df32aa1c208fbfbcab6538f482143878d759b30440ae7"
+    },
+    {
+      "symbol": "XLB",
+      "file": "XLB/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "cf1345cfe655ed6bc44c8e3d1f04f3426db0c883e42b87d19ad65495e0388b39"
+    },
+    {
+      "symbol": "XLC",
+      "file": "XLC/daily.json",
+      "status": "ready",
+      "bars": 1895,
+      "first": "2018-06-19",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "8b7501303c2f50f1d7ff169736bd5361eec145d977ed599577c3d1967f64c2d7"
+    },
+    {
+      "symbol": "XLE",
+      "file": "XLE/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "b5e0ca25d85cb7d341e7e0531e6be9965a40926a0355be38283ce5269f0a3812"
+    },
+    {
+      "symbol": "XLF",
+      "file": "XLF/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "26375b5cf8c51213a572d2a39f0ee222f4fd7136c4ce0d3c082b58d1f2e62d7b"
+    },
+    {
+      "symbol": "XLI",
+      "file": "XLI/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "c9c7c142d8703a5686571234abaa4e6f92dcec5670c5ba1af320ef587b676437"
+    },
+    {
+      "symbol": "XLK",
+      "file": "XLK/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "0300af057bc849224f86d796f0828d50ce6d4c4b141faded7848b96de957d425"
+    },
+    {
+      "symbol": "XLP",
+      "file": "XLP/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "c77fa707f3c8941b7f47a419805b6f61e95f5d89f061cc8fa5377e924d985d65"
+    },
+    {
+      "symbol": "XLRE",
+      "file": "XLRE/daily.json",
+      "status": "ready",
+      "bars": 2573,
+      "first": "2015-10-08",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "ba2408a48b6857b410ab61bf55aabaa608f01793e50df7e88f9a4bb61388e3fe"
+    },
+    {
+      "symbol": "XLU",
+      "file": "XLU/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "379969e2b7fa2f23465c6c33731156c1f956a3ecd2bc4bca8dc29ea4d2376451"
+    },
+    {
+      "symbol": "XLV",
+      "file": "XLV/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "7b4861cb5648b2f1450ac1a2a893d2bf71a5f8cf25b871124f7f1fcd799f7807"
+    },
+    {
+      "symbol": "XLY",
+      "file": "XLY/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "6e62922deb8a43c3b02290966c9dcb301f71296b3b17360a9b5709cb939a9de8"
+    }
+  ]
+}
