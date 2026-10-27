@@ -1,0 +1,251 @@
+symbol,sector,sector_basis
+ABMD,Healthcare,FMP current profile; not historical GICS
+ALXN,Healthcare,FMP current profile; not historical GICS
+ATVI,Technology,FMP current profile; not historical GICS
+CERN,Healthcare,FMP current profile; not historical GICS
+CSOD,Technology,FMP current profile; not historical GICS
+CTXS,Technology,FMP current profile; not historical GICS
+DFS,Financial Services,FMP current profile; not historical GICS
+HES,Energy,FMP current profile; not historical GICS
+JNPR,Technology,FMP current profile; not historical GICS
+KSU,Industrials,FMP current profile; not historical GICS
+MRO,Energy,FMP current profile; not historical GICS
+NUAN,Technology,FMP current profile; not historical GICS
+PFPT,Technology,FMP current profile; not historical GICS
+XLNX,Technology,FMP current profile; not historical GICS
+AMRS,Basic Materials,FMP current profile; not historical GICS
+CLVS,Healthcare,FMP current profile; not historical GICS
+ACOR,Healthcare,FMP current profile; not historical GICS
+PRTY,Consumer Cyclical,FMP current profile; not historical GICS
+REV,Consumer Defensive,FMP current profile; not historical GICS
+TUP,Consumer Cyclical,FMP current profile; not historical GICS
+EXPR,Consumer Cyclical,FMP current profile; not historical GICS
+SQBG,Consumer Cyclical,FMP current profile; not historical GICS
+WPG,Real Estate,FMP current profile; not historical GICS
+SIVB,Financial Services,FMP current profile; not historical GICS
+GTT,Communication Services,FMP current profile; not historical GICS
+FRC,Financial Services,FMP current profile; not historical GICS
+GNCA,Healthcare,FMP current profile; not historical GICS
+STRS,Real Estate,FMP current profile; not historical GICS
+NEU,Basic Materials,FMP current profile; not historical GICS
+CDZI,Utilities,FMP current profile; not historical GICS
+DIS,Communication Services,FMP current profile; not historical GICS
+KDP,Consumer Defensive,FMP current profile; not historical GICS
+EME,Industrials,FMP current profile; not historical GICS
+AR,Energy,FMP current profile; not historical GICS
+BBWI,Consumer Cyclical,FMP current profile; not historical GICS
+CFFI,Financial Services,FMP current profile; not historical GICS
+ROG,Technology,FMP current profile; not historical GICS
+UTMD,Healthcare,FMP current profile; not historical GICS
+TRNO,Real Estate,FMP current profile; not historical GICS
+FF,Basic Materials,FMP current profile; not historical GICS
+GNE,Utilities,FMP current profile; not historical GICS
+MSGS,Communication Services,FMP current profile; not historical GICS
+CHD,Consumer Defensive,FMP current profile; not historical GICS
+CHRW,Industrials,FMP current profile; not historical GICS
+DVN,Energy,FMP current profile; not historical GICS
+HLT,Consumer Cyclical,FMP current profile; not historical GICS
+EQS,Financial Services,FMP current profile; not historical GICS
+CTS,Technology,FMP current profile; not historical GICS
+ALNY,Healthcare,FMP current profile; not historical GICS
+CBRE,Real Estate,FMP current profile; not historical GICS
+SXT,Basic Materials,FMP current profile; not historical GICS
+CPK,Utilities,FMP current profile; not historical GICS
+EVC,Communication Services,FMP current profile; not historical GICS
+HELE,Consumer Defensive,FMP current profile; not historical GICS
+LUV,Industrials,FMP current profile; not historical GICS
+DK,Energy,FMP current profile; not historical GICS
+DIN,Consumer Cyclical,FMP current profile; not historical GICS
+MAIN,Financial Services,FMP current profile; not historical GICS
+ELSE,Technology,FMP current profile; not historical GICS
+RVTY,Healthcare,FMP current profile; not historical GICS
+CDP,Real Estate,FMP current profile; not historical GICS
+ECL,Basic Materials,FMP current profile; not historical GICS
+AVA,Utilities,FMP current profile; not historical GICS
+FWONA,Communication Services,FMP current profile; not historical GICS
+NATR,Consumer Defensive,FMP current profile; not historical GICS
+OFLX,Industrials,FMP current profile; not historical GICS
+NFG,Energy,FMP current profile; not historical GICS
+BZH,Consumer Cyclical,FMP current profile; not historical GICS
+HNNA,Financial Services,FMP current profile; not historical GICS
+BHE,Technology,FMP current profile; not historical GICS
+LFMD,Healthcare,FMP current profile; not historical GICS
+HHH,Real Estate,FMP current profile; not historical GICS
+NUE,Basic Materials,FMP current profile; not historical GICS
+BKH,Utilities,FMP current profile; not historical GICS
+MGNI,Communication Services,FMP current profile; not historical GICS
+MKC,Consumer Defensive,FMP current profile; not historical GICS
+TPC,Industrials,FMP current profile; not historical GICS
+PROP,Energy,FMP current profile; not historical GICS
+CAL,Consumer Cyclical,FMP current profile; not historical GICS
+STBA,Financial Services,FMP current profile; not historical GICS
+ROP,Technology,FMP current profile; not historical GICS
+VNDA,Healthcare,FMP current profile; not historical GICS
+VMRK,Real Estate,FMP current profile; not historical GICS
+WLKP,Basic Materials,FMP current profile; not historical GICS
+NI,Utilities,FMP current profile; not historical GICS
+OMC,Communication Services,FMP current profile; not historical GICS
+MZTI,Consumer Defensive,FMP current profile; not historical GICS
+MG,Industrials,FMP current profile; not historical GICS
+PAA,Energy,FMP current profile; not historical GICS
+GNTX,Consumer Cyclical,FMP current profile; not historical GICS
+PKBK,Financial Services,FMP current profile; not historical GICS
+TRUE,Technology,FMP current profile; not historical GICS
+HSTM,Healthcare,FMP current profile; not historical GICS
+WSR,Real Estate,FMP current profile; not historical GICS
+MTX,Basic Materials,FMP current profile; not historical GICS
+PCG,Utilities,FMP current profile; not historical GICS
+TGNA,Communication Services,FMP current profile; not historical GICS
+FRPT,Consumer Defensive,FMP current profile; not historical GICS
+CLH,Industrials,FMP current profile; not historical GICS
+FTK,Energy,FMP current profile; not historical GICS
+BBW,Consumer Cyclical,FMP current profile; not historical GICS
+DHIL,Financial Services,FMP current profile; not historical GICS
+VSH,Technology,FMP current profile; not historical GICS
+ENTA,Healthcare,FMP current profile; not historical GICS
+SVC,Real Estate,FMP current profile; not historical GICS
+FMC,Basic Materials,FMP current profile; not historical GICS
+ETR,Utilities,FMP current profile; not historical GICS
+CNVS,Communication Services,FMP current profile; not historical GICS
+BGS,Consumer Defensive,FMP current profile; not historical GICS
+PRIM,Industrials,FMP current profile; not historical GICS
+HLX,Energy,FMP current profile; not historical GICS
+EAT,Consumer Cyclical,FMP current profile; not historical GICS
+SRCE,Financial Services,FMP current profile; not historical GICS
+LPTH,Technology,FMP current profile; not historical GICS
+CAH,Healthcare,FMP current profile; not historical GICS
+AGNC,Real Estate,FMP current profile; not historical GICS
+VHI,Basic Materials,FMP current profile; not historical GICS
+LNT,Utilities,FMP current profile; not historical GICS
+GRPN,Communication Services,FMP current profile; not historical GICS
+MO,Consumer Defensive,FMP current profile; not historical GICS
+MRCY,Industrials,FMP current profile; not historical GICS
+USAC,Energy,FMP current profile; not historical GICS
+PVH,Consumer Cyclical,FMP current profile; not historical GICS
+KEY,Financial Services,FMP current profile; not historical GICS
+SCSC,Technology,FMP current profile; not historical GICS
+POCI,Healthcare,FMP current profile; not historical GICS
+JLL,Real Estate,FMP current profile; not historical GICS
+SXC,Basic Materials,FMP current profile; not historical GICS
+EXC,Utilities,FMP current profile; not historical GICS
+RDIB,Communication Services,FMP current profile; not historical GICS
+USNA,Consumer Defensive,FMP current profile; not historical GICS
+UFI,Industrials,FMP current profile; not historical GICS
+EPD,Energy,FMP current profile; not historical GICS
+TMHC,Consumer Cyclical,FMP current profile; not historical GICS
+ENVA,Financial Services,FMP current profile; not historical GICS
+KVHI,Technology,FMP current profile; not historical GICS
+LIXT,Healthcare,FMP current profile; not historical GICS
+INN,Real Estate,FMP current profile; not historical GICS
+VMC,Basic Materials,FMP current profile; not historical GICS
+EIX,Utilities,FMP current profile; not historical GICS
+ATNI,Communication Services,FMP current profile; not historical GICS
+CHEF,Consumer Defensive,FMP current profile; not historical GICS
+CYRX,Industrials,FMP current profile; not historical GICS
+WKC,Energy,FMP current profile; not historical GICS
+ODP,Consumer Cyclical,FMP current profile; not historical GICS
+CMTV,Financial Services,FMP current profile; not historical GICS
+FIS,Technology,FMP current profile; not historical GICS
+EXAS,Healthcare,FMP current profile; not historical GICS
+DX,Real Estate,FMP current profile; not historical GICS
+AWI,Basic Materials,FMP current profile; not historical GICS
+WEC,Utilities,FMP current profile; not historical GICS
+SSP,Communication Services,FMP current profile; not historical GICS
+INGR,Consumer Defensive,FMP current profile; not historical GICS
+AP,Industrials,FMP current profile; not historical GICS
+MTR,Energy,FMP current profile; not historical GICS
+DLTH,Consumer Cyclical,FMP current profile; not historical GICS
+MRSH,Financial Services,FMP current profile; not historical GICS
+HUBS,Technology,FMP current profile; not historical GICS
+MCK,Healthcare,FMP current profile; not historical GICS
+RITM,Real Estate,FMP current profile; not historical GICS
+CMP,Basic Materials,FMP current profile; not historical GICS
+POR,Utilities,FMP current profile; not historical GICS
+EPC,Consumer Defensive,FMP current profile; not historical GICS
+GWW,Industrials,FMP current profile; not historical GICS
+EOG,Energy,FMP current profile; not historical GICS
+TSLA,Consumer Cyclical,FMP current profile; not historical GICS
+PGR,Financial Services,FMP current profile; not historical GICS
+QCOM,Technology,FMP current profile; not historical GICS
+CNC,Healthcare,FMP current profile; not historical GICS
+PEB,Real Estate,FMP current profile; not historical GICS
+PPG,Basic Materials,FMP current profile; not historical GICS
+MNST,Consumer Defensive,FMP current profile; not historical GICS
+UHAL,Industrials,FMP current profile; not historical GICS
+XPRO,Energy,FMP current profile; not historical GICS
+CASY,Consumer Cyclical,FMP current profile; not historical GICS
+MET,Financial Services,FMP current profile; not historical GICS
+CIEN,Technology,FMP current profile; not historical GICS
+UHS,Healthcare,FMP current profile; not historical GICS
+BDN,Real Estate,FMP current profile; not historical GICS
+IFF,Basic Materials,FMP current profile; not historical GICS
+WMT,Consumer Defensive,FMP current profile; not historical GICS
+AAL,Industrials,FMP current profile; not historical GICS
+GM,Consumer Cyclical,FMP current profile; not historical GICS
+AJG,Financial Services,FMP current profile; not historical GICS
+SAIC,Technology,FMP current profile; not historical GICS
+WST,Healthcare,FMP current profile; not historical GICS
+HST,Real Estate,FMP current profile; not historical GICS
+RPM,Basic Materials,FMP current profile; not historical GICS
+CAG,Consumer Defensive,FMP current profile; not historical GICS
+JBLU,Industrials,FMP current profile; not historical GICS
+UAA,Consumer Cyclical,FMP current profile; not historical GICS
+TROW,Financial Services,FMP current profile; not historical GICS
+QRVO,Technology,FMP current profile; not historical GICS
+ABT,Healthcare,FMP current profile; not historical GICS
+STWD,Real Estate,FMP current profile; not historical GICS
+KHC,Consumer Defensive,FMP current profile; not historical GICS
+CTAS,Industrials,FMP current profile; not historical GICS
+GT,Consumer Cyclical,FMP current profile; not historical GICS
+TFC,Financial Services,FMP current profile; not historical GICS
+TTWO,Technology,FMP current profile; not historical GICS
+ILMN,Healthcare,FMP current profile; not historical GICS
+CSGP,Real Estate,FMP current profile; not historical GICS
+DLTR,Consumer Defensive,FMP current profile; not historical GICS
+UAL,Industrials,FMP current profile; not historical GICS
+CAKE,Consumer Cyclical,FMP current profile; not historical GICS
+CME,Financial Services,FMP current profile; not historical GICS
+TYL,Technology,FMP current profile; not historical GICS
+ATR,Healthcare,FMP current profile; not historical GICS
+ESS,Real Estate,FMP current profile; not historical GICS
+LII,Industrials,FMP current profile; not historical GICS
+WEN,Consumer Cyclical,FMP current profile; not historical GICS
+VIRT,Financial Services,FMP current profile; not historical GICS
+CDNS,Technology,FMP current profile; not historical GICS
+BDX,Healthcare,FMP current profile; not historical GICS
+SBAC,Real Estate,FMP current profile; not historical GICS
+TXT,Industrials,FMP current profile; not historical GICS
+MCD,Consumer Cyclical,FMP current profile; not historical GICS
+ORI,Financial Services,FMP current profile; not historical GICS
+ACIW,Technology,FMP current profile; not historical GICS
+CYH,Healthcare,FMP current profile; not historical GICS
+EQIX,Real Estate,FMP current profile; not historical GICS
+GHC,Industrials,FMP current profile; not historical GICS
+LEA,Consumer Cyclical,FMP current profile; not historical GICS
+HAPN,Financial Services,FMP current profile; not historical GICS
+LDOS,Technology,FMP current profile; not historical GICS
+DHR,Healthcare,FMP current profile; not historical GICS
+PLD,Real Estate,FMP current profile; not historical GICS
+URI,Industrials,FMP current profile; not historical GICS
+BWA,Consumer Cyclical,FMP current profile; not historical GICS
+CBSH,Financial Services,FMP current profile; not historical GICS
+MPWR,Technology,FMP current profile; not historical GICS
+HSIC,Healthcare,FMP current profile; not historical GICS
+SPG,Real Estate,FMP current profile; not historical GICS
+FAST,Industrials,FMP current profile; not historical GICS
+COLM,Consumer Cyclical,FMP current profile; not historical GICS
+HOMB,Financial Services,FMP current profile; not historical GICS
+TXN,Technology,FMP current profile; not historical GICS
+ELV,Healthcare,FMP current profile; not historical GICS
+NSC,Industrials,FMP current profile; not historical GICS
+BKNG,Consumer Cyclical,FMP current profile; not historical GICS
+LNC,Financial Services,FMP current profile; not historical GICS
+WDC,Technology,FMP current profile; not historical GICS
+BIIB,Healthcare,FMP current profile; not historical GICS
+PCAR,Industrials,FMP current profile; not historical GICS
+YUM,Consumer Cyclical,FMP current profile; not historical GICS
+COF,Financial Services,FMP current profile; not historical GICS
+CAT,Industrials,FMP current profile; not historical GICS
+BNED,Consumer Cyclical,FMP current profile; not historical GICS
+AIG,Financial Services,FMP current profile; not historical GICS
+UNP,Industrials,FMP current profile; not historical GICS

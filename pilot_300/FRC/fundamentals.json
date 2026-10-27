@@ -1,0 +1,128 @@
+{
+  "symbol": "FRC",
+  "cohort": {
+    "origin": "expansion_250",
+    "delisted": true,
+    "delisting_date": null,
+    "retirement_category": "bank_receivership"
+  },
+  "meta": {
+    "retrieved_at": "2026-10-27T07:17:25.578935+00:00",
+    "data_window": {
+      "start": "2021-10-26",
+      "end": "2026-10-26"
+    },
+    "sources": [
+      "SEC CompanyFacts",
+      "SEC periodic filing headers",
+      "SEC 8-K/6-K originals"
+    ],
+    "pit_status": "partial",
+    "adjustment": "not_applicable",
+    "coverage_note": "Only locally collected SEC records are exported; missing values remain missing.",
+    "filing_date_semantics": "filing_date and available_at use verified SEC acceptance time; sec_filed_date is the SEC filing date."
+  },
+  "financial_versions": {
+    "Revenue": [],
+    "CostOfRevenue": [],
+    "EBIT": [],
+    "NetIncome": [],
+    "DilutedEPS": [],
+    "CurrentAssets": [],
+    "CurrentLiabilities": [],
+    "LongTermDebt": [],
+    "TotalAssets": [],
+    "StockholdersEquity": [],
+    "IntangiblesAndGoodwill": [],
+    "OperatingCashFlow": [],
+    "WeightedAverageDilutedShares": [],
+    "IncomeBeforeTax": [],
+    "InterestExpense": [],
+    "IntangibleAssetsNetExcludingGoodwill": [],
+    "Goodwill": []
+  },
+  "sic_versions": [],
+  "actual_earnings_events": {
+    "status": "unavailable",
+    "symbol": "FRC",
+    "events": [],
+    "conflicts": [],
+    "rejections": [],
+    "decision_at": null,
+    "scans": [
+      {
+        "status": "ready",
+        "symbol": "FRC",
+        "start_date": "2021-10-26",
+        "end_date": "2026-10-26",
+        "scan_end_date": "2026-10-26",
+        "candidate_accessions": [],
+        "already_observed_accessions": [],
+        "scanned_accessions": [],
+        "failures": [],
+        "unclassified_candidates": [],
+        "first_publication_verified": false,
+        "coverage_scope": "SEC_6-K_and_8-K_items_2.02_7.01_8.01_candidate_inventory_not_all_market_publications",
+        "conflicting_candidates": [],
+        "formal_filing_checks": [],
+        "observation_count": 0,
+        "resumed_from_prior_scan_asset": true,
+        "resumed_from_complete_asset": true
+      },
+      {
+        "status": "ready",
+        "symbol": "FRC",
+        "start_date": "2021-10-27",
+        "end_date": "2026-10-27",
+        "scan_end_date": "2026-10-27",
+        "candidate_accessions": [],
+        "already_observed_accessions": [],
+        "scanned_accessions": [],
+        "failures": [],
+        "unclassified_candidates": [],
+        "first_publication_verified": false,
+        "coverage_scope": "SEC_6-K_and_8-K_items_2.02_7.01_8.01_candidate_inventory_not_all_market_publications",
+        "conflicting_candidates": [],
+        "formal_filing_checks": [],
+        "observation_count": 0
+      }
+    ],
+    "coverage_status": "scanned",
+    "coverage_basis": "current_local_inventory_not_historical_scan_status",
+    "precision": {
+      "date_only": 0,
+      "minute": 0
+    },
+    "coverage": "locally_observed_events_only",
+    "first_publication_verified": false,
+    "limitations": [
+      "sec_acceptance_is_not_release_time",
+      "date_only_is_not_exact_announcement_time",
+      "local_warm_selection_does_not_prove_first_publication"
+    ]
+  },
+  "historical_earnings_schedule": {
+    "status": "unavailable",
+    "pit_status": "non_pit",
+    "reason": "historical_planned_schedule_not_supported",
+    "observed_provider_snapshots": [],
+    "note": "Saved Alpha Vantage observations are included separately. They are not provider publication-time PIT snapshots and do not reconstruct historical planned dates before the first saved observation."
+  },
+  "coverage": {
+    "financial_errors": [],
+    "metadata_error": null,
+    "earnings_error": null,
+    "derived_metrics": {
+      "EBIT": {
+        "formula": "IncomeBeforeTax + InterestExpense",
+        "records_derived": 0,
+        "skipped_by_reason": {}
+      },
+      "IntangiblesAndGoodwill": {
+        "formula": "Goodwill + IntangibleAssetsNetExcludingGoodwill",
+        "records_derived": 0,
+        "skipped_by_reason": {}
+      }
+    }
+  }
+}
