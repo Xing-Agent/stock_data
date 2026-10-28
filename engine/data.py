@@ -172,7 +172,7 @@ def load_daily(symbol: str) -> pd.DataFrame:
         if c not in df.columns:
             df[c] = np.nan
         df[c] = pd.to_numeric(df[c], errors="coerce")
-    df = df[keep]
+    df = df[keep].astype(float)
     df = df[~df.index.duplicated(keep="last")]
     df = _apply_split_fix(df, symbol)
     df["dollar_volume"] = df["close"] * df["volume"]
