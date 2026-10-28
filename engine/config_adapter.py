@@ -46,6 +46,8 @@ IMPLEMENTED = {
     "regime": {
         "none", "index_above_ma", "index_above_ma_scaled", "index_ma_slope",
         "breadth_above", "vix_below", "no_distribution_day", "no_large_down_day",
+        # ★ 1028 闸门新方案:本链自己选股范围的广度当开关(G4 对照用)
+        "breadth_above_chain",
     },
     "entry": {
         "donchian_close_breakout", "donchian_breakout", "atr_squeeze",

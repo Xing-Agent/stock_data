@@ -116,6 +116,11 @@ LEDGER_COLUMNS = [
     "notional_in", "notional_out", "friction_bps", "friction_cost",
     "net_pnl", "gross_pnl", "capital_days",
     "gap_through", "gap_penetration_r", "adv20_at_entry", "liquidity_tier",
+    # ★ 进场那天广度标尺给的风险乘数(1.0 = 正常 1.0R,0.5 = 减半)。
+    #   ★ 位置标尺不会改变每笔的 R 倍数(R 是价格口径),只改变这一笔冒多少风险 ——
+    #   所以比较「减不减仓」必须用 风险加权R = r_multiple × size_mult,
+    #   直接比 r_multiple 的话两版一模一样,等于什么都没测。
+    "size_mult",
 ]
 
 
@@ -323,6 +328,8 @@ def run_chain(cfg: ChainConfig,
     rank_by = (cfg.get("sizing") or {}).get("rank_by", "rs_rank")
 
     cash = cash_gross = initial_equity
+    # ★ 广度标尺的落地诊断:有多少笔真的被减仓、其中多少笔被 max_weight 顶住
+    n_scaled = n_cap_bind = 0
     pos: dict[int, dict] = {}
     rows: list[dict] = []
     eq, eqg, expo = [], [], []
@@ -371,6 +378,7 @@ def run_chain(cfg: ChainConfig,
             "gap_through": bool(gap), "gap_penetration_r": float(pen_r),
             "adv20_at_entry": float(m.adv20[p["entry_i"], j]),
             "liquidity_tier": ("高流动性", "中流动性", "低流动性")[tier],
+            "size_mult": float(m.size_mult[p["entry_i"]]),
         })
 
     for i in range(i0, i1 + 1):
@@ -397,8 +405,17 @@ def run_chain(cfg: ChainConfig,
             if equal_all:
                 notional = cash / max(1, remaining)
             elif sz_type == "risk_fraction":
-                notional = min((equity_now * risk_frac) / (entry_px - stop0) * entry_px,
-                               equity_now * max_w)
+                # ★★ 改动二:广度当「风险预算标尺」—— 当天的单笔风险 = risk_frac × 乘数。
+                #   广度好 → ×1.0(1.0R 正常);广度差 → ×low_risk_mult(例如 0.5R),
+                #   ★ 但照常允许开仓(不是开关)。乘数由第一层按广度算好,已 shift(1)。
+                rf = risk_frac * float(m.size_mult[i])
+                by_risk = (equity_now * rf) / (entry_px - stop0) * entry_px
+                by_cap = equity_now * max_w
+                if rf != risk_frac:
+                    n_scaled += 1
+                    if by_cap < by_risk:
+                        n_cap_bind += 1      # ★ 这笔被 max_weight 顶住了,减仓没生效多少
+                notional = min(by_risk, by_cap)
             elif sz_type == "fixed_fraction":
                 notional = equity_now * max_w
             else:
@@ -546,6 +563,13 @@ def run_chain(cfg: ChainConfig,
 
     ledger = pd.DataFrame(rows, columns=LEDGER_COLUMNS) if rows \
         else pd.DataFrame(columns=LEDGER_COLUMNS)
+    notes: list[str] = []
+    if m.breadth_diag:
+        notes.append("广度标尺:" + ";".join(f"{k}={v}" for k, v in m.breadth_diag.items()))
+        notes.append(
+            f"★ 实际被减仓的笔数 {n_scaled} / {len(ledger)};"
+            f"其中 {n_cap_bind} 笔被 max_weight 名义上限顶住 "
+            f"(这几笔减仓没完全生效 —— 风险预算降了但名义占用本来就被上限压着)")
     return ChainResult(
         name=cfg.name,
         equity=pd.Series(eq, index=perf, dtype=float),
@@ -553,6 +577,7 @@ def run_chain(cfg: ChainConfig,
         exposure=pd.Series(expo, index=perf, dtype=float),
         ledger=ledger,
         initial_equity=initial_equity,
+        notes=notes,
     )
 
 

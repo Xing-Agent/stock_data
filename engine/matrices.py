@@ -422,9 +422,86 @@ def universe_mask(spec: dict, symbols: list[str] | None = None) -> pd.DataFrame:
     return mask.fillna(False)
 
 
+# ---------------------------------------------------------------- 广度(两个口径)
+# ★★ 1028 闸门新方案第三条改动:广度要看「这条链自己的选股范围」,不看全市场。
+#   大白话:我们买的是哪一撮票,就该看那一撮票自己的健康度。
+#   外部专家原话:「严禁看着航母的灯塔,开着驱逐舰去触礁。」
+#
+# ★ 工程上的坑(必须处理,不许给一个不可信的数):
+#   有些链某天范围很窄(比如只剩 12 只)。12 只算出来的广度噪音极大 ——
+#   一只票跳 8 个百分点。所以范围里不足 min_names 只时,★ 这道标尺直接不生效
+#   (按正常仓位 / 正常开闸处理),而不是给一个不可信的广度数。
+#   失效的天数会统计出来,报告里必须打出来。
+
+BREADTH_MIN_NAMES = 30     # ★ 我们定的(敏感度展示):少于这个只数,广度标尺不生效
+
+
+def chain_breadth(uni: pd.DataFrame, ma: int = 50) -> tuple[pd.Series, pd.Series]:
+    """
+    ★ 本链自己范围的广度:今天这个 universe_mask 里,
+      有多少比例的票站在自己 ma 日线上方。
+
+    返回 (广度百分比 0~100, 当日可算的只数)。
+    ★ 分母 = 当天在 mask 里、且均线算得出来的票数(不满 ma 根的票不进分母)。
+    ★ 因果性:这里给的是 t 日收盘算出来的值,调用方必须自己 shift(1)。
+    """
+    syms = list(uni.columns)
+    close = cache.field("close", syms)
+    ma_df = sma_matrix(ma, syms)
+    usable = _as_bool(uni) & close.notna() & ma_df.notna()
+    above = usable & _as_bool(close > ma_df)
+    n = usable.sum(axis=1)
+    k = above.sum(axis=1)
+    pct = (k / n.where(n > 0)) * 100.0
+    return pct, n
+
+
+def market_breadth(field_name: str, index: pd.DatetimeIndex
+                   ) -> tuple[pd.Series, pd.Series]:
+    """全市场广度(breadth_top500.csv,每天最活跃 500 只,含退市股)。"""
+    b = data.load_breadth()
+    pct = b[field_name].reindex(index).ffill()
+    n = b.get("universe_n", pd.Series(500, index=b.index)).reindex(index).ffill()
+    return pct, n
+
+
+def breadth_size_multiplier(pct: pd.Series, n: pd.Series,
+                            threshold: float, low_mult: float,
+                            min_names: int = BREADTH_MIN_NAMES
+                            ) -> tuple[pd.Series, dict]:
+    """
+    ★★ 改动二:广度降级成「风险预算标尺」—— 只管仓位,不管开关。
+      广度 ≥ threshold → 单笔风险 ×1.0(正常)
+      广度 <  threshold → 单笔风险 ×low_mult,★ 但照常允许开仓
+
+    ★ low_mult 这个数外部专家没给出处 —— 所以调用方必须同时报
+      「不减仓(1.0)」和「减半(0.5)」两版,不许只报其中一版。
+
+    ★ 范围不足 min_names 只的那些天:标尺不生效(×1.0),并计入失效天数。
+    ★ 已 shift(1):t 行的乘数 = 用 t−1 日收盘算出来的广度,不偷看当天。
+    """
+    ok = (n >= int(min_names)) & pct.notna()
+    mult = pd.Series(1.0, index=pct.index, dtype=float)
+    mult[ok & (pct < float(threshold))] = float(low_mult)
+    mult = mult.shift(1).fillna(1.0)
+    diag = {
+        "标尺口径": f"广度 < {threshold:.0f}% → 单笔风险 ×{low_mult}",
+        "最少只数要求": int(min_names),
+        "总交易日": int(len(pct)),
+        "★标尺失效天数(范围不足只数)": int((~ok).sum()),
+        "★标尺失效占比": float((~ok).mean()),
+        "减半的天数": int((mult == low_mult).sum()) if low_mult != 1.0 else 0,
+        "当日只数_中位数": float(n.median()),
+        "当日只数_最小": float(n.min()) if len(n) else float("nan"),
+    }
+    return mult, diag
+
+
 # ---------------------------------------------------------------- ② regime_mask
 
-def regime_mask(spec: dict, index: pd.DatetimeIndex) -> pd.Series:
+def regime_mask(spec: dict, index: pd.DatetimeIndex,
+                chain_breadth_pct: pd.Series | None = None,
+                chain_breadth_n: pd.Series | None = None) -> pd.Series:
     """
     ② 环境过滤:今天整个开不开仓。返回一条布尔序列(全池共用)。
     所有规则都成立才算「可以做」。
@@ -444,6 +521,22 @@ def regime_mask(spec: dict, index: pd.DatetimeIndex) -> pd.Series:
         elif t == "breadth_above":
             s = data.load_breadth()[rule["field"]].reindex(index).ffill()
             ok &= (s > float(rule["value"])).fillna(False)
+        elif t == "breadth_above_chain":
+            # ★★ 改动三 + 改动一的对照(G4):本链自己范围的广度当「开关」。
+            #   ★ 范围不足 min_names 只的那天,这道闸门不生效(当天按开闸处理)——
+            #     而不是用一个 12 只算出来的、噪音极大的广度数去关掉整条链。
+            if chain_breadth_pct is None:
+                raise ValueError(
+                    "breadth_above_chain 需要本链自己的 universe_mask 才能算广度 —— "
+                    "必须由 matrices.build() 传进来,不许退回全市场广度顶替。")
+            p = rule.get("params", rule)
+            thr = float(p.get("value", p.get("threshold", 50.0)))
+            mn = int(p.get("min_names", BREADTH_MIN_NAMES))
+            n = chain_breadth_n if chain_breadth_n is not None \
+                else pd.Series(0, index=index)
+            usable = (n >= mn) & chain_breadth_pct.notna()
+            # 不可用的那天 → True(闸门不生效),可用的那天按阈值判
+            ok &= (~usable | (chain_breadth_pct > thr)).fillna(True)
         elif t == "vix_below":
             s = data.load_benchmark("VIX")["close"].reindex(index).ffill()
             ok &= (s < float(rule["value"])).fillna(False)
@@ -725,10 +818,16 @@ class Matrices:
     ema_trail: np.ndarray         # ⑤ EMA 跟踪止损用的 EMA(没配就全是 NaN)
     last_bar: np.ndarray          # 每只票最后一根有价格的 bar 的行号(含 0 价 bar)
     zero_bar: np.ndarray          # 破产类 0 价 bar 的行号;没有则 -1
+    size_mult: np.ndarray = None  # type: ignore  # ★ 广度风险预算标尺,一维,每天一个乘数
+    breadth_diag: dict = None     # type: ignore  # ★ 标尺失效天数等诊断
     col: dict[str, int] = None    # type: ignore
 
     def __post_init__(self):
         self.col = {s: i for i, s in enumerate(self.symbols)}
+        if self.size_mult is None:
+            self.size_mult = np.ones(len(self.index), dtype=float)
+        if self.breadth_diag is None:
+            self.breadth_diag = {}
 
 
 def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
@@ -764,6 +863,45 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
     ema_t = (ema_matrix(ema_n, syms).to_numpy(dtype=float) if ema_n
              else np.full((len(idx), len(syms)), np.nan))
 
+    # ---- ★★ 广度:两个口径,一个当开关(regime),一个当仓位标尺(sizing)
+    reg_spec = cfg.get("regime") or {}
+    need_chain_breadth = any(r.get("type") == "breadth_above_chain"
+                             for r in (reg_spec.get("rules") or []))
+    bspec = (cfg.get("sizing") or {}).get("breadth_risk_scaler")
+    if bspec and str(bspec.get("source", "chain")) == "chain":
+        need_chain_breadth = True
+
+    cb_pct = cb_n = None
+    if need_chain_breadth:
+        ma_for_breadth = 50
+        for r in (reg_spec.get("rules") or []):
+            if r.get("type") == "breadth_above_chain":
+                ma_for_breadth = int((r.get("params", r) or {}).get("ma", 50))
+        if bspec:
+            ma_for_breadth = int(bspec.get("ma", ma_for_breadth))
+        cb_pct, cb_n = chain_breadth(uni, ma_for_breadth)
+
+    size_mult = np.ones(len(idx), dtype=float)
+    bdiag: dict = {}
+    if bspec:
+        src = str(bspec.get("source", "chain"))
+        thr = float(bspec["threshold"])
+        low = float(bspec["low_risk_mult"])
+        mn = int(bspec.get("min_names", BREADTH_MIN_NAMES))
+        if src == "chain":
+            pct, nn = cb_pct, cb_n
+            bdiag["广度口径"] = f"★ 本链自己范围(universe_mask)里站上 MA{ma_for_breadth} 的比例"
+        elif src == "market":
+            fld = str(bspec.get("field", "pct_above_ma50"))
+            pct, nn = market_breadth(fld, idx)
+            bdiag["广度口径"] = f"全市场({fld},breadth_top500.csv)"
+        else:
+            raise ValueError(
+                f"breadth_risk_scaler.source 只认 chain / market,给的是 {src}")
+        mult, d = breadth_size_multiplier(pct, nn, thr, low, mn)
+        size_mult = mult.reindex(idx).fillna(1.0).to_numpy(dtype=float)
+        bdiag.update(d)
+
     return Matrices(
         symbols=syms,
         index=idx,
@@ -772,7 +910,7 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
         low=cache.field("low", syms).to_numpy(dtype=float),
         close=close.to_numpy(dtype=float),
         universe=uni.to_numpy(dtype=bool),
-        regime=regime_mask(cfg.get("regime") or {}, idx).to_numpy(dtype=bool),
+        regime=regime_mask(reg_spec, idx, cb_pct, cb_n).to_numpy(dtype=bool),
         entry=entry_trigger(cfg.get("entry") or {}, syms).to_numpy(dtype=bool),
         atr=atr_matrix(atr_p, syms).to_numpy(dtype=float),
         chandelier=chandelier_raw_matrix(
@@ -787,6 +925,8 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
         ema_trail=ema_t,
         last_bar=last_bar,
         zero_bar=np.array(zb),
+        size_mult=size_mult,
+        breadth_diag=bdiag,
     )
 
 
