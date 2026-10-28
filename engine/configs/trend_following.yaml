@@ -1,0 +1,175 @@
+# ============================================================================
+# 流派一:系统化中长周期趋势跟随派
+#
+# 三秒版:大盘在 200 日线上方时,买创 55 日新高、且突破前刚缩过波动的票;
+#         止损贴死,浮盈过 2R 后用吊灯止损一路往上抬,绝不设止盈。
+#
+# ★ 本文件是「照抄外部专家原文」的产物。所有数值与专家原文一字不差,
+#   没有做任何优化、取整或调参。
+#
+# ★ source 字段约定(三选一):原著 / 行业惯例 / 我们搜的
+#   ★ 本文件 "我们搜的" = 0 条。
+#   ★ 凡 source 与专家原标注不一致的,一律在该行下方注明,并指向审计报告编号。
+#   审计报告:/home/claude/三流派配置-参数审计-1028.md
+#
+# ★ 字段命名:按「三层薄执行器」七步接口(stop_init / stop_trail / slots / ranking)。
+#   ★ 现有 _TEMPLATE_master.yaml 用的是 initial_stop / trailing_stop,
+#     两套名字不一致 —— 见审计报告 §4-A,需与执行器那条线对齐后才能加载。
+# ============================================================================
+
+meta:
+  name: 流派一_系统化中长周期趋势跟随
+  master: Richard Donchian / Curtis Faith(海龟)
+  modern: Andreas Clenow (2013/2015);AQR (Moskowitz/Ooi/Pedersen 2012)
+  book: Donchian (1960);Faith《Way of the Turtle》(2007)
+  # ★ 专家把原著写成《Trend Following Strategies in Commodity Futures》(1960)。
+  #   核不到这个书名 —— 见审计报告 §1-E。
+  pricing_belief: 收益分布非对称重尾,宏观大资金调仓有物理惯性;截断亏损、让利润奔跑
+  best_regime: 宏观单边大牛市、产业主升浪、6 个月以上单边低波推升
+  worst_regime: 宽幅震荡、均值回归轮动(2015 全年、2018 前三季)
+  evidence_grade: 极高(Moskowitz/Ooi/Pedersen 2012 JFE;Hurst/Ooi/Pedersen 2017 JPM;
+                  Brock/Lakonishok/LeBaron 1992 JF)
+  # ★ 数据只到 2016-01-01 起,2015 全年这段「必然失灵」样本测不到 —— 见审计报告 §3-F。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 → [日期 × 票] 的 0/1 矩阵
+# ---------------------------------------------------------------------------
+universe:
+  rules:
+    - type: adv_rank_exclude_bottom
+      params: { adv_period: 20, exclude_bottom_pct: 20 }
+      source: 行业惯例
+      # ★ 专家原文是「剔除 ADV20 全市场后 20%」。我们池子只有 300 只,
+      #   算出来的是「池内后 20%」,不是全市场后 20% —— 见审计报告 §3-A。
+      #   ★ 这里不替专家改口径,原文照留,等他定。
+    - type: price_above_ma
+      params: { ma: 200 }
+      source: 行业惯例
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 → [日期] 的 0/1 向量(全市场共用)
+# ---------------------------------------------------------------------------
+regime:
+  rules:
+    - type: index_above_ma_scaled
+      params: { symbol: SPY, ma: 200, factor: 0.99 }
+      source: 行业惯例
+    - type: index_ma_slope
+      params: { symbol: SPY, ma: 200, lookback: 20, min_slope: 0.0 }
+      source: 行业惯例
+      # 专家标注「行业惯例(Faber 2007)」。Faber 2007 用的是 10 个月 SMA,
+      # 不含 20 日斜率闸门 —— 斜率这一条核不到 Faber 出处,见审计报告 §1-F。
+  flatten_when_off: false        # 原文:「不满足则全局休眠,禁止任何新开仓」= 只停新开仓
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 → [日期 × 票] 的布尔矩阵
+# ---------------------------------------------------------------------------
+entry:
+  rules:
+    - type: donchian_close_breakout
+      params: { lookback: 55 }
+      source: 原著
+      # ★ 55 这个数是真的(海龟 System 2 进场周期),但专家给的出处页码是错的:
+      #   《Way of the Turtle》Ch.5 是 "Trading with an Edge",不含系统参数;
+      #   该书正文 Ch.3 叙述 System 2 时写的是 60 日。55 出自另一份文件
+      #   《The Original Turtle Trading Rules》(Faith 2003,该书附录重印)。
+      #   ★ 见审计报告 §1-A。参数值不动,只纠出处。
+    - type: atr_squeeze
+      params: { atr_fast: 10, atr_slow_ma: 50, max_ratio: 0.85, offset_days: 1 }
+      source: 行业惯例
+      # 原文:突破前 10 日满足 ATR10(t−1) / SMA50(ATR)(t−1) < 0.85(Kaufman 波动率挤压)
+      # ★ 原文「突破前 10 日满足」有歧义:是只看 t−1 这一天,还是前 10 天每天都要满足?
+      #   见审计报告 §2-A。★ 没有自己定,照原文留 offset_days: 1。
+  signal_freeze: close           # 信号收盘固化
+  fill: next_open                # 次日开盘成交
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ④ 初始止损(进场当时定死,同时决定仓位)
+# ---------------------------------------------------------------------------
+stop_init:
+  type: tightest_of
+  components:
+    - type: atr_multiple
+      params: { atr_period: 20, multiple: 2.5 }
+      source: 行业惯例
+      # ★★ 专家标成「原著写死(海龟 2N 的现代微调版)」—— 这两句自相矛盾。
+      #   海龟原版是 2N(N = 20 日 ATR),2.5 不是原著数字,查不到谁加的。
+      #   按专家自己的措辞「现代微调版」,这里只能算行业惯例。
+      #   ★ 见审计报告 §1-B。参数值 2.5 不动。
+    - type: lowest_low
+      params: { lookback: 20 }
+      source: 原著
+  select: nearest_to_price       # 原文:两者取离现价更近者
+  r_definition: abs(entry_price - stop_price)
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ⑤ 移动止损(多阶段)
+# ---------------------------------------------------------------------------
+stop_trail:
+  stages:
+    - name: 锁死期
+      when: { unrealized_r_between: [0.0, 2.0] }
+      action: hold_initial_stop   # 止损锁死不动
+      source: 原著
+    - name: 吊灯期
+      when: { unrealized_r_gt: 2.0 }
+      type: chandelier
+      params: { lookback: 20, multiple: 3.0, atr_period: 20 }
+      source: 行业惯例
+      # 浮盈 +2R 启动:Chuck LeBeau (1992);吊灯 3.0×ATR20:LeBeau
+      # 公式:Stop_t = max(Stop_{t−1}, HighestHigh20 − 3.0×ATR20)
+  monotonic_up_only: true        # ★ 只许单向上移(引擎铁律,配置不得关闭)
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ⑥ 离场
+# ---------------------------------------------------------------------------
+exit:
+  rules:
+    - type: close_below_trailing_stop
+      source: 原著
+    - type: close_below_ma
+      params: { ma: 50 }
+      source: 原著
+  profit_target_r: null          # ★ 绝不设静态止盈
+  time_stop_days: null
+  fill: next_open                # 次日开盘全平
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01         # 单笔风险 = NAV × 1.0%
+    max_weight: 0.15             # 单票名义占用 ≤ 15%
+  source: 原著
+  # 单笔 1.0%:原著写死(海龟法则)—— 已核实,原始海龟规则确为每单位 1% 权益。
+  # 单票 15% 上限:行业惯例(UCITS)。★ 两条出处不同级,拆开看见审计报告 §1-G。
+
+# ---------------------------------------------------------------------------
+# slots / ranking
+# ---------------------------------------------------------------------------
+slots: null
+# ★★ 专家原文没有给流派一的持仓上限(只给了单票 15%)。
+#   15% 上限只约束单票,不等于「最多 6~7 只」—— 名义占用和风险占用是两回事。
+#   ★ 见审计报告 §2-E。★ 没有自己填数。
+
+ranking: null
+# ★★ 专家原文没有给候选多于槽位时的排序规则。
+#   ★ 见审计报告 §2-F。★ 没有自己填(动量排序 / ATR 倒排 / 随机都会改变结果)。
+
+# ---------------------------------------------------------------------------
+# 摩擦成本与基准
+# ---------------------------------------------------------------------------
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例                # SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A
+
+benchmark:
+  component_match: large
+  risk_free_annual: null         # 仓库没有短端利率序列,现金腿按 0% 记并在结果里标明

@@ -1,0 +1,228 @@
+# ============================================================================
+# 流派二:动量结构与波动率挤压突破派(VCP)
+#
+# 三秒版:在已经领涨的强势股里,等它波动一级级收缩、成交量枯竭,
+#         然后突破前 5 日高点就买;止损不许超过 8%,否则这单不做。
+#
+# ★ 本文件是「照抄外部专家原文」的产物。所有数值与专家原文一字不差。
+# ★ source 字段约定(三选一):原著 / 行业惯例 / 我们搜的
+#   ★ 本文件 "我们搜的" = 0 条。
+# ★★ 本文件有 4 处参数因为原文含糊,留空(值为 null)并标 audit_blocked。
+#   ★ 按硬纪律没有自己填数 —— 填了就变成「我们搜的」。
+#   ★ 这 4 处不补齐,这条链跑不起来。见审计报告 §2。
+#
+# 审计报告:/home/claude/三流派配置-参数审计-1028.md
+# 字段命名按七步接口(stop_init / stop_trail / slots / ranking),
+# 与现有 _TEMPLATE_master.yaml 的 initial_stop / trailing_stop 不一致,见 §4-A。
+# ============================================================================
+
+meta:
+  name: 流派二_动量结构与波动率挤压突破_VCP
+  master: William O'Neil;Mark Minervini
+  modern: Kristjan Qullamaggie;Bob Volman (2014);George & Hwang (2004)
+  book: O'Neil《How to Make Money in Stocks》(1988, 4th ed 2009) Ch.1 Ch.10;
+        Minervini《Trade Like a Stock Market Wizard》(2013) Ch.8 Ch.10;
+        Minervini《Think & Trade Like a Champion》(2017)
+  pricing_belief: 领涨成长股被机构锁仓后微观波动率阶梯衰减;供给枯竭 + 阻力位临界突破
+                  → 抢筹与空头踩踏 → 极端正偏态爆发
+  best_regime: 产业革命爆发期(2023–2024 AI 硬件)、脱离熊市底部的 Stage 2 初期
+  worst_regime: 加息尾声紧缩去杠杆(2022 全年)、指数虚高但广度恶化的断层期
+                (2021 下半年,假突破率激增到 70% 以上)
+  evidence_grade: 中高 —— 截面动量坚固,几何形态缺独立论文
+                  (Jegadeesh & Titman 1993 JF;George & Hwang 2004 JF;
+                   Ang/Hodrick/Xing/Zhang 2006 JF)
+  # ★ Ang 等 (2006) 的结论是「高特质波动 → 低预期收益」,
+  #   引来支持波动率挤压突破,方向上不直接相符 —— 见审计报告 §1-H。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 → [日期 × 票] 的 0/1 矩阵
+# ---------------------------------------------------------------------------
+universe:
+  rules:
+    - type: mktcap_rank_exclude_bottom
+      params: { exclude_bottom_pct: 20 }
+      source: 行业惯例
+      # ★★ 两个问题叠在一起:
+      #   (a) 口径:原文「剔除市值后 20%」是全市场口径,我们池子只有 300 只
+      #       → 只能算池内后 20%,见审计报告 §3-A。
+      #   (b) 数据:我们没有 PIT 市值。只有 WeightedAverageDilutedShares(季度、
+      #       加权平均摊薄股数),仓库 README 明确写「乘收盘价只是规模代理,
+      #       不是严格 PIT 市值」。见审计报告 §3-B。
+    - type: return_rank_top
+      params: { lookback: 60, top_pct: 15 }
+      source: 原著
+      # 专家标注「原著写死(O'Neil 80 分位 + Weinstein RS)」。
+      # ★ O'Neil 的 RS 线是 80 分位(即前 20%),不是前 15%;
+      #   60 日这个窗口也不是 O'Neil 的 RS 定义窗口 —— 见审计报告 §1-C。
+      # ★ 口径同上:池内前 15% ≠ 全市场前 15%,见 §3-A。
+    - type: mansfield_rs_positive
+      params: { against: SPY }
+      source: 原著
+    - type: mansfield_rs_positive
+      params: { against: SECTOR }
+      source: 原著
+      # ★★ 数据问题:行业归属只有 sector_classification_current_non_pit.csv
+      #   —— 是「当前」FMP 分类,不是历史 PIT,整段回测都在用未来信息。
+      #   另外 XLC 的数据只从 2018-06 起、XLRE 只从 2015-10 起,
+      #   2016–2018 这两个行业算不出 RS_行业。见审计报告 §3-C。
+    - type: ma_stack_bullish
+      params: { mas: [50, 150, 200], require_price_above_all: true }
+      source: 原著                 # Minervini 趋势模板
+      # ★ 原文「三线多头排列」没说是否要求 MA50 > MA150 > MA200 的严格排序,
+      #   也没说排序要维持几天 —— 见审计报告 §2-D。
+      #   ★ 这里按字面保留「价格在三线上方 + 多头排列」,排序严格度待专家确认。
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 → [日期] 的 0/1 向量
+# ---------------------------------------------------------------------------
+regime:
+  rules:
+    - type: index_above_ma
+      params: { symbol: SPY, ma: 200 }
+      source: 行业惯例
+    - type: index_ma_slope
+      params: { symbol: SPY, ma: 200, lookback: 20, min_slope: 0.0 }
+      source: 行业惯例
+    - type: no_distribution_day
+      params: { symbol: SPY, window: 5, single_day_drop_pct: 1.5 }
+      source: 行业惯例
+      # 原文:SPY 过去 5 日内无单日跌幅 > 1.5% 的分发日
+      # ★ 原文把「跌幅 > 1.5%」直接等同于「分发日」,但 O'Neil 体系的分发日
+      #   还要求放量。这里按原文字面只用跌幅,不加量能条件 —— 见审计报告 §2-G。
+  flatten_when_off: false
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 → [日期 × 票] 的布尔矩阵
+# ---------------------------------------------------------------------------
+entry:
+  rules:
+    - type: vcp_contraction
+      params:
+        contraction_count: null          # 原文「连续 2~3 次」
+        range_metric: null               # 「振幅」未定义
+        decrement_threshold: null        # 「递减」未给阈值
+        contraction_window: null         # 每段收缩的长度未给
+      source: 行业惯例
+      audit_blocked: §2-B
+      # ★★★ 这是本条链最大的缺口,四个参数全是空的:
+      #   原文只有一句「日线连续 2~3 次振幅递减收缩(VCP)」。
+      #   ① 振幅怎么算?(高−低 / 收盘?ATR?百分比?一段的最高到最低?)
+      #   ② 递减多少算递减?(每段比上段窄 10%?20%?只要更窄就算?)
+      #   ③ 2 次和 3 次怎么选?(2 次就够还是必须 3 次?满足 2 次时要不要再等?)
+      #   ④ 每一段「收缩」从哪到哪算一段?(波峰到波谷?固定天数?)
+      #   ★ 没有自己定。见审计报告 §2-B 和追问原话。
+    - type: volume_dryup
+      params: { fast_period: 5, slow_period: 50, max_ratio: 0.60 }
+      source: 行业惯例
+      # 原文:最近 5 日均量 < 50 日均量的 60%(Minervini 缩量特征量化版)
+      # ★ 这是专家主动「废除原著突破当天量 ≥1.5 倍」后换上的反向条件,
+      #   与 O'Neil / Minervini 原著的放量突破要求相反 —— 见审计报告 §1-D。
+    - type: donchian_close_breakout
+      params: { lookback: 5 }
+      source: 行业惯例              # Qullamaggie / Volman
+  signal_freeze: close
+  fill: next_open_market           # 次日开盘市价进
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ④ 初始止损
+# ---------------------------------------------------------------------------
+stop_init:
+  type: structure_low_minus_atr
+  params:
+    structure_lookback: 5          # 过去 5 日收缩区间最低价
+    atr_period: 14
+    atr_multiple: 0.2              # 下方 0.2×ATR14
+  source: 原著
+  hard_gate:
+    type: max_stop_distance_pct
+    params: { max_pct: 8.0 }
+    on_violation: reject_signal    # ★★ 止损距离 > 8.0% → 信号作废,严禁开仓
+    source: 原著
+    # 专家标注「原著写死(O'Neil 2009 Ch.10 的 7~8% 硬止损)」。
+    # 7~8% 这个数字是 O'Neil 的、无疑;章节定位只拿到二手书评的佐证
+    # (Ch.10 = 卖出/止损章),没有核到书本身。★ 见审计报告 §1-C。
+    # ★ 另外:原文把 O'Neil 的「7~8%」单边取成 8.0%,这一步是专家做的取值。
+
+# ---------------------------------------------------------------------------
+# ⑤ 移动止损(多阶段)
+# ---------------------------------------------------------------------------
+stop_trail:
+  stages:
+    - name: 保护期
+      when: { days_held_lte: 10 }
+      action: hold_initial_stop     # 前 10 个交易日只认初始结构止损
+      source: 原著
+    - name: 滞涨换血
+      when:
+        days_held_gte: 15
+        unrealized_r_between: [-0.3, 0.5]
+        candidate_pool_has_new_high_signal: true
+      action: rotate_out            # 滞涨换血平仓
+      source: 原著
+      # ★★ 专家标注「原著写死(Minervini 2017 Ch.6 "Rule of 2-3 Weeks")」。
+      #   ★ 查不到。《Think & Trade Like a Champion》Ch.6 是
+      #     "How and When to Buy Stocks—Part 1"(买入章),卖出章是 Ch.9;
+      #     也没查到书中有叫 "Rule of 2-3 Weeks" 的命名规则。
+      #   ★ 见审计报告 §1-C。参数值(15 日 / [−0.3R, +0.5R])不动。
+      # ★ 另外「备选池有新高动量信号」没定义:新高是几日新高?动量怎么比?
+      #   见审计报告 §2-C。
+    - name: 保本
+      when: { unrealized_r_gt: 2.0 }
+      action: move_stop_to_breakeven
+      source: 行业惯例
+    - name: EMA10 跟踪
+      when: { unrealized_r_gt: 3.0 }
+      type: ema_trail
+      params: { ema: 10 }
+      source: 行业惯例              # +3R 开 EMA10 跟踪
+  monotonic_up_only: true
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ⑥ 离场
+# ---------------------------------------------------------------------------
+exit:
+  rules:
+    - type: close_below_ema
+      params: { ema: 10 }
+      source: 原著
+    - type: close_below_trailing_stop
+      source: 原著
+  profit_target_r: null            # ★ 创 52 周新高区域绝不设固定止盈
+  time_stop_days: null             # 时间维度由 ⑤ 的「滞涨换血」负责
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01           # 单笔风险 NAV×1.0%
+    max_weight: 0.20               # 单票名义上限 20%
+  source: 行业惯例
+
+# ---------------------------------------------------------------------------
+# slots / ranking
+# ---------------------------------------------------------------------------
+slots: 5                           # ★ 最多同时 5 只
+source_slots: 行业惯例
+
+ranking: null
+# ★★ 专家原文没给排序规则,但这条链 slots 只有 5 只、
+#   而选股范围是「动量前 15%」—— 候选几乎天天多于 5 个槽位。
+#   ★ 排序规则不定,结果完全不可复现。见审计报告 §2-F。
+#   ★ 没有自己填。
+
+# ---------------------------------------------------------------------------
+# 摩擦成本与基准
+# ---------------------------------------------------------------------------
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例
+
+benchmark:
+  component_match: large
+  risk_free_annual: null

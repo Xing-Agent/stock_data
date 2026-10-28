@@ -86,6 +86,8 @@ SignalFn = Callable[[pd.DataFrame], pd.Series]
 
 
 def _bool(s: pd.Series) -> pd.Series:
+    """★ pandas 3.0 里 bool 序列 .shift() 会变 object dtype,对它取 `~` 结果是错的。
+    所有布尔序列都过这一道,强制回 bool。"""
     return s.fillna(False).astype(bool)
 
 
@@ -113,7 +115,7 @@ def make_entry(spec: dict) -> SignalFn:
             hi = donchian_high(df, n)
             raw = df["close"] > hi
             # ★ 必须是「事件」:只在由不成立变成成立的那一天为 True(九关第三关)
-            return _bool(raw & ~raw.shift(1).fillna(False))
+            return _bool(_bool(raw) & ~_bool(raw.shift(1, fill_value=False)))
         return f
 
     if t == "ma_cross":
@@ -122,7 +124,7 @@ def make_entry(spec: dict) -> SignalFn:
         def f(df: pd.DataFrame) -> pd.Series:
             a, b = sma(df["close"], fast), sma(df["close"], slow)
             raw = a > b
-            return _bool(raw & ~raw.shift(1).fillna(False))
+            return _bool(_bool(raw) & ~_bool(raw.shift(1, fill_value=False)))
         return f
 
     if t == "rsi_oversold":
@@ -130,7 +132,7 @@ def make_entry(spec: dict) -> SignalFn:
 
         def f(df: pd.DataFrame) -> pd.Series:
             r = rsi(df["close"], n)
-            return _bool((r > thr) & (r.shift(1) <= thr))
+            return _bool(_bool(r > thr) & _bool(r.shift(1) <= thr))
         return f
 
     if t == "roc_momentum":
@@ -142,7 +144,7 @@ def make_entry(spec: dict) -> SignalFn:
             m = roc(df["close"], n)
             thr = m.rolling(win, min_periods=win).quantile(q)
             raw = m > thr
-            return _bool(raw & ~raw.shift(1).fillna(False))
+            return _bool(_bool(raw) & ~_bool(raw.shift(1, fill_value=False)))
         return f
 
     if t == "always":

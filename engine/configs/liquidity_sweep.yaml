@@ -1,0 +1,230 @@
+# ============================================================================
+# 流派三:微观结构流动性猎杀与均值回归派
+#
+# 三秒版:等算法把散户止损点砸穿、当天又拉回来收阳线,就在那根针上接一手;
+#         止损贴死针尖下方,站上 20 日线后移保本,绝不半仓止盈。
+#
+# ★ 本文件是「照抄外部专家原文」的产物。所有数值与专家原文一字不差。
+# ★ source 字段约定(三选一):原著 / 行业惯例 / 我们搜的
+#   ★ 本文件 "我们搜的" = 0 条。
+# ★★ 本文件有 3 处参数因为原文含糊留空(null + audit_blocked),
+#   另有 1 条环境过滤规则因为我们没有数据而留空。★ 没有自己填数。
+# ★★ 提醒:外部专家自己承认,裸测纯几何日线 U&R 的经验显著性 p ≈ 0.12
+#   —— 这条链的实证等级最低,优先级应排最后。
+#
+# 审计报告:/home/claude/三流派配置-参数审计-1028.md
+# 字段命名按七步接口,与现有 _TEMPLATE_master.yaml 不一致,见 §4-A。
+# ============================================================================
+
+meta:
+  name: 流派三_微观结构流动性猎杀与均值回归
+  master: Richard Wyckoff;Connors & Raschke;Victor Sperandeo
+  modern: ICT / Smart Money Concepts(SFP);Toby Crabel (1990)
+  book: Wyckoff《The Wyckoff Method》(1931) 第 7 节(Springs / Shakeouts);
+        Connors & Raschke《Street Smarts》(1995) Ch.3(Turtle Soup);
+        Sperandeo《Trader Vic》(1991) Ch.7(2B 假突破反转)
+  # ★ 三处书目定位都核不实,见审计报告 §1-I。
+  pricing_belief: 算法做市商定点击穿散户密集设伏的支撑点触发止损盘;
+                  极端放量刺穿后快速拉回收复 = 空头动能耗尽 + 做市商吸筹 → 向中枢回归
+  best_regime: 宽幅箱体震荡、长期牛市中的次级恐慌回踩、白马股支撑位被点刺后的诱空反转
+  worst_regime: 系统性信用危机去杠杆(2008 雷曼周、2020 年 3 月)、
+                个股造假或模式破裂的真破位
+  evidence_grade: 中等 —— 订单簿与反转文献充分,但纯日线几何规则 Alpha 衰减显著;
+                  ★ 专家自承裸测 p ≈ 0.12
+                  (Biais/Hillion/Spatt 1995 JF;Hendershott/Jones/Menkveld 2011 JF;
+                   Lehmann 1990 QJE)
+  # ★ 数据从 2016-01-01 起,2008 雷曼周这段「必然失灵」样本测不到;
+  #   2020 年 3 月在样本内 —— 见审计报告 §3-F。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 → [日期 × 票] 的 0/1 矩阵
+# ---------------------------------------------------------------------------
+universe:
+  rules:
+    - type: dollar_volume_rank_exclude_bottom
+      params: { exclude_bottom_pct: 20 }
+      source: 行业惯例
+      # ★ 原文「剔除成交额后 20%」没给计算窗口(ADV 几日?中位数还是均值?)
+      #   —— 流派一同类条件写的是 ADV20,这里没写。见审计报告 §2-H。
+      # ★ 口径:池内后 20% ≠ 全市场后 20%,见审计报告 §3-A。
+    - type: hv_below
+      params: { period: 20, max_hv_annualized_pct: 40 }
+      source: 行业惯例
+      # 原文:HV20 < 40%(严禁在高波动暴雷股上接飞刀)
+      # ★ 原文没说 HV 是年化还是日化、用对数收益还是简单收益、
+      #   年化按 252 还是 260 天 —— 40% 这个数只有在年化口径下才讲得通,
+      #   这里按年化写,但口径须专家确认。见审计报告 §2-I。
+    - type: altman_z_double_prime_exclude_bottom
+      params: { exclude_bottom_pct: 10 }
+      source: 行业惯例
+      # 原文:Altman Z'' 不在后 10% 破产危险区
+      # ★ 数据上算得出来(TotalAssets / CurrentAssets / CurrentLiabilities /
+      #   RetainedEarnings / EBIT / StockholdersEquity / Liabilities 都有,且 PIT),
+      #   但原文没指定 Z'' 的系数版本(Altman 1995 新兴市场版有多个变体)。
+      #   ★ 另外「后 10%」又是池内 300 只的后 10%,不是全市场。
+      #   见审计报告 §3-D 与 §2-J。
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 → [日期] 的 0/1 向量
+# ---------------------------------------------------------------------------
+regime:
+  rules:
+    - type: no_large_down_day
+      params: { symbol: SPY, window: 3, single_day_drop_pct: 2.0 }
+      source: 行业惯例
+      # 原文:SPY 过去 3 日内无单日跌幅 > 2.0%
+    - type: credit_spread_weekly_change_below
+      params:
+        series: null                 # ★ 我们没有这个数据
+        max_weekly_rise_bps: 50
+      source: 行业惯例
+      audit_blocked: §3-E
+      enabled: false
+      # ★★★ 原文:高收益债信用利差 HY OAS 单周未飙升超 50bps。
+      #   ★ 仓库里没有 HY OAS,也没有任何信用利差序列。已查:
+      #     pilot_300/selection/metadata/HY.json 是 Hyster-Yale 这只股票的
+      #     公司资料,不是 high-yield 利差 —— 名字撞车,别误用。
+      #     benchmarks/ 只有 SPY · IWM · IVE · IVW · TLT · VIX;
+      #     reference_etfs_20261025/ 只有 RSP + 11 只 XL* 行业 ETF。
+      #     没有 HYG / JNK / LQD,也没有 FRED 的 BAMLH0A0HYM2。
+      #   ★ 50bps 这个阈值原文照留,但这条规则现在 enabled: false ——
+      #     ★★ 这等于把专家明确要求的「基本面排雷闸门」关掉了,
+      #     而专家恰恰说裸测(不配大盘环境和基本面排雷)p ≈ 0.12。
+      #     ★ 所以这条链在补上数据前不建议开跑。见审计报告 §3-E。
+  flatten_when_off: false
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 → [日期 × 票] 的布尔矩阵
+# ---------------------------------------------------------------------------
+entry:
+  rules:
+    - type: swing_low_exists
+      params:
+        lookback: 20
+        swing_definition: null       # 「清晰摆动波谷」未定义
+        min_bars_before: null        # 波谷距今至少几根 K 线未给
+      source: 原著
+      audit_blocked: §2-K
+      # ★★ 原文「过去 20 日内存在清晰摆动波谷」。
+      #   ① 「摆动波谷」怎么认?(左右各几根 K 线更高就算一个波谷?)
+      #   ② 「清晰」是什么门槛?(波谷相对周边要深多少?)
+      #   ③ 波谷离当天至少隔几天?★ Connors 原版 Turtle Soup 明确要求
+      #     那个 20 日新低发生在至少 4 个交易日之前 —— 原文把这条丢了。
+      #     见审计报告 §1-I 与 §2-K。★ 没有自己填。
+    - type: intraday_break_below_swing_low
+      params: { min_new_low_days: 20 }
+      source: 原著
+      # 原文:当日盘中跌破该波谷、创至少 20 日新低
+    - type: close_reclaim_above_swing_low
+      params:
+        strength_metric: null        # 「强力收复」未定义
+        min_reclaim: null
+      source: 原著
+      audit_blocked: §2-L
+      # ★★ 原文「当日收盘强力收复到该波谷上方」。
+      #   ★ 收复多少算「强力」?收盘高出波谷 0.1%?0.5×ATR?
+      #     还是收盘位于当日振幅的上 1/3(close location value)?
+      #   ★ 这个数直接决定样本量和胜率,★ 绝不能自己定。见审计报告 §2-L。
+    - type: bullish_candle
+      params: { require: close_gt_open }
+      source: 原著                   # 收阳线(收 > 开)
+  signal_freeze: close
+  fill: close_or_next_open
+  source: 原著
+  # ★ 原文「当日收盘固化或次日开盘市价进」给了两个选项,没说用哪个。
+  #   ★ 这不是含糊措辞而是两套不同的成交假设:当日收盘进等于用收盘价
+  #     同时做信号和成交(有前视嫌疑),次日开盘进会损失一部分反弹。
+  #   ★ 必须二选一才能跑。见审计报告 §2-M。
+
+# ---------------------------------------------------------------------------
+# ④ 初始止损
+# ---------------------------------------------------------------------------
+stop_init:
+  type: day_low_minus_atr
+  params:
+    atr_period: 14
+    atr_multiple: 0.3              # 当日最低点下方 0.3×ATR14
+  source: 行业惯例
+  r_definition: abs(entry_price - stop_price)
+
+# ---------------------------------------------------------------------------
+# ⑤ 移动止损(多阶段)
+# ---------------------------------------------------------------------------
+stop_trail:
+  stages:
+    - name: 三根K线不启动退出
+      when:
+        days_held_lte: 3
+        failed_to_leave_cost_zone: true
+        close_below_signal_bar_open: true
+      action: exit_unconditional     # ★ 无条件平仓
+      source: 行业惯例
+      # ★ 「无法脱离成本区」没定义:成本区是进场价 ±多少?±0.5R?±1%?
+      #   见审计报告 §2-N。★ 没有自己填。
+      cost_zone_definition: null
+      audit_blocked: §2-N
+    - name: 保本
+      when: { close_above_ma: 20 }
+      action: move_stop_to_breakeven
+      source: 行业惯例               # 站上 SMA20 后止损移到保本
+    - name: 前低跟踪
+      when: { after_stage: 保本 }
+      type: lowest_low_trail
+      params: { lookback: 10 }       # 之后沿前 10 日最低点向上跟随
+      source: 行业惯例
+  monotonic_up_only: true
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ⑥ 离场
+# ---------------------------------------------------------------------------
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 20 }
+      source: 原著
+    - type: close_below_trailing_stop
+      source: 原著
+  partial_exit: null                 # ★ 严禁在 +2R 主观平半仓;全额持仓
+  profit_target_r: null
+  time_stop_days: null
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01             # 单笔风险 NAV×1.0%
+    max_weight: 0.15                 # 单票名义上限 15%(止损极窄,严禁加杠杆)
+  source: 行业惯例
+  # ★★ 注意一个实操后果:这条链止损极窄(当日最低下方 0.3×ATR14),
+  #   1% 风险 ÷ 很小的止损距离 → 算出来的股数会非常大,
+  #   15% 名义上限会频繁成为真正的约束条件(而不是风险预算)。
+  #   ★ 这不是参数问题,是要在结果里标明「有多少笔是被 15% 顶住的」。
+
+# ---------------------------------------------------------------------------
+# slots / ranking
+# ---------------------------------------------------------------------------
+slots: null
+# ★★ 专家原文没给流派三的持仓上限。见审计报告 §2-E。★ 没有自己填。
+
+ranking: null
+# ★★ 专家原文没给排序规则。这条链在恐慌日会同时触发很多票
+#   (全市场一起砸穿支撑),候选远多于槽位,排序规则对结果影响极大。
+#   见审计报告 §2-F。★ 没有自己填。
+
+# ---------------------------------------------------------------------------
+# 摩擦成本与基准
+# ---------------------------------------------------------------------------
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例
+  # ★ 这条链单笔止损极窄、持仓周期短、换手最高,5bp 摩擦对它的影响
+  #   远大于对流派一 —— 结果里必须同时看毛/净两条线。
+
+benchmark:
+  component_match: large
+  risk_free_annual: null
