@@ -1,0 +1,330 @@
+# ============================================================================
+# 流派一:资产负债表与深度价值安全边际派
+#
+# 三秒版:在被恐慌砸到清算价值以下的便宜票里,先用破产排雷筛掉真要死的,
+#         再等它自己盘中破底当天收回来、站上 EMA20 才右侧进场。
+#
+# ★ 本文件是「照抄外部专家原文」的产物。七步文字与数值与专家原文一字不差。
+# ★ source 字段约定(三选一):原著 / 行业惯例 / 我们搜的
+#   ★ 本文件 "我们搜的" = 0 条。
+#
+# ★★★ 本条链现在跑不起来,原因是数据,不是定义:
+#   ① EV/EBITDA 后 20% —— ❌ 算不出(EBITDA 在池内只有 25% 的票算得出来,
+#      因为 EBIT 和 D&A 这两个科目都不是每只票每期都报)。两处用到,都关了。
+#   ② Altman Z'' > 1.10 —— 🟡 算得出 29%~47%,但 ★ 系数版本仍未指定(§2-J 三轮未答),
+#      而本轮查实 1.10/2.60 这组分区属于**带 +3.25 常数的新兴市场版**。
+#      版本选错 = 整条闸门系统性偏移 3.25。关着,等专家指定版本。
+#   ③ HYG/LQD 环境闸门 —— ❌ 仓库里没有这两只 ETF(第二轮就没有,本轮复核仍没有)。
+#   ★ 剩下还在干活的基本面闸门只有 Piotroski F-Score 一条(全 9 项齐备率 29%)。
+#
+# ★★ 出处:本轮核了 3 处专家标「原著写死」的,3 处全部不实。见审计报告。
+#   · F-Score ≥ 5 → 年份错(2000 不是 2001)、节号错(≥5 出现在第 5 节稳健性检验,
+#     不在第 3 节)、描述错(原文主组合是 8–9 对 0–1,没有「0–3 高危 / 5–9 稳健」这个划法)
+#   · Altman Z'' > 1.10 → 1.10 是**灰区下沿**不是安全线,安全线是 2.60(又取松端)
+#   · 180 日时间退出 → 专家自己就标了「来源存疑」,维持存疑
+#
+# 可行性与审计报告:/home/claude/基本面三流派-可行性与审计-1028.md
+# 字段命名按七步接口(universe/regime/entry/stop_init/stop_trail/exit/sizing),
+# 与另外三份流派配置一致;适配层 engine/config_adapter.py 两套名字都认。
+# ============================================================================
+
+meta:
+  name: 流派一_资产负债表与深度价值安全边际
+  master: Benjamin Graham & David Dodd;Seth Klarman
+  modern: Joseph Piotroski (2001);Joel Greenblatt (2005);James Montier (GMO, 2009)
+  book: Graham & Dodd《Security Analysis》(1934/1940) Ch.40–43(净流动资产价值与清算检验);
+        Seth Klarman《Margin of Safety》(1991) Ch.8–9(困境证券与清算价值评估)
+  pricing_belief: 市场在悲观周期与困境事件中会把资产价格非理性打压至清算价值或重置成本之下;
+                  资产负债表的硬资产底线构成非对称安全边际;
+                  超额收益来自破产恐慌出清后的估值均值回归或催化重组
+  improvements:
+    - 废除原著「只看 P/B 便宜就买」—— 原著在现代市场会大量买入产能过剩、不可逆失血的濒死企业;
+      现代做法强制叠加 Piotroski F-Score + Altman Z'' 做二元破产排雷
+    - 估值锚点从易受商誉扭曲的 P/B 升级为 EV/EBITDA 或 NNWC
+  best_regime: 衰退末期到复苏初期的剧烈反弹(2009 上半年、2020 二季度);
+               通胀上行利率抬升导致成长股杀估值、低估值重资产重估(2022 价值股行情)
+  worst_regime: 流动性驱动的长期成长股牛市、科技巨头单边推升的后半程(2019–2020 上半年、2023);
+                全行业产能过剩的结构性通缩期
+  evidence_grade: 极高 —— Fama & French (1992 JF);Piotroski (2001 JAR);
+                  Lakonishok/Shleifer/Vishny (1994 JF)
+  # ★ 数据从 2016-01-01 起,2009 上半年这段「最灵」样本测不到;
+  #   2020 二季度与 2022 在样本内。见审计报告 §3-F(上一轮)。
+
+# ---------------------------------------------------------------------------
+# ★ PIT 规范(专家原文)
+# ---------------------------------------------------------------------------
+pit:
+  effective: filing_date_plus_1_trading_day
+  basis: SEC Filing Date + 1 个交易日(以 EDGAR 正式接收日为准)
+  forbid: 严禁用报告期截止日
+  missing_policy: 未公布期间沿用上一期(Forward-fill)
+  update_frequency: quarterly_discrete
+  source: 原著
+  # ★ 数据侧已核:fundamentals.json 每条记录都带 filing_date / accepted_at
+  #   (= SEC 正式受理时间),591,458 条零缺失,所以「Filing Date + 1 个交易日」
+  #   这条规范我们执行得了。这是本轮核查里最干净的一条。
+  # ★ 但注意引擎现有口径是「按 accepted_at 逐日对齐」(重建说明 坑三),
+  #   和这里的「+1 个交易日」差一天。★ 待统一,见报告「要 Lin 拍板」第 4 条。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 → [日期 × 票] 的 0/1 矩阵
+# ---------------------------------------------------------------------------
+universe:
+  rules:
+    - type: adv_rank_exclude_bottom
+      params: { period: 20, exclude_bottom_pct: 20 }
+      source: 行业惯例
+      # 原文:剔除 ADV20 全市场后 20%
+      # ★ 口径:池内后 20% ≠ 全市场后 20%。上一轮已定「照原数跑,结果里标明
+      #   这道闸门在我们池子里没在干活」。见审计报告 §3-A。
+      pending_lin: "#1 分位口径 —— 照原数跑池内分位,沿用上一轮已定方案"
+
+    - type: ev_ebitda_rank_bottom
+      params: { rank_bottom_pct: 20 }
+      source: 行业惯例
+      # 原文:EV/EBITDA 处于全市场后 20%(最低估)
+      #   专家标「行业惯例(Greenblatt 神奇公式分位体系)」
+      data_missing: true
+      enabled: false
+      audit_blocked: 可行性-①
+      # ★★ 算不出。实测(250 只有基本面的票,三个断面):
+      #     EBITDA(= EBIT + D&A)能算出来的票:2018 20.0% / 2022 24.8% / 2025 33.6%
+      #     再叠加企业价值需要的净债与市值:2018 9.2% / 2022 13.6% / 2025 20.0%
+      #   两个原因:
+      #     (a) EBIT 不是每只票每期都单独报(多数报 OperatingIncomeLoss,口径不同);
+      #     (b) D&A 两个科目合起来覆盖率也只有 ~68%。
+      #   ★ 试过的替代,已否决:EBIT ≈ 税前利润 + 利息费用。
+      #     覆盖率一点没提高(缺的是同一批票),而且两种口径同时有值时
+      #     **中位差异 50.3%**、90 分位 120.6% —— 这是近似值,按纪律 7 不许用来顶。
+      #   ★ 缺了它这一派还完不完整:★ 不完整。EV/EBITDA 是专家明写的
+      #     「现代改进 ②」(把估值锚点从 P/B 升级过来),关掉等于退回原著的裸便宜,
+      #     而专家自己说原著裸便宜在现代市场会买进一堆濒死企业。
+
+    - type: altman_z_double_prime_above
+      params: { threshold: 1.10 }
+      source: 行业惯例
+      # 原文:Altman Z'' > 1.10
+      # ★ 专家标「原著写死(Altman 1983 非制造业困境死线)」→ ★ 本轮核不实,已降级。
+      data_missing: false
+      enabled: false
+      audit_blocked: 可行性-②/出处-②
+      # 🟡 数据上**算得出来**:四变量所需科目(CurrentAssets / CurrentLiabilities /
+      #   TotalAssets / RetainedEarnings / EBIT / StockholdersEquity / 总负债)
+      #   齐备率 2018 26.4% / 2022 29.2% / 2025 42.4%(瓶颈还是 EBIT)。
+      #   ★ 总负债可以用 TotalAssets − StockholdersEquity 恒等式补,
+      #     补完非 EBIT 的那四项齐备率升到 73%~77%(Liabilities 直接报的只有 ~73%)。
+      # ★★ 关掉的真正原因不是数据,是**阈值本身现在没法用**:
+      #   (a) 系数版本三轮未指定(§2-J)。四变量无常数版 Z'' =
+      #       6.56·X1 + 3.26·X2 + 6.72·X3 + 1.05·X4;
+      #       新兴市场版 Z''-EM = 同样四项 **+ 3.25 常数**。
+      #   (b) 本轮查实:**1.10 / 2.60 这组分区是配给带 +3.25 常数的版本的**。
+      #       把 1.10 套到无常数版上,等于把门槛整体平移 3.25 —— 不是略严,是完全不同的闸门。
+      #   ★ 所以这不是「填个数就能跑」,是先要专家回答用哪版。填错方向上会系统性放水或系统性清空。
+      # ★ 另:1.10 是**灰区下沿**(Z''<1.10 困境 / 1.10~2.60 灰区 / >2.60 安全),
+      #   不是「安全线」。专家取的又是松端,紧端 = 2.60。见审计报告「松紧两端」表。
+
+    - type: piotroski_f_score_above
+      params: { min_score: 5, max_score: 9 }
+      source: 行业惯例
+      # 原文:Piotroski F-Score ≥ 5(满分 9,剔除 0–4 分)
+      # ★ 专家标「原著写死(Piotroski 2001 第 3 节)」→ ★ 本轮核不实,已降级。
+      #   · 年份:是 **2000**(JAR Vol.38 Supplement),不是 2001
+      #   · 节号:第 3.3 节定义的主组合是 **F=8~9 做多 / F=0~1 做空**;
+      #     「≥5」只出现在**第 5 节 + 图 1 + 附录 A 的稳健性检验**里
+      #   · 描述:原文没有「0–3 划高危、5–9 划稳健」这个划法;它是 ≥5 对 ≤4
+      #   ★ 数字本身在原文里存在,但是旁证不是主结论。紧端 = **F ≥ 8**。
+      f_score_items_feasibility:
+        # 逐项核过,9 项**全部算得出来**,但齐备率差很多。2022-06-30 断面:
+        1_ROA_positive:        { ok: true,  coverage: 96.4%, fields: [NetIncome, TotalAssets] }
+        2_CFO_positive:        { ok: true,  coverage: 96.0%, fields: [OperatingCashFlow] }
+        3_delta_ROA:           { ok: true,  coverage: 96.0%, fields: [NetIncome, TotalAssets] }
+        4_ACCRUAL_CFO_gt_ROA:  { ok: true,  coverage: 95.2%, fields: [NetIncome, OperatingCashFlow, TotalAssets] }
+        5_delta_LEVER:         { ok: true,  coverage: 48.8%, fields: [LongTermDebt, TotalAssets] }   # ★ 瓶颈一
+        6_delta_LIQUID:        { ok: true,  coverage: 80.0%, fields: [CurrentAssets, CurrentLiabilities] }
+        7_EQ_OFFER:            { ok: true,  coverage: 86.8%, fields: [WeightedAverageDilutedShares] }
+        8_delta_MARGIN:        { ok: true,  coverage: 57.2%, fields: [Revenue, CostOfRevenue] }      # ★ 瓶颈二
+        9_delta_TURN:          { ok: true,  coverage: 90.4%, fields: [Revenue, TotalAssets] }
+        all_9_items_available: { 2018: 29.2%, 2022: 29.2%, 2025: 31.6% }
+        note: ★ 9 项全齐只有 29%。按硬纪律「看不到数据的那天算不合格,不猜不补」,
+              这条闸门实际会把七成的票直接判出局 —— ★ 不是因为它们不达标,是因为算不出分。
+              ★ 这会让「低分被剔除」和「数据缺失被剔除」混在一起,归因里必须分开统计。
+      enabled: true
+      # ★ 这是本条链**唯一还在干活的基本面闸门**。
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 → [日期] 的 0/1 向量
+# ---------------------------------------------------------------------------
+regime:
+  rules:
+    - type: index_above_ma
+      params: { symbol: SPY, ma: 200 }
+      source: 行业惯例
+      # 原文:SPY 在 200 日线上方
+    - type: index_ma_slope
+      params: { symbol: SPY, ma: 200, window: 20, min_slope: 0.0 }
+      source: 行业惯例
+      # 原文:且 20 日斜率 ≥ 0
+      # ★ 上一轮已查:斜率那半截不是 Faber,见审计报告 §1-F。
+    - type: credit_ratio_gate
+      params:
+        numerator: HYG
+        denominator: LQD
+        change_formula: ΔCredit_t = (Ratio_t − Ratio_{t−5}) / Ratio_{t−5}
+        gate_off_threshold: -0.0150
+      source: 行业惯例
+      data_missing: true
+      enabled: false
+      audit_blocked: 可行性-⑭
+      # 原文:HYG/LQD 比率过去 5 日变动率 > −1.50%
+      # ★★ ❌ 仓库里**没有** HYG,也没有 LQD。本轮已重新实地核查:
+      #     pilot_300/benchmarks/ 只有 SPY · IWM · IVE · IVW · TLT · VIX;
+      #     reference_etfs_20261025/ 只有 RSP + 11 只 XL* 行业 ETF。
+      #   ★ 和流派三是同一个缺口(上一轮 §3-E),协调人已去要这两只 ETF。
+      #   ★ 坑(沿用上一轮的提醒):pilot_300/selection/metadata/HY.json 是
+      #     Hyster-Yale 这只**股票**的公司资料,不是 high-yield 利差 —— 名字撞车,别误用。
+      # ★ 缺了它这一派还完不完整:★ 不完整但不致命。这是专家给深度价值配的
+      #   「信用环境排雷」—— 困境股最怕的就是信用收缩,关掉它等于在信用恶化时照买。
+      #   ★ 结果里必须标明。
+  flatten_when_off: false
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 → [日期 × 票] 的布尔矩阵
+# ---------------------------------------------------------------------------
+entry:
+  logic: all
+  # ★ 量化实战拒绝左侧接飞刀。进入基本面池后必须等右侧确认。
+  rules:
+    - type: undercut_and_rally
+      params: { lookback: 20 }
+      source: 行业惯例
+      # 原文:价格盘中跌破过去 20 日低点后当日强力收复(U&R / 2B)
+      # ★ 和流派三的「摆动波谷 + 强力收复」是同一族条件,但这里专家给的是
+      #   **20 日低点**(有明确定义),不是「清晰摆动波谷」(无定义)—— 所以这条能跑。
+      # ★ 仍有一处口径未给:「强力收复」要不要量化成收盘位置(BCL)?
+      #   专家原文此处只写「当日强力收复」,没给数。★ 没有自己填。
+      #   引擎按字面机械读法:当日最低价 < LowestLow20(前 20 日) 且 当日收盘 > LowestLow20。
+      undefined_param: 强力收复的强度口径(专家原文未给,未自行填数)
+    - type: close_above_ema
+      params: { period: 20 }
+      source: 行业惯例
+      # 原文:且当日收盘站上 EMA20
+  fill: next_open_market
+  source: 原著
+  # 原文:次日开盘市价进
+
+# ---------------------------------------------------------------------------
+# ④ 初始止损
+# ---------------------------------------------------------------------------
+stop_init:
+  type: day_low_minus_atr
+  params: { atr_period: 14, multiple: 0.5, anchor: signal_bar_low }
+  source: 行业惯例
+  # 原文:信号 Bar 最低价下方 0.5×ATR14
+  max_stop_distance_pct: 10.0
+  on_exceed: reject_entry
+  # 原文:若止损距离 > 10.0% → 强制作废,禁止建仓
+  # 专家标「行业惯例」,没标原著 —— 本轮不核(他没声称是原著)。
+
+# ---------------------------------------------------------------------------
+# ⑤ 移动止损 —— ★ 吊灯两条铁律由引擎写死,配置改不动
+# ---------------------------------------------------------------------------
+stop_trail:
+  type: staged
+  stages:
+    - { from_r: 0.0, to_r: 1.5, action: hold_initial_stop, source: 行业惯例 }
+      # 原文:浮盈 [0, +1.5R] 保持初始止损
+    - { from_r: 1.5, to_r: 2.5, action: move_to_breakeven, source: 行业惯例 }
+      # 原文:> +1.5R → 止损移到保本
+    - from_r: 2.5
+      to_r: null
+      action: lowest_low_trail
+      params: { lookback: 20 }
+      formula: Stop_t = max(Stop_{t−1}, LowestLow20)
+      source: 行业惯例
+      # 原文:> +2.5R → 启动 20 日低点吊灯
+
+# ---------------------------------------------------------------------------
+# ⑥ 离场
+# ---------------------------------------------------------------------------
+exit:
+  type: rules
+  rules:
+    - type: fundamental_quarterly_rebalance
+      trigger: pit_effective_date
+      conditions_any:
+        - { metric: piotroski_f_score, op: lt, value: 4, enabled: true }
+          # 原文:若 F-Score 跌破 4 分
+        - metric: ev_ebitda_rank
+          op: recovered_to_top_pct
+          value: 40
+          enabled: false
+          data_missing: true
+          audit_blocked: 可行性-①
+          # 原文:或 EV/EBITDA 修复至全市场前 40%(不再便宜)
+          # ★★ 同 ① 的 EV/EBITDA,算不出来 → ★ 这一派**离场的一半没了**。
+          #   注意这一条和 ① 的闸门不是一回事:① 是「够不够便宜才买」,
+          #   这一条是「贵回来了就卖」。深度价值的核心收益就是均值回归到不便宜为止,
+          #   ★ 关掉它等于**把这一派的止盈拆了**,只剩 F-Score 恶化和 180 日时间退出。
+      action: next_open_close_all
+      source: 原著
+      # 原文:→ 次日开盘无条件平仓
+    - type: time_stop
+      params: { max_holding_days: 180 }
+      source: 来源存疑
+      # 原文:持有满 180 个交易日仍未触达目标且未破止损 → 市价平仓
+      # ★ 专家自己标的「来源存疑(他自己标的,说原著无此规定)」—— 本轮维持存疑,没改数。
+      # ★ 注意这条现在变得很重要:上面的 EV/EBITDA 止盈关掉之后,
+      #   ★ 180 日时间退出成了这条链**唯一的主动止盈机制** ——
+      #   一个来源存疑的参数在承担整条链的止盈职责。这件事要让 Lin 知道。
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_weight: 0.08
+  source: 行业惯例
+  # 原文:单笔风险 NAV×1.0%;单票名义上限 8.0%(等权分散,容纳 12–15 只)
+
+slots: 12
+source_slots: 原著
+# ★ 和流派一趋势跟随那条链不同,这一派专家**给了**持仓只数(「容纳 12–15 只」)。
+#   区间两端:12(紧)/ 15(松)。★ 按本轮纪律「凡遇区间必须把两端都记下」,
+#   这里**取紧端 12**,并在报告里同时给出 15 的敏感度要求。
+#   ★ 这是三份配置里唯一一处我们主动取紧端的地方,因为专家的习惯是取松端,
+#     取紧端才能验出松端是不是在放水。★ 待 Lin 拍板(报告「要 Lin 拍板」第 3 条)。
+slots_range_other_end: 15
+
+# ---------------------------------------------------------------------------
+# 排序(候选多于槽位时)
+# ---------------------------------------------------------------------------
+ranking:
+  primary: null
+  tiebreak: null
+  source: null
+  # ★★ 专家三轮都没给流派一(深度价值)的排序规则。
+  #   ① 里的 EV/EBITDA 本来是最自然的排序字段,但它算不出来。
+  #   ★ 没有自己填。见报告「要 Lin 拍板」第 2 条。
+  audit_blocked: 排序未定
+
+# ---------------------------------------------------------------------------
+# 摩擦成本与基准
+# ---------------------------------------------------------------------------
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例
+  # ★ 用分三档、不用一刀切 one_way_bps —— 另外三份流派配置写的是 one_way_bps: 5.0,
+  #   正是引擎重建说明「坑四」要防的那个口径(同一条链换个摩擦口径,
+  #   结论能从「赚 12%」变成「亏 28%」)。★ 这三份新配置改用分档,
+  #   和另外三份不一致是**有意的**,见报告「要 Lin 拍板」第 5 条。
+
+benchmark:
+  component_match: large
+  risk_free_annual: null
+  # 仓库没有短端利率序列,现金腿按 0% 记并在结果里标明(重建说明第九节)

@@ -1,0 +1,353 @@
+# ============================================================================
+# 流派三:自由现金流与资本配置纪律派
+#
+# 三秒版:只买现金流是真的、而且把钱还给股东(分红+回购+偿债)的公司,
+#         等它放量突破 20 日新高进场;管理层一开始增发稀释股东就无条件清仓。
+#
+# ★ 本文件是「照抄外部专家原文」的产物。七步文字与数值与专家原文一字不差。
+# ★ source 字段约定(三选一):原著 / 行业惯例 / 我们搜的
+#   ★ 本文件 "我们搜的" = 0 条。
+#
+# ★★ 本条链是三条里**数据最好的一条**,是三条里唯一现在就能跑出像样样本的:
+#   ✅ Sloan 应计项     95~97% 算得出(全部指标里覆盖率最高的)
+#   🟡 FCF Yield        FCF 本身 85%,但**分母(市值)只有规模代理**
+#   ❌ 净股东回报率     ★ 三条腿里「净偿债」那条腿**现金流量表科目根本不存在**
+#   🟡 股本变化率       87~92%,但 ★ 25.6% 的票有拆股污染,必须先修
+#   ✅ SDI 板块扩散     11 只 XL* 全有,是三条链里唯一完全不缺数据的环境闸门
+#
+# ★★ 出处:本轮核了 3 处专家标「原著写死」的,3 处全部不实。
+#   · Sloan 应计项 < 0 @ Sloan 1996「核心定义」→ ★ 定义和阈值**双错**,详见下方。
+#   · 净股东回报率 ≥ 4.0% @ Faber 2013 Ch.4「核心分位值」→ 查不到绝对阈值,
+#     而且「分位值」和「绝对阈值」本身自相矛盾。
+#   · 股本净稀释 > 2.0% @ Thorndike 2012「行为红线」→ 查不到。那本书是 8 位 CEO 的
+#     叙事性案例研究,通篇没有数值筛选规则。
+#
+# 可行性与审计报告:/home/claude/基本面三流派-可行性与审计-1028.md
+# ============================================================================
+
+meta:
+  name: 流派三_自由现金流与资本配置纪律
+  master: Richard Sloan;William Thorndike
+  modern: Mebane Faber (Cambria, 2013);Wesley Gray & Jack Vogel (Alpha Architect, 2012)
+  book: Richard Sloan (1996, The Accounting Review) 应计项论文;
+        William Thorndike《The Outsiders》(2012) Ch.1–8(单股自由现金流最大化与资本配置)
+  pricing_belief: 权责发生制下的账面利润充斥应计项操控与非现金水分,
+                  只有落入口袋的自由现金流才是不可粉饰的硬通货;
+                  长期超额回报来自极度严苛的资本再配置(回购、分红、偿债,而非盲目扩张资本支出)
+  improvements:
+    - 废除「只看高股息率」—— 高股息往往沦为债务沉重、行将就木的公用事业与夕阳行业陷阱;
+      改为全口径股东回报率 = 现金分红 + 净股份回购 + 净有息负债偿还
+    - 引入 Sloan 应计项算法,清洗掉账面净利润极高但经营现金流为负的欺诈嫌疑股
+  best_regime: 宏观资本开支退潮、高利率与货币紧缩常态化、成熟经济体平淡震荡期 ——
+               外部融资成本高昂,市场重罚需要输血的「故事型」公司,
+               奖赏能产生真实现金流并持续注销股票提升每股收益的公司
+  worst_regime: 技术范式革命爆发初期(1999 互联网、2023 AI 初级阶段)——
+                能带来百倍增长的先锋公司因前置巨额资本开支导致 FCF 大幅为负,会被全额错失;
+                系统会选出一堆缩减研发、躺平分红的老化公用事业与传统制造
+  evidence_grade: 极高 —— Sloan (1996 TAR);
+                  Boudoukh/Michaely/Richardson/Roberts (2007 RFS)
+  # ★ 1999 这段「必然失灵」样本测不到(数据 2016 起);2023 在样本内。
+
+# ---------------------------------------------------------------------------
+# ★ PIT 规范(专家原文)
+# ---------------------------------------------------------------------------
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  buyback_basis: 过去 4 季度的完全稀释后总股本变化率
+  source: 原著
+  # ★ 现金流量表 YTD 口径的坑同流派二 —— 本派全部四个指标都是现金流科目,
+  #   ★ 所以这个坑对本派影响最大。必须先做 YTD 差分还原单季再滚 TTM。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 → [日期 × 票] 的 0/1 矩阵
+# ---------------------------------------------------------------------------
+universe:
+  rules:
+    - type: dollar_volume_rank_exclude_bottom
+      params: { period: 20, exclude_bottom_pct: 20 }
+      source: 行业惯例
+      # 原文:剔除全市场流动性后 20%
+      pending_lin: "#1 分位口径 —— 照原数跑池内分位,沿用上一轮已定方案"
+
+    - type: fcf_yield_rank_top
+      params: { rank_top_pct: 20 }
+      source: 行业惯例
+      # 原文:FCF Yield 处于全市场前 20%(专家另处写「FCF Yield ≥ 7.0% 行业惯例」)
+      data_missing: false
+      enabled: true
+      degraded: true
+      # 🟡 **部分算得出**:
+      #   分子 FCF = OperatingCashFlow − CapEx,**算得出**:
+      #     2018 57.2% / 2022 85.6% / 2025 84.4%
+      #     (CapEx 用 PaymentsToAcquirePropertyPlantAndEquipment,
+      #      缺的票回落到 PaymentsToAcquireProductiveAssets)
+      #   ★ 分母**缺一块**:FCF Yield 要除以市值,而我们**没有严格 PIT 市值**
+      #     (见流派二 ① 的说明;README 第 48 行明确说那只是 size proxy)。
+      #   ★ 可接受的替代:用 WeightedAverageDilutedShares × 当日收盘价 当规模代理分母,
+      #     合起来覆盖率 2018 50.0% / 2022 77.6% / 2025 79.6%。
+      #   ★★ 替代的代价(必须写进结果):期间加权摊薄股数 ≠ 时点在外流通股数。
+      #     (a) 回购很凶的公司,期间加权数**高于**期末真实股数 → 分母偏大 →
+      #         ★ FCF Yield 被**系统性低估** —— 而「回购很凶」正是这一派要选的特征,
+      #         所以这个偏差**不是随机噪音,是和选股信号同向的系统性偏差**。
+      #     (b) 摊薄口径含期权/可转债的潜在股份,进一步放大分母。
+      #   ★ 结论:这条闸门能跑,但**选出来的票会系统性偏向回购少的**,
+      #     方向正好和这一派想要的相反。★ 这是本配置里最需要 Lin 知道的一个代价。
+      denominator_note: 规模代理 = WeightedAverageDilutedShares × Close(非严格 PIT 市值)
+
+    - type: sloan_accrual_below
+      params: { threshold: 0.0 }
+      formula: (NetIncome − OperatingCashFlow) / TotalAssets
+      source: 行业惯例
+      # 原文:Sloan 应计项门禁:严格要求为负(现金流 > 会计利润)
+      # ★★ 专家标「原著写死(Sloan 1996 核心定义)」→ ★ 本轮核不实,**定义和阈值双错**:
+      #   (a) ★ 公式不是 Sloan 的。Sloan (1996 TAR) 原文用的是**资产负债表变动法**:
+      #       Accruals = (ΔCA − ΔCash) − (ΔCL − ΔSTD − ΔTP) − Dep,
+      #       除以**平均**总资产(期初期末均值,不是期末)。
+      #       专家写的 (净利润 − 经营现金流)/总资产 是 **Hribar & Collins (2002)** 的
+      #       现金流量表法 —— 那篇论文恰恰是**纠正** Sloan 的资产负债表法的
+      #       (并购和汇兑会让资产负债表法算出假应计)。
+      #       ★ 所以把它标成「Sloan 1996 核心定义」是把纠正者的方法安在了被纠正者头上。
+      #   (b) ★ 阈值不是 Sloan 的。原文把全样本每年排序**分成十档**,
+      #       做多最低档、做空最高档,**全文没有任何「<0」的符号门槛**。
+      #       「应计为负」大致是中位数附近,等于只剔掉一半的票 ——
+      #       ★ 又是取松端:紧端 = **最低十分位**。
+      data_missing: false
+      enabled: true
+      # ✅ **算得出,而且是全部 16 项里覆盖率最高的一项**:
+      #   2018 66.4% / 2022 95.2% / 2025 97.2%(NetIncome · OperatingCashFlow · TotalAssets)
+      # ★ 讽刺之处:专家写错了出处,但他写的那个**公式恰恰是我们算得出来的那个**;
+      #   Sloan 真正的原版公式反而算不出(缺 ΔSTD 短期债务变动、ΔTP 应交税金,
+      #   ShortTermBorrowings 只有 34.8%、DebtCurrent 只有 18.4%)。
+      #   ★ 所以处理办法是:**公式照用,出处改成 Hribar & Collins (2002)**,
+      #     不要改成 Sloan 原版 —— 改了反而跑不了。
+
+    - type: net_shareholder_yield_above
+      params: { threshold_pct: 4.0, lookback: 1y }
+      formula: 现金分红 + 净股份回购 + 净有息负债偿还
+      source: 行业惯例
+      # 原文:净股东回报率(过去 1 年分红率 + 净股本缩减率)≥ 4.0%,
+      #      且过去 4 季度无大规模增发融资
+      # ★★ 专家标「原著写死(Faber 2013 第 4 章核心分位值)」→ ★ 本轮核不实:
+      #   · Faber 的 shareholder yield 定义是**现金分红 + 净回购**(两条腿),
+      #     净回购里要扣掉增发。★ 专家加的**第三条腿「净有息负债偿还」**
+      #     不是 Faber 书名定义里的,是后续扩展口径。
+      #   · 查不到任何 **4.0% 的绝对阈值**;Faber 的做法是**排序选股**(取收益率最高的一批),
+      #     不是卡绝对线。
+      #   · ★「核心**分位值**」和「≥ 4.0% 绝对阈值」这两个说法**本身自相矛盾** ——
+      #     分位值随市场漂移,绝对值不漂移,不可能同时是两者。
+      data_missing: true
+      enabled: false
+      audit_blocked: 可行性-⑪
+      # ★★ ❌ 算不出。三条腿逐条核:
+      #   腿一 现金分红 —— 🟡 PaymentsOfDividendsCommonStock(43.2%)
+      #        ∪ PaymentsOfDividends(36.4%),合起来约 54~57% 的票有数。
+      #        ★ 不分红的公司本来就没有这个标签,「缺失」和「为零」在这里分不开,
+      #          但对分红这一项按 0 处理是说得通的。
+      #   腿二 净回购 —— 🟡 PaymentsForRepurchaseOfCommonStock(86.8%)
+      #        − ProceedsFromIssuanceOfCommonStock(46.8%),约 57~58% 有数。
+      #   腿三 净有息负债偿还 —— ★★ ❌ **35 个字段里没有任何偿债/举债的现金流科目**
+      #        (没有 RepaymentsOfDebt、没有 ProceedsFromIssuanceOfDebt)。
+      #        唯一的办法是拿资产负债表的 LongTermDebt 期初期末做差 ——
+      #        ★ 但那是**存量变动**,不是现金流量表的偿还额:它会被并购承债、
+      #          债务重分类、汇兑折算污染,而且 LongTermDebt 本身只有 48.8% 的覆盖率。
+      #        ★ 按纪律 7「拿不到就说拿不到、不许用近似值顶上」→ ❌。
+      #   ★ 三条腿全齐的票:2018 12.8% / 2022 17.6% / 2025 18.8%。
+      # ★ 缺了它这一派还完不完整:★ 不完整,而且缺的正是专家的「改进 ①」——
+      #   他明写要「废除只看高股息率、改为全口径股东回报率」。
+      #   ★ 关掉这条,这一派就退回成「高 FCF + 干净应计」,
+      #     资本配置纪律(Thorndike 那一半)整个没了。
+      partial_fallback_available: 分红 + 净回购 两条腿(≈57%),★ 但那是 Faber 原定义,
+                                  不是专家要的三条腿口径 —— ★ 要不要降级成两条腿跑,
+                                  是 Lin 的拍板项(报告「要 Lin 拍板」第 1 条)。
+    - type: no_large_equity_issuance
+      params: { lookback_quarters: 4 }
+      source: 行业惯例
+      data_missing: false
+      enabled: true
+      # 原文:且过去 4 季度无大规模增发融资
+      # 🟡 可用 ProceedsFromIssuanceOfCommonStock(46.8%)或股数变化率代替。
+      # ★「大规模」没给数 —— 专家原文未定义。★ 没有自己填。
+      undefined_param: 「大规模增发」的阈值
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 → [日期] 的 0/1 向量
+# ---------------------------------------------------------------------------
+regime:
+  rules:
+    - type: index_above_ma
+      params: { symbol: SPY, ma: 200 }
+      source: 行业惯例
+      # 原文:SPY 在 200 日均线上方
+    - type: sector_diffusion_above
+      params:
+        etfs: [XLB, XLC, XLE, XLF, XLI, XLK, XLP, XLRE, XLU, XLV, XLY]
+        ma: 50
+        min_count: 6
+        min_pct: 54.5
+      source: 行业惯例
+      data_missing: false
+      enabled: true
+      # 原文:11 大行业板块 ETF 中至少 6 个在各自 50 日均线上方(SDI ≥ 54.5%)
+      # ✅ **全有,已逐只核实**:reference_etfs_20261025/ 下
+      #   XLB · XLC · XLE · XLF · XLI · XLK · XLP · XLRE · XLU · XLV · XLY = 11 只,
+      #   一只不缺(同目录另有 RSP)。
+      # ★ 唯一要注意的:XLC 和 XLRE 是后来才成立的(XLRE 2015、XLC 2018),
+      #   2018 年之前/之初它们的 50 日均线可能不存在。
+      #   ★ 分母要不要随可用只数变(6/11 还是 6/9),专家原文写死了 11 和 6 ——
+      #   ★ 按字面写 11,但这会让 2018 年初 SDI 偏低、闸门偏紧。结果里要标明。
+      note: XLC(2018 成立)/ XLRE(2015 成立)在样本早期可能无 50 日均线,分母口径须确认
+  flatten_when_off: false
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 → [日期 × 票] 的布尔矩阵
+# ---------------------------------------------------------------------------
+entry:
+  logic: all
+  rules:
+    - type: mansfield_rs_positive
+      params: { against: SPY, timeframe: weekly }
+      source: 行业惯例
+      enabled: true
+      # 原文:周线级别对 SPY 的曼斯菲尔德 RS > 0
+      # ★ against: SPY 这一版引擎已实现、能跑(对板块那一版才需要非 PIT 的行业标签)。
+    - type: donchian_close_breakout
+      params: { lookback: 20, basis: close, volume_confirm: moderate }
+      source: 行业惯例
+      # 原文:日线以温和放量收盘突破过去 20 日最高收盘价
+      # ★「温和放量」没给数 —— 流派二那边专家给过突破日量区间 [1.00, 1.80](审计 §5-F),
+      #   ★ 但那是另一条链的参数,**不许跨链搬**。这里专家没给。★ 没有自己填。
+      undefined_param: 「温和放量」的量比区间
+  fill: next_open_market
+  source: 原著
+  # 原文:次日开盘市价进
+
+# ---------------------------------------------------------------------------
+# ④ 初始止损
+# ---------------------------------------------------------------------------
+stop_init:
+  type: tightest_of
+  params:
+    - { type: atr_multiple, atr_period: 20, multiple: 2.0, anchor: breakout_level_of_20d_high }
+    - { type: pct, pct: 7.5 }
+  source: 行业惯例
+  # 原文:过去 20 日最高点突破位下方 2.0×ATR20;最大单笔价格硬止损封顶 −7.5%
+  # ★ 专家标「止损 ≤ 7.5% 行业惯例」,没声称原著 —— 本轮不核。
+
+# ---------------------------------------------------------------------------
+# ⑤ 移动止损 —— ★ 吊灯两条铁律由引擎写死,配置改不动
+# ---------------------------------------------------------------------------
+stop_trail:
+  type: staged
+  stages:
+    - { from_r: 0.0, to_r: 2.0, action: hold_initial_stop, source: 行业惯例 }
+      # 原文:未达 +2R 前初始止损锁死
+    - { from_r: 2.0, to_r: 3.0, action: move_to_breakeven, source: 行业惯例 }
+      # 原文:> +2R → 止损上调至成本价
+    - from_r: 3.0
+      to_r: null
+      action: chandelier
+      params: { lookback: 22, multiple: 3.0, atr_period: 20 }
+      source: 行业惯例
+      # 原文:> +3R → 开启吊灯止损
+      # ★ 吊灯的回看期和倍数原文未给,这里沿用引擎模板的 LeBeau 标准参数
+      #   (22 / 3.0 / ATR20)。★ 这不是专家给的数,是模板默认值,须专家确认。
+      undefined_param: 吊灯的 lookback 与 multiple(原文未给,暂用 LeBeau 标准值)
+
+# ---------------------------------------------------------------------------
+# ⑥ 离场
+# ---------------------------------------------------------------------------
+exit:
+  type: rules
+  rules:
+    - type: fundamental_quarterly_reject
+      trigger: pit_effective_date
+      conditions_any:
+        - metric: net_share_dilution_pct
+          op: gt
+          value: 2.0
+          enabled: true
+          data_missing: false
+          degraded: true
+          # 原文:净股本由缩减转为扩张(净稀释率 > +2.0%,管理层开始滥用股东权益)
+          # ★★ 专家标「原著写死(Thorndike 2012 行为红线)」→ ★ 本轮核不实:
+          #   《The Outsiders》是 8 位 CEO 的**叙事性案例研究**,
+          #   讲资本配置理念(每股价值优先、逆向回购),
+          #   ★ 通篇**没有任何数值筛选规则**,更没有「2.0% 稀释红线」。
+          #   ★ 这条和 Faber 那条一样,是把定性的书当成了定量的参数表。
+          # 🟡 **算得出但有污染**:用 WeightedAverageDilutedShares 的 TTM 同比变化率,
+          #   覆盖率 2018 81.2% / 2022 86.8% / 2025 92.4%。
+          # ★★ 必须先修的坑:**摊薄股数是「如实申报」的,不跨期做拆股调整**。
+          #   同一只票拆股前后两期的股数来自两份不同的报告,
+          #   ★ 一次 1:5 拆股会在这个指标上表现成 **+400% 的"稀释"** → 直接触发清仓。
+          #   ★ 实测:250 只里有 **64 只(25.6%)**存在相邻季度股数跳变 >1.4x 或 <0.72x,
+          #     例:ACOR · AMRS · AP · BGS · BKNG · BNED · CAL · CDZI · CHD · CNC ·
+          #        CSGP · CTAS · DVN · ETR · EXPR · FAST · FIS · FMC · FRPT · GRPN …
+          #   ★ 这些跳变**不全是拆股**(也有真实的大额增发、反向拆股、并购换股),
+          #     所以不能一刀切修。★ 跑之前必须先过一遍拆股闸
+          #     (engine/split_gate.py 已经在最底层对**价格**做了这件事,
+          #      ★ 但**股数序列没有走同一道闸**)—— 这是个现成的漏网之鱼。
+          must_fix_before_run: 股数序列未过拆股闸,25.6% 的票会被误判为大幅稀释
+        - metric: fcf_ttm
+          op: lt
+          value: 0
+          enabled: true
+          data_missing: false
+          # 原文:自由现金流转负
+          # 🟡 算得出,覆盖率同 ① 的 FCF 分子(2022 85.6%)。
+          #   ★ 这一条只用分子、不用市值分母,所以**比 ① 的 FCF Yield 干净** ——
+          #     不带那个和回购同向的系统性偏差。
+        - metric: sloan_accrual
+          op: gt
+          value: 0.05
+          enabled: true
+          data_missing: false
+          # 原文:或应计项突变转正(> +0.05)
+          # ✅ 算得出,同 ① 的 Sloan(2022 95.2%)。
+      action: close_all_immediately
+      source: 行业惯例
+    - type: close_below_trailing_stop
+      source: 行业惯例
+      # 原文:技术面离场:触犯吊灯止损线全额出场
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_weight: 0.10
+  source: 行业惯例
+  # 原文:单笔风险 NAV×1.0%;单票名义上限 10.0%(等权分散,最多 10 只)
+
+slots: 10
+source_slots: 原著
+# ★ 专家明确给了「最多 10 只」,不是区间,照抄。
+
+# ---------------------------------------------------------------------------
+# 排序(候选多于槽位时)
+# ---------------------------------------------------------------------------
+ranking:
+  primary: null
+  tiebreak: null
+  source: null
+  audit_blocked: 排序未定
+  # ★ 专家没给这一派的排序。FCF Yield 是最自然的字段,但它带规模代理分母的
+  #   系统性偏差(见 ①),用它排序等于把那个偏差放大到排序上。
+  #   ★ 没有自己填。见报告「要 Lin 拍板」第 2 条。
+
+# ---------------------------------------------------------------------------
+# 摩擦成本与基准
+# ---------------------------------------------------------------------------
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例
+
+benchmark:
+  component_match: large
+  risk_free_annual: null

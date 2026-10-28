@@ -1,0 +1,348 @@
+# ============================================================================
+# 流派二:盈利质量与超额资本回报派
+#
+# 三秒版:只买长期高 ROIC、高毛利、低杠杆的白马,等它从高点温和回踩到 50 日线
+#         收第一根阳线才进;不设止盈,只在护城河被证明破了的时候一票否决清仓。
+#
+# ★ 本文件是「照抄外部专家原文」的产物。七步文字与数值与专家原文一字不差。
+# ★ source 字段约定(三选一):原著 / 行业惯例 / 我们搜的
+#   ★ 本文件 "我们搜的" = 0 条。
+#
+# ★★★ 本条链是三条里**卡得最死的一条**,而且卡在数据不在定义:
+#   ① 的三道基本面闸门(ROIC 连续 3 年 / GP/A / 净负债+EBITDA)
+#   ★ **同时算得出来的票,池内只有 2.8%(2018) / 6.4%(2022) / 10.8%(2025)**
+#   —— 250 只里只有 7 ~ 27 只能被**评估**,还没开始谈达不达标。
+#   ★ 结论:这条链照原样跑,结果会和上一轮 VCP 一样(n=1 / n=0)——
+#     不是成绩差,是**没法评估**。见报告「三秒版」第 ②。
+#
+# ★★ 出处:本轮核了 3 处专家标「原著写死」的,3 处全部不实。
+#   · ROIC ≥ 15% @ Dorsey 2007 Ch.2 → Ch.2 是 "Mistaken Moats"(讲什么**不是**护城河);
+#     书里的 15% 是 **ROE**,不是 ROIC;另有 ROA 7%。宽窄护城河按优势能持续多久划,不按回报率划。
+#   · GP/A ≥ 0.35 @ Novy-Marx 2013 → ★ Lin 的怀疑完全成立,详见下方 gpa 那一条。
+#   · 止损 ≤ 8.0% @ O'Neil → ★ 第二次出现。原文是 7%~8%,又取松端。紧端 = 7.0%。
+#
+# 可行性与审计报告:/home/claude/基本面三流派-可行性与审计-1028.md
+# ============================================================================
+
+meta:
+  name: 流派二_盈利质量与超额资本回报
+  master: Warren Buffett;Pat Dorsey
+  modern: Robert Novy-Marx (2013);Asness/Frazzini/Pedersen (AQR, 2019)
+  book: Buffett 致股东信(1979 谈 ROE;1987 谈经济商誉 vs 会计商誉;1992 谈成长与价值一体两面);
+        Pat Dorsey《The Little Book That Builds Wealth》(2007) Ch.2–6(四大护城河量化表征)
+  # ★ Ch.2–6 这个定位本轮核不实:该书 Ch.2 = "Mistaken Moats",Ch.3–7 才是四类护城河
+  #   (无形资产 / 转换成本 / 网络效应 / 成本优势 / 规模优势),找护城河的量化方法在 Ch.9。
+  pricing_belief: 市场对能长期维持极高 ROIC 和经济商誉的企业存在长期的复利低估;
+                  高进入壁垒抵抗资本主义竞争的均值回归侵蚀;
+                  超额收益来自超额内生资本积累的指数级增长
+  improvements:
+    - "把定性的「经济护城河」改写成无主观偏差的硬指标:
+       GP/A(毛利润/总资产)与 CROIC(现金流资本回报率)"
+    - "AQR 的 QMJ 因子证明:「质量」不是看过去盈利增速多快,
+       是看盈利的稳定性(低方差)、高毛利、低杠杆、低舞弊嫌疑"
+  best_regime: 增长放缓但未断崖的晚周期、温和通胀、数年结构性慢牛 ——
+               有定价权的企业能把成本转嫁下游,资金向高 ROIC 龙头抱团
+  worst_regime: 全面放水带来的垃圾股暴动期(2020 下半年到 2021 初的 SPAC / Meme / 亏损次新);
+                流动性抽干引发的去杠杆主跌浪初段
+                (高质量资产因流动性最好,往往成为机构首选提款机)
+  evidence_grade: 极高 —— Novy-Marx (2013 JFE);Asness/Frazzini/Pedersen (2019 RAS)
+
+# ---------------------------------------------------------------------------
+# ★ PIT 规范(专家原文)
+# ---------------------------------------------------------------------------
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly
+  basis: TTM
+  ttm_definition: 滚动过去 4 个季度,杜绝单季季节性波动
+  source: 原著
+  ttm_feasibility:
+    verdict: 🟡 部分算得出
+    note: >
+      ★ TTM 算得出来,但有一个必须知道的坑:**现金流量表科目在 SEC 里是年初至今(YTD)口径,
+      不是单季**。实测 ABT 2025Q3 的 OperatingCashFlow 是 period_start=2025-01-01、
+      period_end=2025-09-30 的累计数。所以 TTM 不能直接把 4 条记录相加,
+      必须先按 period_start 分组做 YTD 差分还原单季,再滚 4 季。
+      ★ 本配置假定引擎做这个差分。★ 如果引擎直接相加,现金流类指标(ROIC 的税率、
+      FCF、Sloan)会被系统性放大约 2.5 倍 —— 这是个会静默出错的坑,必须验。
+      ★ 利润表科目(Revenue / NetIncome / EBIT)同一只票里两种口径都出现过,
+      已按同样的差分逻辑处理。资产负债表科目是时点数,不需要差分。
+    ttm_coverage_measured:
+      Revenue:            { 2018: 74.0%, 2022: 90.8%, 2025: 92.0% }
+      NetIncome:          { 2018: 95.2%, 2022: 96.4%, 2025: 98.4% }
+      OperatingCashFlow:  { 2018: 67.2%, 2022: 96.0%, 2025: 97.6% }
+      CostOfRevenue:      { 2018: 27.6%, 2022: 60.0%, 2025: 61.2% }
+      EBIT:               { 2018: 35.6%, 2022: 37.6%, 2025: 53.6% }   # ★ 全链瓶颈
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 → [日期 × 票] 的 0/1 矩阵
+# ---------------------------------------------------------------------------
+universe:
+  # ★★ 本步整体可行性:三道基本面闸门同时算得出来的票 =
+  #    2018 2.8%(7 只) / 2022 6.4%(16 只) / 2025 10.8%(27 只)。
+  #    ★ 这是本条链的死因。详见报告第一件 ⑤⑥⑦。
+  rules:
+    - type: mktcap_rank_exclude_bottom
+      params: { exclude_bottom_pct: 20 }
+      source: 行业惯例
+      data_missing: true
+      enabled: false
+      audit_blocked: 可行性-⑬
+      # 原文:剔除全市场市值后 20%
+      # ★★ ❌ 没有严格 PIT 的市值。本轮复核确认上一轮 §3-B 的结论:
+      #   仓库 35 个基本面字段里**没有任何「某时点普通股在外流通股数」**;
+      #   只有 WeightedAverageDilutedShares(摊薄 EPS 的分母,是期间加权数)。
+      #   README 第 48 行原话:乘以收盘价得到的是 **size proxy, not strict PIT
+      #   market capitalization**。
+      # ★ 上一轮已定的替代:改用 ADV20(PIT 干净、与另两链口径统一)。
+      #   ★ 替代的代价:ADV20 筛的是「交易活跃度」不是「公司大小」——
+      #     两者在大盘股上高度相关,但会放过「市值小但天天被炒」的高换手小票,
+      #     而这一派恰恰最怕这种票。
+      pending_lin: "#3 市值 —— 上一轮已定改用 ADV20,本轮沿用"
+    - type: adv_rank_exclude_bottom
+      params: { period: 20, exclude_bottom_pct: 20 }
+      source: 行业惯例
+      enabled: true
+      # 原文:剔除 ADV20 后 20%。★ 同时承担上面市值闸门的替代职责。
+
+    - type: roic_consecutive_above
+      params: { years: 3, min_roic_pct: 15.0, basis: TTM }
+      source: 行业惯例
+      # 原文:过去 3 年连续满足 ROIC ≥ 15.0%
+      # ★ 专家标「原著写死(Dorsey 2007 Ch.2 宽护城河下限)」→ ★ 本轮核不实,已降级。
+      #   · Ch.2 是 **"Mistaken Moats"** —— 整章在讲什么**不是**护城河
+      #     (好产品 / 高市占 / 执行力强 / 管理层优秀),不可能是宽护城河的量化下限所在。
+      #   · 书里确实有 15%,但那是 **ROE ≥ 15%**(另有 ROA ≥ 7%),**不是 ROIC**。
+      #     ROE 和 ROIC 分母差一个有息负债 —— 高杠杆公司 ROE 15% 可能 ROIC 只有 7%。
+      #     ★ 把 ROE 的门槛套在 ROIC 上是**实质性收紧**(方向上少见地偏紧,不是放水)。
+      #   · 书里的宽/窄护城河是按「优势能持续多久」定性划的,不按回报率卡线。
+      data_missing: false
+      enabled: false
+      audit_blocked: 可行性-⑤
+      # 🟡 算得出来,但覆盖率极低:
+      #   ROIC 单个断面算得出:2018 15.6% / 2022 21.2% / 2025 32.0%
+      #   ★ 连续 3 年都算得出:2018 12.0% / 2022 15.2% / 2025 26.4%
+      #   算法:NOPAT = EBIT × (1 − 税率),税率 = (IncomeBeforeTax − NetIncome) / IncomeBeforeTax;
+      #        投入资本 = 有息负债 + 股东权益 − 现金。
+      #   字段:EBIT · IncomeBeforeTax · NetIncome · LongTermDebt(+ShortTermBorrowings
+      #        +LongTermDebtCurrent)· StockholdersEquity · CashAndCashEquivalentsAtCarryingValue
+      #   ★ 瓶颈两个:EBIT(TTM 仅 37.6%)和 LongTermDebt(48.8%)。
+      # ★ 缺了它这一派还完不完整:★ 这一派**就是**它。ROIC 是定价信仰的全部,
+      #   关掉 ROIC 的「盈利质量与超额资本回报派」已经不是这一派了。
+      #   ★ 所以这里不是「关掉照跑」,是**这条链不该跑**,见报告。
+
+    - type: gross_profit_to_assets_above
+      params: { threshold: 0.35, basis: TTM }
+      source: 行业惯例
+      # 原文:Novy-Marx GP/A ≥ 0.35
+      # ★ 专家标「原著写死(Novy-Marx 2013 定义的高毛利资产比分位基线)」
+      #   → ★★ 本轮核不实。★ Lin 点名怀疑的这一条,怀疑**完全成立**,而且比预想的更糟:
+      #   (a) 论文全程用**相对分位**(NYSE 断点、五分位/三分位/十分位,每年 6 月再平衡),
+      #       **从头到尾没有给过任何绝对阈值**,0.35 这个数不在论文里。
+      #   (b) ★ 更要命的是这个数**选不出高毛利公司**。论文 Table 2 单变量五分位
+      #       组合的 GP/A 时序均值是:
+      #         最低 0.10 · Q2 0.20 · Q3 0.30 · Q4 0.42 · **最高 0.68**
+      #       0.35 落在 Q3(0.30)和 Q4(0.42)**之间** —— 是分布的**中段**,
+      #       大致 40~60 分位。★ 所以「高毛利资产比分位基线」这个说法是双重错误:
+      #       既不是论文给的,它选出来的也不是高毛利组,是中间组。
+      #   ★ 紧端(真要还原论文的「高毛利」):最高五分位均值 **0.68**,
+      #     退一步也该用 Q4 的 0.42。见审计报告「松紧两端」表。
+      data_missing: false
+      enabled: true
+      # 🟡 算得出:(Revenue − CostOfRevenue) / TotalAssets,和 Novy-Marx 的
+      #   (REVT − COGS)/AT 定义一致。
+      #   覆盖率 TTM 口径:2018 26.8% / 2022 59.2% / 2025 59.6%(瓶颈 CostOfRevenue)
+      #   年度(FY)口径略好:2018 30.8% / 2022 63.6% / 2025 65.2%
+      #   ★ 专家明确要求 TTM,所以按 TTM 写,没有偷偷换成年度口径。
+
+    - type: net_debt_to_ebitda_below
+      params: { threshold: 2.5, basis: TTM }
+      source: 行业惯例
+      # 原文:杠杆安全线:净负债/EBITDA < 2.5
+      data_missing: true
+      enabled: false
+      audit_blocked: 可行性-⑦
+      # ★★ ❌ 算不出。和流派一的 EV/EBITDA 同一个死因:EBITDA = EBIT + D&A,
+      #   而 EBIT(TTM 37.6%)和 D&A(TTM 52.4%)的交集只有
+      #   2018 20.0% / 2022 24.8% / 2025 33.6%;再叠加有息负债和现金后
+      #   **2018 10.0% / 2022 14.4% / 2025 20.4%**。
+      #   ★ 已否决的替代:EBIT ≈ 税前利润 + 利息费用 —— 覆盖率不涨,
+      #     且两口径中位差 50.3%,属近似值,纪律 7 不许用来顶。
+      # ★ 缺了它这一派还完不完整:★ 不完整。AQR 的 QMJ 四要素是
+      #   「稳定性 + 高毛利 + **低杠杆** + 低舞弊嫌疑」,关掉这条等于拿掉「低杠杆」那一条,
+      #   而专家自己把 QMJ 写进了「改进的环节 ②」。
+      #   ★ 后果是方向性的:不排杠杆,高 ROIC 里会混进一批靠加杠杆把 ROE/ROIC 做高的票,
+      #     正好是这一派最该躲开的那类。
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 → [日期] 的 0/1 向量
+# ---------------------------------------------------------------------------
+regime:
+  rules:
+    - type: index_above_ma
+      params: { symbol: SPY, ma: 200 }
+      source: 行业惯例
+      # 原文:SPY 在 200 日线上方
+    - type: index_ma_slope
+      params: { symbol: SPY, ma: 200, window: 20, min_slope: 0.0 }
+      source: 行业惯例
+      # 原文:且 200 日线 20 日斜率 ≥ 0
+    - type: vix_below
+      params: { value: 30.0 }
+      source: 行业惯例
+      data_missing: false
+      enabled: true
+      # 原文:VIX ≤ 30.0(排除系统性无序恐慌)
+      # ✅ 有数据,已核实:pilot_300/benchmarks/VIX/
+      #   · daily.json(fmp 口径)3041 根,2014-01-02 .. **2025-12-31**
+      #   · daily.cboe.json 3045 根,同样到 2025-12-31
+      #   · VIX_History.csv(CBOE 原始)1990-01-02 .. **2026-10-14**
+      #   ★ 一个要注意的缺口:归一化后的两个 json **只到 2025-12-31**,
+      #     而回测窗口要到 2026-10-26。2026 这一段要用原始 CSV 重新归一化
+      #     (scripts/normalize_cboe_vix.py 已经在仓库里)。
+      #   ★ 另外 CSV 本身也只到 2026-10-14,最后 8 个交易日没有。
+      #   ★ 若按引擎「看不到数据那天算不合格」的纪律,2026 年整年会被判关闸 ——
+      #     ★ 跑之前必须先补这一段,否则 2026 的样本会被静默吃掉。
+      data_gap: 归一化 json 止于 2025-12-31,需用 VIX_History.csv 重跑到 2026-10-14
+  flatten_when_off: false
+  source: 原著
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 → [日期 × 票] 的布尔矩阵
+# ---------------------------------------------------------------------------
+entry:
+  logic: all
+  # ★ 高质量白马严禁在高位竭尽性放量时追买。
+  rules:
+    - type: ma_stack_bullish
+      params: { mas: [50, 150], order: strict_desc }
+      source: 行业惯例
+      # 原文:标的处于 Stage 2 上升通道(50 日与 150 日均线多头排列)
+      # ★ 上一轮 §2-D 问过「三线多头排列的严格度和持续天数」,三轮未答;
+      #   ★ 这里专家原文只给两条线(50/150),按字面写,没有自己加第三条。
+    - type: pullback_to_ma
+      params: { ma: 50, from_high_lookback: 20, max_distance_atr: 1.5, atr_period: 14 }
+      source: 行业惯例
+      # 原文:股价从 20 日高点温和回踩到 SMA50 附近(距均线 ±1.5×ATR14 以内)
+    - type: bullish_candle_breakout_prior_high
+      params: { near_ma: 50, first_up_bar: true }
+      source: 行业惯例
+      # 原文:在 50 日线附近收出第一根阳线、收盘突破前一日最高点
+      # ★「第一根阳线」的计数起点(从回踩触及 SMA50 那天起算?)原文未给。★ 没有自己填。
+      undefined_param: 「第一根」的计数起点
+  fill: next_open_market
+  source: 原著
+  # 原文:次日开盘市价进
+
+# ---------------------------------------------------------------------------
+# ④ 初始止损
+# ---------------------------------------------------------------------------
+stop_init:
+  type: structure_low_minus_atr
+  params: { atr_period: 14, multiple: 0.5, anchor: pullback_swing_low }
+  source: 行业惯例
+  # 原文:该次回踩形成的局部波谷下方 0.5×ATR14
+  # ★「局部波谷」的定义原文未给 —— 和流派三那个卡死整条链的「清晰摆动波谷」是同一个问题。
+  #   ★ 这里不卡死进场(③ 不依赖它),只影响止损位,但会直接决定 R 的大小,
+  #     所以也会影响仓位和全部 R 口径的结果。★ 没有自己填。
+  undefined_param: 局部波谷(swing low)的定义
+  max_stop_distance_pct: 8.0
+  on_exceed: reject_entry
+  # 原文:若结构止损距离 > 8.0% → 放弃本次买入
+  # ★★ 专家标「原著写死(O'Neil 红线)」→ ★ 第二次出现,第二次核不实。
+  #   上一轮已查实 O'Neil 原文是 **7% 到 8%** 的区间,专家两轮都取 **8.0%(松端)**。
+  #   ★ 紧端 = 7.0%。本轮不改数(纪律:照抄),但要求跑松紧两版对比,见报告。
+  tight_end_other_side: 7.0
+
+# ---------------------------------------------------------------------------
+# ⑤ 移动止损 —— ★ 吊灯两条铁律由引擎写死,配置改不动
+# ---------------------------------------------------------------------------
+stop_trail:
+  type: staged
+  stages:
+    - { from_r: 0.0, to_r: 2.0, action: hold_initial_stop, source: 行业惯例 }
+      # 原文:未达 +2R 前由初始结构止损护航
+    - from_r: 2.0
+      to_r: null
+      action: close_below_ma_trail
+      params: { ma: 50, basis: close }
+      source: 行业惯例
+      # 原文:> +2R 后开启 SMA50 收盘破位跟踪
+
+# ---------------------------------------------------------------------------
+# ⑥ 离场
+# ---------------------------------------------------------------------------
+exit:
+  type: rules
+  profit_target_r: null
+  # ★ 绝不设静态目标价(Uncapped)—— 原文明写。
+  rules:
+    - type: fundamental_veto
+      trigger: pit_effective_date
+      conditions_any:
+        - metric: roic_ttm
+          op: below_for_consecutive_quarters
+          value: 12.0
+          quarters: 2
+          enabled: false
+          data_missing: false
+          audit_blocked: 可行性-⑤
+          # 原文:若连续两季 TTM ROIC 跌破 12.0%
+          # ★ 同 ① 的 ROIC。★ 注意:这里要求**连续两季**都算得出 TTM ROIC,
+          #   比 ① 的单断面更苛刻 —— 单断面 2022 才 21.2%。
+        - metric: gross_margin_yoy_bps
+          op: lt
+          value: -200
+          enabled: true
+          data_missing: false
+          # 原文:或毛利率同比下滑超过 200bps(判定护城河破裂)
+          # 🟡 算得出:毛利率 = (Revenue − CostOfRevenue) / Revenue,同比取 TTM 对 TTM。
+          #   覆盖率 2018 26.0% / 2022 57.2% / 2025 58.0%(瓶颈 CostOfRevenue)。
+      action: next_open_close_all_regardless_of_pnl
+      source: 行业惯例
+      # 原文:→ 无论盈亏,次日开盘强制全额清仓
+    - type: close_below_ma
+      params: { ma: 50, consecutive_days: 2 }
+      source: 行业惯例
+      # 原文:技术面离场:连续 2 天收盘跌破 SMA50 → 全平
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_weight: 0.125
+  source: 行业惯例
+  # 原文:单笔风险 NAV×1.0%;单票名义上限 12.5%(系统上限 8 只)
+
+slots: 8
+source_slots: 原著
+# ★ 专家明确给了「系统上限 8 只」,不是区间,照抄。
+
+# ---------------------------------------------------------------------------
+# 排序(候选多于槽位时)
+# ---------------------------------------------------------------------------
+ranking:
+  primary: null
+  tiebreak: null
+  source: null
+  audit_blocked: 排序未定
+  # ★ 专家没给这一派的排序。GP/A 或 ROIC 是最自然的字段,但 ROIC 算不出、
+  #   GP/A 覆盖率 59% —— 用覆盖率 59% 的字段排序会让排序本身带选择偏差。
+  #   ★ 没有自己填。见报告「要 Lin 拍板」第 2 条。
+
+# ---------------------------------------------------------------------------
+# 摩擦成本与基准
+# ---------------------------------------------------------------------------
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例
+
+benchmark:
+  component_match: large
+  risk_free_annual: null
