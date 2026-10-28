@@ -369,7 +369,7 @@ def friction_sensitivity(cfg: chain.ChainConfig, symbols: list[str] | None,
     rows.append({"摩擦口径": "★按ADV20分三档(默认)",
                  "净收益": float(r0.equity.iloc[-1] / r0.equity.iloc[0] - 1.0),
                  "最大回撤": mdd, "笔数": len(r0.ledger),
-                 "平均每笔R": float(r0.ledger["r_multiple"].mean())
+                 "平均每笔R_扣摩擦": float(r0.ledger["r_multiple_net"].mean())
                  if not r0.ledger.empty else float("nan")})
     for bps in chain.FRICTION_SENSITIVITY_FLAT:
         r = chain.run_chain(cfg, symbols, start, end, initial_equity, m=m,
@@ -378,7 +378,7 @@ def friction_sensitivity(cfg: chain.ChainConfig, symbols: list[str] | None,
         rows.append({"摩擦口径": f"一刀切 {bps/100:.2f}%",
                      "净收益": float(r.equity.iloc[-1] / r.equity.iloc[0] - 1.0),
                      "最大回撤": mdd, "笔数": len(r.ledger),
-                     "平均每笔R": float(r.ledger["r_multiple"].mean())
+                     "平均每笔R_扣摩擦": float(r.ledger["r_multiple_net"].mean())
                      if not r.ledger.empty else float("nan")})
     return pd.DataFrame(rows).set_index("摩擦口径")
 
@@ -405,6 +405,7 @@ def evaluate(cfg: chain.ChainConfig,
     bm = cfg.get("benchmark") or {}
 
     r_t = ci95(led["r_multiple"]) if not led.empty else (np.nan, np.nan, np.nan, 0)
+    rn_t = ci95(led["r_multiple_net"]) if not led.empty else (np.nan, np.nan, np.nan, 0)
     g_t = ci95(led["gross_return"]) if not led.empty else (np.nan, np.nan, np.nan, 0)
     w_t = ci95((led["net_pnl"] > 0).astype(float)) if not led.empty \
         else (np.nan, np.nan, np.nan, 0)
@@ -420,7 +421,8 @@ def evaluate(cfg: chain.ChainConfig,
             "毛收益": float(eqg.iloc[-1] / eqg.iloc[0] - 1.0),
             "CAGR(净)": cagr(eq),
             "★笔数": len(led),
-            "每笔R(带95%CI)": _fmt_ci(r_t),
+            "每笔R_毛(带95%CI)": _fmt_ci(r_t),
+            "★每笔R_扣摩擦(带95%CI)": _fmt_ci(rn_t),
             "每笔毛收益(带95%CI)": _fmt_ci(g_t, pct=True),
             "胜率(带95%CI)": _fmt_ci(w_t, pct=True),
         },
@@ -526,7 +528,7 @@ def format_report(out: dict[str, Any]) -> str:
         df = out["坑四_摩擦敏感度"].copy()
         for c in ("净收益", "最大回撤"):
             df[c] = df[c].map(lambda x: f"{x:+.2%}")
-        df["平均每笔R"] = df["平均每笔R"].map(lambda x: f"{x:+.3f}")
+        df["平均每笔R_扣摩擦"] = df["平均每笔R_扣摩擦"].map(lambda x: f"{x:+.3f}")
         lines.append(df.to_string())
     return "\n".join(lines)
 

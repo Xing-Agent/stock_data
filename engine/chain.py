@@ -106,7 +106,7 @@ class ChainConfig:
 LEDGER_COLUMNS = [
     "symbol", "entry_date", "exit_date", "entry_price", "exit_price",
     "shares", "initial_stop", "stop_at_exit", "reason", "holding_days",
-    "gross_return", "r_multiple", "risk_per_share",
+    "gross_return", "r_multiple", "r_multiple_net", "risk_per_share",
     "notional_in", "notional_out", "friction_bps", "friction_cost",
     "net_pnl", "gross_pnl", "capital_days",
     "gap_through", "gap_penetration_r", "adv20_at_entry", "liquidity_tier",
@@ -261,6 +261,10 @@ def run_chain(cfg: ChainConfig,
             "reason": reason, "holding_days": hd,
             "gross_return": px / p["entry"] - 1.0 if p["entry"] > 0 else np.nan,
             "r_multiple": (px - p["entry"]) / risk if risk > 0 else np.nan,
+            # ★ 扣掉摩擦之后的 R —— 比较高频/低频策略必须看这个,
+            #   价格口径的 R 不受摩擦影响,会系统性美化高频
+            "r_multiple_net": ((nout - nin - fric) / (risk * p["shares"])
+                               if risk > 0 and p["shares"] > 0 else np.nan),
             "risk_per_share": risk,
             "notional_in": nin, "notional_out": nout,
             "friction_bps": bps, "friction_cost": fric,
