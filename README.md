@@ -30,3 +30,24 @@ Exports are written under `pilot_300/<SYMBOL>/fundamentals.json`, with `pilot_30
 XPRO's historical financial and SIC records include an `issuer_lineage` field when they come from predecessor CIK 0001575828. The original fact's `accepted_at` is its publication time; `issuer_lineage.known_at` is when the later 1:1 issuer transition was disclosed and should not be confused with the earlier fact's availability. This frozen 250-symbol sample is selected retrospectively and is not a point-in-time historical universe.
 
 FRC's bank financial statements are not available through the existing SEC periodic-filing path. MTR uses modified cash-basis trust statements; its original reported figures have not been equated with ordinary-company metrics. Empty fields remain gaps. For XPRO, individual fields can also be missing where the original tags do not establish the configured metric definition.
+
+
+## Expand financial history and export the strategy feedback fields
+
+The optimize job API accepts an explicit `history_years` (1–20) for incremental cold or warm expansion. The initial defaults are cold 10 years and warm 5 years. The exporter only expands cold data:
+
+```bash
+python scripts/export_optimize_fundamentals.py --extend-history --history-years 15
+python scripts/export_optimize_fundamentals.py --export --start-date 2016-01-01 --end-date 2026-10-26
+```
+
+Wait for the submitted platform jobs to finish before export. Existing CompanyFacts caches are reused; old database periods are added without rewriting the existing range. Changing a default alone does not expand companies already ingested. A year count is anchored to each source's latest report year, not a fixed calendar date. The October 27 expansion retains 2015 period inputs as lookback for a requested decision window beginning in 2016; younger issuers retain only their available history. The actual SEC earnings-event scan remains in its separately recorded five-year window and has not been extended by the financial export option.
+
+The feedback lists 12 field groups (despite its “11” heading). The export includes 18 exact `us-gaap` tags: the requested tags and alternatives plus two approved common-metric aliases, `PaymentsToAcquireProductiveAssets` and `ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost`. Each remains stored under its exact source tag. `DebtCurrent` and `LongTermDebtCurrent` are not silently substituted for `ShortTermBorrowings`; dividend and depreciation alternatives also remain separate named tags. Each row keeps its original unit, economic period, SEC accession, verified acceptance time, and PIT assessment. Absence is recorded in `coverage.additional_fields`. Source conflicts or unverified periods remain explicitly ineligible. Financial versions disclosed after the export end date are excluded.
+
+`WeightedAverageDilutedShares` is the period weighted diluted EPS denominator. It is not ordinary shares outstanding at a historical instant. Multiplying it by a close produces a size proxy, not strict PIT market capitalization. A strict or explicitly estimated market-capitalization calculation must use the platform's separately traced ordinary-share and corporate-action inputs.
+
+Cash-flow tags retain the original reported duration, which may be year-to-date rather than one quarter. `PaymentsOfDividends` records cash paid in a reporting period; it does not fill the missing dividend announcement/revision event chain.
+
+
+October 27 history expansion acceptance is recorded in `pilot_300/fundamentals_history_acceptance.json`. All 248 eligible SEC sources completed; FRC and MTR remain explicit source gaps. The 250 files contain 585,214 financial versions, of which 571,806 pass strict PIT checks; noneligible versions remain flagged for audit. The original 1,497,688 CompanyFacts rows retained their values and snapshot hashes, and 2,568,925 older records were added. See the acceptance JSON and `fundamentals_export_manifest.json` for per-tag coverage and missing-symbol lists.

@@ -27,6 +27,18 @@ METRICS = (
     "IntangiblesAndGoodwill", "OperatingCashFlow", "WeightedAverageDilutedShares",
     "IncomeBeforeTax", "InterestExpense", "IntangibleAssetsNetExcludingGoodwill", "Goodwill",
 )
+EXTRA_TAGS = (
+    "CashAndCashEquivalentsAtCarryingValue", "AccountsReceivableNetCurrent", "InventoryNet",
+    "Liabilities", "ShortTermBorrowings", "DebtCurrent", "LongTermDebtCurrent",
+    "RetainedEarningsAccumulatedDeficit", "ResearchAndDevelopmentExpense",
+    "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+    "PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets",
+    "PaymentsOfDividends",
+    "PaymentsOfDividendsCommonStock", "PaymentsForRepurchaseOfCommonStock",
+    "ProceedsFromIssuanceOfCommonStock", "DepreciationDepletionAndAmortization",
+    "DepreciationAmortizationAndAccretionNet",
+)
+METRICS = (*METRICS, *EXTRA_TAGS)
 COHORT_ID = "pilot300-expansion250"
 
 
@@ -129,6 +141,30 @@ def prepare(client: ApiClient, manifest_sha256: str, entries: list[dict[str, Any
     return {"cohort_id": COHORT_ID, "symbols": len(entries), "batches": results}
 
 
+def extend_history(client: ApiClient, rows: list[dict[str, Any]], years: int) -> dict[str, Any]:
+    import time
+    batches, errors = [], []
+    for offset in range(0, len(rows), 25):
+        symbols = [row["symbol"] for row in rows[offset:offset + 25]]
+        # Respect the platform's existing backlog guard instead of bypassing it.
+        while True:
+            response = client.post("/admin/v1/pipeline/jobs", json={"symbols": symbols, "stage": "cold",
+                "mode": "incremental", "history_years": years, "reason": "Extend frozen 250-symbol SEC CompanyFacts history"},
+                headers={"X-Idempotency-Key": f"{COHORT_ID}-history-{years}-{offset}"})
+            data = response.json()
+            if response.status_code == 409 and ("backlog" in str(data) or "rate limit" in str(data)):
+                time.sleep(30)
+                continue
+            break
+        if response.status_code != 200:
+            raise RuntimeError(f"History expansion HTTP {response.status_code}: {data}")
+        batches.append(data)
+        errors.extend(item for item in data.get("results", []) if item.get("error"))
+        print(json.dumps({"submitted": min(offset + 25, len(rows)), "total": len(rows),
+                          "jobs": len(data.get("jobs", [])), "errors": len(errors)}), flush=True)
+    return {"history_years": years, "batches": batches, "errors": errors}
+
+
 def get_pages(client: ApiClient, path: str, params: dict[str, Any]) -> list[dict[str, Any]]:
     page, items = 1, []
     while True:
@@ -143,7 +179,7 @@ def get_pages(client: ApiClient, path: str, params: dict[str, Any]) -> list[dict
 
 
 def fetch_company(client: ApiClient, row: dict[str, Any], start: str, end: str,
-                  schedule_observations: list[dict[str, Any]]) -> tuple[str, dict[str, Any]]:
+                  schedule_observations: list[dict[str, Any]], event_start: str | None = None) -> tuple[str, dict[str, Any]]:
     symbol = row["symbol"]
     base = f"/research-data/companies/{symbol}"
     now = datetime.now(UTC).isoformat()
@@ -179,8 +215,9 @@ def fetch_company(client: ApiClient, row: dict[str, Any], start: str, end: str,
     for metric in METRICS:
         try:
             versions = get_pages(client, f"{base}/financial-versions", {
-                "decision_at": now, "metric": metric, "fiscal_period": "",
+                "decision_at": end + "T23:59:59+00:00", "metric": f"raw:us-gaap:{metric}" if metric in EXTRA_TAGS else metric, "fiscal_period": "",
             })
+            versions = [item for item in versions if not item.get("accepted_at") or item["accepted_at"][:10] <= end]
             for item in versions:
                 item["sec_filed_date"] = item.get("filed_at")
                 item["filing_date"] = item.get("accepted_at")
@@ -189,6 +226,21 @@ def fetch_company(client: ApiClient, row: dict[str, Any], start: str, end: str,
         except Exception as exc:  # Continue to report field-level gaps.
             payload["financial_versions"][metric] = []
             payload["coverage"]["financial_errors"].append({"metric": metric, "error": str(exc)})
+    payload["coverage"]["additional_fields"] = {
+        metric: {"source": f"raw:us-gaap:{metric}",
+                 "records": len(payload["financial_versions"][metric]),
+                 "strict_pit_records": sum(bool(item.get("pit_eligible")) for item in payload["financial_versions"][metric]),
+                 "missing_reason": None if payload["financial_versions"][metric] else "no_retained_reported_sec_tag"}
+        for metric in EXTRA_TAGS
+    }
+    for field, coverage in payload["coverage"]["additional_fields"].items():
+        strict = coverage["strict_pit_records"]
+        coverage["status"] = "ready" if strict == coverage["records"] and strict else "partial" if strict else "unavailable"
+        if coverage["records"] and not strict:
+            coverage["missing_reason"] = "no_strict_pit_versions"
+    payload["meta"]["financial_lookback_note"] = "Earlier disclosed periods are retained as backtest warmup inputs; the requested decision window is not a claim of complete coverage."
+    payload["meta"]["actual_earnings_events_requested_window"] = {"start": event_start or start, "end": end}
+    payload["meta"]["additional_fields_basis"] = "Exact reported SEC tags. Cash-flow durations may be year-to-date; retain period_start/period_end. Cash dividends paid are not a dividend announcement or revision event chain."
     payload["coverage"]["derived_metrics"] = {}
     for metric, left, right, require_nonnegative_right in (
         ("EBIT", "IncomeBeforeTax", "InterestExpense", True),
@@ -232,7 +284,7 @@ def fetch_company(client: ApiClient, row: dict[str, Any], start: str, end: str,
     except Exception as exc:
         payload["coverage"]["metadata_error"] = str(exc)
     try:
-        response = client.get(f"{base}/earnings-events", params={"start_date": start, "end_date": end})
+        response = client.get(f"{base}/earnings-events", params={"start_date": event_start or start, "end_date": end})
         if response.status_code != 200:
             raise RuntimeError(f"HTTP {response.status_code}")
         payload["actual_earnings_events"] = response.json()
@@ -421,15 +473,18 @@ def load_schedule_observations(container: str, symbols: list[str], output: Path)
 
 
 def export(client: ApiClient, manifest_path: Path, rows: list[dict[str, Any]], output: Path,
-           api_container: str) -> dict[str, Any]:
-    start, end = earnings_scan_window(output)
+           api_container: str, start_date: date | None = None, end_date: date | None = None) -> dict[str, Any]:
+    event_start, event_end = earnings_scan_window(output)
+    start, end = start_date or event_start, end_date or event_end
+    if start > end:
+        raise ValueError("Invalid financial export window")
     generated = datetime.now(UTC).isoformat()
     outcomes, errors = [], []
     schedule_data = load_schedule_observations(api_container, [row["symbol"] for row in rows], output)
     schedule_by_symbol = schedule_data["observations"]
     with ThreadPoolExecutor(max_workers=4) as pool:
         futures = {pool.submit(fetch_company, client, row, start.isoformat(), end.isoformat(),
-                               schedule_by_symbol.get(row["symbol"], [])): row for row in rows}
+                               schedule_by_symbol.get(row["symbol"], []), event_start.isoformat()): row for row in rows}
         for number, future in enumerate(as_completed(futures), 1):
             row = futures[future]
             try:
@@ -438,6 +493,7 @@ def export(client: ApiClient, manifest_path: Path, rows: list[dict[str, Any]], o
                 atomic_json(path, payload)
                 outcomes.append({"symbol": symbol, "path": str(path),
                                  "financial_records": sum(map(len, payload["financial_versions"].values())),
+                                 "strict_pit_financial_records": sum(bool(item.get("pit_eligible")) for values in payload["financial_versions"].values() for item in values),
                                  "financial_records_by_metric": {
                                      metric: len(payload["financial_versions"].get(metric, [])) for metric in METRICS
                                  },
@@ -506,6 +562,12 @@ def export(client: ApiClient, manifest_path: Path, rows: list[dict[str, Any]], o
         "symbols_expected": len(rows), "symbols_exported": len(outcomes), "errors": errors,
         "date_range": {"start": start.isoformat(), "end": end.isoformat()},
         "coverage_summary": {
+            "strict_pit_financial_records": sum(item["strict_pit_financial_records"] for item in outcomes),
+            "additional_fields": {field: {
+                "symbols_with_strict_records": sum(item["coverage"]["additional_fields"][field]["strict_pit_records"] > 0 for item in outcomes),
+                "strict_pit_records": sum(item["coverage"]["additional_fields"][field]["strict_pit_records"] for item in outcomes),
+                "missing_symbols": sorted(item["symbol"] for item in outcomes if not item["coverage"]["additional_fields"][field]["strict_pit_records"]),
+            } for field in EXTRA_TAGS},
             "symbols_with_financial_records": sum(item["financial_records"] > 0 for item in outcomes),
             "symbols_without_financial_records": sorted(
                 item["symbol"] for item in outcomes if item["financial_records"] == 0
@@ -523,6 +585,7 @@ def export(client: ApiClient, manifest_path: Path, rows: list[dict[str, Any]], o
                                   "pit_status": "non_pit_current_fmp_profile"},
         "actual_earnings_events": {
             "scan_report_path": str(output / "pilot_300" / "earnings_event_scan_report.json"),
+            "scan_window": {"start": event_start.isoformat(), "end": event_end.isoformat()},
             "records_exported": sum(item.get("earnings_events", 0) for item in outcomes),
             "symbols_with_records": sum(item.get("earnings_events", 0) > 0 for item in outcomes),
         },
@@ -533,6 +596,8 @@ def export(client: ApiClient, manifest_path: Path, rows: list[dict[str, Any]], o
             "SIC intervals are disclosure-observation intervals, not proven economic effective dates.",
             "Financial and filing coverage reflects the configured initial collection window and may be partial.",
             "Missing or conflicting records are reported, never inferred.",
+            "Additional fields use exact SEC tags. DebtCurrent and LongTermDebtCurrent are separate debt concepts, not replacements for ShortTermBorrowings.",
+            "WeightedAverageDilutedShares is a period weighted diluted EPS denominator, not historical point-in-time ordinary shares outstanding; multiplying it by a close is only a size proxy, not strict PIT market capitalization.",
         ],
         "companies": outcomes,
     }
@@ -547,12 +612,18 @@ def main() -> int:
     parser.add_argument("--api-base", default="http://localhost:8000")
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--email", default=os.getenv("XING_EMAIL"))
+    parser.add_argument("--history-years", type=int, choices=range(1, 21), metavar="1..20")
+    parser.add_argument("--start-date", type=date.fromisoformat, help="Requested financial decision-window start; earlier disclosed inputs remain available")
+    parser.add_argument("--end-date", type=date.fromisoformat)
     mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--extend-history", action="store_true", help="Expand cold history through existing optimize worker jobs; warm history is unchanged")
     mode.add_argument("--prepare", action="store_true", help="Import frozen identities and enqueue optimize cold-data jobs")
     mode.add_argument("--scan-events", action="store_true", help="Scan and persist actual SEC earnings releases in optimize")
     mode.add_argument("--export", action="store_true", help="Export persisted PIT financial versions, SIC, actual events, and current sector labels")
     parser.add_argument("--api-container", default=os.getenv("AGENT_OPTIMIZE_API_CONTAINER", "agent-optimize-api-1"))
     args = parser.parse_args()
+    if args.extend_history and args.history_years is None:
+        parser.error("--extend-history requires --history-years")
     manifest, rows = load_cohort(args.manifest, args.draft)
     draft = json.loads(args.draft.read_text(encoding="utf-8"))
     draft_by_symbol = {row["symbol"]: row for row in draft["stocks"]}
@@ -563,8 +634,12 @@ def main() -> int:
     email = args.email or input("Optimize admin email: ").strip()
     client = ApiClient(args.api_base, timeout=60)
     login(client, email)
+    if args.extend_history:
+        result = extend_history(client, rows, args.history_years)
+        print(json.dumps(result, ensure_ascii=False))
+        return 1 if result.get("errors") else 0
     result = prepare(client, hashlib.sha256(args.manifest.read_bytes()).hexdigest(), entries) if args.prepare else export(
-        client, args.manifest, rows, args.output, args.api_container)
+        client, args.manifest, rows, args.output, args.api_container, args.start_date, args.end_date)
     print(json.dumps({key: result[key] for key in result if key not in {"companies", "batches"}}, ensure_ascii=False))
     return 1 if result.get("errors") else 0
 

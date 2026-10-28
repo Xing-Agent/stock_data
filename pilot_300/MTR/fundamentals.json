@@ -7,9 +7,9 @@
     "retirement_category": null
   },
   "meta": {
-    "retrieved_at": "2026-10-27T07:17:40.468803+00:00",
+    "retrieved_at": "2026-10-27T11:42:54.988853+00:00",
     "data_window": {
-      "start": "2021-10-26",
+      "start": "2016-01-01",
       "end": "2026-10-26"
     },
     "sources": [
@@ -20,7 +20,13 @@
     "pit_status": "partial",
     "adjustment": "not_applicable",
     "coverage_note": "Only locally collected SEC records are exported; missing values remain missing.",
-    "filing_date_semantics": "filing_date and available_at use verified SEC acceptance time; sec_filed_date is the SEC filing date."
+    "filing_date_semantics": "filing_date and available_at use verified SEC acceptance time; sec_filed_date is the SEC filing date.",
+    "financial_lookback_note": "Earlier disclosed periods are retained as backtest warmup inputs; the requested decision window is not a claim of complete coverage.",
+    "actual_earnings_events_requested_window": {
+      "start": "2021-10-26",
+      "end": "2026-10-26"
+    },
+    "additional_fields_basis": "Exact reported SEC tags. Cash-flow durations may be year-to-date; retain period_start/period_end. Cash dividends paid are not a dividend announcement or revision event chain."
   },
   "financial_versions": {
     "Revenue": [],
@@ -39,7 +45,25 @@
     "IncomeBeforeTax": [],
     "InterestExpense": [],
     "IntangibleAssetsNetExcludingGoodwill": [],
-    "Goodwill": []
+    "Goodwill": [],
+    "CashAndCashEquivalentsAtCarryingValue": [],
+    "AccountsReceivableNetCurrent": [],
+    "InventoryNet": [],
+    "Liabilities": [],
+    "ShortTermBorrowings": [],
+    "DebtCurrent": [],
+    "LongTermDebtCurrent": [],
+    "RetainedEarningsAccumulatedDeficit": [],
+    "ResearchAndDevelopmentExpense": [],
+    "PaymentsToAcquirePropertyPlantAndEquipment": [],
+    "PaymentsOfDividends": [],
+    "PaymentsOfDividendsCommonStock": [],
+    "PaymentsForRepurchaseOfCommonStock": [],
+    "ProceedsFromIssuanceOfCommonStock": [],
+    "DepreciationDepletionAndAmortization": [],
+    "DepreciationAmortizationAndAccretionNet": [],
+    "PaymentsToAcquireProductiveAssets": [],
+    "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost": []
   },
   "sic_versions": [
     {
@@ -562,6 +586,134 @@
     "financial_errors": [],
     "metadata_error": null,
     "earnings_error": null,
+    "additional_fields": {
+      "CashAndCashEquivalentsAtCarryingValue": {
+        "source": "raw:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "AccountsReceivableNetCurrent": {
+        "source": "raw:us-gaap:AccountsReceivableNetCurrent",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "InventoryNet": {
+        "source": "raw:us-gaap:InventoryNet",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "Liabilities": {
+        "source": "raw:us-gaap:Liabilities",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "ShortTermBorrowings": {
+        "source": "raw:us-gaap:ShortTermBorrowings",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "DebtCurrent": {
+        "source": "raw:us-gaap:DebtCurrent",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "LongTermDebtCurrent": {
+        "source": "raw:us-gaap:LongTermDebtCurrent",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "RetainedEarningsAccumulatedDeficit": {
+        "source": "raw:us-gaap:RetainedEarningsAccumulatedDeficit",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "ResearchAndDevelopmentExpense": {
+        "source": "raw:us-gaap:ResearchAndDevelopmentExpense",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "PaymentsToAcquirePropertyPlantAndEquipment": {
+        "source": "raw:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "PaymentsOfDividends": {
+        "source": "raw:us-gaap:PaymentsOfDividends",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "PaymentsOfDividendsCommonStock": {
+        "source": "raw:us-gaap:PaymentsOfDividendsCommonStock",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "PaymentsForRepurchaseOfCommonStock": {
+        "source": "raw:us-gaap:PaymentsForRepurchaseOfCommonStock",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "ProceedsFromIssuanceOfCommonStock": {
+        "source": "raw:us-gaap:ProceedsFromIssuanceOfCommonStock",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "DepreciationDepletionAndAmortization": {
+        "source": "raw:us-gaap:DepreciationDepletionAndAmortization",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "DepreciationAmortizationAndAccretionNet": {
+        "source": "raw:us-gaap:DepreciationAmortizationAndAccretionNet",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "PaymentsToAcquireProductiveAssets": {
+        "source": "raw:us-gaap:PaymentsToAcquireProductiveAssets",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      },
+      "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost": {
+        "source": "raw:us-gaap:ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+        "records": 0,
+        "strict_pit_records": 0,
+        "missing_reason": "no_retained_reported_sec_tag",
+        "status": "unavailable"
+      }
+    },
     "derived_metrics": {
       "EBIT": {
         "formula": "IncomeBeforeTax + InterestExpense",
