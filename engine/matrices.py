@@ -626,6 +626,43 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
         # ★ 原文写的是 ≤(不是 <),且分子分母都取 t−1 —— 照原文
         return _as_bool(r.shift(off) <= float(p.get("max_ratio", 0.6)))
 
+    if t == "vcp_volume_tripod":
+        # ======================================================================
+        # ★★ VCP 成交量三条件(专家 2026-10-28 修正版)
+        #
+        # 大白话:上一版把「突破前要缩量」和「突破当天要放量」掐在同一个数上,
+        #   要求成交量一天之内从「不到均量 6 成」跳到「均量以上」——
+        #   这是个自毁的写法,八年只剩 1 笔。专家已承认。
+        #   修正后分成三件事:① 前面出现过一天地量(筹码沉淀日)
+        #                   ② 前 5 日均量整体收敛(是收敛,不是冰冻)
+        #                   ③ 突破当天温和放量(对慢均量、也对自己前 5 日均量)
+        #
+        # ★ 来源标注:行业惯例(专家 2026-10-28 修正版)。
+        #   ★ 不许标「原著写死」—— 专家自己说了原著是定性描述。
+        # ======================================================================
+        v = cache.field("volume", symbols)
+        f = int(p.get("fast_period", 5))          # 5
+        sl = int(p.get("slow_period", 50))        # 50
+        look = int(p.get("min_day_lookback", 5))  # 突破前 5 天内
+        sma_f = v.rolling(f, min_periods=f).mean()
+        sma_s = v.rolling(sl, min_periods=sl).mean()
+        # ★ 全部基准量都取 t−1(SMA50_Volume[t-1] / SMA5_Volume[t-1]),
+        #   突破日当天的量不许进自己的分母 —— 否则是偷看当天。
+        sma_f1, sma_s1 = sma_f.shift(1), sma_s.shift(1)
+
+        # 条件1 突破前 5 天内至少有 1 天 Volume ≤ 0.60 × SMA50_Volume[t−1]
+        #   Volume[t-5:t] 是 t−5 .. t−1 这 5 天(不含突破日 t)
+        vmin5 = v.rolling(look, min_periods=look).min().shift(1)
+        c1 = _as_bool(vmin5 <= float(p.get("dryup_day_ratio", 0.60)) * sma_s1)
+
+        # 条件2 SMA5_Volume[t−1] ≤ 0.85 × SMA50_Volume[t−1](收敛,不是冰冻)
+        c2 = _as_bool(sma_f1 <= float(p.get("converge_ratio", 0.85)) * sma_s1)
+
+        # 条件3 突破日温和放量:对慢均量 ≥1.00,且对自己前 5 日均量 ≥1.20
+        c3 = (_as_bool(v >= float(p.get("breakout_vs_slow", 1.00)) * sma_s1)
+              & _as_bool(v >= float(p.get("breakout_vs_fast", 1.20)) * sma_f1))
+        return c1 & c2 & c3
+
     if t == "sigma_squeeze":
         # σ_fast < max_ratio × σ_slow,在突破当天评估(不满足就放弃本次突破)
         f = int(p.get("fast_period", 5))

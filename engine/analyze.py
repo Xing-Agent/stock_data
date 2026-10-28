@@ -516,11 +516,36 @@ def evaluate(cfg: chain.ChainConfig,
     return out
 
 
+def sample_size_banner(n: int) -> str | None:
+    """
+    ★★ 样本容量底线警示(2026-10-28 新纪律,见 stats_gate.SYSTEM_MIN_TRADES)。
+
+    总笔数 < 150 时返回一行醒目警示,要打在报告**最顶上**;够了就返回 None。
+
+    ★ 这一行存在的意义:把「这一派不成立」和「这一派没测成」分开。
+      上一批流派二跑出 1 笔 —— 当时如果直接写「流派二无效」,
+      就是把一个错误结论送进了横向比较表。
+    """
+    if n >= stats_gate.SYSTEM_MIN_TRADES:
+        return None
+    return (f"★★ 样本不足(N={n} 笔 < {stats_gate.SYSTEM_MIN_TRADES}):"
+            f"本次结果不具统计意义,"
+            f"问题在条件串联过严,不是这一派无效")
+
+
 def format_report(out: dict[str, Any]) -> str:
-    lines = [f"链:{out['链名']}", f"窗口:{out['绩效窗口']}",
-             f"★笔数:{out['★笔数']}  "
-             f"({'笔数太少,任何结论都要打问号' if out['★笔数'] < stats_gate.MIN_N else '笔数够'})",
-             ""]
+    n = int(out["★笔数"])
+    lines: list[str] = []
+    banner = sample_size_banner(n)
+    if banner:
+        # ★ 打在最顶上,而且用分隔线围起来 —— 不许被淹在表格里
+        lines += ["=" * 78, banner, "=" * 78]
+    lines += [f"链:{out['链名']}", f"窗口:{out['绩效窗口']}",
+              f"★笔数:{n}  "
+              f"({'笔数太少,任何结论都要打问号' if n < stats_gate.MIN_N else '笔数够'};"
+              f"★ 系统底线 {stats_gate.SYSTEM_MIN_TRADES},"
+              f"样本充裕线 {stats_gate.SYSTEM_GOOD_TRADES})",
+              ""]
     for sec in ("绝对表现", "坑一_现金拖累", "坑二_跳空穿透止损", "代价",
                 "执行负荷", "摩擦成本", "基准一_同环境随机进场", "基准二_同等仓位大盘"):
         if sec not in out:

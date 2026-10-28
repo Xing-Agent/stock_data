@@ -41,6 +41,28 @@ Z_BASIC = 1.65        # 基础显著
 Z_INSTITUTIONAL = 2.0  # 机构级
 MIN_N = 100           # 九关第六关:样本量下限
 
+# ============================================================================
+# ★★ 新纪律(2026-10-28):全系统全周期有效交易笔数的统计底线
+#
+# 原话(外部专家给的,我们认为成立):
+#   「在多条件级联模型中,单条件的边际松紧必须以
+#     『全系统全周期有效交易笔数 ≥ 150 到 300 笔』为统计底线。
+#     失去样本容量的所谓纯正严格度,在实盘中只是一具无法运行的量化标本。」
+#
+# 大白话:一条链再「忠于原著」,只要跑完没几笔,它就不是一条策略,
+#   是一个标本 —— 看着严谨,实盘上根本不动。所以条件串得够不够严,
+#   不能只看单条件的道理对不对,要看串完之后还剩不剩得下样本。
+#
+# ★ 落地:链执行器跑完之后,总笔数 < SYSTEM_MIN_TRADES 时,
+#   ★ 报告顶部必须打一行醒目警示(见 analyze.sample_size_banner)。
+#
+# ★★ 为什么要有这一条:上一批流派二跑出 1 笔。如果当时直接写「流派二无效」,
+#   那就是一个**错误结论**进了横向比较表。
+#   ★「不成立」和「样本不足」是两件完全不同的事,必须严格分开。
+# ============================================================================
+SYSTEM_MIN_TRADES = 150        # 底线
+SYSTEM_GOOD_TRADES = 300       # 上沿:到这个量级才算样本充裕
+
 
 # ---------------------------------------------------------------- 结果容器
 
@@ -116,7 +138,13 @@ def effect_z(signal_stat: float, random_stats: Sequence[float]) -> tuple[float, 
         return float("nan"), float("nan"), float("nan")
     mu = float(np.mean(arr))
     sd = float(np.std(arr, ddof=1))
-    if sd == 0 or not np.isfinite(sd):
+    # ★★ 2026-10-28 补的一道防线:σ随机 不能只判「等于 0」。
+    #   实测踩到过:随机对照退化(1000 次重抽几乎抽出同一个值),
+    #   σ 不是正好 0 而是 4e−16 这种浮点噪声,算出来 Z = 3.5e15,
+    #   报表上会显示成「机构级」—— ★ 那是个假的显著。
+    #   所以改成:σ 必须相对于参与计算的数量级有意义,否则判为「算不出」。
+    scale = max(abs(mu), abs(float(signal_stat)), 1.0)
+    if not np.isfinite(sd) or sd <= 1e-9 * scale:
         return float("nan"), mu, sd
     return (signal_stat - mu) / sd, mu, sd
 
@@ -220,6 +248,11 @@ def polarity_check(long_result: BootstrapResult,
     返回 (是否通过, 说明)。
     """
     zl, zs = long_result.z_effect, short_result.z_effect
+    # ★ 2026-10-28:Z 算不出来(随机分布退化)时不许说「通过」——
+    #   两边都是 nan 还写「做多明显优于做空」是在凭空给结论。
+    if not (np.isfinite(zl) and np.isfinite(zs)):
+        return False, ("极性反转判不了:做多/做空至少有一边的 Z 算不出来"
+                       "(随机分布退化,σ随机 ≈ 0)—— ★ 判不通过,不是通过")
     if np.isfinite(zl) and np.isfinite(zs) and zl >= Z_BASIC and zs >= Z_BASIC:
         return False, (f"极性反转未过:做多 Z={zl:+.2f}、做空 Z={zs:+.2f} 都显著 "
                        f"—— 挑的是「波动大的票」,不是「会涨的票」")
@@ -280,6 +313,7 @@ def verdict(stratified: BootstrapResult,
 
 __all__ = [
     "B_DEFAULT", "Z_BASIC", "Z_INSTITUTIONAL", "MIN_N",
+    "SYSTEM_MIN_TRADES", "SYSTEM_GOOD_TRADES",
     "BootstrapResult", "GateVerdict",
     "empirical_p", "effect_z", "bootstrap_test",
     "stratified_sampler", "circular_block_sampler", "polarity_check", "verdict",

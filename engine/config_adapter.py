@@ -55,6 +55,9 @@ IMPLEMENTED = {
         "pullback_to_ma", "always", "random", "never",
         # ★ 1028 新实现(专家第二轮把死数给齐了之后)
         "vcp_contraction", "sigma_squeeze", "breakout_volume_band",
+        # ★ 成交量三条件(专家 2026-10-28 修正版)—— 取代
+        #   volume_dryup + breakout_volume_band 那个自毁写法
+        "vcp_volume_tripod",
     },
     "exit": {
         "close_below_ma", "close_below_ema", "close_below_trailing_stop",
@@ -91,6 +94,16 @@ BLOCKED_REASONS = {
     "mktcap_rank_exclude_bottom":
         "仓库没有严格 PIT 的市值(README 明确说 WeightedAverageDilutedShares × 收盘价 "
         "只是规模代理,不是 PIT 市值)—— 改用 dollar_volume_rank_exclude_bottom 或等定义",
+    # ★ 2026-10-28:GP/A 与净股东回报率从「绝对值阈值」改成「截面分位」
+    #   (专家逐条承认原阈值标错)。★ 引擎还没写这两个截面分位算子 ——
+    #   ★ 属于 A 类「引擎没写」,不是 B 类「定义没定」:口径已经明确,
+    #     就是每个评估日在池内做横截面排序取前 20%,补代码即可。
+    "gross_profit_to_assets_rank_above":
+        "GP/A 的截面分位算子引擎还没写(A 类:口径已明确 = 池内横截面前 20%,"
+        "补代码即可)—— 2026-10-28 从绝对值 0.35 改过来的",
+    "net_shareholder_yield_rank_above":
+        "净股东回报率的截面分位算子引擎还没写;★ 而且这一条底层数据本来就缺"
+        "(35 个字段里没有任何偿债/举债的现金流科目,腿三算不出)",
     "mansfield_rs_positive":
         "against: SECTOR 这一条要个股→板块 ETF 的 PIT 映射,仓库的行业标签是"
         "当前快照、非 PIT —— 需先定映射口径",
