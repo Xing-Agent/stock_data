@@ -39,6 +39,9 @@ IMPLEMENTED = {
         "return_rank_top",
         "ma_stack_bullish",
         "hv_below",
+        "return_rank_percentile",
+        "momentum_dual_gate",
+        "mansfield_rs_positive",      # ★ 只有 against: SPY 能跑;SECTOR 非 PIT,见下
     },
     "regime": {
         "none", "index_above_ma", "index_above_ma_scaled", "index_ma_slope",
@@ -48,17 +51,35 @@ IMPLEMENTED = {
         "donchian_close_breakout", "donchian_breakout", "atr_squeeze",
         "volume_dryup", "ma_cross", "rsi_oversold", "roc_momentum",
         "pullback_to_ma", "always", "random", "never",
+        # ★ 1028 新实现(专家第二轮把死数给齐了之后)
+        "vcp_contraction", "sigma_squeeze", "breakout_volume_band",
+    },
+    "exit": {
+        "close_below_ma", "close_below_ema", "close_below_trailing_stop",
+        "rules", "signal_only",     # 适配层自己塞的标记,不是规则
     },
     "initial_stop": {
         "atr_multiple", "pct", "chandelier", "lowest_low", "tightest_of",
         "structure_low_minus_atr", "day_low_minus_atr",
     },
-    "trailing_stop": {"chandelier", "none", "staged"},
+    "trailing_stop": {"chandelier", "none", "staged", "ema_trail"},
+}
+
+# ⑤ 移动止损各级认得的 action
+IMPLEMENTED_STAGE_ACTIONS = {
+    "hold_initial_stop", "move_to_breakeven", "breakeven",
+    "move_stop_to_breakeven", "exit_unconditional",
 }
 
 # 明确「配置本身没定」的规则:为什么不能猜
 BLOCKED_REASONS = {
-    "vcp_contraction": "params 全是 null —— 收缩次数/幅度口径都没定义,不能猜",
+    # ★ vcp_contraction 已解封:专家第二轮把全部死数给齐了(分型半宽 2 /
+    #   D1≤30% / 递减 0.65 / 2~4 次 / 15~65 天 / 振幅分母用段高点),
+    #   1028 已在 matrices.vcp_matrices 实现。★ 仍有一处口径待专家确认:
+    #   「形态成立后门禁开多久」——专家没说,引擎用的机械读法写在
+    #   matrices.py VCP 那一段的注释里,报告里也列为待确认项。
+    "rotate_out": "⑤「滞涨换血」的触发条件 candidate_pool_has_new_high_signal 没定义"
+                  "(新高是几日新高?动量怎么比?)—— 不能猜,见审计 §2-C",
     "swing_low_exists": "swing_definition / min_bars_before 是 null —— 摆动低点的定义没定",
     "intraday_break_below_swing_low": "依赖 swing_low_exists 的定义,同上",
     "close_reclaim_above_swing_low": "strength_metric / min_reclaim 是 null —— 收复强度没定",
@@ -167,13 +188,44 @@ def adapt(raw: dict) -> tuple[dict, AdaptReport]:
         cfg.setdefault(k, {})
 
     # 二、查哪些规则还没实现
-    for step in ("universe", "regime", "entry", "initial_stop", "trailing_stop"):
+    for step in ("universe", "regime", "entry", "initial_stop",
+                 "trailing_stop", "exit"):
         for rt in _rule_types(cfg.get(step)):
             if rt in IMPLEMENTED.get(step, set()):
                 continue
             why = BLOCKED_REASONS.get(
                 rt, "引擎还没实现这条规则 —— 规则本身讲得清楚,是工作量问题")
             rep.unimplemented.append((step, rt, why))
+
+    # ⑤ 各级的 action 也要查 —— 只查 type 会漏掉 rotate_out 这种「只有 action」的级
+    for st in ((cfg.get("trailing_stop") or {}).get("stages") or []):
+        if not isinstance(st, dict):
+            continue
+        act = st.get("action")
+        if act and act not in IMPLEMENTED_STAGE_ACTIONS:
+            rep.unimplemented.append((
+                "trailing_stop",
+                f"{st.get('name') or '?'}(action={act})",
+                BLOCKED_REASONS.get(act, "引擎还没实现这一级的 action")))
+        for cond in (st.get("when") or {}):
+            if cond not in ("unrealized_r_gt", "unrealized_r_lt",
+                            "unrealized_r_between", "days_held_gte",
+                            "days_held_lte"):
+                rep.unimplemented.append((
+                    "trailing_stop",
+                    f"{st.get('name') or '?'}(when.{cond})",
+                    "这个触发条件引擎认不出来 —— 认不出来的条件会让这一级永远不生效,"
+                    "★ 所以在这里报出来,不留给它悄悄失效"))
+
+    # ★ 非 PIT 数据的单独一关:against: SECTOR 的行业 RS
+    for rule in ((cfg.get("universe") or {}).get("rules") or []):
+        for comp in ([rule] + list(rule.get("components") or [])):
+            if (comp.get("type") == "mansfield_rs_positive"
+                    and str((comp.get("params") or {}).get("against", "")).upper() == "SECTOR"
+                    and comp.get("enabled", True) is not False):
+                rep.unimplemented.append((
+                    "universe", "mansfield_rs_positive(against: SECTOR)",
+                    BLOCKED_REASONS["mansfield_rs_positive"]))
 
     # audit_blocked 标记一并带出来
     def _scan_blocked(node, path):

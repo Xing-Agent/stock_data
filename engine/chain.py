@@ -452,26 +452,47 @@ def run_chain(cfg: ChainConfig,
                         f"stop={p['stop']} close={cl}")
             elif trail_type == "staged":
                 # 多级移动止损:按条件挑出当前该用哪一级
+                # ★★ 取「最后一个条件满足的那一级」,不是第一个。
+                #   以前取第一个是个真 bug:流派二的 ⑤ 是 保护期 → 保本(>2R)
+                #   → EMA10 跟踪(>3R),取第一个的话浮盈 5R 时会停在「保本」那级,
+                #   EMA10 跟踪永远不会启动 —— 配置里写了的东西没被执行。
                 held = i - p["entry_i"]
-                for st in stages:
-                    if not _stage_hits(st.get("when") or {}, r_now, held):
-                        continue
+                st = None
+                for cand in stages:
+                    if _stage_hits(cand.get("when") or {}, r_now, held):
+                        st = cand
+                if st is not None:
                     act = st.get("action")
                     if act == "hold_initial_stop":
-                        break                       # 锁死期:不动
-                    if act in ("move_to_breakeven", "breakeven"):
+                        pass                        # 锁死期:不动
+                    elif act in ("move_to_breakeven", "breakeven",
+                                 "move_stop_to_breakeven"):
                         p["stop"] = max(p["stop"], min(p["entry"], cl))
-                        break
-                    if act == "exit_unconditional":
+                    elif act == "exit_unconditional":
                         pending_exit[j] = st.get("name") or "分级离场"
-                        break
-                    if st.get("type") == "chandelier":
+                    elif st.get("type") == "chandelier":
                         sp = st.get("params", {}) or {}
                         raw = _chandelier_at(m, j, i, sp)
                         if np.isfinite(raw):
                             # ★★ 同样两条铁律
                             p["stop"] = max(p["stop"], min(raw, cl))
-                        break
+                    elif st.get("type") == "ema_trail":
+                        raw = m.ema_trail[i, j]
+                        if np.isfinite(raw):
+                            # ★★ 同样两条铁律:不能高于当根收盘、只能往上抬
+                            p["stop"] = max(p["stop"], min(raw, cl))
+                    elif act == "rotate_out":
+                        # ★ 「滞涨换血」—— 换血条件(备选池有新高动量信号)没定义,
+                        #   这一阶段显式关掉。走到这里说明配置没按约定剔除该级。
+                        raise NotImplementedError(
+                            "⑤「滞涨换血」rotate_out 的触发条件"
+                            "(candidate_pool_has_new_high_signal)没有定义 —— "
+                            "不能猜。要跑必须显式把这一级从配置里去掉,"
+                            "并在报告里写明「这一版关掉了换血」。见审计报告 §2-C。")
+                    else:
+                        raise NotImplementedError(
+                            f"⑤ 移动止损这一级还没实现:name={st.get('name')} "
+                            f"action={act} type={st.get('type')} —— ★ 没有悄悄忽略它。")
             # ⑤ 浮盈后移保本:赚到 be_trigger 个 R 就把止损抬到成本
             if be_trigger is not None and not p["be_done"] \
                     and np.isfinite(r_now) and r_now >= be_trigger:
@@ -484,6 +505,9 @@ def run_chain(cfg: ChainConfig,
                 pending_exit[j] = "止盈"
             elif time_stop is not None and (i - p["entry_i"]) >= time_stop:
                 pending_exit[j] = "时间止损"
+            elif m.exit_sig[i, j]:
+                # ★ ⑥ 离场规则(收盘跌破 MA50 / EMA10)—— 以前这一条没被执行
+                pending_exit[j] = "离场规则"
 
         # ---- ⑤ 今天收盘产生明天的候选
         regime_next = bool(m.regime[i + 1]) if i + 1 < len(idx) else False
@@ -493,13 +517,16 @@ def run_chain(cfg: ChainConfig,
                      and i < int(m.last_bar[j])]
             slots = max(0, max_slots - len(pos))
             if not equal_all and len(cands) > slots:
-                # 名额不够时按固定排序取前几只(相对强弱排名,拿不到就按代码字母序)
-                if rank_by == "rs_rank":
-                    cands.sort(key=lambda j: (-(m.rs_rank[i, j]
-                                                if np.isfinite(m.rs_rank[i, j]) else -1),
-                                              m.symbols[j]))
-                else:
-                    cands.sort(key=lambda j: m.symbols[j])
+                # ★ 名额不够时按配置里的 ranking 排序打分取前几只。
+                #   分数已在第一层按配置的公式算好(rank_score,越大越优先);
+                #   并列时按 ADV20 大的优先(专家给的 tiebreak),再按代码字母序定死。
+                def _k(j):
+                    s = m.rank_score[i, j]
+                    a = m.adv20[i, j]
+                    return (-(s if np.isfinite(s) else -np.inf),
+                            -(a if np.isfinite(a) else -np.inf),
+                            m.symbols[j])
+                cands.sort(key=_k)
                 cands = cands[:slots]
             pending_entry = cands
         else:

@@ -7,9 +7,11 @@
 # ★ 本文件是「照抄外部专家原文」的产物。所有数值与专家原文一字不差。
 # ★ source 字段约定(三选一):原著 / 行业惯例 / 我们搜的
 #   ★ 本文件 "我们搜的" = 0 条。
-# ★★ 本文件有 4 处参数因为原文含糊,留空(值为 null)并标 audit_blocked。
-#   ★ 按硬纪律没有自己填数 —— 填了就变成「我们搜的」。
-#   ★ 这 4 处不补齐,这条链跑不起来。见审计报告 §2。
+# ★★ 第二轮更新(1028 晚):专家补齐了 VCP 收缩的全部死数、缩量门槛、
+#   突破日量区间、动量选股逻辑、排序规则。本条链现在**可以跑**。
+#   ★ 新填的数全部来自专家书面答复,★ 仍然「我们搜的」= 0 条。
+#   ★ 但第二轮的出处标注又有 4 处核不实,已按纪律降级为「行业惯例」
+#     或「来源存疑」,★ 数值一个没动。见审计报告第五节。
 #
 # 审计报告:/home/claude/三流派配置-参数审计-1028.md
 # 字段命名按七步接口(stop_init / stop_trail / slots / ranking),
@@ -39,32 +41,57 @@ meta:
 # ---------------------------------------------------------------------------
 universe:
   rules:
-    - type: mktcap_rank_exclude_bottom
-      params: { exclude_bottom_pct: 20 }
+    # ★ 待 Lin 确认 #3(§3-B):原文是「剔除市值后 20%」,但我们没有 PIT 市值。
+    #   ★ 此处按我的倾向改用 ADV20 做规模筛选(PIT 干净,且与另两条链口径统一),
+    #     ★ 待 Lin 确认。Lin 若选「用规模代理」,把下面这块换回
+    #     mktcap_rank_exclude_bottom 并接 WeightedAverageDilutedShares × Close。
+    - type: adv_rank_exclude_bottom
+      params: { adv_period: 20, exclude_bottom_pct: 20 }
       source: 行业惯例
-      # ★★ 两个问题叠在一起:
-      #   (a) 口径:原文「剔除市值后 20%」是全市场口径,我们池子只有 300 只
-      #       → 只能算池内后 20%,见审计报告 §3-A。
-      #   (b) 数据:我们没有 PIT 市值。只有 WeightedAverageDilutedShares(季度、
-      #       加权平均摊薄股数),仓库 README 明确写「乘收盘价只是规模代理,
-      #       不是严格 PIT 市值」。见审计报告 §3-B。
-    - type: return_rank_top
-      params: { lookback: 60, top_pct: 15 }
-      source: 原著
-      # 专家标注「原著写死(O'Neil 80 分位 + Weinstein RS)」。
-      # ★ O'Neil 的 RS 线是 80 分位(即前 20%),不是前 15%;
-      #   60 日这个窗口也不是 O'Neil 的 RS 定义窗口 —— 见审计报告 §1-C。
-      # ★ 口径同上:池内前 15% ≠ 全市场前 15%,见 §3-A。
-    - type: mansfield_rs_positive
-      params: { against: SPY }
-      source: 原著
-    - type: mansfield_rs_positive
-      params: { against: SECTOR }
-      source: 原著
-      # ★★ 数据问题:行业归属只有 sector_classification_current_non_pit.csv
-      #   —— 是「当前」FMP 分类,不是历史 PIT,整段回测都在用未来信息。
-      #   另外 XLC 的数据只从 2018-06 起、XLRE 只从 2015-10 起,
-      #   2016–2018 这两个行业算不出 RS_行业。见审计报告 §3-C。
+      pending_lin: "#3 市值 vs ADV —— 此处按 Claude 倾向用 ADV20,待 Lin 确认"
+      # ★ 口径问题仍在:池内后 20% ≠ 全市场后 20%,见审计报告 §3-A
+      #   (待 Lin 确认 #1,此处按我的倾向「照原数跑、结果里标明闸门没在干活」)。
+
+    # --- 动量选股:第二轮专家明确为两条 AND(宏观基底 + 微观进攻)---
+    - type: momentum_dual_gate
+      logic: AND
+      components:
+        - name: 宏观基底
+          type: mansfield_rs_positive
+          params: { against: SPY, lookback: 250 }
+          source: 原著
+        - name: 宏观基底_行业
+          type: mansfield_rs_positive
+          params: { against: SECTOR, lookback: 250 }
+          source: 原著
+          enabled: true
+          pending_lin: "#4 行业 RS —— 专家第二轮明确要求保留,此处照其设计开启;
+                        ★ 我的倾向是另跑一版关掉它做对比(见下 variant 开关),待 Lin 确认"
+          # ★★ 数据污染仍未解决:行业归属只有
+          #   sector_classification_current_non_pit.csv,元数据写明
+          #   "pit_status": "non_pit_current_classification" —— 用今天的行业标签
+          #   跑 2016 年,整段回测都在用未来信息。
+          #   ★ 另外 XLC 只有 2018-06 起、XLRE 只有 2015-10 起,
+          #     2016–2018 这两个行业算不出 RS_行业。见审计报告 §3-C。
+        - name: 微观进攻
+          type: return_rank_percentile
+          params: { lookback: 60, min_percentile: 85.0 }
+          source: 行业惯例
+          # ★ 按协调人指示标「行业惯例」:专家自承 85 分位是「交易台收紧」,
+          #   不是 O'Neil 原著(O'Neil 是 80 分位)。
+          # ★★ 但请注意一件事(见审计报告 §5-E):
+          #   ★ 85 分位 ≡ 前 15%,和第一轮那个「前 15%」是同一个数。
+          #   ★ 专家把它说成「收紧」,实际一个字没动。
+      source: 行业惯例
+      variant_without_rs_sector: true
+      # ★ 这个开关给对比跑用:true 时额外产出一份关掉行业 RS 的结果,
+      #   用来量化 RS_行业(非 PIT、被污染)到底贡献了多少。
+
+    - type: ma_stack_bullish
+      params: { mas: [50, 150, 200], require_price_above_all: true }
+      source: 原著                 # Minervini 趋势模板
+      # ★ §2-D 第二轮仍未答:「多头排列」是否要求 MA50 > MA150 > MA200 严格排序、
+      #   排序要维持几天,专家没回。此处按字面保留,排序严格度待确认。
     - type: ma_stack_bullish
       params: { mas: [50, 150, 200], require_price_above_all: true }
       source: 原著                 # Minervini 趋势模板
@@ -97,32 +124,117 @@ regime:
 # ---------------------------------------------------------------------------
 entry:
   rules:
+    # =======================================================================
+    # ★ 第①关:VCP 几何收缩 —— 跨 15~65 天的「选拔门禁」(状态机)
+    #   ★ 第二轮专家给齐了全部死数,一个字没改。
+    # =======================================================================
     - type: vcp_contraction
+      stage: selection_gate            # 选拔门禁(不是点火)
       params:
-        contraction_count: null          # 原文「连续 2~3 次」
-        range_metric: null               # 「振幅」未定义
-        decrement_threshold: null        # 「递减」未给阈值
-        contraction_window: null         # 每段收缩的长度未给
+        # --- 波段切分:5 根 Bar 局部极值分型(2-1-2 Fractal)---
+        swing_method: fractal_2_1_2
+        fractal_half_width: 2          # 局部高点 High_t = max(High[t-2..t+2])
+                                       # 局部低点 Low_t  = min(Low[t-2..t+2])
+        # 一个收缩波段 = 从局部高点 High_k 到其后的局部低点 Low_k
+        # 形态自基底起点 High_0 开始:Low_1 → High_1 → Low_2 → … → Pivot
+        base_min_days: 15              # 15 ≤ T_total ≤ 65 个交易日
+        base_max_days: 65
+
+        # --- 振幅公式(★ 死数,不许改)---
+        range_metric: (High_k - Low_k) / High_k    # 统一用该段高点作分母
+        forbid_atr_ratio: true
+        # ★ 专家明确禁止用 ATR 比值。原话理由:
+        #   「ATR 会随波动率同步缩小,抹杀收缩的几何绝对比例」
+
+        first_contraction_max_depth: 0.300         # D_1 ≤ 30.0%
+
+        # --- 递减系数 ---
+        decay_coefficient: 0.65        # D_k ≤ 0.65 × D_{k−1}
+        # 例:第一段 20% → 第二段 ≤13% → 第三段 ≤8.45%
+
+        # --- 收缩次数 ---
+        min_contractions: 2            # 2 次即成立(2T)
+        max_contractions: 4            # 最多 4 次(4T)
       source: 行业惯例
-      audit_blocked: §2-B
-      # ★★★ 这是本条链最大的缺口,四个参数全是空的:
-      #   原文只有一句「日线连续 2~3 次振幅递减收缩(VCP)」。
-      #   ① 振幅怎么算?(高−低 / 收盘?ATR?百分比?一段的最高到最低?)
-      #   ② 递减多少算递减?(每段比上段窄 10%?20%?只要更窄就算?)
-      #   ③ 2 次和 3 次怎么选?(2 次就够还是必须 3 次?满足 2 次时要不要再等?)
-      #   ④ 每一段「收缩」从哪到哪算一段?(波峰到波谷?固定天数?)
-      #   ★ 没有自己定。见审计报告 §2-B 和追问原话。
+      # ★★ 出处降级说明(第二轮审计,数值一个没动):
+      #   · 波段切分/分型 → 专家标「行业惯例(Volman 2014 分型标准算法)」,照留。
+      #   · D_1 ≤ 30.0% → 专家标「原著写死(Minervini 2013 Ch.10)」。
+      #     ★ 章节对了(2013 Ch.10 确为 "Mastering the Volatility Contraction
+      #       Pattern"),★ 但 30% 这个硬上限核不实 —— Minervini 讲第一段回撤时
+      #       举的例子是「20%、25%、33%」,33% 会被 30% 的门槛挡掉。
+      #     ★ 降级为行业惯例。见审计报告 §5-A。
+      #   · 递减 0.65 → 专家标「原著写死」,但他自己括号里写的是
+      #     「通常为一半到三分之二,取上限 65%」。
+      #     ★ 二手资料查到的 Minervini 通行说法是「约为前一段的一半」(half-rule),
+      #       查不到「到三分之二」这个上限。0.65 比 half-rule 宽。
+      #     ★ 降级为行业惯例。见审计报告 §5-B。
+      #   · 2~4 次 → 专家标「原著写死(Minervini 2017 Ch.5)」。
+      #     ★ 内容(2~4 次)与二手资料大致相符,★ 但 2017 Ch.5 是
+      #       "Compound Money, Not Mistakes"(讲复利与错误),不是 VCP 章;
+      #       VCP/买入在 Ch.6–7。★ 出处错(这是他第二次给错 2017 的章号)。
+      #     ★ 降级为行业惯例。见审计报告 §5-C。
+
+    # =======================================================================
+    # ★ 第②关:σ5 点火门禁 —— ★ 串联在几何之后,不是并列
+    #   执行顺序:先满足 VCP 几何 → 状态机才激活 σ5 扫描 →
+    #            形态满足但突破当天 σ5 未收缩 → ★ 放弃本次突破
+    # =======================================================================
+    - type: sigma_squeeze
+      stage: ignition_gate
+      requires_stage: selection_gate   # ★ 串联依赖:几何没过,这一关不扫
+      params:
+        fast_period: 5                 # 5 日收益率标准差
+        slow_period: 20                # 20 日收益率标准差
+        max_ratio: 0.65                # σ5 < 0.65 × σ20
+        evaluate_on: breakout_day      # 突破当天评估;不满足则放弃本次突破
+        anchor: last_contraction_right_side   # 最后一次收缩的右侧
+      source: 行业惯例
+      on_fail: abandon_breakout
+
+    # =======================================================================
+    # ★ 第③关:缩量 + 突破
+    # =======================================================================
     - type: volume_dryup
-      params: { fast_period: 5, slow_period: 50, max_ratio: 0.60 }
+      params:
+        fast_period: 5
+        slow_period: 50
+        max_ratio: 0.60                # SMA5(Vol)(t−1) ≤ 0.60 × SMA50(Vol)(t−1)
+        offset_days: 1
       source: 行业惯例
-      # 原文:最近 5 日均量 < 50 日均量的 60%(Minervini 缩量特征量化版)
-      # ★ 这是专家主动「废除原著突破当天量 ≥1.5 倍」后换上的反向条件,
-      #   与 O'Neil / Minervini 原著的放量突破要求相反 —— 见审计报告 §1-D。
+      # ★ 专家这次给了页码和英文原文:
+      #   Minervini《Think & Trade Like a Champion》(2017) Ch.5, p.83
+      #   "Volume dries up significantly, typically 40% to 50% below its
+      #    50-day moving average."
+      # ★★ 核查结果(审计报告 §5-D):
+      #   ① 章号又错了 —— 2017 Ch.5 是 "Compound Money, Not Mistakes",
+      #      不是讲量能/买点的章;p.83 无法核(PDF 源站 robots 禁抓)。
+      #   ② ★ 取值取了宽松那一端:「40% to 50% below」对应比值 0.60~0.50,
+      #      专家取 0.60(最宽松)。取 0.50 会少掉一批信号。
+      #   ③ 二手资料的通行说法是回撤段量能降到 50 日均量的 40~60%,
+      #      与 0.60 这一端相符,所以数值本身不离谱。
+      #   ★ 出处降级为行业惯例,数值 0.60 按协调人指示锁定、不动。
+
+    - type: breakout_volume_band
+      params:
+        slow_period: 50
+        min_ratio: 1.00                # 下界:不能无人问津
+        max_ratio: 1.80                # 上界:焊安全阀(防算法诱多)
+        offset_days: 1                 # 分母用 SMA50(Volume)(t−1)
+      source: 行业惯例
+      # ★ 矛盾澄清(第二轮):废除的是原著「必须 ≥1.5 倍」这个**下限要求**,
+      #   现在给的是一个**区间** [1.00, 1.80]。
+      # ★★ 专家引用了**我们自己的实测(−0.122R)**来支持废除 ≥1.5 倍。
+      #   ★ 这条的出处实质上是「我们的实测」,不是行业惯例也不是原著 ——
+      #     但按三选一的规矩只能落「行业惯例」。见审计报告 §5-F。
+      #   ★ 这是整个项目里**唯一一条由我们自己的数据定下来的参数**,
+      #     请在结果里单独标明,别和专家给的参数混在一起。
+
     - type: donchian_close_breakout
       params: { lookback: 5 }
       source: 行业惯例              # Qullamaggie / Volman
   signal_freeze: close
   fill: next_open_market           # 次日开盘市价进
+  execution_order: [selection_gate, ignition_gate, volume, breakout]
   source: 原著
 
 # ---------------------------------------------------------------------------
@@ -210,11 +322,24 @@ sizing:
 slots: 5                           # ★ 最多同时 5 只
 source_slots: 行业惯例
 
-ranking: null
-# ★★ 专家原文没给排序规则,但这条链 slots 只有 5 只、
-#   而选股范围是「动量前 15%」—— 候选几乎天天多于 5 个槽位。
-#   ★ 排序规则不定,结果完全不可复现。见审计报告 §2-F。
-#   ★ 没有自己填。
+# ---------------------------------------------------------------------------
+# 排序(第二轮专家补齐)
+# ---------------------------------------------------------------------------
+ranking:
+  primary:
+    formula: D_last = (High_last - Low_last) / High_last
+    order: asc                       # ★ 从小到大(最后一段收缩越紧越优先)
+    source: 行业惯例
+    # ★ 专家标「原著写死」,引语
+    #   "The tighter the cheat, the explosive the breakout"(Minervini)。
+    # ★★ 这句引语**查不到**,而且英文本身不通顺(the explosive 缺冠词/应为
+    #   more explosive)。Minervini 确实用 "cheat"(低位 cheat 买点,源自 Darvas)
+    #   也确实主张形态越紧越好,★ 但这句话作为原话核不实。
+    # ★ 降级为行业惯例。见审计报告 §5-H。
+  tiebreak:
+    field: return_60d
+    order: desc                      # 过去 60 日总涨幅较高者优先
+    source: 行业惯例
 
 # ---------------------------------------------------------------------------
 # 摩擦成本与基准

@@ -380,6 +380,23 @@ def friction_sensitivity(cfg: chain.ChainConfig, symbols: list[str] | None,
                  "最大回撤": mdd, "笔数": len(r0.ledger),
                  "平均每笔R_扣摩擦": float(r0.ledger["r_multiple_net"].mean())
                  if not r0.ledger.empty else float("nan")})
+    # ★ 配置写死了一刀切成本时,★ 仍然把「按 ADV20 分三档」那一行补上 ——
+    #   坑四的结论是一刀切会系统性美化高频、惩罚低频,
+    #   所以分档那一行必须在场,不能因为配置没写就看不到。
+    if "friction_tiers" not in costs_cfg:
+        c2 = cfg.copy_with(costs={**costs_cfg,
+                                  "friction_tiers": chain.FRICTION_TIERS_DEFAULT,
+                                  "source": "坑四:按 ADV20 分三档(引擎内置 5/15/30bp,"
+                                            "无原著出处,见引擎说明第十节第 3 条)"})
+        c2.raw["costs"].pop("one_way_bps", None)
+        rt = chain.run_chain(c2, symbols, start, end, initial_equity, m=m)
+        mddt, _, _ = drawdown(rt.equity)
+        rows.append({"摩擦口径": "★按ADV20分三档(5/15/30bp)",
+                     "净收益": float(rt.equity.iloc[-1] / rt.equity.iloc[0] - 1.0),
+                     "最大回撤": mddt, "笔数": len(rt.ledger),
+                     "平均每笔R_扣摩擦": float(rt.ledger["r_multiple_net"].mean())
+                     if not rt.ledger.empty else float("nan")})
+
     for bps in chain.FRICTION_SENSITIVITY_FLAT:
         r = chain.run_chain(cfg, symbols, start, end, initial_equity, m=m,
                             flat_friction_bps=bps)

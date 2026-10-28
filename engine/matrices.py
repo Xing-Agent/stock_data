@@ -88,6 +88,169 @@ def rs_rank_matrix(lookback: int = 126, symbols: list[str] | None = None) -> pd.
     return mom.rank(axis=1, pct=True)
 
 
+def ema_matrix(period: int, symbols: list[str] | None = None) -> pd.DataFrame:
+    """指数均线。VCP 的 ⑤ EMA10 跟踪与 ⑥ 收盘跌破 EMA10 离场都用它。"""
+    c = cache.field("close", symbols)
+    return c.ewm(span=period, adjust=False, min_periods=period).mean()
+
+
+def ret_std_matrix(period: int, symbols: list[str] | None = None) -> pd.DataFrame:
+    """近 period 日「日收益率」的标准差。流派二的 σ5 / σ20 点火门禁用它。"""
+    c = cache.field("close", symbols)
+    return c.pct_change().rolling(period, min_periods=period).std()
+
+
+def mansfield_rs_matrix(against: str = "SPY", lookback: int = 250,
+                        symbols: list[str] | None = None) -> pd.DataFrame:
+    """
+    Mansfield 相对强弱(RSM):
+        RS_t  = Close / 指数Close
+        RSM_t = (RS_t / SMA_lookback(RS_t) − 1) × 100
+    RSM > 0 = 这只票近来跑得比指数自己的长期均值强。
+    出处:Stan Weinstein《Secrets for Profiting in Bull and Bear Markets》(1988)
+          里的 Mansfield 相对强弱;Minervini 的趋势模板沿用。
+    """
+    c = cache.field("close", symbols)
+    b = data.load_benchmark(against)["close"].reindex(c.index).ffill()
+    rs = c.div(b, axis=0)
+    return (rs / rs.rolling(lookback, min_periods=lookback).mean() - 1.0) * 100.0
+
+
+# ---------------------------------------------------------------- VCP 几何收缩
+# ★★ 流派二 ③ 第①关:跨 15~65 天的「选拔门禁」状态机。
+#   专家第二轮给齐了全部死数(分型半宽 2 / D1≤30% / 递减 0.65 / 2~4 次 /
+#   15~65 天 / 振幅分母用该段高点 / 禁用 ATR 比值),这里一个数都没动。
+#
+# ★ 但有一处专家没说、而代码必须有答案的:「形态成立之后,这个门禁开多久」。
+#   引擎的机械读法(★ 已登记为待专家确认的实现口径):
+#     门禁从「最后一次收缩的那个分型低点被确认」那天开始开着,
+#     到「再出现一个被确认的分型低点」(= 形成了新的一段收缩,旧形态被取代)
+#     或「基底总长超过 65 个交易日」为止,取两者更早的那个。
+#
+# ★ 因果性:5 根分型(High_t = max(High[t−2..t+2]))本身用到了 t+1 / t+2,
+#   所以一个分型在 t 成立、但只有到 t+2 才「可知」。下面一律按 t+2 才允许使用,
+#   绝不在 t 当天就用它 —— 否则是偷看未来 2 天。
+
+_VCP_CACHE: dict = {}
+
+# ★ 凡是「被显式关掉的规则」都往这里记一条,报告里必须原样打出来 ——
+#   关掉可以(有时数据就是不支持),悄悄关掉不行。
+_DISABLED_LOG: list[str] = []
+
+
+def disabled_log() -> list[str]:
+    return list(_DISABLED_LOG)
+
+
+def _alternating_pivots(is_h: np.ndarray, is_l: np.ndarray,
+                        high: np.ndarray, low: np.ndarray) -> list[tuple[int, str, float]]:
+    """把分型高/低点整理成严格交替的 H,L,H,L… 序列(同类连续时保留更极端的那个)。"""
+    raw: list[tuple[int, str, float]] = []
+    for t in np.flatnonzero(is_h | is_l):
+        if is_h[t]:
+            raw.append((int(t), "H", float(high[t])))
+        if is_l[t]:
+            raw.append((int(t), "L", float(low[t])))
+    out: list[tuple[int, str, float]] = []
+    for p in raw:
+        if out and out[-1][1] == p[1]:
+            # 同类连续:高点留更高的,低点留更低的
+            keep = p if ((p[1] == "H" and p[2] > out[-1][2]) or
+                         (p[1] == "L" and p[2] < out[-1][2])) else out[-1]
+            out[-1] = keep
+        else:
+            out.append(p)
+    return out
+
+
+def _vcp_one_symbol(high: np.ndarray, low: np.ndarray, n: int,
+                    is_h: np.ndarray, is_l: np.ndarray, p: dict
+                    ) -> tuple[np.ndarray, np.ndarray]:
+    """单只票:返回 (门禁是否开着的布尔数组, 最后一段收缩幅度 D_last 数组)。"""
+    hw = int(p["fractal_half_width"])
+    d1_max = float(p["first_contraction_max_depth"])
+    decay = float(p["decay_coefficient"])
+    k_min, k_max = int(p["min_contractions"]), int(p["max_contractions"])
+    t_min, t_max = int(p["base_min_days"]), int(p["base_max_days"])
+
+    piv = _alternating_pivots(is_h, is_l, high, low)
+    gate = np.zeros(n, dtype=bool)
+    d_last = np.full(n, np.nan, dtype=float)
+
+    # 收缩段 = 一个分型高点 → 紧跟其后的那个分型低点
+    contr: list[tuple[int, int, int, float]] = []   # (序列位置, H行号, L行号, 深度)
+    for i in range(len(piv) - 1):
+        if piv[i][1] == "H" and piv[i + 1][1] == "L":
+            h_px, l_px = piv[i][2], piv[i + 1][2]
+            if h_px > 0 and l_px < h_px:
+                # ★ 振幅公式是死数:(High_k − Low_k) / High_k,分母统一用该段高点
+                contr.append((i, piv[i][0], piv[i + 1][0], (h_px - l_px) / h_px))
+
+    # 每一段收缩低点被确认的那天(= 低点行号 + hw),以及下一个被确认的低点
+    confirm = [c[2] + hw for c in contr]
+
+    for e in range(len(contr)):
+        best = None
+        for m in range(k_max, k_min - 1, -1):      # 先试长链(4T),再退到 2T
+            s = e - m + 1
+            if s < 0:
+                continue
+            seq = contr[s:e + 1]
+            # 必须是序列里连续的几段收缩(H L H L …),中间不能断
+            if any(seq[k][0] != seq[k - 1][0] + 2 for k in range(1, len(seq))):
+                continue
+            if seq[0][3] > d1_max:                 # D_1 ≤ 30.0%
+                continue
+            if any(seq[k][3] > decay * seq[k - 1][3] for k in range(1, len(seq))):
+                continue                            # D_k ≤ 0.65 × D_{k−1}
+            best = seq
+            break
+        if best is None:
+            continue
+        base_start = best[0][1]                     # 基底起点 = 第一段的分型高点
+        lo_day = max(confirm[e], base_start + t_min)
+        hi_day = base_start + t_max                 # 基底总长 ≤ 65 个交易日
+        nxt = confirm[e + 1] if e + 1 < len(confirm) else n
+        hi_day = min(hi_day, nxt - 1, n - 1)
+        if lo_day > hi_day:
+            continue
+        gate[lo_day:hi_day + 1] = True
+        d_last[lo_day:hi_day + 1] = best[-1][3]
+    return gate, d_last
+
+
+def vcp_matrices(params: dict, symbols: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """全池跑 VCP 选拔门禁。返回 (门禁布尔矩阵, D_last 矩阵)。结果带缓存。"""
+    p = dict(params or {})
+    if p.get("forbid_atr_ratio") and p.get("range_metric", "").startswith("ATR"):
+        raise ValueError("配置写了 forbid_atr_ratio 却又用 ATR 比值当振幅 —— 自相矛盾")
+    key = (tuple(symbols), tuple(sorted((k, str(v)) for k, v in p.items())))
+    if key in _VCP_CACHE:
+        return _VCP_CACHE[key]
+
+    hw = int(p.get("fractal_half_width", 2))
+    p.setdefault("fractal_half_width", hw)
+    h = cache.field("high", symbols)
+    l = cache.field("low", symbols)
+    w = 2 * hw + 1
+    # 5 根居中窗口的最高/最低 —— 分型定义本身
+    is_h = (h == h.rolling(w, center=True, min_periods=w).max()) & h.notna()
+    is_l = (l == l.rolling(w, center=True, min_periods=w).min()) & l.notna()
+
+    ha, la = h.to_numpy(float), l.to_numpy(float)
+    hb, lb = is_h.to_numpy(bool), is_l.to_numpy(bool)
+    n = len(h)
+    g = np.zeros((n, len(symbols)), dtype=bool)
+    d = np.full((n, len(symbols)), np.nan, dtype=float)
+    for j in range(len(symbols)):
+        g[:, j], d[:, j] = _vcp_one_symbol(ha[:, j], la[:, j], n,
+                                           hb[:, j], lb[:, j], p)
+    out = (pd.DataFrame(g, index=h.index, columns=h.columns),
+           pd.DataFrame(d, index=h.index, columns=h.columns))
+    _VCP_CACHE[key] = out
+    return out
+
+
 def rsi_matrix(period: int = 14, symbols: list[str] | None = None) -> pd.DataFrame:
     """Wilder RSI。出处:Wilder (1978)。"""
     c = cache.field("close", symbols)
@@ -175,6 +338,45 @@ def _universe_rule_mask(rule: dict, syms: list[str], index: pd.DatetimeIndex
     if t == "hv_below":
         hv = hv_matrix(int(p.get("period", 20)), syms)
         return _as_bool(hv < float(p["max_hv_annualized_pct"]))
+
+    if t == "return_rank_percentile":
+        # 近 lookback 日涨幅的池内横截面百分位 ≥ min_percentile
+        rs = rs_rank_matrix(int(p.get("lookback", 60)), syms)
+        return _as_bool(rs >= float(p.get("min_percentile", 85.0)) / 100.0)
+
+    if t == "mansfield_rs_positive":
+        against = str(p.get("against", "SPY")).upper()
+        if against == "SECTOR":
+            # ★ 不许悄悄顶替:行业归属只有「当前快照」、非 PIT,
+            #   用今天的行业标签跑 2016 年整段都在用未来信息(审计 §3-C)。
+            raise NotImplementedError(
+                "mansfield_rs_positive(against: SECTOR)还不能跑 —— "
+                "仓库只有 sector_classification_current_non_pit.csv"
+                "(元数据自己写明 non_pit_current_classification),"
+                "用它跑回测等于整段用未来信息;且 XLC 只有 2018-06 起、"
+                "XLRE 只有 2015-10 起,2016–2018 这两个行业根本算不出。"
+                "\n★ 要跑必须显式把这一条 enabled: false 关掉,并在报告里写明"
+                "「这一版关掉了行业 RS」 —— 不许悄悄忽略。见审计报告 §3-C。")
+        rsm = mansfield_rs_matrix(against, int(p.get("lookback", 250)), syms)
+        return _as_bool(rsm > 0.0)
+
+    if t == "momentum_dual_gate":
+        # 若干子条件按 logic 组合(专家第二轮明确为 AND)
+        logic = str(rule.get("logic", "AND")).upper()
+        comps = [c for c in (rule.get("components") or [])
+                 if c.get("enabled", True) is not False]
+        skipped = [c.get("name") or c.get("type")
+                   for c in (rule.get("components") or [])
+                   if c.get("enabled", True) is False]
+        if skipped:
+            _DISABLED_LOG.append(f"universe.momentum_dual_gate 子条件被显式关掉:{skipped}")
+        if not comps:
+            raise ValueError("momentum_dual_gate 的子条件全被关掉了 —— 这一关等于没有")
+        out = None
+        for c in comps:
+            mm = _universe_rule_mask(c, syms, index)
+            out = mm if out is None else (out & mm if logic == "AND" else out | mm)
+        return out
 
     from .config_adapter import BLOCKED_REASONS
     why = BLOCKED_REASONS.get(t, "引擎还没实现这条规则")
@@ -321,13 +523,38 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
         return _as_bool(ratio.shift(off) < ratio_max)
 
     if t == "volume_dryup":
-        # 缩量:快均量 / 慢均量 < max_ratio
+        # 缩量:SMA_fast(Vol)(t−off) ≤ max_ratio × SMA_slow(Vol)(t−off)
         v = cache.field("volume", symbols)
         f = int(p.get("fast_period", 5))
         sl = int(p.get("slow_period", 50))
+        off = int(p.get("offset_days", 0))
         r = (v.rolling(f, min_periods=f).mean()
              / v.rolling(sl, min_periods=sl).mean())
-        return _as_bool(r < float(p.get("max_ratio", 0.6)))
+        # ★ 原文写的是 ≤(不是 <),且分子分母都取 t−1 —— 照原文
+        return _as_bool(r.shift(off) <= float(p.get("max_ratio", 0.6)))
+
+    if t == "sigma_squeeze":
+        # σ_fast < max_ratio × σ_slow,在突破当天评估(不满足就放弃本次突破)
+        f = int(p.get("fast_period", 5))
+        sl = int(p.get("slow_period", 20))
+        sf = ret_std_matrix(f, symbols)
+        ss = ret_std_matrix(sl, symbols)
+        return _as_bool(sf < float(p.get("max_ratio", 0.65)) * ss)
+
+    if t == "breakout_volume_band":
+        # 突破当天成交量 / SMA_slow(Volume)(t−off) 落在 [min_ratio, max_ratio]
+        v = cache.field("volume", symbols)
+        sl = int(p.get("slow_period", 50))
+        off = int(p.get("offset_days", 1))
+        base = v.rolling(sl, min_periods=sl).mean().shift(off)
+        r = v / base
+        return (_as_bool(r >= float(p.get("min_ratio", 1.0)))
+                & _as_bool(r <= float(p.get("max_ratio", 1.8))))
+
+    if t == "vcp_contraction":
+        # ★ 第①关:几何收缩选拔门禁(状态机,见本文件上方说明)
+        gate, _ = vcp_matrices(p, symbols)
+        return _as_bool(gate)
 
     from .config_adapter import BLOCKED_REASONS
     why = BLOCKED_REASONS.get(t, "引擎还没实现这条规则")
@@ -390,6 +617,91 @@ def entry_trigger(spec: dict, symbols: list[str]) -> pd.DataFrame:
                      f"random / never")
 
 
+# ---------------------------------------------------------------- ⑥ 离场规则矩阵
+# ★★ 这一块以前是空的 —— 配置里 exit.rules 写了「收盘跌破 MA50 / EMA10 就走」,
+#   执行器只读 exit.params 的止盈和时间止损,★ 这两条离场规则根本没被执行。
+#   这正是「悄悄忽略」最危险的样子:配置里写了、引擎没干,而且没人知道。
+#   现在补上:离场规则预算成一张 [日期 × 票] 矩阵,True = 当天收盘满足离场条件,
+#   第二层挂到 pending_exit、次日开盘平。
+
+def exit_signal_matrix(spec: dict, symbols: list[str]) -> pd.DataFrame:
+    """⑥ 离场:把 exit.rules 翻成「当天收盘要不要走」的布尔矩阵。"""
+    close = cache.field("close", symbols)
+    out = pd.DataFrame(False, index=close.index, columns=close.columns)
+    for rule in ((spec or {}).get("rules") or []):
+        t = rule.get("type")
+        p = rule.get("params", {}) or {}
+        if t == "close_below_trailing_stop":
+            continue          # 这一条由第二层的止损循环原生负责,不在这里算
+        if t == "close_below_ma":
+            out |= _as_bool(close < sma_matrix(int(p["ma"]), symbols))
+        elif t == "close_below_ema":
+            out |= _as_bool(close < ema_matrix(int(p["ema"]), symbols))
+        else:
+            raise NotImplementedError(
+                f"离场规则 {t} 还没实现 —— ★ 没有悄悄忽略它。"
+                f"支持:close_below_ma / close_below_ema / close_below_trailing_stop")
+    return out
+
+
+# ---------------------------------------------------------------- 排序打分矩阵
+# ★★ 这一块以前也是空的 —— 配置里 ranking 写了排序公式,执行器只认
+#   "rs_rank" 这个字符串,拿到一个 dict 就退化成「按代码字母序」。
+#   槽位只有 3 个的时候,按字母序挑和按动量挑是两条完全不同的策略。
+
+def rank_score_matrix(spec, symbols: list[str], cfg: dict | None = None
+                      ) -> pd.DataFrame:
+    """
+    候选多于槽位时的排序分数(★ 越大越优先)。
+    认得两种公式(都是专家第二轮给的,原文照搬):
+      流派一:(Close_t / Close_{t−60} − 1) / ATR%20(t)      → 大的优先
+      流派二:D_last = (High_last − Low_last) / High_last    → ★ 小的优先,取负
+    """
+    close = cache.field("close", symbols)
+    if spec is None or isinstance(spec, str):
+        return rs_rank_matrix(126, symbols)
+    prim = (spec.get("primary") or {})
+    f = str(prim.get("formula", ""))
+    order = str(prim.get("order", "desc")).lower()
+
+    if "ATR_pct_20" in f or "ATR%20" in f:
+        lb = 60
+        mom = close / close.shift(lb) - 1.0
+        denom = str(spec.get("atr_pct_denominator", "close_t"))
+        if denom == "close_t":
+            atr_pct = atr_matrix(20, symbols) / close
+        elif denom == "sma20_close":
+            atr_pct = atr_matrix(20, symbols) / sma_matrix(20, symbols)
+        else:
+            raise ValueError(f"atr_pct_denominator 只认 close_t / sma20_close,"
+                             f"给的是 {denom}")
+        score = mom / atr_pct.replace(0.0, np.nan)
+    elif "D_last" in f:
+        vcp_p = _find_vcp_params(cfg or {})
+        if vcp_p is None:
+            # ★ 只有「基准一 同环境随机进场」和归因中间行会走到这里 ——
+            #   那些变体把进场扳机换掉了,根本没有 VCP 形态,D_last 无从定义。
+            #   退回「ADV20 大的优先」,★ 并记一条,报告里打出来。
+            _DISABLED_LOG.append(
+                "排序 D_last 在「随机进场基准 / 归因中间行」里无从定义"
+                "(那些变体没有 VCP 形态)→ 这些变体改按 ADV20 排序。"
+                "★ 正式链不受影响。")
+            return adv_matrix(20, symbols)
+        _, d_last = vcp_matrices(vcp_p, symbols)
+        score = d_last
+    else:
+        raise NotImplementedError(
+            f"排序公式还没实现:{f!r} —— ★ 没有悄悄退化成按字母序排。")
+    return -score if order == "asc" else score
+
+
+def _find_vcp_params(cfg: dict) -> dict | None:
+    for rule in ((cfg.get("entry") or {}).get("rules") or []):
+        if rule.get("type") == "vcp_contraction":
+            return rule.get("params") or {}
+    return None
+
+
 # ---------------------------------------------------------------- 打包
 
 @dataclass
@@ -408,6 +720,9 @@ class Matrices:
     chandelier: np.ndarray
     adv20: np.ndarray
     rs_rank: np.ndarray
+    exit_sig: np.ndarray          # ⑥ 离场规则:当天收盘要不要走
+    rank_score: np.ndarray        # 候选多于槽位时的排序分数(越大越优先)
+    ema_trail: np.ndarray         # ⑤ EMA 跟踪止损用的 EMA(没配就全是 NaN)
     last_bar: np.ndarray          # 每只票最后一根有价格的 bar 的行号(含 0 价 bar)
     zero_bar: np.ndarray          # 破产类 0 价 bar 的行号;没有则 -1
     col: dict[str, int] = None    # type: ignore
@@ -441,6 +756,14 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
         else:
             zb.append(int(idx.get_loc(pd.Timestamp(z))))
 
+    # ⑤ 里如果有 ema_trail 这一级,把对应的 EMA 一次算好
+    ema_n = None
+    for st in ((cfg.get("trailing_stop") or {}).get("stages") or []):
+        if st.get("type") == "ema_trail":
+            ema_n = int((st.get("params", {}) or {}).get("ema", 10))
+    ema_t = (ema_matrix(ema_n, syms).to_numpy(dtype=float) if ema_n
+             else np.full((len(idx), len(syms)), np.nan))
+
     return Matrices(
         symbols=syms,
         index=idx,
@@ -458,6 +781,10 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
         adv20=adv_matrix(20, syms).to_numpy(dtype=float),
         rs_rank=rs_rank_matrix(
             int(uni_spec.get("rs_lookback", 126)), syms).to_numpy(dtype=float),
+        exit_sig=exit_signal_matrix(cfg.get("exit") or {}, syms).to_numpy(dtype=bool),
+        rank_score=rank_score_matrix(
+            (cfg.get("sizing") or {}).get("rank_by"), syms, cfg).to_numpy(dtype=float),
+        ema_trail=ema_t,
         last_bar=last_bar,
         zero_bar=np.array(zb),
     )

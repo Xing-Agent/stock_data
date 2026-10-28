@@ -44,18 +44,20 @@ PERF_START = "2018-01-01"     # ★ 绩效起点(Fama 1998):这之前的任何�
 PERF_END = "2025-12-31"       # 日线数据到这里为止
 
 # 破产类退市 —— 按 −100% 结算。
-# ★ 硬纪律第 4 条只点名了 retirement_category == "bankruptcy"(8 只),
-#   严格按字面执行。但数据里还有另外 3 类实质上也是破产/接管:
-#   bank_failure_and_holding_company_bankruptcy / reporting_noncompliance_then_bankruptcy
-#   / bank_receivership。这 3 类默认 **不** 按 −100%(照字面办),
-#   但会在 cohort 报告里单独列出来提醒 —— 需要 Lin 拍板是否一起算。
-BANKRUPTCY_CATEGORIES = ("bankruptcy",)
+# ★ 硬纪律第 4 条字面只点名 retirement_category == "bankruptcy"。
+# ★★ 1028 Lin 已拍板:下面这 4 类(EXPR / FRC / SIVB / GTT)虽然字面不是
+#   bankruptcy,但实质是破产 / 银行倒闭 / 被接管 / 财务困境退市,普通股在
+#   清算里确实归零 —— 一律也按 −100% 记。按最后收盘价结算等于凭空还给策略
+#   一笔钱,方向上系统性美化成绩。
+#   出处:Shumway (1997, JF) The Delisting Bias in CRSP Data。
 BANKRUPTCY_LIKE_CATEGORIES = (
     "bank_failure_and_holding_company_bankruptcy",
     "reporting_noncompliance_then_bankruptcy",
     "bank_receivership",
     "financial_distress_delisting",
 )
+# ★ Lin 拍板后:两类合并,全部按 −100%
+BANKRUPTCY_CATEGORIES = ("bankruptcy",) + BANKRUPTCY_LIKE_CATEGORIES
 
 ONE_WAY_COST_BPS = 5.0   # 单边 0.05% = 5 个基点(SEC Rule 206(4)-1(d);GIPS 2020 §2.A)
 
@@ -129,8 +131,8 @@ def cohort_report() -> str:
         f"  其中 expansion_250 {len(exp)} 只 / pilot_50 {len(m) - len(exp)} 只",
         f"  退市股 {len(delisted)} 只(★ 全部保留,不许只用活着的票)",
         f"  按 −100% 结算的破产类 {len(bk)} 只:{sorted(bk)}",
-        f"  ⚠ 实质破产/接管但 category 字面不是 bankruptcy 的 {len(bkl)} 只:"
-        f"{sorted(bkl)} —— 默认按最后收盘价结算,需 Lin 拍板是否也按 −100%",
+        f"  ★ 其中「字面不是 bankruptcy 但实质破产/接管」的 {len(bkl)} 只:"
+        f"{sorted(bkl)} —— ★ 1028 Lin 已拍板,也按 −100% 记(已生效)",
     ]
     return "\n".join(lines)
 
