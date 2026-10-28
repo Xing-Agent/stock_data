@@ -132,6 +132,58 @@ def _fundamental_mask(metric: str, op: str, value: float,
     return out
 
 
+def hv_matrix(period: int = 20, symbols: list[str] | None = None) -> pd.DataFrame:
+    """年化历史波动率(%):近 period 日对数收益标准差 × sqrt(252) × 100。"""
+    c = cache.field("close", symbols)
+    lr = np.log(c / c.shift(1))
+    return lr.rolling(period, min_periods=period).std() * np.sqrt(252) * 100.0
+
+
+def _universe_rule_mask(rule: dict, syms: list[str], index: pd.DatetimeIndex
+                        ) -> pd.DataFrame:
+    """把「流派配置」那套 universe 规则翻成布尔矩阵。认不出来的直接报错。"""
+    t = rule.get("type")
+    p = rule.get("params", {}) or {}
+    close = cache.field("close", syms)
+
+    if t == "price_above_ma":
+        return _as_bool(close > sma_matrix(int(p["ma"]), syms))
+
+    if t in ("adv_rank_exclude_bottom", "dollar_volume_rank_exclude_bottom"):
+        # 剔除当日成交额排名最后 N% 的票(池内横截面排名)
+        adv = adv_matrix(int(p.get("adv_period", 20)), syms)
+        pct = adv.rank(axis=1, pct=True)
+        return _as_bool(pct > float(p.get("exclude_bottom_pct", 20)) / 100.0)
+
+    if t == "return_rank_top":
+        # 只留近 lookback 日涨幅排前 N% 的票
+        rs = rs_rank_matrix(int(p.get("lookback", 60)), syms)
+        return _as_bool(rs >= 1.0 - float(p.get("top_pct", 15)) / 100.0)
+
+    if t == "ma_stack_bullish":
+        # 几条均线依次向下排列(50 > 150 > 200),可选再要求价格在最上面
+        mas = [int(x) for x in (p.get("mas") or [50, 150, 200])]
+        m = [sma_matrix(n, syms) for n in mas]
+        ok = _as_bool(m[0].notna())
+        for a, b in zip(m[:-1], m[1:]):
+            ok &= _as_bool(a > b)
+        if p.get("require_price_above_all", True):
+            for x in m:
+                ok &= _as_bool(close > x)
+        return ok
+
+    if t == "hv_below":
+        hv = hv_matrix(int(p.get("period", 20)), syms)
+        return _as_bool(hv < float(p["max_hv_annualized_pct"]))
+
+    from .config_adapter import BLOCKED_REASONS
+    why = BLOCKED_REASONS.get(t, "引擎还没实现这条规则")
+    raise NotImplementedError(
+        f"universe 规则 {t} 还没法跑 —— {why}\n"
+        f"★ 没有悄悄忽略它:悄悄忽略会让配置里写了的闸门没被执行,"
+        f"跑出来的成绩凭空变好而且没人知道。")
+
+
 def universe_mask(spec: dict, symbols: list[str] | None = None) -> pd.DataFrame:
     """① 选股范围:能不能碰。返回 [日期 × 票] 布尔矩阵。"""
     spec = spec or {}
@@ -162,6 +214,9 @@ def universe_mask(spec: dict, symbols: list[str] | None = None) -> pd.DataFrame:
     for g in (spec.get("fundamental_gates") or []):
         mask &= _fundamental_mask(g["metric"], g.get("op", "ge"), float(g["value"]),
                                  close.index, syms)
+    # 「流派配置」那套 rules 列表形式:全部规则都要成立
+    for rule in (spec.get("rules") or []):
+        mask &= _universe_rule_mask(rule, syms, close.index)
     return mask.fillna(False)
 
 
@@ -190,6 +245,31 @@ def regime_mask(spec: dict, index: pd.DatetimeIndex) -> pd.Series:
         elif t == "vix_below":
             s = data.load_benchmark("VIX")["close"].reindex(index).ffill()
             ok &= (s < float(rule["value"])).fillna(False)
+        elif t == "index_above_ma_scaled":
+            # 大盘在 (均线 × factor) 上方 —— factor<1 表示容忍小幅跌破
+            p = rule.get("params", rule)
+            sym, n = p.get("symbol", "SPY"), int(p.get("ma", 200))
+            f = float(p.get("factor", 1.0))
+            b = data.load_benchmark(sym)["close"].reindex(index).ffill()
+            ok &= (b > b.rolling(n, min_periods=n).mean() * f).fillna(False)
+        elif t == "index_ma_slope":
+            # 大盘均线自己在往上走(近 lookback 日的斜率 > min_slope)
+            p = rule.get("params", rule)
+            sym, n = p.get("symbol", "SPY"), int(p.get("ma", 200))
+            lb = int(p.get("lookback", 20))
+            ms = float(p.get("min_slope", 0.0))
+            b = data.load_benchmark(sym)["close"].reindex(index).ffill()
+            ma = b.rolling(n, min_periods=n).mean()
+            ok &= ((ma - ma.shift(lb)) / ma.shift(lb) > ms).fillna(False)
+        elif t in ("no_distribution_day", "no_large_down_day"):
+            # 近 window 天里没有单日大跌(派发日 / 大阴线)
+            p = rule.get("params", rule)
+            sym = p.get("symbol", "SPY")
+            w = int(p.get("window", 5))
+            thr = float(p.get("single_day_drop_pct", 1.5)) / 100.0
+            b = data.load_benchmark(sym)["close"].reindex(index).ffill()
+            big_down = b.pct_change() <= -thr
+            ok &= ~_as_bool(big_down.rolling(w, min_periods=1).max().astype(bool))
         else:
             raise ValueError(f"不认识的环境过滤规则 type={t}")
     return ok.shift(1, fill_value=False).fillna(False).astype(bool)
@@ -216,9 +296,56 @@ def _event_only(raw: pd.DataFrame) -> pd.DataFrame:
     return r & ~prev
 
 
+def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
+    """
+    「流派配置」那套 entry 规则,返回「状态」矩阵(还没转成事件)。
+    多条规则是「都要成立」,最后由 entry_trigger 统一转成事件。
+    """
+    t = rule.get("type")
+    p = rule.get("params", {}) or {}
+    close = cache.field("close", symbols)
+
+    if t in ("donchian_close_breakout", "donchian_breakout"):
+        n = int(p.get("lookback", 20))
+        hi = cache.field("high", symbols).rolling(n, min_periods=n).max().shift(1)
+        return _as_bool(close > hi)
+
+    if t == "atr_squeeze":
+        # 突破前刚缩过波动:快 ATR / 慢 ATR 均值 < max_ratio
+        fast = int(p.get("atr_fast", 10))
+        slow_ma = int(p.get("atr_slow_ma", 50))
+        ratio_max = float(p.get("max_ratio", 0.85))
+        off = int(p.get("offset_days", 1))
+        af = atr_matrix(fast, symbols)
+        ratio = af / af.rolling(slow_ma, min_periods=slow_ma).mean()
+        return _as_bool(ratio.shift(off) < ratio_max)
+
+    if t == "volume_dryup":
+        # 缩量:快均量 / 慢均量 < max_ratio
+        v = cache.field("volume", symbols)
+        f = int(p.get("fast_period", 5))
+        sl = int(p.get("slow_period", 50))
+        r = (v.rolling(f, min_periods=f).mean()
+             / v.rolling(sl, min_periods=sl).mean())
+        return _as_bool(r < float(p.get("max_ratio", 0.6)))
+
+    from .config_adapter import BLOCKED_REASONS
+    why = BLOCKED_REASONS.get(t, "引擎还没实现这条规则")
+    raise NotImplementedError(
+        f"entry 规则 {t} 还没法跑 —— {why}\n"
+        f"★ 没有悄悄忽略它。")
+
+
 def entry_trigger(spec: dict, symbols: list[str]) -> pd.DataFrame:
     """③ 进场扳机。返回 [日期 × 票] 布尔矩阵,True = 当天收盘后成立,次日开盘买。"""
     spec = spec or {"type": "never"}
+    if spec.get("rules"):
+        # 多条规则都要成立,然后整体转成「事件」(只在转折那天触发)
+        close = cache.field("close", symbols)
+        raw = pd.DataFrame(True, index=close.index, columns=close.columns)
+        for rule in spec["rules"]:
+            raw &= _entry_rule_raw(rule, symbols)
+        return _event_only(raw)
     t = spec.get("type", "never")
     p = spec.get("params", {}) or {}
     close = cache.field("close", symbols)

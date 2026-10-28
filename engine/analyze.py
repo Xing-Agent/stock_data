@@ -366,7 +366,16 @@ def friction_sensitivity(cfg: chain.ChainConfig, symbols: list[str] | None,
     rows = []
     r0 = chain.run_chain(cfg, symbols, start, end, initial_equity, m=m)
     mdd, _, _ = drawdown(r0.equity)
-    rows.append({"摩擦口径": "★按ADV20分三档(默认)",
+    costs_cfg = cfg.get("costs") or {}
+    if "friction_tiers" in costs_cfg:
+        default_label = "★配置默认:按ADV20分三档"
+    elif costs_cfg.get("one_way_bps") is not None:
+        default_label = (f"★配置默认:一刀切 "
+                         f"{float(costs_cfg['one_way_bps'])/100:.2f}%"
+                         f"(⚠ 没分档,见坑四)")
+    else:
+        default_label = "★配置默认:按ADV20分三档(内置值)"
+    rows.append({"摩擦口径": default_label,
                  "净收益": float(r0.equity.iloc[-1] / r0.equity.iloc[0] - 1.0),
                  "最大回撤": mdd, "笔数": len(r0.ledger),
                  "平均每笔R_扣摩擦": float(r0.ledger["r_multiple_net"].mean())

@@ -58,6 +58,7 @@ FRICTION_SENSITIVITY_FLAT = (5.0, 15.0, 30.0)   # 一刀切敏感度:0.05% / 0.1
 @dataclass
 class ChainConfig:
     raw: dict[str, Any]
+    adapt_report: Any = None
 
     @classmethod
     def load(cls, path: str) -> "ChainConfig":
@@ -67,11 +68,16 @@ class ChainConfig:
                 cfg = yaml.safe_load(fh)
             else:
                 cfg = json.load(fh)
-        return cls(cfg).validate()
+        return cls.from_dict(cfg)
 
     @classmethod
     def from_dict(cls, cfg: dict) -> "ChainConfig":
-        return cls(cfg).validate()
+        # ★ 先过适配层:两套字段名都认,并把「还没实现的规则」明确报出来
+        from .config_adapter import adapt
+        norm, rep = adapt(cfg)
+        obj = cls(norm).validate()
+        obj.adapt_report = rep
+        return obj
 
     def validate(self) -> "ChainConfig":
         need = ["universe", "regime", "entry", "initial_stop",
@@ -154,18 +160,112 @@ def _friction_bps(tier: int, tiers_cfg: dict, flat: float | None) -> float:
     return float(tiers_cfg.get(keys[tier], FRICTION_TIERS_DEFAULT[keys[tier]]))
 
 
-def _initial_stop(m: matrices.Matrices, j: int, i: int, entry_px: float,
-                  kind: str, mult: float, pct: float) -> float:
-    """④ 初始止损。i 是成交那一行,用 i-1 行的指标(不偷看当天)。"""
+def _stage_hits(when: dict, r_now: float, held: int) -> bool:
+    """
+    多级移动止损:判断当前是不是落在这一级的条件里。
+    认得的条件:unrealized_r_gt / unrealized_r_lt / unrealized_r_between /
+                days_held_gte / days_held_lte / close_above_ma(不支持,见下)
+    ★ 认不出来的条件一律返回 False(这一级不生效),并不会悄悄放宽别的级 ——
+      配置里真用到了没实现的条件,config_adapter 会在加载时就报出来。
+    """
+    if not when:
+        return True
+    for k, v in when.items():
+        if k == "unrealized_r_gt":
+            if not (np.isfinite(r_now) and r_now > float(v)):
+                return False
+        elif k == "unrealized_r_lt":
+            if not (np.isfinite(r_now) and r_now < float(v)):
+                return False
+        elif k == "unrealized_r_between":
+            lo, hi = float(v[0]), float(v[1])
+            if not (np.isfinite(r_now) and lo <= r_now <= hi):
+                return False
+        elif k == "days_held_gte":
+            if not held >= int(v):
+                return False
+        elif k == "days_held_lte":
+            if not held <= int(v):
+                return False
+        else:
+            return False       # 不认识的条件 → 这一级不生效
+    return True
+
+
+def _chandelier_at(m: matrices.Matrices, j: int, i: int, sp: dict) -> float:
+    """
+    按这一级自己的参数算吊灯原始值。
+    参数和预算好的矩阵一致时直接查表;不一致就现算(只算一只票一根,很便宜)。
+    """
+    lb = int(sp.get("lookback", 22))
+    mult = float(sp.get("multiple", 3.0))
+    lo = max(0, i - lb + 1)
+    hh = m.high[lo:i + 1, j]
+    hh = hh[np.isfinite(hh)]
+    a = m.atr[i, j]
+    if not hh.size or not np.isfinite(a):
+        return float("nan")
+    return float(hh.max()) - mult * float(a)
+
+
+def _one_stop(m: matrices.Matrices, j: int, i: int, entry_px: float,
+              spec: dict) -> float:
+    """算一个止损价。i 是成交那一行,一律用 i-1 行的指标(不偷看当天)。"""
+    kind = spec.get("type")
+    p = spec.get("params", {}) or {}
+    k = max(0, i - 1)
+
     if kind == "atr_multiple":
-        a = m.atr[i - 1, j] if i > 0 else np.nan
+        a = m.atr[k, j]
+        mult = float(p.get("multiple", 2.0))
         return entry_px - mult * float(a) if np.isfinite(a) else float("nan")
     if kind == "pct":
-        return entry_px * (1.0 - pct)
+        return entry_px * (1.0 - float(p.get("pct", 0.10)))
     if kind == "chandelier":
-        raw = m.chandelier[i - 1, j] if i > 0 else np.nan
+        raw = m.chandelier[k, j]
         return float(min(raw, entry_px * 0.999)) if np.isfinite(raw) else float("nan")
+    if kind == "lowest_low":
+        n = int(p.get("lookback", 20))
+        lo = m.low[max(0, k - n + 1):k + 1, j]
+        lo = lo[np.isfinite(lo)]
+        return float(lo.min()) if lo.size else float("nan")
+    if kind in ("structure_low_minus_atr", "day_low_minus_atr"):
+        n = int(p.get("structure_lookback", 1))
+        lo = m.low[max(0, k - n + 1):k + 1, j]
+        lo = lo[np.isfinite(lo)]
+        a = m.atr[k, j]
+        if not lo.size or not np.isfinite(a):
+            return float("nan")
+        return float(lo.min()) - float(p.get("atr_multiple", 0.3)) * float(a)
     raise ValueError(f"不认识的初始止损 type={kind}")
+
+
+def _initial_stop_spec(m: matrices.Matrices, j: int, i: int, entry_px: float,
+                       spec: dict) -> float:
+    """
+    ④ 初始止损。支持 tightest_of:几种算法各算一个,取离进场价最近的那个
+    (做多就是取最高的那个止损价 —— 止损最紧)。
+    还支持 hard_gate:止损距离超过上限就直接拒掉这个信号(返回 nan)。
+    """
+    kind = spec.get("type")
+    if kind == "tightest_of":
+        vals = [_one_stop(m, j, i, entry_px, c)
+                for c in (spec.get("components") or [])]
+        vals = [v for v in vals if np.isfinite(v) and v < entry_px]
+        if not vals:
+            return float("nan")
+        stop = max(vals) if spec.get("select", "nearest_to_price") == "nearest_to_price" \
+            else min(vals)
+    else:
+        stop = _one_stop(m, j, i, entry_px, spec)
+    if not np.isfinite(stop):
+        return float("nan")
+    hg = spec.get("hard_gate")
+    if hg and hg.get("type") == "max_stop_distance_pct":
+        max_pct = float((hg.get("params", {}) or {}).get("max_pct", 100.0)) / 100.0
+        if (entry_px - stop) / entry_px > max_pct:
+            return float("nan")      # ★ 止损太远 → 拒掉这个信号,不是放大止损
+    return stop
 
 
 # ================================================================ 主循环
@@ -205,16 +305,14 @@ def run_chain(cfg: ChainConfig,
     max_w = float(szp.get("max_weight", 1.0 / max(1, max_slots)))
     equal_all = sz_type == "equal_weight_all"
 
-    istop = cfg.get("initial_stop") or {}
-    isp = istop.get("params", {}) or {}
-    istop_type = istop.get("type", "atr_multiple")
-    istop_mult = float(isp.get("multiple", 2.0))
-    istop_pct = float(isp.get("pct", 0.10))
+    istop_spec = dict(cfg.get("initial_stop") or {})
+    istop_spec.setdefault("type", "atr_multiple")
 
     trail = cfg.get("trailing_stop") or {}
     trail_type = trail.get("type", "none")
     be_trigger = (trail.get("params", {}) or {}).get("breakeven_after_r")
     be_trigger = float(be_trigger) if be_trigger is not None else None
+    stages = trail.get("stages") or []
 
     exp_ = (cfg.get("exit") or {}).get("params", {}) or {}
     target_r = exp_.get("profit_target_r")
@@ -290,7 +388,7 @@ def run_chain(cfg: ChainConfig,
             if not equal_all and len(pos) >= max_slots:
                 break
             entry_px = float(m.open[i, j])
-            stop0 = _initial_stop(m, j, i, entry_px, istop_type, istop_mult, istop_pct)
+            stop0 = _initial_stop_spec(m, j, i, entry_px, istop_spec)
             if not np.isfinite(stop0) or stop0 >= entry_px:
                 remaining -= 1
                 continue
@@ -352,6 +450,28 @@ def run_chain(cfg: ChainConfig,
                     assert p["stop"] <= cl + 1e-9, (
                         f"吊灯止损高于当根收盘:{m.symbols[j]} {idx[i].date()} "
                         f"stop={p['stop']} close={cl}")
+            elif trail_type == "staged":
+                # 多级移动止损:按条件挑出当前该用哪一级
+                held = i - p["entry_i"]
+                for st in stages:
+                    if not _stage_hits(st.get("when") or {}, r_now, held):
+                        continue
+                    act = st.get("action")
+                    if act == "hold_initial_stop":
+                        break                       # 锁死期:不动
+                    if act in ("move_to_breakeven", "breakeven"):
+                        p["stop"] = max(p["stop"], min(p["entry"], cl))
+                        break
+                    if act == "exit_unconditional":
+                        pending_exit[j] = st.get("name") or "分级离场"
+                        break
+                    if st.get("type") == "chandelier":
+                        sp = st.get("params", {}) or {}
+                        raw = _chandelier_at(m, j, i, sp)
+                        if np.isfinite(raw):
+                            # ★★ 同样两条铁律
+                            p["stop"] = max(p["stop"], min(raw, cl))
+                        break
             # ⑤ 浮盈后移保本:赚到 be_trigger 个 R 就把止损抬到成本
             if be_trigger is not None and not p["be_done"] \
                     and np.isfinite(r_now) and r_now >= be_trigger:
