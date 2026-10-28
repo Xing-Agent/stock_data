@@ -73,6 +73,27 @@ def split_pool(symbols: list[str], which: str) -> list[str]:
     return s[0::2] if which.upper() == "A" else s[1::2]
 
 
+def _cell_seed(wname: str, pool: str) -> int:
+    """
+    每格的随机种子偏移。★ 必须是确定性的。
+
+    ★★ 2026-10-28 修的 bug:这里原来写的是 `hash((wname, pool)) % 10_000`。
+      Python 对字符串的 hash() 是★ 逐进程随机的(PYTHONHASHSEED 默认 random),
+      所以同一份代码、同一份数据,★ 每跑一次四格的 Z 和差值都不一样 ——
+      硬关是「九关」里唯一的硬关,它必须能复现,否则「过没过」是可以靠重跑刷出来的。
+
+      实测不稳定幅度(流派一 slots10,10 个不同种子):
+        四格 Z 的极差 0.15 ~ 0.21,其中 2022-2025×池B 在 1.92 ~ 2.07 之间来回,
+        ★ 正好跨过「机构级 Z=2.0」那条线 —— 同一条链能被标成机构级,也能被标成没到。
+
+      改成按字符内容算的确定性哈希(FNV-1a),和进程无关。
+    """
+    h = 2166136261
+    for ch in f"{wname}×池{pool}".encode("utf-8"):
+        h = ((h ^ ch) * 16777619) & 0xFFFFFFFF
+    return h % 10_000
+
+
 def run_grid(signal_fn: Callable[[str, str, list[str]], tuple[list[float], Callable]],
              symbols: list[str],
              B: int = stats_gate.B_DEFAULT,
@@ -94,7 +115,7 @@ def run_grid(signal_fn: Callable[[str, str, list[str]], tuple[list[float], Calla
                 signal_values=values,
                 random_sampler=sampler,
                 B=B,
-                seed=seed + hash((wname, pool)) % 10_000,
+                seed=seed + _cell_seed(wname, pool),
                 note="同格内取样",
             )
             cells.append(CellResult(wname, pool, r))
