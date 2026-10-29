@@ -429,14 +429,30 @@ def main() -> int:
     out.append("")
     out += ["  ★ 稳健性对照:两条腿都改成「加法」口径(证明结论不是"
             "「加法 vs 复利」造出来的):",
-            f"  {'链':40s} {'超额_总收益(主口径)':>20s} {'超额_总收益(全加法)':>20s} {'两者差':>9s}"]
+            f"  {'链':40s} {'超额_总收益(主口径)':>20s} {'超额_总收益(全加法)':>20s} "
+            f"{'两者差':>9s}  口径稳健?"]
     for r in rows:
         a = r.get("excess_total_return_additive_both")
         if a is None or a != a:
             continue
+        gap = a - r["excess_total_return"]
+        # ★ 稳健 = 两种口径都指向同一个方向(都比纯价格口径差 / 都比它好)
+        d1 = r["excess_total_return"] - r["excess_price"]
+        d2 = a - r["excess_price"]
+        robust = (d1 < 0) == (d2 < 0)
+        r["convention_robust"] = bool(robust)
         out.append(f"  {r['chain']:40s} {r['excess_total_return']:20.2%} "
-                   f"{a:20.2%} {a - r['excess_total_return']:+9.2%}")
-    out.append("")
+                   f"{a:20.2%} {gap:+9.2%}  "
+                   f"{'✅ 两种口径同向' if robust else '★ 不稳健,两种口径方向相反 —— 这条不许下结论'}")
+    out += ["",
+            "  ★ 怎么读这张表:策略腿是加法、基准腿是复利,两者不同构。",
+            "    · 链收益接近 0 时(深度价值 −12%、现金流纪律 −26~31%),"
+            "复利与加法的差是二阶项,两种口径结论一致 → 可以下结论。",
+            "    · ★ 链收益很大时(buy_and_hold +231%),加法会**严重低估**策略分红"
+            "(那些分红本该跟着一起复利),",
+            "      所以 buy_and_hold 那一行的「主口径」数**不可用**,"
+            "应以「全加法」那一列为准。★ 这一条单独标出来,不许混着读。",
+            ""]
     out.append("  复刻校验(超额_价格 vs JSON 里报的数):")
     for r in rows:
         e = r["repro_error"]
@@ -506,6 +522,10 @@ def main() -> int:
                 f"      年化股息率 中位 {ov['yield_median']:.2%} / 均值 {ov['yield_mean']:.2%}",
                 "      (全池有分红票的中位数见上表「中股息三分之一」一行)",
                 f"      最高的几只:{tops}",
+                "      ★ 注意 KDP 的 36.9% 是假的:KDP 2018-07-10 的 0.179x"
+                " 价格跳变(Keurig×Dr Pepper 换股并购)",
+                "        仍在未修的 17 根残余跳变里,价格序列被压低 → 股息率被放大。"
+                "★ 不要把它当成真的高股息票。",
                 "",
             ]
 

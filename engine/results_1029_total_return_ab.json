@@ -385,7 +385,8 @@
    "excess_total_return_additive_both": -0.8137175690178772,
    "excess_delta_additive_both": -0.011311244892199923,
    "reported_excess": -0.802406,
-   "repro_error": -3.241256772978929e-07
+   "repro_error": -3.241256772978929e-07,
+   "convention_robust": true
   },
   {
    "chain": "流派三_现金流纪律_slots5",
@@ -452,7 +453,8 @@
    "excess_total_return_additive_both": -0.6375754316907338,
    "excess_delta_additive_both": -0.012821984963657163,
    "reported_excess": -0.624753,
-   "repro_error": -4.467270766639331e-07
+   "repro_error": -4.467270766639331e-07,
+   "convention_robust": true
   },
   {
    "chain": "流派三_现金流纪律_slots10",
@@ -519,7 +521,8 @@
    "excess_total_return_additive_both": -0.8440992127871666,
    "excess_delta_additive_both": -0.011041065879655143,
    "reported_excess": -0.833058,
-   "repro_error": -1.4690751148904724e-07
+   "repro_error": -1.4690751148904724e-07,
+   "convention_robust": true
   },
   {
    "chain": "流派三_现金流纪律_slots20",
@@ -586,7 +589,8 @@
    "excess_total_return_additive_both": -0.8289599356622821,
    "excess_delta_additive_both": -0.014450103360419408,
    "reported_excess": -0.81451,
-   "repro_error": 1.676981372655817e-07
+   "repro_error": 1.676981372655817e-07,
+   "convention_robust": true
   },
   {
    "chain": "流派一_趋势跟随_slots3",
@@ -653,7 +657,8 @@
    "excess_total_return_additive_both": -0.32056796277215877,
    "excess_delta_additive_both": 0.006667451880524922,
    "reported_excess": -0.327235,
-   "repro_error": -4.1465268368900965e-07
+   "repro_error": -4.1465268368900965e-07,
+   "convention_robust": true
   },
   {
    "chain": "流派一_趋势跟随_slots5",
@@ -720,7 +725,8 @@
    "excess_total_return_additive_both": -0.4387166641805936,
    "excess_delta_additive_both": 0.00816184440729617,
    "reported_excess": -0.446878,
-   "repro_error": -5.085878897470586e-07
+   "repro_error": -5.085878897470586e-07,
+   "convention_robust": false
   },
   {
    "chain": "流派一_趋势跟随_slots10",
@@ -787,7 +793,8 @@
    "excess_total_return_additive_both": -0.639319472722323,
    "excess_delta_additive_both": 0.01737702753157666,
    "reported_excess": -0.656696,
-   "repro_error": -5.002538997489481e-07
+   "repro_error": -5.002538997489481e-07,
+   "convention_robust": false
   },
   {
    "chain": "buy_and_hold(新基准线)",
@@ -854,7 +861,8 @@
    "excess_total_return_additive_both": 0.8381722498249553,
    "excess_delta_additive_both": 0.03698509051306753,
    "reported_excess": 0.8011871593118878,
-   "repro_error": 0.0
+   "repro_error": 0.0,
+   "convention_robust": false
   }
  ]
 }
