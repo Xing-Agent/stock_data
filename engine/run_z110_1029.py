@@ -50,8 +50,15 @@ def main(argv=None) -> int:
     led, n = res.ledger, len(res.ledger)
     print(f"笔数 {n}", flush=True)
 
-    out = analyze.evaluate(cfg, res, syms, with_attribution=True,
-                           with_sensitivity=True, with_gate=True)
+    # ★ 口径刻意收窄(★ 不是漏跑):只出【两版比较真正要看的东西】——
+    #   笔数 / 每笔 R / 胜率(新硬纪律 9)+ 判据 + 四格 Z + 两条基准线。
+    #   ★ 关掉分步归因与摩擦敏感度:它们对「换一个 Z'' 兜底阈值」没有新信息
+    #     (归因的前四行根本不含这道闸门),而它们是最耗算力的两块 ——
+    #   ★ 第一次跑这条链时带着它们跑,进程被 OOM 杀掉了(当时机器上有
+    #     另一条线的三个进程在抢 8GB),交易流水已落盘但统计没算完。
+    #   ★ 1.80 那一版的完整归因/摩擦三档已经有了,见 results_1029_三流派第二轮.json。
+    out = analyze.evaluate(cfg, res, syms, with_attribution=False,
+                           with_sensitivity=False, with_gate=True)
     g4 = window_pool_gate(cfg, syms)
 
     rec = {
@@ -81,8 +88,11 @@ def main(argv=None) -> int:
         "执行负荷": _num(out["执行负荷"]),
         "坑一_现金拖累": _num(out["坑一_现金拖累"]),
         "坑二_跳空穿透止损": _num(out["坑二_跳空穿透止损"]),
-        "分步归因": _num(out.get("分步归因")),
-        "坑四_摩擦敏感度": _num(out.get("坑四_摩擦敏感度")),
+        "★分步归因与摩擦敏感度": "★ 本版刻意没跑(不是漏跑)—— 它们对「换一个 "
+                                  "Z'' 兜底阈值」没有新信息,而且是最耗算力的两块;"
+                                  "★ 第一次带着它们跑时进程被 OOM 杀掉了。"
+                                  "★ 1.80 那一版的完整归因/摩擦三档见 "
+                                  "results_1029_三流派第二轮.json。",
         "出场原因分布": {str(k): int(v) for k, v in
                           led["reason"].value_counts().items()},
         "★T0止损锚点回退次数_含基准与归因": chain.t0_fallback_count(),
