@@ -1,0 +1,229 @@
+{
+ "cache": "engine/cache/ohlcv_panel.parquet",
+ "cache_mtime_utc": "2026-10-29 08:45:20.216646194+00:00",
+ "benchmark": {
+  "rows": [
+   {
+    "chain": "流派一_深度价值_Z1.8_slots12",
+    "e_bar": 0.516033,
+    "reported_benchmark": 0.679724,
+    "recomputed": 0.6797233241256773,
+    "diff": -6.758743227308628e-07,
+    "reported_excess": -0.802406,
+    "excess_change": 6.758743227308628e-07
+   },
+   {
+    "chain": "流派三_现金流纪律_slots5",
+    "e_bar": 0.302676,
+    "reported_benchmark": 0.368951,
+    "recomputed": 0.3689514467270767,
+    "diff": 4.4672707671944423e-07,
+    "reported_excess": -0.624753,
+    "excess_change": -4.4672707671944423e-07
+   },
+   {
+    "chain": "流派三_现金流纪律_slots10",
+    "e_bar": 0.413314,
+    "reported_benchmark": 0.524808,
+    "recomputed": 0.5248081469075114,
+    "diff": 1.4690751137802494e-07,
+    "reported_excess": -0.833058,
+    "excess_change": -1.4690751137802494e-07
+   },
+   {
+    "chain": "流派三_现金流纪律_slots20",
+    "e_bar": 0.410389,
+    "reported_benchmark": 0.520541,
+    "recomputed": 0.5205408323018628,
+    "diff": -1.676981372655817e-07,
+    "reported_excess": -0.81451,
+    "excess_change": 1.676981372655817e-07
+   },
+   {
+    "chain": "流派一_趋势跟随_slots3",
+    "e_bar": 0.180885,
+    "reported_benchmark": 0.210502,
+    "recomputed": 0.2105024146526837,
+    "diff": 4.146526837167652e-07,
+    "reported_excess": -0.327235,
+    "excess_change": -4.146526837167652e-07
+   },
+   {
+    "chain": "流派一_趋势跟随_slots5",
+    "e_bar": 0.283131,
+    "reported_benchmark": 0.342601,
+    "recomputed": 0.34260150858788974,
+    "diff": 5.085878897470586e-07,
+    "reported_excess": -0.446878,
+    "excess_change": -5.085878897470586e-07
+   },
+   {
+    "chain": "流派一_趋势跟随_slots10",
+    "e_bar": 0.507513,
+    "reported_benchmark": 0.6665,
+    "recomputed": 0.6665005002538997,
+    "diff": 5.002538997489481e-07,
+    "reported_excess": -0.656696,
+    "excess_change": -5.002538997489481e-07
+   },
+   {
+    "chain": "buy_and_hold",
+    "e_bar": 0.9878412025204231,
+    "reported_benchmark": 1.513246928274898,
+    "recomputed": 1.513246928274898,
+    "diff": 0.0,
+    "reported_excess": 0.8011871593118878,
+    "excess_change": 0.0
+   }
+  ],
+  "max_abs_diff": 6.758743227308628e-07
+ },
+ "sdi": {
+  "gate": ">= 6 只 且 >= 54.5%",
+  "n_days": 2011,
+  "open_before": 1336,
+  "open_after": 1354,
+  "open_pct_before": 0.6643460964694182,
+  "open_pct_after": 0.6732968672302337,
+  "n_flip": 18,
+  "n_closed_to_open": 18,
+  "n_open_to_closed": 0,
+  "flip_first": "2025-12-05",
+  "flip_last": "2025-12-31",
+  "count_diff_distribution": {
+   "0.0": 1993,
+   "2.0": 3,
+   "3.0": 11,
+   "4.0": 4
+  }
+ },
+ "ledger": {
+  "n_trades_scanned": 66709,
+  "n_rode_fake_jump": 11,
+  "rode": [
+   {
+    "ledger": "ledgers_1029_新基准线/buy_and_hold.csv",
+    "symbol": "FTLF",
+    "entry": "2018-01-03",
+    "exit": "2025-12-31",
+    "fake_jump_date": "2019-04-22",
+    "gross_return": 499.6153846153846,
+    "net_pnl": 1676561.69334021
+   },
+   {
+    "ledger": "ledgers_1029_技术派六条三版/技-14_原著版(MethodIII近似:W底+MFI底背离).csv",
+    "symbol": "PROP",
+    "entry": "2020-05-05",
+    "exit": "2020-05-15",
+    "fake_jump_date": "2020-05-14",
+    "gross_return": 3.761904761904762,
+    "net_pnl": 215838.7053025321
+   },
+   {
+    "ledger": "ledgers_1029_A0十二条_新拆股口径/技-2·法伯月线择时(10月线).csv",
+    "symbol": "FTLF",
+    "entry": "2018-09-04",
+    "exit": "2020-04-01",
+    "fake_jump_date": "2019-04-22",
+    "gross_return": 29.0,
+    "net_pnl": 72529.48441837562
+   },
+   {
+    "ledger": "ledgers_1029_新基准线/技-2_法伯月线择时.csv",
+    "symbol": "FTLF",
+    "entry": "2018-09-04",
+    "exit": "2020-04-01",
+    "fake_jump_date": "2019-04-22",
+    "gross_return": 29.0,
+    "net_pnl": 72529.48441837562
+   },
+   {
+    "ledger": "ledgers_1029_A0十二条/技-2·法伯月线择时(10月线).csv",
+    "symbol": "FTLF",
+    "entry": "2018-09-04",
+    "exit": "2020-04-01",
+    "fake_jump_date": "2019-04-22",
+    "gross_return": 29.0,
+    "net_pnl": 70451.31697641462
+   },
+   {
+    "ledger": "ledgers_1029_新基准线/buy_and_hold.csv",
+    "symbol": "ACOR",
+    "entry": "2021-12-01",
+    "exit": "2024-04-12",
+    "fake_jump_date": "2024-04-11",
+    "gross_return": -1.0,
+    "net_pnl": -17024.332773777038
+   },
+   {
+    "ledger": "ledgers_1029_新基准线/buy_and_hold.csv",
+    "symbol": "XPRO",
+    "entry": "2018-01-03",
+    "exit": "2025-12-31",
+    "fake_jump_date": "2021-10-04",
+    "gross_return": 0.9017094017094018,
+    "net_pnl": 3025.8704755348967
+   },
+   {
+    "ledger": "ledgers_1029_新基准线/buy_and_hold.csv",
+    "symbol": "PROP",
+    "entry": "2018-01-03",
+    "exit": "2025-12-31",
+    "fake_jump_date": "2020-02-28",
+    "gross_return": -0.5743703703703704,
+    "net_pnl": -1927.4173502361384
+   },
+   {
+    "ledger": "ledgers_1029_新基准线/buy_and_hold.csv",
+    "symbol": "PROP",
+    "entry": "2018-01-03",
+    "exit": "2025-12-31",
+    "fake_jump_date": "2020-05-14",
+    "gross_return": -0.5743703703703704,
+    "net_pnl": -1927.4173502361384
+   },
+   {
+    "ledger": "ledgers_1029_新基准线/buy_and_hold.csv",
+    "symbol": "OMEX",
+    "entry": "2018-01-03",
+    "exit": "2025-12-31",
+    "fake_jump_date": "2024-09-17",
+    "gross_return": -0.4961439588688946,
+    "net_pnl": -1664.912613654003
+   },
+   {
+    "ledger": "ledgers_1029_新基准线/buy_and_hold.csv",
+    "symbol": "OMEX",
+    "entry": "2018-01-03",
+    "exit": "2025-12-31",
+    "fake_jump_date": "2024-09-18",
+    "gross_return": -0.4961439588688946,
+    "net_pnl": -1664.912613654003
+   }
+  ],
+  "n_trades_now_impossible": 342,
+  "net_pnl_now_impossible": -340587.5421482457,
+  "now_impossible_by_ledger": {
+   "ledgers_1029_技术派六条三版/技-14_原著版(MethodIII近似:W底+MFI底背离).csv": 51,
+   "ledgers_1029_技术派六条三版/技-14_XING版(触下轨就买).csv": 24,
+   "ledgers_1029_A0十二条/技-12·康纳斯(RSI2<5).csv": 20,
+   "ledgers_1029_A0十二条_新拆股口径/技-12·康纳斯(RSI2<5).csv": 20,
+   "ledgers_1029_新基准线/技-12_康纳斯均值回归.csv": 20,
+   "ledgers_1029_A0十二条/技-2·法伯月线择时(10月线).csv": 19,
+   "ledgers_1029_A0十二条_新拆股口径/技-2·法伯月线择时(10月线).csv": 19,
+   "ledgers_1029_新基准线/技-2_法伯月线择时.csv": 19,
+   "ledgers_1029_技术派六条三版/技-11_XING版(跌破20日低点再收回).csv": 17,
+   "ledgers_1029_A0十二条/技-12·康纳斯(RSI2<10).csv": 13,
+   "ledgers_1029_A0十二条_新拆股口径/技-12·康纳斯(RSI2<10).csv": 13,
+   "ledgers_1029_技术派六条三版/技-5_原著版(缩量0.50_严格端).csv": 9,
+   "ledgers_1029_技术派六条三版/技-5_XING版(第一段≤30%_衰减0.65_2~4次_缩量0.60).csv": 7,
+   "ledgers_1029_技术派六条三版/技-5_原著版(缩量0.55_中值).csv": 7,
+   "ledgers_1029_技术派六条三版/技-5_原著版(缩量0.60_宽松端).csv": 7,
+   "ledgers_1029_A0十二条/技-1·海龟System1(20日入_10日出).csv": 6,
+   "ledgers_1029_A0十二条_新拆股口径/技-1·海龟System1(20日入_10日出).csv": 6,
+   "ledgers_1029_新基准线/技-1_系统化趋势跟随_海龟原始参数.csv": 6,
+   "ledgers_1029_技术派六条三版/技-14_行业版(三步进场+三道趋势过滤).csv": 5,
+   "ledgers_1029_A0十二条/技-1·XING日终趋势突破版(2ATR跟踪止损).csv": 4
+  }
+ }
+}
