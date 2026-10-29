@@ -327,6 +327,116 @@ STAGE_VERSIONS = {
                         note="走平 0.5%/周(近10周);最短持续 ≥4 周"),
 }
 
+# ============================================================================
+# ★ 1029 拍板:阶段跳转从「强制 1→2→3→4 单一循环」改成放行三条路径
+# ============================================================================
+#
+# 大白话:原来只认一条路 ——「跌完 → 筑底 → 涨」。现在认三条路:
+#   4→1→2  跌完 → 筑底 → 上涨      (标准反转)
+#   4→2    跌完 → 直接涨            (V 型跳级)
+#   3→2    涨完 → 横盘一阵 → 再涨    (上升中继)
+#
+# 实测依据见 /home/claude/状-2拓扑改动-结果-1029.md。一句话:
+#   强制循环在 1014 个阶段二候选里挡掉 577 个(57%),其中 4→2 那 114 次
+#   后续 60 日中位 +20.0% / 超额 +13.7% / 胜率 75.7%,是真误杀。
+#
+# ★ 保留意见:4→2 的 94%(107/114)集中在 2020-03 之后,
+#   这个结论只在「V 型深反转环境」里成立,不是普适的。
+
+STAGE2_PATHS_PRODUCTION: tuple[str, ...] = ("4→1→2", "4→2", "3→2")
+
+# ★ 外加两类无条件放行,它们是**样本左端截断**造成的,不是技术形态:
+#   「首个阶段二(无前序)」 该票在样本里的第一个确认阶段就是阶段二
+#   「首→1→2」             前序是阶段一,但那个阶段一之前没有已确认阶段
+# 预热从 2014 起、计分从 2018 起,这两类绝大多数落在预热期,挡与不挡都不影响计分。
+STAGE2_PATHS_LEFT_TRUNCATED: tuple[str, ...] = ("首个阶段二(无前序)", "首→1→2")
+
+STAGE2_PATHS_GEMINI: tuple[str, ...] = ("4→1→2", "2→1→2", "4→2")
+# 外部模型主张的三条。★ 实测 2→1→2 出现 0 次(原因见 _note 里那条结构性说明),
+# 而最常见的 3→2 它漏了。
+
+
+def stage2_path_label(prev: str | None, prev2: str | None) -> str:
+    """
+    ★ 阶段跳转路径的唯一命名实现。强制循环版和三路径版都从这里取标签,
+      避免两套 if 各写一遍、再慢慢长歪。
+    """
+    if prev is None:
+        return "首个阶段二(无前序)"
+    if prev == "1":
+        return f"{prev2 or '首'}→1→2"
+    return f"{prev}→2"
+
+
+def stage2_allowed(prev: str | None, prev2: str | None,
+                   allowed: tuple[str, ...] = STAGE2_PATHS_PRODUCTION) -> bool:
+    """★ 生产口径的阶段跳转闸门。运营照着这四行写 if 即可(见参数对齐表)。"""
+    lab = stage2_path_label(prev, prev2)
+    return lab in STAGE2_PATHS_LEFT_TRUNCATED or lab in allowed
+
+
+_note("状-2 阶段跳转(1029 拍板):放行 4→1→2 / 4→2 / 3→2 三条路径,"
+      "外加「首个阶段二(无前序)」无条件放行(样本左端截断,不算一条路径)。"
+      "原来的强制 1→2→3→4 单一循环已停用。")
+
+_note("★ 状-2 结构性事实(不是实测偶然):本实现里阶段一只在"
+      "「前序为阶段四 或 无前序」时被赋出(阶段二之后的走平按定义解成阶段三),"
+      "所以 prev=='1' 必然 prev2 ∈ {4, None} —— 2→1→2 和 3→1→2 这两条路径"
+      "在本实现里**不可达**,实测 0 次是结构决定的,不是样本不够。"
+      "★ 推论:放行三条路径之后,进入阶段二的所有可达路径都被放行,"
+      "阶段跳转这道闸门在本实现里不再过滤任何东西 —— 它的作用变成"
+      "「约束别人的实现」:谁的 FLAT 消解规则会把涨后走平解成阶段一,"
+      "谁就会产出 2→1→2,这时三路径规则才真的拦东西。")
+
+# ============================================================================
+# ★ 走平阈值三取值 —— 和阶段跳转是**乘在一起**的,必须一起扫
+# ============================================================================
+#
+# 为什么必须一起扫:行业走平阈值(0.15%/20日)+ 强制循环 两条一起上时,
+# 1052 个候选只放行 15 个(1.4%),那 15 个后续 60 日中位 −7.6%。
+# 一个参数的好坏,离开另一个参数说不清楚。
+#
+# ★ 换算到同一把尺子(SMA150 的「每周变化率」%/周),才看得出三个值差多远:
+#     行业 0.15% / 20 个交易日 = 0.15% / 4 周 = 0.0375 %/周
+#     中间 0.14 %/周                            = 0.56 % / 20 日
+#     XING 0.5  %/周                            = 2.00 % / 20 日
+#   行业比 XING 紧 13.3 倍。中间值取两端的几何中值:√(0.5 × 0.0375) = 0.1369 → 0.14。
+#   ★ 为什么取几何中值不取算术中值:这是个「紧多少倍」的量纲,
+#     算术中值 0.27 实际上离 XING 近、离行业远,不是中间。
+#
+# 口径属性:★ 三个值全部是【行业惯例】或【我们填的】,一个都不是【原著写死】。
+#   Weinstein 原文只有定性表述,全书没给斜率阈值(见 ORIGINAL_QUOTE_W)。
+
+FLAT_THR_PER_WEEK = {"行业等效": 0.0375, "中间值": 0.14, "XING": 0.5}
+
+STAGE_FLAT_SWEEP = {
+    # ★ 只变阈值,测量窗口(10 周)和最短持续(4 周)固定在 XING 口径 ——
+    #   这样候选数的差异只能归因于阈值,不会和别的参数混在一起。
+    "只变阈值_行业等效_0.0375%每周": StageSpec(
+        "只变阈值_行业等效", "pct_per_week", 0.0375, 4 * WEEK,
+        note="走平 0.0375%/周(= 行业 0.15%/20日 的等效值);其余同 XING 版"),
+    "只变阈值_中间值_0.14%每周": StageSpec(
+        "只变阈值_中间值", "pct_per_week", 0.14, 4 * WEEK,
+        note="走平 0.14%/周(两端几何中值);其余同 XING 版"),
+    "只变阈值_XING_0.5%每周": StageSpec(
+        "只变阈值_XING", "pct_per_week", 0.5, 4 * WEEK,
+        note="走平 0.5%/周(近10周);最短持续 ≥4 周 —— 生产值"),
+}
+
+STAGE_ASIS_SWEEP = {
+    # ★ 按三版**原样**跑(各带自己的最短持续和箱体条件)——
+    #   这是运营会照着抄的那三套,所以必须也报一遍。
+    "原样_行业版_0.15%每20日": STAGE_VERSIONS["行业版"],
+    "原样_中间值_0.56%每20日": StageSpec(
+        "原样_中间值", "pct_20d", 0.56, 25, box_bars=25, box_amp=0.20,
+        note="走平 |SMA150 20日变化率| ≤0.56%(= 0.14%/周);底盘条件同行业版"),
+    "原样_XING版_0.5%每周": STAGE_VERSIONS["XING版"],
+}
+
+_note("状-2 走平阈值的中间值 0.14%/周 是【我们填的】:取行业等效 0.0375%/周 与 "
+      "XING 0.5%/周 的几何中值 √(0.5×0.0375)=0.1369,四舍五入到 0.14。"
+      "★ 原著没给任何斜率阈值,这个数没有原著依据。")
+
 _note("状-2 行业版的「最短持续」原文只给了底盘 ≥20~30 日,"
       "本实现把 25 日同时用作所有阶段的最短持续(为了和 XING 版可比)。")
 _note("状-2 行业版「±10% 振幅箱体」实现为:近 25 根收盘价 (max−min)/mean ≤ 0.20。")
@@ -426,31 +536,23 @@ def _confirm_sequence(raw: np.ndarray, min_bars: int
 
 def _topology(ev: dict) -> tuple[bool, bool, bool, str]:
     """
-    返回 (强制循环放行, Gemini三条路径放行, 三条路径+3→2 放行, 路径标签)。
+    返回 (强制循环放行, Gemini三条路径放行, ★生产三路径放行, 路径标签)。
 
-    强制循环   只放行 4→1→2(阶段一必须来自阶段四)
-    三条路径   Gemini 建议:4→1→2(标准反转) / 2→1→2(上升中继) / 4→2(特赦跳级)
-    ★ 第四版  三条路径 + 3→2。
-      为什么要有第四版:在标准温斯坦实现里,「阶段二之后的走平」按定义解成
-      阶段三(顶部),不可能解成阶段一 —— 所以 Gemini 说的「中继基底 2→1→2」
-      在数据上根本不存在,它实际长成 2→3→2。Gemini 的三条路径漏了这一条。
+    强制循环   ★ 改动前的口径 —— 只放行 4→1→2(阶段一必须来自阶段四)
+    Gemini版   外部模型建议:4→1→2 / 2→1→2 / 4→2
+    ★ 生产版   1029 拍板:4→1→2 / 4→2 / 3→2(= STAGE2_PATHS_PRODUCTION)
+
+    ★ 标签一律从 stage2_path_label 取,三个版本只在「放不放行」上分叉。
     """
     if ev["stage"] != "2":
         return True, True, True, "n/a"
     prev, prev2 = ev["prev"], ev["prev2"]
-    if prev is None:
-        return True, True, True, "首个阶段二(无前序)"
-    if prev == "1" and prev2 in ("4", None):
-        return True, True, True, "4→1→2"
-    if prev == "1" and prev2 == "2":
-        return False, True, True, "2→1→2"
-    if prev == "1" and prev2 == "3":
-        return False, True, True, "3→1→2"
-    if prev == "4":
-        return False, True, True, "4→2"
-    if prev == "3":
-        return False, False, True, "3→2"
-    return False, False, False, f"{prev}→2"
+    lab = stage2_path_label(prev, prev2)
+    first = lab in STAGE2_PATHS_LEFT_TRUNCATED
+    forced = first or lab == "4→1→2"
+    gemini = first or lab in STAGE2_PATHS_GEMINI
+    prod = first or lab in STAGE2_PATHS_PRODUCTION
+    return forced, gemini, prod, lab
 
 
 _note("状-2 强制循环的严格读法:阶段二只在前序为阶段一、且该阶段一来自阶段四"
@@ -509,12 +611,13 @@ def run_stage(symbols: list[str]) -> dict:
                     else:
                         ev["fwd60"] = None
                         ev["fwd60_excess"] = None
-                    if not f_ok:
-                        df_[t:j] = "transition"
-                    if not t_ok:
-                        dt_[t:j] = "transition"
-                    if not q_ok:
-                        dq_[t:j] = "transition"
+                    # ★ 降级只改非 WARMUP 的格子 —— 阶段二区间里可能夹着
+                    #   预热/停牌/退市后的 NaN 格,原来整段覆盖把「没数据」
+                    #   写成了「震荡」。两件事不许混。
+                    for arr, ok in ((df_, f_ok), (dt_, t_ok), (dq_, q_ok)):
+                        if not ok:
+                            seg = arr[t:j]
+                            arr[t:j] = np.where(seg == WARMUP, WARMUP, "transition")
             panel_forced[s] = df_[keep]
             panel_three[s] = dt_[keep]
             panel_four[s] = dq_[keep]
@@ -525,11 +628,13 @@ def run_stage(symbols: list[str]) -> dict:
             "spec": {"flat_mode": spec.flat_mode, "flat_thr": spec.flat_thr,
                      "min_bars": spec.min_bars, "box_bars": spec.box_bars,
                      "box_amp": spec.box_amp, "note": spec.note},
-            "强制循环": distribution(panel_forced, STAGE_STATES),
-            "三条路径": distribution(panel_three, STAGE_STATES),
-            "三条路径+3→2": distribution(panel_four, STAGE_STATES),
+            "强制循环(改动前)": distribution(panel_forced, STAGE_STATES),
+            "Gemini三条路径": distribution(panel_three, STAGE_STATES),
+            "生产三路径(改动后)": distribution(panel_four, STAGE_STATES),
         }
-        out[vname]["_panel"] = panel_forced
+        # ★ _panel 给的是**生产口径**(改动后)—— 1029 拍板之后它才是答案。
+        out[vname]["_panel"] = panel_four
+        out[vname]["_panel_forced_before"] = panel_forced
         cycle_test[vname] = all_events
     out["_cycle_events"] = cycle_test
     return out

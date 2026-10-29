@@ -215,13 +215,36 @@ def main(argv=None) -> int:
     print()
     syms = [s for s in data.full_universe().pool("ALL") if s in cache.symbols()]
     print(f"全池 {len(syms)} 只,绩效窗口 {data.PERF_START} .. {data.PERF_END}"
-          f"(预热自 {cache.load()['close'].index[0].date()})\n")
+          f"(预热自 {cache.load()['close'].index[0].date()})")
+    print(f"★ 读的缓存:{cache.PANEL_PARQUET}")
+    print(f"★ 缓存构建时间:"
+          f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(cache.PANEL_PARQUET)))}")
+    print(f"★ 市场中性规则阈值:{bench_lines.MARKET_NEUTRAL_EBAR_MAX}"
+          f"(None = 整条去掉;旧值 {bench_lines.MARKET_NEUTRAL_EBAR_MAX_LEGACY})\n")
 
     commit = os.popen("git -C %s rev-parse HEAD" % HERE).read().strip() or "(拿不到)"
+
+    # ★ 报告里必须写明「读的是哪份缓存、它是什么时候烤的」——
+    #   今天数据层被改了三次、parquet 重烤了三次,不写清这一条,
+    #   过两天没人能复现这批数字。
+    cache_info = {}
+    for label, p in (("价格面板", cache.PANEL_PARQUET),
+                     ("面板元数据", cache.META_PARQUET)):
+        if os.path.exists(p):
+            cache_info[label] = {
+                "路径": p,
+                "构建时间": time.strftime("%Y-%m-%d %H:%M:%S",
+                                          time.localtime(os.path.getmtime(p))),
+                "字节": os.path.getsize(p)}
+        else:
+            cache_info[label] = {"路径": p, "★": "不存在"}
 
     out: dict = {
         "跑的时间": time.strftime("%Y-%m-%d %H:%M:%S"),
         "git_commit_跑的时候": commit,
+        "★读的哪份缓存": cache_info,
+        "★市场中性规则": bench_lines.MARKET_NEUTRAL_NOTE,
+        "★市场中性规则_当前阈值": bench_lines.MARKET_NEUTRAL_EBAR_MAX,
         "全池只数": len(syms),
         "绩效窗口": f"{data.PERF_START} .. {data.PERF_END}"
                      f"(预热自 {cache.load()['close'].index[0].date()})",

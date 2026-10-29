@@ -195,11 +195,56 @@ def gate_series(m: matrices.Matrices, index: pd.DatetimeIndex) -> pd.Series:
 
 # ================================================================ 基准二(静态,复刻)
 
+#: ★★ 2026-10-29 策略组拍板后的处理:「市场中性」那条规则在新基准线里**整条去掉**。
+#
+# 旧规则是:|Ē| ≤ 0.10 → 判为市场中性 → 基准直接用无风险利率(不挂指数腿)。
+# 它仍然留在 analyze.exposure_matched_benchmark 里,★ 我没动那个函数 ——
+# 别人在飞行中的结果都靠它复现,改它等于把别人已报的数字悄悄挪位置。
+#
+# ★ 为什么去掉而不是像拍板里说的「阈值改成 0.02」:
+#   ① 它本来只是个**显示上的省事**(敞口小到可以忽略时懒得挂指数腿),
+#      ★ 没有任何出处支撑 0.10 这个数 —— 它不是测量原则。
+#   ② 它恰好把「择时贡献」在最需要它的那几条链上毁掉:低敞口链(流动性猎杀
+#      Ē=0.033、康纳斯 Ē=0.054)做的事情本来大半就是择时,规则一上去,
+#      静态基准和动态开关基准撞成同一条无风险线,择时贡献被**强制**成 0。
+#      流动性猎杀的闸门实际关了 221 天,那个 0 是规则造的,不是事实。
+#   ③ Ē × 指数 + (1−Ē) × 无风险 这个公式在 Ē → 0 时**本来就平滑地退化成无风险**。
+#      规则只是在一个任意阈值上加了一道悬崖:Ē=0.0999 和 Ē=0.1001 两条链
+#      会被挂上**族类不同**的基准。★ 这一轮要修的正是这种「阈值翻结论」。
+#   ④ 改成 0.02 只是把悬崖挪个位置,参数还在。去掉则一个自由参数都不剩。
+#   ★ 并且:对本轮受影响的两条链,0.02 阈值和「整条去掉」给出**完全相同**的结果
+#     (两条的 Ē 都 > 0.02),所以这个选择本轮不改变任何一个数字 ——
+#     选去掉纯粹是为了不留参数。
+#
+# 要做 A/B 复现旧数字时,把这个常量设回 0.10 即可(bench_run_1029 会打印它)。
+MARKET_NEUTRAL_EBAR_MAX: float | None = None
+
+#: 旧规则的阈值,只为 A/B 对账和报告留痕,★ 不参与计算。
+MARKET_NEUTRAL_EBAR_MAX_LEGACY = 0.10
+
+#: 拍板里提到的折中阈值,同样只留痕。本轮两条受影响的链 Ē 都 > 0.02,
+#  所以它和「整条去掉」等价。
+MARKET_NEUTRAL_EBAR_MAX_RULED = 0.02
+
+MARKET_NEUTRAL_NOTE = (
+    "★★ 本轮新基准线已**整条去掉**「|Ē| ≤ 阈值 → 判市场中性、基准直接用无风险利率」"
+    f"这条规则(旧阈值 {MARKET_NEUTRAL_EBAR_MAX_LEGACY},拍板给的折中值 "
+    f"{MARKET_NEUTRAL_EBAR_MAX_RULED})。理由:它没有出处、它在最需要「择时贡献」"
+    "的低敞口链上把该指标强制成 0、而 Ē×指数+(1−Ē)×无风险 在 Ē→0 时本来就平滑退化,"
+    "规则只是加了一道阈值悬崖。★ 本轮两条受影响的链(流动性猎杀 Ē=0.033 / "
+    "康纳斯 Ē=0.054)的 Ē 都 > 0.02,所以折中阈值与整条去掉**结果完全相同**,"
+    "这个选择不改变本轮任何数字。"
+    "★ analyze.exposure_matched_benchmark 里的旧规则**没动** —— 别人在飞行中的"
+    "结果靠它复现。★ 代价:对这两条链,本文件的「静态基准」不再等于 analyze 的"
+    "「基准二」,报告里已逐条标出。")
+
+
 def static_benchmark(res: chain.ChainResult, component_match: str,
                      rf_annual: float | None) -> dict[str, Any]:
     """
-    ★ 旧的「基准二 同等仓位大盘」—— 这里**完全复刻** analyze.exposure_matched_benchmark
-      的算法,只是额外把日收益序列吐出来(算择时贡献和信息比率要用)。
+    ★ 「基准二 同等仓位大盘」的静态版 —— 算法沿用 analyze.exposure_matched_benchmark,
+      只多吐一条日收益序列(算择时贡献和信息比率要用),
+      并且 ★ 去掉了「市场中性」那条规则(见 MARKET_NEUTRAL_NOTE)。
 
     ★ Ē 仍是全周期固定值(旧纪律保留)。它现在的角色是「第二层」:
       静态基准和动态开关基准的差额,就是择时贡献。
@@ -207,12 +252,27 @@ def static_benchmark(res: chain.ChainResult, component_match: str,
     e_bar = float(res.exposure.mean())
     rf_d, rf, notes = rf_leg(rf_annual)
     idx = res.equity.index
-    if abs(e_bar) <= 0.10:
-        notes.append(f"|Ē|={abs(e_bar):.3f} ≤ 0.10 → 判为市场中性,基准直接用无风险利率")
+    thr = MARKET_NEUTRAL_EBAR_MAX
+    neutral = thr is not None and abs(e_bar) <= float(thr)
+    if neutral:
+        notes.append(f"|Ē|={abs(e_bar):.3f} ≤ {thr} → 判为市场中性,基准直接用无风险利率")
         bench_ret = pd.Series(rf_d, index=idx)
         idx_sym = "(无,市场中性)"
         idx_ret = pd.Series(0.0, index=idx)
     else:
+        if abs(e_bar) <= MARKET_NEUTRAL_EBAR_MAX_LEGACY:
+            # ★ 这条链在**旧规则**下会被判市场中性、择时贡献被强制成 0。
+            #   现在规则已去掉,所以它照常挂指数腿 —— 这一句必须留痕,
+            #   否则没人知道这个数和 analyze 的「基准二」为什么对不上。
+            notes.append(
+                f"★★ |Ē|={abs(e_bar):.4f} ≤ 旧阈值 {MARKET_NEUTRAL_EBAR_MAX_LEGACY}:"
+                f"这条链在**旧「市场中性」规则**下会被判为市场中性、基准被换成纯无风险、"
+                f"择时贡献被强制成 0。★ 本轮规则已整条去掉,它照常挂指数腿。"
+                f"★ 后果:本文件的「静态基准」对这条链**不等于** analyze.py 的"
+                f"「基准二」—— 差别只来自这条规则,不是算法分歧。"
+                + ("★ 注意:它的 Ē 也 > 拍板给的折中阈值 "
+                   f"{MARKET_NEUTRAL_EBAR_MAX_RULED},所以折中阈值下结果与此完全相同。"
+                   if abs(e_bar) > MARKET_NEUTRAL_EBAR_MAX_RULED else ""))
         idx_sym = data.resolve_component_index(component_match)
         b = data.load_benchmark(idx_sym)["close"].reindex(idx).ffill()
         idx_ret = b.pct_change().fillna(0.0)
@@ -220,11 +280,12 @@ def static_benchmark(res: chain.ChainResult, component_match: str,
     eq = curve(bench_ret, res.equity.iloc[0])
     r_chain = res.equity.pct_change().fillna(0.0)
     out = {
-        "口径": "静态基准(旧基准二):Ē × 成分匹配指数 + (1−Ē) × 无风险利率,"
-                "★ Ē 用全周期固定值",
+        "口径": "静态基准(基准二):Ē × 成分匹配指数 + (1−Ē) × 无风险利率,"
+                "★ Ē 用全周期固定值;★ 已去掉「市场中性」规则",
         "★Ē_全周期固定净敞口": e_bar,
         "成分匹配指数": idx_sym,
         "无风险利率_年化": rf,
+        "市场中性规则": ("已整条去掉" if thr is None else f"仍生效,阈值 {thr}"),
         **curve_stats(eq, r_chain, total_return(res.equity)),
         "警示": notes,
     }
@@ -232,7 +293,8 @@ def static_benchmark(res: chain.ChainResult, component_match: str,
     out["_index_daily"] = idx_ret
     out["_rf_daily"] = rf_d
     out["_e_bar"] = e_bar
-    out["_market_neutral"] = abs(e_bar) <= 0.10
+    out["_market_neutral"] = neutral
+    out["_legacy_neutral"] = abs(e_bar) <= MARKET_NEUTRAL_EBAR_MAX_LEGACY
     out["_index_symbol"] = idx_sym
     return out
 
@@ -276,7 +338,9 @@ def gated_dynamic_benchmark(res: chain.ChainResult, gate: pd.Series,
     g = gate.reindex(idx).fillna(False).astype(bool)
 
     if static["_market_neutral"]:
-        # |Ē| ≤ 0.10 已判为市场中性,静态基准本来就是纯无风险 → 两条重合
+        # 「市场中性」规则仍生效时:静态基准本来就是纯无风险 → 两条重合。
+        # ★ 本轮该规则已整条去掉(MARKET_NEUTRAL_EBAR_MAX = None),
+        #   所以正常跑不会走到这一支;留着只为 A/B 复现旧数字。
         open_leg = pd.Series(rf_d, index=idx)
     elif exposure_matched:
         open_leg = e_bar * idx_ret + (1.0 - e_bar) * rf_d
@@ -298,8 +362,13 @@ def gated_dynamic_benchmark(res: chain.ChainResult, gate: pd.Series,
         **curve_stats(eq, r_chain, total_return(res.equity)),
     }
     if static["_market_neutral"]:
-        out["警示"] = ["|Ē| ≤ 0.10 已判市场中性 → 动态开关基准与静态基准重合,"
-                       "择时贡献恒为 0(不是 bug,是市场中性那条规则的后果)"]
+        out["警示"] = [f"|Ē| ≤ {MARKET_NEUTRAL_EBAR_MAX} 已判市场中性 → "
+                       "动态开关基准与静态基准重合,择时贡献恒为 0"
+                       "(不是 bug,是市场中性那条规则的后果)"]
+    elif static["_legacy_neutral"]:
+        out["警示"] = [f"★★ 这条链在**旧「市场中性」规则**(阈值 "
+                       f"{MARKET_NEUTRAL_EBAR_MAX_LEGACY})下,择时贡献会被强制成 0。"
+                       f"★ 本轮规则已去掉,所以下面的择时贡献是真的量出来的。"]
     out["_daily"] = bench_ret
     return out
 
@@ -664,8 +733,15 @@ def _concentration(ledger: pd.DataFrame, top: int = 10) -> dict[str, Any]:
                         "出": str(pd.Timestamp(r["exit_date"]).date()),
                         "毛收益": float(r["gross_return"])}
                        for _, r in worst.iterrows()],
-        "怎么读": "★ 前 10 笔占总盈利过半 → 这条曲线是几笔异常 bar 扛起来的,数字不可用;"
-                  "占比低(一两成以内)→ 是一个铺得开的效应,数字可用",
+        "怎么读": "★ 两侧都要读 ——"
+                  "① 前 10 笔占总盈利**过半** → 这条曲线是几笔异常 bar 扛起来的,"
+                  "总收益、CAGR、卡玛全部不可用,"
+                  "★★ 而且四格硬关的 Z 是多少都不该看:判据在交易流水层面重抽,"
+                  "流水被几笔极值主导时重抽分布本身就没意义;"
+                  "② 占比低(一两成以内)→ 是一个铺得开的效应,数字可用。",
+        "★四格Z可不可看": ("★★ 不可看 —— 集中度过半"
+                            if (pos > 0 and topn / pos > 0.5) else
+                            "可看(集中度未过半)" if pos > 0 else "算不出(没有盈利笔)"),
     }
 
 
@@ -841,7 +917,9 @@ def bench_suite(cfg: chain.ChainConfig, res: chain.ChainResult,
             picking, picking_lit, static_excess, timing,
             int(len(res.ledger)),
             market_neutral=bool(static["_market_neutral"]),
-            gate_closed_days=int(dyn_exp["关闸天数"])),
+            gate_closed_days=int(dyn_exp["关闸天数"]),
+            legacy_neutral=bool(static["_legacy_neutral"])),
+        "市场中性规则": MARKET_NEUTRAL_NOTE,
         "基准四_槽位机会成本线_替代品甲": {k: v for k, v in slot_a.items()
                                           if not k.startswith("_")},
         "基准四_槽位机会成本线_替代品乙": {k: v for k, v in slot_b.items()
@@ -870,7 +948,8 @@ PICKING_ZERO_BAND = 0.02
 def _picking_verdict(picking: float, picking_lit: float,
                      static_excess: float, timing: float, n: int,
                      market_neutral: bool = False,
-                     gate_closed_days: int = 0) -> str:
+                     gate_closed_days: int = 0,
+                     legacy_neutral: bool = False) -> str:
     """
     ★ 必须为每条链明确回答这一句:在动态开关基准下超额是不是 ≈0?
       ≈0 → 这条策略根本不会选股,它所有的超额 100% 来自闸门这一道开关。
@@ -903,12 +982,16 @@ def _picking_verdict(picking: float, picking_lit: float,
     if np.isfinite(share):
         tail += f"(择时占静态基准超额绝对值的 {share:.0%})"
     if market_neutral:
-        tail += (f" ★★ 注意:这条链的 |Ē| ≤ 0.10,按旧规则已判「市场中性」→ "
-                 f"静态基准本来就只是无风险利率,动态开关基准也只能是无风险利率,"
+        tail += (f" ★★ 注意:「市场中性」规则仍生效(阈值 {MARKET_NEUTRAL_EBAR_MAX})"
+                 f"且这条链的 |Ē| 在阈值内 → 静态基准和动态开关基准都只能是无风险利率,"
                  f"★ 所以这里的择时贡献 0 是**规则造出来的**,不是"
-                 f"「闸门什么都没干」(它实际关了 {gate_closed_days} 天)。"
-                 f"★ 这条链要量择时贡献,得先把「市场中性」那条规则改掉 —— "
-                 f"是策略层的决定,本轮没擅自动。")
+                 f"「闸门什么都没干」(它实际关了 {gate_closed_days} 天)。")
+    elif legacy_neutral:
+        tail += (f" ★★ 这条链在**旧「市场中性」规则**(阈值 "
+                 f"{MARKET_NEUTRAL_EBAR_MAX_LEGACY})下,择时贡献会被强制成 0 —— "
+                 f"而它的闸门实际关了 {gate_closed_days} 天。★ 规则已整条去掉,"
+                 f"所以上面这个择时贡献是真的量出来的,"
+                 f"★ 它和 analyze.py 旧「基准二」口径下的数字不可直接比。")
     elif gate_closed_days == 0:
         tail += " (这条链的闸门全程没关过,所以择时贡献必然是 0。)"
     if n < 150:
@@ -921,6 +1004,8 @@ __all__ = ["rf_leg", "curve", "total_return", "calmar", "information_ratio",
            "gated_dynamic_benchmark", "slot_replacement_benchmark",
            "naive_baseline", "benchmark_family", "bench_suite",
            "NAIVE_MEANREV", "NAIVE_RSI2", "FAMILY_TREND", "FAMILY_MEANREV",
+           "MARKET_NEUTRAL_EBAR_MAX", "MARKET_NEUTRAL_EBAR_MAX_LEGACY",
+           "MARKET_NEUTRAL_EBAR_MAX_RULED", "MARKET_NEUTRAL_NOTE",
            "QQQ_MISSING_NOTE", "ETF_SPLIT_FINDINGS",
            "SLOT_PROXY_ETF", "SLOT_PROXY_TOPN",
            "PICKING_ZERO_BAND", "UNCOMPUTABLE"]

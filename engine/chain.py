@@ -406,11 +406,30 @@ def run_chain(cfg: ChainConfig,
               end: str = data.PERF_END,
               initial_equity: float = 1_000_000.0,
               m: matrices.Matrices | None = None,
-              flat_friction_bps: float | None = None) -> ChainResult:
+              flat_friction_bps: float | None = None,
+              total_return: bool | None = None) -> ChainResult:
     """
     跑一条链。
     flat_friction_bps 不为 None 时改用一刀切成本(做摩擦敏感度用)。
+
+    ★★ total_return —— 分红口径开关(2026-10-29 新增):
+      None(默认)→ 取 data.TOTAL_RETURN_DEFAULT
+      False → 纯价格收益(历史口径)
+      True  → ★ 总收益:持仓跨过除息日时,把 每股分红 × 持股数 记为现金收入
+
+    ★ 为什么是"记现金"而不是"把历史价格按分红往回折算":
+      折算历史价格会改变**信号**(均线、突破、ATR 全在价格上),
+      那样 A/B 两版成交的就不是同一批交易,分不清变化是分红带来的还是信号漂移带来的。
+      ★ 记现金则**完全不动信号** —— 成交哪几笔一模一样,只是每笔多收一笔股息,
+      而且这笔钱会跟着净值一起复利(这正是上一轮"加法测算"做不到的那一部分)。
+
+    ★ 时点口径(PIT):分红在**每日循环的最开头**入账,即只有
+      "昨天收盘就已经持有"的仓位才拿得到 —— 和除息日规则一致:
+        · 今天开盘卖出的仓位 → ★ 拿得到(昨收时还持有)
+        · 今天开盘买入的仓位 → ★ 拿不到(除息日当天买不享有)
     """
+    if total_return is None:
+        total_return = bool(data.TOTAL_RETURN_DEFAULT)
     m = m or matrices.build(cfg.raw, symbols)
     idx = m.index
     perf = data.perf_window(idx, start, end)
@@ -460,6 +479,28 @@ def run_chain(cfg: ChainConfig,
     rank_by = (cfg.get("sizing") or {}).get("rank_by", "rs_rank")
 
     cash = cash_gross = initial_equity
+    # ★★ 分红矩阵 [日 × 票]:只在 total_return=True 时才建(默认完全不碰)。
+    #   ★ 用 data.dividends() —— 它已经按源头 split_coefficient 把每股分红折算过,
+    #     所以"每股分红"和"每股价格"在同一个口径上。
+    div_mat: np.ndarray | None = None
+    div_received = 0.0
+    n_div_credits = 0
+    if total_return:
+        div_mat = np.zeros((len(idx), len(m.symbols)), dtype=float)
+        for j, sym in enumerate(m.symbols):
+            try:
+                s = data.dividends(sym)
+            except Exception:
+                continue
+            if len(s) == 0:
+                continue
+            s = s[(s.index >= idx[0]) & (s.index <= idx[-1])]
+            if len(s) == 0:
+                continue
+            locs = idx.get_indexer(s.index)
+            for k, v in zip(locs, s.to_numpy(float)):
+                if k >= 0:
+                    div_mat[k, j] += float(v)
     # ★ 广度标尺的落地诊断:有多少笔真的被减仓、其中多少笔被 max_weight 顶住
     n_scaled = n_cap_bind = 0
     pos: dict[int, dict] = {}
@@ -514,6 +555,18 @@ def run_chain(cfg: ChainConfig,
         })
 
     for i in range(i0, i1 + 1):
+        # ---- ⓞ ★★ 分红入账(总收益口径)。★ 放在最前面 = 只有"昨收已持有"的
+        #        仓位拿得到:今天卖的拿得到、今天买的拿不到 —— 与除息日规则一致。
+        if div_mat is not None and pos:
+            for j, p in pos.items():
+                dv = div_mat[i, j]
+                if dv:
+                    gain = p["shares"] * dv
+                    cash += gain
+                    cash_gross += gain
+                    div_received += gain
+                    n_div_credits += 1
+
         # ---- ① 昨天收盘决定的离场,今天开盘成交
         for j in list(pending_exit):
             if j in pos:
@@ -723,6 +776,14 @@ def run_chain(cfg: ChainConfig,
     ledger = pd.DataFrame(rows, columns=LEDGER_COLUMNS) if rows \
         else pd.DataFrame(columns=LEDGER_COLUMNS)
     notes: list[str] = []
+    if total_return:
+        notes.append(
+            f"★ 分红口径 = 总收益:收到股息 {div_received:,.2f}"
+            f"(占初始资金 {div_received / max(1.0, initial_equity):.4%}),"
+            f"共 {n_div_credits} 次入账。"
+            f"★ 信号未受影响(分红只记现金、不改价格)")
+    else:
+        notes.append("★ 分红口径 = 纯价格收益(未计分红)")
     if m.breadth_diag:
         notes.append("广度标尺:" + ";".join(f"{k}={v}" for k, v in m.breadth_diag.items()))
         notes.append(
