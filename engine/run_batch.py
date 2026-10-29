@@ -185,15 +185,14 @@ def window_pool_gate(cfg: chain.ChainConfig, syms: list[str],
             vals = np.array([])
         if vals.size == 0:
             return [], (lambda rng: np.array([np.nan]))
-        rate = max(1e-7, min(1.0, vals.size / max(1, len(r.equity) * len(cell_syms))))
-        c2 = cfg.copy_with(entry={"type": "random",
-                                  "params": {"rate": rate, "seed": 20181001},
-                                  "source": "同格内随机进场对照"})
-        try:
-            ctrl = chain.run_chain(c2, cell_syms, start, end
-                                   ).ledger["r_multiple"].dropna().to_numpy(float)
-        except Exception:
-            ctrl = np.array([])
+        # ★ 2026-10-29 统一口径:触发率校准到「对照组成交笔数 ≈ 真链笔数」,
+        #   校准只看笔数、不看成绩(纪律 6)。
+        cal = analyze.calibrated_random_rate(cfg, cell_syms, start, end,
+                                             int(vals.size), r.initial_equity,
+                                             seed=20181001)
+        led = cal["ledger"]
+        ctrl = (led["r_multiple"].dropna().to_numpy(float)
+                if led is not None and not led.empty else np.array([]))
         if ctrl.size == 0:
             ctrl = vals
         return list(vals), stats_gate.circular_block_sampler(ctrl, n_draw=vals.size)

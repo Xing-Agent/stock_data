@@ -137,15 +137,13 @@ def _four_cell(cfg: chain.ChainConfig, syms: list[str],
             vals = np.array([])
         if vals.size == 0:
             return [], (lambda rng: np.array([np.nan]))
-        rate = max(1e-7, min(1.0, vals.size / max(1, len(r.equity) * len(cs))))
-        c2 = cfg.copy_with(entry={"type": "random",
-                                  "params": {"rate": rate, "seed": 20181001},
-                                  "source": "同格内随机进场对照"})
-        try:
-            ctrl = chain.run_chain(c2, cs, start, end
-                                   ).ledger["r_multiple"].dropna().to_numpy(float)
-        except Exception:
-            ctrl = np.array([])
+        # ★ 2026-10-29 统一口径:校准到对照组成交笔数 ≈ 真链笔数
+        cal = analyze.calibrated_random_rate(cfg, cs, start, end,
+                                             int(vals.size), r.initial_equity,
+                                             seed=20181001)
+        cled = cal["ledger"]
+        ctrl = (cled["r_multiple"].dropna().to_numpy(float)
+                if cled is not None and not cled.empty else np.array([]))
         if ctrl.size == 0:
             ctrl = vals
         return list(vals), stats_gate.circular_block_sampler(ctrl, n_draw=vals.size)

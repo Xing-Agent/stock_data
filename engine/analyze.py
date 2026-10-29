@@ -31,6 +31,83 @@ TRADING_DAYS_PER_YEAR = 252
 CI_B = 1000          # 置信区间的重抽次数,和判据的 B 保持一致
 
 
+# ============================================ ★ 随机对照触发率:全系统唯一口径
+
+RANDOM_RATE_DEF = ("★ 统一口径:随机对照的触发率 = 「每个某天×某票单元掷一次骰子」的概率,"
+                   "起点用 笔数/(交易日数 × 池内票数)(无量纲),"
+                   "再按实际成交笔数校准到与真链一致(±8% 以内,最多 4 轮);"
+                   "★ 校准只看笔数、不看成绩")
+
+
+def random_control_rate(n_trades: int, n_days: int, n_syms: int) -> float:
+    """
+    ★★ 2026-10-29 统一口径:三处随机对照(基准一 / 判据 / 四格硬关)
+       以前各用一个公式,其中判据那个写成 `笔数 / 天数 / 100` ——
+       量纲不对(它把「池内票数」硬编成 100,实际池子 300 只),
+       实测触发率高约 3 倍,随机对照因此比真链「做得多」,
+       μ_随机 被系统性拉偏 → Z 不可信。
+
+    大白话:引擎里的 `entry.type=random` 是对每一个「某天×某票」的格子
+    掷一次骰子。所以频率对齐真信号,分母必须是**格子总数**
+    = 交易日数 × 池内票数,不是天数、更不是天数 ÷ 100。
+
+    这个函数是全系统唯一入口,★ 不许任何地方再自己写一遍公式。
+    """
+    cells = max(1, int(n_days)) * max(1, int(n_syms))
+    return min(1.0, max(1e-7, float(n_trades) / cells))
+
+
+def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
+                           start: str, end: str, target_trades: int,
+                           initial_equity: float, seed: int = 424242,
+                           max_iter: int = 4, tol: float = 0.08) -> dict[str, Any]:
+    """
+    ★★ 2026-10-29:随机对照触发率的**最终口径** —— 对齐「实际成交笔数」。
+
+    为什么闭式公式不够(这是本轮才量出来的事):
+      `rate = 笔数 / (天数 × 票数)` 量纲是对的,但它对齐的是「掷骰子掷出多少
+      个信号」,而不是「最后成交了多少笔」。这条链有 3297 个合格进场信号,
+      只成交 435 笔 —— 槽位和环境把 87% 的信号挡掉了。所以照闭式公式掷骰子,
+      随机对照只成交 143 笔(真链 435 笔),★ 对照组反而「做得太少」。
+      而旧的错公式(÷100)碰巧高 3 倍,成交 432 笔 —— ★ 它是错的公式蒙对了
+      一次,换个池子只数或换个 slots 就不成立。
+
+    大白话:要比「挑得准」,就得让随机对照跟真链**出手次数一样多**。
+    所以做法是:先用闭式公式当起点,跑一遍看成交多少笔,按比例缩放再跑,
+    最多 4 轮,取成交笔数最接近真链的那一轮。
+
+    ★ 这不是网格搜索(纪律 6):校准的目标是**笔数**,不是成绩。
+      校准过程完全不看收益、不看 Z,看了就是作弊。
+    """
+    n_days = max(1, len(pd.bdate_range(start, end)))
+    n_syms = max(1, len(matrices.universe_mask(
+        cfg.get("universe") or {}, symbols).columns))
+    rate = random_control_rate(target_trades, n_days, n_syms)
+    tries: list[dict[str, Any]] = []
+    best: dict[str, Any] | None = None
+    for it in range(max_iter):
+        c2 = cfg.copy_with(entry={"type": "random",
+                                  "params": {"rate": rate, "seed": seed},
+                                  "source": "随机对照:同环境随机进场,频率对齐真链实际成交笔数"})
+        try:
+            led = chain.run_chain(c2, symbols, start, end, initial_equity).ledger
+        except Exception:
+            led = None
+        n_ctrl = 0 if led is None else len(led)
+        tries.append({"轮": it + 1, "rate": rate, "对照成交笔数": n_ctrl})
+        gap = abs(n_ctrl - target_trades) / max(1, target_trades)
+        if best is None or gap < best["gap"]:
+            best = {"rate": rate, "n_ctrl": n_ctrl, "ledger": led, "gap": gap,
+                    "iters": it + 1}
+        if gap <= tol or n_ctrl == 0:
+            break
+        rate = min(1.0, max(1e-7, rate * target_trades / max(1, n_ctrl)))
+    assert best is not None
+    best["tries"] = tries
+    best["闭式起点"] = random_control_rate(target_trades, n_days, n_syms)
+    return best
+
+
 # ================================================================ 置信区间
 
 def ci95(values, stat=np.mean, B: int = CI_B, seed: int = 20181001
@@ -225,9 +302,10 @@ def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
     不是「做得多不多」。
     """
     n_tr = len(res.ledger)
-    n_days = max(1, len(res.equity))
-    n_syms = max(1, len(matrices.universe_mask(cfg.get("universe") or {}, symbols).columns))
-    rate = min(1.0, max(1e-7, n_tr / (n_days * n_syms)))
+    # ★ 2026-10-29:三处随机对照统一用 calibrated_random_rate(对齐实际成交笔数)
+    cal = calibrated_random_rate(cfg, symbols, start, end, n_tr,
+                                 res.initial_equity, seed=20181001)
+    rate = cal["rate"]
     rets, mdds, rbar = [], [], []
     for k in range(n_seeds):
         c2 = cfg.copy_with(entry={"type": "random",
@@ -247,6 +325,11 @@ def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
         "随机进场_平均最大回撤": float(np.mean(mdds)),
         "随机进场_种子数": n_seeds,
         "随机进场_触发率": rate,
+        "随机进场_触发率口径": RANDOM_RATE_DEF,
+        "随机进场_闭式起点": cal["闭式起点"],
+        "随机进场_校准轮次": cal["tries"],
+        "随机进场_校准后对照笔数": cal["n_ctrl"],
+        "随机进场_真链笔数": n_tr,
         "★真信号总收益 − 随机进场": chain_ret - float(np.mean(rets)),
         "★真信号每笔R − 随机进场每笔R": (chain_r - float(np.nanmean(rbar))
                                         if rbar else float("nan")),
@@ -495,15 +578,17 @@ def evaluate(cfg: chain.ChainConfig,
     }
 
     if with_gate:
-        c2 = cfg.copy_with(entry={"type": "random",
-                                  "params": {"rate": max(1e-7, len(led) /
-                                                          max(1, len(eq)) / 100),
-                                             "seed": 424242},
-                                  "source": "判据对照组:同环境随机进场"})
-        try:
-            ctrl = chain.run_chain(c2, symbols, start, end, initial_equity).ledger
-        except Exception:
-            ctrl = None
+        # ★ 2026-10-29:这里原来写的是 `len(led) / len(eq) / 100` —— 量纲不对
+        #   (把池内票数硬编成 100),实测触发率高约 3 倍。
+        #   现在和基准一 / 四格硬关共用同一个口径:校准到实际成交笔数一致。
+        cal_g = calibrated_random_rate(cfg, symbols, start, end, len(led),
+                                       initial_equity, seed=424242)
+        out["判据_随机对照口径"] = RANDOM_RATE_DEF
+        out["判据_随机对照触发率"] = cal_g["rate"]
+        out["判据_随机对照闭式起点"] = cal_g["闭式起点"]
+        out["判据_随机对照校准轮次"] = cal_g["tries"]
+        out["判据_随机对照笔数"] = cal_g["n_ctrl"]
+        ctrl = cal_g["ledger"]
         out["判据"] = bootstrap_on_ledger(res, ctrl)
 
     if with_attribution:

@@ -283,14 +283,12 @@ def run_variant(group: str, slots: int, thr: float, low_mult: float,
 def random_control_ledger(cfg: chain.ChainConfig, led: pd.DataFrame,
                           eq: pd.Series, syms: list[str]) -> pd.DataFrame | None:
     """同环境随机进场的对照流水(进场频率对齐真信号)。"""
-    rate = max(1e-7, len(led) / max(1, len(eq)) / 100)
-    c2 = cfg.copy_with(entry={"type": "random",
-                              "params": {"rate": rate, "seed": 424242},
-                              "source": "判据对照组:同环境随机进场"})
-    try:
-        return chain.run_chain(c2, syms).ledger
-    except Exception:
-        return None
+    # ★ 2026-10-29 统一口径(原来是 `len(led)/len(eq)/100`,量纲不对、高约 3 倍)
+    #   现在和基准一 / 四格硬关共用 calibrated_random_rate:校准到成交笔数一致。
+    cal = analyze.calibrated_random_rate(cfg, syms, data.PERF_START,
+                                         data.PERF_END, len(led),
+                                         float(eq.iloc[0]), seed=424242)
+    return cal["ledger"]
 
 
 # ================================================================ main
