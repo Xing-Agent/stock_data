@@ -111,8 +111,24 @@ def build(verbose: bool = True) -> dict[str, pd.DataFrame]:
         print(f"缓存已烤好,用了 {time.time()-t0:.1f} 秒")
         print(f"  {PANEL_PARQUET}")
         print(f"  可用代码 {len(ok)} 只 × {len(cal)} 个交易日")
-        print(f"  拆股已修(最底层做一次):"
-              f"{[f'{e.symbol} {e.date} ×{e.ratio:g}' for e in split_gate.FIX_EVENTS]}")
+        # ★ 2026-10-29:比例修正改为读源头 split_coefficient,FIX_EVENTS 已删空。
+        #   这里改成统计源头系数实际生效了多少处 —— 打印 FIX_EVENTS 会显示 [],误导。
+        n_coef, n_sym = 0, 0
+        for s in sorted(meta):
+            try:
+                with open(meta[s].daily_path, encoding="utf-8") as fh:
+                    import json as _json
+                    _rows = (_json.load(fh).get("data") or [])
+            except (OSError, ValueError):
+                continue
+            k = len(split_gate.ratio_events_from_rows(s, _rows))
+            n_coef += k
+            n_sym += bool(k)
+        print(f"  拆股已修(最底层做一次,★ 比例来自源头 split_coefficient):"
+              f"{n_coef} 处 / {n_sym} 只"
+              f"(USE_SOURCE_COEFFICIENTS={split_gate.USE_SOURCE_COEFFICIENTS})")
+        print(f"  ★ 手工 ratio_fix 清单(已删空,只给 A/B 对照用):"
+              f"{[f'{e.symbol} {e.date} ×{e.ratio:g}' for e in split_gate.FIX_EVENTS] or '无'}")
         print(f"  ★ 序列已切断(断裂无证据,不编系数):"
               f"{[f'{e.symbol} {e.date} keep={e.keep}' for e in split_gate.CUT_EVENTS]}")
         print(f"  因判不准剔除:{sorted(split_gate.EXCLUDED_SYMBOLS) or '无(AMRS / PRTY 已归队)'}")

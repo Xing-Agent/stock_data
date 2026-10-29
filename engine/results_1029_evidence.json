@@ -1190,8 +1190,8 @@
     "prev_value": 5607877.0,
     "value": 112151412.0,
     "ratio_x": 19.998907251353767,
-    "matched_split": 20.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "CSGP",
@@ -1234,8 +1234,8 @@
     "prev_value": 207000000.0,
     "value": 1105000000.0,
     "ratio_x": 5.338164251207729,
-    "matched_split": null,
-    "action": "leave_as_is"
+    "matched_split": 5.0,
+    "action": "ratio_fix"
    },
    {
     "symbol": "BNED",
@@ -1245,8 +1245,8 @@
     "prev_value": 2673000.0,
     "value": 13511000.0,
     "ratio_x": 5.054620276842499,
-    "matched_split": 5.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "PCG",
@@ -1256,8 +1256,8 @@
     "prev_value": 529000000.0,
     "value": 2140000000.0,
     "ratio_x": 4.045368620037808,
-    "matched_split": 4.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "CTAS",
@@ -1289,8 +1289,8 @@
     "prev_value": 5526413.0,
     "value": 16803040.0,
     "ratio_x": 3.040496611454844,
-    "matched_split": 3.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "KHC",
@@ -1300,8 +1300,8 @@
     "prev_value": 380000000.0,
     "value": 1142000000.0,
     "ratio_x": 3.0052631578947366,
-    "matched_split": 3.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "TSLA",
@@ -1322,7 +1322,7 @@
     "prev_value": 194431000.0,
     "value": 582032000.0,
     "ratio_x": 2.993514408710545,
-    "matched_split": 3.0,
+    "matched_split": 3.0000030000030002,
     "action": "ratio_fix"
    },
    {
@@ -1498,8 +1498,8 @@
     "prev_value": 137800000.0,
     "value": 274700000.0,
     "ratio_x": 1.9934687953555879,
-    "matched_split": 2.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "HSIC",
@@ -1531,8 +1531,8 @@
     "prev_value": 54866000.0,
     "value": 108530000.0,
     "ratio_x": 1.978092078883097,
-    "matched_split": 2.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "BNED",
@@ -1542,8 +1542,8 @@
     "prev_value": 13511000.0,
     "value": 26542000.0,
     "ratio_x": 1.9644733920509214,
-    "matched_split": 2.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "VIRT",
@@ -1553,8 +1553,8 @@
     "prev_value": 40814214.0,
     "value": 79199142.0,
     "ratio_x": 1.9404794123929472,
-    "matched_split": 2.0,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "PEB",
@@ -1729,8 +1729,8 @@
     "prev_value": 74000000.0,
     "value": 114000000.0,
     "ratio_x": 1.5405405405405406,
-    "matched_split": 1.5,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "OMC",
@@ -1740,8 +1740,8 @@
     "prev_value": 194900000.0,
     "value": 299200000.0,
     "ratio_x": 1.5351462288353002,
-    "matched_split": 1.5,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "DVN",
@@ -1751,8 +1751,8 @@
     "prev_value": 618000000.0,
     "value": 940000000.0,
     "ratio_x": 1.5210355987055015,
-    "matched_split": 1.5,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "HNNA",
@@ -1784,8 +1784,8 @@
     "prev_value": 103449612.0,
     "value": 155065635.0,
     "ratio_x": 1.4989484445818897,
-    "matched_split": 1.5,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "SSP",
@@ -1795,8 +1795,8 @@
     "prev_value": 57335000.0,
     "value": 83903000.0,
     "ratio_x": 1.4633818784337664,
-    "matched_split": 1.5,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "DX",
@@ -1806,8 +1806,8 @@
     "prev_value": 136927985.0,
     "value": 200084349.0,
     "ratio_x": 1.4612378105176966,
-    "matched_split": 1.5,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "SQBG",
@@ -1916,8 +1916,8 @@
     "prev_value": 224182000.0,
     "value": 109582086.0,
     "ratio_x": 0.4888085840968499,
-    "matched_split": 0.5,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "POCI",
@@ -1938,8 +1938,8 @@
     "prev_value": 16915089.0,
     "value": 5935911.0,
     "ratio_x": 0.35092401819464264,
-    "matched_split": null,
-    "action": "leave_as_is"
+    "matched_split": 0.333333333333,
+    "action": "ratio_fix"
    },
    {
     "symbol": "HLT",
@@ -1960,8 +1960,8 @@
     "prev_value": 198365207.0,
     "value": 50624457.0,
     "ratio_x": 0.2552083491133604,
-    "matched_split": 0.25,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "LFMD",
@@ -1971,8 +1971,8 @@
     "prev_value": 61743697.0,
     "value": 14674693.0,
     "ratio_x": 0.23767110997580854,
-    "matched_split": null,
-    "action": "leave_as_is"
+    "matched_split": 0.2,
+    "action": "ratio_fix"
    },
    {
     "symbol": "HAPN",
@@ -1993,8 +1993,8 @@
     "prev_value": 169500000.0,
     "value": 30688000.0,
     "ratio_x": 0.18105014749262538,
-    "matched_split": null,
-    "action": "leave_as_is"
+    "matched_split": 0.166666666666667,
+    "action": "ratio_fix"
    },
    {
     "symbol": "WPG",
@@ -2004,8 +2004,8 @@
     "prev_value": 225670330.0,
     "value": 25201037.0,
     "ratio_x": 0.11167191096853539,
-    "matched_split": null,
-    "action": "leave_as_is"
+    "matched_split": 0.1111111111111111,
+    "action": "ratio_fix"
    },
    {
     "symbol": "ODP",
@@ -2059,8 +2059,8 @@
     "prev_value": 178899605.0,
     "value": 9879000.0,
     "ratio_x": 0.055220915663843975,
-    "matched_split": null,
-    "action": "leave_as_is"
+    "matched_split": 0.05,
+    "action": "ratio_fix"
    },
    {
     "symbol": "ACOR",
@@ -2092,8 +2092,8 @@
     "prev_value": 53153000.0,
     "value": 2673000.0,
     "ratio_x": 0.05028878896769703,
-    "matched_split": 0.05,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "GRPN",
@@ -2114,8 +2114,8 @@
     "prev_value": 70135036.0,
     "value": 3506752.0,
     "ratio_x": 0.050000002851641794,
-    "matched_split": 0.05,
-    "action": "ratio_fix"
+    "matched_split": null,
+    "action": "leave_as_is"
    },
    {
     "symbol": "KDP",
@@ -2202,6 +2202,19 @@
  },
  "q2b": {
   "examples": [
+   {
+    "symbol": "TSLA",
+    "field": "WeightedAverageDilutedShares",
+    "before_period_end": "2020-06-30",
+    "before_value_normalized": 207000000.0,
+    "after_period_end": "2020-09-30",
+    "after_value_normalized": 1105000000.0,
+    "ratio_x": 5.338164251207729,
+    "matched": 5.0,
+    "before_raw_json": "203000000",
+    "after_raw_json": "1059000000",
+    "file": "pilot_300/TSLA/fundamentals.json"
+   },
    {
     "symbol": "TSLA",
     "field": "WeightedAverageDilutedShares",

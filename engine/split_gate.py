@@ -213,9 +213,13 @@ DATA_INTEGRITY_FLAGS: tuple[str, ...] = (
     "ACOR:daily.json 自称 adjustment=raw,实测价格和独立来源差 60 倍 —— "
     "技术方原话「Do not use as raw price; source needs revalidation」。",
     "SQBG:拆股前那段价格被额外调整过(按核实的 1合40 修完仍残余 30x)。",
-    "★ 源头 daily.json 里新增的 split_coefficient 字段,★ 引擎目前完全不读。"
-    "本次是故意不读的(读了才会双重修正)。以后若要改成读源头系数,"
-    "必须同时把这里的 ratio_fix 关掉,★ 两边只能有一边动手。",
+    "★★ 2026-10-29 已修复(原文留档,因为它本身就是一个错误判断):"
+    "原来这里写「split_coefficient 引擎完全不读,是故意不读的,读了会双重修正」。"
+    "★ 这句话是错的。实测源头价格是 raw —— 66 个非 1 系数事件的"
+    "「当天价格比值 ÷ (1/系数)」中位数 = 1.00,源头一个价格都没改。"
+    "★ 不读才是 bug:接之前全池有 48 根未修的假跳变(GOOG −95.1% / CSGP −90.4% / "
+    "TSLA −77.5% / BNED +7312%),其中 27 根落在绩效窗口内。"
+    "★ 现在 split_coefficient 是比例修正的唯一来源,手工 ratio_fix 清单已删空。",
 )
 
 
@@ -351,8 +355,11 @@ def summary() -> str:
         f"  比例修正 {len(FIX_EVENTS)} 处 / 序列切断 {len(CUT_EVENTS)} 处 / "
         f"明确不动 {len(NO_ACTION_EVENTS)} 处",
         f"  ★ 因判不准被剔除的票:{sorted(EXCLUDED_SYMBOLS) or '无(原来是 AMRS / PRTY,已收回)'}",
-        "  ★ 源头 daily.json 只加了 split_coefficient 标记字段,价格未改;"
-        "引擎不读该字段 → 不存在双重修正",
+        "  ★★ 比例修正的来源 = 源头 daily.json 的 split_coefficient"
+        f"(USE_SOURCE_COEFFICIENTS={USE_SOURCE_COEFFICIENTS});"
+        "手工 ratio_fix 清单已删空",
+        "  ★ 源头价格是 raw(未调整),所以该修的我们修一次 → 不存在双重修正"
+        "(self_check ⑦ 项守着)",
         "",
         "  8 条候选的下场:",
     ]
@@ -392,7 +399,17 @@ def self_check(verbose: bool = True) -> tuple[bool, str]:
     from . import cache
 
     c = cache.load()["close"]
-    by_date = {(e.symbol, e.date): e for e in EVENTS}
+    # ★ 现在 ratio_fix 来自源头系数,不在 EVENTS 里 —— 所以查动作要两头都看
+    by_date: dict[tuple[str, str], SplitEvent] = {
+        (e.symbol, e.date): e for e in EVENTS}
+    for sym, date, want, _why in TECH_VERIFIED_COEFFICIENTS:
+        if (sym, date) in by_date:
+            continue
+        got = _coef_on(sym, date)
+        if got is not None and USE_SOURCE_COEFFICIENTS:
+            by_date[(sym, date)] = SplitEvent(
+                sym, date, "ratio_fix", ratio=1.0 / got, coefficient=got,
+                label=f"源头系数 {got:g}")
     lines, ok = [], True
 
     def jump(sym: str, date: str):
@@ -454,17 +471,302 @@ def self_check(verbose: bool = True) -> tuple[bool, str]:
         ok &= inp
         lines.append(f"  {s:5s} 在池子里:{'✅ 是' if inp else '★ 不在!'}")
 
+    # ───────────── ⑥ 源头系数 vs 技术方核实结果:逐条断言 ─────────────
+    lines.append("")
+    lines.append("  ⑥ ★★ 源头 split_coefficient vs 技术方 SEC 核实结果(逐条):")
+    a_ok, a_lines = coefficient_agreement()
+    lines += a_lines
+    ok &= a_ok
+
+    # ───────────── ⑦ 源头价格是 raw(= 不存在双重修正) ─────────────
+    lines.append("")
+    lines.append("  ⑦ ★★ 源头价格是否未调整(raw)—— 双重修正的防线:")
+    r_ok, r_lines = source_prices_are_raw()
+    lines += r_lines
+    ok &= r_ok
+
+    # ───────────── ⑧ KHC 回归:并购不许被当成拆股 ─────────────
+    lines.append("")
+    lines.append("  ⑧ ★★ KHC 回归测试(并购不许被误判成拆股):")
+    k_ok, k_lines = khc_regression()
+    lines += k_lines
+    ok &= k_ok
+
     # ★ 残余扫描:全池还剩多少根 3 倍以上的单日跳变 —— ★ 不许藏起来
+    lines.append("")
     res = residual_jumps(min_jump=3.0)
     lines.append(f"  ★ 全池残余 3 倍以上单日跳变 {len(res)} 根"
                  f"{'(✅ 一根不剩)' if not res else ':'}")
     for sym, d, jj in res:
         lines.append(f"      {sym:5s} {d}  {jj:.2f}x  ★ 遗留,未修(没有核实证据)")
 
+    # ★★ 盲区:接了源头系数也补不上的那一类 —— ★ 每次都打印,不许当问题没了
+    lines.append("")
+    lines += merger_blind_spot()
+    lines.append("")
+    lines += nonstandard_events()
+
     text = "\n".join(lines)
     if verbose:
         print(text)
     return ok, text
+
+
+#: ★★ 技术方 SEC 核实过的 7 个争议点 —— 源头系数必须和它们逐条一致。
+#  这是「源头系数能不能替掉手工清单」的全部依据,★ 任一条不一致就不许用源头系数。
+#  格式:(ticker, 日期, 期望系数 或 None 表示"该日不该有非1系数")
+TECH_VERIFIED_COEFFICIENTS: tuple[tuple[str, str, float | None, str], ...] = (
+    ("ACOR", "2021-01-04", 1 / 6, "SEC 确认 1 合 6"),
+    ("ACOR", "2023-06-05", 0.05, "SEC 确认 1 合 20"),
+    ("WPG", "2020-12-22", 1 / 9, "SEC 确认 1 合 9(我们原来记 8 合 1 是错的)"),
+    ("SQBG", "2020-07-27", 0.025, "SEC + Nasdaq 确认 1 合 40(我们原来记 1200 合 1)"),
+    ("AMRS", "2023-08-10", None, "不是拆股 —— 是破产申请,★ −80.7% 是真实亏损"),
+    ("PRTY", "2019-11-07", None, "不是拆股 —— 文件里只是授权,没实施"),
+    ("UHAL", "2022-11-10", None, "不是拆股 —— 每股派 9 股新类别股(股票股利)"),
+    # ★ KHC:股数闸原来把 3.0053x 误判成 1 拆 3,真相是 Kraft×Heinz 合并。
+    #   源头系数在 KHC 上恒为 1 → 正确地否掉了它。这是回归测试的锚点。
+    ("KHC", "2015-09-27", None, "不是拆股 —— 2015 Kraft×Heinz 合并(真实股本扩张)"),
+)
+
+
+def _coef_on(symbol: str, date: str) -> float | None:
+    """读某只票某一天的源头系数(非 1 才返回)。★ 直接读文件,不走 load_daily。"""
+    import json
+    import os
+    base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    p = os.path.join(base, "pilot_300", symbol, "daily.json")
+    if not os.path.exists(p):
+        return None
+    try:
+        with open(p, encoding="utf-8") as fh:
+            rows = (json.load(fh).get("data") or [])
+    except (OSError, ValueError):
+        return None
+    for r in rows:
+        if str(r.get("date", ""))[:10] != date:
+            continue
+        v = r.get("split_coefficient")
+        if v is None:
+            return None
+        try:
+            c = float(v)
+        except (TypeError, ValueError):
+            return None
+        if c != c or abs(c - 1.0) <= _COEF_EPS:
+            return None
+        return c
+    return None
+
+
+def coefficient_agreement() -> tuple[bool, list[str]]:
+    """
+    ★★ ⑥ 源头系数 vs 技术方 SEC 核实结果 —— 逐条断言。
+
+    这是「可以拿源头系数替掉手工清单」的全部依据。★ 任一条不一致,
+    就说明源头系数不可信,必须退回手工清单(把 USE_SOURCE_COEFFICIENTS 设成 False)。
+    """
+    ok, lines = True, []
+    for sym, date, want, why in TECH_VERIFIED_COEFFICIENTS:
+        got = _coef_on(sym, date)
+        if want is None:
+            good = got is None
+            lines.append(f"  {sym:5s} {date}  期望「无非1系数」  实际 "
+                         f"{'无' if got is None else f'{got:g}'}  "
+                         f"{'✅ 一致' if good else '★ 不一致!'}  {why}")
+        else:
+            good = got is not None and abs(got - want) <= 0.02 * want
+            lines.append(f"  {sym:5s} {date}  期望系数 {want:.6g}  实际 "
+                         f"{'无' if got is None else f'{got:.6g}'}  "
+                         f"{'✅ 一致' if good else '★ 不一致!'}  {why}")
+        ok &= good
+    return ok, lines
+
+
+def source_prices_are_raw(tol: float = 0.35) -> tuple[bool, list[str]]:
+    """
+    ★★ ⑦ 断言源头价格是**未调整的 raw** —— 这是「我们还得自己修」的前提,
+    也是「不会双重修正」的证明。
+
+    做法:对每个非 1 系数事件,看当天**原始** close 比值 ÷ (1/系数)。
+      ≈1 → 源头没动价格(raw),我们修是对的。
+      ≈1/系数的倒数(即比值≈系数)→ 源头已经修过了,★ 我们再修就是双重修正。
+    ★ 这里用中位数判断,单只票的残差是当天真实涨跌,不该要求为 0。
+    """
+    import json
+    import os
+    import numpy as np
+    import pandas as pd
+    base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    ratios, n_ev = [], 0
+    for sym in sorted(os.listdir(os.path.join(base, "pilot_300"))):
+        p = os.path.join(base, "pilot_300", sym, "daily.json")
+        if not os.path.exists(p):
+            continue
+        try:
+            with open(p, encoding="utf-8") as fh:
+                rows = (json.load(fh).get("data") or [])
+        except (OSError, ValueError):
+            continue
+        evs = ratio_events_from_rows(sym, rows) if USE_SOURCE_COEFFICIENTS else []
+        if not evs:
+            continue
+        df = pd.DataFrame(rows)
+        df["date"] = pd.to_datetime(df["date"])
+        c = pd.to_numeric(df.set_index("date").sort_index()["close"], errors="coerce").dropna()
+        c = c[c > 0]
+        for e in evs:
+            ts = pd.Timestamp(e.date)
+            if ts not in c.index:
+                continue
+            i = c.index.get_loc(ts)
+            if i == 0:
+                continue
+            obs = float(c.iloc[i] / c.iloc[i - 1])
+            ratios.append(obs / e.ratio)       # e.ratio = 1/系数
+            n_ev += 1
+    if not ratios:
+        return False, ["  ★ 一个系数事件都没读到 —— 源头系数可能没接上"]
+    med = float(np.median(ratios))
+    good = abs(med - 1.0) <= tol
+    lines = [
+        f"  扫到 {n_ev} 个非 1 系数事件,(当天原始价格比值 ÷ 1/系数) 的中位数 = {med:.4f}",
+        f"  {'✅ ≈1 → 源头价格是 raw,该修的得我们修,不存在双重修正' if good else '★ 偏离 1!源头可能已经调整过价格 —— 再修就是双重修正,立刻停用源头系数'}",
+    ]
+    return good, lines
+
+
+#: ★★ 换股并购盲区 —— 价格上零痕迹、系数恒为 1,★ 这个洞接了源头系数也没补上。
+#  判定依据:manifest.csv 的 retirement_category == 'ACQUISITION_STOCK'
+MERGER_BLIND_SPOT_SYMBOLS: tuple[str, ...] = (
+    "OCSI", "ALXN", "DFS", "HES", "KSU", "MRO", "XLNX",
+)
+
+
+def merger_blind_spot() -> list[str]:
+    """
+    ★★ 列出「接了源头系数之后仍然看不见」的那一类事件。
+
+    ★ 为什么必须每次打印:接源头系数只解决了**拆股**。换股并购在价格上是连续的
+      (换股比例接近 1:1),split_coefficient 在换股日也是 1.0 —— 两个信号都为零。
+      ★ 不打印就会让人以为"接了官方字段,问题没了"。它没没了。
+    """
+    import os
+    import json
+    base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    lines = [
+        "  ★★ 换股并购盲区(接了源头系数也补不上)—— 需要一份公司行动流水表:",
+    ]
+    for sym in MERGER_BLIND_SPOT_SYMBOLS:
+        p = os.path.join(base, "pilot_300", sym, "daily.json")
+        n_coef = 0
+        if os.path.exists(p):
+            try:
+                with open(p, encoding="utf-8") as fh:
+                    rows = (json.load(fh).get("data") or [])
+                n_coef = len(ratio_events_from_rows(sym, rows))
+            except (OSError, ValueError):
+                pass
+        lines.append(f"      {sym:6s} retirement_category=ACQUISITION_STOCK  "
+                     f"源头非1系数 {n_coef} 个  价格 ≥3x 跳变 0 根  "
+                     f"→ ★ 两个信号都为零,看不见")
+    lines += [
+        "      ★ 结论:这 7 只的换股事件我们【仍然无法识别】。"
+        "在世公司的并购同样不覆盖。",
+        "      ★ 唯一的解法是补事件流水表(ticker + ex_date + event_type + "
+        "exchange_ratio + 对手方),仓库里没有。",
+    ]
+    return lines
+
+
+def nonstandard_events() -> list[str]:
+    """
+    ★★ 系数非标准比例的事件 —— 实测是**股票股利 / 分拆**,★ 口径需要拍板。
+
+    ★ 为什么单独列出来:这些事件我们现在和拆股**一视同仁地修了**。
+      对股票股利(如 CBSH 每年 1.05)这么做是对的 —— 股数真的变多了。
+      ★ 但对**分拆**(如 EXC 1.402 = Constellation 分拆)这么做是一个近似:
+        股东拿到的是**另一家公司**的股票,不是本公司更多的股票。
+        按系数修 = 假设你在分拆当天按隐含价把分拆出来的那部分卖了。
+      ★ 这是行业惯例(供应商给出这个系数就是这个用意),但它是近似,不是恒等。
+      ★ 默认:照系数修(否则会在 EXC / MSGS / WDC 上吃一天 −29% 的假亏)。
+        要改成不修,把这些票的系数在 ratio_events_from_rows 里跳过即可。
+    """
+    import os
+    import json
+    base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    rows_out = []
+    for sym in sorted(os.listdir(os.path.join(base, "pilot_300"))):
+        p = os.path.join(base, "pilot_300", sym, "daily.json")
+        if not os.path.exists(p):
+            continue
+        try:
+            with open(p, encoding="utf-8") as fh:
+                rows = (json.load(fh).get("data") or [])
+        except (OSError, ValueError):
+            continue
+        for e in ratio_events_from_rows(sym, rows):
+            if e.coefficient and classify_coefficient(e.coefficient).startswith("非标准"):
+                rows_out.append((sym, e.date, e.coefficient))
+    lines = [f"  ★ 非标准比例(股票股利 / 分拆)事件 {len(rows_out)} 个 —— "
+             f"★ 默认照系数修,口径待拍板:"]
+    for sym, d, c in sorted(rows_out):
+        lines.append(f"      {sym:6s} {d}  系数 {c:g}  "
+                     f"(价格 ×{1 / c:.4f})")
+    return lines
+
+
+def khc_regression() -> tuple[bool, list[str]]:
+    """
+    ★★ ⑧ KHC 回归测试 —— 防止「并购换股被当成拆股修掉」这个 bug 回来。
+
+    事故原文:股数闸原来的判据是「实测倍数贴近常见拆股比例 ±3% 就按拆股修」。
+    KHC 2015-09-27 实测 3.0053x 贴近 3x,被判为 1 拆 3 并做了修正。
+    ★ 真相是 2015 年 Kraft 与 Heinz 合并 —— 真实股本扩张,修了就把真事件抹掉。
+
+    断言三件事:
+      ① KHC 在源头系数里没有任何非 1 系数(= 源头正确地说"这不是拆股")
+      ② 股数闸扫 KHC 2015-09-27 这一处,action 必须是 leave_as_is
+      ③ 股数闸过完之后,KHC 2015-06-28 那一期的股数必须等于**原始申报值**
+         (= 我们确实没有乘 3)
+    """
+    from . import share_gate
+    import pandas as pd
+    lines, ok = [], True
+
+    # ① 源头系数
+    n = len([1 for _ in TECH_VERIFIED_COEFFICIENTS])  # noqa: F841 (仅为可读)
+    got = _coef_on("KHC", "2015-09-27")
+    g1 = got is None
+    lines.append(f"      ① KHC 源头非1系数:{'无' if got is None else got} "
+                 f"{'✅ 源头说这不是拆股' if g1 else '★ 源头给了系数?'}")
+    ok &= g1
+
+    # ② 股数闸的判定
+    target = pd.Timestamp("2015-09-27")
+    js = [j for j in share_gate.scan("KHC") if j.period_end == target]
+    g2 = bool(js) and all(j.action == "leave_as_is" for j in js)
+    if js:
+        for j in js:
+            lines.append(f"      ② 股数闸 KHC {j.period_end.date()} 实测 "
+                         f"{j.ratio:.4f}x → action={j.action}  "
+                         f"{'✅ 没当成拆股' if j.action == 'leave_as_is' else '★ 又被当成拆股了!'}")
+    else:
+        lines.append("      ② ★ 没扫到 KHC 2015-09-27 这处跳变 —— 回归测试失去锚点")
+    ok &= g2
+
+    # ③ 过闸后的值必须是原始申报值
+    raw = {p.period_end: p.shares for p in share_gate.quarterly_points("KHC")}
+    adj = {p.period_end: p.shares for p in share_gate.adjusted_points("KHC")}
+    probe = pd.Timestamp("2015-06-28")
+    g3 = (probe in raw and probe in adj
+          and abs(raw[probe] - adj[probe]) <= 1e-6 * max(1.0, abs(raw[probe])))
+    lines.append(
+        f"      ③ KHC {probe.date()} 原始申报 "
+        f"{raw.get(probe, float('nan')):,.0f} / 过闸后 "
+        f"{adj.get(probe, float('nan')):,.0f}  "
+        f"{'✅ 一个数都没动' if g3 else '★ 被乘过了!'}")
+    ok &= g3
+    return ok, lines
 
 
 def residual_jumps(min_jump: float = 3.0) -> list[tuple[str, str, float]]:

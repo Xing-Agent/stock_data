@@ -87,10 +87,15 @@ def _apply_regime(name: str, old_split: bool, old_delist: bool) -> None:
         split_gate.FIX_EVENTS = OLD_FIX_EVENTS
         split_gate.CUT_EVENTS = ()
         split_gate.EXCLUDED_SYMBOLS = OLD_EXCLUDED
+        # ★★ 2026-10-29:比例修正已改为读源头 split_coefficient。
+        #   对照组("旧版错清单")必须同时把源头系数关掉,否则源头系数会叠在
+        #   旧清单上面 → 这一组就不再是"旧版",A/B 对照失去意义。
+        split_gate.USE_SOURCE_COEFFICIENTS = False
     else:
         split_gate.FIX_EVENTS = _NEW_FIX
         split_gate.CUT_EVENTS = _NEW_CUT
         split_gate.EXCLUDED_SYMBOLS = _NEW_EXCL
+        split_gate.USE_SOURCE_COEFFICIENTS = True
 
     delisting_gate.forced_price = _old_forced_price if old_delist else _NEW_FORCED
 
