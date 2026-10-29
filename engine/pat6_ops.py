@@ -532,6 +532,165 @@ def spring_events(symbols: list[str], p: dict):
             pd.DataFrame(rows))
 
 
+def spring_two_day(symbols: list[str], p: dict):
+    """
+    ★★ 技-11 两日结构版 —— 批五修正(2026-10-29)。
+
+    大白话(三秒):老版本把「下刺收复那一天」和「缩量测试那一天」当成同一天,
+    还要求下刺收复当天缩量 —— 这在物理上自相矛盾:既然止损盘被打爆、
+    主力在吸货,那一天只能是放量。这一版把两天拆开。
+
+    Day 1(Spring 发生日):
+      · 盘中跌破前 lookback 日低点(该低点至少 min_bars_before 天老)
+      · 当日收盘收复:Close ≥ 前低 + reclaim_atr_multiple × ATR
+      · ★★ 当日成交量【不低于】spring_vol_min_ratio × SMA(vol_slow_period)
+        —— ★ 这是和老版本【方向相反】的那一条。
+      · depth_hard_cap_atr 为 None 时**不设深度上限**(深度分档另行实测)
+
+    Day 2 ~ Day N(Test 测试日,N = test_max_bars):
+      · 回踩:Low_t > 前低(守住了被下刺的那条线)
+      · 且 Close_t ≤ Spring 日收盘(确实是回踩,不是继续冲高)
+      · 且 Vol_t ≤ test_vol_max_ratio × SMA(vol_slow_period)
+        —— ★★ 原著体系里「极度缩量」要的是【这一天】,不是 Spring 当天
+
+    进场:Test 日收盘确认 → 次日开盘(信号挂在 Test 日那一行)。
+
+    ★★ 归属:Wyckoff 1931 原著只有 Terminal Shakeout,【没有 1/2/3 号分类】,
+      两日结构是 Bob Evans(1930s-50s)口头归纳 → Pruden(2007) /
+      Williams(1993) 整理出版的【后人量化版,无统计支持】,
+      ★ 不是【原著写死】。所有引文【待核实】。
+    ★ 「回踩」的那两条判据(Low_t > 前低、Close_t ≤ Spring 日收盘)是
+      ★★【我们自己定的可执行化口径】—— 原著只有散文描述,没有任何可执行阈值。
+
+    返回 (事件矩阵, 诊断 DataFrame)。
+    """
+    from . import ops_1029
+    lb = int(_need(p, "lookback", "pat6_spring_two_day"))
+    min_age = int(_need(p, "min_bars_before", "pat6_spring_two_day"))
+    atr_n = int(_need(p, "atr_period", "pat6_spring_two_day"))
+    rec_mult = float(_need(p, "reclaim_atr_multiple", "pat6_spring_two_day"))
+    v_min = float(_need(p, "spring_vol_min_ratio", "pat6_spring_two_day"))
+    test_n = int(_need(p, "test_max_bars", "pat6_spring_two_day"))
+    test_vmax = float(_need(p, "test_vol_max_ratio", "pat6_spring_two_day"))
+    vslow = int(_need(p, "vol_slow_period", "pat6_spring_two_day"))
+    if "depth_hard_cap_atr" not in p:
+        raise NotImplementedError(
+            "pat6_spring_two_day 必须显式写 depth_hard_cap_atr —— "
+            "不设上限就写 null,★ 引擎不替它选一边。")
+    hard = p["depth_hard_cap_atr"]
+    hard = float(hard) if hard is not None else None
+
+    sl, age = ops_1029.swing_low_20(tuple(symbols), lb)
+    low = cache.field("low", symbols)
+    close = cache.field("close", symbols)
+    vol = cache.field("volume", symbols)
+    atr = matrices.atr_matrix(atr_n, symbols)
+    sv = vol.rolling(vslow, min_periods=vslow).mean().shift(1)
+
+    sla, aga = sl.to_numpy(float), age.to_numpy(float)
+    la, ca = low.to_numpy(float), close.to_numpy(float)
+    va, sva, aa = vol.to_numpy(float), sv.to_numpy(float), atr.to_numpy(float)
+    T, N = la.shape
+    ev = np.zeros((T, N), dtype=bool)
+    rows = []
+    for j in range(N):
+        for t in range(T):
+            prior = sla[t, j]
+            if not np.isfinite(prior) or aga[t, j] < min_age:
+                continue
+            if not (np.isfinite(la[t, j]) and la[t, j] < prior):
+                continue                             # 没有下刺
+            a = aa[t, j]
+            if not np.isfinite(a) or a <= 0:
+                continue
+            dep_atr = (prior - la[t, j]) / a
+            if hard is not None and dep_atr > hard:
+                continue
+            # Day 1 收复
+            if not (np.isfinite(ca[t, j]) and ca[t, j] >= prior + rec_mult * a):
+                continue
+            # ★★ Day 1 必须有量 —— 和老版本方向相反的那一条
+            if not np.isfinite(sva[t, j]) or sva[t, j] <= 0:
+                continue
+            vr1 = va[t, j] / sva[t, j]
+            if not (vr1 >= v_min):
+                continue
+            # Day 2..N 缩量测试
+            hit, vr2 = -1, np.nan
+            for k in range(1, test_n + 1):
+                u = t + k
+                if u >= T:
+                    break
+                if not (np.isfinite(la[u, j]) and np.isfinite(ca[u, j])
+                        and np.isfinite(sva[u, j]) and sva[u, j] > 0):
+                    continue
+                if la[u, j] <= prior:
+                    continue                         # 又破了 → 不是守住的回踩
+                if ca[u, j] > ca[t, j]:
+                    continue                         # 不是回踩
+                r2 = va[u, j] / sva[u, j]
+                if r2 <= test_vmax:
+                    hit, vr2 = u, r2
+                    break
+            if hit < 0:
+                continue
+            ev[hit, j] = True
+            rows.append({"symbol": symbols[j], "spring_row": t, "test_row": hit,
+                         "prior_low": prior, "spring_low": la[t, j],
+                         "dep_atr": dep_atr, "pen_pct": (prior - la[t, j]) / prior,
+                         "spring_vol_ratio": vr1, "test_vol_ratio": vr2,
+                         "test_lag": hit - t})
+    return (pd.DataFrame(ev, index=low.index, columns=low.columns),
+            pd.DataFrame(rows))
+
+
+def spring_day1_pool(symbols: list[str], lookback: int, min_age: int,
+                     atr_period: int, vol_slow: int,
+                     reclaim_atr_multiple: float,
+                     spring_vol_min_ratio: float) -> pd.DataFrame:
+    """
+    ★ Day 1(Spring 发生日)的**母集**,★ 不设任何深度上限 ——
+      专门给「下刺深度分档」那道实测用:要看 >1.5ATR 到底该不该禁,
+      就不能先把它筛掉。
+    """
+    from . import ops_1029
+    sl, age = ops_1029.swing_low_20(tuple(symbols), int(lookback))
+    low = cache.field("low", symbols)
+    close = cache.field("close", symbols)
+    vol = cache.field("volume", symbols)
+    atr = matrices.atr_matrix(int(atr_period), symbols)
+    sv = vol.rolling(int(vol_slow), min_periods=int(vol_slow)).mean().shift(1)
+
+    sla, aga = sl.to_numpy(float), age.to_numpy(float)
+    la, ca = low.to_numpy(float), close.to_numpy(float)
+    va, sva, aa = vol.to_numpy(float), sv.to_numpy(float), atr.to_numpy(float)
+    T, N = la.shape
+    rows = []
+    for j in range(N):
+        for t in range(T):
+            prior = sla[t, j]
+            if not np.isfinite(prior) or aga[t, j] < min_age:
+                continue
+            if not (np.isfinite(la[t, j]) and la[t, j] < prior):
+                continue
+            a = aa[t, j]
+            if not (np.isfinite(a) and a > 0):
+                continue
+            if not (np.isfinite(ca[t, j])
+                    and ca[t, j] >= prior + float(reclaim_atr_multiple) * a):
+                continue
+            if not (np.isfinite(sva[t, j]) and sva[t, j] > 0):
+                continue
+            vr = va[t, j] / sva[t, j]
+            if vr < float(spring_vol_min_ratio):
+                continue
+            rows.append({"symbol": symbols[j], "row": t, "date": low.index[t],
+                         "dep_atr": (prior - la[t, j]) / a,
+                         "pen_pct": (prior - la[t, j]) / prior,
+                         "vol_ratio": vr})
+    return pd.DataFrame(rows)
+
+
 def spring_triage(symbols: list[str], lookback: int, min_age: int,
                   atr_period: int, vol_slow: int,
                   micro_pen_pct: float, micro_vol_ratio: float,
@@ -646,6 +805,63 @@ def bb_trend_filters(symbols: list[str], p: dict) -> pd.DataFrame:
     return _bool(f1 & f2 & f3)
 
 
+def bb_reversal(symbols: list[str], p: dict) -> pd.DataFrame:
+    """
+    ★ 批五修正:专家给的 Reversal_Trigger,逐字落地 ——
+      (Low < LowerBand) and (Close > LowerBand) and (Close > Open)
+    ★ 和老的 pat6_bb_reclaim 的差别:① 第一步只要**当日盘中**破轨
+      (老版本还放行「前一日收盘已在轨下」);② 不带 RSI 回升那一步
+      (RSI 那一步在新组合里由 pat6_rsi_oversold 单独承担)。
+    """
+    n = int(_need(p, "period", "pat6_bb_reversal"))
+    k = float(_need(p, "k", "pat6_bb_reversal"))
+    _, _, lo, _, _ = bollinger(n, k, symbols)
+    close = cache.field("close", symbols)
+    op = cache.field("open", symbols)
+    low = cache.field("low", symbols)
+    return _bool((low < lo) & (close > lo) & (close > op))
+
+
+def rsi_oversold(symbols: list[str], p: dict) -> pd.DataFrame:
+    """
+    ★ 批五修正:Oversold_Trigger = RSI(rsi_period) ≤ max_rsi。
+    出处:Connors & Alvarez《Short Term Trading Strategies That Work》(2008)
+    的 RSI(2) 体系【待核实】。★ RSI 用 Wilder 平滑(matrices.rsi_matrix)。
+    """
+    n = int(_need(p, "rsi_period", "pat6_rsi_oversold"))
+    mx = float(_need(p, "max_rsi", "pat6_rsi_oversold"))
+    return _bool(matrices.rsi_matrix(n, symbols) <= mx)
+
+
+def bb_trend_gate(symbols: list[str], p: dict) -> pd.DataFrame:
+    """
+    ★ 批五修正:只剩 Trend_Gate 这一道 ——
+      Close > SMA(ma_period) and Slope(slope_lookback) of SMA ≥ 0。
+    ★★ ADX(14) ≤ 25 那一道【已废除】:专家自认那是「教科书里流传最广但
+      未经解耦的教条毒药」—— ADX 不分方向,强牛市里的深度急跌(黄金坑)
+      会把 ADX 瞬间推到 30~45,于是 ADX≤25 精准切掉了弹性最大的买点,
+      放行的反而是毫无动能的死水横盘。
+    """
+    ma_n = int(_need(p, "ma_period", "pat6_bb_trend_gate"))
+    slope_lb = int(_need(p, "slope_lookback", "pat6_bb_trend_gate"))
+    close = cache.field("close", symbols)
+    ma = matrices.sma_matrix(ma_n, symbols)
+    return _bool((close > ma) & (ma_slope_pct(ma_n, slope_lb, symbols) >= 0.0))
+
+
+def bb_bw_jump_gate(symbols: list[str], p: dict) -> pd.DataFrame:
+    """
+    ★ 批五修正:带宽突变熔断单独拆出来 —— (BW_t − BW_{t−lb}) / BW_{t−lb} ≤ max。
+    ★ 专家没说废这一道,所以单独拆出来做「带它 / 不带它」的对照。
+    """
+    bb_n = int(_need(p, "period", "pat6_bb_bw_jump_gate"))
+    bb_k = float(_need(p, "k", "pat6_bb_bw_jump_gate"))
+    lb = int(_need(p, "bw_jump_lookback", "pat6_bb_bw_jump_gate"))
+    mx = float(_need(p, "bw_jump_max", "pat6_bb_bw_jump_gate"))
+    _, _, _, _, bw = bollinger(bb_n, bb_k, symbols)
+    return _bool((bw / bw.shift(lb) - 1.0) <= mx)
+
+
 def w_bottom_divergence(symbols: list[str], p: dict) -> pd.DataFrame:
     """
     ★★ 技-14「原著版」= Bollinger 自己认可的 Method III (Reversals) 近似。
@@ -724,9 +940,14 @@ _ENTRY_TYPES = {
     "pat6_darvas_breakout",
     "pat6_narrow_box_breakout",
     "pat6_spring",
+    "pat6_spring_two_day",
     "pat6_bb_tag_lower",
     "pat6_bb_reclaim",
     "pat6_bb_trend_filters",
+    "pat6_bb_reversal",
+    "pat6_rsi_oversold",
+    "pat6_bb_trend_gate",
+    "pat6_bb_bw_jump_gate",
     "pat6_w_bottom_divergence",
 }
 _EXIT_TYPES = {
@@ -803,6 +1024,19 @@ def _entry(rule: dict, symbols: list[str]):
     if t == "pat6_spring":
         ev, _ = spring_events(symbols, p)
         return _bool(ev)
+
+    if t == "pat6_spring_two_day":
+        ev, _ = spring_two_day(symbols, p)
+        return _bool(ev)
+
+    if t == "pat6_bb_reversal":
+        return bb_reversal(symbols, p)
+    if t == "pat6_rsi_oversold":
+        return rsi_oversold(symbols, p)
+    if t == "pat6_bb_trend_gate":
+        return bb_trend_gate(symbols, p)
+    if t == "pat6_bb_bw_jump_gate":
+        return bb_bw_jump_gate(symbols, p)
 
     if t == "pat6_bb_tag_lower":
         return bb_tag_lower(symbols, p)
