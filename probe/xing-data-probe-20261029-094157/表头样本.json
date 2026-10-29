@@ -1,0 +1,8 @@
+{
+ "/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/upload_audit/summary.json": "{   \"states\": {     \"done\": 1366   } } ",
+ "/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/upload_audit/file_index.txt": "/mnt/tool_aggregator_storage/massive_rest_stocks_minutes_2016_20210326/minute/2016/2016-01-29.status.json",
+ "/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/00_整理导航_20261022/00_先读说明.txt": "﻿P04 美股1分钟行情（Massive） — 整理导航（2026-10-22）",
+ "/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/00_整理导航_20261022/01_目录分类索引.csv": "﻿分类,年份或检索分组,类型,名称,当前位置,原位置,fs_id,字节数,本次移动",
+ "/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/00_整理导航_20261022/02_原路径到现路径.csv": "﻿分类,年份或检索分组,类型,名称,当前位置,原位置,fs_id,字节数,本次移动",
+ "/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/all/2025-08-18.csv.gz": "ticker,volume,open,close,high,low,window_start,transactions"
+}

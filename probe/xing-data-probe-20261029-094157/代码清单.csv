@@ -1,0 +1,5 @@
+symbol,文件数,样例路径
+CFG,1,/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/xing_pit/cfg.json
+FILE,1,/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/upload_audit/file_index.txt
+OR,1,/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/xing_pit/or_parts.csv
+TAIL,1,/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/xing_pit/tail_daily.csv

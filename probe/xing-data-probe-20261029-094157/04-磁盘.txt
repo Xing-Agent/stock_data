@@ -1,0 +1,11 @@
+=== 四 · 磁盘占用 ===
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/nvme0n1p1   9.6G  5.8G  3.8G  61% /
+tmpfs            2.0G     0  2.0G   0% /dev
+tmpfs            784M  576K  783M   1% /run
+tmpfs            5.0M     0  5.0M   0% /run/lock
+tmpfs            2.0G     0  2.0G   0% /run/dbus
+tmpfs            2.0G     0  2.0G   0% /run/user
+/dev/nvme1n1     9.8G  125M  9.2G   2% /sessions
+/proc/self/fd/3  466G  139G  328G  30% /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据
+tmpfs            2.0G     0  2.0G   0% /etc/ssh/ssh_config.d

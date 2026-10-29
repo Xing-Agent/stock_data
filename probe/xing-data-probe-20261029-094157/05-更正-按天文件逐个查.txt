@@ -1,0 +1,25 @@
+======================================================================
+05 · 更正:按「每天一个文件」逐个打开查(上面 03 的 0/6 是脚本没认出文件格式,不是数据没有)
+======================================================================
+这台机器的主体数据是「每天一个文件、当天全市场都在里面」,代码在文件里,不在文件名上;
+另一批「每只票一个文件」用的是 .csv.zst,脚本的扩展名清单里没有。所以 03 连 AAPL/MSFT/KO 也没找到。
+
+day/2020/01/2020-01-02.csv.gz            当天代码数   8582 | SIVB✅ FRC✅ XLNX✅ ALXN✅ SQBG✅ WPG✅ AAPL✅ MSFT✅ KO✅ 
+day/2021/03/2021-03-01.csv.gz            当天代码数   9838 | SIVB✅ FRC✅ XLNX✅ ALXN✅ SQBG✅ WPG✅ AAPL✅ MSFT✅ KO✅ 
+day/all/2022-01-03.csv.gz                当天代码数  11182 | SIVB✅ FRC✅ XLNX✅ ALXN❌ SQBG❌ WPG❌ AAPL✅ MSFT✅ KO✅ 
+day/all/2023-03-01.csv.gz                当天代码数  10847 | SIVB✅ FRC✅ XLNX❌ ALXN❌ SQBG❌ WPG❌ AAPL✅ MSFT✅ KO✅ 
+minute/2020/2020-01-02.csv.gz            当天代码数   8399 | SIVB✅ FRC✅ XLNX✅ ALXN✅ SQBG✅ WPG✅ AAPL✅ MSFT✅ KO✅ 
+minute/all/2023-03-01.csv.gz             当天代码数  10430 | SIVB✅ FRC✅ XLNX❌ ALXN❌ SQBG❌ WPG❌ AAPL✅ MSFT✅ KO✅ 
+
+表头(日线,两段):
+ticker,volume,volume_weighted_average,open,close,high,low,window_start,transactions,otc
+ticker,volume,open,close,high,low,window_start,transactions
+表头(1 分钟线,两段):
+ticker,t,v,vw,o,c,h,l,n
+ticker,volume,open,close,high,low,window_start,transactions
+→ 没有拆股系数、没有分红、没有除息日、没有复权价字段
+
+「每只票一个文件」那批(CMES,2004–2015,.csv.zst):
+  2008: 文件数 2396 | SIVB❌ FRC❌ XLNX❌ ALXN❌ AAPL✅ MSFT✅ KO✅ GOOGL✅ LEH❌ 
+  2015: 文件数 3391 | SIVB❌ FRC❌ XLNX❌ ALXN❌ AAPL✅ MSFT✅ KO✅ GOOGL✅ LEH❌ 
+  → 这批是拿今天的代码往回查的(2008 年里有 GOOGL,没有雷曼 LEH),不含退市股
