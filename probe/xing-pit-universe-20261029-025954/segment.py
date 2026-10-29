@@ -16,7 +16,7 @@ GAP_CUT = 30          # 连续缺席多少个交易日就切
 GAP_PRICE = 5         # 缺席这么多天以上,回来价格差 3 倍也切
 PX_BREAK = 3.0
 SPLITS = [2, 3, 4, 5, 6, 8, 10, 15, 20, 25, 30, 40, 50, 100, 1.5]
-STAT0 = "2015-12-01"
+STAT0 = "2014-12-01"
 
 df = pl.read_parquet("raw_all.parquet").sort(["t", "d"])
 dates = np.sort(df["d"].unique().to_numpy())
