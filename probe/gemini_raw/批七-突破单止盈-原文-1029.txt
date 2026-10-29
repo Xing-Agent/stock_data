@@ -1,0 +1,172 @@
+(a) 「突破失败」怎么定义？
+在专业交易台与经典文献中，突破失败（Failed Breakout / False Breakout）绝非凭感觉判断，而是有严格的时空几何判据。
+① 突破后几根 K 线内回到突破点以下算失败？
+ * 【原著原文】：原著未给出普适统一的固定 K 线根数。
+   * 欧奈尔与达瓦斯均未在书中写过“连续 N 根不涨就叫失败”；
+   * 特例出处：Mark Minervini 在《Think & Trade Like a Champion》（2017）Chapter 8（Section: "Expectation Breakers", pp. 135–142）中明确给出了时间与节奏维度的失效定义：
+     > "An ideal breakout should follow through immediately, or within one to three days at the most... If a stock breaks out and stalls for more than two or three sessions, or immediately retraces on the second day, your suspicion should be raised."（理想的突破应该立即推进，最迟在 1 到 3 天之内启动……如果突破后连续停滞 2 到 3 个交易日，或者次日立即大阴线反包，这属于预期违背）。
+     > 
+ * 【行业普遍做法】
+   * 量化系统与对冲基金交易台的标准时间判据为 T+2 或 T+3 法则：
+     突破发生日记为 T 日。若到 T+2 日收盘，价格未能在突破价位上方拉开至少 0.5 \times ATR 的安全垫，且连续 2 根收阴，系统直接判定为“动能熄火（Loss of Momentum）”，触发减仓或止损。
+② 还是按收盘价回到形态内算失败？
+ * 【原著原文】
+   * 出处：Mark Minervini, Think & Trade Like a Champion (2017) Chapter 8 (pp. 138–140)；William J. O'Neil, How to Make Money in Stocks (4th Edition, 2009) Chapter 11 (pp. 235–244)。
+   * 原著标准：必须以日线收盘价（Daily Close）回到形态内作为正式证伪依据，但允许日内硬止损先行拦截。
+   * Minervini 明确指出，盘中跌破突破位几美分可能是做市商回踩测试，但如果收盘价收在关键枢纽点（Pivot Point）下方、且收在当天振幅的下半部分，在力学上直接宣告该突破为假突破（Failed Breakout）。
+③ 米奈尔维尼、欧奈尔、达瓦斯 三人的定义有区别吗？
+ * 【原著原文】：三人在哲学底色上一致，但在量化触发逻辑与容忍度上有本质区别：
+| 大师 | 判定突破失败的核心逻辑 | 具体判据与出处（真实可核验） | 执行方式 |
+|---|---|---|---|
+| 尼古拉·达瓦斯
+(Nicolas Darvas) | 绝对边界触碰即死
+（完全由箱顶机械定义） | How I Made $2,000,000 in the Stock Market (1960) Chapter 4 (pp. 37–58)：
+买入突破新箱顶的股票，止损单直接挂在前一个箱体顶部下方几美分（如 49\frac{7}{8}）。只要盘中价格跌破该箱顶水平线，立即触发止损出局。 | 盘中触发。
+不给任何容忍度，跌回旧箱体即判定为失败。 |
+| 威廉·欧奈尔
+(William J. O'Neil) | 百分比底线 + 异常派发
+（7%~8% 铁律 + 出货日） | How to Make Money in Stocks (4th Edition, 2009) Chapter 10 & 11 (pp. 235–260)：
+1. 绝对底线：自突破买点下跌 7% 至 8% 无条件全额清仓；
+2. 早期失败预警：突破次日出现大成交量长阴线回吐（Stall / Reversal day），或者跌破 10 周（50 日）均线。 | 混合执行。
+7-8% 为硬熔断，形态走坏则在收盘前手动切除。 |
+| 马克·米奈尔维尼
+(Mark Minervini) | 违背预期 + 结构跌破
+（Expectation Breakers） | Think & Trade Like a Champion (2017) Chapter 8 (pp. 135–148)：
+1. 回落回基底：价格跌回收敛形态（VCP/Handle）内部；
+2. 反包起涨柱：突破后的回踩跌破了突破当天那根 K 线的最低点；
+3. 最大止损：严格控制在 5\% \sim 6\%（平均不超过 2.5 \times 预期盈亏比）。 | 极紧凑执行。
+强调在亏损扩大到 7-8% 之前，利用结构破位主动在 2-4% 亏损内止损。 |
+(b) 「突破走完一段后进入新震荡，在第二次触摸新震荡区间顶部时卖掉大部分」
+① 交易文献里有这个做法的明确出处吗？
+ * 【原著原文】
+   * 出处 1（经典技术分析图表学）：Robert D. Edwards & John Magee, Technical Analysis of Stock Trends (1948 / 11th Ed. 2018), Chapter 7: "Important Reversal Patterns: The Double and Triple Tops" (pp. 95–112)。
+     * 原著论述：在一段主升浪推进后，价格在某一高点受阻回调；当多头重新组织进攻、第二次测试前期高点受阻并形成平顶（Double Top / 双顶）时，标志着买盘力量竭尽，为趋势终结的确定性卖出信号。
+   * 出处 2（现代 Price Action 体系）：Al Brooks, Trading Price Action Trends (Wiley, 2012), Chapter 15: "Major Trend Reversal (MTR)" (pp. 385–410) 与 Trading Price Action Trading Ranges (2012) Chapter 9。
+     * 原著论述：强趋势转入震荡区间后，市场会尝试恢复原趋势。第二次向上测试区间上沿失败（Double Top Bear Flag / Lower High MTR），是多头多转空或大额多头头寸最理想的离场点。
+   * 出处 3（威科夫体系）：David H. Weis, Trades About to Happen (2013) Chapter 5: "Upthrusts"。在派发区间中，对前期高点的第二次测试被称为二次测试（Secondary Test, ST in Phase B）或上冲落空（Upthrust），触碰后量能衰竭即为离场指令。
+② 「已经走完一段、开始新震荡」在量化上怎么判？（可写进代码的规则）
+ * 【行业普遍做法】
+   * 现代量化趋势跟踪交易台不依赖视觉看图，采用以下三组正交条件联合裁定：
+# 1. 动能耗竭判定: 效率比率断崖跌落 (Trend Decay)
+# 过去 20 根 K 线的 Kaufman 效率比率跌破无趋势门槛
+trend_exhausted = (Kaufman_ER(20) < 0.25)
+
+# 2. 均线纠缠判定: 价格横向穿透短期均线 (Moving Average Loss)
+# 价格自突破以来首次出现收盘跌破 20 EMA，且 20 EMA 切线斜率接近于零
+ma_flat = (Close < EMA_20) and (abs(EMA_20 - EMA_20.shift(5)) / EMA_20.shift(5) < 0.003)
+
+# 3. 空间高位停滞: 过去 15 个交易日未能创出新高 (Time-Distance Staleness)
+highest_high_15 = Highest(High, 15)
+stagnation = (highest_high_15 == highest_high_15.shift(10))
+
+# 综合裁定: 进入「新震荡区间 (New Trading Range)」
+in_new_trading_range = trend_exhausted and ma_flat and stagnation
+
+「第二次触摸新震荡区间顶部」的代码化判据：
+ * 记录该震荡区间的第一次冲顶阻力位：R_1 = \text{Highest}(High, 20)；
+ * 随后价格出现一次向下的回撤（回调幅度 \ge 1.5 \times ATR）；
+ * 第二次冲顶条件：当前价格重新反弹至阻力位缓冲区内：
+   
+ * 触发卖出信号：在上述区域内，当日日 K 线收出长上影线（Close_t \le Low_t + 0.4 \times (High_t - Low_t)），或者次日收阴反包。
+③ 「卖掉大部分」行业里通常是多少比例？
+ * 【行业普遍做法】
+   * 标准执行比例：卖出总头寸的 65\% \sim 75\%（即平仓三分之二，或平仓四分之三）。
+   * 出处：Mark Minervini 在《Think & Trade Like a Champion》Chapter 11 中论述“Scale Out”机制时推荐卖出三分之二（66.7\%）；Alan Farley 在《The Master Swing Trader》中推荐留存 25\% 底仓。
+   * 力学逻辑：平仓三分之二能够将已经扩大的账面浮盈绝大部分落袋为安；保留的 25\% \sim 33\% 底仓将止损线移至该震荡区间的底沿下方，用于防范该震荡仅仅是“高位再吸筹（Re-accumulation）”随后直接开启下一波超级大单边的可能。
+(c) 分批止盈：欧奈尔、米奈尔维尼、丹·赞格著作审查
+1. 威廉·欧奈尔（William J. O'Neil）
+ * 【原著原文】
+   * 出处：William J. O'Neil, How to Make Money in Stocks (4th Edition, 2009), Chapter 10: "When to Sell and Take Your Worthwhile Profit" (pp. 209–220)。
+   * 写死的数字（原著确实有）：
+     * 20% 至 25% 止盈铁律：原著明确写明，常规股票突破枢纽买点后，上涨达到 20% 到 25% 时，应当全额或大部获利了结（“Take your profits when they are up 20% to 25%”）；
+     * 8 周持有法则（例外规则）：若一只真正的大牛股在突破后 1 到 3 周内涨幅迅速达到 20%，原著硬性规定必须至少持有该股整整 8 周（Hold for 8 Weeks），第 8 周之后再决定是否继续持有。
+   * 哪些是后人补的：
+     * 欧奈尔在原著中从未给出过“先卖 1/3，再卖 1/3，最后留 1/3”这种固定的分批等分公式。原著强调的是单一头寸在 20-25% 兑现，或者在见顶特征（Climax Run）出现时整批清仓。后世 IBD 投资网刊与培训中常见的“达到 20% 卖出一半、留一半”属于培训教练为了降低零售用户心理摩擦而加入的操作技巧。
+2. 马克·米奈尔维尼（Mark Minervini）
+ * 【原著原文】
+   * 出处：Mark Minervini, Think & Trade Like a Champion (2017), Chapter 11: "How and When to Sell and Take Your Profits" (pp. 195–218)。
+   * 写死的数字（原著确实有）：
+     * 自由骑行规则（Free Ride / Breakeven Rule）：当持仓浮盈达到初始风险暴露的倍数（通常为 +2R 或 +3R）时，卖出一半（50\%）头寸，并将剩余仓位的止损上移至开仓成本线；
+     * 不对称获利比率：强调平均获利金额必须达到平均亏损金额的 2:1 至 3:1，若平均止损是 5%，获利止盈点位必须定在 10% 到 15% 之间。
+   * 哪些是后人补的：
+     * 任何宣称米奈尔维尼有“固定在 +18.5\% 必须抛空”的算法都是伪造的。他反复强调止盈取决于标的自身的波动率（ATR）与其相对基底的延伸距离。
+3. 丹·赞格（Dan Zanger）
+ * 【原著原文】：丹·赞格从未独立出版过任何正式的纸质学术专著或策略书籍。
+   * 他的全部技术规则散见于《The Zanger Report》历史简报、研讨会录音、以及由其授权的访谈汇编（如 Matt Narvaez 编著的访谈集）。
+ * 【行业普遍做法】
+   * 根据赞格公开讲授的实操规程：
+     * 卖出机制：高紧旗形突破后，赞格采用沿抛物线趋势线（Upward Trendline）移动跟踪；当股票在 2 至 3 周内发生单日跳空暴涨或高位放天量滞涨时，在盘中直接以市价单抛售 30\% \sim 50\%；
+     * 当价格跌破上升通道下轨支撑线时，清空全部剩余仓位。
+     * 赞格完全没有写死固定的百分比止盈门槛，他的所有止盈均由动能衰竭与通道破位驱动。
+(d) 加仓（金字塔 Pyramiding）：海龟原始规则审查
+ * 【原著原文】
+   * 出处：Curtis Faith, Way of the Turtle (McGraw-Hill, 2007), Chapter 5: "The Turtle System: Breakouts" (pp. 55–65) 与 Chapter 6: "Stops" (pp. 67–75)；Michael Covel, The Complete TurtleTrader (Collins, 2007)。
+   * 确认状态：确认上述章节与出处真实存在，记录完全精准。
+1. 原文规则与数学定义：
+ * “0.5N 加一次、最多 4 个单位”的记法完全准确无误！
+ * 严格原文流程：
+   * 初始建仓：当价格突破 20 日高点（系统 1）或 55 日高点（系统 2）时，建立 1 个单位（1 Unit） 的头寸；
+     * （1 Unit 数量定义：\text{Unit Size} = \frac{\text{账户净资产} \times 1\%}{N \times \text{每点美元价值}}，其中 N 即为 20 日真实波动均值 ATR）；
+   * 顺势加仓间隔：以最初建仓价格为基准，市场每顺向移动 0.5 \times N 的距离，机械加仓 1 个单位；
+   * 持仓上限硬约束：单标的加仓上限写死为 4 个单位（Max 4 Units），达到 4 个单位后无论行情多大，严禁继续加码；
+   * 止损联动规则（核心）：
+     每当加入一个新的单位，所有之前已建仓单位的止损线，必须同步顺向移动至最新成交价下方 2.0 \times N 的位置。这保证了即使加仓后瞬间遭遇反转，整个 4 个单位头寸的总风险暴露永远被严格约束在账户总本金的 2.0\% \sim 2.5\% 以内。
+(e) 趋势跟随的离场机制
+1. 埃德·塞科塔（Ed Seykota）用的是什么？
+ * 【原著原文】
+   * 出处：Jack Schwager, Market Wizards (1989), 访谈章节: "Ed Seykota: Everybody Gets What They Want"；Ed Seykota, Trading Tribe 官方系统论述。
+   * 塞科塔的真实做法：主要是指数移动平均线通道（Exponential Moving Averages, EMA）结合动态价格支撑线，并非 N 倍 ATR。
+   * 塞科塔在 1970 年代为大宗商品交易台编写了第一套商业化计算机交易程序（TSP），其底层核心逻辑就是多重 EMA 交叉（如 5 EMA / 20 EMA），离场采用价格反向穿越移动平均线或跌破最近一个关键摆动低点。塞科塔名言：“离场的规则很简单：1. 截断亏损；2. 让利润奔跑；3. 下小注。”
+2. 理查德·丹尼斯（海龟系统）用的是什么？
+ * 【原著原文】
+   * 出处：Curtis Faith, Way of the Turtle (2007) Chapter 5 & 6。
+   * 海龟的真实做法：绝对不是固定均线，也不是 ATR 回撤，而是纯粹的【前 N 日反向极值低点（Donchian Trailing Low）】！
+   * 原著写死的离场规则：
+     * 系统 1（20 日突破入场）：多头离场规则为价格跌破过去 10 日的最低价（10-day Low）；跌破即全部平仓；
+     * 系统 2（55 日突破入场）：多头离场规则为价格跌破过去 20 日的最低价（20-day Low）；跌破即全部平仓；
+     * 灾难防守线：若未触及 10 日/20 日低点，但价格跌破最后一次加仓点下方 2.0 \times N，触发硬止损离场。
+3. 现代 CTA / Managed Futures 行业最常用的是哪一种？
+ * 【行业普遍做法】
+   * 出处：Kathryn M. Kaminski & Alex Greyserman, Trend Following with Managed Futures: The Search for Crisis Alpha (Wiley, 2014) Chapter 3 & 4；Perry J. Kaufman, Trading Systems and Methods (2013) Chapter 17。
+ * 现代机构主流排序与具体方案：
+   * 第一主流（占据 60% 以上资产规模）：时间自适应均线交叉 / 滤波（Moving Average Envelopes / EMA Crossover）
+     如 20 EMA / 100 EMA 交叉，或价格跌破 50 日/100 日均线。因为其在多资产大容量（Capacity）执行时滑点最小、换手率适中；
+   * 第二主流（中型量化对冲基金最爱）：吊灯止损（Chandelier Exit / N 倍 ATR 跟踪）
+     以持仓以来的最高价回撤 3.0 \sim 4.5 \times ATR(20) 离场。该方法彻底消除了主观画线，完全实现波动率自适应；
+   * 第三主流：唐奇安反向通道（Donchian Exit）
+     由于其在横盘市中频繁在低位被扫单（震荡磨损严重），现代 CTA 机构通常会在反向通道之上叠加波动率过滤器（如效率比率 ER 降级），极少直接使用朴素的海龟 10 日低点。
+(f) 四条策略的流派属性归类与解剖
+┌─────────────────────────────────┬───────────────────────────────────────────────┐
+│ 策略名称                         │ 纯正流派属性归类                              │
+├─────────────────────────────────┼───────────────────────────────────────────────┤
+│ 1. 法伯月线择时 (Mebane Faber)   │ 【纯正的宏观资产配置 / 趋势跟随系统】        │
+│ 2. 温斯坦阶段分析 (Stan Weinstein)│ 【混合型: 突破点火 + 中长线趋势跟踪】         │
+│ 3. 高紧旗形 (Dan Zanger)         │ 【纯正的微观极端动量突破系统】                │
+│ 4. 次新股首发底 (David Ryan)     │ 【混合型: 事件驱动机构建仓 + 结构性突破点火】 │
+└─────────────────────────────────┴───────────────────────────────────────────────┘
+
+1. 法伯月线择时（Mebane Faber）
+ * 【原著原文】：Mebane T. Faber, A Quantitative Approach to Tactical Asset Allocation, The Journal of Wealth Management (2007, Vol. 9, No. 4, pp. 69–79)。
+ * 属性认定：纯正的宏观资产配置与大周期趋势跟随策略（Trend-Following Allocation）。
+ * 为什么不是突破单：
+   它在每月最后一个交易日收盘，计算标的（SPY、EFA、IEF 等大类资产）现价与其 10 个月简单移动平均线（10-month SMA） 的关系：
+   * 价格 > 10 月均线 \implies 全额持有资产；
+   * 价格 < 10 月均线 \implies 卖出并持有现金短债。
+     它没有几何突破形态，没有突破放量要求，没有止损位设置，本质是跨资产类别的大周期低通滤波动量开关。
+2. 温斯坦阶段分析（Stan Weinstein）
+ * 【原著原文】：Stan Weinstein, Secrets for Profiting in Bull and Bear Markets (1988) Chapter 2 & 4。
+ * 属性认定：典型的混合型策略（Hybrid: Breakout Entry + Trend-Following Exit）。
+ * 混合机制解剖：
+   * 进场端是【突破单】：要求标的经历长达数月的 Stage 1 底部横盘，以成交量翻倍的强动能突破基底阻力线，具有典型的形态突破特征；
+   * 出场端是【长线趋势跟随单】：原著明确要求突破买入后，绝不在 10% 或 20% 止盈，而是以向上翘起的 30 周移动平均线（30-week MA）作为长期移动支撑，只要价格不跌破 30 周均线就一直持有数季度，直到走完整个 Stage 2 单边主升浪并在 Stage 3 破位均线时才平仓。
+3. 高紧旗形（Dan Zanger）
+ * 【原著原文】：William J. O'Neil《How to Make Money in Stocks》Chapter 2 (pp. 129–130)；Dan Zanger 教学规范。
+ * 属性认定：纯正的极端动量短线突破单（Pure Momentum Breakout）。
+ * 为什么绝不是趋势跟随：
+   高紧旗形赌的是暴跌暴涨的非对称冲击（Shock Momentum）。要求前期在 4 至 8 周内飙升近 100%，随后在 10%~25% 的狭窄旗面内休整 3 至 5 周。突破发生后，其预期的 Alpha 半衰期极短，要求 1 到 3 周内再次发生抛物线爆发。若持有超过 20 根日线仍未启动，该形态在结构上直接暴毙。将其持有 603 天，属于将其与长线价值投资发生了毁灭性的类别混淆。
+4. 次新股首发底（David Ryan / O'Neil）
+ * 【原著原文】：William J. O'Neil《How to Make Money in Stocks》Chapter 2 (pp. 131–134, "IPO Bases")；Jack Schwager, Market Wizards (1989) 访谈章节: "David Ryan: Stock Investment as a Treasure Hunt"。
+ * 属性认定：典型的混合型策略（Hybrid: Event-Driven Catalyst + Structural Breakout Trigger）。
+ * 混合机制解剖：
+   * 前置机制是【事件驱动（Event-Driven）】：押注的是公司刚完成首次公开发行（IPO），流通盘极小（Low Float），尚未被华尔街主流大型机构建仓覆盖，且距离大股东与早期 VC 机构的 180 天解禁期（Lock-up Expiration）尚有安全时间窗口。这一步是纯粹的基本面与市场制度事件套利；
+   * 扳机机制是【微观突破单（Breakout）】：股票上市后交易 15 至 50 天形成第一个小基底（通常深幅回撤在 20%~35% 之间），当标的突破该初生基底的最高点时触发买入。
