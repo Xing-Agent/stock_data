@@ -38,6 +38,27 @@ _ENGINE = os.path.dirname(_HERE)
 #: 单笔毛收益超过这个倍数 → 报警。出处:策略组 2026-10-29「建议 10 倍」。
 OUTLIER_X = 10.0
 
+#: ★★ 已人工认领为「真实行情」的离群笔 —— symbol → 认领依据。
+#:
+#: 为什么要有这张表(2026-10-29 晚的真实误报):
+#:   这道闸第一版在 buy_and_hold 上把 TSLA +20.01x 判成 FAIL,理由是
+#:   「不在已知断裂清单上 → 需人工认领」。★ 人工核了,它是真的。
+#:   ★★ 而「累计倍数」本身区分不了真假 —— 八年持有拿到 20 倍是正常的,
+#:      污染的特征是**单根 bar 的跳变**(FTLF 那笔 +499.62 倍是一根假跳变
+#:      复利出来的),不是累计倍数。
+#:   ★ 所以累计倍数这把尺子只能用来「提请人工认领」,不能用来判 FAIL ——
+#:     否则它会在每一个真实大赢家上喊狼,喊几次就没人看了。
+#:
+#: 认领一笔的要求:写清依据,不许只写「已核」。
+CLAIMED_OUTLIERS: dict[str, str] = {
+    "TSLA": (
+        "真实行情。2018-01-03 的 21.40 是拆股调整后价(TSLA 在 2020-08 做过 "
+        "5:1、2022-08 做过 3:1,累计 15:1;当时未调整价约 320,320/15≈21.3,"
+        "与流水里的 21.40 一致)。2025-12-31 的 449.72 量级也对得上。"
+        "★ 认领人:本会话,2026-10-29 晚,逐笔核过入场价与拆股系数的一致性。"
+    ),
+}
+
 #: 锚点的集中度上限。出处:pat6_table._verdict 现行口径「过半 → 数字不可用」。
 ANCHOR_MAX_CONCENTRATION = 0.50
 
@@ -112,25 +133,49 @@ def check_anchor_ledger(path: str, *, outlier_x: float = OUTLIER_X,
     bad.sort(key=lambda t: -abs(t[1]))
     out["★单笔超%gx的笔数" % outlier_x] = len(bad)
 
+    # ★★ 三分:① 在已知断裂清单上 → FAIL  ② 已人工认领 → 过  ③ 其余 → WARN
+    on_break = [t for t in bad if t[0] in known]
+    claimed = [t for t in bad if t[0] not in known and t[0] in CLAIMED_OUTLIERS]
+    unclaimed = [t for t in bad if t[0] not in known
+                 and t[0] not in CLAIMED_OUTLIERS]
+    out["★在已知断裂清单上的笔数"] = len(on_break)
+    out["★已人工认领的笔数"] = len(claimed)
+    out["★待人工认领的笔数"] = len(unclaimed)
+
     level = "OK"
-    if bad:
+
+    # ① 骑在已知断裂上的 —— 这个才是 FAIL
+    if on_break:
         level = "FAIL"
         out["话"].append(
-            f"[{name}] ★★ FAIL 锚点自己有 {len(bad)} 笔单笔收益超过 "
-            f"{outlier_x:g} 倍 —— ★ 锚点的**绝对数字**在逐笔认领完之前不可用。"
+            f"[{name}] ★★ FAIL 锚点有 {len(on_break)} 笔骑在**已知数据断裂票**上 "
+            f"—— ★ 锚点的绝对数字在这几笔裁决完之前不可用。"
             f"(我们是拿这把尺子去校准别的尺子的。)")
-        for sym, x, pnl, d0, d1 in bad:
-            if sym in known:
-                out["话"].append(
-                    f"    · {sym:6s} {x:+.2f}x  net_pnl={pnl:+,.0f}  "
-                    f"{d0}..{d1}  ★★ 这只票在**已知数据断裂清单**上 → "
-                    f"高度疑似污染,★ 这笔必须先裁决再谈锚点数字。")
-            else:
-                out["话"].append(
-                    f"    · {sym:6s} {x:+.2f}x  net_pnl={pnl:+,.0f}  "
-                    f"{d0}..{d1}  ★ 不在已知断裂清单上 → **需人工认领**:"
-                    f"真实行情 还是 未登记的数据断裂?"
-                    f"★ 不许默认它是真的就放过去。")
+        for sym, x, pnl, d0, d1 in on_break:
+            out["话"].append(
+                f"    · {sym:6s} {x:+.2f}x  net_pnl={pnl:+,.0f}  "
+                f"{d0}..{d1}  ★★ 在已知断裂清单上 → 高度疑似污染,先裁决。")
+
+    # ② 已认领的 —— 列出来,但不影响级别(依据写在 CLAIMED_OUTLIERS 里)
+    for sym, x, pnl, d0, d1 in claimed:
+        out["话"].append(
+            f"    · {sym:6s} {x:+.2f}x  net_pnl={pnl:+,.0f}  {d0}..{d1}  "
+            f"✅ 已人工认领为真实行情 —— {CLAIMED_OUTLIERS[sym]}")
+
+    # ③ 既不在断裂清单、也没认领的 —— WARN,不是 FAIL
+    #    ★ 理由见 CLAIMED_OUTLIERS 的注释:累计倍数区分不了真假,
+    #      八年持有拿到 10 倍是正常的。它只能用来提请人工认领。
+    if unclaimed:
+        if level == "OK":
+            level = "WARN"
+        out["话"].append(
+            f"[{name}] ★ WARN 有 {len(unclaimed)} 笔单笔收益超过 {outlier_x:g} 倍、"
+            f"既不在已知断裂清单上、也还没被认领 → **需人工认领**:"
+            f"真实行情 还是 未登记的数据断裂?"
+            f"★ 不许默认它是真的就放过去;认领完写进 CLAIMED_OUTLIERS 并附依据。")
+        for sym, x, pnl, d0, d1 in unclaimed:
+            out["话"].append(
+                f"    · {sym:6s} {x:+.2f}x  net_pnl={pnl:+,.0f}  {d0}..{d1}")
 
     # 集中度体检(锚点也要过)
     conc_mod = _load_sibling("concentration_degenerate")
@@ -150,8 +195,14 @@ def check_anchor_ledger(path: str, *, outlier_x: float = OUTLIER_X,
 
     out["级别"] = level
     if level == "OK":
-        out["话"].append(f"[{name}] ✅ 锚点体检通过:无单笔 ≥{outlier_x:g}x,"
-                         f"集中度 {share:.1%}。")
+        if claimed:
+            out["话"].append(
+                f"[{name}] ✅ 锚点体检通过:{len(claimed)} 笔 ≥{outlier_x:g}x "
+                f"已人工认领为真实行情,无待认领、无骑在已知断裂上的笔,"
+                f"集中度 {share:.1%}。")
+        else:
+            out["话"].append(f"[{name}] ✅ 锚点体检通过:无单笔 ≥{outlier_x:g}x,"
+                             f"集中度 {share:.1%}。")
     return out
 
 
@@ -173,37 +224,59 @@ def _selftest() -> None:
           f"含 FTLF / AMRS / KDP / OVV / GNCA")
 
     # ── 真实锚点流水:ledgers_1029_新基准线/buy_and_hold.csv ────────────
+    #    ★★ 三分口径的三条路都在这条真实流水上验一遍。
     p = os.path.join(_ENGINE, "ledgers_1029_新基准线", "buy_and_hold.csv")
-    r = check_anchor_ledger(p)
-    assert r["级别"] == "FAIL", r
-    assert r["★单笔超10x的笔数"] >= 1, r
-    print(f"  ② 真实锚点 buy_and_hold({r['笔数']} 笔)→ ★ FAIL:")
-    for line in r["话"][:4]:
-        print("     ", line[:140])
 
-    # ★ 把 10 倍线放到 25 倍 → 同一条锚点就过了。
-    #   这正说明阈值是一个**要拍的数**,而不是一个自然常数 —— 所以写在顶上。
-    r2 = check_anchor_ledger(p, outlier_x=25.0)
-    assert r2["级别"] == "OK", r2
-    print(f"  ③ 同一条锚点把门槛放到 25x → 通过({r2['话'][-1][:72]} …)"
-          f" → ★ 说明 10x 这个数是拍的,必须显式写在文件顶上,不能埋在代码里")
+    # ②-a 已认领 → 过。TSLA +20.01x 的依据写在 CLAIMED_OUTLIERS 里。
+    r = check_anchor_ledger(p)
+    assert r["级别"] == "OK", r
+    assert r["★已人工认领的笔数"] == 1 and r["★待人工认领的笔数"] == 0, r
+    print(f"  ② 真实锚点 buy_and_hold({r['笔数']} 笔)→ ✅ 通过:"
+          f"TSLA +20.01x 已认领为真实行情")
+
+    # ②-b ★ 把认领撤掉 → 立刻变 WARN(不是 FAIL)。
+    #     为什么是 WARN:累计倍数区分不了真假,八年持有拿到 20 倍是正常的。
+    #     ★ 这道闸第一版在这里判了 FAIL —— 那是误报,修的就是这个。
+    _saved = CLAIMED_OUTLIERS.pop("TSLA")
+    try:
+        rw = check_anchor_ledger(p)
+        assert rw["级别"] == "WARN", rw
+        assert rw["★待人工认领的笔数"] == 1, rw
+        print(f"  ③ 撤掉 TSLA 的认领 → ★ WARN「需人工认领」,**不是 FAIL** "
+              f"→ ★ 累计倍数只能提请认领,不能判污染")
+    finally:
+        CLAIMED_OUTLIERS["TSLA"] = _saved
+
+    # ②-c ★ 同一笔,如果它在已知断裂清单上 → FAIL。
+    #     这才是真污染的形状(FTLF 那笔 +499.62x 是一根假跳变复利出来的)。
+    _orig = globals()["known_break_symbols"]
+    globals()["known_break_symbols"] = lambda: _orig() | {"TSLA"}
+    try:
+        rf = check_anchor_ledger(p)
+        assert rf["级别"] == "FAIL", rf
+        assert rf["★在已知断裂清单上的笔数"] == 1, rf
+        print(f"  ④ 同一笔,假设 TSLA 在已知断裂清单上 → ★★ FAIL "
+              f"→ ★ 「在断裂清单上」才是判 FAIL 的依据")
+    finally:
+        globals()["known_break_symbols"] = _orig
 
     # ── 退化的链不许当锚点:技-13(223 笔 / 盈利 9 笔)─────────────────
     r3 = check_anchor_ledger(os.path.join(_ENGINE, "ledgers_1029_新基准线",
                                           "技-13_TD序列.csv"))
     assert r3["级别"] == "FAIL", r3
     assert any("集中度体检退化" in x for x in r3["话"]), r3["话"]
-    print(f"  ④ 技-13_TD序列 若被当锚点 → ★ FAIL(集中度体检退化)")
+    print(f"  ⑤ 技-13_TD序列 若被当锚点 → ★ FAIL(集中度体检退化)")
 
     # ── 该通过的:技-12(2631 笔、集中度 7.4%、无 10x 单笔)──────────────
     r4 = check_anchor_ledger(os.path.join(_ENGINE, "ledgers_1029_新基准线",
                                           "技-12_康纳斯均值回归.csv"))
     assert r4["级别"] == "OK", r4
-    print(f"  ⑤ 不误伤:技-12_康纳斯 → ✅ 通过({r4['话'][-1][-30:]})")
+    print(f"  ⑥ 不误伤:技-12_康纳斯 → ✅ 通过({r4['话'][-1][-30:]})")
 
-    print("checks/anchor_health 自测通过 —— "
-          "★ 真实锚点 buy_and_hold 在 10x 线上 FAIL,"
-          "TSLA +20.01x 被要求人工认领(真实行情 or 未登记的数据断裂)")
+    print("checks/anchor_health 自测通过 —— ★★ 三分口径:"
+          "在已知断裂清单上 → FAIL;已人工认领 → 过;其余 → WARN 需认领。"
+          "★ 修的是第一版把 TSLA +20.01x(真实行情)判成 FAIL 的误报 —— "
+          "累计倍数区分不了真假,污染的特征是单根 bar 的跳变。")
 
 
 if __name__ == "__main__":
