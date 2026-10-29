@@ -663,7 +663,8 @@ def _concentration(ledger: pd.DataFrame, top: int = 10) -> dict[str, Any]:
                         "出": str(pd.Timestamp(r["exit_date"]).date()),
                         "毛收益": float(r["gross_return"])}
                        for _, r in worst.iterrows()],
-        "说明": "★ 前 10 笔占总盈利过半 → 这条曲线是几笔异常 bar 扛起来的,数字不可用",
+        "怎么读": "★ 前 10 笔占总盈利过半 → 这条曲线是几笔异常 bar 扛起来的,数字不可用;"
+                  "占比低(一两成以内)→ 是一个铺得开的效应,数字可用",
     }
 
 
