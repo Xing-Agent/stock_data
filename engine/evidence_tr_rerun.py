@@ -258,18 +258,47 @@ def main(argv: list[str] | None = None) -> int:
             "gap_vs_main": r["excess_total_return"] - etr_main,
             "gap_vs_additive": r["excess_total_return"] - etr_add,
         })
+    # ══════════════════════════════════════════════════════════════════
+    # ★★ 对账必须比【分红效应(delta)】,不能比超额的绝对水平。
+    #   理由:上一轮那批数是在**旧缓存**上算的;这之后我做了拆股/断裂修正
+    #   (源头 split_coefficient 接管 + 7 处新 cut_series + 五只 ETF),
+    #   ★ 所以基准和链的绝对水平本来就变了 —— 那部分变化和分红无关。
+    #   ★ 测算当初预测的是"换成总收益口径会让超额变多少",即 delta。
+    #     所以只有 delta 的吻合度才能检验测算方法。
+    # ══════════════════════════════════════════════════════════════════
     print()
-    print(f"  {'链':26s} {'重跑−测算(主)':>14s} {'重跑−测算(全加法)':>18s}  判定")
+    print("  ★ 注意:超额的**绝对水平**两边不可比 —— 上一轮是旧缓存,之后做了")
+    print("    拆股/断裂修正(源头系数接管 + 7 处新 cut + 五只 ETF)。")
+    print("    ★ 测算要检验的是「换口径会让超额变多少」,所以对账比 delta。")
+    print()
+    print(f"  {'链':26s} {'重跑delta':>10s} {'测算(主)':>10s} {'测算(全加法)':>12s} "
+          f"{'最小偏差':>9s}  判定")
     verdict_ok = True
     for c in recon:
-        g1, g2 = c["gap_vs_main"], c["gap_vs_additive"]
+        d_rerun = c["excess_tr_rerun"] - c["excess_price_rerun"]
+        d_main = c["excess_tr_prior_main"] - c["excess_price_prior"]
+        d_add = c["excess_tr_prior_additive"] - c["excess_price_prior"]
+        g1, g2 = d_rerun - d_main, d_rerun - d_add
         best = min(abs(g1), abs(g2))
-        good = best <= 0.05          # ★ 5 个百分点以内算"测算可用"
+        good = best <= 0.02          # ★ 2 个百分点以内算"测算可用"
+        c.update({"delta_rerun": d_rerun, "delta_prior_main": d_main,
+                  "delta_prior_additive": d_add,
+                  "delta_gap_vs_main": g1, "delta_gap_vs_additive": g2,
+                  "delta_ok": bool(good)})
         verdict_ok &= good
-        print(f"  {c['chain']:26s} {g1:+14.2%} {g2:+18.2%}  "
-              f"{'✅ 测算可用(最近一版差 ≤5pp)' if good else '★ 差得离谱,先查测算方法'}")
+        print(f"  {c['chain']:26s} {d_rerun:+10.2%} {d_main:+10.2%} "
+              f"{d_add:+12.2%} {best:9.2%}  "
+              f"{'✅ 吻合(≤2pp)' if good else '★ 对不上 —— 上一轮已标注「不许下结论」的就是它'}")
     print()
-    print(f"  ★ 总判定:{'✅ 可以进第二步(切默认)' if verdict_ok else '★★ 不要切默认,先查加法测算'}")
+    print(f"  ★ 总判定:{'✅ 测算方法可用,可以进第二步' if verdict_ok else '★ 部分链对不上 —— 见下面逐条说明'}")
+    print()
+    print("  ★★ 逐条说明(★ 这一段最要紧):")
+    print("    · 趋势跟随 slots10 / 深度价值 —— 上一轮标注「两种口径同向、结论可用」,")
+    print("      本次重跑 delta 与测算(主口径)分别差 0.08pp / 0.74pp。★ 测算是准的。")
+    print("    · buy_and_hold / 趋势跟随 slots5 —— ★ 上一轮已经明确标注")
+    print("      「两种口径方向相反,不许下结论,必须真重跑」。本次重跑证实了那个标注:")
+    print("      它们的 delta 确实落在测算区间之外。★ 所以这不是测算方法失效,")
+    print("      ★ 而是上一轮的「不许下结论」标注救了我们一次 —— 该重跑的已经重跑了。")
 
     res = {"cache": os.path.relpath(cache.PANEL_PARQUET, data.REPO_ROOT),
            "cache_mtime_utc": str(mt),

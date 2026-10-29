@@ -39,6 +39,8 @@ DETAIL_CSV = "/home/claude/给运营-状-2逐日状态-10只票-1029.csv"
 
 # ★ 恒定输出体检的报警线:某一个状态值占比超过这个数 → 这条判据几乎不产生区分
 CONSTANT_ALARM = 0.95
+# ★ 第二道线:四阶段里某个阶段占比低于这个数 → 这个阶段在产品里等于不存在
+DEGENERATE_FLOOR = 0.02
 
 
 def _rss_mb() -> float:
@@ -211,6 +213,13 @@ def constant_check(dist: dict) -> dict:
     share = dist["state_share"]
     worst = max(share.items(), key=lambda kv: kv[1])
     alarm = worst[1] > CONSTANT_ALARM
+
+    # ★ 第二道体检:95% 那条线抓不到「四阶段退化成两阶段」。
+    #   温斯坦四阶段的意义就在于四个阶段都要出现;某个阶段常年不到 2%,
+    #   等于这个阶段在产品里不存在,用户永远看不到它。
+    rare = {k: v for k, v in share.items()
+            if k in ("1", "2", "3", "4") and v < DEGENERATE_FLOOR}
+    four = sum(share.get(k, 0.0) for k in ("1", "2", "3", "4"))
     return {
         "最大占比状态": worst[0],
         "最大占比": worst[1],
@@ -218,7 +227,16 @@ def constant_check(dist: dict) -> dict:
         "报警": alarm,
         "结论": ("★ 报警:这条判据几乎不产生区分 —— "
                  f"{worst[0]} 占了 {worst[1]*100:.1f}%" if alarm
-                 else f"正常:最大占比 {worst[0]} {worst[1]*100:.1f}%,未触发报警线"),
+                 else f"正常:最大占比 {worst[0]} {worst[1]*100:.1f}%,未触发 95% 报警线"),
+        "四阶段退化体检_下限": DEGENERATE_FLOOR,
+        "几乎不出现的阶段": {k: round(v, 4) for k, v in rare.items()},
+        "四阶段退化报警": bool(rare),
+        "四阶段退化结论": (
+            f"★ 报警:阶段 {'/'.join(sorted(rare))} 占比不到 "
+            f"{DEGENERATE_FLOOR*100:.0f}%(合计 {sum(rare.values())*100:.2f}%)——"
+            f"四阶段实际退化成 {4-len(rare)} 阶段,用户看不到这些阶段"
+            if rare else
+            f"正常:四个阶段都 ≥{DEGENERATE_FLOOR*100:.0f}%,合计 {four*100:.1f}%"),
     }
 
 
@@ -335,22 +353,34 @@ def pick_demo_symbols(symbols: list[str], spec: tri.StageSpec,
         raw = tri._raw_stage(cl[s].to_numpy(), ma[s].to_numpy(), spec)
         daily, evs = tri._confirm_sequence(raw, spec.min_bars)
         paths = set()
+        # ★ transition 要在**改动前**的面板上量:改动后 transition 只剩 0.04%,
+        #   「长期 transition」这一类在改动后基本不存在 —— 这本身就是改动的后果。
+        #   运营要对的是「这只票改动前一片 transition、改动后变成了什么」。
+        d_before = daily.copy()
         for k, ev in enumerate(evs):
             if ev["stage"] != "2":
                 continue
-            if idx[ev["i"]] < pd.Timestamp(tri.START):
-                continue
-            paths.add(tri._topology(ev)[3])
-        a = daily[keep]
+            f_ok, _g, _q, lab = tri._topology(ev)
+            if idx[ev["i"]] >= pd.Timestamp(tri.START):
+                paths.add(lab)
+            if not f_ok:
+                _blank(d_before, ev["i"],
+                       evs[k + 1]["i"] if k + 1 < len(evs) else len(daily))
+        a, b = daily[keep], d_before[keep]
         live = a[a != tri.WARMUP]
         if len(live) < 500:          # 样本太短,对答案看不出东西
             continue
+        warm_share = float((a == tri.WARMUP).mean())
+        if warm_share > 0.15:        # ★ 大半是「没数据」的票不拿来当样本
+            continue
+        bl = b[b != tri.WARMUP]
         rows.append({
             "symbol": s,
             "has_42": "4→2" in paths,
             "has_32": "3→2" in paths,
             "has_4120": "4→1→2" in paths,
-            "trans_share": float((live == "transition").mean()),
+            "trans_share_改动前": float((bl == "transition").mean()),
+            "warmup_share": round(warm_share, 4),
             "n_stages": len({x for x in live if x in ("1", "2", "3", "4")}),
             "live": len(live),
         })
@@ -377,9 +407,10 @@ def pick_demo_symbols(symbols: list[str], spec: tri.StageSpec,
     # 2) 走过 3→2 的
     take(df[df["has_32"]].sort_values(["n_stages", "live"], ascending=False),
          "走过 3→2(上升中继)—— 改动后新放行的那一类", 3)
-    # 3) 长期 transition
-    take(df.sort_values("trans_share", ascending=False),
-         "长期 transition —— 判不出阶段的那一类,专门用来对 transition 的边界", 2)
+    # 3) 改动前长期 transition —— 改动后变成什么,逐日表里一眼能看到
+    take(df.sort_values("trans_share_改动前", ascending=False),
+         "改动前长期 transition —— 用来对「被挡掉的阶段二降级成 transition」"
+         "这一类的边界;看 阶段_改动前 和 阶段 两列的差", 2)
     # 4) 阶段齐全 + 走标准路径的
     take(df[df["has_4120"]].sort_values(["n_stages", "live"], ascending=False),
          "走过 4→1→2(标准反转)—— 改动前后都放行,用来验证改动没动到它", 2)
