@@ -2490,9 +2490,11 @@
     "has_pit": 138,
     "pct_key": 0.8333333333333334,
     "pct_pit": 0.46,
+    "pct_pit_of_withfile": 0.552,
     "n_periods_nonnull": 9402,
     "n_periods_pit": 4506,
-    "n_symbols": 300
+    "n_symbols": 300,
+    "n_symbols_with_file": 250
    },
    "EBIT": {
     "has_key": 250,
@@ -2500,9 +2502,11 @@
     "has_pit": 164,
     "pct_key": 0.8333333333333334,
     "pct_pit": 0.5466666666666666,
+    "pct_pit_of_withfile": 0.656,
     "n_periods_nonnull": 14100,
     "n_periods_pit": 4199,
-    "n_symbols": 300
+    "n_symbols": 300,
+    "n_symbols_with_file": 250
    },
    "DebtCurrent": {
     "has_key": 250,
@@ -2510,9 +2514,11 @@
     "has_pit": 48,
     "pct_key": 0.8333333333333334,
     "pct_pit": 0.16,
+    "pct_pit_of_withfile": 0.192,
     "n_periods_nonnull": 2171,
     "n_periods_pit": 1077,
-    "n_symbols": 300
+    "n_symbols": 300,
+    "n_symbols_with_file": 250
    },
    "LongTermDebtCurrent": {
     "has_key": 250,
@@ -2520,9 +2526,11 @@
     "has_pit": 145,
     "pct_key": 0.8333333333333334,
     "pct_pit": 0.48333333333333334,
+    "pct_pit_of_withfile": 0.58,
     "n_periods_nonnull": 7692,
     "n_periods_pit": 3723,
-    "n_symbols": 300
+    "n_symbols": 300,
+    "n_symbols_with_file": 250
    }
   },
   "failure_buckets": {
@@ -16016,7 +16024,7 @@
     "file": "pilot_300/SQBG/daily.json",
     "expected_ratio_x": 40.0,
     "coef_rel_err": 29.04043905257077,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=40.000x,实测 1201.618x,差 2904%)"
+    "coef_verdict": "⚠ 系数解释不上(1/coef=40.000x,实测 1201.618x,差 2904%)"
    },
    {
     "symbol": "BNED",
@@ -16029,7 +16037,7 @@
     "file": "pilot_300/BNED/daily.json",
     "expected_ratio_x": 100.0,
     "coef_rel_err": 0.2587486744432661,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=100.000x,实测 74.125x,差 26%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 26%(1/coef=100.000x)"
    },
    {
     "symbol": "RKDA",
@@ -16042,7 +16050,7 @@
     "file": "pilot_50/RKDA/daily.json",
     "expected_ratio_x": 40.0,
     "coef_rel_err": 0.14034386245501795,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=40.000x,实测 34.386x,差 14%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 14%(1/coef=40.000x)"
    },
    {
     "symbol": "PROP",
@@ -16067,7 +16075,7 @@
     "file": "pilot_300/PROP/daily.json",
     "expected_ratio_x": 29.41176470588235,
     "coef_rel_err": 0.05988349514563107,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 6.0%)"
+    "coef_verdict": "✅ 已解释(残差 6.0%)"
    },
    {
     "symbol": "RKDA",
@@ -16080,7 +16088,7 @@
     "file": "pilot_50/RKDA/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.05078125,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 5.1%)"
+    "coef_verdict": "✅ 已解释(残差 5.1%)"
    },
    {
     "symbol": "ACOR",
@@ -16093,7 +16101,7 @@
     "file": "pilot_300/ACOR/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.017964071856287456,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 1.8%)"
+    "coef_verdict": "✅ 已解释(残差 1.8%)"
    },
    {
     "symbol": "EXPR",
@@ -16106,7 +16114,7 @@
     "file": "pilot_300/EXPR/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.008999999999999897,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.9%)"
+    "coef_verdict": "✅ 已解释(残差 0.9%)"
    },
    {
     "symbol": "AMRS",
@@ -16131,7 +16139,7 @@
     "file": "pilot_300/CNVS/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.21461897356143078,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=20.000x,实测 15.708x,差 21%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 21%(1/coef=20.000x)"
    },
    {
     "symbol": "GRPN",
@@ -16144,7 +16152,7 @@
     "file": "pilot_300/GRPN/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.25971223021582734,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=20.000x,实测 14.806x,差 26%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 26%(1/coef=20.000x)"
    },
    {
     "symbol": "OMEX",
@@ -16157,7 +16165,7 @@
     "file": "pilot_50/OMEX/daily.json",
     "expected_ratio_x": 12.000000000000005,
     "coef_rel_err": 0.2182539682539677,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=12.000x,实测 14.619x,差 22%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 22%(1/coef=12.000x)"
    },
    {
     "symbol": "VHI",
@@ -16170,7 +16178,7 @@
     "file": "pilot_300/VHI/daily.json",
     "expected_ratio_x": 12.0,
     "coef_rel_err": 0.007575757575757569,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.8%)"
+    "coef_verdict": "✅ 已解释(残差 0.8%)"
    },
    {
     "symbol": "FTLF",
@@ -16207,7 +16215,7 @@
     "file": "pilot_50/AVEO/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.003984063745019917,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.4%)"
+    "coef_verdict": "✅ 已解释(残差 0.4%)"
    },
    {
     "symbol": "LIXT",
@@ -16220,7 +16228,7 @@
     "file": "pilot_300/LIXT/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.010447761194029903,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 1.0%)"
+    "coef_verdict": "✅ 已解释(残差 1.0%)"
    },
    {
     "symbol": "ACOR",
@@ -16245,7 +16253,7 @@
     "file": "pilot_300/ODP/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.03574468085106397,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 3.6%)"
+    "coef_verdict": "✅ 已解释(残差 3.6%)"
    },
    {
     "symbol": "ACOR",
@@ -16270,7 +16278,7 @@
     "file": "pilot_50/RMTI/daily.json",
     "expected_ratio_x": 11.0,
     "coef_rel_err": 0.14904372735698035,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=11.000x,实测 9.361x,差 15%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 15%(1/coef=11.000x)"
    },
    {
     "symbol": "CNVS",
@@ -16283,7 +16291,7 @@
     "file": "pilot_300/CNVS/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.19999999999999996,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=10.000x,实测 8.000x,差 20%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 20%(1/coef=10.000x)"
    },
    {
     "symbol": "WPG",
@@ -16296,7 +16304,7 @@
     "file": "pilot_300/WPG/daily.json",
     "expected_ratio_x": 9.0,
     "coef_rel_err": 0.13064713064713063,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=9.000x,实测 7.824x,差 13%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 13%(1/coef=9.000x)"
    },
    {
     "symbol": "ACOR",
@@ -16321,7 +16329,7 @@
     "file": "pilot_300/GNCA/daily.json",
     "expected_ratio_x": 8.0,
     "coef_rel_err": 0.06404593639575973,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 6.4%)"
+    "coef_verdict": "✅ 已解释(残差 6.4%)"
    },
    {
     "symbol": "XPRO",
@@ -16346,7 +16354,7 @@
     "file": "pilot_300/FTK/daily.json",
     "expected_ratio_x": 5.9999999999999885,
     "coef_rel_err": 0.033924147131696225,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 3.4%)"
+    "coef_verdict": "✅ 已解释(残差 3.4%)"
    },
    {
     "symbol": "LIXT",
@@ -16359,7 +16367,7 @@
     "file": "pilot_300/LIXT/daily.json",
     "expected_ratio_x": 5.9999999999999885,
     "coef_rel_err": 1.9984014443252818e-15,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.0%)"
+    "coef_verdict": "✅ 已解释(残差 0.0%)"
    },
    {
     "symbol": "LFMD",
@@ -16372,7 +16380,7 @@
     "file": "pilot_300/LFMD/daily.json",
     "expected_ratio_x": 5.0,
     "coef_rel_err": 0.11194029850746268,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=5.000x,实测 5.560x,差 11%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 11%(1/coef=5.000x)"
    },
    {
     "symbol": "ACOR",
@@ -16385,7 +16393,7 @@
     "file": "pilot_300/ACOR/daily.json",
     "expected_ratio_x": 6.0,
     "coef_rel_err": 0.08188405797101439,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 8.2%)"
+    "coef_verdict": "✅ 已解释(残差 8.2%)"
    },
    {
     "symbol": "HAPN",
@@ -16398,7 +16406,7 @@
     "file": "pilot_300/HAPN/daily.json",
     "expected_ratio_x": 5.0,
     "coef_rel_err": 0.05798045602605861,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 5.8%)"
+    "coef_verdict": "✅ 已解释(残差 5.8%)"
    },
    {
     "symbol": "OVV",
@@ -16411,7 +16419,7 @@
     "file": "pilot_50/OVV/daily.json",
     "expected_ratio_x": 5.0,
     "coef_rel_err": 0.08496042216358846,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 8.5%)"
+    "coef_verdict": "✅ 已解释(残差 8.5%)"
    },
    {
     "symbol": "RKDA",
@@ -16448,7 +16456,7 @@
     "file": "pilot_300/POCI/daily.json",
     "expected_ratio_x": 3.000000000003,
     "coef_rel_err": 0.08547008546900003,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 8.5%)"
+    "coef_verdict": "✅ 已解释(残差 8.5%)"
    },
    {
     "symbol": "EXPR",
@@ -16473,7 +16481,7 @@
     "file": "pilot_300/DX/daily.json",
     "expected_ratio_x": 3.0,
     "coef_rel_err": 0.0053763440860212786,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.5%)"
+    "coef_verdict": "✅ 已解释(残差 0.5%)"
    },
    {
     "symbol": "TSLA",
@@ -16486,7 +16494,7 @@
     "file": "pilot_300/TSLA/daily.json",
     "expected_ratio_x": 0.3333333333333333,
     "coef_rel_err": 0.0034556653838816453,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.3%)"
+    "coef_verdict": "✅ 已解释(残差 0.3%)"
    },
    {
     "symbol": "ISRG",
@@ -16499,7 +16507,7 @@
     "file": "pilot_50/ISRG/daily.json",
     "expected_ratio_x": 0.333333,
     "coef_rel_err": 0.004835287046578429,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.5%)"
+    "coef_verdict": "✅ 已解释(残差 0.5%)"
    },
    {
     "symbol": "PRTY",
@@ -16524,7 +16532,7 @@
     "file": "pilot_300/MNST/daily.json",
     "expected_ratio_x": 0.333333,
     "coef_rel_err": 0.042234504939082984,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 4.2%)"
+    "coef_verdict": "✅ 已解释(残差 4.2%)"
    },
    {
     "symbol": "GNCA",
@@ -16561,7 +16569,7 @@
     "file": "pilot_50/FTLF/daily.json",
     "expected_ratio_x": 0.25,
     "coef_rel_err": 0.1200000000000001,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=0.250x,实测 0.280x,差 12%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 12%(1/coef=0.250x)"
    },
    {
     "symbol": "OVV",
@@ -16598,7 +16606,7 @@
     "file": "pilot_50/COO/daily.json",
     "expected_ratio_x": 0.25,
     "coef_rel_err": 0.029004596650627823,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 2.9%)"
+    "coef_verdict": "✅ 已解释(残差 2.9%)"
    },
    {
     "symbol": "CTAS",
@@ -16611,7 +16619,7 @@
     "file": "pilot_300/CTAS/daily.json",
     "expected_ratio_x": 0.25,
     "coef_rel_err": 0.0051840015612993895,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 0.5%)"
+    "coef_verdict": "✅ 已解释(残差 0.5%)"
    },
    {
     "symbol": "GNCA",
@@ -16636,7 +16644,7 @@
     "file": "pilot_300/TSLA/daily.json",
     "expected_ratio_x": 0.2,
     "coef_rel_err": 0.12568898527152794,
-    "coef_verdict": "⚠ 系数存在但解释不上(1/coef=0.200x,实测 0.225x,差 13%)"
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 13%(1/coef=0.200x)"
    },
    {
     "symbol": "AMRS",
@@ -16709,7 +16717,7 @@
     "file": "pilot_300/CSGP/daily.json",
     "expected_ratio_x": 0.1,
     "coef_rel_err": 0.03789724126210836,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 3.8%)"
+    "coef_verdict": "✅ 已解释(残差 3.8%)"
    },
    {
     "symbol": "GOOG",
@@ -16722,7 +16730,7 @@
     "file": "pilot_50/GOOG/daily.json",
     "expected_ratio_x": 0.05,
     "coef_rel_err": 0.0253354261441735,
-    "coef_verdict": "✅ 已解释(与 1/coef 相对误差 2.5%)"
+    "coef_verdict": "✅ 已解释(残差 2.5%)"
    }
   ],
   "n_jumps": 57,
