@@ -1,0 +1,2626 @@
+{
+  "跑的时间": "2026-10-29 11:01:02",
+  "全池只数": 298,
+  "★有基本面数据的只数": 248,
+  "绩效窗口": "2018-01-01 .. 2025-12-31(2016 起热机)",
+  "★坑③_YTD口径自验": "★★ 坑③ YTD 口径自验(OperatingCashFlow)—— 挑 3 只票手算对账\nAAL  财年起 2015-01-01\n    原始 YTD 四级:2,494M / 4,841M / 6,021M / 6,249M\n    ★ 手算全年(= FY 的 YTD)          6,249M\n    引擎差分还原后四个单季相加         6,249M   ✅ 一致\n    ★ 如果按季度直接相加(错法)       19,605M   → ★ 放大 3.14 倍\nABMD  财年起 2017-04-01\n    原始 YTD 四级:36M / 79M / 136M / 193M\n    ★ 手算全年(= FY 的 YTD)          193M\n    引擎差分还原后四个单季相加         193M   ✅ 一致\n    ★ 如果按季度直接相加(错法)       444M   → ★ 放大 2.31 倍\nABT  财年起 2015-01-01\n    原始 YTD 四级:2M / 943M / 2,138M / 2,966M\n    ★ 手算全年(= FY 的 YTD)          2,966M\n    引擎差分还原后四个单季相加         2,966M   ✅ 一致\n    ★ 如果按季度直接相加(错法)       6,049M   → ★ 放大 2.04 倍\n",
+  "★基本面PIT口径": {
+    "生效时点": "filing_date + 1 个交易日(严禁用报告期截止日)",
+    "未公布期间": "沿用上一期(ffill);第一次公布之前 = NaN",
+    "NaN 当闸门": "判不合格(不猜不补)",
+    "NaN 当清仓条件": "★ 不触发清仓(拿不到数据不该凭空卖掉持仓)",
+    "同一期取哪版": "首发版本,不用重述数据",
+    "现金流口径": "★ YTD 差分还原单季再滚 TTM(要求最近 4 季时间连续)",
+    "股数口径": "★ 走 share_gate 三道闸(单位 / 区间 / 拆股)"
+  },
+  "链": [
+    {
+      "链名": "流派三_现金流纪律_slots5",
+      "★是否主档": false,
+      "slots": 5,
+      "★必须讲清楚的前提": [
+        "★ A-1 关掉了 ①「过去 4 季度无大规模增发融资」—— 「大规模」的阈值专家原文没给(配置自己标了 undefined_param)。★ 不许借用 ⑥ 那条2.0% 稀释线顶上:那是另一步的参数,跨步搬过来等于我们自己定了一个闸门还假托有出处。★ 所以这一版 ① 少一道闸。",
+        "★ A-2 去掉了 ③ 突破扳机的 volume_confirm: moderate —— 「温和放量」的量比区间专家原文没给。★ 流派二那边专家给过 [1.00,1.80],★ 但那是另一条链的参数,不许跨链搬。★ 所以这一版的突破没有放量确认。",
+        "★★ 结论口径:A 跑出来的**不是完整的这一派** —— ① 的「净股东回报率」闸门数据上根本算不出(腿三没有偿债现金流科目)、① 的「无大规模增发」闸门阈值未定、③ 没有放量确认。★ 资本配置纪律(Thorndike 那一半)在 ① 里整个没了,只在 ⑥ 的清仓规则里还留着。",
+        "★ C-1 ★ 占位排序(不是策略的一部分)—— 专家三轮未给这两派的排序规则。选 ADV20 的理由:PIT 干净、两条链口径统一、覆盖率 100%,不会让「有基本面数据的票」系统性排在前面。见审计报告拍板第 2 条。",
+        "★ C-2 slots=5(敏感度档)。配置原值 10 是专家明给的「最多 10 只」;另两档只做敏感度,★ 不是挑最优。"
+      ],
+      "适配层报告": "字段名已对齐:stop_init → initial_stop, stop_trail → trailing_stop, slots(5) → sizing.params.max_positions, ranking → sizing.rank_by, trailing_stop 分级 from_r=0.0/to_r=2.0 → when=unrealized_r_between, trailing_stop 分级 from_r=2.0/to_r=3.0 → when=unrealized_r_between, trailing_stop 分级 from_r=3.0/to_r=None → when=unrealized_r_gt, initial_stop.params(列表)→ initial_stop.components\n★ 配置里显式关掉的规则(enabled: false)—— 引擎没执行它们,报告里必须写明:\n    [universe] net_shareholder_yield_rank_above —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-⑪\n    [universe] no_large_equity_issuance —— audit_blocked=阈值未定(「大规模增发」专家原文没给)\n全部规则都已实现,可以直接跑。",
+      "笔数": 291,
+      "样本量够不够": "够",
+      "★样本不足警示": null,
+      "信号漏斗": {
+        "全池单元数": 599278,
+        "逐关": [
+          {
+            "关": "① dollar_volume_rank_exclude_bottom",
+            "单条": 464056,
+            "累计": 464056
+          },
+          {
+            "关": "① fcf_yield_rank_top",
+            "单条": 62906,
+            "累计": 47900
+          },
+          {
+            "关": "① sloan_accrual_below",
+            "单条": 383255,
+            "累计": 44369
+          },
+          {
+            "关": "① net_shareholder_yield_rank_above(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 44369
+          },
+          {
+            "关": "① no_large_equity_issuance(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 44369
+          },
+          {
+            "关": "② regime(开闸天数/总天数)",
+            "单条": 1227,
+            "累计": 2011
+          },
+          {
+            "关": "③ mansfield_rs_positive",
+            "单条": 219139,
+            "累计": 219139
+          },
+          {
+            "关": "③ donchian_close_breakout",
+            "单条": 73785,
+            "累计": 41350
+          },
+          {
+            "关": "③ 事件化(只在转折那天触发)",
+            "单条": 21110,
+            "累计": 21110
+          },
+          {
+            "关": "③ × ① 选股范围",
+            "单条": 1478,
+            "累计": 1478
+          }
+        ]
+      },
+      "★持仓周期与批次": {
+        "平均持仓(交易日)": 19.766323,
+        "中位持仓(交易日)": 9.0,
+        "最长持仓(交易日)": 158,
+        "最短持仓(交易日)": 0,
+        "★ 一个槽位八年能轮几批": 101.7387,
+        "★ 槽位数 × 批数(独立机会上限)": 508.693498,
+        "逐年出场笔数": {
+          "2018": 24,
+          "2019": 29,
+          "2020": 39,
+          "2021": 64,
+          "2022": 19,
+          "2023": 30,
+          "2024": 43,
+          "2025": 43
+        },
+        "绩效窗口交易日数": 2011
+      },
+      "出场原因分布": {
+        "止损": 238,
+        "基本面季度否决": 48,
+        "退市结算": 5
+      },
+      "绝对表现": {
+        "净收益(扣摩擦)": -0.255802,
+        "毛收益": -0.194698,
+        "CAGR(净)": -0.036346,
+        "★笔数": 291,
+        "每笔R_毛(带95%CI)": "-0.163 [95%CI -0.344 .. +0.008] (n=291)",
+        "★每笔R_扣摩擦(带95%CI)": "-0.206 [95%CI -0.386 .. -0.036] (n=291)",
+        "每笔毛收益(带95%CI)": "-0.66% [95%CI -1.80% .. +0.38%] (n=291)",
+        "胜率(带95%CI)": "+24.40% [95%CI +19.59% .. +29.21%] (n=291)"
+      },
+      "坑一_现金拖累": {
+        "资金占用期间收益率_年化": -0.139493,
+        "资金在场比例": 0.28547,
+        "说明": "分母是「资金·年」:仓位名义金额 × 持仓天数 / 252。空仓的日子不进分母,所以不会冤枉低频策略。"
+      },
+      "坑二_跳空穿透止损": {
+        "止损出场笔数": 238,
+        "★跳空穿透止损笔数": 40,
+        "跳空穿透占止损的比例": 0.168067,
+        "平均穿透幅度(R)": 0.337178,
+        "最深穿透(R)": 1.931416,
+        "穿透笔的平均实际R": -0.472711,
+        "未穿透笔的平均实际R": -0.185877,
+        "说明": "成交价已按 min(止损价, 当日开盘价) 处理 —— 跳空时按开盘价,不许按止损价(那会系统性低估基本面困境类的亏损)。"
+      },
+      "代价": {
+        "最大回撤": -0.323052,
+        "回撤最深那天": "2025-05-23",
+        "★最长水下持续天数": 1993,
+        "UlcerIndex(Martin 1989)": 22.197151,
+        "最长连续不赚钱笔数": 20,
+        "逐年收益": {
+          "2018": -0.06537,
+          "2019": -0.078776,
+          "2020": -0.0931,
+          "2021": -0.004222,
+          "2022": -0.00548,
+          "2023": -0.038482,
+          "2024": 0.003928,
+          "2025": 0.004901
+        },
+        "几乎全亏的年份(<-10%)": {}
+      },
+      "执行负荷": {
+        "年化换手率": 3.602117,
+        "年均交易笔数": 36.46544,
+        "平均持仓周期(交易日)": 19.766323
+      },
+      "摩擦成本": {
+        "口径": "★按 ADV20 分三档(高/中/低流动性),不一刀切",
+        "分档(单边)": {
+          "high_liquidity_bps": "0.050%",
+          "mid_liquidity_bps": "0.150%",
+          "low_liquidity_bps": "0.300%"
+        },
+        "实际摩擦总额": 61104.428913,
+        "毛收益 − 净收益": 0.061104,
+        "出处": "SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A"
+      },
+      "基准一_同环境随机进场": {
+        "随机进场_平均总收益": 0.043864,
+        "随机进场_收益标准差": 0.118534,
+        "随机进场_平均每笔R": 0.410241,
+        "随机进场_平均最大回撤": -0.048039,
+        "随机进场_种子数": 5,
+        "随机进场_触发率": 0.000486,
+        "★真信号总收益 − 随机进场": -0.299667,
+        "★真信号每笔R − 随机进场每笔R": -0.573096
+      },
+      "基准二_同等仓位大盘": {
+        "★Ē_全周期固定净敞口": 0.302676,
+        "成分匹配指数": "SPY",
+        "无风险利率_年化": 0.0,
+        "基准总收益": 0.368951,
+        "基准CAGR": 0.040138,
+        "基准最大回撤": -0.112977,
+        "基准最长水下天数": 488,
+        "★超额收益(链 − 同等仓位大盘)": -0.624753,
+        "警示": [
+          "★ 仓库里没有无风险利率序列(只有 TLT,那是长债 ETF、不是短端利率)。现金腿按 0% 记并在此标明 —— 不拿近似值顶上(硬纪律第 7 条)。要做准必须另外补一条 3 个月期美债收益率序列。"
+        ]
+      },
+      "判据_三套对照组": {
+        "通过": false,
+        "级别": "不显著",
+        "理由": [
+          "条件分层随机:Z=-5.73 < 1.65,未达基础显著",
+          "条件分层随机:信号均值不如随机均值(差值 -0.9221)",
+          "块重排:Z=-4.28 < 1.65,未达基础显著",
+          "块重排:信号均值不如随机均值(差值 -0.9243)",
+          "极性反转未过:做空 Z=+4.28 ≥ 做多 Z=-4.28,方向站不住"
+        ],
+        "三套对照组": {
+          "条件分层随机": {
+            "n": 291,
+            "信号均值": -0.162855,
+            "随机均值": 0.75924,
+            "σ随机": 0.160813,
+            "p": 1.0,
+            "Z": -5.73396,
+            "级别": "不显著"
+          },
+          "块重排(Politis&Romano)": {
+            "n": 291,
+            "信号均值": -0.162855,
+            "随机均值": 0.761435,
+            "σ随机": 0.216024,
+            "p": 1.0,
+            "Z": -4.278651,
+            "级别": "不显著"
+          },
+          "极性反转·做多": {
+            "n": 291,
+            "信号均值": -0.162855,
+            "随机均值": 0.761435,
+            "σ随机": 0.216024,
+            "p": 1.0,
+            "Z": -4.278651,
+            "级别": "不显著"
+          },
+          "极性反转·做空": {
+            "n": 291,
+            "信号均值": 0.162855,
+            "随机均值": -0.761435,
+            "σ随机": 0.216024,
+            "p": 0.000999,
+            "Z": 4.278651,
+            "级别": "机构级"
+          }
+        }
+      },
+      "★两窗口两池子硬关": "只对主档跑",
+      "分步归因": null,
+      "坑四_摩擦敏感度": null,
+      "征兆警报": [],
+      "引擎显式关掉的东西": [
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))"
+      ],
+      "耗时秒": 39.5
+    },
+    {
+      "链名": "流派三_现金流纪律_slots10",
+      "★是否主档": true,
+      "slots": 10,
+      "★必须讲清楚的前提": [
+        "★ A-1 关掉了 ①「过去 4 季度无大规模增发融资」—— 「大规模」的阈值专家原文没给(配置自己标了 undefined_param)。★ 不许借用 ⑥ 那条2.0% 稀释线顶上:那是另一步的参数,跨步搬过来等于我们自己定了一个闸门还假托有出处。★ 所以这一版 ① 少一道闸。",
+        "★ A-2 去掉了 ③ 突破扳机的 volume_confirm: moderate —— 「温和放量」的量比区间专家原文没给。★ 流派二那边专家给过 [1.00,1.80],★ 但那是另一条链的参数,不许跨链搬。★ 所以这一版的突破没有放量确认。",
+        "★★ 结论口径:A 跑出来的**不是完整的这一派** —— ① 的「净股东回报率」闸门数据上根本算不出(腿三没有偿债现金流科目)、① 的「无大规模增发」闸门阈值未定、③ 没有放量确认。★ 资本配置纪律(Thorndike 那一半)在 ① 里整个没了,只在 ⑥ 的清仓规则里还留着。",
+        "★ C-1 ★ 占位排序(不是策略的一部分)—— 专家三轮未给这两派的排序规则。选 ADV20 的理由:PIT 干净、两条链口径统一、覆盖率 100%,不会让「有基本面数据的票」系统性排在前面。见审计报告拍板第 2 条。",
+        "★ C-2 slots=10(★主档(配置原值))。配置原值 10 是专家明给的「最多 10 只」;另两档只做敏感度,★ 不是挑最优。"
+      ],
+      "适配层报告": "字段名已对齐:stop_init → initial_stop, stop_trail → trailing_stop, slots(10) → sizing.params.max_positions, ranking → sizing.rank_by, trailing_stop 分级 from_r=0.0/to_r=2.0 → when=unrealized_r_between, trailing_stop 分级 from_r=2.0/to_r=3.0 → when=unrealized_r_between, trailing_stop 分级 from_r=3.0/to_r=None → when=unrealized_r_gt, initial_stop.params(列表)→ initial_stop.components\n★ 配置里显式关掉的规则(enabled: false)—— 引擎没执行它们,报告里必须写明:\n    [universe] net_shareholder_yield_rank_above —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-⑪\n    [universe] no_large_equity_issuance —— audit_blocked=阈值未定(「大规模增发」专家原文没给)\n全部规则都已实现,可以直接跑。",
+      "笔数": 431,
+      "样本量够不够": "够",
+      "★样本不足警示": null,
+      "信号漏斗": {
+        "全池单元数": 599278,
+        "逐关": [
+          {
+            "关": "① dollar_volume_rank_exclude_bottom",
+            "单条": 464056,
+            "累计": 464056
+          },
+          {
+            "关": "① fcf_yield_rank_top",
+            "单条": 62906,
+            "累计": 47900
+          },
+          {
+            "关": "① sloan_accrual_below",
+            "单条": 383255,
+            "累计": 44369
+          },
+          {
+            "关": "① net_shareholder_yield_rank_above(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 44369
+          },
+          {
+            "关": "① no_large_equity_issuance(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 44369
+          },
+          {
+            "关": "② regime(开闸天数/总天数)",
+            "单条": 1227,
+            "累计": 2011
+          },
+          {
+            "关": "③ mansfield_rs_positive",
+            "单条": 219139,
+            "累计": 219139
+          },
+          {
+            "关": "③ donchian_close_breakout",
+            "单条": 73785,
+            "累计": 41350
+          },
+          {
+            "关": "③ 事件化(只在转折那天触发)",
+            "单条": 21110,
+            "累计": 21110
+          },
+          {
+            "关": "③ × ① 选股范围",
+            "单条": 1478,
+            "累计": 1478
+          }
+        ]
+      },
+      "★持仓周期与批次": {
+        "平均持仓(交易日)": 18.554524,
+        "中位持仓(交易日)": 8.0,
+        "最长持仓(交易日)": 221,
+        "最短持仓(交易日)": 0,
+        "★ 一个槽位八年能轮几批": 108.383269,
+        "★ 槽位数 × 批数(独立机会上限)": 1083.832687,
+        "逐年出场笔数": {
+          "2018": 32,
+          "2019": 36,
+          "2020": 58,
+          "2021": 105,
+          "2022": 22,
+          "2023": 39,
+          "2024": 88,
+          "2025": 51
+        },
+        "绩效窗口交易日数": 2011
+      },
+      "出场原因分布": {
+        "止损": 337,
+        "基本面季度否决": 87,
+        "退市结算": 7
+      },
+      "绝对表现": {
+        "净收益(扣摩擦)": -0.30825,
+        "毛收益": -0.214466,
+        "CAGR(净)": -0.045131,
+        "★笔数": 431,
+        "每笔R_毛(带95%CI)": "-0.163 [95%CI -0.298 .. -0.013] (n=431)",
+        "★每笔R_扣摩擦(带95%CI)": "-0.209 [95%CI -0.343 .. -0.058] (n=431)",
+        "每笔毛收益(带95%CI)": "-0.54% [95%CI -1.44% .. +0.50%] (n=431)",
+        "胜率(带95%CI)": "+24.36% [95%CI +20.42% .. +28.54%] (n=431)"
+      },
+      "坑一_现金拖累": {
+        "资金占用期间收益率_年化": -0.125919,
+        "资金在场比例": 0.389882,
+        "说明": "分母是「资金·年」:仓位名义金额 × 持仓天数 / 252。空仓的日子不进分母,所以不会冤枉低频策略。"
+      },
+      "坑二_跳空穿透止损": {
+        "止损出场笔数": 337,
+        "★跳空穿透止损笔数": 54,
+        "跳空穿透占止损的比例": 0.160237,
+        "平均穿透幅度(R)": 0.288899,
+        "最深穿透(R)": 1.931416,
+        "穿透笔的平均实际R": -0.384401,
+        "未穿透笔的平均实际R": -0.22395,
+        "说明": "成交价已按 min(止损价, 当日开盘价) 处理 —— 跳空时按开盘价,不许按止损价(那会系统性低估基本面困境类的亏损)。"
+      },
+      "代价": {
+        "最大回撤": -0.399042,
+        "回撤最深那天": "2025-05-23",
+        "★最长水下持续天数": 1207,
+        "UlcerIndex(Martin 1989)": 24.356795,
+        "最长连续不赚钱笔数": 25,
+        "逐年收益": {
+          "2018": -0.104585,
+          "2019": -0.066335,
+          "2020": -0.002107,
+          "2021": -0.053314,
+          "2022": -0.018761,
+          "2023": -0.073159,
+          "2024": -0.047981,
+          "2025": 0.021322
+        },
+        "几乎全亏的年份(<-10%)": {
+          "2018": -0.104585
+        }
+      },
+      "执行负荷": {
+        "年化换手率": 5.261952,
+        "年均交易笔数": 54.008951,
+        "平均持仓周期(交易日)": 18.554524
+      },
+      "摩擦成本": {
+        "口径": "★按 ADV20 分三档(高/中/低流动性),不一刀切",
+        "分档(单边)": {
+          "high_liquidity_bps": "0.050%",
+          "mid_liquidity_bps": "0.150%",
+          "low_liquidity_bps": "0.300%"
+        },
+        "实际摩擦总额": 93784.028706,
+        "毛收益 − 净收益": 0.093784,
+        "出处": "SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A"
+      },
+      "基准一_同环境随机进场": {
+        "随机进场_平均总收益": 0.052532,
+        "随机进场_收益标准差": 0.160947,
+        "随机进场_平均每笔R": 0.215024,
+        "随机进场_平均最大回撤": -0.062334,
+        "随机进场_种子数": 5,
+        "随机进场_触发率": 0.000719,
+        "★真信号总收益 − 随机进场": -0.360782,
+        "★真信号每笔R − 随机进场每笔R": -0.377954
+      },
+      "基准二_同等仓位大盘": {
+        "★Ē_全周期固定净敞口": 0.413314,
+        "成分匹配指数": "SPY",
+        "无风险利率_年化": 0.0,
+        "基准总收益": 0.524808,
+        "基准CAGR": 0.054287,
+        "基准最大回撤": -0.152158,
+        "基准最长水下天数": 488,
+        "★超额收益(链 − 同等仓位大盘)": -0.833058,
+        "警示": [
+          "★ 仓库里没有无风险利率序列(只有 TLT,那是长债 ETF、不是短端利率)。现金腿按 0% 记并在此标明 —— 不拿近似值顶上(硬纪律第 7 条)。要做准必须另外补一条 3 个月期美债收益率序列。"
+        ]
+      },
+      "判据_三套对照组": {
+        "通过": false,
+        "级别": "不显著",
+        "理由": [
+          "条件分层随机:Z=-6.06 < 1.65,未达基础显著",
+          "条件分层随机:信号均值不如随机均值(差值 -0.7233)",
+          "块重排:Z=-4.47 < 1.65,未达基础显著",
+          "块重排:信号均值不如随机均值(差值 -0.7334)",
+          "极性反转未过:做空 Z=+4.47 ≥ 做多 Z=-4.47,方向站不住"
+        ],
+        "三套对照组": {
+          "条件分层随机": {
+            "n": 431,
+            "信号均值": -0.16293,
+            "随机均值": 0.560392,
+            "σ随机": 0.119292,
+            "p": 1.0,
+            "Z": -6.063477,
+            "级别": "不显著"
+          },
+          "块重排(Politis&Romano)": {
+            "n": 431,
+            "信号均值": -0.16293,
+            "随机均值": 0.570447,
+            "σ随机": 0.164148,
+            "p": 1.0,
+            "Z": -4.467773,
+            "级别": "不显著"
+          },
+          "极性反转·做多": {
+            "n": 431,
+            "信号均值": -0.16293,
+            "随机均值": 0.570447,
+            "σ随机": 0.164148,
+            "p": 1.0,
+            "Z": -4.467773,
+            "级别": "不显著"
+          },
+          "极性反转·做空": {
+            "n": 431,
+            "信号均值": 0.16293,
+            "随机均值": -0.570447,
+            "σ随机": 0.164148,
+            "p": 0.000999,
+            "Z": 4.467773,
+            "级别": "机构级"
+          }
+        }
+      },
+      "★两窗口两池子硬关": {
+        "通过": false,
+        "理由": [
+          "有格子算不出 Z(样本太少或随机分布退化):['2018-2021×池A']",
+          "★ 第二条没过:最弱格 2018-2021×池B 差值 -0.0630 ≤ 0"
+        ],
+        "降级结论": "只在 2022-2025×池A、2022-2025×池B 上成立,不能当成普遍结论用",
+        "四格": [
+          {
+            "格": "2018-2021×池A",
+            "n": 136,
+            "差值": 0.935276,
+            "Z": null,
+            "p": 0.000999
+          },
+          {
+            "格": "2018-2021×池B",
+            "n": 115,
+            "差值": -0.062969,
+            "Z": -0.64025,
+            "p": 0.743257
+          },
+          {
+            "格": "2022-2025×池A",
+            "n": 78,
+            "差值": 0.5842,
+            "Z": 20.238022,
+            "p": 0.000999
+          },
+          {
+            "格": "2022-2025×池B",
+            "n": 132,
+            "差值": 0.306237,
+            "Z": 6.965739,
+            "p": 0.000999
+          }
+        ]
+      },
+      "分步归因": [
+        {
+          "步": "买入持有",
+          "净收益(扣摩擦)": 0.9503351213,
+          "毛收益": 0.9556201538,
+          "CAGR": 0.087311092,
+          "★最大回撤": -0.463131714,
+          "最长水下天数": 1040,
+          "笔数": 298,
+          "平均净敞口Ē": 0.9753859993
+        },
+        {
+          "步": "+环境",
+          "净收益(扣摩擦)": 0.9503351213,
+          "毛收益": 0.9556201538,
+          "CAGR": 0.087311092,
+          "★最大回撤": -0.463131714,
+          "最长水下天数": 1040,
+          "笔数": 298,
+          "平均净敞口Ē": 0.9753859993
+        },
+        {
+          "步": "+选股",
+          "净收益(扣摩擦)": 1.0368085516,
+          "毛收益": 1.0417955136,
+          "CAGR": 0.0932381915,
+          "★最大回撤": -0.5096430694,
+          "最长水下天数": 1040,
+          "笔数": 47,
+          "平均净敞口Ē": 0.9981401112
+        },
+        {
+          "步": "+出场",
+          "净收益(扣摩擦)": -0.0653943961,
+          "毛收益": 0.2262111907,
+          "CAGR": -0.0084390403,
+          "★最大回撤": -0.3955278134,
+          "最长水下天数": 1168,
+          "笔数": 2509,
+          "平均净敞口Ē": 0.7343172023
+        },
+        {
+          "步": "完整链",
+          "净收益(扣摩擦)": -0.3082499058,
+          "毛收益": -0.2144658771,
+          "CAGR": -0.0451307428,
+          "★最大回撤": -0.3990417765,
+          "最长水下天数": 1207,
+          "笔数": 431,
+          "平均净敞口Ē": 0.4133142029
+        }
+      ],
+      "坑四_摩擦敏感度": [
+        {
+          "摩擦口径": "★配置默认:按ADV20分三档",
+          "净收益": -0.3082499058,
+          "最大回撤": -0.3990417765,
+          "笔数": 431,
+          "平均每笔R_扣摩擦": -0.2086644228
+        },
+        {
+          "摩擦口径": "一刀切 0.05%",
+          "净收益": -0.2524574455,
+          "最大回撤": -0.3702070286,
+          "笔数": 431,
+          "平均每笔R_扣摩擦": -0.1802952929
+        },
+        {
+          "摩擦口径": "一刀切 0.15%",
+          "净收益": -0.3125487714,
+          "最大回撤": -0.4021203456,
+          "笔数": 431,
+          "平均每笔R_扣摩擦": -0.2150260847
+        },
+        {
+          "摩擦口径": "一刀切 0.30%",
+          "净收益": -0.3937392411,
+          "最大回撤": -0.4671755375,
+          "笔数": 431,
+          "平均每笔R_扣摩擦": -0.2671222723
+        }
+      ],
+      "征兆警报": [],
+      "引擎显式关掉的东西": [
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))"
+      ],
+      "耗时秒": 29.4,
+      "★留一法瓶颈诊断": [
+        {
+          "去掉的条件": "(完整链,基准)",
+          "笔数": 431,
+          "笔数变化": 0
+        },
+        {
+          "去掉的条件": "universe.dollar_volume_rank_exclude_bottom",
+          "笔数": 485,
+          "笔数变化": 54
+        },
+        {
+          "去掉的条件": "universe.fcf_yield_rank_top",
+          "笔数": 667,
+          "笔数变化": 236
+        },
+        {
+          "去掉的条件": "universe.sloan_accrual_below",
+          "笔数": 448,
+          "笔数变化": 17
+        },
+        {
+          "去掉的条件": "regime.index_above_ma",
+          "笔数": 460,
+          "笔数变化": 29
+        },
+        {
+          "去掉的条件": "regime.sector_diffusion_above",
+          "笔数": 479,
+          "笔数变化": 48
+        },
+        {
+          "去掉的条件": "entry.mansfield_rs_positive",
+          "笔数": 551,
+          "笔数变化": 120
+        },
+        {
+          "去掉的条件": "entry.donchian_close_breakout",
+          "笔数": 238,
+          "笔数变化": -193
+        },
+        {
+          "去掉的条件": "★ 一次去掉全部基本面闸门",
+          "笔数": 615,
+          "笔数变化": 184
+        }
+      ]
+    },
+    {
+      "链名": "流派三_现金流纪律_slots20",
+      "★是否主档": false,
+      "slots": 20,
+      "★必须讲清楚的前提": [
+        "★ A-1 关掉了 ①「过去 4 季度无大规模增发融资」—— 「大规模」的阈值专家原文没给(配置自己标了 undefined_param)。★ 不许借用 ⑥ 那条2.0% 稀释线顶上:那是另一步的参数,跨步搬过来等于我们自己定了一个闸门还假托有出处。★ 所以这一版 ① 少一道闸。",
+        "★ A-2 去掉了 ③ 突破扳机的 volume_confirm: moderate —— 「温和放量」的量比区间专家原文没给。★ 流派二那边专家给过 [1.00,1.80],★ 但那是另一条链的参数,不许跨链搬。★ 所以这一版的突破没有放量确认。",
+        "★★ 结论口径:A 跑出来的**不是完整的这一派** —— ① 的「净股东回报率」闸门数据上根本算不出(腿三没有偿债现金流科目)、① 的「无大规模增发」闸门阈值未定、③ 没有放量确认。★ 资本配置纪律(Thorndike 那一半)在 ① 里整个没了,只在 ⑥ 的清仓规则里还留着。",
+        "★ C-1 ★ 占位排序(不是策略的一部分)—— 专家三轮未给这两派的排序规则。选 ADV20 的理由:PIT 干净、两条链口径统一、覆盖率 100%,不会让「有基本面数据的票」系统性排在前面。见审计报告拍板第 2 条。",
+        "★ C-2 slots=20(敏感度档)。配置原值 10 是专家明给的「最多 10 只」;另两档只做敏感度,★ 不是挑最优。"
+      ],
+      "适配层报告": "字段名已对齐:stop_init → initial_stop, stop_trail → trailing_stop, slots(20) → sizing.params.max_positions, ranking → sizing.rank_by, trailing_stop 分级 from_r=0.0/to_r=2.0 → when=unrealized_r_between, trailing_stop 分级 from_r=2.0/to_r=3.0 → when=unrealized_r_between, trailing_stop 分级 from_r=3.0/to_r=None → when=unrealized_r_gt, initial_stop.params(列表)→ initial_stop.components\n★ 配置里显式关掉的规则(enabled: false)—— 引擎没执行它们,报告里必须写明:\n    [universe] net_shareholder_yield_rank_above —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-⑪\n    [universe] no_large_equity_issuance —— audit_blocked=阈值未定(「大规模增发」专家原文没给)\n全部规则都已实现,可以直接跑。",
+      "笔数": 438,
+      "样本量够不够": "够",
+      "★样本不足警示": null,
+      "信号漏斗": {
+        "全池单元数": 599278,
+        "逐关": [
+          {
+            "关": "① dollar_volume_rank_exclude_bottom",
+            "单条": 464056,
+            "累计": 464056
+          },
+          {
+            "关": "① fcf_yield_rank_top",
+            "单条": 62906,
+            "累计": 47900
+          },
+          {
+            "关": "① sloan_accrual_below",
+            "单条": 383255,
+            "累计": 44369
+          },
+          {
+            "关": "① net_shareholder_yield_rank_above(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 44369
+          },
+          {
+            "关": "① no_large_equity_issuance(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 44369
+          },
+          {
+            "关": "② regime(开闸天数/总天数)",
+            "单条": 1227,
+            "累计": 2011
+          },
+          {
+            "关": "③ mansfield_rs_positive",
+            "单条": 219139,
+            "累计": 219139
+          },
+          {
+            "关": "③ donchian_close_breakout",
+            "单条": 73785,
+            "累计": 41350
+          },
+          {
+            "关": "③ 事件化(只在转折那天触发)",
+            "单条": 21110,
+            "累计": 21110
+          },
+          {
+            "关": "③ × ① 选股范围",
+            "单条": 1478,
+            "累计": 1478
+          }
+        ]
+      },
+      "★持仓周期与批次": {
+        "平均持仓(交易日)": 18.257991,
+        "中位持仓(交易日)": 8.0,
+        "最长持仓(交易日)": 221,
+        "最短持仓(交易日)": 0,
+        "★ 一个槽位八年能轮几批": 110.143554,
+        "★ 槽位数 × 批数(独立机会上限)": 2202.871077,
+        "逐年出场笔数": {
+          "2018": 32,
+          "2019": 36,
+          "2020": 59,
+          "2021": 108,
+          "2022": 22,
+          "2023": 39,
+          "2024": 91,
+          "2025": 51
+        },
+        "绩效窗口交易日数": 2011
+      },
+      "出场原因分布": {
+        "止损": 340,
+        "基本面季度否决": 91,
+        "退市结算": 7
+      },
+      "绝对表现": {
+        "净收益(扣摩擦)": -0.293969,
+        "毛收益": -0.196151,
+        "CAGR(净)": -0.042683,
+        "★笔数": 438,
+        "每笔R_毛(带95%CI)": "-0.154 [95%CI -0.292 .. -0.021] (n=438)",
+        "★每笔R_扣摩擦(带95%CI)": "-0.200 [95%CI -0.338 .. -0.070] (n=438)",
+        "每笔毛收益(带95%CI)": "-0.48% [95%CI -1.40% .. +0.37%] (n=438)",
+        "胜率(带95%CI)": "+24.89% [95%CI +20.55% .. +28.77%] (n=438)"
+      },
+      "坑一_现金拖累": {
+        "资金占用期间收益率_年化": -0.119139,
+        "资金在场比例": 0.387189,
+        "说明": "分母是「资金·年」:仓位名义金额 × 持仓天数 / 252。空仓的日子不进分母,所以不会冤枉低频策略。"
+      },
+      "坑二_跳空穿透止损": {
+        "止损出场笔数": 340,
+        "★跳空穿透止损笔数": 51,
+        "跳空穿透占止损的比例": 0.15,
+        "平均穿透幅度(R)": 0.290108,
+        "最深穿透(R)": 1.931416,
+        "穿透笔的平均实际R": -0.352012,
+        "未穿透笔的平均实际R": -0.218254,
+        "说明": "成交价已按 min(止损价, 当日开盘价) 处理 —— 跳空时按开盘价,不许按止损价(那会系统性低估基本面困境类的亏损)。"
+      },
+      "代价": {
+        "最大回撤": -0.399645,
+        "回撤最深那天": "2025-05-23",
+        "★最长水下持续天数": 1207,
+        "UlcerIndex(Martin 1989)": 24.131794,
+        "最长连续不赚钱笔数": 25,
+        "逐年收益": {
+          "2018": -0.104585,
+          "2019": -0.066335,
+          "2020": 0.01601,
+          "2021": -0.03943,
+          "2022": -0.018761,
+          "2023": -0.073159,
+          "2024": -0.059019,
+          "2025": 0.027475
+        },
+        "几乎全亏的年份(<-10%)": {
+          "2018": -0.104585
+        }
+      },
+      "执行负荷": {
+        "年化换手率": 5.320096,
+        "年均交易笔数": 54.886126,
+        "平均持仓周期(交易日)": 18.257991
+      },
+      "摩擦成本": {
+        "口径": "★按 ADV20 分三档(高/中/低流动性),不一刀切",
+        "分档(单边)": {
+          "high_liquidity_bps": "0.050%",
+          "mid_liquidity_bps": "0.150%",
+          "low_liquidity_bps": "0.300%"
+        },
+        "实际摩擦总额": 97818.134007,
+        "毛收益 − 净收益": 0.097818,
+        "出处": "SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A"
+      },
+      "基准一_同环境随机进场": {
+        "随机进场_平均总收益": 0.052532,
+        "随机进场_收益标准差": 0.160947,
+        "随机进场_平均每笔R": 0.215024,
+        "随机进场_平均最大回撤": -0.062334,
+        "随机进场_种子数": 5,
+        "随机进场_触发率": 0.000731,
+        "★真信号总收益 − 随机进场": -0.3465,
+        "★真信号每笔R − 随机进场每笔R": -0.368663
+      },
+      "基准二_同等仓位大盘": {
+        "★Ē_全周期固定净敞口": 0.410389,
+        "成分匹配指数": "SPY",
+        "无风险利率_年化": 0.0,
+        "基准总收益": 0.520541,
+        "基准CAGR": 0.053917,
+        "基准最大回撤": -0.151137,
+        "基准最长水下天数": 488,
+        "★超额收益(链 − 同等仓位大盘)": -0.81451,
+        "警示": [
+          "★ 仓库里没有无风险利率序列(只有 TLT,那是长债 ETF、不是短端利率)。现金腿按 0% 记并在此标明 —— 不拿近似值顶上(硬纪律第 7 条)。要做准必须另外补一条 3 个月期美债收益率序列。"
+        ]
+      },
+      "判据_三套对照组": {
+        "通过": false,
+        "级别": "不显著",
+        "理由": [
+          "条件分层随机:Z=-6.13 < 1.65,未达基础显著",
+          "条件分层随机:信号均值不如随机均值(差值 -0.7098)",
+          "块重排:Z=-4.45 < 1.65,未达基础显著",
+          "块重排:信号均值不如随机均值(差值 -0.7214)",
+          "极性反转未过:做空 Z=+4.45 ≥ 做多 Z=-4.45,方向站不住"
+        ],
+        "三套对照组": {
+          "条件分层随机": {
+            "n": 438,
+            "信号均值": -0.153639,
+            "随机均值": 0.556112,
+            "σ随机": 0.115756,
+            "p": 1.0,
+            "Z": -6.131429,
+            "级别": "不显著"
+          },
+          "块重排(Politis&Romano)": {
+            "n": 438,
+            "信号均值": -0.153639,
+            "随机均值": 0.567779,
+            "σ随机": 0.162199,
+            "p": 1.0,
+            "Z": -4.447742,
+            "级别": "不显著"
+          },
+          "极性反转·做多": {
+            "n": 438,
+            "信号均值": -0.153639,
+            "随机均值": 0.567779,
+            "σ随机": 0.162199,
+            "p": 1.0,
+            "Z": -4.447742,
+            "级别": "不显著"
+          },
+          "极性反转·做空": {
+            "n": 438,
+            "信号均值": 0.153639,
+            "随机均值": -0.567779,
+            "σ随机": 0.162199,
+            "p": 0.000999,
+            "Z": 4.447742,
+            "级别": "机构级"
+          }
+        }
+      },
+      "★两窗口两池子硬关": "只对主档跑",
+      "分步归因": null,
+      "坑四_摩擦敏感度": null,
+      "征兆警报": [],
+      "引擎显式关掉的东西": [
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))"
+      ],
+      "耗时秒": 6.8
+    },
+    {
+      "链名": "流派一_深度价值_slots12",
+      "★是否主档": true,
+      "slots": 12,
+      "★必须讲清楚的前提": [
+        "★★ B-1 这一版**不是完整的这一派**:缺了第⑥步的估值修复离场 (EV/EBITDA 修复至前 40% 就卖)—— EV/EBITDA 算不出(EBIT+D&A 覆盖率只有 13.6%),★ 所以止盈那一步被拆了,主动离场只剩 F-Score < 4 和那条来源存疑的 180 日时间止损。",
+        "★ B-1 配置自己还关掉了:① EV/EBITDA 排名、① Altman Z''(科目齐备率不够 + 系数版本未定)、② HYG/LQD 信用闸门(仓库没有这两条线)。★ ① 三道基本面闸门只剩 Piotroski F-Score 一条。",
+        "★ ③「跌破后强力收复」的强度口径专家原文没给。引擎用的是**唯一不含自由参数的机械读法**:当日最低跌破前 20 日最低、当日收盘又收回其上。★ 这是我们的读法,不是专家给的口径 —— 待确认。",
+        "★ C-1 ★ 占位排序(不是策略的一部分)—— 专家三轮未给这两派的排序规则。选 ADV20 的理由:PIT 干净、两条链口径统一、覆盖率 100%,不会让「有基本面数据的票」系统性排在前面。见审计报告拍板第 2 条。",
+        "★ C-2 slots=12(★主档(配置原值))。配置原值 12 是专家给的区间「12–15 只」的**紧端**(我们主动取紧端,为的是验出松端是不是在放水);15 是区间另一端;24 是更松的一档。★ 三档并列,不是挑最优。"
+      ],
+      "适配层报告": "字段名已对齐:stop_init → initial_stop, stop_trail → trailing_stop, slots(12) → sizing.params.max_positions, ranking → sizing.rank_by, trailing_stop 分级 from_r=0.0/to_r=1.5 → when=unrealized_r_between, trailing_stop 分级 from_r=1.5/to_r=2.5 → when=unrealized_r_between, trailing_stop 分级 from_r=2.5/to_r=None → when=unrealized_r_gt, initial_stop.max_stop_distance_pct(10.0%) → hard_gate(超过就拒掉信号,不放大止损), exit.rules.time_stop.max_holding_days(180) → exit.params.time_stop_days\n★ 配置里显式关掉的规则(enabled: false)—— 引擎没执行它们,报告里必须写明:\n    [universe] ev_ebitda_rank_bottom —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-①\n    [universe] altman_z_double_prime_above —— audit_blocked=可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案)\n    [regime] credit_ratio_gate —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-⑭\n    [exit] ? —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-①\n全部规则都已实现,可以直接跑。",
+      "笔数": 39,
+      "样本量够不够": "★★ 不够(n=39 < 150)",
+      "★样本不足警示": "★★ 样本不足(N=39 笔 < 150):本次结果不具统计意义,问题在条件串联过严,不是这一派无效",
+      "信号漏斗": {
+        "全池单元数": 599278,
+        "逐关": [
+          {
+            "关": "① adv_rank_exclude_bottom",
+            "单条": 464056,
+            "累计": 464056
+          },
+          {
+            "关": "① ev_ebitda_rank_bottom(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 464056
+          },
+          {
+            "关": "① altman_z_double_prime_above(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 464056
+          },
+          {
+            "关": "① piotroski_f_score_above",
+            "单条": 91478,
+            "累计": 84943
+          },
+          {
+            "关": "② regime(开闸天数/总天数)",
+            "单条": 1513,
+            "累计": 2011
+          },
+          {
+            "关": "③ undercut_and_rally",
+            "单条": 27418,
+            "累计": 27418
+          },
+          {
+            "关": "③ close_above_ema",
+            "单条": 303412,
+            "累计": 462
+          },
+          {
+            "关": "③ 事件化(只在转折那天触发)",
+            "单条": 460,
+            "累计": 460
+          },
+          {
+            "关": "③ × ① 选股范围",
+            "单条": 58,
+            "累计": 58
+          }
+        ]
+      },
+      "★持仓周期与批次": {
+        "平均持仓(交易日)": 32.820513,
+        "中位持仓(交易日)": 16.0,
+        "最长持仓(交易日)": 181,
+        "最短持仓(交易日)": 1,
+        "★ 一个槽位八年能轮几批": 61.272656,
+        "★ 槽位数 × 批数(独立机会上限)": 735.271875,
+        "逐年出场笔数": {
+          "2018": 3,
+          "2019": 2,
+          "2020": 6,
+          "2021": 4,
+          "2022": 1,
+          "2023": 4,
+          "2024": 9,
+          "2025": 10
+        },
+        "绩效窗口交易日数": 2011
+      },
+      "出场原因分布": {
+        "止损": 37,
+        "时间止损": 1,
+        "退市结算": 1
+      },
+      "绝对表现": {
+        "净收益(扣摩擦)": 0.014585,
+        "毛收益": 0.022417,
+        "CAGR(净)": 0.001816,
+        "★笔数": 39,
+        "每笔R_毛(带95%CI)": "-0.041 [95%CI -0.534 .. +0.456] (n=39)",
+        "★每笔R_扣摩擦(带95%CI)": "-0.105 [95%CI -0.607 .. +0.396] (n=39)",
+        "每笔毛收益(带95%CI)": "+0.74% [95%CI -2.02% .. +3.58%] (n=39)",
+        "胜率(带95%CI)": "+25.64% [95%CI +12.82% .. +38.46%] (n=39)"
+      },
+      "坑一_现金拖累": {
+        "资金占用期间收益率_年化": 0.035779,
+        "资金在场比例": 0.050974,
+        "说明": "分母是「资金·年」:仓位名义金额 × 持仓天数 / 252。空仓的日子不进分母,所以不会冤枉低频策略。"
+      },
+      "坑二_跳空穿透止损": {
+        "止损出场笔数": 37,
+        "★跳空穿透止损笔数": 8,
+        "跳空穿透占止损的比例": 0.216216,
+        "平均穿透幅度(R)": 0.947079,
+        "最深穿透(R)": 4.226334,
+        "穿透笔的平均实际R": -0.431085,
+        "未穿透笔的平均实际R": -0.070711,
+        "说明": "成交价已按 min(止损价, 当日开盘价) 处理 —— 跳空时按开盘价,不许按止损价(那会系统性低估基本面困境类的亏损)。"
+      },
+      "代价": {
+        "最大回撤": -0.029499,
+        "回撤最深那天": "2025-07-31",
+        "★最长水下持续天数": 598,
+        "UlcerIndex(Martin 1989)": 1.606745,
+        "最长连续不赚钱笔数": 11,
+        "逐年收益": {
+          "2018": 0.001366,
+          "2019": -0.007438,
+          "2020": 0.000507,
+          "2021": 0.008057,
+          "2022": -0.004514,
+          "2023": -0.001938,
+          "2024": 0.023143,
+          "2025": -0.003702
+        },
+        "几乎全亏的年份(<-10%)": {}
+      },
+      "执行负荷": {
+        "年化换手率": 0.39366,
+        "年均交易笔数": 4.887121,
+        "平均持仓周期(交易日)": 32.820513
+      },
+      "摩擦成本": {
+        "口径": "★按 ADV20 分三档(高/中/低流动性),不一刀切",
+        "分档(单边)": {
+          "high_liquidity_bps": "0.050%",
+          "mid_liquidity_bps": "0.150%",
+          "low_liquidity_bps": "0.300%"
+        },
+        "实际摩擦总额": 7832.794246,
+        "毛收益 − 净收益": 0.007833,
+        "出处": "SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A"
+      },
+      "基准一_同环境随机进场": {
+        "随机进场_平均总收益": -0.00585,
+        "随机进场_收益标准差": 0.001447,
+        "随机进场_平均每笔R": -0.729469,
+        "随机进场_平均最大回撤": -0.010025,
+        "随机进场_种子数": 5,
+        "随机进场_触发率": 6.5e-05,
+        "★真信号总收益 − 随机进场": 0.020435,
+        "★真信号每笔R − 随机进场每笔R": 0.688568
+      },
+      "基准二_同等仓位大盘": {
+        "★Ē_全周期固定净敞口": 0.055432,
+        "成分匹配指数": "(无,市场中性)",
+        "无风险利率_年化": 0.0,
+        "基准总收益": 0.0,
+        "基准CAGR": 0.0,
+        "基准最大回撤": 0.0,
+        "基准最长水下天数": 0,
+        "★超额收益(链 − 同等仓位大盘)": 0.014585,
+        "警示": [
+          "★ 仓库里没有无风险利率序列(只有 TLT,那是长债 ETF、不是短端利率)。现金腿按 0% 记并在此标明 —— 不拿近似值顶上(硬纪律第 7 条)。要做准必须另外补一条 3 个月期美债收益率序列。",
+          "|Ē|=0.055 ≤ 0.10 → 判为市场中性,基准直接用无风险利率"
+        ]
+      },
+      "判据_三套对照组": {
+        "通过": false,
+        "级别": "不显著",
+        "理由": [
+          "样本量不足:n=39 < 100",
+          "条件分层随机:Z=-1.17 < 1.65,未达基础显著",
+          "条件分层随机:信号均值不如随机均值(差值 -0.7383)",
+          "块重排:Z=-1.31 < 1.65,未达基础显著",
+          "块重排:信号均值不如随机均值(差值 -0.7505)",
+          "极性反转未过:做空 Z=+1.31 ≥ 做多 Z=-1.31,方向站不住"
+        ],
+        "三套对照组": {
+          "条件分层随机": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.697373,
+            "σ随机": 0.628784,
+            "p": 0.878122,
+            "Z": -1.17413,
+            "级别": "不显著"
+          },
+          "块重排(Politis&Romano)": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.709593,
+            "σ随机": 0.571958,
+            "p": 0.901099,
+            "Z": -1.31215,
+            "级别": "不显著"
+          },
+          "极性反转·做多": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.709593,
+            "σ随机": 0.571958,
+            "p": 0.901099,
+            "Z": -1.31215,
+            "级别": "不显著"
+          },
+          "极性反转·做空": {
+            "n": 39,
+            "信号均值": 0.040901,
+            "随机均值": -0.709593,
+            "σ随机": 0.571958,
+            "p": 0.0999,
+            "Z": 1.31215,
+            "级别": "不显著"
+          }
+        }
+      },
+      "★两窗口两池子硬关": {
+        "通过": false,
+        "理由": [
+          "有格子算不出 Z(样本太少或随机分布退化):['2018-2021×池B', '2022-2025×池B']",
+          "★ 第二条没过:最弱格 2022-2025×池A 差值 -2.2471 ≤ 0"
+        ],
+        "降级结论": "四格里没有一格站得住 —— 这个信号不要用",
+        "四格": [
+          {
+            "格": "2018-2021×池A",
+            "n": 9,
+            "差值": 0.004857,
+            "Z": 0.012431,
+            "p": 0.582418
+          },
+          {
+            "格": "2018-2021×池B",
+            "n": 6,
+            "差值": 0.986423,
+            "Z": null,
+            "p": 0.000999
+          },
+          {
+            "格": "2022-2025×池A",
+            "n": 17,
+            "差值": -2.247111,
+            "Z": -2.18648,
+            "p": 0.983017
+          },
+          {
+            "格": "2022-2025×池B",
+            "n": 7,
+            "差值": 0.267767,
+            "Z": null,
+            "p": 0.000999
+          }
+        ]
+      },
+      "分步归因": [
+        {
+          "步": "买入持有",
+          "净收益(扣摩擦)": 0.9503351213,
+          "毛收益": 0.9556201538,
+          "CAGR": 0.087311092,
+          "★最大回撤": -0.463131714,
+          "最长水下天数": 1040,
+          "笔数": 298,
+          "平均净敞口Ē": 0.9753859993
+        },
+        {
+          "步": "+环境",
+          "净收益(扣摩擦)": 0.9503351213,
+          "毛收益": 0.9556201538,
+          "CAGR": 0.087311092,
+          "★最大回撤": -0.463131714,
+          "最长水下天数": 1040,
+          "笔数": 298,
+          "平均净敞口Ē": 0.9753859993
+        },
+        {
+          "步": "+选股",
+          "净收益(扣摩擦)": 1.0773644583,
+          "毛收益": 1.0815549303,
+          "CAGR": 0.0959424954,
+          "★最大回撤": -0.3006713706,
+          "最长水下天数": 524,
+          "笔数": 64,
+          "平均净敞口Ē": 0.9985001634
+        },
+        {
+          "步": "+出场",
+          "净收益(扣摩擦)": 0.1100894525,
+          "毛收益": 0.3421202803,
+          "CAGR": 0.0131735508,
+          "★最大回撤": -0.2268308273,
+          "最长水下天数": 1001,
+          "笔数": 4246,
+          "平均净敞口Ē": 0.7472534173
+        },
+        {
+          "步": "完整链",
+          "净收益(扣摩擦)": 0.0145845766,
+          "毛收益": 0.0224173708,
+          "CAGR": 0.0018160526,
+          "★最大回撤": -0.0294988221,
+          "最长水下天数": 598,
+          "笔数": 39,
+          "平均净敞口Ē": 0.0554324581
+        }
+      ],
+      "坑四_摩擦敏感度": [
+        {
+          "摩擦口径": "★配置默认:按ADV20分三档",
+          "净收益": 0.0145845766,
+          "最大回撤": -0.0294988221,
+          "笔数": 39,
+          "平均每笔R_扣摩擦": -0.1052442294
+        },
+        {
+          "摩擦口径": "一刀切 0.05%",
+          "净收益": 0.0193232642,
+          "最大回撤": -0.0287829876,
+          "笔数": 39,
+          "平均每笔R_扣摩擦": -0.0680695225
+        },
+        {
+          "摩擦口径": "一刀切 0.15%",
+          "净收益": 0.0129578954,
+          "最大回撤": -0.0299692006,
+          "笔数": 39,
+          "平均每笔R_扣摩擦": -0.1224064146
+        },
+        {
+          "摩擦口径": "一刀切 0.30%",
+          "净收益": 0.0034808474,
+          "最大回撤": -0.0317466836,
+          "笔数": 39,
+          "平均每笔R_扣摩擦": -0.2039117527
+        }
+      ],
+      "征兆警报": [],
+      "引擎显式关掉的东西": [
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场"
+      ],
+      "耗时秒": 23.6,
+      "★留一法瓶颈诊断": [
+        {
+          "去掉的条件": "(完整链,基准)",
+          "笔数": 39,
+          "笔数变化": 0
+        },
+        {
+          "去掉的条件": "universe.adv_rank_exclude_bottom",
+          "笔数": 40,
+          "笔数变化": 1
+        },
+        {
+          "去掉的条件": "universe.piotroski_f_score_above",
+          "笔数": 165,
+          "笔数变化": 126
+        },
+        {
+          "去掉的条件": "regime.index_above_ma",
+          "笔数": 43,
+          "笔数变化": 4
+        },
+        {
+          "去掉的条件": "regime.index_ma_slope",
+          "笔数": 42,
+          "笔数变化": 3
+        },
+        {
+          "去掉的条件": "entry.undercut_and_rally",
+          "笔数": 820,
+          "笔数变化": 781
+        },
+        {
+          "去掉的条件": "entry.close_above_ema",
+          "笔数": 860,
+          "笔数变化": 821
+        },
+        {
+          "去掉的条件": "★ 一次去掉全部基本面闸门",
+          "笔数": 165,
+          "笔数变化": 126
+        }
+      ]
+    },
+    {
+      "链名": "流派一_深度价值_slots15",
+      "★是否主档": false,
+      "slots": 15,
+      "★必须讲清楚的前提": [
+        "★★ B-1 这一版**不是完整的这一派**:缺了第⑥步的估值修复离场 (EV/EBITDA 修复至前 40% 就卖)—— EV/EBITDA 算不出(EBIT+D&A 覆盖率只有 13.6%),★ 所以止盈那一步被拆了,主动离场只剩 F-Score < 4 和那条来源存疑的 180 日时间止损。",
+        "★ B-1 配置自己还关掉了:① EV/EBITDA 排名、① Altman Z''(科目齐备率不够 + 系数版本未定)、② HYG/LQD 信用闸门(仓库没有这两条线)。★ ① 三道基本面闸门只剩 Piotroski F-Score 一条。",
+        "★ ③「跌破后强力收复」的强度口径专家原文没给。引擎用的是**唯一不含自由参数的机械读法**:当日最低跌破前 20 日最低、当日收盘又收回其上。★ 这是我们的读法,不是专家给的口径 —— 待确认。",
+        "★ C-1 ★ 占位排序(不是策略的一部分)—— 专家三轮未给这两派的排序规则。选 ADV20 的理由:PIT 干净、两条链口径统一、覆盖率 100%,不会让「有基本面数据的票」系统性排在前面。见审计报告拍板第 2 条。",
+        "★ C-2 slots=15(敏感度档)。配置原值 12 是专家给的区间「12–15 只」的**紧端**(我们主动取紧端,为的是验出松端是不是在放水);15 是区间另一端;24 是更松的一档。★ 三档并列,不是挑最优。"
+      ],
+      "适配层报告": "字段名已对齐:stop_init → initial_stop, stop_trail → trailing_stop, slots(15) → sizing.params.max_positions, ranking → sizing.rank_by, trailing_stop 分级 from_r=0.0/to_r=1.5 → when=unrealized_r_between, trailing_stop 分级 from_r=1.5/to_r=2.5 → when=unrealized_r_between, trailing_stop 分级 from_r=2.5/to_r=None → when=unrealized_r_gt, initial_stop.max_stop_distance_pct(10.0%) → hard_gate(超过就拒掉信号,不放大止损), exit.rules.time_stop.max_holding_days(180) → exit.params.time_stop_days\n★ 配置里显式关掉的规则(enabled: false)—— 引擎没执行它们,报告里必须写明:\n    [universe] ev_ebitda_rank_bottom —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-①\n    [universe] altman_z_double_prime_above —— audit_blocked=可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案)\n    [regime] credit_ratio_gate —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-⑭\n    [exit] ? —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-①\n全部规则都已实现,可以直接跑。",
+      "笔数": 39,
+      "样本量够不够": "★★ 不够(n=39 < 150)",
+      "★样本不足警示": "★★ 样本不足(N=39 笔 < 150):本次结果不具统计意义,问题在条件串联过严,不是这一派无效",
+      "信号漏斗": {
+        "全池单元数": 599278,
+        "逐关": [
+          {
+            "关": "① adv_rank_exclude_bottom",
+            "单条": 464056,
+            "累计": 464056
+          },
+          {
+            "关": "① ev_ebitda_rank_bottom(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 464056
+          },
+          {
+            "关": "① altman_z_double_prime_above(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 464056
+          },
+          {
+            "关": "① piotroski_f_score_above",
+            "单条": 91478,
+            "累计": 84943
+          },
+          {
+            "关": "② regime(开闸天数/总天数)",
+            "单条": 1513,
+            "累计": 2011
+          },
+          {
+            "关": "③ undercut_and_rally",
+            "单条": 27418,
+            "累计": 27418
+          },
+          {
+            "关": "③ close_above_ema",
+            "单条": 303412,
+            "累计": 462
+          },
+          {
+            "关": "③ 事件化(只在转折那天触发)",
+            "单条": 460,
+            "累计": 460
+          },
+          {
+            "关": "③ × ① 选股范围",
+            "单条": 58,
+            "累计": 58
+          }
+        ]
+      },
+      "★持仓周期与批次": {
+        "平均持仓(交易日)": 32.820513,
+        "中位持仓(交易日)": 16.0,
+        "最长持仓(交易日)": 181,
+        "最短持仓(交易日)": 1,
+        "★ 一个槽位八年能轮几批": 61.272656,
+        "★ 槽位数 × 批数(独立机会上限)": 919.089844,
+        "逐年出场笔数": {
+          "2018": 3,
+          "2019": 2,
+          "2020": 6,
+          "2021": 4,
+          "2022": 1,
+          "2023": 4,
+          "2024": 9,
+          "2025": 10
+        },
+        "绩效窗口交易日数": 2011
+      },
+      "出场原因分布": {
+        "止损": 37,
+        "时间止损": 1,
+        "退市结算": 1
+      },
+      "绝对表现": {
+        "净收益(扣摩擦)": 0.014585,
+        "毛收益": 0.022417,
+        "CAGR(净)": 0.001816,
+        "★笔数": 39,
+        "每笔R_毛(带95%CI)": "-0.041 [95%CI -0.534 .. +0.456] (n=39)",
+        "★每笔R_扣摩擦(带95%CI)": "-0.105 [95%CI -0.607 .. +0.396] (n=39)",
+        "每笔毛收益(带95%CI)": "+0.74% [95%CI -2.02% .. +3.58%] (n=39)",
+        "胜率(带95%CI)": "+25.64% [95%CI +12.82% .. +38.46%] (n=39)"
+      },
+      "坑一_现金拖累": {
+        "资金占用期间收益率_年化": 0.035779,
+        "资金在场比例": 0.050974,
+        "说明": "分母是「资金·年」:仓位名义金额 × 持仓天数 / 252。空仓的日子不进分母,所以不会冤枉低频策略。"
+      },
+      "坑二_跳空穿透止损": {
+        "止损出场笔数": 37,
+        "★跳空穿透止损笔数": 8,
+        "跳空穿透占止损的比例": 0.216216,
+        "平均穿透幅度(R)": 0.947079,
+        "最深穿透(R)": 4.226334,
+        "穿透笔的平均实际R": -0.431085,
+        "未穿透笔的平均实际R": -0.070711,
+        "说明": "成交价已按 min(止损价, 当日开盘价) 处理 —— 跳空时按开盘价,不许按止损价(那会系统性低估基本面困境类的亏损)。"
+      },
+      "代价": {
+        "最大回撤": -0.029499,
+        "回撤最深那天": "2025-07-31",
+        "★最长水下持续天数": 598,
+        "UlcerIndex(Martin 1989)": 1.606745,
+        "最长连续不赚钱笔数": 11,
+        "逐年收益": {
+          "2018": 0.001366,
+          "2019": -0.007438,
+          "2020": 0.000507,
+          "2021": 0.008057,
+          "2022": -0.004514,
+          "2023": -0.001938,
+          "2024": 0.023143,
+          "2025": -0.003702
+        },
+        "几乎全亏的年份(<-10%)": {}
+      },
+      "执行负荷": {
+        "年化换手率": 0.39366,
+        "年均交易笔数": 4.887121,
+        "平均持仓周期(交易日)": 32.820513
+      },
+      "摩擦成本": {
+        "口径": "★按 ADV20 分三档(高/中/低流动性),不一刀切",
+        "分档(单边)": {
+          "high_liquidity_bps": "0.050%",
+          "mid_liquidity_bps": "0.150%",
+          "low_liquidity_bps": "0.300%"
+        },
+        "实际摩擦总额": 7832.794246,
+        "毛收益 − 净收益": 0.007833,
+        "出处": "SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A"
+      },
+      "基准一_同环境随机进场": {
+        "随机进场_平均总收益": -0.00585,
+        "随机进场_收益标准差": 0.001447,
+        "随机进场_平均每笔R": -0.729469,
+        "随机进场_平均最大回撤": -0.010025,
+        "随机进场_种子数": 5,
+        "随机进场_触发率": 6.5e-05,
+        "★真信号总收益 − 随机进场": 0.020435,
+        "★真信号每笔R − 随机进场每笔R": 0.688568
+      },
+      "基准二_同等仓位大盘": {
+        "★Ē_全周期固定净敞口": 0.055432,
+        "成分匹配指数": "(无,市场中性)",
+        "无风险利率_年化": 0.0,
+        "基准总收益": 0.0,
+        "基准CAGR": 0.0,
+        "基准最大回撤": 0.0,
+        "基准最长水下天数": 0,
+        "★超额收益(链 − 同等仓位大盘)": 0.014585,
+        "警示": [
+          "★ 仓库里没有无风险利率序列(只有 TLT,那是长债 ETF、不是短端利率)。现金腿按 0% 记并在此标明 —— 不拿近似值顶上(硬纪律第 7 条)。要做准必须另外补一条 3 个月期美债收益率序列。",
+          "|Ē|=0.055 ≤ 0.10 → 判为市场中性,基准直接用无风险利率"
+        ]
+      },
+      "判据_三套对照组": {
+        "通过": false,
+        "级别": "不显著",
+        "理由": [
+          "样本量不足:n=39 < 100",
+          "条件分层随机:Z=-1.17 < 1.65,未达基础显著",
+          "条件分层随机:信号均值不如随机均值(差值 -0.7383)",
+          "块重排:Z=-1.31 < 1.65,未达基础显著",
+          "块重排:信号均值不如随机均值(差值 -0.7505)",
+          "极性反转未过:做空 Z=+1.31 ≥ 做多 Z=-1.31,方向站不住"
+        ],
+        "三套对照组": {
+          "条件分层随机": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.697373,
+            "σ随机": 0.628784,
+            "p": 0.878122,
+            "Z": -1.17413,
+            "级别": "不显著"
+          },
+          "块重排(Politis&Romano)": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.709593,
+            "σ随机": 0.571958,
+            "p": 0.901099,
+            "Z": -1.31215,
+            "级别": "不显著"
+          },
+          "极性反转·做多": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.709593,
+            "σ随机": 0.571958,
+            "p": 0.901099,
+            "Z": -1.31215,
+            "级别": "不显著"
+          },
+          "极性反转·做空": {
+            "n": 39,
+            "信号均值": 0.040901,
+            "随机均值": -0.709593,
+            "σ随机": 0.571958,
+            "p": 0.0999,
+            "Z": 1.31215,
+            "级别": "不显著"
+          }
+        }
+      },
+      "★两窗口两池子硬关": "只对主档跑",
+      "分步归因": null,
+      "坑四_摩擦敏感度": null,
+      "征兆警报": [],
+      "引擎显式关掉的东西": [
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场"
+      ],
+      "耗时秒": 5.0
+    },
+    {
+      "链名": "流派一_深度价值_slots24",
+      "★是否主档": false,
+      "slots": 24,
+      "★必须讲清楚的前提": [
+        "★★ B-1 这一版**不是完整的这一派**:缺了第⑥步的估值修复离场 (EV/EBITDA 修复至前 40% 就卖)—— EV/EBITDA 算不出(EBIT+D&A 覆盖率只有 13.6%),★ 所以止盈那一步被拆了,主动离场只剩 F-Score < 4 和那条来源存疑的 180 日时间止损。",
+        "★ B-1 配置自己还关掉了:① EV/EBITDA 排名、① Altman Z''(科目齐备率不够 + 系数版本未定)、② HYG/LQD 信用闸门(仓库没有这两条线)。★ ① 三道基本面闸门只剩 Piotroski F-Score 一条。",
+        "★ ③「跌破后强力收复」的强度口径专家原文没给。引擎用的是**唯一不含自由参数的机械读法**:当日最低跌破前 20 日最低、当日收盘又收回其上。★ 这是我们的读法,不是专家给的口径 —— 待确认。",
+        "★ C-1 ★ 占位排序(不是策略的一部分)—— 专家三轮未给这两派的排序规则。选 ADV20 的理由:PIT 干净、两条链口径统一、覆盖率 100%,不会让「有基本面数据的票」系统性排在前面。见审计报告拍板第 2 条。",
+        "★ C-2 slots=24(敏感度档)。配置原值 12 是专家给的区间「12–15 只」的**紧端**(我们主动取紧端,为的是验出松端是不是在放水);15 是区间另一端;24 是更松的一档。★ 三档并列,不是挑最优。"
+      ],
+      "适配层报告": "字段名已对齐:stop_init → initial_stop, stop_trail → trailing_stop, slots(24) → sizing.params.max_positions, ranking → sizing.rank_by, trailing_stop 分级 from_r=0.0/to_r=1.5 → when=unrealized_r_between, trailing_stop 分级 from_r=1.5/to_r=2.5 → when=unrealized_r_between, trailing_stop 分级 from_r=2.5/to_r=None → when=unrealized_r_gt, initial_stop.max_stop_distance_pct(10.0%) → hard_gate(超过就拒掉信号,不放大止损), exit.rules.time_stop.max_holding_days(180) → exit.params.time_stop_days\n★ 配置里显式关掉的规则(enabled: false)—— 引擎没执行它们,报告里必须写明:\n    [universe] ev_ebitda_rank_bottom —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-①\n    [universe] altman_z_double_prime_above —— audit_blocked=可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案)\n    [regime] credit_ratio_gate —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-⑭\n    [exit] ? —— 配置标了 data_missing(数据拿不到);audit_blocked=可行性-①\n全部规则都已实现,可以直接跑。",
+      "笔数": 39,
+      "样本量够不够": "★★ 不够(n=39 < 150)",
+      "★样本不足警示": "★★ 样本不足(N=39 笔 < 150):本次结果不具统计意义,问题在条件串联过严,不是这一派无效",
+      "信号漏斗": {
+        "全池单元数": 599278,
+        "逐关": [
+          {
+            "关": "① adv_rank_exclude_bottom",
+            "单条": 464056,
+            "累计": 464056
+          },
+          {
+            "关": "① ev_ebitda_rank_bottom(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 464056
+          },
+          {
+            "关": "① altman_z_double_prime_above(★ 配置显式关掉,没执行)",
+            "单条": -1,
+            "累计": 464056
+          },
+          {
+            "关": "① piotroski_f_score_above",
+            "单条": 91478,
+            "累计": 84943
+          },
+          {
+            "关": "② regime(开闸天数/总天数)",
+            "单条": 1513,
+            "累计": 2011
+          },
+          {
+            "关": "③ undercut_and_rally",
+            "单条": 27418,
+            "累计": 27418
+          },
+          {
+            "关": "③ close_above_ema",
+            "单条": 303412,
+            "累计": 462
+          },
+          {
+            "关": "③ 事件化(只在转折那天触发)",
+            "单条": 460,
+            "累计": 460
+          },
+          {
+            "关": "③ × ① 选股范围",
+            "单条": 58,
+            "累计": 58
+          }
+        ]
+      },
+      "★持仓周期与批次": {
+        "平均持仓(交易日)": 32.820513,
+        "中位持仓(交易日)": 16.0,
+        "最长持仓(交易日)": 181,
+        "最短持仓(交易日)": 1,
+        "★ 一个槽位八年能轮几批": 61.272656,
+        "★ 槽位数 × 批数(独立机会上限)": 1470.54375,
+        "逐年出场笔数": {
+          "2018": 3,
+          "2019": 2,
+          "2020": 6,
+          "2021": 4,
+          "2022": 1,
+          "2023": 4,
+          "2024": 9,
+          "2025": 10
+        },
+        "绩效窗口交易日数": 2011
+      },
+      "出场原因分布": {
+        "止损": 37,
+        "时间止损": 1,
+        "退市结算": 1
+      },
+      "绝对表现": {
+        "净收益(扣摩擦)": 0.014585,
+        "毛收益": 0.022417,
+        "CAGR(净)": 0.001816,
+        "★笔数": 39,
+        "每笔R_毛(带95%CI)": "-0.041 [95%CI -0.534 .. +0.456] (n=39)",
+        "★每笔R_扣摩擦(带95%CI)": "-0.105 [95%CI -0.607 .. +0.396] (n=39)",
+        "每笔毛收益(带95%CI)": "+0.74% [95%CI -2.02% .. +3.58%] (n=39)",
+        "胜率(带95%CI)": "+25.64% [95%CI +12.82% .. +38.46%] (n=39)"
+      },
+      "坑一_现金拖累": {
+        "资金占用期间收益率_年化": 0.035779,
+        "资金在场比例": 0.050974,
+        "说明": "分母是「资金·年」:仓位名义金额 × 持仓天数 / 252。空仓的日子不进分母,所以不会冤枉低频策略。"
+      },
+      "坑二_跳空穿透止损": {
+        "止损出场笔数": 37,
+        "★跳空穿透止损笔数": 8,
+        "跳空穿透占止损的比例": 0.216216,
+        "平均穿透幅度(R)": 0.947079,
+        "最深穿透(R)": 4.226334,
+        "穿透笔的平均实际R": -0.431085,
+        "未穿透笔的平均实际R": -0.070711,
+        "说明": "成交价已按 min(止损价, 当日开盘价) 处理 —— 跳空时按开盘价,不许按止损价(那会系统性低估基本面困境类的亏损)。"
+      },
+      "代价": {
+        "最大回撤": -0.029499,
+        "回撤最深那天": "2025-07-31",
+        "★最长水下持续天数": 598,
+        "UlcerIndex(Martin 1989)": 1.606745,
+        "最长连续不赚钱笔数": 11,
+        "逐年收益": {
+          "2018": 0.001366,
+          "2019": -0.007438,
+          "2020": 0.000507,
+          "2021": 0.008057,
+          "2022": -0.004514,
+          "2023": -0.001938,
+          "2024": 0.023143,
+          "2025": -0.003702
+        },
+        "几乎全亏的年份(<-10%)": {}
+      },
+      "执行负荷": {
+        "年化换手率": 0.39366,
+        "年均交易笔数": 4.887121,
+        "平均持仓周期(交易日)": 32.820513
+      },
+      "摩擦成本": {
+        "口径": "★按 ADV20 分三档(高/中/低流动性),不一刀切",
+        "分档(单边)": {
+          "high_liquidity_bps": "0.050%",
+          "mid_liquidity_bps": "0.150%",
+          "low_liquidity_bps": "0.300%"
+        },
+        "实际摩擦总额": 7832.794246,
+        "毛收益 − 净收益": 0.007833,
+        "出处": "SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A"
+      },
+      "基准一_同环境随机进场": {
+        "随机进场_平均总收益": -0.00585,
+        "随机进场_收益标准差": 0.001447,
+        "随机进场_平均每笔R": -0.729469,
+        "随机进场_平均最大回撤": -0.010025,
+        "随机进场_种子数": 5,
+        "随机进场_触发率": 6.5e-05,
+        "★真信号总收益 − 随机进场": 0.020435,
+        "★真信号每笔R − 随机进场每笔R": 0.688568
+      },
+      "基准二_同等仓位大盘": {
+        "★Ē_全周期固定净敞口": 0.055432,
+        "成分匹配指数": "(无,市场中性)",
+        "无风险利率_年化": 0.0,
+        "基准总收益": 0.0,
+        "基准CAGR": 0.0,
+        "基准最大回撤": 0.0,
+        "基准最长水下天数": 0,
+        "★超额收益(链 − 同等仓位大盘)": 0.014585,
+        "警示": [
+          "★ 仓库里没有无风险利率序列(只有 TLT,那是长债 ETF、不是短端利率)。现金腿按 0% 记并在此标明 —— 不拿近似值顶上(硬纪律第 7 条)。要做准必须另外补一条 3 个月期美债收益率序列。",
+          "|Ē|=0.055 ≤ 0.10 → 判为市场中性,基准直接用无风险利率"
+        ]
+      },
+      "判据_三套对照组": {
+        "通过": false,
+        "级别": "不显著",
+        "理由": [
+          "样本量不足:n=39 < 100",
+          "条件分层随机:Z=-1.17 < 1.65,未达基础显著",
+          "条件分层随机:信号均值不如随机均值(差值 -0.7383)",
+          "块重排:Z=-1.31 < 1.65,未达基础显著",
+          "块重排:信号均值不如随机均值(差值 -0.7505)",
+          "极性反转未过:做空 Z=+1.31 ≥ 做多 Z=-1.31,方向站不住"
+        ],
+        "三套对照组": {
+          "条件分层随机": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.697373,
+            "σ随机": 0.628784,
+            "p": 0.878122,
+            "Z": -1.17413,
+            "级别": "不显著"
+          },
+          "块重排(Politis&Romano)": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.709593,
+            "σ随机": 0.571958,
+            "p": 0.901099,
+            "Z": -1.31215,
+            "级别": "不显著"
+          },
+          "极性反转·做多": {
+            "n": 39,
+            "信号均值": -0.040901,
+            "随机均值": 0.709593,
+            "σ随机": 0.571958,
+            "p": 0.901099,
+            "Z": -1.31215,
+            "级别": "不显著"
+          },
+          "极性反转·做空": {
+            "n": 39,
+            "信号均值": 0.040901,
+            "随机均值": -0.709593,
+            "σ随机": 0.571958,
+            "p": 0.0999,
+            "Z": 1.31215,
+            "级别": "不显著"
+          }
+        }
+      },
+      "★两窗口两池子硬关": "只对主档跑",
+      "分步归因": null,
+      "坑四_摩擦敏感度": null,
+      "征兆警报": [],
+      "引擎显式关掉的东西": [
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "① universe 规则 net_shareholder_yield_rank_above 被配置显式关掉(enabled: false;可行性-⑪)",
+        "① universe 规则 no_large_equity_issuance 被配置显式关掉(enabled: false;阈值未定(「大规模增发」专家原文没给))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场",
+        "① universe 规则 ev_ebitda_rank_bottom 被配置显式关掉(enabled: false;可行性-①)",
+        "① universe 规则 altman_z_double_prime_above 被配置显式关掉(enabled: false;可行性-②(数据齐备率不够;★ 出处-② 已于 2026-10-28 结案))",
+        "② regime 规则 credit_ratio_gate 被配置显式关掉(enabled: false;可行性-⑭)",
+        "⑥ 基本面离场条件 ev_ebitda_rank 被配置显式关掉(可行性-①)—— ★ 这一派少了一条主动离场"
+      ],
+      "耗时秒": 4.8
+    }
+  ]
+}

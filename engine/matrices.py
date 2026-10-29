@@ -814,8 +814,17 @@ def entry_trigger(spec: dict, symbols: list[str]) -> pd.DataFrame:
         # 多条规则都要成立,然后整体转成「事件」(只在转折那天触发)
         close = cache.field("close", symbols)
         raw = pd.DataFrame(True, index=close.index, columns=close.columns)
+        n_on = 0
         for rule in spec["rules"]:
+            if rule.get("enabled", True) is False:
+                _DISABLED_LOG.append(
+                    f"③ entry 规则 {rule.get('type')} 被配置显式关掉(enabled: false)")
+                continue
             raw &= _entry_rule_raw(rule, symbols)
+            n_on += 1
+        if n_on == 0:
+            raise ValueError("③ 进场扳机的全部规则都被关掉了 —— "
+                             "这等于「天天都买」,不许当成原链跑")
         return _event_only(raw)
     t = spec.get("type", "never")
     p = spec.get("params", {}) or {}

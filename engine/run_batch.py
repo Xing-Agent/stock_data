@@ -137,6 +137,14 @@ def signal_funnel(raw: dict, syms: list[str], start: str) -> dict:
 
     rows, cum = [], None
     for r in (raw.get("universe", {}).get("rules") or []):
+        # ★ 2026-10-29 修:漏斗以前直接调 _universe_rule_mask,★ 绕过了
+        #   universe_mask 里的 enabled 检查 —— 配置里显式关掉的闸门会在这里
+        #   被当成「要跑的」而报 NotImplementedError。漏斗必须和真链看到的
+        #   是同一套规则,否则漏斗本身就不可信。
+        if r.get("enabled", True) is False:
+            rows.append({"关": "① " + str(r.get("type")) + "(★ 配置显式关掉,没执行)",
+                         "单条": -1, "累计": n(cum) if cum is not None else -1})
+            continue
         m = matrices._universe_rule_mask(r, syms, idx)
         cum = m if cum is None else cum & m
         rows.append({"关": "① " + str(r.get("type")), "单条": n(m), "累计": n(cum)})
@@ -147,6 +155,10 @@ def signal_funnel(raw: dict, syms: list[str], start: str) -> dict:
                  "累计": int(perf.sum())})
     cum2 = None
     for r in (raw.get("entry", {}).get("rules") or []):
+        if r.get("enabled", True) is False:
+            rows.append({"关": "③ " + str(r.get("type")) + "(★ 配置显式关掉,没执行)",
+                         "单条": -1, "累计": n(cum2) if cum2 is not None else -1})
+            continue
         m = matrices._entry_rule_raw(r, syms)
         cum2 = m if cum2 is None else cum2 & m
         rows.append({"关": "③ " + str(r.get("type")), "单条": n(m), "累计": n(cum2)})
