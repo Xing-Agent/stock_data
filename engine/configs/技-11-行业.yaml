@@ -1,0 +1,127 @@
+# ============================================================================
+# 技-11 · 威科夫量价洗盘 · 行业版(后人量化版)
+#
+# 三秒版:价格往下扫一针、跌破前面的关键低点,但当天就收回来了,而且那一针
+#         是缩量的(没人真的在抛)→ 买。
+#
+# ★★ 原著(1931 函授课程)三项全未写死 → 原著版跑不了(见 技-11-原著.yaml)。
+#   本文件的阈值全部来自**后人量化版**:
+#     Bob Evans(1950s)→ Pruden (2007) Ch.4 → Tom Williams (1993) Ch.3(VSA)
+#   ★ 所以 source 一律标「后人量化版 / 行业惯例」,★ 一处都不许标原著。
+# ============================================================================
+
+meta:
+  name: 技-11_行业版_后人量化版
+  master: Richard D. Wyckoff(原著);Bob Evans / Hank Pruden / Tom Williams(量化版)
+  book: Pruden (2007) Ch.4;Williams (1993) Ch.3
+  三版归属: 行业版(= 后人量化版)
+  caveat: >-
+    ★ 本文件的 ②④⑤⑥⑦ 和真实在跑的 liquidity_sweep.yaml **不完全一样**:
+    那条链带着 2 条环境过滤(其中 1 条因数据拿不到已显式关掉)和分级移动止损。
+    为了让三版之间只差形态参数,本次把它们拿掉了。
+    ★ 所以本次「XING版」的成绩**不等于** liquidity_sweep.yaml 的历史成绩。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 —— ★ 三版一律全池,不加任何闸门。
+#   ★ 加一条就是我们自己发明的选股条件,会把「形态有没有用」和
+#     「选股闸门有没有用」混在一起。
+# ---------------------------------------------------------------------------
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 —— ★ 三版一律留空。
+#   ★ 这**不是**「原著没有」:Weinstein 和 O'Neil 都看大盘。
+#   留空的理由是**可比性**:三版之间只允许形态参数不同。
+#   ★ 所以本次任何一版的成绩都**不含大盘择时的贡献**,报告里必须写明。
+# ---------------------------------------------------------------------------
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(三版可比性要求;★ 不是原著无此条)
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 —— 行业版(后人量化版)
+#   下刺深度 0.15~0.80 ×ATR14(★ 硬帽 1.5×ATR,超过视为真实破位)
+#   当日收盘必须收复:Close ≥ 前低 + 0.10×ATR;没收回则最宽 ≤2 个交易日
+#   缩量测试:Volume ≤ 0.65×SMA50,且 Volume_t < min(Vol_{t−1}, Vol_{t−2})
+#            (Tom Williams 原规则)
+# ---------------------------------------------------------------------------
+entry:
+  rules:
+    - type: pat6_spring
+      params:
+        lookback: 20
+        min_bars_before: 4
+        atr_period: 14
+        depth_min_atr: 0.15
+        depth_max_atr: 0.80
+        depth_hard_cap_atr: 1.5
+        reclaim_atr_multiple: 0.10
+        reclaim_max_bars: 2
+        vol_test_max_ratio: 0.65
+        vol_slow_period: 50
+        vol_below_prior_two: true
+      source: >-
+        后人量化版 / 行业惯例。★ 一处都不是原著。
+        前低 = Connors 滚动 20 日绝对低点 + 4 天存活门禁
+        (Connors & Raschke《Street Smarts》1995 Ch.4 Turtle Soup Rule 2 —— 已核实)。
+        Volume_t < min(Vol_{t−1}, Vol_{t−2}) = Tom Williams (1993) Ch.3【待核实】。
+  signal_freeze: close
+  fill: next_open
+  source: 行业惯例
+
+# ---------------------------------------------------------------------------
+# ④⑤⑥ —— ★ 两版完全一致(取自 liquidity_sweep.yaml)
+# ---------------------------------------------------------------------------
+initial_stop:
+  type: day_low_minus_atr
+  params:
+    atr_period: 14
+    atr_multiple: 0.3
+  source: 行业惯例(沿用 liquidity_sweep.yaml:下刺那根的最低价下方 0.3×ATR14)
+
+trailing_stop:
+  type: none
+  source: 执行细节(两版统一;★ liquidity_sweep.yaml 真实配置里是分级跟踪,此处拿掉)
+
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 20 }
+      source: 行业惯例(沿用 liquidity_sweep.yaml)
+  params:
+    profit_target_r: 2.0
+    time_stop_days: null
+  fill: next_open
+  source: 行业惯例(沿用 liquidity_sweep.yaml 的 2R 止盈)
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位 / 槽位 / 排序 / 成本 / 基准 —— ★ 同一条形态的三版完全一致
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 行业惯例(三版统一口径,★ 不是哪一版原著给的数)
+
+slots: 10
+source_slots: 行业惯例(三版统一,为了让三版之间只差形态参数)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(槽位满时要有决胜规则,选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null

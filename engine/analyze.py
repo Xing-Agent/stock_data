@@ -112,7 +112,14 @@ def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
 #   原因（实测出来的）：单种子噪声（每笔 R σ=0.112）比效应本身还大，
 #   能把 Z 从 −0.57 翻到 +0.56 —— 单种子的 Z 符号本身就是噪声。
 #   ★ 5 个种子必须是写死的常量，不许随机生成 —— 否则结论不可复现。
-CONTROL_SEEDS: tuple[int, ...] = (424242, 20181001, 20220101, 777013, 31337)
+CONTROL_SEEDS: tuple[int, ...] = (424242, 20181001, 20220101, 777013, 31337,
+                                  90210, 10007, 31415926, 27182818, 65537)
+#   ★★ 2026-10-29 第二次调整：5 个种子 → **10 个**。
+#   理由是实测出来的：技-1 上单种子对照每笔 R 在 +0.002 .. +1.042 之间，
+#   极差 1.040R、标准差 0.434R，而策略本身效应只有 0.016R
+#   —— ★ 噪声比效应大 27 倍（5 种子时估的）。
+#   ★ 但加种子不是重点：重点是下面那个**强制打印单种子极差**，
+#   它让「噪声比效应大」这件事无法被藏住。
 
 
 def pooled_random_control(cfg: "chain.ChainConfig", symbols: list[str] | None,
@@ -148,6 +155,21 @@ def pooled_random_control(cfg: "chain.ChainConfig", symbols: list[str] | None,
         if n_ctrl:
             frames.append(led)
     pool = pd.concat(frames, ignore_index=True) if frames else None
+    # ★★ 2026-10-29：**强制打印单种子极差**（策略组要求，比加种子更重要）。
+    #   大白话：随机对照自己换个随机种子，算出来的「每笔 R」就能差很多。
+    #   如果这个差别比策略本身的效应还大，那 Z 的符号就是噪声。
+    #   ★ 所以这两行无条件打到 stdout，不许只往 JSON 里埋 ——
+    #     埋在 JSON 里没人看，打在屏幕上跑的人当场就能发现。
+    _single = [d["该种子对照每笔R"] for d in per
+               if np.isfinite(d["该种子对照每笔R"])]
+    if len(_single) > 1:
+        _rng = float(max(_single) - min(_single))
+        _sd = float(np.std(_single, ddof=1))
+        print(f"  ★随机对照单种子噪声（{len(_single)} 个种子）："
+              f"每笔R 极差={_rng:+.4f} 标准差={_sd:.4f} "
+              f"范围=[{min(_single):+.4f} .. {max(_single):+.4f}]")
+        print(f"    ★ 读法：把这个极差和策略自己的效应量级比 —— "
+              f"极差远大于效应时，Z 的符号本身就是噪声。")
     rs = (pool["r_multiple"].dropna().to_numpy(dtype=float)
           if pool is not None and not pool.empty else np.array([]))
     single = [d["该种子对照每笔R"] for d in per

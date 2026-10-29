@@ -210,6 +210,130 @@ def load_daily(symbol: str) -> pd.DataFrame:
     return df
 
 
+# ---------------------------------------------------------------- 分红(总收益口径)
+#
+# ★★ 2026-10-29 新增,★ 默认关闭(TOTAL_RETURN_DEFAULT = False)。
+#
+# ★ 大白话:daily.json 每根 bar 自带 `dividend_amount`,169/250 只票有非零值,
+#   而引擎以前一行代码都没读过 —— 所以我们所有的收益数字都是**纯价格收益**,
+#   系统性低估(绩效窗口内年化股息率中位 2.10% / 均值 3.12%)。
+#
+# ★★ 这里只提供"读"和"算"的能力,★ 不改变任何现有代码路径:
+#   load_daily() / price_panel() / cache.py 一个字都没动,所以默认口径仍是纯价格。
+#   要用总收益口径,调用方显式调 dividends() 或 total_return_daily()。
+#   ★ 口径切换必须是显式的 —— 悄悄改默认会让所有历史结论无法对账。
+#
+# ★★ 时点口径(PIT):`dividend_amount` 所在的那一天就是**除息日(ex-date)**,不是派息日。
+#   证据(实测,不是假设):
+#     · SPY 的非零分红日全部落在 3/6/9/12 月的第三个周五 —— 这正是 SPY 的除息日规则
+#       (实测首尾:2014-03-21、2025-12-19,都是当月第三个周五;
+#        SPY 的**派息日**在月底,和这些日期对不上)。
+#     · ABT 2016-01-13 = ABT 2016 Q1 的除息日(派息日是 2016-02-16)。
+#   ★ 所以"持有跨过除息日就拿到这笔分红"是正确的 PIT 口径:
+#     买入日 < 除息日 ≤ 卖出日 → 收到(除息日当天买**不**算,除息日当天卖**算**)。
+#   ★ 如果哪天发现这个字段其实是派息日,那么我们会把分红记早约 2~6 周 ——
+#     方向上是"提前拿到钱",会轻微高估;量级 = 2~6 周的资金时间价值,相对股息本身可忽略。
+#   ★ 我们**没有**用"按市值估个股息率"之类的近似 —— 拿不到就是拿不到。
+
+#: ★ 总收益口径的默认值。★ 默认 False = 纯价格收益(与所有历史结论一致)。
+TOTAL_RETURN_DEFAULT: bool = False
+
+
+@functools.lru_cache(maxsize=512)
+def dividends(symbol: str) -> pd.Series:
+    """
+    一只票的每股现金分红序列,索引 = **除息日**,只保留非零。
+
+    ★ 直接读原始 daily.json 的 dividend_amount。拿不到 / 字段缺失 → 返回空序列
+      (调用方必须把空序列当"这只票没有可用分红数据",★ 不许用估算顶上)。
+    ★ 拆股:分红金额和价格在同一个 bar 上,而我们对**除息日之前**的价格做了拆股折算,
+      所以分红金额也要跟着折算,否则"每股分红"和"每股价格"不在同一个口径上。
+      做法与价格完全一致 —— 复用 split_gate 从源头系数算出来的同一批事件。
+    """
+    meta = load_manifest().get(symbol)
+    if meta is None or not os.path.exists(meta.daily_path):
+        return pd.Series(dtype=float)
+    with open(meta.daily_path, encoding="utf-8") as fh:
+        rows = (json.load(fh).get("data") or [])
+    if not rows:
+        return pd.Series(dtype=float)
+    recs = []
+    for r in rows:
+        v = r.get("dividend_amount")
+        if v in (None, ""):
+            continue
+        try:
+            x = float(v)
+        except (TypeError, ValueError):
+            continue
+        if x == 0.0 or x != x:
+            continue
+        recs.append((pd.Timestamp(str(r["date"])[:10]), x))
+    if not recs:
+        return pd.Series(dtype=float)
+    s = pd.Series({d: v for d, v in recs}).sort_index()
+    # ★ 和价格同口径:除息日之前的每股分红按同一批拆股系数折算
+    for ev in split_gate.ratio_events_from_rows(symbol, rows):
+        ts = pd.Timestamp(ev.date)
+        m = s.index < ts
+        if m.any():
+            s.loc[m] = s.loc[m] * ev.ratio
+    return s
+
+
+def total_return_daily(symbol: str, index: pd.DatetimeIndex | None = None
+                       ) -> pd.Series:
+    """
+    一只票的**总收益**日收益率序列 = (收盘价变化 + 当日每股分红) / 前一日收盘价。
+
+    ★ 分红加在**除息日**那一天 —— 价格在除息日本来就会掉下来一个股息,
+      把分红加回同一天,两者正好抵销,这是总收益的标准算法。
+    """
+    df = load_daily(symbol)
+    if df.empty:
+        return pd.Series(dtype=float)
+    c = df["close"]
+    if index is not None:
+        c = c.reindex(index).ffill()
+    d = dividends(symbol).reindex(c.index).fillna(0.0)
+    prev = c.shift(1)
+    return ((c - prev + d) / prev).replace([np.inf, -np.inf], np.nan).fillna(0.0)
+
+
+def benchmark_total_return_daily(symbol: str, index: pd.DatetimeIndex
+                                 ) -> tuple[pd.Series, bool]:
+    """
+    基准 ETF 的总收益日收益率 + 「分红数据拿到了没有」的标记。
+
+    ★ 返回 (日收益序列, has_dividends)。has_dividends=False 时调用方**必须**
+      在报告里写明"基准只有价格收益",★ 否则就会拿总收益的策略去比价格收益的基准 ——
+      那是一个方向相反的新偏差。
+    """
+    for base in (BENCH_DIR, SECTOR_ETF_DIR):
+        p = os.path.join(base, symbol, "daily.json")
+        if not os.path.exists(p):
+            continue
+        with open(p, encoding="utf-8") as fh:
+            rows = (json.load(fh).get("data") or [])
+        df = pd.DataFrame(rows)
+        if df.empty or "close" not in df.columns:
+            break
+        df["date"] = pd.to_datetime(df["date"])
+        df = df.set_index("date").sort_index()
+        c = pd.to_numeric(df["close"], errors="coerce").reindex(index).ffill()
+        if "dividend_amount" in df.columns:
+            dv = pd.to_numeric(df["dividend_amount"], errors="coerce").fillna(0.0)
+            dv = dv[dv != 0.0].reindex(index).fillna(0.0)
+            has = bool((dv != 0).any())
+        else:
+            dv = pd.Series(0.0, index=index)
+            has = False
+        prev = c.shift(1)
+        r = ((c - prev + dv) / prev).replace([np.inf, -np.inf], np.nan).fillna(0.0)
+        return r, has
+    return pd.Series(0.0, index=index), False
+
+
 def delisting_info(symbol: str) -> tuple[pd.Timestamp | None, bool]:
     """返回(最后一根 K 线日期, 是否按 −100% 结算)。没退市的返回 (None, False)。"""
     meta = load_manifest()[symbol]

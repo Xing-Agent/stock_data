@@ -1,0 +1,144 @@
+# ============================================================================
+# 技-4 · 欧奈尔 CANSLIM 杯柄 · 原著版(严格端)
+#
+# 三秒版:股价先走出一个「杯子」(深跌 12~33% 再爬回来),右边再缩出一个
+#         小「柄」(回落不超过 12%),然后放量突破柄部最高点 → 买。
+#
+# ★ 这一条原著写得最死,专家给了全部引文(O'Neil《How to Make Money in
+#   Stocks》4th ed. 2009, Ch.2 "The Cup with Handle", p.59-66)【全部待核实】:
+#   · 杯深:"The usual percentage correction from the absolute peak to the low
+#     point of the price pattern varies from 12% or 15% to 33%... A few can
+#     correct up to 40% to 50% in severe bear markets."
+#   · 柄深:"The handle's downward price drift should generally be contained
+#     within 8% to 12%... Handles that correct more than 12% to 15% have a
+#     higher rate of failure."
+#   · 杯长:"Cup patterns can last from 7 weeks to as long as 65 weeks, but
+#     most of them last for three to six months."
+#   · 枢纽:"The pivot point is the highest price point in the handle... The
+#     proper buy point is 10 cents above the peak of the handle."
+#   · 放量:"The daily volume on the day a stock breaks out should expand at
+#     least 40% to 50% above its average daily volume."
+#
+# ★★ 枢纽点 +$0.10 这个数**单列一类:「原著对但过时了」**。
+#   1988/2009 年的美股票价结构下 10 美分是有意义的缓冲;今天对 300 美元的票
+#   是 0.033%,对 5 美元的票是 2% —— 同一个「原著写死的数」在池子里的
+#   实际含义相差 60 倍。★ 这不是「我们填错了」,报告里不许和填错混为一谈。
+#
+# ★ 形态扫描用到一条原文的**结构**约束(不是数值):
+#   "the handle area should form in the upper half of the overall base"
+#   → 柄部最高点 ≥ (杯左唇 + 杯底) / 2。
+# ★ 原著还有一条「柄部要在 50 日线上方」—— 专家这次没给引文,本次**不加**。
+# ============================================================================
+
+meta:
+  name: 技-4_原著版_严格端
+  master: William J. O'Neil
+  book: How to Make Money in Stocks (4th ed. 2009) Ch.2
+  三版归属: 原著版·严格端
+  区间端: 杯深下限 15% / 柄深 ≤12% / 放量 1.50×
+  caveat: >-
+    原著的证据来自「每年几只领头羊」的选股体系(CANSLIM 的 A/N/S/L/I/M 六项
+    基本面与大盘条件),本次**只跑形态那一项**,★ 不加任何基本面闸门。
+    所以本次结论只对「光看杯柄形态」成立。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 —— ★ 三版一律全池,不加任何闸门。
+#   ★ 加一条就是我们自己发明的选股条件,会把「形态有没有用」和
+#     「选股闸门有没有用」混在一起。
+# ---------------------------------------------------------------------------
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 —— ★ 三版一律留空。
+#   ★ 这**不是**「原著没有」:Weinstein 和 O'Neil 都看大盘。
+#   留空的理由是**可比性**:三版之间只允许形态参数不同。
+#   ★ 所以本次任何一版的成绩都**不含大盘择时的贡献**,报告里必须写明。
+# ---------------------------------------------------------------------------
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(三版可比性要求;★ 不是原著无此条)
+
+entry:
+  rules:
+    - type: pat6_cup_with_handle
+      params:
+        cup_depth_min: 0.15
+        cup_depth_max: 0.33
+        handle_max_depth: 0.12
+        cup_min_bars: 35
+        cup_max_bars: 325
+        handle_min_bars: 3
+        handle_max_bars: 25
+        pivot_offset_abs: 0.10
+      source: >-
+        杯深上限 0.33 / 杯长 ≥35 个交易日(= 7 周) / 杯长 ≤325 个交易日
+        (= 65 周)= 原著【待核实】;杯深下限 0.15 与柄深上限 0.12 取自原著给的
+        区间;★ 柄长 3~25 个交易日是**我们的读法**(原著只说柄是
+        "a few days to a few weeks",没给死数)。
+        枢纽点:柄部最高点 **+$0.10** = 原著写死【待核实】
+    - type: pat6_volume_x_sma
+      params:
+        period: 50
+        multiple: 1.5
+        baseline_offset_days: 1
+      source: 原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.5×
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(原著盘中过枢纽点即买;引擎只能收盘确认、次日开盘)
+
+# ---------------------------------------------------------------------------
+# ④⑤⑥ —— ★ 三版完全一致
+#   止损 7~8%:O'Neil 自己的铁律(取 8%)。★ 专家这次没给这一条的引文 → 【待核实】
+#   离场:收盘跌破 50 日线
+# ---------------------------------------------------------------------------
+initial_stop:
+  type: pct
+  params: { pct: 0.08 }
+  source: 原著(O'Neil「一律在亏 7~8% 时砍掉」,取 8%)【待核实 —— 专家本次未给引文】
+
+trailing_stop:
+  type: none
+  source: 执行细节(三版统一)
+
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 50 }
+      source: 原著(O'Neil 以 50 日线为持股防线)【待核实】
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 执行细节(原著的 20~25% 止盈本次不设,★ 否则会和止损口径打架)
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位 / 槽位 / 排序 / 成本 / 基准 —— ★ 同一条形态的三版完全一致
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 行业惯例(三版统一口径,★ 不是哪一版原著给的数)
+
+slots: 10
+source_slots: 行业惯例(三版统一,为了让三版之间只差形态参数)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(槽位满时要有决胜规则,选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null
