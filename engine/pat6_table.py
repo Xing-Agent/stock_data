@@ -50,7 +50,14 @@ def _verdict(r: dict) -> str:
       所以样本不足也要先看判据的方向,方向明确为负的要说出来。
     """
     n = r["笔数"]
-    zs = [v for v in (r.get("★三套对照组Z") or {}).values() if v is not None]
+    allz = r.get("★三套对照组Z") or {}
+    # ★★ 只能用**收益口径**的两关来判「有没有边际」:条件分层随机 / 块重排。
+    #   ★ 波动率选择检验(比 mean|R|)测的是「是不是在挑波动大的票」——
+    #     它为负只说明信号挑到的票振幅**比随机更小**,★ 这不是「收益差于随机」。
+    #     ★ 把它混进「负边际」的判定里会把低波动类形态(箱体突破)全部误判。
+    zs = [v for k, v in allz.items()
+          if v is not None and not str(k).startswith("波动率选择")]
+    zvol = allz.get("波动率选择(|R|)")
     g = r.get("★两窗口两池子硬关") or {}
     conc = ((r.get("★基准线套件") or {}).get("★链集中度自检") or {}) \
         .get("前10笔占总盈利比例")
@@ -60,11 +67,17 @@ def _verdict(r: dict) -> str:
     else:
         parts.append("四格硬关没过")
     if zs and min(zs) <= -1.65:
-        parts.append("★ 测出来是**负边际**(显著差于随机对照)")
+        parts.append("★ 测出来是**负边际**(收益口径两关里有关显著**差于**随机对照)")
     elif zs and max(zs) >= 1.65:
-        parts.append("有单关达基础显著,但不足以推翻硬关")
+        parts.append("收益口径有单关达基础显著,但不足以推翻硬关")
     else:
-        parts.append("三套对照组全部不显著 = **测出来没有边际**")
+        parts.append("收益口径两关都不显著 = **测出来没有边际**")
+    if isinstance(zvol, (int, float)) and zvol <= -1.65:
+        parts.append(f"★ 波动率选择 Z={zvol:+.2f}:信号挑到的票振幅**系统性小于**随机"
+                     f"(低波动结构,★ 不是收益差)")
+    elif isinstance(zvol, (int, float)) and zvol >= 1.65:
+        parts.append(f"★★ 波动率选择 Z={zvol:+.2f}:信号在挑波动大的票,"
+                     f"收益可能只是波动的副产品")
     if n < 150:
         parts.append(f"★ 样本不足(n={n}<150):不代表无效,但方向看左边三列")
     if isinstance(conc, (int, float)):
