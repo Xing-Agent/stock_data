@@ -16024,7 +16024,8 @@
     "file": "pilot_300/SQBG/daily.json",
     "expected_ratio_x": 40.0,
     "coef_rel_err": 29.04043905257077,
-    "coef_verdict": "⚠ 系数解释不上(1/coef=40.000x,实测 1201.618x,差 2904%)"
+    "coef_class": "mismatch",
+    "coef_verdict": "⚠ 系数解释不上(预期 40.000x,实测 1201.618x,差 2904%)"
    },
    {
     "symbol": "BNED",
@@ -16037,7 +16038,8 @@
     "file": "pilot_300/BNED/daily.json",
     "expected_ratio_x": 100.0,
     "coef_rel_err": 0.2587486744432661,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 26%(1/coef=100.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 26%(预期 100.000x)"
    },
    {
     "symbol": "RKDA",
@@ -16050,7 +16052,8 @@
     "file": "pilot_50/RKDA/daily.json",
     "expected_ratio_x": 40.0,
     "coef_rel_err": 0.14034386245501795,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 14%(1/coef=40.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 14%(预期 40.000x)"
    },
    {
     "symbol": "PROP",
@@ -16062,6 +16065,7 @@
     "retirement_category": "",
     "file": "pilot_300/PROP/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16075,6 +16079,7 @@
     "file": "pilot_300/PROP/daily.json",
     "expected_ratio_x": 29.41176470588235,
     "coef_rel_err": 0.05988349514563107,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 6.0%)"
    },
    {
@@ -16088,6 +16093,7 @@
     "file": "pilot_50/RKDA/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.05078125,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 5.1%)"
    },
    {
@@ -16101,6 +16107,7 @@
     "file": "pilot_300/ACOR/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.017964071856287456,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 1.8%)"
    },
    {
@@ -16114,6 +16121,7 @@
     "file": "pilot_300/EXPR/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.008999999999999897,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.9%)"
    },
    {
@@ -16126,6 +16134,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/AMRS/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16139,7 +16148,8 @@
     "file": "pilot_300/CNVS/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.21461897356143078,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 21%(1/coef=20.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 21%(预期 20.000x)"
    },
    {
     "symbol": "GRPN",
@@ -16152,7 +16162,8 @@
     "file": "pilot_300/GRPN/daily.json",
     "expected_ratio_x": 20.0,
     "coef_rel_err": 0.25971223021582734,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 26%(1/coef=20.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 26%(预期 20.000x)"
    },
    {
     "symbol": "OMEX",
@@ -16165,7 +16176,8 @@
     "file": "pilot_50/OMEX/daily.json",
     "expected_ratio_x": 12.000000000000005,
     "coef_rel_err": 0.2182539682539677,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 22%(1/coef=12.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 22%(预期 12.000x)"
    },
    {
     "symbol": "VHI",
@@ -16178,6 +16190,7 @@
     "file": "pilot_300/VHI/daily.json",
     "expected_ratio_x": 12.0,
     "coef_rel_err": 0.007575757575757569,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.8%)"
    },
    {
@@ -16190,6 +16203,7 @@
     "retirement_category": "",
     "file": "pilot_50/FTLF/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16202,6 +16216,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/ACOR/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16215,6 +16230,7 @@
     "file": "pilot_50/AVEO/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.003984063745019917,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.4%)"
    },
    {
@@ -16228,6 +16244,7 @@
     "file": "pilot_300/LIXT/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.010447761194029903,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 1.0%)"
    },
    {
@@ -16240,6 +16257,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/ACOR/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16253,6 +16271,7 @@
     "file": "pilot_300/ODP/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.03574468085106397,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 3.6%)"
    },
    {
@@ -16265,6 +16284,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/ACOR/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16278,7 +16298,8 @@
     "file": "pilot_50/RMTI/daily.json",
     "expected_ratio_x": 11.0,
     "coef_rel_err": 0.14904372735698035,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 15%(1/coef=11.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 15%(预期 11.000x)"
    },
    {
     "symbol": "CNVS",
@@ -16291,7 +16312,8 @@
     "file": "pilot_300/CNVS/daily.json",
     "expected_ratio_x": 10.0,
     "coef_rel_err": 0.19999999999999996,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 20%(1/coef=10.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 20%(预期 10.000x)"
    },
    {
     "symbol": "WPG",
@@ -16304,7 +16326,8 @@
     "file": "pilot_300/WPG/daily.json",
     "expected_ratio_x": 9.0,
     "coef_rel_err": 0.13064713064713063,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 13%(1/coef=9.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 13%(预期 9.000x)"
    },
    {
     "symbol": "ACOR",
@@ -16316,6 +16339,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/ACOR/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16329,6 +16353,7 @@
     "file": "pilot_300/GNCA/daily.json",
     "expected_ratio_x": 8.0,
     "coef_rel_err": 0.06404593639575973,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 6.4%)"
    },
    {
@@ -16341,6 +16366,7 @@
     "retirement_category": "",
     "file": "pilot_300/XPRO/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16354,6 +16380,7 @@
     "file": "pilot_300/FTK/daily.json",
     "expected_ratio_x": 5.9999999999999885,
     "coef_rel_err": 0.033924147131696225,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 3.4%)"
    },
    {
@@ -16367,6 +16394,7 @@
     "file": "pilot_300/LIXT/daily.json",
     "expected_ratio_x": 5.9999999999999885,
     "coef_rel_err": 1.9984014443252818e-15,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.0%)"
    },
    {
@@ -16380,7 +16408,8 @@
     "file": "pilot_300/LFMD/daily.json",
     "expected_ratio_x": 5.0,
     "coef_rel_err": 0.11194029850746268,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 11%(1/coef=5.000x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 11%(预期 5.000x)"
    },
    {
     "symbol": "ACOR",
@@ -16393,6 +16422,7 @@
     "file": "pilot_300/ACOR/daily.json",
     "expected_ratio_x": 6.0,
     "coef_rel_err": 0.08188405797101439,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 8.2%)"
    },
    {
@@ -16406,6 +16436,7 @@
     "file": "pilot_300/HAPN/daily.json",
     "expected_ratio_x": 5.0,
     "coef_rel_err": 0.05798045602605861,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 5.8%)"
    },
    {
@@ -16419,6 +16450,7 @@
     "file": "pilot_50/OVV/daily.json",
     "expected_ratio_x": 5.0,
     "coef_rel_err": 0.08496042216358846,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 8.5%)"
    },
    {
@@ -16431,6 +16463,7 @@
     "retirement_category": "",
     "file": "pilot_50/RKDA/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16443,6 +16476,7 @@
     "retirement_category": "",
     "file": "pilot_300/PROP/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16456,6 +16490,7 @@
     "file": "pilot_300/POCI/daily.json",
     "expected_ratio_x": 3.000000000003,
     "coef_rel_err": 0.08547008546900003,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 8.5%)"
    },
    {
@@ -16468,6 +16503,7 @@
     "retirement_category": "financial_distress_delisting",
     "file": "pilot_300/EXPR/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16481,6 +16517,7 @@
     "file": "pilot_300/DX/daily.json",
     "expected_ratio_x": 3.0,
     "coef_rel_err": 0.0053763440860212786,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.5%)"
    },
    {
@@ -16494,6 +16531,7 @@
     "file": "pilot_300/TSLA/daily.json",
     "expected_ratio_x": 0.3333333333333333,
     "coef_rel_err": 0.0034556653838816453,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.3%)"
    },
    {
@@ -16507,6 +16545,7 @@
     "file": "pilot_50/ISRG/daily.json",
     "expected_ratio_x": 0.333333,
     "coef_rel_err": 0.004835287046578429,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.5%)"
    },
    {
@@ -16519,6 +16558,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/PRTY/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16532,6 +16572,7 @@
     "file": "pilot_300/MNST/daily.json",
     "expected_ratio_x": 0.333333,
     "coef_rel_err": 0.042234504939082984,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 4.2%)"
    },
    {
@@ -16544,6 +16585,7 @@
     "retirement_category": "voluntary_wind_down",
     "file": "pilot_300/GNCA/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16556,6 +16598,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/CLVS/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16569,7 +16612,8 @@
     "file": "pilot_50/FTLF/daily.json",
     "expected_ratio_x": 0.25,
     "coef_rel_err": 0.1200000000000001,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 12%(1/coef=0.250x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 12%(预期 0.250x)"
    },
    {
     "symbol": "OVV",
@@ -16581,6 +16625,7 @@
     "retirement_category": "",
     "file": "pilot_50/OVV/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16593,6 +16638,7 @@
     "retirement_category": "voluntary_wind_down",
     "file": "pilot_300/GNCA/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16606,6 +16652,7 @@
     "file": "pilot_50/COO/daily.json",
     "expected_ratio_x": 0.25,
     "coef_rel_err": 0.029004596650627823,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 2.9%)"
    },
    {
@@ -16619,6 +16666,7 @@
     "file": "pilot_300/CTAS/daily.json",
     "expected_ratio_x": 0.25,
     "coef_rel_err": 0.0051840015612993895,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 0.5%)"
    },
    {
@@ -16631,6 +16679,7 @@
     "retirement_category": "voluntary_wind_down",
     "file": "pilot_300/GNCA/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16644,7 +16693,8 @@
     "file": "pilot_300/TSLA/daily.json",
     "expected_ratio_x": 0.2,
     "coef_rel_err": 0.12568898527152794,
-    "coef_verdict": "◐ 量级/方向一致,残差偏大 13%(1/coef=0.200x)"
+    "coef_class": "explained_soft",
+    "coef_verdict": "◐ 量级/方向一致,残差偏大 13%(预期 0.200x)"
    },
    {
     "symbol": "AMRS",
@@ -16656,6 +16706,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/AMRS/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16668,6 +16719,7 @@
     "retirement_category": "",
     "file": "pilot_300/KDP/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16680,6 +16732,7 @@
     "retirement_category": "bankruptcy",
     "file": "pilot_300/ACOR/daily.json",
     "coef_verdict": "字段为空/NaN —— 无法判定",
+    "coef_class": "coef_missing",
     "expected_ratio_x": null
    },
    {
@@ -16692,6 +16745,7 @@
     "retirement_category": "",
     "file": "pilot_50/OMEX/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16704,6 +16758,7 @@
     "retirement_category": "",
     "file": "pilot_300/UHAL/daily.json",
     "expected_ratio_x": 1.0,
+    "coef_class": "coef_is_one",
     "coef_verdict": "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
    },
    {
@@ -16717,6 +16772,7 @@
     "file": "pilot_300/CSGP/daily.json",
     "expected_ratio_x": 0.1,
     "coef_rel_err": 0.03789724126210836,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 3.8%)"
    },
    {
@@ -16730,6 +16786,7 @@
     "file": "pilot_50/GOOG/daily.json",
     "expected_ratio_x": 0.05,
     "coef_rel_err": 0.0253354261441735,
+    "coef_class": "explained",
     "coef_verdict": "✅ 已解释(残差 2.5%)"
    }
   ],

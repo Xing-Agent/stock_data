@@ -731,10 +731,12 @@ def q6_corporate_actions() -> dict:
         coef = r["split_coefficient_in_file"]
         if coef is None or (isinstance(coef, float) and not np.isfinite(coef)):
             r["coef_verdict"] = "字段为空/NaN —— 无法判定"
+            r["coef_class"] = "coef_missing"
             r["expected_ratio_x"] = None
             continue
         if abs(coef - 1.0) < 1e-9:
             r["expected_ratio_x"] = 1.0
+            r["coef_class"] = "coef_is_one"
             r["coef_verdict"] = "coef=1 → 文件明说「这天没有拆股」,跳变必须另有原因"
             continue
         exp = 1.0 / coef
@@ -746,20 +748,23 @@ def q6_corporate_actions() -> dict:
         #   ≤35%  → 方向与量级都对,残差偏大(微盘股当天真实大涨大跌即可解释)
         #   >35%  → 系数解释不上(价格序列另有被调整过的痕迹)
         if err <= 0.10:
+            r["coef_class"] = "explained"
             r["coef_verdict"] = "✅ 已解释(残差 %.1f%%)" % (err * 100)
         elif err <= 0.35:
+            r["coef_class"] = "explained_soft"
             r["coef_verdict"] = ("◐ 量级/方向一致,残差偏大 %.0f%%"
-                                 "(1/coef=%.3fx)" % (err * 100, exp))
+                                 "(预期 %.3fx)" % (err * 100, exp))
         else:
-            r["coef_verdict"] = ("⚠ 系数解释不上(1/coef=%.3fx,实测 %.3fx,"
+            r["coef_class"] = "mismatch"
+            r["coef_verdict"] = ("⚠ 系数解释不上(预期 %.3fx,实测 %.3fx,"
                                  "差 %.0f%%)" % (exp, r["ratio_x"], err * 100))
     raw_rows.sort(key=lambda r: -r["ratio_x"])
     tick = sorted({r["symbol"] for r in raw_rows})
-    expl = [r for r in raw_rows if str(r.get("coef_verdict", "")).startswith("✅")]
-    soft = [r for r in raw_rows if str(r.get("coef_verdict", "")).startswith("◐")]
-    coef1 = [r for r in raw_rows if "coef=1" in str(r.get("coef_verdict", ""))]
-    mism = [r for r in raw_rows if str(r.get("coef_verdict", "")).startswith("⚠")]
-    nocoef = [r for r in raw_rows if "无法判定" in str(r.get("coef_verdict", ""))]
+    def _cls(k):
+        return [r for r in raw_rows if r.get("coef_class") == k]
+    expl, soft = _cls("explained"), _cls("explained_soft")
+    coef1, mism, nocoef = _cls("coef_is_one"), _cls("mismatch"), _cls("coef_missing")
+    assert len(expl) + len(soft) + len(coef1) + len(mism) + len(nocoef) == len(raw_rows)
 
     lines += [
         "口径:直接读 pilot_300/<TICKER>/daily.json 的原始 close(★ 绕开我方拆股修正),",
