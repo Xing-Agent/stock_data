@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-10-28",
+  "scope": "Eight candidate corporate actions supplied in 给技术-1028下午.md. Evidence register only; it does not authorize changing daily prices.",
+  "records": [
+    {
+      "symbol": "ACOR",
+      "candidate_date": "2021-11-30",
+      "candidate_claim": "10-for-1 reverse split",
+      "verified_action": "reverse_stock_split",
+      "verified_ratio": "1-for-6",
+      "verified_effective_date": "2021-01-04",
+      "status": "candidate_date_ratio_contradicted",
+      "note": "Company announced split effective Dec 31, 2020; split-adjusted trading began Jan 4, 2021. No support found for event on Nov 30, 2021 or 1-for-10 ratio.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1008848/000156459020058970/acor-ex991_25.htm",
+      "verified_split_coefficient": null,
+      "confirmed_alternate_event": {
+        "effective_date": "2020-12-31",
+        "first_split_adjusted_trading_date": "2021-01-04",
+        "ratio": "1-for-6 reverse split",
+        "split_coefficient": 0.16666666666666666
+      }
+    },
+    {
+      "symbol": "ACOR",
+      "candidate_date": "2023-06-05",
+      "candidate_claim": "20-for-1 reverse split",
+      "verified_action": "reverse_stock_split",
+      "verified_ratio": "1-for-20",
+      "verified_effective_date": "2023-06-05",
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1008848/000095017023026094/acor-ex99_1.htm",
+      "daily_data_quality": "provider_label_inconsistent_with_observed_prices",
+      "daily_data_note": "daily.json claims raw/non-split-adjusted; local 2023-06-02 close 0.00835 vs independently reported actual close 0.502 (60x); 2023-06-06 local close 0.17 vs independently reported about 10.21 (60x). This matches cumulative 1-for-6 (2021) and 1-for-20 (2023) adjustment. Do not use as raw price; source needs revalidation.",
+      "price_source_reference": "https://www.quiverquant.com/stock/ACOR/historical-prices/",
+      "verified_split_coefficient": 0.05
+    },
+    {
+      "symbol": "AMRS",
+      "candidate_date": "2023-08-10",
+      "candidate_claim": "1-for-5 forward split",
+      "verified_action": "bankruptcy_filing_not_split_evidence",
+      "verified_ratio": null,
+      "verified_effective_date": null,
+      "status": "candidate_claim_not_supported",
+      "note": "Available source documents bankruptcy filing on Aug 9, 2023 and index treatment Aug 10; no primary evidence found for the claimed 1-for-5 split. Do not change daily coefficients.",
+      "source_url": "https://assets.bbhub.io/professional/sites/10/Treatment-of-Bankruptcy-for-Amyris.pdf",
+      "verified_split_coefficient": null
+    },
+    {
+      "symbol": "PROP",
+      "candidate_date": "2020-05-14",
+      "candidate_claim": "4-for-1 reverse split",
+      "verified_action": "candidate split cannot be assigned to current cohort security",
+      "verified_ratio": "1-for-20 (secondary sources)",
+      "verified_effective_date": "2020-02-27 (secondary sources)",
+      "status": "ticker_identity_mismatch_primary_sec_evidence",
+      "note": "SEC says CIK 1162896 was Creek Road Miners; after May 3, 2023 merger name changed to Prairie Operating, continued as CRKR, then planned PROP ticker after FINRA processing. Thus 2020/earlier PROP historical prices cannot be attributed to this issuer from ticker alone. Do not carry them into this cohort or infer split repair without security identifier evidence.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1162896/000149315223030135/ex99-3.htm",
+      "verified_split_coefficient": null
+    },
+    {
+      "symbol": "PRTY",
+      "candidate_date": "2019-11-07",
+      "candidate_claim": "1-for-3 reverse split",
+      "verified_action": null,
+      "verified_ratio": null,
+      "verified_effective_date": null,
+      "status": "candidate_claim_not_supported",
+      "note": "Nov 7 2019 filing is an 8-K and does not establish a 1-for-3 split. The SEC 2020 proxy discusses a proposed range 1-for-3 to 1-for-20, not proof it was effected. Candidate event remains unsupported.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1592058/000119312519286588/R1.htm",
+      "corroboration_url": "https://www.sec.gov/Archives/edgar/data/1592058/000119312520107125/d817321dpre14a.htm",
+      "verified_split_coefficient": null
+    },
+    {
+      "symbol": "SQBG",
+      "candidate_date": "2020-07-27",
+      "candidate_claim": "1200-for-1 reverse split",
+      "verified_action": "reverse_stock_split",
+      "verified_ratio": "1-for-40",
+      "verified_effective_date": "2020-07-27",
+      "status": "verified_primary_SEC_and_exchange_notice",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1648428/000110465920086221/tm2025519d1_8k.htm",
+      "corroboration_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2020-131",
+      "note": "Issuer 8-K and Nasdaq corporate-action notice confirm the 1-for-40 reverse split effective before market open on 2020-07-27. The 1-for-1200 candidate is incorrect.",
+      "verified_split_coefficient": 0.025
+    },
+    {
+      "symbol": "UHAL",
+      "candidate_date": "2022-11-10",
+      "candidate_claim": "1-for-10 stock split",
+      "verified_action": "stock_dividend_new_nonvoting_class",
+      "verified_ratio": "9 nonvoting shares per existing voting share",
+      "verified_effective_date": "2022-11-10",
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/4457/000000445723000011/uhal-20221231_htm.xml",
+      "corroboration_url": "https://investors.uhaul.com/news/news-details/2022/When-Issued-Trading-of-New-Series-of-AMERCO-Common-Stock-to-Begin-on-November-9/default.aspx",
+      "note": "Not a conventional 10-for-1 split of the same security; a new non-voting series was issued.",
+      "verified_split_coefficient": null
+    },
+    {
+      "symbol": "WPG",
+      "candidate_date": "2020-12-22",
+      "candidate_claim": "8-for-1 reverse split",
+      "verified_action": "reverse_stock_split",
+      "verified_ratio": "1-for-9",
+      "verified_effective_date": "2020-12-22",
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1610911/000159468621000014/wpg-20210331.htm",
+      "note": "Candidate ratio 1-for-8 is incorrect.",
+      "verified_split_coefficient": 0.1111111111111111
+    }
+  ]
+}

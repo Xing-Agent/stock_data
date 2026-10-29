@@ -88,6 +88,26 @@ def main():
         print(json.dumps({key: record.get(key) for key in ('symbol', 'status', 'bars', 'actions_status')}), flush=True)
         time.sleep(1)
 
+    # Refresh a non-blocking corporate-action review after the batch. The audit
+    # never edits bars and does not classify price gaps as splits.
+    checker = Path(__file__).resolve().with_name('check_extreme_split_candidates.py')
+    if not checker.exists():
+        raise FileNotFoundError(f'Missing price-gap review tool: {checker}')
+    audit_path = directory / 'reviews/corporate_actions_2026-10/extreme_split_candidates_latest.json'
+    audit_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_audit = audit_path.with_name(audit_path.name + '.tmp')
+    completed = subprocess.run(
+        [sys.executable, str(checker), '--root', str(directory), '--output', str(temporary_audit)],
+        capture_output=True, text=True,
+    )
+    if completed.returncode != 0:
+        raise RuntimeError(f'Post-download price-gap review failed: {completed.stderr[-1000:]}')
+    audit = json.loads(temporary_audit.read_text())
+    temporary_audit.replace(audit_path)
+    print(json.dumps({'type': 'post_download_price_gap_review',
+                      'candidate_count': audit['candidate_count'],
+                      'report': str(audit_path)}, ensure_ascii=False), flush=True)
+
 
 if __name__ == '__main__':
     main()

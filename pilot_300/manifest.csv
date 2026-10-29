@@ -1,6 +1,6 @@
 symbol,name,origin,size_group,sector,delisted,retirement_category,download_start_date,download_end_date,data_path,baseline_listing_basis
 AEE,Ameren Corporation,pilot_50,large,Utilities,False,,2016-01-01,2025-12-31,../pilot_50/AEE/daily.json,
-AVEO,"AVEO Pharmaceuticals, Inc.",pilot_50,small,Healthcare,True,acquisition_or_merger,2016-01-01,2023-01-19,../pilot_50/AVEO/daily.json,
+AVEO,"AVEO Pharmaceuticals, Inc.",pilot_50,small,Healthcare,True,ACQUISITION_CASH,2016-01-01,2023-01-19,../pilot_50/AVEO/daily.json,
 BA,The Boeing Company,pilot_50,large,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/BA/daily.json,
 BMI,"Badger Meter, Inc.",pilot_50,small,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/BMI/daily.json,
 BSM,"Black Stone Minerals, L.P.",pilot_50,mid,Energy,False,,2016-01-01,2025-12-31,../pilot_50/BSM/daily.json,
@@ -20,7 +20,7 @@ M,"Macy's, Inc.",pilot_50,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,.
 META,"Meta Platforms, Inc.",pilot_50,large,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/META/daily.json,
 MSB,Mesabi Trust,pilot_50,small,Basic Materials,False,,2016-01-01,2025-12-31,../pilot_50/MSB/daily.json,
 MTG,MGIC Investment Corporation,pilot_50,mid,Financial Services,False,,2016-01-01,2025-12-31,../pilot_50/MTG/daily.json,
-OCSI,Oaktree Strategic Income Corporation,pilot_50,small,Financial Services,True,acquisition_or_merger,2016-01-01,2021-03-19,../pilot_50/OCSI/daily.json,
+OCSI,Oaktree Strategic Income Corporation,pilot_50,small,Financial Services,True,ACQUISITION_STOCK,2016-01-01,2021-03-19,../pilot_50/OCSI/daily.json,
 OII,"Oceaneering International, Inc.",pilot_50,mid,Energy,False,,2016-01-01,2025-12-31,../pilot_50/OII/daily.json,
 OMEX,"Odyssey Marine Exploration, Inc.",pilot_50,small,Basic Materials,False,,2016-01-01,2025-12-31,../pilot_50/OMEX/daily.json,
 OMF,"OneMain Holdings, Inc.",pilot_50,mid,Financial Services,False,,2016-01-01,2025-12-31,../pilot_50/OMF/daily.json,
@@ -40,7 +40,7 @@ RRC,Range Resources Corporation,pilot_50,mid,Energy,False,,2016-01-01,2025-12-31
 SBUX,Starbucks Corporation,pilot_50,large,Consumer Cyclical,False,,2016-01-01,2025-12-31,../pilot_50/SBUX/daily.json,
 SGA,"Saga Communications, Inc.",pilot_50,small,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/SGA/daily.json,
 SRG,Seritage Growth Properties,pilot_50,small,Real Estate,False,,2016-01-01,2025-12-31,../pilot_50/SRG/daily.json,
-SRT,"Startek, Inc.",pilot_50,small,Technology,True,acquisition_or_merger,2016-01-01,2024-01-05,../pilot_50/SRT/daily.json,
+SRT,"Startek, Inc.",pilot_50,small,Technology,True,ACQUISITION_CASH,2016-01-01,2024-01-05,../pilot_50/SRT/daily.json,
 SYY,Sysco Corporation,pilot_50,large,Consumer Defensive,False,,2016-01-01,2025-12-31,../pilot_50/SYY/daily.json,
 TAP,Molson Coors Beverage Company,pilot_50,large,Consumer Defensive,False,,2016-01-01,2025-12-31,../pilot_50/TAP/daily.json,
 TKR,The Timken Company,pilot_50,mid,Industrials,False,,2016-01-01,2025-12-31,../pilot_50/TKR/daily.json,
@@ -49,20 +49,20 @@ VEEV,Veeva Systems Inc.,pilot_50,mid,Technology,False,,2016-01-01,2025-12-31,../
 VIRC,Virco Mfg. Corporation,pilot_50,small,Consumer Cyclical,False,,2016-01-01,2025-12-31,../pilot_50/VIRC/daily.json,
 XEL,Xcel Energy Inc.,pilot_50,large,Utilities,False,,2016-01-01,2025-12-31,../pilot_50/XEL/daily.json,
 YELP,Yelp Inc.,pilot_50,mid,Communication Services,False,,2016-01-01,2025-12-31,../pilot_50/YELP/daily.json,
-ABMD,"Abiomed, Inc.",expansion_250,mid,Healthcare,True,acquisition_or_merger,2016-01-01,2022-12-22,ABMD/daily.json,AV historical listing plus FMP profile and baseline cap
-ALXN,"Alexion Pharmaceuticals, Inc.",expansion_250,large,Healthcare,True,acquisition_or_merger,2016-01-01,2021-07-21,ALXN/daily.json,AV historical listing plus FMP profile and baseline cap
-ATVI,"Activision Blizzard, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2023-10-13,ATVI/daily.json,AV historical listing plus FMP profile and baseline cap
-CERN,Cerner Corporation,expansion_250,large,Healthcare,True,acquisition_or_merger,2016-01-01,2022-06-08,CERN/daily.json,AV historical listing plus FMP profile and baseline cap
-CSOD,"Cornerstone OnDemand, Inc.",expansion_250,small,Technology,True,acquisition_or_merger,2016-01-01,2021-10-15,CSOD/daily.json,AV historical listing plus FMP profile and baseline cap
-CTXS,"Citrix Systems, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2022-09-30,CTXS/daily.json,AV historical listing plus FMP profile and baseline cap
-DFS,Discover Financial Services,expansion_250,large,Financial Services,True,acquisition_or_merger,2016-01-01,2025-05-16,DFS/daily.json,AV historical listing plus FMP profile and baseline cap
-HES,Hess Corporation,expansion_250,large,Energy,True,acquisition_or_merger,2016-01-01,2025-07-18,HES/daily.json,AV historical listing plus FMP profile and baseline cap
-JNPR,"Juniper Networks, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2025-07-02,JNPR/daily.json,AV historical listing plus FMP profile and baseline cap
-KSU,Kansas City Southern,expansion_250,mid,Industrials,True,acquisition_or_merger,2016-01-01,2021-12-13,KSU/daily.json,AV historical listing plus FMP profile and baseline cap
-MRO,Marathon Oil Corporation,expansion_250,mid,Energy,True,acquisition_or_merger,2016-01-01,2024-11-22,MRO/daily.json,AV historical listing plus FMP profile and baseline cap
-NUAN,"Nuance Communications, Inc.",expansion_250,mid,Technology,True,acquisition_or_merger,2016-01-01,2022-03-04,NUAN/daily.json,AV historical listing plus FMP profile and baseline cap
-PFPT,"Proofpoint, Inc.",expansion_250,mid,Technology,True,acquisition_or_merger,2016-01-01,2021-08-31,PFPT/daily.json,AV historical listing plus FMP profile and baseline cap
-XLNX,"Xilinx, Inc.",expansion_250,large,Technology,True,acquisition_or_merger,2016-01-01,2022-02-14,XLNX/daily.json,AV historical listing plus FMP profile and baseline cap
+ABMD,"Abiomed, Inc.",expansion_250,mid,Healthcare,True,ACQUISITION_CASH,2016-01-01,2022-12-22,ABMD/daily.json,AV historical listing plus FMP profile and baseline cap
+ALXN,"Alexion Pharmaceuticals, Inc.",expansion_250,large,Healthcare,True,ACQUISITION_STOCK,2016-01-01,2021-07-21,ALXN/daily.json,AV historical listing plus FMP profile and baseline cap
+ATVI,"Activision Blizzard, Inc.",expansion_250,large,Technology,True,ACQUISITION_CASH,2016-01-01,2023-10-13,ATVI/daily.json,AV historical listing plus FMP profile and baseline cap
+CERN,Cerner Corporation,expansion_250,large,Healthcare,True,ACQUISITION_CASH,2016-01-01,2022-06-08,CERN/daily.json,AV historical listing plus FMP profile and baseline cap
+CSOD,"Cornerstone OnDemand, Inc.",expansion_250,small,Technology,True,ACQUISITION_CASH,2016-01-01,2021-10-15,CSOD/daily.json,AV historical listing plus FMP profile and baseline cap
+CTXS,"Citrix Systems, Inc.",expansion_250,large,Technology,True,ACQUISITION_CASH,2016-01-01,2022-09-30,CTXS/daily.json,AV historical listing plus FMP profile and baseline cap
+DFS,Discover Financial Services,expansion_250,large,Financial Services,True,ACQUISITION_STOCK,2016-01-01,2025-05-16,DFS/daily.json,AV historical listing plus FMP profile and baseline cap
+HES,Hess Corporation,expansion_250,large,Energy,True,ACQUISITION_STOCK,2016-01-01,2025-07-18,HES/daily.json,AV historical listing plus FMP profile and baseline cap
+JNPR,"Juniper Networks, Inc.",expansion_250,large,Technology,True,ACQUISITION_CASH,2016-01-01,2025-07-02,JNPR/daily.json,AV historical listing plus FMP profile and baseline cap
+KSU,Kansas City Southern,expansion_250,mid,Industrials,True,ACQUISITION_STOCK,2016-01-01,2021-12-13,KSU/daily.json,AV historical listing plus FMP profile and baseline cap
+MRO,Marathon Oil Corporation,expansion_250,mid,Energy,True,ACQUISITION_STOCK,2016-01-01,2024-11-22,MRO/daily.json,AV historical listing plus FMP profile and baseline cap
+NUAN,"Nuance Communications, Inc.",expansion_250,mid,Technology,True,ACQUISITION_CASH,2016-01-01,2022-03-04,NUAN/daily.json,AV historical listing plus FMP profile and baseline cap
+PFPT,"Proofpoint, Inc.",expansion_250,mid,Technology,True,ACQUISITION_CASH,2016-01-01,2021-08-31,PFPT/daily.json,AV historical listing plus FMP profile and baseline cap
+XLNX,"Xilinx, Inc.",expansion_250,large,Technology,True,ACQUISITION_STOCK,2016-01-01,2022-02-14,XLNX/daily.json,AV historical listing plus FMP profile and baseline cap
 AMRS,"Amyris, Inc.",expansion_250,small,Basic Materials,True,bankruptcy,2016-01-01,2023-08-20,AMRS/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
 CLVS,"Clovis Oncology, Inc.",expansion_250,small,Healthcare,True,bankruptcy,2016-01-01,2022-12-20,CLVS/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT
 ACOR,"Acorda Therapeutics, Inc.",expansion_250,small,Healthcare,True,bankruptcy,2016-01-01,2024-04-11,ACOR/daily.json,FMP IPO and baseline cap; missing AV listing; alternative evidence accepted; not strict PIT

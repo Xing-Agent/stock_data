@@ -1,0 +1,171 @@
+{
+  "generated_at": "2026-10-28",
+  "cohort": "pilot_300 retirement_category=acquisition_or_merger (17 tickers)",
+  "fields": [
+    "symbol",
+    "consideration_type",
+    "cash_per_share",
+    "stock_ratio",
+    "contingent_value_right",
+    "status",
+    "source_url",
+    "note"
+  ],
+  "records": [
+    {
+      "symbol": "AVEO",
+      "consideration_type": "cash",
+      "cash_per_share": 15.0,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_SEC",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1325879/000119312522292358/d407975ddefm14a.htm"
+    },
+    {
+      "symbol": "OCSI",
+      "consideration_type": "stock_plus_special_cash_distribution",
+      "cash_per_share": 0.1,
+      "stock_ratio": "1.3371 OCSL shares per OCSI share",
+      "contingent_value_right": null,
+      "status": "verified_primary_exchange_notice",
+      "source_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2021-37",
+      "note": "Nasdaq notice: $0.10 special cash distribution for shareholders of record Mar 17, trades through Mar 18 inclusive; merger closed before Mar 19 open. Last trade Mar 18, suspension effective Mar 22."
+    },
+    {
+      "symbol": "SRT",
+      "consideration_type": "cash",
+      "cash_per_share": 4.3,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_SEC",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1031029/000114036124000842/ny20017658x1_ex99-1.htm"
+    },
+    {
+      "symbol": "ABMD",
+      "consideration_type": "cash_plus_CVR",
+      "cash_per_share": 380.0,
+      "stock_ratio": null,
+      "contingent_value_right": "up to $35/share cash subject to milestones",
+      "status": "verified_acquirer_primary",
+      "source_url": "https://www.jnj.com/media-center/press-releases/johnson-johnson-to-acquire-abiomed"
+    },
+    {
+      "symbol": "ALXN",
+      "consideration_type": "cash_and_stock",
+      "cash_per_share": 60.0,
+      "stock_ratio": "2.1243 AZN ADS per ALXN share",
+      "contingent_value_right": null,
+      "status": "verified_acquirer_primary",
+      "source_url": "https://www.astrazeneca.com/media-centre/press-releases/2020/astrazeneca-to-acquire-alexion.html"
+    },
+    {
+      "symbol": "ATVI",
+      "consideration_type": "cash",
+      "cash_per_share": 95.0,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_SEC",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/718877/000162828023004842/atvi-20221231.htm"
+    },
+    {
+      "symbol": "CERN",
+      "consideration_type": "cash",
+      "cash_per_share": 95.0,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/804753/000119312522148799/d352895dex99a5w.htm"
+    },
+    {
+      "symbol": "CSOD",
+      "consideration_type": "cash",
+      "cash_per_share": 57.5,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2021-220"
+    },
+    {
+      "symbol": "CTXS",
+      "consideration_type": "cash",
+      "cash_per_share": 104.0,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/877890/000119312522023498/d273843dex992.htm"
+    },
+    {
+      "symbol": "DFS",
+      "consideration_type": "stock",
+      "cash_per_share": null,
+      "stock_ratio": "1.0192 COF shares per DFS share",
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1393612/000119312525002190/d896014ddefm14a.htm"
+    },
+    {
+      "symbol": "HES",
+      "consideration_type": "stock",
+      "cash_per_share": null,
+      "stock_ratio": "1.025 CVX shares per HES share",
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/93410/000119312524080599/d576159ds4a.htm"
+    },
+    {
+      "symbol": "JNPR",
+      "consideration_type": "cash",
+      "cash_per_share": 40.0,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/877890/000119312522023498/d273843dex992.htm"
+    },
+    {
+      "symbol": "KSU",
+      "consideration_type": "cash_and_stock",
+      "cash_per_share": 90.0,
+      "stock_ratio": "2.884 CP shares per KSU common share",
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/54480/000119312521274158/d233365d8k.htm"
+    },
+    {
+      "symbol": "MRO",
+      "consideration_type": "stock",
+      "cash_per_share": null,
+      "stock_ratio": "0.255 COP shares per MRO share",
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1163165/000110465924122112/tm2428935d2_ex99-1.htm"
+    },
+    {
+      "symbol": "NUAN",
+      "consideration_type": "cash",
+      "cash_per_share": 56.0,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1002517/000119312521112515/d22854dex991.htm"
+    },
+    {
+      "symbol": "PFPT",
+      "consideration_type": "cash",
+      "cash_per_share": 176.0,
+      "stock_ratio": null,
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1212458/000119312521130383/d173979dex991.htm"
+    },
+    {
+      "symbol": "XLNX",
+      "consideration_type": "stock",
+      "cash_per_share": null,
+      "stock_ratio": "1.7234 AMD shares per XLNX share; cash in lieu of fractional shares",
+      "contingent_value_right": null,
+      "status": "verified_primary_source",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248822000031/xilinxacquisitionclosepres.htm"
+    }
+  ],
+  "method_note": "Transaction consideration is recorded separately from last-trading date, delisting date, settlement date, and final realized recovery. Null means not reviewed/verified yet, not zero consideration. This file does not alter manifest or daily prices."
+}

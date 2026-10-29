@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-10-29",
+  "description": "Issuer/exchange verified split events extracted from the eight candidate review. Coefficient is new shares per old share. This is a separate reviewed overlay; source daily files were not rewritten.",
+  "events": [
+    {
+      "symbol": "ACOR",
+      "effective_date": "2020-12-31",
+      "first_split_adjusted_trading_date": "2021-01-04",
+      "split_coefficient": 0.16666666666666666,
+      "ratio": "1-for-6 reverse split",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1008848/000156459020058970/acor-ex991_25.htm",
+      "review_status": "verified_primary_source"
+    },
+    {
+      "symbol": "ACOR",
+      "effective_date": "2023-06-05",
+      "first_split_adjusted_trading_date": "2023-06-05",
+      "split_coefficient": 0.05,
+      "ratio": "1-for-20 reverse split",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1008848/000095017023026094/acor-ex99_1.htm",
+      "review_status": "verified_primary_source"
+    },
+    {
+      "symbol": "SQBG",
+      "effective_date": "2020-07-27",
+      "first_split_adjusted_trading_date": "2020-07-27",
+      "split_coefficient": 0.025,
+      "ratio": "1-for-40 reverse split",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1648428/000110465920086221/tm2025519d1_8k.htm",
+      "exchange_notice_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2020-131",
+      "review_status": "verified_primary_sec_and_exchange"
+    },
+    {
+      "symbol": "WPG",
+      "effective_date": "2020-12-22",
+      "first_split_adjusted_trading_date": "2020-12-22",
+      "split_coefficient": 0.1111111111111111,
+      "ratio": "1-for-9 reverse split",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1594686/000143774920025716/wpg20201218_8k.htm",
+      "review_status": "verified_primary_sec"
+    }
+  ],
+  "candidate_dispositions": [
+    {
+      "symbol": "ACOR",
+      "candidate_date": "2021-11-30",
+      "candidate_claim": "10-for-1 reverse split",
+      "result": "date/ratio contradicted; actual verified event is 2020-12-31 1-for-6"
+    },
+    {
+      "symbol": "AMRS",
+      "candidate_date": "2023-08-10",
+      "candidate_claim": "1-for-5 forward split",
+      "result": "no supporting split evidence found"
+    },
+    {
+      "symbol": "PROP",
+      "candidate_date": "2020-05-14",
+      "candidate_claim": "4-for-1 reverse split",
+      "result": "issuer identity continuity unresolved; do not attribute current PROP identity to old ticker-only history"
+    },
+    {
+      "symbol": "PRTY",
+      "candidate_date": "2019-11-07",
+      "candidate_claim": "1-for-3 forward split",
+      "result": "no implemented split evidence found"
+    },
+    {
+      "symbol": "UHAL",
+      "candidate_date": "2022-11-10",
+      "candidate_claim": "1-for-10 forward split",
+      "result": "not a split; 9 shares of new non-voting class issued per voting share as stock dividend"
+    }
+  ]
+}
