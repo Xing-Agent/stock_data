@@ -28,7 +28,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from . import cache, data
+from . import cache, data, fundamentals
 
 # ---------------------------------------------------------------- 基础指标(矩阵版)
 
@@ -360,6 +360,34 @@ def _universe_rule_mask(rule: dict, syms: list[str], index: pd.DatetimeIndex
         rsm = mansfield_rs_matrix(against, int(p.get("lookback", 250)), syms)
         return _as_bool(rsm > 0.0)
 
+    # ------------------------------------------------------------------
+    # ★ 1029 新增:基本面 PIT 闸门(全部走 engine/fundamentals.py)
+    #   ★ 三条共同的铁律:
+    #     ① 生效时点 = filing_date + 1 个交易日(严禁用报告期截止日)
+    #     ② 未公布期间沿用上一期;第一次公布之前 = NaN
+    #     ③ ★ NaN 的那天一律判「不合格」 —— 不猜、不补、不用近似值顶上
+    # ------------------------------------------------------------------
+    if t == "fcf_yield_rank_top":
+        # FCF Yield = FCF_ttm / (摊薄股数 × 当日收盘)。
+        # ★ 分母只是「规模代理」,不是严格 PIT 市值(README 第 48 行);
+        #   ★ 回购凶的公司期间加权股数偏高 → 分母偏大 → FCF Yield 被系统性低估,
+        #     而「回购凶」正是这一派要选的特征 —— 偏差与信号同向,方向相反。
+        fps = fundamentals.get("fcf_per_share", syms)
+        fy = fps / close.replace(0.0, np.nan)
+        pct = fy.rank(axis=1, pct=True)        # 池内横截面排名(全市场分位拿不到)
+        top = float(p.get("rank_top_pct", 20)) / 100.0
+        return _as_bool(fy.notna() & (pct >= 1.0 - top))
+
+    if t == "sloan_accrual_below":
+        acc = fundamentals.get("sloan_accrual", syms)
+        return _as_bool(acc < float(p.get("threshold", 0.0)))
+
+    if t == "piotroski_f_score_above":
+        fs = fundamentals.get("f_score", syms)
+        lo = float(p.get("min_score", 5))
+        hi = float(p.get("max_score", 9))
+        return _as_bool(fs.notna() & (fs >= lo) & (fs <= hi))
+
     if t == "momentum_dual_gate":
         # 若干子条件按 logic 组合(专家第二轮明确为 AND)
         logic = str(rule.get("logic", "AND")).upper()
@@ -418,6 +446,13 @@ def universe_mask(spec: dict, symbols: list[str] | None = None) -> pd.DataFrame:
                                  close.index, syms)
     # 「流派配置」那套 rules 列表形式:全部规则都要成立
     for rule in (spec.get("rules") or []):
+        if rule.get("enabled", True) is False:
+            # ★ 配置自己显式关掉的 —— 不是悄悄忽略。记一条,报告里逐条打出来。
+            _DISABLED_LOG.append(
+                f"① universe 规则 {rule.get('type')} 被配置显式关掉"
+                f"(enabled: false;"
+                f"{rule.get('audit_blocked') or ('data_missing' if rule.get('data_missing') else '原因见配置')})")
+            continue
         mask &= _universe_rule_mask(rule, syms, close.index)
     return mask.fillna(False)
 
@@ -514,6 +549,33 @@ def regime_mask(spec: dict, index: pd.DatetimeIndex,
         t = rule.get("type", "none")
         if t == "none":
             continue
+        if rule.get("enabled", True) is False:
+            _DISABLED_LOG.append(
+                f"② regime 规则 {t} 被配置显式关掉(enabled: false;"
+                f"{rule.get('audit_blocked') or '原因见配置'})")
+            continue
+        if t == "sector_diffusion_above":
+            # ★★ 板块扩散指数 SDI:11 只行业 ETF 里有几只站在自己 50 日均线上方。
+            #   ★ 分母按专家原文**写死 11**(不随可用只数变)——
+            #     XLRE 2015-10 成立、XLC 2018-06 成立,所以 2018 年初分子最多只能
+            #     到 10,SDI 会偏低、闸门偏紧。★ 这件事必须写进报告。
+            pr = rule.get("params", rule) or {}
+            etfs = list(pr.get("etfs") or [])
+            ma_n = int(pr.get("ma", 50))
+            need = int(pr.get("min_count", 6))
+            denom = len(etfs)                     # ★ 写死 11,不按可用只数缩
+            cnt = pd.Series(0.0, index=index)
+            for e in etfs:
+                b = data.load_benchmark(e)["close"].reindex(index).ffill()
+                above = (b > b.rolling(ma_n, min_periods=ma_n).mean()).fillna(False)
+                cnt += above.astype(float)
+            min_pct = pr.get("min_pct")
+            if min_pct is not None:
+                # 原文同时给了只数(6)和百分比(54.5%),★ 两条都要满足才开闸
+                ok &= ((cnt >= need) & (cnt / denom * 100.0 >= float(min_pct))).fillna(False)
+            else:
+                ok &= (cnt >= need).fillna(False)
+            continue
         if t == "index_above_ma":
             sym, n = rule.get("symbol", "SPY"), int(rule.get("ma", 200))
             b = data.load_benchmark(sym)["close"].reindex(index).ffill()
@@ -602,8 +664,51 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
 
     if t in ("donchian_close_breakout", "donchian_breakout"):
         n = int(p.get("lookback", 20))
-        hi = cache.field("high", symbols).rolling(n, min_periods=n).max().shift(1)
+        if p.get("volume_confirm") is not None:
+            # ★★ 配置写了「温和放量」,但专家原文没给量比区间(配置自己标了
+            #   undefined_param)。★ 悄悄忽略它 = 配置写了的条件没被执行、
+            #   成绩凭空变好而且没人知道 —— 所以这里直接报错。
+            from .config_adapter import BLOCKED_REASONS
+            raise NotImplementedError(
+                f"donchian_close_breakout 的 volume_confirm="
+                f"{p['volume_confirm']!r} 还没法跑 —— "
+                f"{BLOCKED_REASONS['volume_confirm_moderate']}\n"
+                f"★ 要跑必须在配置里显式把 volume_confirm 去掉,"
+                f"并在报告里写明「这一版的突破没有放量确认」。")
+        if str(p.get("basis", "close")) == "close":
+            hi = close.rolling(n, min_periods=n).max().shift(1)
+        else:
+            hi = cache.field("high", symbols).rolling(n, min_periods=n).max().shift(1)
         return _as_bool(close > hi)
+
+    if t == "close_above_ema":
+        return _as_bool(close > ema_matrix(int(p.get("period", p.get("ema", 20))), symbols))
+
+    if t == "mansfield_rs_positive":
+        against = str(p.get("against", "SPY")).upper()
+        if against == "SECTOR":
+            raise NotImplementedError(
+                "entry 的 mansfield_rs_positive(against: SECTOR)不能跑 —— "
+                "仓库的行业归属是当前快照、非 PIT。见审计 §3-C。")
+        lb = int(p.get("lookback", 250))
+        if str(p.get("timeframe", "daily")).lower() == "weekly":
+            # 周线级别:用 5 个交易日一根的口径,换算成日频回看期
+            lb = int(p.get("lookback_weeks", 50)) * 5
+        return _as_bool(mansfield_rs_matrix(against, lb, symbols) > 0.0)
+
+    if t == "undercut_and_rally":
+        # ★★ 深度价值派 ③「跌破后强力收复」。
+        #   ★ 专家原文没给「强力收复」的强度口径(配置里 undefined_param 写着),
+        #     所以这里用的是**唯一不含自由参数的机械读法**:
+        #       ① 当天最低价跌破了前 lookback 日的最低价(= undercut)
+        #       ② 当天收盘又收回到那条前 lookback 日最低价之上(= rally)
+        #   ★ 为什么这样读不算「自己填数」:它没有引入任何可调的数值 ——
+        #     跌破线和收复线是同一条线(前 N 日最低),N 用的是配置给的 20。
+        #   ★★ 但这仍然是我们的读法、不是专家给的口径 —— 报告里必须列为待确认项。
+        n = int(p.get("lookback", 20))
+        low = cache.field("low", symbols)
+        prior_low = low.rolling(n, min_periods=n).min().shift(1)
+        return _as_bool((low < prior_low) & (close > prior_low))
 
     if t == "atr_squeeze":
         # 突破前刚缩过波动:快 ATR / 慢 ATR 均值 < max_ratio
@@ -626,42 +731,53 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
         # ★ 原文写的是 ≤(不是 <),且分子分母都取 t−1 —— 照原文
         return _as_bool(r.shift(off) <= float(p.get("max_ratio", 0.6)))
 
-    if t == "vcp_volume_tripod":
+    if t == "vcp_volume_duo":
         # ======================================================================
-        # ★★ VCP 成交量三条件(专家 2026-10-28 修正版)
+        # ★★ VCP 成交量门禁 —— 只剩两条(专家 2026-10-29 最终裁决,Lin 已拍板)
         #
-        # 大白话:上一版把「突破前要缩量」和「突破当天要放量」掐在同一个数上,
-        #   要求成交量一天之内从「不到均量 6 成」跳到「均量以上」——
-        #   这是个自毁的写法,八年只剩 1 笔。专家已承认。
-        #   修正后分成三件事:① 前面出现过一天地量(筹码沉淀日)
-        #                   ② 前 5 日均量整体收敛(是收敛,不是冰冻)
-        #                   ③ 突破当天温和放量(对慢均量、也对自己前 5 日均量)
+        # 大白话(三秒):以前串了三道成交量门,其中两道问的是同一件事
+        #   (「前面有没有缩量」问了两遍),叠在一起把样本从 289 砍到 15。
+        #   现在只留两道:**前面要出现过一天地量**,**突破当天量要上 50 日均量**。
         #
-        # ★ 来源标注:行业惯例(专家 2026-10-28 修正版)。
-        #   ★ 不许标「原著写死」—— 专家自己说了原著是定性描述。
+        # ★ 裁决内容,逐条:
+        #   · 门禁1 = 原条件1,保留不动(单日极小值 ≤ 0.60 × SMA50)
+        #     出处:Minervini (2017, Ch.5)「one or two days of extreme volume
+        #     contraction」—— 看单日极小值,刻画主力洗盘结束的最小充分条件
+        #   · ★ 原条件2(SMA5(t−1) ≤ 0.85 × SMA50(t−1))★ 彻底废除。
+        #     专家书面承认它是研究员自己加的过度约束,且与门禁1 高度共线、冗余。
+        #     ★ 本算子里没有它的任何代码路径 —— 不是开关关掉,是删掉。
+        #   · 门禁2 = 原条件3 的**前半句**,Volume[t] ≥ 1.00 × SMA50(t−1)。
+        #     ★ 删掉「且 ≥ 1.20 × SMA5(t−1)」那个冗余项:突破日既然上了 50 日
+        #     均量、而前 5 天又存在 0.6x 的极度缩量日,它对前 5 日均量的放大倍数
+        #     天然已经超过 1.2 倍,写死连乘只会引入新的偶发边际失败。
+        #
+        # ★★ 另外:原 breakout_volume_band 的 **1.80 倍上限已物理删除**,
+        #   ★ 不是留着不用 —— 整个算子都从本文件删掉了。
+        #   专家理由:O'Neil 与 Minervini 原著对突破日放量的要求从来是「越大越好」,
+        #   焊死上限会在算法层面精准击杀全市场最强、爆发力最凶猛的前 5% 领头羊。
+        #   ★ 他自判这条是【IS-只让样本内好看】。
+        #
+        # ★ 来源标注:行业惯例(专家 2026-10-29 最终裁决版)。
+        #   ★ 不许标「原著写死」—— 原著对成交量是定性描述,阈值是工程化写法。
         # ======================================================================
         v = cache.field("volume", symbols)
-        f = int(p.get("fast_period", 5))          # 5
         sl = int(p.get("slow_period", 50))        # 50
         look = int(p.get("min_day_lookback", 5))  # 突破前 5 天内
-        sma_f = v.rolling(f, min_periods=f).mean()
         sma_s = v.rolling(sl, min_periods=sl).mean()
-        # ★ 全部基准量都取 t−1(SMA50_Volume[t-1] / SMA5_Volume[t-1]),
-        #   突破日当天的量不许进自己的分母 —— 否则是偷看当天。
-        sma_f1, sma_s1 = sma_f.shift(1), sma_s.shift(1)
+        # ★ 基准量取 t−1(SMA50_Volume[t−1]),突破日当天的量不许进自己的分母
+        #   —— 否则是偷看当天。
+        sma_s1 = sma_s.shift(1)
 
-        # 条件1 突破前 5 天内至少有 1 天 Volume ≤ 0.60 × SMA50_Volume[t−1]
-        #   Volume[t-5:t] 是 t−5 .. t−1 这 5 天(不含突破日 t)
+        # 门禁1 突破前 5 天内至少有 1 天 Volume ≤ 0.60 × SMA50_Volume[t−1]
+        #   Volume[t-5:t] 是 t−5 .. t−1 这 5 天(★ 不含突破日 t)
         vmin5 = v.rolling(look, min_periods=look).min().shift(1)
-        c1 = _as_bool(vmin5 <= float(p.get("dryup_day_ratio", 0.60)) * sma_s1)
+        g1 = _as_bool(vmin5 <= float(p.get("dryup_day_ratio", 0.60)) * sma_s1)
 
-        # 条件2 SMA5_Volume[t−1] ≤ 0.85 × SMA50_Volume[t−1](收敛,不是冰冻)
-        c2 = _as_bool(sma_f1 <= float(p.get("converge_ratio", 0.85)) * sma_s1)
+        # 门禁2 突破日点火:Volume[t] ≥ 1.00 × SMA50_Volume[t−1]
+        #   ★ 只有下界,没有上界(1.80 上限已按裁决物理删除)
+        g2 = _as_bool(v >= float(p.get("breakout_vs_slow", 1.00)) * sma_s1)
 
-        # 条件3 突破日温和放量:对慢均量 ≥1.00,且对自己前 5 日均量 ≥1.20
-        c3 = (_as_bool(v >= float(p.get("breakout_vs_slow", 1.00)) * sma_s1)
-              & _as_bool(v >= float(p.get("breakout_vs_fast", 1.20)) * sma_f1))
-        return c1 & c2 & c3
+        return g1 & g2
 
     if t == "sigma_squeeze":
         # σ_fast < max_ratio × σ_slow,在突破当天评估(不满足就放弃本次突破)
@@ -671,15 +787,13 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
         ss = ret_std_matrix(sl, symbols)
         return _as_bool(sf < float(p.get("max_ratio", 0.65)) * ss)
 
-    if t == "breakout_volume_band":
-        # 突破当天成交量 / SMA_slow(Volume)(t−off) 落在 [min_ratio, max_ratio]
-        v = cache.field("volume", symbols)
-        sl = int(p.get("slow_period", 50))
-        off = int(p.get("offset_days", 1))
-        base = v.rolling(sl, min_periods=sl).mean().shift(off)
-        r = v / base
-        return (_as_bool(r >= float(p.get("min_ratio", 1.0)))
-                & _as_bool(r <= float(p.get("max_ratio", 1.8))))
+    # ★★ breakout_volume_band(突破日量比区间 [1.00, 1.80])
+    #   —— ★ 2026-10-29 按专家最终裁决 **物理删除**,不是留着不用。
+    #   专家原话:「坚决不要保留,彻底物理删除。」
+    #   ★ 它是整个项目里唯一一条由我们自己的数据定下来的参数 ——
+    #     删掉它等于删掉我们自己搜出来的一个旋钮,★ 这是好事。
+    #   ★ 任何配置再写这个 type,会在 config_adapter 预检就被拦下并报错,
+    #     不会悄悄跑过去(BLOCKED_REASONS 里登记了原因)。
 
     if t == "vcp_contraction":
         # ★ 第①关:几何收缩选拔门禁(状态机,见本文件上方说明)
@@ -754,6 +868,69 @@ def entry_trigger(spec: dict, symbols: list[str]) -> pd.DataFrame:
 #   现在补上:离场规则预算成一张 [日期 × 票] 矩阵,True = 当天收盘满足离场条件,
 #   第二层挂到 pending_exit、次日开盘平。
 
+#: ⑥ 基本面季度否决里认得的指标 → fundamentals 里的派生指标名
+FUND_EXIT_METRICS = {
+    "net_share_dilution_pct": "net_dilution_pct",
+    "fcf_ttm": "fcf_ttm",
+    "sloan_accrual": "sloan_accrual",
+    "piotroski_f_score": "f_score",
+}
+
+
+def fundamental_exit_matrix(spec: dict, symbols: list[str]) -> pd.DataFrame:
+    """
+    ⑥ 基本面季度否决 / 季度再平衡 —— ★ 在 PIT 生效日(filing_date + 1 个交易日)触发。
+
+    大白话:财报一公布(第二天),拿新数去对一遍清仓条件;任一条犯了就全额走人。
+    ★ 「未公布期间沿用上一期」是 fundamentals 那边做的 ffill,所以这张矩阵在
+      两次财报之间是**粘着的**(条件一旦犯了会一直犯到下一期)—— 这和原文
+      「季度离散更新」一致:下一份财报改回来之前,它确实一直不合格。
+    ★ 算不出来(NaN)的那天 **不触发清仓** —— 和闸门那边「算不出就不合格」方向相反,
+      这是有意的:清仓是主动动作,拿不到数据不该凭空卖掉持仓。这一条必须写进报告。
+    """
+    close = cache.field("close", symbols)
+    out = pd.DataFrame(False, index=close.index, columns=close.columns)
+    for rule in ((spec or {}).get("rules") or []):
+        if rule.get("type") not in ("fundamental_quarterly_reject",
+                                    "fundamental_quarterly_rebalance"):
+            continue
+        if rule.get("enabled", True) is False:
+            _DISABLED_LOG.append(f"⑥ {rule.get('type')} 被配置显式关掉")
+            continue
+        hit_any = False
+        for c in (rule.get("conditions_any") or []):
+            if c.get("enabled", True) is False:
+                _DISABLED_LOG.append(
+                    f"⑥ 基本面离场条件 {c.get('metric')} 被配置显式关掉"
+                    f"({c.get('audit_blocked') or 'data_missing'})—— "
+                    f"★ 这一派少了一条主动离场")
+                continue
+            mt = c.get("metric")
+            if mt not in FUND_EXIT_METRICS:
+                raise NotImplementedError(
+                    f"⑥ 基本面离场条件 metric={mt} 还没实现 —— ★ 没有悄悄忽略它。"
+                    f"认得的:{sorted(FUND_EXIT_METRICS)}")
+            v = fundamentals.get(FUND_EXIT_METRICS[mt], symbols)
+            op, val = str(c.get("op", "lt")), float(c["value"])
+            if op == "gt":
+                m = v > val
+            elif op == "lt":
+                m = v < val
+            elif op == "ge":
+                m = v >= val
+            elif op == "le":
+                m = v <= val
+            else:
+                raise ValueError(f"⑥ 基本面离场 op 只认 gt/lt/ge/le,给的是 {op}")
+            out |= _as_bool(v.notna() & m)
+            hit_any = True
+        if not hit_any:
+            _DISABLED_LOG.append(
+                f"★★ ⑥ {rule.get('type')} 的全部条件都被关掉了 —— "
+                f"这一步整个没在干活")
+    return out
+
+
 def exit_signal_matrix(spec: dict, symbols: list[str]) -> pd.DataFrame:
     """⑥ 离场:把 exit.rules 翻成「当天收盘要不要走」的布尔矩阵。"""
     close = cache.field("close", symbols)
@@ -763,6 +940,10 @@ def exit_signal_matrix(spec: dict, symbols: list[str]) -> pd.DataFrame:
         p = rule.get("params", {}) or {}
         if t == "close_below_trailing_stop":
             continue          # 这一条由第二层的止损循环原生负责,不在这里算
+        if t in ("fundamental_quarterly_reject", "fundamental_quarterly_rebalance"):
+            continue          # 单独一张矩阵,见 fundamental_exit_matrix
+        if t == "time_stop":
+            continue          # 适配层已翻成 exit.params.time_stop_days,由第二层负责
         if t == "close_below_ma":
             out |= _as_bool(close < sma_matrix(int(p["ma"]), symbols))
         elif t == "close_below_ema":
@@ -791,8 +972,22 @@ def rank_score_matrix(spec, symbols: list[str], cfg: dict | None = None
     if spec is None or isinstance(spec, str):
         return rs_rank_matrix(126, symbols)
     prim = (spec.get("primary") or {})
+    if not prim:
+        # ★★ 配置里 ranking 是 null(专家三轮没给这三派的排序规则)。
+        #   ★ 这里**不替配置猜一个策略性的排序** —— 用 ADV20 降序当占位排序,
+        #     并显式记一条。ADV20 的三条理由:PIT 干净、三条链口径统一、
+        #     覆盖率 100%(不会让「有基本面数据的票」系统性排在前面)。
+        #   ★★ 占位排序不是这一派的一部分,报告里必须写明。
+        _DISABLED_LOG.append(
+            "★★ ranking 是 null(专家未给)→ 用「ADV20 降序」当占位排序。"
+            "★ 这不是策略的一部分;槽位不够时买哪几只由它决定,"
+            "所以结论对它敏感 —— 报告里已列为待拍板项。")
+        return adv_matrix(20, symbols)
     f = str(prim.get("formula", ""))
     order = str(prim.get("order", "desc")).lower()
+    if f.upper() in ("ADV20", "ADV_20", "DOLLAR_VOLUME_20"):
+        score = adv_matrix(20, symbols)
+        return -score if order == "asc" else score
 
     if "ATR_pct_20" in f or "ATR%20" in f:
         lb = 60
@@ -851,6 +1046,7 @@ class Matrices:
     adv20: np.ndarray
     rs_rank: np.ndarray
     exit_sig: np.ndarray          # ⑥ 离场规则:当天收盘要不要走
+    exit_fund: np.ndarray         # ⑥ 基本面季度否决(PIT 生效日触发),单独一张便于归因
     rank_score: np.ndarray        # 候选多于槽位时的排序分数(越大越优先)
     ema_trail: np.ndarray         # ⑤ EMA 跟踪止损用的 EMA(没配就全是 NaN)
     last_bar: np.ndarray          # 每只票最后一根有价格的 bar 的行号(含 0 价 bar)
@@ -957,6 +1153,8 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
         rs_rank=rs_rank_matrix(
             int(uni_spec.get("rs_lookback", 126)), syms).to_numpy(dtype=float),
         exit_sig=exit_signal_matrix(cfg.get("exit") or {}, syms).to_numpy(dtype=bool),
+        exit_fund=fundamental_exit_matrix(
+            cfg.get("exit") or {}, syms).to_numpy(dtype=bool),
         rank_score=rank_score_matrix(
             (cfg.get("sizing") or {}).get("rank_by"), syms, cfg).to_numpy(dtype=float),
         ema_trail=ema_t,

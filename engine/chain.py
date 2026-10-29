@@ -223,7 +223,26 @@ def _one_stop(m: matrices.Matrices, j: int, i: int, entry_px: float,
     if kind == "atr_multiple":
         a = m.atr[k, j]
         mult = float(p.get("multiple", 2.0))
-        return entry_px - mult * float(a) if np.isfinite(a) else float("nan")
+        if not np.isfinite(a):
+            return float("nan")
+        # ★ anchor:止损挂在哪条线下面。★ 认不出来的 anchor 直接报错 ——
+        #   悄悄按进场价处理会让配置里写的「挂在突破位下方」没被执行。
+        anchor = str(p.get("anchor", "entry_price"))
+        if anchor == "entry_price":
+            base = entry_px
+        elif anchor == "breakout_level_of_20d_high":
+            # 突破位 = 信号那根之前 20 日的最高收盘(和 ③ 的扳机口径一致)
+            n = 20
+            win = m.close[max(0, k - n):k, j]
+            win = win[np.isfinite(win)]
+            base = float(win.max()) if win.size else entry_px
+        elif anchor == "signal_bar_low":
+            lo = m.low[k, j]
+            base = float(lo) if np.isfinite(lo) else entry_px
+        else:
+            raise NotImplementedError(
+                f"④ 初始止损的 anchor={anchor!r} 还没实现 —— ★ 没有悄悄按进场价处理。")
+        return base - mult * float(a)
     if kind == "pct":
         return entry_px * (1.0 - float(p.get("pct", 0.10)))
     if kind == "chandelier":
@@ -241,7 +260,10 @@ def _one_stop(m: matrices.Matrices, j: int, i: int, entry_px: float,
         a = m.atr[k, j]
         if not lo.size or not np.isfinite(a):
             return float("nan")
-        return float(lo.min()) - float(p.get("atr_multiple", 0.3)) * float(a)
+        # ★ 两套字段名都认(atr_multiple / multiple);★ 都没写才用默认 0.3,
+        #   并且这种情况下配置必然没标 source,validate 那一关已经拦住了。
+        mult = p.get("atr_multiple", p.get("multiple", 0.3))
+        return float(lo.min()) - float(mult) * float(a)
     raise ValueError(f"不认识的初始止损 type={kind}")
 
 
@@ -487,12 +509,21 @@ def run_chain(cfg: ChainConfig,
                         p["stop"] = max(p["stop"], min(p["entry"], cl))
                     elif act == "exit_unconditional":
                         pending_exit[j] = st.get("name") or "分级离场"
-                    elif st.get("type") == "chandelier":
+                    elif st.get("type") == "chandelier" or act == "chandelier":
                         sp = st.get("params", {}) or {}
                         raw = _chandelier_at(m, j, i, sp)
                         if np.isfinite(raw):
                             # ★★ 同样两条铁律
                             p["stop"] = max(p["stop"], min(raw, cl))
+                    elif st.get("type") == "lowest_low_trail" or act == "lowest_low_trail":
+                        # Stop_t = max(Stop_{t−1}, LowestLow_N)
+                        sp = st.get("params", {}) or {}
+                        n = int(sp.get("lookback", 20))
+                        lo = m.low[max(0, i - n + 1):i + 1, j]
+                        lo = lo[np.isfinite(lo)]
+                        if lo.size:
+                            # ★★ 同样两条铁律:不能高于当根收盘、只能往上抬
+                            p["stop"] = max(p["stop"], min(float(lo.min()), cl))
                     elif st.get("type") == "ema_trail":
                         raw = m.ema_trail[i, j]
                         if np.isfinite(raw):
@@ -520,6 +551,10 @@ def run_chain(cfg: ChainConfig,
 
             if target_r is not None and np.isfinite(r_now) and r_now >= target_r:
                 pending_exit[j] = "止盈"
+            elif m.exit_fund[i, j]:
+                # ★ ⑥ 基本面季度否决(PIT 生效日触发)—— 排在时间止损之前,
+                #   因为它是这一派明写的主动离场,优先于「持满 N 天就走」
+                pending_exit[j] = "基本面季度否决"
             elif time_stop is not None and (i - p["entry_i"]) >= time_stop:
                 pending_exit[j] = "时间止损"
             elif m.exit_sig[i, j]:

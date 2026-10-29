@@ -42,38 +42,57 @@ IMPLEMENTED = {
         "return_rank_percentile",
         "momentum_dual_gate",
         "mansfield_rs_positive",      # ★ 只有 against: SPY 能跑;SECTOR 非 PIT,见下
+        # ★ 1029 新实现:基本面 PIT 闸门(engine/fundamentals.py)
+        "fcf_yield_rank_top",         # FCF Yield 池内横截面前 N%
+        "sloan_accrual_below",        # Hribar & Collins (2002) 现金流量表法应计项
+        "piotroski_f_score_above",    # Piotroski 9 项(★ 9 项全齐才算,否则判不合格)
     },
     "regime": {
         "none", "index_above_ma", "index_above_ma_scaled", "index_ma_slope",
         "breadth_above", "vix_below", "no_distribution_day", "no_large_down_day",
         # ★ 1028 闸门新方案:本链自己选股范围的广度当开关(G4 对照用)
         "breadth_above_chain",
+        # ★ 1029 新实现:11 只板块 ETF 的扩散指数
+        "sector_diffusion_above",
     },
     "entry": {
         "donchian_close_breakout", "donchian_breakout", "atr_squeeze",
         "volume_dryup", "ma_cross", "rsi_oversold", "roc_momentum",
         "pullback_to_ma", "always", "random", "never",
         # ★ 1028 新实现(专家第二轮把死数给齐了之后)
-        "vcp_contraction", "sigma_squeeze", "breakout_volume_band",
-        # ★ 成交量三条件(专家 2026-10-28 修正版)—— 取代
-        #   volume_dryup + breakout_volume_band 那个自毁写法
-        "vcp_volume_tripod",
+        "vcp_contraction", "sigma_squeeze",
+        # ★★ 成交量门禁两条(专家 2026-10-29 最终裁决版)——
+        #   取代 1028 的 vcp_volume_tripod(三条件全 AND)。
+        #   ★ breakout_volume_band(含 1.80 上限)与 vcp_volume_tripod
+        #     都已物理删除,并登记进 BLOCKED_REASONS,写了就报错。
+        "vcp_volume_duo",
+        # ★ 1029 新实现:深度价值派的「跌破后强力收复」+ 收盘站上 EMA
+        "undercut_and_rally", "close_above_ema",
+        # ★ 进场里的曼斯菲尔德 RS:★ 只有 against: SPY 能跑(SECTOR 非 PIT)
+        "mansfield_rs_positive",
     },
     "exit": {
         "close_below_ma", "close_below_ema", "close_below_trailing_stop",
         "rules", "signal_only",     # 适配层自己塞的标记,不是规则
+        # ★ 1029 新实现:基本面季度否决 / 季度再平衡(PIT 生效日触发)
+        "fundamental_quarterly_reject", "fundamental_quarterly_rebalance",
+        "time_stop",
     },
     "initial_stop": {
         "atr_multiple", "pct", "chandelier", "lowest_low", "tightest_of",
         "structure_low_minus_atr", "day_low_minus_atr",
     },
-    "trailing_stop": {"chandelier", "none", "staged", "ema_trail"},
+    "trailing_stop": {"chandelier", "none", "staged", "ema_trail",
+                      # ★ 1029 新实现:Stop_t = max(Stop_{t−1}, LowestLow_N)
+                      "lowest_low_trail"},
 }
 
 # ⑤ 移动止损各级认得的 action
 IMPLEMENTED_STAGE_ACTIONS = {
     "hold_initial_stop", "move_to_breakeven", "breakeven",
     "move_stop_to_breakeven", "exit_unconditional",
+    # ★ 1029 新实现:分级里直接写 action 的两种跟踪止损
+    "chandelier", "lowest_low_trail",
 }
 
 # 明确「配置本身没定」的规则:为什么不能猜
@@ -107,6 +126,28 @@ BLOCKED_REASONS = {
     "mansfield_rs_positive":
         "against: SECTOR 这一条要个股→板块 ETF 的 PIT 映射,仓库的行业标签是"
         "当前快照、非 PIT —— 需先定映射口径",
+    # ★ 2026-10-29 新增两条 B 类(配置本身没定,不能猜):
+    "no_large_equity_issuance":
+        "★ B 类:「大规模增发」的阈值专家原文没给(配置里 undefined_param 写着)。"
+        "★ 不许借用流派三⑥那条 2.0% 稀释线顶上 —— 那是另一步的参数,跨步搬过来"
+        "就等于我们自己定了一个闸门还假托有出处。要跑必须显式关掉并在报告里写明",
+    "volume_confirm_moderate":
+        "★ B 类:③ 突破扳机里的「温和放量」量比区间专家原文没给。"
+        "★ 不许跨链搬流派二那边的数 —— ★ 而且流派二那个 [1.00, 1.80] 的"
+        "**上限 1.80 已在 2026-10-29 被专家裁决物理删除**,更不存在可搬的东西",
+    # ★★ 2026-10-29 按专家最终裁决物理删除的两个算子 ——
+    #   登记在这里,所以任何配置再写它们会在预检就报错,不会悄悄跑过去。
+    "breakout_volume_band":
+        "★ 已物理删除(2026-10-29 专家最终裁决,Lin 已拍板)。它带的"
+        "**1.80 倍上限**会在算法层面精准击杀爆发力最凶猛的前 5% 领头羊,"
+        "专家自判为【IS-只让样本内好看】,原话「坚决不要保留,彻底物理删除」。"
+        "★ 突破日放量请改用 vcp_volume_duo 的门禁2(只有下界、没有上界)",
+    "vcp_volume_tripod":
+        "★ 已物理删除(2026-10-29 专家最终裁决,Lin 已拍板)。三条件全部 AND 是"
+        "样本从 289 雪崩到 15 的唯一真凶 —— 其中条件2(SMA5 ≤ 0.85×SMA50)与"
+        "条件1 高度共线、冗余,专家承认是研究员自己加的过度约束。"
+        "★ 请改用 vcp_volume_duo(门禁1 单日地量 + 门禁2 突破日上 50 日均量)。"
+        "★ 要复现 1028 那次 15 笔的结果,请 git checkout 022a3de",
 }
 
 
@@ -114,6 +155,9 @@ BLOCKED_REASONS = {
 class AdaptReport:
     renamed: list[str] = field(default_factory=list)
     unimplemented: list[tuple[str, str, str]] = field(default_factory=list)  # (步, 规则, 原因)
+    # ★ 配置里 enabled: false 的规则 —— ★ 不是悄悄忽略,是配置自己显式关掉的,
+    #   但照样要逐条列出来,并写进报告(缺了它这一派完不完整,由报告负责说明)
+    disabled: list[tuple[str, str, str]] = field(default_factory=list)
 
     @property
     def ok(self) -> bool:
@@ -123,6 +167,11 @@ class AdaptReport:
         lines = []
         if self.renamed:
             lines.append(f"字段名已对齐:{', '.join(self.renamed)}")
+        if self.disabled:
+            lines.append("★ 配置里显式关掉的规则(enabled: false)—— "
+                         "引擎没执行它们,报告里必须写明:")
+            for step, rule, why in self.disabled:
+                lines.append(f"    [{step}] {rule} —— {why}")
         if self.unimplemented:
             lines.append("★ 这些规则还没法跑(没有悄悄忽略,全列在这里):")
             for step, rule, why in self.unimplemented:
@@ -133,20 +182,25 @@ class AdaptReport:
         return "\n".join(lines)
 
 
+def _off(node) -> bool:
+    """这条规则是不是被配置显式关掉了(enabled: false)。"""
+    return isinstance(node, dict) and node.get("enabled", True) is False
+
+
 def _rule_types(block) -> list[str]:
     if not isinstance(block, dict):
         return []
     out = []
     for r in (block.get("rules") or []):
-        if isinstance(r, dict) and r.get("type"):
+        if isinstance(r, dict) and r.get("type") and not _off(r):
             out.append(r["type"])
     if block.get("type"):
         out.append(block["type"])
     for c in (block.get("components") or []):
-        if isinstance(c, dict) and c.get("type"):
+        if isinstance(c, dict) and c.get("type") and not _off(c):
             out.append(c["type"])
     for s in (block.get("stages") or []):
-        if isinstance(s, dict) and s.get("type"):
+        if isinstance(s, dict) and s.get("type") and not _off(s):
             out.append(s["type"])
     return out
 
@@ -191,10 +245,70 @@ def adapt(raw: dict) -> tuple[dict, AdaptReport]:
         ts["type"] = "staged"
         rep.renamed.append("trailing_stop.stages → type: staged")
 
+    # ★ 1029:分级写的是 from_r / to_r,执行器认的是 when.unrealized_r_*。
+    #   ★ 这是纯粹的字段名翻译,★ 一个数值都没改。
+    #   ★ 为什么必须翻:没有 when 的话 _stage_hits 对每一级都返回 True,
+    #     执行器会永远取最后一级 —— 等于「未达 +2R 前锁死初始止损」这条
+    #     根本没被执行,而且不报错。这正是「配置写了、引擎没干」那类 bug。
+    for st in ((ts or {}).get("stages") or []):
+        if not isinstance(st, dict) or st.get("when"):
+            continue
+        if "from_r" not in st and "to_r" not in st:
+            continue
+        lo, hi = st.get("from_r"), st.get("to_r")
+        when: dict = {}
+        if lo is not None and hi is not None:
+            when["unrealized_r_between"] = [float(lo), float(hi)]
+        elif lo is not None:
+            when["unrealized_r_gt"] = float(lo) - 1e-12
+        elif hi is not None:
+            when["unrealized_r_lt"] = float(hi)
+        st["when"] = when
+        rep.renamed.append(
+            f"trailing_stop 分级 from_r={lo}/to_r={hi} → when={list(when)[0]}")
+        # 分级里只写了 action: chandelier / lowest_low_trail 时,把 type 也补上,
+        # 这样执行器的两条铁律分支能认出来
+        if st.get("action") in ("chandelier", "lowest_low_trail") and not st.get("type"):
+            st["type"] = st["action"]
+
+    # ★ 1029:初始止损 params 写成「候选列表」(tightest_of)→ components
+    ist = cfg.get("initial_stop")
+    if isinstance(ist, dict) and isinstance(ist.get("params"), list) \
+            and not ist.get("components"):
+        ist["components"] = ist.pop("params")
+        rep.renamed.append("initial_stop.params(列表)→ initial_stop.components")
+    # ★ 1029:止损距离上限写在顶层(max_stop_distance_pct + on_exceed)→ hard_gate
+    if isinstance(ist, dict) and ist.get("max_stop_distance_pct") is not None \
+            and not ist.get("hard_gate"):
+        if str(ist.get("on_exceed", "reject_entry")) != "reject_entry":
+            raise ValueError(
+                f"initial_stop.on_exceed 只认 reject_entry,给的是 {ist.get('on_exceed')} "
+                f"—— ★ 别的处理方式(比如把止损放大)引擎没实现,不许悄悄按默认处理。")
+        ist["hard_gate"] = {
+            "type": "max_stop_distance_pct",
+            "params": {"max_pct": float(ist["max_stop_distance_pct"])},
+        }
+        rep.renamed.append(
+            f"initial_stop.max_stop_distance_pct({ist['max_stop_distance_pct']}%) "
+            f"→ hard_gate(超过就拒掉信号,不放大止损)")
+
     # exit 的 rules 形式 → 执行器的 signal_only + 规则列表
     ex = cfg.get("exit")
     if isinstance(ex, dict) and ex.get("rules") and not ex.get("type"):
         ex["type"] = "rules"
+    # ★ 1029:时间止损写成 exit.rules 里的一条(max_holding_days)→ exit.params.time_stop_days
+    for r in ((ex or {}).get("rules") or []):
+        if isinstance(r, dict) and r.get("type") == "time_stop" and not _off(r):
+            d = (r.get("params") or {}).get("max_holding_days")
+            if d is None:
+                raise ValueError("exit 的 time_stop 没给 max_holding_days —— 不许猜")
+            ex.setdefault("params", {}).setdefault("time_stop_days", int(d))
+            # ★ 纪律 6:参数搬到哪里,出处就跟到哪里。
+            #   时间止损那条规则自己标的是「来源存疑」—— 原样带过来,不许洗白。
+            ex.setdefault("source", r.get("source") or "来源存疑")
+            rep.renamed.append(
+                f"exit.rules.time_stop.max_holding_days({int(d)}) "
+                f"→ exit.params.time_stop_days")
 
     # 七步齐不齐
     need = ["universe", "regime", "entry", "initial_stop",
@@ -212,9 +326,31 @@ def adapt(raw: dict) -> tuple[dict, AdaptReport]:
                 rt, "引擎还没实现这条规则 —— 规则本身讲得清楚,是工作量问题")
             rep.unimplemented.append((step, rt, why))
 
+    # ★ 配置里 enabled: false 的规则:逐条记下来(不进 unimplemented,但必须被看见)
+    def _scan_disabled(node, path):
+        if isinstance(node, dict):
+            if _off(node):
+                why = []
+                if node.get("data_missing"):
+                    why.append("配置标了 data_missing(数据拿不到)")
+                if node.get("audit_blocked"):
+                    why.append(f"audit_blocked={node['audit_blocked']}")
+                rep.disabled.append((
+                    path, node.get("name") or node.get("type") or "?",
+                    ";".join(why) or "配置里 enabled: false"))
+                return
+            for v in node.values():
+                _scan_disabled(v, path)
+        elif isinstance(node, list):
+            for v in node:
+                _scan_disabled(v, path)
+
+    for step in need:
+        _scan_disabled(cfg.get(step), step)
+
     # ⑤ 各级的 action 也要查 —— 只查 type 会漏掉 rotate_out 这种「只有 action」的级
     for st in ((cfg.get("trailing_stop") or {}).get("stages") or []):
-        if not isinstance(st, dict):
+        if not isinstance(st, dict) or _off(st):
             continue
         act = st.get("action")
         if act and act not in IMPLEMENTED_STAGE_ACTIONS:
@@ -242,9 +378,11 @@ def adapt(raw: dict) -> tuple[dict, AdaptReport]:
                     "universe", "mansfield_rs_positive(against: SECTOR)",
                     BLOCKED_REASONS["mansfield_rs_positive"]))
 
-    # audit_blocked 标记一并带出来
+    # audit_blocked 标记一并带出来(★ 已经被 enabled: false 显式关掉的不再重复报)
     def _scan_blocked(node, path):
         if isinstance(node, dict):
+            if _off(node):
+                return
             if node.get("audit_blocked"):
                 rep.unimplemented.append(
                     (path, node.get("name") or node.get("type") or "?",

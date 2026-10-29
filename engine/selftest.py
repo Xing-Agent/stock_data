@@ -311,6 +311,87 @@ def test_split_gate() -> bool:
     return _check("⑥ 拆股闸:6 根已修、2 根已剔除", ok, "\n".join(lines))
 
 
+# =========================================================== ⑦ 基本面三坑
+
+def test_fundamental_pit() -> bool:
+    """
+    ★★ 基本面特有的三个坑,逐条验它真的生效了(2026-10-29 新增)。
+
+      坑① PIT 生效时点 —— 必须是 filing_date + 1 个交易日,
+           ★ 严禁用报告期截止日。验法:随便挑一条记录,
+             生效日必须 > filing_date,而且必须 >> period_end 之后。
+      坑② 股数单位混乱 —— share_gate 的单位闸必须真的在干活
+           (298 只里有一批中招;CHD 是最夸张的那只)。
+      坑③ ★★ 现金流 YTD 口径 —— 差分还原出来的四个单季相加
+           必须等于 FY 的 YTD;而「按季度直接相加」必须明显放大。
+    """
+    from . import fundamentals, share_gate
+    lines, ok = [], True
+
+    # ---- 坑① filing_date + 1 个交易日
+    sym = next(s for s, m in sorted(data.load_manifest().items())
+               if m.fundamentals_path)
+    recs = fundamentals._raw(sym, "OperatingCashFlow")
+    bad = [r for r in recs if r["eff"] <= r["filing"].normalize()]
+    ok &= not bad
+    r0 = recs[0]
+    lines.append(f"坑① {sym}: filing={r0['filing'].date()} → "
+                 f"生效={r0['eff'].date()}(period_end={r0['period_end'].date()});"
+                 f"{len(recs)} 条里生效日 ≤ 申报日的有 {len(bad)} 条"
+                 f"{'(应该是 0)' if not bad else ' ★ 不合格'}")
+    # 反向:如果用 period_end 当生效日,会偷看多少天
+    lead = [(r["eff"] - r["period_end"]).days for r in recs]
+    lines.append(f"坑① 如果误用 period_end 当生效日,平均要提前 "
+                 f"{sum(lead)/len(lead):.0f} 个自然日看到数据 —— ★ 这就是偷看的幅度")
+
+    # ---- 坑② 股数单位闸
+    scan = share_gate.scan_all()
+    n_unit = scan["坑一_单位不一致的票数"]
+    ok &= n_unit > 0
+    lines.append(f"坑② 单位闸:{n_unit} 只票的股数序列混着股/千股/百万股,已统一量级"
+                 f"{'' if n_unit else ' ★ 一只都没抓到,闸门可能没接上'}")
+    lines.append(f"坑② 拆股闸:判为拆股已修 {scan['坑三_判为拆股已修']} 处,"
+                 f"★ 判不准、原样留着 {scan['坑三_判不准未修']} 处")
+
+    # ---- 坑③ YTD 差分
+    n_checked, n_good, ratios = 0, 0, []
+    for s, m in sorted(data.load_manifest().items()):
+        if not m.fundamentals_path:
+            continue
+        recs = fundamentals._raw(s, "OperatingCashFlow")
+        groups: dict = {}
+        for r in recs:
+            if r["period_start"] is not None:
+                groups.setdefault(r["period_start"], {})[r["period_end"]] = r
+        qs = {o.period_end: o.value for o in fundamentals.quarterly(s, "OperatingCashFlow")}
+        for ps, seen in sorted(groups.items()):
+            rs = [seen[pe] for pe in sorted(seen)]
+            if len(rs) < 4:
+                continue
+            rs = rs[:4]
+            truth = float(rs[-1]["value"])
+            naive = float(sum(r["value"] for r in rs))
+            mine = sum(qs.get(r["period_end"], float("nan")) for r in rs)
+            n_checked += 1
+            if mine == mine and abs(mine - truth) <= max(1.0, abs(truth) * 1e-6):
+                n_good += 1
+            if truth:
+                ratios.append(naive / truth)
+            break
+        if n_checked >= 40:
+            break
+    rate = n_good / max(1, n_checked)
+    ok &= rate >= 0.90
+    med = sorted(ratios)[len(ratios) // 2] if ratios else float("nan")
+    lines.append(f"坑③ 抽 {n_checked} 只票对账:差分还原后四个单季相加 = FY 的 YTD,"
+                 f"对上 {n_good} 只({rate:.0%};要求 ≥90%)")
+    lines.append(f"坑③ ★ 如果按季度直接相加(错法):中位放大 {med:.2f} 倍 —— "
+                 f"★ 和审计报告说的「约 2.5 倍」一致,而且★ 不会报错")
+    ok &= med > 1.5
+    return _check("⑦ 基本面三坑:PIT 生效时点 / 股数单位闸 / 现金流 YTD 差分",
+                  ok, "\n".join(lines))
+
+
 # =========================================================== 主程序
 
 def main() -> int:
@@ -318,6 +399,7 @@ def main() -> int:
     print("XING 引擎自检")
     print("  必过三项:① 判据在纯随机上不显著  ② 吊灯止损铁律  ③ 买入持有对数")
     print("  连通性三项:④ 两窗口两池子硬关  ⑤ 退市 −100%  ⑥ 拆股闸")
+    print("  ★ 基本面一项:⑦ PIT 生效时点 / 股数单位闸 / 现金流 YTD 差分")
     print("=" * 78)
     print(data.cohort_report())
     print()
@@ -326,7 +408,8 @@ def main() -> int:
 
     for fn in (test_gate_on_pure_noise, test_chandelier_never_above_close,
                test_buy_and_hold_matches_hand_calc, test_window_pool_runs,
-               test_bankruptcy_minus_100, test_split_gate):
+               test_bankruptcy_minus_100, test_split_gate,
+               test_fundamental_pit):
         try:
             fn()
         except Exception as e:
