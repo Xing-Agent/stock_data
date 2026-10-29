@@ -812,6 +812,7 @@ def bench_suite(cfg: chain.ChainConfig, res: chain.ChainResult,
         "链CAGR": analyze.cagr(res.equity),
         "链最大回撤": analyze.drawdown(res.equity)[0],
         "链卡玛比率": calmar(res.equity),
+        "★链集中度自检": _concentration(res.ledger),
         "基准家族": fam,
         "基准家族_该看哪几条": FAMILY_PLAN[fam]["该看哪几条"],
         "基准家族_说明": FAMILY_PLAN[fam]["说明"],
@@ -837,7 +838,9 @@ def bench_suite(cfg: chain.ChainConfig, res: chain.ChainResult,
         },
         "★判定_这条策略会不会选股": _picking_verdict(
             picking, picking_lit, static_excess, timing,
-            int(len(res.ledger))),
+            int(len(res.ledger)),
+            market_neutral=bool(static["_market_neutral"]),
+            gate_closed_days=int(dyn_exp["关闸天数"])),
         "基准四_槽位机会成本线_替代品甲": {k: v for k, v in slot_a.items()
                                           if not k.startswith("_")},
         "基准四_槽位机会成本线_替代品乙": {k: v for k, v in slot_b.items()
@@ -864,7 +867,9 @@ PICKING_ZERO_BAND = 0.02
 
 
 def _picking_verdict(picking: float, picking_lit: float,
-                     static_excess: float, timing: float, n: int) -> str:
+                     static_excess: float, timing: float, n: int,
+                     market_neutral: bool = False,
+                     gate_closed_days: int = 0) -> str:
     """
     ★ 必须为每条链明确回答这一句:在动态开关基准下超额是不是 ≈0?
       ≈0 → 这条策略根本不会选股,它所有的超额 100% 来自闸门这一道开关。
@@ -876,9 +881,18 @@ def _picking_verdict(picking: float, picking_lit: float,
     head = (f"选股贡献 {picking:+.2%}(原文口径 {picking_lit:+.2%});"
             f"择时贡献 {timing:+.2%};静态基准超额 {static_excess:+.2%}。")
     if abs(picking) <= PICKING_ZERO_BAND:
-        tail = (f"★ 动态开关基准下超额 ≈ 0(|{picking:+.2%}| ≤ "
-                f"{PICKING_ZERO_BAND:.0%} 展示线)→ **这条策略基本不会选股**,"
-                f"它的超额几乎全部来自闸门这一道开关。")
+        if abs(timing) <= PICKING_ZERO_BAND:
+            # ★ 择时贡献也≈0 → 不是「超额全来自闸门」,是「它根本没有超额」。
+            #   ★ 这两句话完全不同,不许混着说。
+            tail = (f"★ 动态开关基准下超额 ≈ 0(|{picking:+.2%}| ≤ "
+                    f"{PICKING_ZERO_BAND:.0%} 展示线)→ **这条策略基本不会选股**;"
+                    f"★ 而择时贡献也 ≈ 0({timing:+.2%})→ 所以不是"
+                    f"「超额全来自闸门」,是**它压根就没有超额**:"
+                    f"它既没选出票,也没靠闸门躲到什么。")
+        else:
+            tail = (f"★ 动态开关基准下超额 ≈ 0(|{picking:+.2%}| ≤ "
+                    f"{PICKING_ZERO_BAND:.0%} 展示线)→ **这条策略基本不会选股**,"
+                    f"它的超额 100% 来自闸门这一道开关(择时贡献 {timing:+.2%})。")
     elif picking < 0:
         tail = ("★ 动态开关基准下超额为**负** → 这条策略不但不会选股,"
                 "开闸的日子里它选的票还跑输了同敞口指数。")
@@ -887,6 +901,15 @@ def _picking_verdict(picking: float, picking_lit: float,
                 "★ 这一条能不能算「成立」仍要看四格硬关和样本量,这里只答选股这一问。")
     if np.isfinite(share):
         tail += f"(择时占静态基准超额绝对值的 {share:.0%})"
+    if market_neutral:
+        tail += (f" ★★ 注意:这条链的 |Ē| ≤ 0.10,按旧规则已判「市场中性」→ "
+                 f"静态基准本来就只是无风险利率,动态开关基准也只能是无风险利率,"
+                 f"★ 所以这里的择时贡献 0 是**规则造出来的**,不是"
+                 f"「闸门什么都没干」(它实际关了 {gate_closed_days} 天)。"
+                 f"★ 这条链要量择时贡献,得先把「市场中性」那条规则改掉 —— "
+                 f"是策略层的决定,本轮没擅自动。")
+    elif gate_closed_days == 0:
+        tail += " (这条链的闸门全程没关过,所以择时贡献必然是 0。)"
     if n < 150:
         tail += " ★ 样本不足(<150 笔),不代表无效。"
     return head + tail

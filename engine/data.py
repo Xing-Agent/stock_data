@@ -139,20 +139,33 @@ def cohort_report() -> str:
 
 # ---------------------------------------------------------------- 日线
 
-def _apply_split_fix(df: pd.DataFrame, symbol: str) -> pd.DataFrame:
+def _apply_split_fix(df: pd.DataFrame, symbol: str,
+                     raw_rows: list[dict] | None = None) -> pd.DataFrame:
     """
-    ★ 两步(2026-10-29 按技术方核实结果重写,见 engine/split_gate.py 顶上的说明):
+    ★ 两步(2026-10-29 第二次重写:比例修正改为读源头 split_coefficient):
 
-      ① ratio_fix  —— 技术方有 SEC 证据的拆股:把事件日之前的价格乘上 ratio,
+      ① ratio_fix  —— ★ 比例一律来自源头 daily.json 的 `split_coefficient`
+                      (ratio = 1 / 系数)。把事件日之前的价格乘上 ratio、
                       成交量除以 ratio,接成连续序列。
-      ② cut_series —— 数据里有断裂但技术方说「不是拆股 / 证据对不上」:
+                      ★ 我们不再自己判断「这是不是拆股、该乘几」——
+                      手工清单上一轮被技术方核出错 5 条,根因就是没读这个字段。
+      ② cut_series —— 数据里有断裂、而源头系数**解释不了**(系数为 1 或为空):
                       ★ 不许自己编系数,在断裂处把序列切开,只留自洽的那一段。
+                      ★ 这一类仍然是手工的(engine/split_gate.EVENTS),
+                      因为"切哪一刀"必须有 SEC 证据,系数字段答不了。
 
-    ★ 为什么这里还要修:技术方在源头只加了 split_coefficient 标记字段,
-      ★ 价格一个数都没改,而引擎不读那个字段 —— 所以修正只发生在这里一次,
-      不存在双重修正。
+    ★ 为什么读了源头系数也不会双重修正:源头只加了 `split_coefficient` 这个
+      **标记字段**,价格和成交量一个数都没改(实测 66 个非 1 系数事件,
+      当天实际价格比值 ÷ (1/系数) ≈ 1.00 —— 说明价格确实是 raw)。
+      所以修正仍然只发生在这里一次。这一条由 split_gate.self_check() 的 ⑦ 项守着。
+
+    多个事件会自动复利:对每个事件把「该日之前」整段乘一次,
+    所以 TSLA(2020-08-31 ×1/5、2022-08-25 ×1/3)最早那段恰好 ×1/15。
     """
-    for ev in split_gate.events_for(symbol):
+    # ① 源头系数(主来源)+ FIX_EVENTS(手工覆盖,现在恒为空,只给 A/B 对照用)
+    events = split_gate.ratio_events_from_rows(symbol, raw_rows or [])
+    events += split_gate.events_for(symbol)
+    for ev in events:
         ts = pd.Timestamp(ev.date)
         mask = df.index < ts
         if not mask.any():
@@ -172,7 +185,8 @@ def _apply_split_fix(df: pd.DataFrame, symbol: str) -> pd.DataFrame:
 def load_daily(symbol: str) -> pd.DataFrame:
     """
     读一只票的日线,索引是日期,列 open/high/low/close/volume/dollar_volume。
-    ★ 已修拆股。★ 不做分红复权(数据源没有可信的复权列),
+    ★ 已修拆股 —— ★ 比例读源头 `split_coefficient`,不再用手工清单(见 _apply_split_fix)。
+    ★ 不做分红复权(数据源没有可信的复权列),
       这一点会在结果里标明 —— 不用近似值顶上(硬纪律第 7 条)。
     """
     meta = load_manifest()[symbol]
@@ -191,7 +205,7 @@ def load_daily(symbol: str) -> pd.DataFrame:
         df[c] = pd.to_numeric(df[c], errors="coerce")
     df = df[keep].astype(float)
     df = df[~df.index.duplicated(keep="last")]
-    df = _apply_split_fix(df, symbol)
+    df = _apply_split_fix(df, symbol, raw_rows=rows)
     df["dollar_volume"] = df["close"] * df["volume"]
     return df
 

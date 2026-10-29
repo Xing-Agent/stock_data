@@ -188,8 +188,109 @@ def _match_ratio(r: float) -> float | None:
     return None
 
 
+# ═══════════════════════ ★★ 坑三的根因修复(2026-10-29 第二次重写)═══════════════════════
+#
+# ★ 原来的判据是「实测倍数贴近常见拆股比例(±3%)就按拆股修」。
+# ★★ 这个判据会把**并购换股**误判成拆股 —— 已点名核出的事故:
+#     KHC 2015-09-27 实测 3.0053x,贴近 3x,被判为 1 拆 3 并做了修正。
+#     ★ 真相是 2015 年 Kraft 与 Heinz 合并(真实股本扩张),★ 修了就把真事件抹掉了。
+#
+# ★ 现在的判据:**必须拿到源头 daily.json 的 split_coefficient 交叉印证**,两条同时成立才修:
+#     ① 该票在这一期 period_end 的 ±150 天内,存在一个非 1 的 split_coefficient;
+#     ② 实测股数倍数 ÷ 该系数 落在 [0.75, 1.30] 内(= 两边说的是同一件事)。
+#   ★ 两条有任一条不成立 → 一律 leave_as_is,并在 note 里写明为什么不修。
+#
+# ★ 窗口 ±150 天的来源(实测,不是拍脑袋):加权平均股数是季度平均,
+#   拆股落在哪个季度里,跳变就出现在那一期或下一期。实测 31 个口径吻合的配对,
+#   |gap| 全部 ≤ 141 天(2/3/4/4/8/8/12/14/15/21/21/24/25/28/30/33/36/38/39/
+#   51/52/58/64/72/86/89/99/108/129/141),唯一一个 307 天的配对比值 1.248 是假配对。
+#   ★ 真正起作用的是第 ② 条比值检验;窗口只是先把候选缩小。
+#
+# ★★ 这一改的代价(必须讲清楚):源头价格从 2016-01-01 起,2016 年之前的拆股
+#   **没有系数根可读** → 一律判「不可核实,不修」。实测受影响 5 处:
+#   KHC 2015-09-27(本来就该不修)· PPG 2015-06-30 · SSP 2015-06-30 ·
+#   LDOS 2016-09-30 · VIRT 2017-09-30。
+#   ★ 其中 PPG / SSP / VIRT 是真拆股,现在不修了 —— 但它们全部早于绩效起点
+#   2018-01-01,★ 不影响任何已出的绩效数字(由 self_check 的回归项断言)。
+#   ★ 这是「拿不到就说拿不到」,不是退步:原来那 3 处修对了是**碰巧**,
+#   用的是同一个会把 KHC 修错的判据。
+
+#: 股数跳变和源头系数配对的时间窗口(自然日,双向)
+COEF_MATCH_WINDOW_DAYS = 150
+#: 实测股数倍数 ÷ 源头系数 必须落在这个区间,才算「两边说的是同一件事」
+COEF_AGREE_LO, COEF_AGREE_HI = 0.75, 1.30
+
+
+def _source_coefficients(symbol: str) -> list[tuple[pd.Timestamp, float]]:
+    """
+    读源头 daily.json 里非 1 的 split_coefficient。★ 这是唯一的拆股判据来源。
+
+    ★ 直接读文件、不走 data.load_daily() —— load_daily 自己要调本模块的上游,
+      走它会绕回来;而且这里只要原始系数,不要修过的价格。
+    """
+    import json
+    meta = data.load_manifest()[symbol]
+    try:
+        with open(meta.daily_path, encoding="utf-8") as fh:
+            rows = (json.load(fh).get("data") or [])
+    except (OSError, ValueError):
+        return []
+    out = []
+    for r in rows:
+        v = r.get("split_coefficient")
+        if v is None:
+            continue
+        try:
+            c = float(v)
+        except (TypeError, ValueError):
+            continue
+        if c != c or c <= 0 or abs(c - 1.0) < 1e-9:   # NaN / 非正 / 等于 1
+            continue
+        out.append((pd.Timestamp(str(r["date"])[:10]), c))
+    return out
+
+
+def _corroborate(symbol: str, period_end: pd.Timestamp, ratio: float
+                 ) -> tuple[float | None, pd.Timestamp | None, str]:
+    """
+    拿源头系数给一处股数跳变找印证。
+
+    返回 (采用的系数, 系数事件日, 说明)。找不到印证就返回 (None, None, 原因)。
+    """
+    cs = _source_coefficients(symbol)
+    if not cs:
+        return None, None, ("源头 daily.json 没有任何非 1 的 split_coefficient "
+                            "(该票整列为空,或拆股早于源头价格起点 2016-01-01)"
+                            " —— ★ 不可核实,不修")
+    best = None
+    for d, c in cs:
+        gap = abs((period_end - d).days)
+        if gap > COEF_MATCH_WINDOW_DAYS:
+            continue
+        agree = ratio / c if c else float("inf")
+        if COEF_AGREE_LO <= agree <= COEF_AGREE_HI:
+            if best is None or gap < best[0]:
+                best = (gap, d, c, agree)
+    if best is None:
+        near = min(cs, key=lambda x: abs((period_end - x[0]).days))
+        gap = (period_end - near[0]).days
+        return None, None, (
+            f"窗口 ±{COEF_MATCH_WINDOW_DAYS} 天内没有比值吻合的源头系数"
+            f"(最近的是 {near[0].date()} 系数 {near[1]:g},相差 {gap} 天,"
+            f"比值 {ratio / near[1]:.3f} 不在 [{COEF_AGREE_LO},{COEF_AGREE_HI}])"
+            " —— ★ 判不准,★ 不修(更可能是真实增发或并购换股)")
+    _gap, d, c, agree = best
+    return c, d, (f"源头系数 {c:g} @ {d.date()} 印证(相差 {_gap} 天,"
+                  f"比值 {agree:.3f})→ 按拆股处理,把这一期之前的股数整体乘 {c:g}")
+
+
 def scan(symbol: str) -> list[ShareJump]:
-    """扫一只票的季度股数序列,找出可疑跳变并判定修/不修。"""
+    """
+    扫一只票的季度股数序列,找出可疑跳变并判定修/不修。
+
+    ★ 修不修**只看源头 split_coefficient 的交叉印证**,不再看「倍数贴不贴近 3x」。
+      理由见本节上面的说明(KHC 事故)。
+    """
     pts = quarterly_points(symbol)
     out: list[ShareJump] = []
     for i in range(1, len(pts)):
@@ -199,17 +300,18 @@ def scan(symbol: str) -> list[ShareJump]:
         r = cur / prev
         if JUMP_LO <= r <= JUMP_HI:
             continue
-        m = _match_ratio(r)
-        if m is None:
+        coef, cdate, why = _corroborate(symbol, pts[i].period_end, r)
+        if coef is None:
+            # ★ 仍然把「倍数贴近哪个比例」算出来放在 matched 里当参考,
+            #   但 action 是 leave_as_is —— ★ 参考值不许驱动动作。
             out.append(ShareJump(
                 symbol, pts[i].period_end, r, None, "leave_as_is",
-                "贴不近任何常见拆股比例 —— ★ 判不准,★ 不修"
-                "(更可能是真实的大额增发或并购换股,修了会把真事件抹掉)"))
+                why + (f"[参考:倍数贴近 {_match_ratio(r):g}x,"
+                       f"★ 但无源头系数印证,不据此修]"
+                       if _match_ratio(r) else "")))
         else:
             out.append(ShareJump(
-                symbol, pts[i].period_end, r, m, "ratio_fix",
-                f"实测 {r:.3f}x 贴近 {m:g}x,按拆股处理:"
-                f"把这一期之前的历史股数整体乘 {m:g} 接回去"))
+                symbol, pts[i].period_end, r, coef, "ratio_fix", why))
     return out
 
 

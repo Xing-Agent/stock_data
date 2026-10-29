@@ -97,26 +97,18 @@ class Candidate:
 #   每一条都能指到一份 SEC / 交易所文件。★ 我们没有自己判断任何一条。
 
 EVENTS: tuple[SplitEvent, ...] = (
-    # ── 技术方核实有证据的拆股 → 修
-    SplitEvent(
-        "ACOR", "2021-01-04", "ratio_fix", ratio=6.0, coefficient=1 / 6,
-        label="1合6(2020-12-31 生效,2021-01-04 首个调整交易日)",
-        verdict="SEC 确认 1 合 6 反向拆股;我们原来记的「2021-11-30 10合1」日期和比例都不对",
-        source="sec.gov/Archives/edgar/data/1008848/000156459020058970/acor-ex991_25.htm",
-    ),
-    SplitEvent(
-        "ACOR", "2023-06-05", "ratio_fix", ratio=20.0, coefficient=0.05,
-        label="1合20",
-        verdict="SEC 确认 1 合 20。★ 技术方同时警告:这只票的 daily.json 自称 raw,"
-                "但观测价格和独立来源差 60 倍,口径不一致,用的时候要知道",
-        source="sec.gov/Archives/edgar/data/1008848/000095017023026094/acor-ex99_1.htm",
-    ),
-    SplitEvent(
-        "WPG", "2020-12-22", "ratio_fix", ratio=9.0, coefficient=1 / 9,
-        label="1合9",
-        verdict="SEC 确认 1 合 9。我们原来记的 8 合 1 是错的",
-        source="sec.gov/Archives/edgar/data/1610911/000159468621000014/wpg-20210331.htm",
-    ),
+    # ══════════════════════════════════════════════════════════════════════
+    # ★★ 2026-10-29 第二次重写:原来这里手写着 3 条 ratio_fix
+    #    (ACOR 2021-01-04 ×6 / ACOR 2023-06-05 ×20 / WPG 2020-12-22 ×9)。
+    # ★ 现在全部删掉 —— 比例修正一律从源头 daily.json 的 split_coefficient 读。
+    #   见本文件 ⑤「源头系数」一节。手工清单上一轮被技术方核出错 5 条,
+    #   根因就是 load_daily() 从来没读过这个字段,我们在手工猜一个文件里本来就有的数。
+    # ★ 实证:源头系数和技术方 SEC 核实结果在 7 个争议点上**逐条一致**
+    #   (ACOR 1合6@2021-01-04 + 1合20@2023-06-05 / WPG 1合9@2020-12-22 /
+    #    SQBG 1合40@2020-07-27 / AMRS·PRTY·UHAL 无非1系数 = 确实不是拆股),
+    #   并且正确地否掉了 KHC(Kraft×Heinz 合并,系数为 1)。
+    #   这一致性由 self_check() 的 ⑥ 项逐条断言守着。
+    # ══════════════════════════════════════════════════════════════════════
 
     # ── 技术方明确说「不是拆股」→ 什么都不做(★ 原来被我们剔掉的两只在这里收回)
     SplitEvent(
@@ -242,8 +234,104 @@ NO_ACTION_EVENTS: tuple[SplitEvent, ...] = tuple(
     e for e in EVENTS if e.action == "no_action")
 
 
+# ───────────────────────────── ⑤ 源头系数(比例修正的唯一来源) ─────────────────────────────
+#
+# ★★ 大白话:拆股该乘几,不再由我们判断,一律读源头 daily.json 里每根 bar 自带的
+#    `split_coefficient`。它的含义是「新股 / 旧股」,所以价格的理论比值 = 1 / 系数:
+#    1 拆 3 → 系数 3 → 当天价格变成前一天的 1/3 → 我们把这一天之前的价格 ×(1/3) 接上去。
+#
+# ★ 为什么可以直接用、不存在双重修正:实测全池 66 个非 1 系数事件,
+#   当天实际价格比值 ÷ (1/系数) ≈ 1.00(中位 1.00、绝大多数在 ±5% 内,
+#   残差就是当天真实涨跌)。★ 说明源头价格是**未调整的 raw**,
+#   该修的还得我们修 —— 这一条由 self_check() 的 ⑦ 项守着。
+#
+# ★★ 已知局限(必须讲清楚,不许装作解决了):
+#   一、★ 13 只票的 split_coefficient 整列为空 / 缺字段:
+#       AMRS CLVS COLM FRC GTT PRTY REV TFC TUP XPRO(全列空)
+#       ACOR(2082 根里只有 2 根有值)· SQBG(1 根)· WPG(1 根)
+#       → 恰好有值的那几根就是事件根,和技术方核实结果一致;但**不能假设这个字段齐全**。
+#   二、★ 源头价格从 2016-01-01 起,所以 2016 年之前的拆股**没有系数根可读**。
+#       实测受影响的是 KHC 2015 / PPG 2015 / SSP 2015 / LDOS 2016-09 / VIRT 2017-09
+#       等股数跳变 —— 一律判「不可核实,不修」并报出来(都在绩效起点 2018-01-01 之前)。
+#   三、★★ 换股并购在这个字段里是 1.0(= 明说不是拆股),所以**这个盲区还在**:
+#       实测 7 只换股并购退市股(OCSI ALXN DFS HES KSU MRO XLNX)在价格上
+#       零痕迹、系数也全是 1。★ 要补这个洞只能靠一份真正的公司行动流水表,仓库里没有。
+#       → merger_blind_spot() 把它列出来,self_check() 每次打印,不许当问题没了。
+
+#: 认为「系数有效」的下限 —— 系数必须是正数且不等于 1
+_COEF_EPS = 1e-9
+
+#: 常见拆股 / 合股比例(只用于**标注**是不是标准比例,★ 不用于判断修不修)
+_STD_RATIOS: tuple[float, ...] = (1.25, 1.5, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0,
+                                  9.0, 10.0, 12.0, 20.0, 30.0, 40.0, 50.0, 100.0)
+
+#: ★ 总开关:关掉就退回「只用 FIX_EVENTS 手工清单」。
+#  只给 run_split_bias.py 的 A/B 对照用,★ 生产一律 True。
+USE_SOURCE_COEFFICIENTS: bool = True
+
+
+def classify_coefficient(coef: float) -> str:
+    """
+    给一个系数贴标签。★ 只是标注,不影响修不修 —— 修不修只看「系数是不是非 1」。
+
+    标准拆股/合股 : 系数或其倒数贴近常见比例(容差 3%)
+    非标准比例     : 其余 —— 实测这一类是**股票股利或分拆**
+                    (如 CBSH 每年 1.05 = 5% 股票股利;EXC 1.402 = Constellation 分拆)
+                    ★ 这一类的口径需要拍板,见 nonstandard_events()
+    """
+    if coef <= _COEF_EPS:
+        return "系数无效"
+    for c in _STD_RATIOS:
+        for cand in (c, 1.0 / c):
+            if abs(coef - cand) <= 0.03 * cand:
+                return "标准拆股/合股"
+    return "非标准比例(股票股利/分拆)"
+
+
+def ratio_events_from_rows(symbol: str, rows: list[dict]) -> list[SplitEvent]:
+    """
+    ★ 从源头 daily.json 的原始 bar 列表里读出比例修正事件。
+
+    纯函数(不读文件、不 import data)—— 这样 data.load_daily() 可以在它已经
+    拿在手里的 rows 上直接调用,★ 不会和 data.py 形成循环依赖、也不会重复读盘。
+
+    返回的每个事件:ratio = 1 / coefficient,action = "ratio_fix"。
+    ★ 系数为空 / NaN / 1.0 的 bar 一律跳过(= 那天没有拆股)。
+    """
+    if not USE_SOURCE_COEFFICIENTS:
+        return []
+    out: list[SplitEvent] = []
+    for r in rows:
+        v = r.get("split_coefficient")
+        if v is None:
+            continue
+        try:
+            coef = float(v)
+        except (TypeError, ValueError):
+            continue
+        if coef != coef:                      # NaN
+            continue
+        if coef <= _COEF_EPS or abs(coef - 1.0) <= _COEF_EPS:
+            continue
+        d = r.get("date")
+        if not d:
+            continue
+        out.append(SplitEvent(
+            symbol, str(d)[:10], "ratio_fix",
+            ratio=1.0 / coef, coefficient=coef,
+            label=f"源头系数 {coef:g}({classify_coefficient(coef)})",
+            verdict="来自 daily.json 的 split_coefficient,★ 不是我们自己判断的",
+            source=f"pilot_300/{symbol}/daily.json .data[].split_coefficient",
+        ))
+    return out
+
+
 def events_for(symbol: str) -> list[SplitEvent]:
-    """要做比例修正的事件(data.py 用)。"""
+    """
+    ★ 手工比例修正事件。现在恒为空 —— 比例修正一律走 ratio_events_from_rows()。
+    ★ 保留这个函数是因为 run_split_bias.py 的 A/B 对照会 monkeypatch FIX_EVENTS,
+      把旧的错清单塞回来跑对照组。
+    """
     return [e for e in FIX_EVENTS if e.symbol == symbol]
 
 
