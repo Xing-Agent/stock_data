@@ -1,0 +1,164 @@
+# ============================================================================
+# 技-13 · TD 序列 · ★ 原著四重离场版(2026-10-29 新建,★ 不覆盖 技-13.yaml)
+#
+# 三秒版:原来买进去只有一条止损,平均拿了 80~90 天;这一版把原著的四条离场
+#         全装上 —— 数到 Countdown 13 走、收盘跌破 4 根前走、
+#         跌破风险位走、走出反向 9 根走。
+#
+# ★★ 为什么要有这一版(背景,一句话):
+#   横向发现六条链都是同一个形状 —— 买了拿着赚、用规则选股后拿着也赚,
+#   ★ 一旦加上**我们实现的那套卖出规则**就变成亏。
+#   根因已定位:★ 原著的离场规则从来没实现。这一版就是把它装上。
+#
+# ★★ 出处纪律(本文件逐条遵守):
+#   · 下面四条离场来自外部模型整理的「原著四重离场」,**结论部分已交叉核对**。
+#   · ★ 章节号和页码一律当【待核实】—— 所以本文件 source 栏里
+#     **一个页码、一个章节号都没有**。
+#   · 旧文件 技-13.yaml 的警告继续有效,并且没有被推翻:
+#       「手册自己要求本条标注为『XING 基于公开描述的实现』」
+#       「手册正文根本没有给进场规则 —— 数到 9 就买是我们加的」
+#     ★ 所以这一版的身份仍然是:**进场是我们加的,离场照原著装**。
+#     ★ 跑分只能当「这个计数位置 + 这套离场」的描述性统计。
+# ============================================================================
+
+meta:
+  name: 技-13_TD序列_原著四重离场
+  master: Tom DeMark
+  book: DeMark《The New Science of Technical Analysis》(1994);★ 规则专有,多版本流传
+  三版归属: XING版进场 + 原著离场
+  orig_claim: >-
+    ★ 规则是专有的,存在多个流传版本,独立第三方验证很薄。
+    我们的实现必须标注为「XING 基于公开描述的实现」
+  param_gap: >-
+    ★ 进场仍然是我们加的(手册只说「标记为衰竭点,作为超跌参考」)。
+    ★ 离场四条本轮已装齐,但出处的章节号/页码【待核实】。
+    ★ 「反向计数」原著有两种读法(Sell Setup 9 / Sell Countdown 13),
+      本轮按任务书取 Sell Setup 9 —— 这个取舍必须写进报告。
+  本轮改了什么: >-
+    只改第 ④ 步初始止损和第 ⑥ 步离场。
+    ①②③⑦ 选股/环境/进场/仓位与 技-13.yaml 逐字相同 ——
+    ★ 这样两版之差**只有离场**,才测得出离场这一步的影响。
+
+universe:
+  rules: []
+  source: 原著(无选股条件)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: >-
+    ★ 手册写「谁不该用:趋势市」—— 定性失效条件,没给可自动触发的判定。
+    ★ 本次没装开关(与 技-13.yaml 一致,保持可比)。
+
+entry:
+  rules:
+    - type: td_buy_setup
+      params: { count: 9, ref_lag: 4 }
+      source: >-
+        计数规则:连续 9 根收盘价低于 4 根之前的收盘价。
+        ★ 9 和 4 来自流传最广的那个版本。
+        ★ 标注为「XING 基于公开描述的实现」(手册自己要求这样标)。
+        ★ runner 另跑 Countdown 13 进场那一档。
+  signal_freeze: close
+  fill: next_open
+  source: >-
+    ★★ 执行细节 + 我们加的规则:手册没说「计数到就买」。
+    「在计数完成那根的收盘确认、次日开盘买入」整条是我们加的。
+
+# ============================================================================
+# ④ 初始止损 —— ★ 离场③:TD Risk Level(原著写死的公式)
+# ============================================================================
+initial_stop:
+  type: td_risk_level_stop
+  params:
+    setup_lookback: 9
+  source: >-
+    原著离场③ TD Risk Level,公式写死:
+      Stop = Setup 期间最低那根 Bar 的 True Low − 该 Bar 的 True Range
+    True Low = min(Low_t, Close_t−1);True High = max(High_t, Close_t−1);
+    True Range = True High − True Low(Wilder 1978 的真实波幅定义)。
+    ★ setup_lookback: 9 = Setup 的长度,不是我们挑的数。
+    ★ 「最低那根」的读法 = 这 9 根里 True Low 最小的那一根 ——
+      这个读法写在 ops_exits_1029.py 的注释里,不藏。
+    ★ 和 技-13.yaml 的旧止损(day_low_minus_atr / 缓冲 0 = 9 根最低价)
+      的区别:旧的只取最低价,新的要**再往下减一个真实波幅**,所以止损更远。
+    ★ 出处的章节号/页码【待核实】。
+
+trailing_stop:
+  type: none
+  source: 原著(手册未提移动止损)
+
+# ============================================================================
+# ⑥ 离场 —— ★ 四重离场全部装上
+# ============================================================================
+exit:
+  rules:
+    # ---- 离场①:Countdown 13 离场
+    - type: td_countdown_13_exit
+      params: { setup_count: 9, ref_lag: 4, countdown: 13, cd_lag: 2 }
+      source: >-
+        原著离场①:Buy Setup 9 完成后进场,后续顺向计数,
+        出现第 13 根满足条件的 Countdown 柱(该日收盘价 ≥ 2 根 K 线前的最高价)
+        时全部平仓。
+        ★ 注意:这个条件的方向和 ops_a0.td_buy_countdown(close ≤ low[t−2],
+          那是**进场**用的 Buy Countdown)**相反** —— 别张冠李戴。
+        ★ 「新的 Setup 完成会重置计数」是流传版本的做法,不是原文。
+        ★ 出处的章节号/页码【待核实】。
+    # ---- 离场②:TD Price Flip 离场
+    - type: td_price_flip_exit
+      params: { ref_lag: 4 }
+      source: >-
+        原著离场②:多头持仓中出现 Close_t < Close_t−4 即离场。
+        ★ 按收盘价判定,全程不碰盘中价(硬纪律第 5 条)。
+        ★ 出处的章节号/页码【待核实】。
+    # ---- 离场③:TD Risk Level 止损 —— 在 ④ 步里实现,这里挂住执行器的止损循环
+    - type: close_below_trailing_stop
+      source: >-
+        原著离场③:收盘跌破 TD Risk Level(见 ④ 步)即斩。
+        ★ 止损价由 ④ 步的 td_risk_level_stop 算出;这一条是让执行器的
+          止损循环真的去执行它(引擎的约定写法)。
+    # ---- 离场④:反向 Setup 9 离场
+    - type: td_sell_setup_exit
+      params: { count: 9, ref_lag: 4 }
+      source: >-
+        原著离场④:持仓期走出完整 Sell Setup 9(连续 9 根收盘价高于 4 根前)
+        → 强制平仓。
+        ★ 原著「反向计数」有两种读法(Sell Setup 9 / Sell Countdown 13),
+          本轮取 Sell Setup 9 —— ★ 这个取舍是任务书定的,写进报告。
+        ★ 出处的章节号/页码【待核实】。
+  params:
+    profit_target_r: null       # ★ 原著不设固定止盈 —— 显式写 null,不是忘了填
+    time_stop_days: null        # ★ 原著没给时间止损 —— 显式不设
+  fill: next_open
+  source: >-
+    ★ 四条离场全部装上(这正是本轮的全部改动)。
+    ★ 四条是 OR 关系:任何一条成立就在当根收盘确认、次日开盘平仓。
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 执行细节(手册无仓位规则;★ 与 技-13.yaml 逐字相同,保持可比)
+
+slots: 10
+source_slots: 执行细节(手册无槽位规则)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(手册无排序)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  # meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  # ★ 理由:★ 专家点名的均值回归之一(TD 序列)。
+  # ★ 硬纪律第 7 条:均值回归类不得用单边多头指数 —— 这个字段就是那道闸。
+  family: meanrev
+  component_match: large
+  risk_free_annual: null

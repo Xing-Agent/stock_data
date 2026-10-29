@@ -1,0 +1,143 @@
+# ============================================================================
+# 技-8 · 高紧旗形 HTF · ★ 加时间止损 20 个交易日版
+#   (2026-10-29 新建,★ 不覆盖 技-8.yaml)
+#
+# 三秒版:股票四到八周翻一倍、在高位窄幅横着,突破横盘上沿买进;
+#         ★ 买进后 20 个交易日还没启动,这个形态在结构上就死了 → 走。
+#
+# ★★ 这一条的出处等级必须说清楚 —— 它**不是原著**:
+#   · 赞格**无成体系出版专著**(只有公开描述 + chartpattern.com),
+#     所以「原著」这两个字在本条上本来就没有可引的对象。
+#   · HTF 的形态定义出自欧奈尔(O'Neil)那一脉。
+#   · 「20 个交易日时间止损」是**外部模型给的行业普遍做法**,机制是:
+#       「若持有超过 20 根日线仍未启动,该形态在结构上直接暴毙」。
+#   ★ 所以本文件把它标成【行业普遍做法】,**不标原著**。
+#
+# ★★ 为什么还是要装它:两个独立来源互相印证 ——
+#   · 外部模型给的机制:超过 20 根日线没启动 = 结构暴毙
+#   · 我们自己的实测:旧实现平均持仓 **603.8 个交易日**
+#   ★ 两者方向一致:旧实现把这个形态拿成了长期持有,那不是高紧旗形。
+#
+# ★★ 旧文件 技-8.yaml 里那四处「原著没写死」本版**一处都没补**:
+#   ② 回调上限 20–25% 仍跑区间两端;③ 整理期间缩量的量比仍显式关掉;
+#   ⑤ 原著的「三到五天不启动就走」仍然显式关掉(区间 + 「不启动」无定义);
+#   整理段长度 [3, 25] 根仍是我们的读法边界。
+#   ★ 本版新增的那条 20 日时间止损是**另立的一条行业做法**,
+#     ★ 不是拿它去冒充原著的「三到五天」。这两件事报告里必须分开写。
+# ============================================================================
+
+meta:
+  name: 技-8_高紧旗形HTF_时间止损20日
+  master: Dan Zanger
+  book: 作者公开描述(chartpattern.com);★ 无成体系出版物,页码无法提供
+  三版归属: 行业版(时间止损)
+  orig_claim: >-
+    ★ 形态描述来自作者;幸存者偏差极重 —— 证据几乎全部来自事后挑出来的成功图例
+  param_gap: >-
+    ★ 四处手册没写死,本版一处都没补:② 回调上限是 20–25% 区间;
+    ③ 缩量量比没给(显式关掉);⑤ 原著的时间止损「三到五天」是区间且
+    「不启动」没定义(仍然显式关掉);整理段长度没给(用我们的读法边界)。
+  本轮改了什么: >-
+    只在第 ⑥ 步加了一条【行业普遍做法】的 20 个交易日时间止损。
+    ①②③④⑤⑦ 与 技-8.yaml 逐字相同 —— ★ 两版之差只有这一条。
+  must_show: >-
+    手册明文要求「产品里必须同时显示符合形态却随后失败的样本比例」——
+    报告里必须报胜率,不许只报收益。
+
+universe:
+  rules: []
+  source: 原著(无额外选股条件;「全市场最狂暴的那几只」由形态本身筛出来)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: >-
+    ★ 手册写「什么时候用:牛市里最强的那一小批股票」—— 定性描述,
+    没给可自动触发的大盘开关。★ 本次没装(与 技-8.yaml 一致)。
+
+entry:
+  rules:
+    - type: htf_flag_breakout
+      params:
+        runup_min: 1.00
+        max_pullback: 0.20
+        flag_min_bars: 3
+        flag_max_bars: 25
+      source: >-
+        原著:涨幅 100%(runup_min);四到八周 = 20~40 个交易日
+        (写死在 ops_a0.HTF_RUNUP_MIN_BARS / MAX_BARS);
+        突破旗形上沿 = 整理段最高价。
+        ★ max_pullback 是原著区间 20–25% 的端点,runner 另跑 0.25 宽松端。
+        ★ flag_min_bars / flag_max_bars 是我们的读法边界,原著没给。
+    - type: volume_dryup
+      params: { fast_period: 5, slow_period: 50, max_ratio: null, offset_days: 1 }
+      enabled: false
+      source: >-
+        ★ 原著条件 ③「整理期间缩量」。★ max_ratio 手册没给 → enabled: false
+        显式关掉。★ 不许从别的链搬一个数过来顶上。
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(收盘确认、次日开盘)
+
+initial_stop:
+  type: day_low_minus_atr
+  params: { structure_lookback: 25, atr_period: 14, atr_multiple: 0.0 }
+  source: >-
+    原著「跌破旗形下沿立刻全退」→ 止损设在整理段最低价,缓冲 0。
+    ★ structure_lookback: 25 = 与 flag_max_bars 一致,★ 这个数是我们定的边界。
+
+trailing_stop:
+  type: none
+  source: 原著(未提移动止损)
+
+exit:
+  rules:
+    - type: close_below_trailing_stop
+      source: 原著(跌破旗形下沿全退)
+    # ---- ★★ 本轮唯一新增的一条
+    - type: time_stop
+      params:
+        max_holding_days: 20
+      source: >-
+        ★★【行业普遍做法】—— **不是原著**。
+        机制:「若持有超过 20 根日线仍未启动,该形态在结构上直接暴毙」。
+        ★ 为什么敢装:两个独立来源互相印证 —— 外部模型给的这条机制,
+          和我们自己实测的「旧实现平均持仓 603.8 个交易日」方向一致。
+        ★ 为什么不标原著:赞格无成体系出版专著,HTF 的形态定义出自欧奈尔,
+          「原著」在本条上没有可引的对象。
+        ★ 这条**不是**拿来冒充原著条件 ⑤ 的「三到五天不启动就走」——
+          那一条仍然显式关掉(区间 + 「不启动」无定义)。两件事报告里分开写。
+        ★ 引擎口径:持仓满 20 天那根收盘触发、次日开盘平仓
+          → 实测 holding_days ≈ 21。
+  params:
+    profit_target_r: null
+  fill: next_open
+  source: >-
+    ★ 原著条件 ⑤ 的时间止损(「三到五天」+ 「不启动」无定义)仍然显式关掉。
+    本版新增的是另立的一条【行业普遍做法】20 日时间止损。
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 执行细节(原著无仓位规则;与 技-8.yaml 逐字相同)
+
+slots: 10
+source_slots: 执行细节(原著无槽位规则)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(原著无排序)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null
