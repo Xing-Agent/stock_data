@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-10-28",
+  "scope": "Manifest-listed eight bankruptcy issuers. Records summarize plan treatment only; they are not exchange settlement prices, liquidation proceeds per share, or broker-level cash receipts. Null means no verified universal per-share cash amount.",
+  "records": [
+    {
+      "symbol": "AMRS",
+      "event": "Chapter 11 reorganization",
+      "shareholder_plan_treatment": "Existing common shares canceled; plan contains separate settlement treatment for certain holders/claims; do not infer universal per-share cash recovery.",
+      "cash_settlement_per_share": null,
+      "status": "plan_terms_verified_actual_recovery_unverified",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1365916/000136591624000008/amrs-20240207.htm"
+    },
+    {
+      "symbol": "CLVS",
+      "event": "Chapter 11 liquidation",
+      "shareholder_plan_treatment": "All outstanding common shares and equity awards extinguished and canceled on plan effective date.",
+      "cash_settlement_per_share": null,
+      "status": "plan_cancellation_verified_actual_cash_unverified",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1466301/000119312523185175/d445145ds8pos.htm"
+    },
+    {
+      "symbol": "ACOR",
+      "event": "Chapter 11 liquidation",
+      "shareholder_plan_treatment": "Existing Acorda interests extinguished/canceled; no distribution or recovery under plan.",
+      "cash_settlement_per_share": null,
+      "status": "plan_no_recovery_verified_cash_field_not_applicable",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1008848/000095017024094382/acor-20240807.htm"
+    },
+    {
+      "symbol": "PRTY",
+      "event": "Chapter 11 reorganization",
+      "shareholder_plan_treatment": "Pre-emergence equity canceled; no recovery under plan; new equity allocated through restructuring to creditors.",
+      "cash_settlement_per_share": null,
+      "status": "plan_no_recovery_verified_cash_field_not_applicable",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1592058/000119312523091600/"
+    },
+    {
+      "symbol": "REV",
+      "event": "Chapter 11 reorganization",
+      "shareholder_plan_treatment": "Pre-emergence Class A interests canceled; no recovery or distribution.",
+      "cash_settlement_per_share": null,
+      "status": "plan_no_recovery_verified_cash_field_not_applicable",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/887921/000088792123000006/rev-20221231.htm"
+    },
+    {
+      "symbol": "TUP",
+      "event": "Chapter 11 reorganization",
+      "shareholder_plan_treatment": "Existing equity interests canceled and receive no distribution under plan.",
+      "cash_settlement_per_share": null,
+      "status": "plan_no_distribution_verified_actual_cash_unverified",
+      "source_url": "https://document.epiq11.com/document/getdocumentbycode?docId=4447232&projectCode=TLP&source=DM"
+    },
+    {
+      "symbol": "SQBG",
+      "event": "Chapter 11 liquidation",
+      "shareholder_plan_treatment": "Existing Parent Equity Interests canceled; no distribution or retained property under plan.",
+      "cash_settlement_per_share": null,
+      "status": "plan_no_distribution_verified_cash_field_not_applicable",
+      "source_url": "https://www.veritaglobal.net/sqbg/document/2111194220103000000000004"
+    },
+    {
+      "symbol": "WPG",
+      "event": "Chapter 11 restructuring",
+      "shareholder_plan_treatment": "Contingent: if eligible equity classes voted to accept plan, holders could receive pro rata share of $20m cash pool or elect new equity pool; if either class rejected, no distribution and cancellation. Per-share realized recovery requires holder election and class-level allocation.",
+      "cash_settlement_per_share": null,
+      "status": "contingent_plan_terms_verified_actual_per_share_unverified",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1610911/000143774921021564/ex_281199.htm"
+    }
+  ]
+}

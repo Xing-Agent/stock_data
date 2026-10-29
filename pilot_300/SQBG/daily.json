@@ -9199,7 +9199,8 @@
       "high": 6.1984,
       "low": 5.11,
       "close": 5.2,
-      "volume": 351421
+      "volume": 351421,
+      "split_coefficient": 0.025
     },
     {
       "date": "2020-07-28",
@@ -11489,5 +11490,5 @@
   "source_documentation": "https://site.financialmodelingprep.com/developer/docs/stable/historical-price-eod-non-split-adjusted",
   "source_snapshot": "selection/fmp_raw_probe/SQBG.json",
   "source_snapshot_sha256": "1256d2793da9696b73903a06832a5a31e65c9b1cd509bb8bfb8b4bd5c8b51e1c",
-  "source_note": "Whole-series fallback, no per-day splice. FMP adjOpen/adjHigh/adjLow/adjClose are mapped only for its documented non-split-adjusted endpoint. Actions retain their independent original provenance."
+  "source_note": "Whole-series fallback, no per-day splice. FMP adjOpen/adjHigh/adjLow/adjClose are mapped only for its documented non-split-adjusted endpoint. Actions retain their independent original provenance.; Added issuer-verified split_coefficient values on trading-effective dates; original payload preserved in daily.fmp-raw.json."
 }

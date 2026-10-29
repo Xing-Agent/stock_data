@@ -40,7 +40,7 @@
       "delisted": true,
       "delisting_date": "2023-01-19",
       "origin": "pilot_50",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=eca2023-29",
       "download_start_date": "2016-01-01",
       "download_end_date": "2023-01-19",
@@ -500,7 +500,7 @@
       "delisted": true,
       "delisting_date": "2021-03-19",
       "origin": "pilot_50",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_STOCK",
       "retirement_source_url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2021-37",
       "download_start_date": "2016-01-01",
       "download_end_date": "2021-03-19",
@@ -960,7 +960,7 @@
       "delisted": true,
       "delisting_date": "2024-01-05",
       "origin": "pilot_50",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://www.sec.gov/Archives/edgar/data/1031029/000114036124000842/ny20017658x1_8k.htm",
       "download_start_date": "2016-01-01",
       "download_end_date": "2024-01-05",
@@ -1164,7 +1164,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2023-01-03",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://www.jnj.com/media-center/press-releases/johnson-johnson-completes-acquisition-of-abiomed",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1192,7 +1192,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2021-07-28",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_STOCK",
       "retirement_source_url": "https://www.astrazeneca.com/media-centre/press-releases/2021/acquisition-of-alexion-completed.html",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1220,7 +1220,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2023-10-13",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://blogs.microsoft.com/blog/2023/10/13/welcoming-the-legendary-teams-at-activision-blizzard-king-to-team-xbox/",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1248,7 +1248,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2022-09-08",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://infomemo.theocc.com/infomemos?number=50551",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1276,7 +1276,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2021-10-15",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://www.cornerstoneondemand.com/company/news-room/press-releases/clearlake-capital-completes-acquisition-of-cornerstone-ondemand/",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1304,7 +1304,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2022-11-02",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://www.vistaequitypartners.com/news/vista-equity-partners-and-evergreen-coast-capital-announce-the-completion-of-the-transaction-to-acquire-citrix-systems-and-combine-it-with-tibco-software/",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1332,7 +1332,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2025-05-16",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_STOCK",
       "retirement_source_url": "https://www.capitalone.com/about/newsroom/capital-one-completes-acquisition-of-discover/",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1360,7 +1360,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2025-07-18",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_STOCK",
       "retirement_source_url": "https://chevroncorp.gcs-web.com/news-releases/news-release-details/chevron-completes-acquisition-hess-corporation",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1388,7 +1388,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2025-07-02",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://www.hpe.com/us/en/newsroom/press-hub.html/topic/mergers-and-acquisitions-%28m-and-a%29",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1416,7 +1416,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2021-12-13",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_STOCK",
       "retirement_source_url": "https://www.sec.gov/Archives/edgar/data/54480/000119312521356252/d25745d8k.htm",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1444,7 +1444,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2024-11-22",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_STOCK",
       "retirement_source_url": "https://www.conocophillips.com/news-media/story/conocophillips-completes-acquisition-of-marathon-oil-corporation/",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1472,7 +1472,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2022-03-04",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://blogs.microsoft.com/blog/2022/03/04/microsoft-nuance-better-together-to-transform-business-and-healthcare-outcomes-with-ai/",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1500,7 +1500,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2021-08-31",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_CASH",
       "retirement_source_url": "https://www.proofpoint.com/us/newsroom/press-releases/thoma-bravo-completes-acquisition-proofpoint",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
@@ -1528,7 +1528,7 @@
       "origin": "expansion_250",
       "delisted": true,
       "delisting_date": "2022-02-14",
-      "retirement_category": "acquisition_or_merger",
+      "retirement_category": "ACQUISITION_STOCK",
       "retirement_source_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-22-000031/amd-20220214.htm",
       "baseline_listing_basis": "AV historical listing plus FMP profile and baseline cap",
       "review_flags": [
