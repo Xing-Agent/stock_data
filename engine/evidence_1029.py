@@ -505,9 +505,17 @@ def q4_q5_coverage() -> dict:
         "",
     ]
 
-    lines += [SEP, "Q5 · ★ 覆盖率实测(全池 %d 只;分母 = manifest 全部代码)" % n, SEP,
+    n_f = len(_syms_with_fund())
+    lines += [SEP, "Q5 · ★ 覆盖率实测", SEP,
+              f"  分母说明:manifest.csv 共 {n} 行代码;其中 {n_f} 只有 "
+              f"fundamentals.json、{n - n_f} 只完全没有基本面导出。",
+              f"  下表同时给两个分母:/{n}(全池)和 /{n_f}(有基本面文件的票)。",
+              "  ★「总报告期」对流量科目(EBIT)把 YTD 各级都算进去了,"
+              "所以它天然比「PIT可用期」大 3~4 倍 —— 这是口径差,不是丢数。",
+              "",
               f"  {'字段':22s} {'有键':>6s} {'有非空值':>8s} {'PIT可用':>8s} "
-              f"{'有键%':>7s} {'PIT可用%':>8s} {'总报告期':>8s} {'PIT可用期':>9s}"]
+              f"{'有键%':>7s} {'PIT可用%':>8s} {'PIT%(/有文件)':>13s} "
+              f"{'总报告期':>8s} {'PIT可用期':>9s}"]
     summary = {}
     for mm in metrics:
         t = table[mm]
@@ -519,10 +527,14 @@ def q4_q5_coverage() -> dict:
         tot_pit = sum(t[s]["n_pit_usable"] for s in syms)
         summary[mm] = {"has_key": has_key, "has_value": has_val,
                        "has_pit": has_pit, "pct_key": has_key / n,
-                       "pct_pit": has_pit / n, "n_periods_nonnull": tot_p,
-                       "n_periods_pit": tot_pit, "n_symbols": n}
+                       "pct_pit": has_pit / n,
+                       "pct_pit_of_withfile": has_pit / max(1, n_f),
+                       "n_periods_nonnull": tot_p,
+                       "n_periods_pit": tot_pit, "n_symbols": n,
+                       "n_symbols_with_file": n_f}
         lines.append(f"  {mm:22s} {has_key:6d} {has_val:8d} {has_pit:8d} "
-                     f"{has_key/n:6.1%} {has_pit/n:7.1%} {tot_p:8d} {tot_pit:9d}")
+                     f"{has_key/n:6.1%} {has_pit/n:7.1%} "
+                     f"{has_pit/max(1,n_f):12.1%} {tot_p:8d} {tot_pit:9d}")
     lines.append("")
 
     # ---- 失败样本表:按技术方要的三种原因分开
@@ -622,18 +634,43 @@ def q4_q5_coverage() -> dict:
         lines += [f"  … 其余 {max(0, len(v)-4)} 条见 "
                   f"{_rel(OUT_JSON)} 的 q5.failure_buckets", ""]
 
-    lines += ["★★ 结论(Q5):",
-              f"  · {EBIT} PIT 可用 {summary[EBIT]['pct_pit']:.1%}、"
-              f"{LTD} PIT 可用 {summary[LTD]['pct_pit']:.1%} —— "
-              f"★ 「缺这两个科目」的说法站不住,撤回。",
-              f"  · 真正稀的是 {DEBT_CUR}:PIT 可用 "
-              f"{summary[DEBT_CUR]['pct_pit']:.1%}、"
-              f"{LTD_CUR} {summary[LTD_CUR]['pct_pit']:.1%}。",
-              "    ★ 这才是我们算不出总债务 / EV / 净负债倍数的真原因 ——",
-              "    请把需求改成「补 DebtCurrent / LongTermDebtCurrent 的覆盖」。",
-              f"  · {EBIT} 在交付侧是派生字段:formula = "
-              f"{table[EBIT][syms[0]].get('derived_formula') or '见各票 coverage.derived_metrics'}"
-              " —— 所以它的缺失会继承 IncomeBeforeTax / InterestExpense 的缺失。",
+    lines += ["★★ 结论(Q5)—— ★ 这里要把两句话分开,不能混成一句:",
+              "",
+              "  ① ★ 我们错了,撤回:「缺 EBIT / LongTermDebt 这两个科目」。",
+              f"     两个字段都存在、都在代码里被读、都有数据:"
+              f"{EBIT} PIT 可用 {summary[EBIT]['has_pit']}/{n} 只"
+              f"({summary[EBIT]['pct_pit']:.1%};在有基本面文件的 {n_f} 只里 "
+              f"{summary[EBIT]['pct_pit_of_withfile']:.1%}),",
+              f"     {LTD} PIT 可用 {summary[LTD]['has_pit']}/{n} 只"
+              f"({summary[LTD]['pct_pit']:.1%};/{n_f} 为 "
+              f"{summary[LTD]['pct_pit_of_withfile']:.1%})。",
+              "     ★ 「科目缺失」这个说法站不住,撤回。",
+              "",
+              "  ② ★ 但「覆盖不足」这半句我们【不撤回】,实测数据支持它:",
+              f"     两个字段都只覆盖到池子的一半左右"
+              f"({summary[EBIT]['pct_pit']:.0%} / {summary[LTD]['pct_pit']:.0%}),",
+              f"     其中 {n - n_f} 只票连 fundamentals.json 都没有 "
+              f"—— 对这些票任何基本面闸门永久判不合格。",
+              "     ★ 所以请求从「补这两个科目」改成下面三件具体事:",
+              f"       (a) 补那 {n - n_f} 只没有 fundamentals.json 的票;",
+              f"       (b) ★ 最要紧:补 {DEBT_CUR} —— 实测 PIT 可用只有 "
+              f"{summary[DEBT_CUR]['has_pit']}/{n} 只"
+              f"({summary[DEBT_CUR]['pct_pit']:.1%}),"
+              f"{LTD_CUR} 也只有 {summary[LTD_CUR]['pct_pit']:.1%}。",
+              "           这才是我们算不出【总债务 / EV / 净负债倍数】的真原因 ——"
+              "见下面「我们需要的口径」一节;",
+              f"       (c) {EBIT} 在交付侧是派生字段(formula = "
+              f"IncomeBeforeTax + InterestExpense),",
+              "           实测 64 条失败是因为【输入缺一条】,而且绝大多数缺的是 "
+              "InterestExpense。",
+              "           ★ 建议改公式:零债务公司本来就没有 InterestExpense 标签,"
+              "这时应把它当 0 而不是让 EBIT 整体为空",
+              "           (实例:ABMD 有 IncomeBeforeTax 135 期、"
+              "InterestExpense 0 期 → EBIT 0 期,其实 EBIT = IncomeBeforeTax)。",
+              f"       (d) {LTD} 等核心字段不在 coverage.additional_fields 里,"
+              f"所以 records=0 时【不给 missing_reason】",
+              f"           —— 实测 119 条失败样本我们无法判断是 SEC 没披露还是标签未留存。"
+              "请给核心字段也补上 missing_reason。",
               ""]
     return {"lines": lines, "summary": summary,
             "failure_buckets": {k: v for k, v in buckets.items()},
@@ -704,13 +741,22 @@ def q6_corporate_actions() -> dict:
         r["expected_ratio_x"] = exp
         err = abs(r["ratio_x"] / exp - 1.0)
         r["coef_rel_err"] = err
-        r["coef_verdict"] = ("✅ 已解释(与 1/coef 相对误差 %.1f%%)" % (err * 100)
-                             if err <= 0.10 else
-                             "⚠ 系数存在但解释不上(1/coef=%.3fx,实测 %.3fx,差 %.0f%%)"
-                             % (exp, r["ratio_x"], err * 100))
+        # ★ 残差口径:实测跳变 = 拆股效应 × 当天真实涨跌,所以残差不该要求 0。
+        #   ≤10%  → 已解释(残差在正常日波动内)
+        #   ≤35%  → 方向与量级都对,残差偏大(微盘股当天真实大涨大跌即可解释)
+        #   >35%  → 系数解释不上(价格序列另有被调整过的痕迹)
+        if err <= 0.10:
+            r["coef_verdict"] = "✅ 已解释(残差 %.1f%%)" % (err * 100)
+        elif err <= 0.35:
+            r["coef_verdict"] = ("◐ 量级/方向一致,残差偏大 %.0f%%"
+                                 "(1/coef=%.3fx)" % (err * 100, exp))
+        else:
+            r["coef_verdict"] = ("⚠ 系数解释不上(1/coef=%.3fx,实测 %.3fx,"
+                                 "差 %.0f%%)" % (exp, r["ratio_x"], err * 100))
     raw_rows.sort(key=lambda r: -r["ratio_x"])
     tick = sorted({r["symbol"] for r in raw_rows})
     expl = [r for r in raw_rows if str(r.get("coef_verdict", "")).startswith("✅")]
+    soft = [r for r in raw_rows if str(r.get("coef_verdict", "")).startswith("◐")]
     coef1 = [r for r in raw_rows if "coef=1" in str(r.get("coef_verdict", ""))]
     mism = [r for r in raw_rows if str(r.get("coef_verdict", "")).startswith("⚠")]
     nocoef = [r for r in raw_rows if "无法判定" in str(r.get("coef_verdict", ""))]
@@ -723,9 +769,14 @@ def q6_corporate_actions() -> dict:
         f"★ 旧报告写「48 根 / 33 只」—— 本次实测 {len(raw_rows)} 根 / {len(tick)} 只,以本表为准。",
         "",
         f"★★ 对账结果:这 {len(raw_rows)} 根里 —— "
-        f"split_coefficient 已解释 {len(expl)} 根 / "
+        f"split_coefficient 已解释(残差≤10%){len(expl)} 根 / "
+        f"量级方向一致、残差 10~35% 的 {len(soft)} 根 / "
         f"coef=1(文件明说不是拆股){len(coef1)} 根 / "
-        f"系数在但对不上 {len(mism)} 根 / 系数空或 NaN {len(nocoef)} 根。",
+        f"系数解释不上(>35%){len(mism)} 根 / 系数空或 NaN {len(nocoef)} 根。",
+        f"  → 合计 {len(expl)+len(soft)} / {len(raw_rows)} 根 "
+        f"({(len(expl)+len(soft))/max(1,len(raw_rows)):.0%})"
+        f"能被 split_coefficient 解释。",
+        "  残差口径:实测跳变 = 拆股效应 × 当天真实涨跌,所以残差不要求为 0。",
         "",
         f"  {'ticker':7s} {'date':11s} {'前收':>11s} {'当收':>11s} {'实测倍数':>10s} "
         f"{'coef':>14s} {'1/coef':>9s} {'retire_cat':20s} 判定"]
@@ -741,9 +792,10 @@ def q6_corporate_actions() -> dict:
               "★★ 结论(Q6 第一半 —— 我们错了,撤回):",
               f"  旧单子说「全池残余 48 根 3 倍以上跳变 / 33 只票(含 TSLA GOOG ISRG "
               f"CTAS COO CSGP MNST KDP)我们区分不出来」。",
-              f"  实测:{len(raw_rows)} 根 / {len(tick)} 只,其中 {len(expl)} 根"
-              f"({len(expl)/max(1,len(raw_rows)):.0%})"
-              f"【daily.json 自带的 split_coefficient 已经精确解释了】。",
+              f"  实测:{len(raw_rows)} 根 / {len(tick)} 只,其中 "
+              f"{len(expl)+len(soft)} 根"
+              f"({(len(expl)+len(soft))/max(1,len(raw_rows)):.0%})"
+              f"【daily.json 自带的 split_coefficient 已经解释了】。",
               "  点名的 TSLA(coef=3/5)、GOOG(20)、ISRG(3)、CTAS(4)、COO(4)、"
               "CSGP(10)、MNST(3)都在已解释那一类。",
               "  ★ 错在哪一步:engine/data.py:172 load_daily() 只读 "
@@ -756,12 +808,22 @@ def q6_corporate_actions() -> dict:
               "load_daily(),",
               "    用它替掉 engine/split_gate.py 里手工维护的 EVENTS 清单。",
               "",
-              f"★ 剩下真正需要技术方的,只有这 {len(coef1) + len(mism) + len(nocoef)} 根:",
-              f"  · coef=1 但价格跳了({len(coef1)} 根)—— 文件明说不是拆股,"
-              f"那它是什么?并购换股 / 股票股利 / 还是真实暴跌?",
-              f"  · 系数在但解释不上({len(mism)} 根)—— 比例对不上,"
-              f"说明价格序列被供应商额外调整过。",
-              f"  · 系数空或 NaN({len(nocoef)} 根)—— 字段缺值。",
+              f"★ 剩下真正需要技术方逐根裁决的,是这 "
+              f"{len(coef1) + len(mism) + len(nocoef)} 根:",
+              f"  · coef=1 但价格跳了({len(coef1)} 根)—— 文件明说这天不是拆股。",
+              "    ★ 我们自己不敢判:这一组里【混着两种东西】——",
+              "      (a) 真实公司行动而文件没标:KDP 2018-07-10(Keurig × Dr Pepper "
+              "换股并购)、",
+              "          UHAL 2022-11-10(每股派 9 股新类别股,股票股利)—— "
+              "这两根技术方已核实过;",
+              "      (b) 可能是真实的极端涨跌:OVV 2020-03-09(油价战当日)、"
+              "GNCA / PROP / FTLF / OMEX 等微盘股。",
+              "    ★ 请逐根给「是公司行动还是真实行情」的结论,"
+              "我们不会自己猜(猜错会把真实暴跌当拆股抹掉)。",
+              f"  · 系数解释不上({len(mism)} 根)—— 比例对不上,"
+              f"说明价格序列被供应商额外调整过(SQBG 差 2904% 是最极端的一根)。",
+              f"  · 系数空或 NaN({len(nocoef)} 根)—— 字段缺值:"
+              f"{sorted({r['symbol'] for r in nocoef})}。",
               ""]
 
     # ---- 7 只换股并购
