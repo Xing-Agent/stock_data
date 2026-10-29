@@ -110,12 +110,22 @@ def run_grid(signal_fn: Callable[[str, str, list[str]], tuple[list[float], Calla
         for pool in POOLS:
             cell_syms = split_pool(symbols, pool)
             values, sampler = signal_fn(wstart, wend, cell_syms)
+            # ★★★ 新硬纪律 A(2026-10-29,策略组拍板):四格的随机对照也走
+            #   **5 种子并池**。★ 以前这里传的是单个 seed,所以换了判据之后
+            #   四格 Z 一个数都没变 —— ★ 那就等于硬关还在用旧尺子量。
+            #   ★ 每格的 5 个种子仍然是**确定性**的(基准 seed + 该格的 FNV-1a
+            #     偏移 + 0..4),所以硬关的可复现性没有被破坏 ——
+            #     这一点很要紧:硬关是九关里唯一的硬关,
+            #     它必须能复现,否则「过没过」是可以靠重跑刷出来的。
+            cell_off = _cell_seed(wname, pool)
+            cell_seeds = tuple(seed + cell_off + k
+                               for k in range(stats_gate.N_SEEDS_DEFAULT))
             r = stats_gate.bootstrap_test(
                 name=f"{wname}×池{pool}",
                 signal_values=values,
                 random_sampler=sampler,
                 B=B,
-                seed=seed + _cell_seed(wname, pool),
+                seeds=cell_seeds,
                 note="同格内取样",
             )
             cells.append(CellResult(wname, pool, r))

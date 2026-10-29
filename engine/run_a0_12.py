@@ -27,8 +27,8 @@ import time
 import numpy as np
 import yaml
 
-from . import (analyze, cache, chain, data, matrices, ops_a0, stats_gate,
-               window_pool)
+from . import (analyze, cache, chain, data, matrices, ops_1029, ops_a0,
+               stats_gate, window_pool)
 from .run_batch import _num, signal_funnel, window_pool_gate
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -38,8 +38,10 @@ LEDGER_DIR = os.path.join(HERE, "ledgers_1029_A0十二条")
 
 
 def _load(name: str) -> dict:
-    with open(os.path.join(CONFIG_DIR, name), encoding="utf-8") as fh:
-        return yaml.safe_load(fh)
+    # ★ 用严格加载器：YAML 重复 key 会静默取最后一个，
+    #   于是「前面写了 enabled: false、后面还留着 true」这种写法
+    #   会让配置看起来关掉了、实际还在干活。★ 这次改成直接报错。
+    return ops_1029.load_yaml_strict(os.path.join(CONFIG_DIR, name))
 
 
 # ---------------------------------------------------------------------------
@@ -69,6 +71,39 @@ def _rsi10(raw: dict) -> dict:
     return raw
 
 
+def _xing_trend(raw: dict) -> dict:
+    """
+    ★★ 技-1 的 XING 版 —— 手册自己在正文里列成一张对照表:
+         执行时点  收盘价确认,次日开盘执行        (和原著不同)
+         退出      跟踪止损,2 倍 ATR              (★ 和原著不同:原著是反向通道)
+         初始止损  含在跟踪止损内                  (★ 和原著不同:原著独立设 2N)
+         标的与方向 美股个股,只做多               (★ 和原著不同)
+    ★ 这就是「原著版 vs XING 版」的差别所在,所以必须单独跑。
+    """
+    raw["meta"]["name"] = "技-1_XING日终趋势突破版"
+    # 初始止损「含在跟踪止损内」= 进场当天的吊灯位
+    raw["initial_stop"] = {
+        "type": "chandelier",
+        "params": {"lookback": 20, "multiple": 2.0, "atr_period": 20},
+        "source": "XING 版(手册正文对照表:初始止损含在跟踪止损内)",
+    }
+    raw["trailing_stop"] = {
+        "type": "chandelier",
+        "params": {"lookback": 20, "multiple": 2.0, "atr_period": 20},
+        "monotonic_up_only": True,
+        "source": "XING 版(手册正文对照表:退出 = 跟踪止损 2 倍 ATR)",
+    }
+    # ★ XING 版没有反向通道退出 —— 把那条去掉,只留跟踪止损
+    raw["exit"]["rules"] = [
+        {"type": "close_below_trailing_stop", "source": "XING 版(靠跟踪止损出场)"}]
+    return raw
+
+
+def _pb225(raw: dict) -> dict:
+    raw["entry"]["rules"][0]["params"]["max_pullback"] = 0.225
+    return raw
+
+
 def _cd13(raw: dict) -> dict:
     raw["entry"]["rules"][0] = {
         "type": "td_buy_countdown",
@@ -79,39 +114,56 @@ def _cd13(raw: dict) -> dict:
     return raw
 
 
+#: 每个条目:(报表名, 基础 yaml, 覆盖函数, 这一版是什么, 三版框架里的归属)
+#  ★ 三版框架 = 硬纪律 B(2026-10-29 策略组拍板):原著版 / 行业版 / XING版
 VARIANTS = [
     # ---- 技-1 系统化趋势跟随 ----
     ("技-1 · 海龟 System 1(20 日入 / 10 日出)", "技-1.yaml", None,
-     "原著 System 1 参数。★ 原著的「上次突破是赢家就跳过」过滤器引擎没实现,显式不加"),
+     "原著 System 1 参数。★ 原著的「上次突破是赢家就跳过」过滤器引擎没实现,显式不加",
+     "原著版"),
     ("技-1 · 海龟 System 2(55 日入 / 20 日出)", "技-1.yaml", _sys2,
-     "原著 System 2 参数。★ System 2 原著本来就没有那个过滤器,所以这一档更干净"),
+     "原著 System 2 参数。★ System 2 原著本来就没有那个过滤器,所以这一档更干净",
+     "原著版"),
+    ("技-1 · XING 日终趋势突破版(2ATR 跟踪止损)", "技-1.yaml", _xing_trend,
+     "★ 手册正文对照表里的 XING 版:退出改成 2 倍 ATR 跟踪止损、初始止损含在里面。"
+     "★ 这一档就是回答「原著版和 XING 版差在哪」的那个对照",
+     "XING版"),
     # ---- 技-2 法伯月线择时 ----
     ("技-2 · 法伯月线择时(10 月线)", "技-2.yaml", None,
-     "★ 12 条里唯一一条真正一个数都不用我们填的"),
-    # ---- 技-8 高紧旗形 ----
-    ("技-8 · HTF(回调上限 20%)", "技-8.yaml", None,
-     "★ 原著给的是 20–25% 区间,跑下端"),
-    ("技-8 · HTF(回调上限 25%)", "技-8.yaml", _pb25,
-     "★ 原著给的是 20–25% 区间,跑上端"),
-    # ---- 技-10 海龟汤 两版(任务书指定)----
-    ("技-10 · 海龟汤 V1(要求收盘确认)", "技-10.yaml", None,
-     "★ 我方卡片口径。两版只差收盘确认这一处,4 天存活门禁两版都开着"),
-    ("技-10 · 海龟汤 V2(不要求收盘确认)", "技-10.yaml", _noconfirm,
-     "★ 附录 D.8 猜测的原著口径"),
+     "★ 12 条里唯一一条真正一个数都不用我们填的。★ 原著版 ≡ XING版(手册没记任何 XING 改动)",
+     "原著版 ≡ XING版"),
+    # ---- 技-8 高紧旗形:原著给的是区间 → 严格端 / 中值 / 宽松端三组 ----
+    ("技-8 · HTF(回调上限 20% · 严格端)", "技-8.yaml", None,
+     "★ 原著给的是 20–25% 区间,跑严格端", "原著版·严格端"),
+    ("技-8 · HTF(回调上限 22.5% · 中值)", "技-8.yaml", _pb225,
+     "★ 原著给的是 20–25% 区间,跑中值", "原著版·中值"),
+    ("技-8 · HTF(回调上限 25% · 宽松端)", "技-8.yaml", _pb25,
+     "★ 原著给的是 20–25% 区间,跑宽松端", "原著版·宽松端"),
+    # ---- 技-10 海龟汤:按三版框架重新标注(任务书 + 协调员指示)----
+    ("技-10 · 海龟汤 · XING版(要求收盘确认)", "技-10.yaml", None,
+     "★ 我方卡片口径 = XING版。两版只差收盘确认这一处,4 天存活门禁两版都开着",
+     "XING版"),
+    ("技-10 · 海龟汤 · 原著版(不要求收盘确认)", "技-10.yaml", _noconfirm,
+     "★ 附录 D.8 认为原著不要求收盘确认 = 原著版。★ 但 D.8 自己标的是"
+     "「待核实(来源存疑)」—— 所以这个「原著版」的标签本身也还没核实",
+     "原著版(待核实)"),
     # ---- 技-12 康纳斯 ----
     ("技-12 · 康纳斯(RSI2 < 5)", "技-12.yaml", None,
-     "★ 阈值手册没给,5 是常见流传值 —— 敏感度展示,不构成结论"),
+     "★ 手册没给这个阈值(原文只写「极低值」)。5 是 Connors 体系里流传最广的值,"
+     "★ 按三版框架这一档只能算「行业版」,不能算原著版 —— 因为手册没有原文可引",
+     "行业版"),
     ("技-12 · 康纳斯(RSI2 < 10)", "技-12.yaml", _rsi10,
-     "★ 阈值手册没给,10 是另一个常见流传值 —— 敏感度展示,不构成结论"),
+     "★ 同上,10 是另一个流传值", "行业版"),
     # ---- 技-13 TD 序列 ----
     ("技-13 · TD Buy Setup 9", "技-13.yaml", None,
-     "★ 手册只说「标记为衰竭点」,没说买 —— 进场规则是我们加的"),
+     "★ 手册只说「标记为衰竭点」,没说买 —— 进场规则是我们加的,所以这一档只能算 XING版",
+     "XING版"),
     ("技-13 · TD Buy Countdown 13", "技-13.yaml", _cd13,
-     "★ 同上。Countdown 的计数细节来自流传版本"),
+     "★ 同上。Countdown 的计数细节来自流传版本", "XING版"),
 ]
 
 
-def run_one(label: str, yaml_name: str, override, why: str,
+def run_one(label: str, yaml_name: str, override, why: str, version: str,
             syms: list[str]) -> dict:
     t0 = time.time()
     print("=" * 78)
@@ -175,6 +227,7 @@ def run_one(label: str, yaml_name: str, override, why: str,
 
     rec = {
         "报表名": label,
+        "★三版框框归属": version,
         "这一版是什么": why,
         "配置文件": yaml_name,
         "笔数": n,
@@ -346,9 +399,9 @@ def main(argv=None) -> int:
                  "两条基准线(Ē 全周期固定)/ 笔数<150 打警示 / 不网格搜索"),
         "链": [],
     }
-    for label, yml, ov, why in VARIANTS:
+    for label, yml, ov, why, version in VARIANTS:
         try:
-            out["链"].append(run_one(label, yml, ov, why, syms))
+            out["链"].append(run_one(label, yml, ov, why, version, syms))
         except Exception as e:
             print(f"★ {label} 跑挂了:{type(e).__name__}: {e}")
             out["链"].append({"报表名": label, "★跑挂了": f"{type(e).__name__}: {e}"})

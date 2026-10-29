@@ -36,6 +36,17 @@ def _as_bool(df: pd.DataFrame) -> pd.DataFrame:
     return df.fillna(False).astype(bool)
 
 
+#: ★ 算子结果缓存。为什么需要:技-8 / 技-13 是逐票逐根的 Python 循环,
+#   跑一次全池 20 秒;而「四格硬关 × 5 种子并池」会把同一张矩阵重算几十遍。
+#   ★ 缓存键包含全部参数与票清单 —— 参数改了就是新条目,不会误命中。
+_CACHE: dict[tuple, pd.DataFrame] = {}
+
+
+def cache_info() -> dict:
+    return {"缓存条数": len(_CACHE),
+            "说明": "算子结果缓存;键含全部参数与票清单,参数改了不会误命中"}
+
+
 def _need(p: dict, key: str, who: str) -> float:
     """★ 原著没给的数必须由配置显式写出来,不写就抛错,不给默认值。"""
     if p.get(key) is None:
@@ -186,6 +197,10 @@ def htf_flag_breakout(symbols: list[str], *,
       · 旗形:tp..t-1 这段里最低价不低于 P × (1 - max_pullback)。
       · 突破:close[t] > max(high[tp..t-1])(= 旗形上沿)。
     """
+    key = ("htf", tuple(symbols), runup_min, max_pullback,
+           flag_min_bars, flag_max_bars)
+    if key in _CACHE:
+        return _CACHE[key]
     close = cache.field("close", symbols)
     high = cache.field("high", symbols)
     low = cache.field("low", symbols)
@@ -234,7 +249,8 @@ def htf_flag_breakout(symbols: list[str], *,
             if c[t] > np.nanmax(fl_hi):
                 res[t] = True
         out[col] = res
-    return _as_bool(out)
+    _CACHE[key] = _as_bool(out)
+    return _CACHE[key]
 
 
 # ===========================================================================
@@ -254,6 +270,9 @@ def td_buy_setup(symbols: list[str], count: int = 9,
     TD Buy Setup:连续 `count` 根收盘价低于 `ref_lag` 根之前的收盘价,
     在第 `count` 根那天为 True。(流传最广版本:9 根 / 比较 4 根前)
     """
+    key = ("td_setup", tuple(symbols), count, ref_lag)
+    if key in _CACHE:
+        return _CACHE[key]
     close = cache.field("close", symbols)
     cond = _as_bool(close < close.shift(ref_lag))
     run = cond.astype(int)
@@ -265,7 +284,8 @@ def td_buy_setup(symbols: list[str], count: int = 9,
             acc = acc + 1 if v[i] else 0
             r[i] = acc
         run[col] = r
-    return _as_bool(run == count)
+    _CACHE[key] = _as_bool(run == count)
+    return _CACHE[key]
 
 
 def td_buy_countdown(symbols: list[str], setup_count: int = 9,
@@ -277,6 +297,9 @@ def td_buy_countdown(symbols: list[str], setup_count: int = 9,
     (流传最广版本:13 个 / 比较 2 根前的最低价)
     ★ 新的 Setup 完成会把 Countdown 重置 —— 这也是流传版本的写法。
     """
+    key = ("td_cd", tuple(symbols), setup_count, ref_lag, countdown, cd_lag)
+    if key in _CACHE:
+        return _CACHE[key]
     close = cache.field("close", symbols)
     low = cache.field("low", symbols)
     setup_done = td_buy_setup(symbols, setup_count, ref_lag)
@@ -297,7 +320,8 @@ def td_buy_countdown(symbols: list[str], setup_count: int = 9,
                     res[i] = True
                     active, cnt = False, 0
         out[col] = res
-    return _as_bool(out)
+    _CACHE[key] = _as_bool(out)
+    return _CACHE[key]
 
 
 # ===========================================================================

@@ -148,7 +148,22 @@ def signal_funnel(raw: dict, syms: list[str], start: str) -> dict:
         m = matrices._universe_rule_mask(r, syms, idx)
         cum = m if cum is None else cum & m
         rows.append({"关": "① " + str(r.get("type")), "单条": n(m), "累计": n(cum)})
-    uni = cum
+    # ★★ 2026-10-29 修的 bug:① 选股范围**一条规则都没有**(全池)时,
+    #   上面那个循环一次都不进,cum 留在 None,下面 `ev & uni` 就炸
+    #   TypeError: Cannot perform 'and_' with ... scalar of type [NoneType]。
+    #   ★ 以前没人踩到,是因为此前每一份配置的 ① 都至少写了一条闸门;
+    #     A0 这一批里 技-1 / 技-2 / 技-8 / 技-10 / 技-13 的原著**本来就没有选股条件**,
+    #     ① 必须留空,于是第一次把这条路径走到了。
+    #   ★ 修法:没有闸门 = 全池通过,uni 给一张全 True 的表。
+    #     ★ 不是「跳过这一关」—— 漏斗里那一行照样要打印出来,
+    #       否则看报告的人分不清「全池通过」和「这一关没算」。
+    if cum is None:
+        close = cache.field("close", syms)
+        uni = pd.DataFrame(True, index=close.index, columns=close.columns)
+        rows.append({"关": "① (配置无选股闸门 → 全池通过)",
+                     "单条": n(uni), "累计": n(uni)})
+    else:
+        uni = cum
     reg = matrices.regime_mask(raw.get("regime") or {}, idx)
     rows.append({"关": "② regime(开闸天数/总天数)",
                  "单条": int(np.asarray(reg.to_numpy(bool))[perf].sum()),
@@ -185,12 +200,16 @@ def window_pool_gate(cfg: chain.ChainConfig, syms: list[str],
             vals = np.array([])
         if vals.size == 0:
             return [], (lambda rng: np.array([np.nan]))
-        # ★ 2026-10-29 统一口径:触发率校准到「对照组成交笔数 ≈ 真链笔数」,
-        #   校准只看笔数、不看成绩(纪律 6)。
-        cal = analyze.calibrated_random_rate(cfg, cell_syms, start, end,
-                                             int(vals.size), r.initial_equity,
-                                             seed=20181001)
-        led = cal["ledger"]
+        # ★★ 硬纪律 A(2026-10-29 策略组拍板):随机对照改成 5 个种子并池。
+        #   原因:单种子噪声比效应本身还大,能把 Z 从 −0.57 翻到 +0.56 ——
+        #   单种子的 Z 符号本身就是噪声,而四格硬关要的恰恰是「四格 Z 符号一致」,
+        #   ★ 所以这一关比别处更不能用单种子。
+        #   ★ 沿用已定口径:每个种子各自按「实际成交笔数」校准,校准只看笔数、
+        #     不看成绩(纪律 6)。
+        #   ★ 对照仍然在**同格内**取样 —— 并池只并种子,不并格子。
+        pooled = analyze.pooled_random_control(cfg, cell_syms, start, end,
+                                               int(vals.size), r.initial_equity)
+        led = pooled["ledger"]
         ctrl = (led["r_multiple"].dropna().to_numpy(float)
                 if led is not None and not led.empty else np.array([]))
         if ctrl.size == 0:
