@@ -27,7 +27,7 @@ import time
 import numpy as np
 import pandas as pd
 
-from . import data, split_gate
+from . import data, delisting_gate, split_gate
 
 CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
 PANEL_PARQUET = os.path.join(CACHE_DIR, "ohlcv_panel.parquet")
@@ -64,15 +64,22 @@ def build(verbose: bool = True) -> dict[str, pd.DataFrame]:
             continue
         last = cal[np.flatnonzero(valid.to_numpy())[-1]]
 
-        # ★★ 破产类:最后一根之后补一根价格为 0 的 bar
+        # ★★ 退市结算:在最后一根之后补一根「结算价 bar」。
+        # ★ 2026-10-29 改为以技术方核实的 delisting_settlement_price 为准:
+        #     技术确认归零 → 补一根 0 价 bar(真 −100%)
+        #     固定全现金并购价 → 补一根该价格的 bar(★ 原来是按最后收盘价,偏了)
+        #     ★ null(证据拿不到)→ ★ 不补 bar,自然按最后收盘价结算,并在
+        #       元数据里标出来,好单独统计它们贡献了多少
         zero_bar = None
         m = meta[sym]
-        if m.delisted and m.is_bankruptcy:
+        st = delisting_gate.settlement_for(sym)
+        settle_px = delisting_gate.forced_price(sym) if m.delisted else None
+        if m.delisted and settle_px is not None:
             after = cal[cal > last]
             if len(after):
                 zero_bar = after[0]
                 for f in ("open", "high", "low", "close"):
-                    r.loc[zero_bar, f] = 0.0
+                    r.loc[zero_bar, f] = float(settle_px)
                 r.loc[zero_bar, "volume"] = 0.0
                 r.loc[zero_bar, "dollar_volume"] = 0.0
 
@@ -82,7 +89,12 @@ def build(verbose: bool = True) -> dict[str, pd.DataFrame]:
             "symbol": sym, "status": "ok", "last_bar": last,
             "zero_bar": zero_bar, "n_bars": int(valid.sum()),
             "delisted": m.delisted, "retirement_category": m.retirement_category,
-            "bankruptcy_minus100": bool(m.delisted and m.is_bankruptcy),
+            # ★ 保留老列名(别处在用),但语义已改成「技术确认归零」
+            "bankruptcy_minus100": bool(m.delisted and settle_px == 0.0),
+            # ★ 新增三列:结算口径 / 结算价 / 是不是「证据拿不到只能用最后收盘价」
+            "settlement_basis": (st.basis if st else ""),
+            "settlement_price": (float(settle_px) if settle_px is not None else None),
+            "settlement_fallback_last_close": bool(m.delisted and settle_px is None),
             "size_group": m.size_group, "sector": m.sector, "origin": m.origin,
         })
 
@@ -100,12 +112,18 @@ def build(verbose: bool = True) -> dict[str, pd.DataFrame]:
         print(f"  {PANEL_PARQUET}")
         print(f"  可用代码 {len(ok)} 只 × {len(cal)} 个交易日")
         print(f"  拆股已修(最底层做一次):"
-              f"{[f'{e.symbol} {e.date}' for e in split_gate.FIX_EVENTS]}")
-        print(f"  因判不准剔除:{sorted(split_gate.EXCLUDED_SYMBOLS)}")
-        print(f"  ★ 补了 0 价 bar(强制 −100%)的破产类 {len(zb)} 只:")
+              f"{[f'{e.symbol} {e.date} ×{e.ratio:g}' for e in split_gate.FIX_EVENTS]}")
+        print(f"  ★ 序列已切断(断裂无证据,不编系数):"
+              f"{[f'{e.symbol} {e.date} keep={e.keep}' for e in split_gate.CUT_EVENTS]}")
+        print(f"  因判不准剔除:{sorted(split_gate.EXCLUDED_SYMBOLS) or '无(AMRS / PRTY 已归队)'}")
+        print(f"  ★ 补了结算价 bar 的退市股 {len(zb)} 只:")
         for s, row in zb.iterrows():
             print(f"      {s:6s} 末根 {pd.Timestamp(row['last_bar']).date()} "
-                  f"→ 0 价 bar {pd.Timestamp(row['zero_bar']).date()}")
+                  f"→ 结算 bar {pd.Timestamp(row['zero_bar']).date()} "
+                  f"@ {row['settlement_price']:g} ({row['settlement_basis']})")
+        fb = ok[ok.get("settlement_fallback_last_close", False) == True]  # noqa: E712
+        print(f"  ★ 证据拿不到、只能用最后收盘价的退市股 {len(fb)} 只(★ 不许当 0):"
+              f"{list(fb.index)}")
         skipped = meta_df[meta_df["status"] != "ok"]
         if len(skipped):
             print(f"  跳过 {len(skipped)} 只:{list(skipped.index)}")

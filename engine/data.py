@@ -140,7 +140,18 @@ def cohort_report() -> str:
 # ---------------------------------------------------------------- 日线
 
 def _apply_split_fix(df: pd.DataFrame, symbol: str) -> pd.DataFrame:
-    """把未记录的拆股修回去:事件日之前的全部价格乘上 ratio,接成连续序列。"""
+    """
+    ★ 两步(2026-10-29 按技术方核实结果重写,见 engine/split_gate.py 顶上的说明):
+
+      ① ratio_fix  —— 技术方有 SEC 证据的拆股:把事件日之前的价格乘上 ratio,
+                      成交量除以 ratio,接成连续序列。
+      ② cut_series —— 数据里有断裂但技术方说「不是拆股 / 证据对不上」:
+                      ★ 不许自己编系数,在断裂处把序列切开,只留自洽的那一段。
+
+    ★ 为什么这里还要修:技术方在源头只加了 split_coefficient 标记字段,
+      ★ 价格一个数都没改,而引擎不读那个字段 —— 所以修正只发生在这里一次,
+      不存在双重修正。
+    """
     for ev in split_gate.events_for(symbol):
         ts = pd.Timestamp(ev.date)
         mask = df.index < ts
@@ -150,6 +161,10 @@ def _apply_split_fix(df: pd.DataFrame, symbol: str) -> pd.DataFrame:
             df.loc[mask, col] = df.loc[mask, col] * ev.ratio
         # 合股会把成交量按同比例缩小,这里反向还原,保持成交额口径一致
         df.loc[mask, "volume"] = df.loc[mask, "volume"] / ev.ratio
+
+    for ev in split_gate.cuts_for(symbol):
+        ts = pd.Timestamp(ev.date)
+        df = df[df.index >= ts] if ev.keep == "after" else df[df.index < ts]
     return df
 
 
@@ -194,16 +209,22 @@ def delisting_info(symbol: str) -> tuple[pd.Timestamp | None, bool]:
 
 def delisting_exit_price(symbol: str) -> float | None:
     """
-    退市结算价。
-    ★ 破产类:强制 0.0(等价于 −100%),不许用最后一天收盘价
-      —— Shumway (1997, JF) The Delisting Bias in CRSP Data。
-    其余(并购/自愿清算等):用最后一天收盘价。
+    退市结算价。★ 2026-10-29 改为以技术方核实的 delisting_settlement_price 为准。
+
+    ★ 大白话:退市那天我们手上的仓位按多少钱平掉。三种:
+      ① 技术方查到固定全现金并购价(9 只)→ 按那个价
+      ② 技术方确认普通股归零(7 只)→ 0.0,真 −100%
+      ③ ★ 技术方说证据拿不到(14 只,null)→ ★ 用最后收盘价,★ 不许当成 0
+         (技术方原话:「null 表示证据无法确定,不等于 0」)
+    细节和逐只差异见 engine/delisting_gate.py。
     """
-    last, forced = delisting_info(symbol)
+    from . import delisting_gate
+    last, _ = delisting_info(symbol)
     if last is None:
         return None
-    if forced:
-        return 0.0
+    forced = delisting_gate.forced_price(symbol)
+    if forced is not None:
+        return float(forced)
     return float(load_daily(symbol)["close"].iloc[-1])
 
 

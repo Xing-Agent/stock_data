@@ -282,33 +282,62 @@ def test_bankruptcy_minus_100() -> bool:
 
 def test_split_gate() -> bool:
     """
-    已修的 6 根拆股,位置上不该再有 5 倍以上的假跳变。
-    判不准的 2 只(AMRS / PRTY)必须已经不在池子里。
+    ★ 2026-10-29 重写:★ 对原来那 8 条候选的日期★ 逐个断言,一条都不许漏。
+      断言内容按处理方式分三种(见 engine/split_gate.self_check 的说明):
+        ratio_fix  → 修正后跳变必须落在 [0.5, 2.0]
+        cut_series → 那一天必须切不出跨断裂的收益
+        no_action  → 必须和源头原始跳变逐位一致(证明我们真没动它)
+      另外断言:★ 一只票都不许因为「判不准」被剔除(AMRS / PRTY 必须在池子里)。
     """
+    ok, text = split_gate.self_check(verbose=False)
+    return _check("⑥ 拆股闸:8 条候选逐日断言 + AMRS / PRTY 已归队", ok, text)
+
+
+def test_delisting_gate() -> bool:
+    """
+    ★ 2026-10-29 新增:退市结算价必须以技术方核实的证据为准,★ 而且:
+      ① 技术确认归零的 7 只 → 缓存里必须有一根 0 价 bar
+      ② 固定全现金并购价的 9 只 → 缓存里必须有一根等于那个价的 bar
+      ③ ★★ 证据拿不到的 14 只(null)→ ★ 绝对不许出现 0 价 bar
+         (技术方原话:「null 表示证据无法确定,不等于 0」)
+    """
+    from . import delisting_gate
     c = cache.load()["close"]
+    meta = cache.panel_meta()
     lines, ok = [], True
-    for e in split_gate.FIX_EVENTS:
-        if e.symbol not in c.columns:
-            lines.append(f"{e.symbol} 不在池子里,跳过")
+
+    for basis, want in (("verified_zero", 0.0), ("verified_cash", None)):
+        for sym in delisting_gate.by_basis(basis):
+            if sym not in meta.index or meta.loc[sym, "status"] != "ok":
+                continue
+            zb = meta.loc[sym, "zero_bar"]
+            st = delisting_gate.settlement_for(sym)
+            good = pd.notna(zb) and abs(float(c[sym].loc[pd.Timestamp(zb)])
+                                        - float(st.price)) < 1e-9
+            ok &= good
+            lines.append(f"  {sym:5s} {basis:14s} 结算 bar @ "
+                         f"{float(c[sym].loc[pd.Timestamp(zb)]) if pd.notna(zb) else '无'}"
+                         f"(应为 {st.price:g}) {'✅' if good else '★ 不对'}")
+
+    nulls = delisting_gate.by_basis("null_evidence")
+    bad = []
+    for sym in nulls:
+        if sym not in meta.index or meta.loc[sym, "status"] != "ok":
             continue
-        s = c[e.symbol].dropna()
-        ts = pd.Timestamp(e.date)
-        if ts not in s.index:
-            lines.append(f"{e.symbol} {e.date} 不是交易日,跳过")
-            continue
-        i = s.index.get_loc(ts)
-        if i == 0:
-            continue
-        jump = s.iloc[i] / s.iloc[i - 1]
-        good = 0.5 <= jump <= 2.0
-        ok &= good
-        lines.append(f"{e.symbol} {e.date} {e.label}: 修正后跳变 {jump:.3f}x "
-                     f"{'OK' if good else '★ 还有假跳变'}")
-    excluded_gone = not (split_gate.EXCLUDED_SYMBOLS & set(c.columns))
-    ok &= excluded_gone
-    lines.append(f"判不准而剔除的 {sorted(split_gate.EXCLUDED_SYMBOLS)} "
-                 f"{'已不在池子里' if excluded_gone else '★ 还在池子里'}")
-    return _check("⑥ 拆股闸:6 根已修、2 根已剔除", ok, "\n".join(lines))
+        s = c[sym].dropna()
+        if pd.notna(meta.loc[sym, "zero_bar"]) or (len(s) and float(s.iloc[-1]) == 0.0):
+            bad.append(sym)
+    ok &= not bad
+    lines.append(f"  ★ 证据拿不到的 {len(nulls)} 只:{nulls}")
+    lines.append(f"  ★ 其中被错当成 0 的:{bad or '无'} "
+                 f"{'✅ 一只都没有(null ≠ 0 已落地)' if not bad else '★ null 被当成 0 了!'}")
+
+    d = delisting_gate.diff_vs_old_bankruptcy_rule()
+    lines.append(f"  ★ 和老口径「破产类一律 −100%」的差异:我们原来多记 0 的 "
+                 f"{d['★老口径记0但技术说证据拿不到(改为最后收盘价)']},"
+                 f"漏记 0 的 {d['★技术说归零但老口径没记0(改为记0)'] or '无'}")
+    return _check("⑦ 退市结算闸:归零 7 / 现金价 9 / ★ null 14 只不许当 0",
+                  ok, "\n".join(lines))
 
 
 # =========================================================== ⑦ 基本面三坑
@@ -388,7 +417,7 @@ def test_fundamental_pit() -> bool:
     lines.append(f"坑③ ★ 如果按季度直接相加(错法):中位放大 {med:.2f} 倍 —— "
                  f"★ 和审计报告说的「约 2.5 倍」一致,而且★ 不会报错")
     ok &= med > 1.5
-    return _check("⑦ 基本面三坑:PIT 生效时点 / 股数单位闸 / 现金流 YTD 差分",
+    return _check("⑧ 基本面三坑:PIT 生效时点 / 股数单位闸 / 现金流 YTD 差分",
                   ok, "\n".join(lines))
 
 
@@ -399,17 +428,21 @@ def main() -> int:
     print("XING 引擎自检")
     print("  必过三项:① 判据在纯随机上不显著  ② 吊灯止损铁律  ③ 买入持有对数")
     print("  连通性三项:④ 两窗口两池子硬关  ⑤ 退市 −100%  ⑥ 拆股闸")
-    print("  ★ 基本面一项:⑦ PIT 生效时点 / 股数单位闸 / 现金流 YTD 差分")
+    print("  ★ 1029 新增:⑦ 退市结算闸(null ≠ 0)")
+    print("  ★ 基本面一项:⑧ PIT 生效时点 / 股数单位闸 / 现金流 YTD 差分")
     print("=" * 78)
     print(data.cohort_report())
     print()
     print(split_gate.summary())
     print()
+    from . import delisting_gate
+    print(delisting_gate.report())
+    print()
 
     for fn in (test_gate_on_pure_noise, test_chandelier_never_above_close,
                test_buy_and_hold_matches_hand_calc, test_window_pool_runs,
                test_bankruptcy_minus_100, test_split_gate,
-               test_fundamental_pit):
+               test_delisting_gate, test_fundamental_pit):
         try:
             fn()
         except Exception as e:
