@@ -340,6 +340,56 @@ def q5_spring_triage(syms: list[str]) -> dict:
     }
 
 
+def q5b_spring_one_factor(syms: list[str]) -> dict:
+    """
+    ★ ⑤ 的交叉检查:三号分流的分界里混了两个因子(下刺深度 + 量比)。
+    这里把两个因子**分开**看,免得把「量大」的效应说成「刺得深」的效应。
+    """
+    tri = pat6_ops.spring_triage(
+        syms, lookback=20, min_age=4, atr_period=14, vol_slow=50,
+        micro_pen_pct=0.02, micro_vol_ratio=0.65,
+        terminal_pen_pct=0.02, terminal_vol_ratio=1.5)
+    close = cache.field("close", syms)
+    ca = close.to_numpy(float)
+    cols = {s: i for i, s in enumerate(close.columns)}
+    idx = close.index
+    pm = _perf_mask(idx)
+    tri = tri[tri["row"].map(lambda r: bool(pm[r]))].copy()
+    v = []
+    for _, r in tri.iterrows():
+        i, j = int(r["row"]), cols[r["symbol"]]
+        k = i + 60
+        v.append(ca[k, j] / ca[i, j] - 1.0 if k < len(idx) else np.nan)
+    tri["fwd60"] = v
+
+    def _by(col, edges, names):
+        rows = []
+        for (lo, hi), nm in zip(edges, names):
+            g = tri[(tri[col] >= lo) & (tri[col] < hi)]
+            a = g["fwd60"].dropna().to_numpy(float)
+            rows.append({"档": nm, "个数": int(len(g)),
+                         "60日均值": round(float(a.mean()), 5) if a.size else None,
+                         "60日中位": round(float(np.median(a)), 5) if a.size else None,
+                         "60日上涨比例": round(float((a > 0).mean()), 4) if a.size else None})
+        return rows
+
+    return {
+        "题目": "⑤ 的交叉检查:把「下刺深度」和「量比」两个因子分开看",
+        "为什么要做": "★ ⑤ 里 #1 终极洗盘的中位跌破幅度只有 1.28%,量比中位 1.84 —— "
+                      "说明 #1 这一档其实主要是**被量比挑出来的**,不是被深度挑出来的。"
+                      "不分开看,就会把「量大」的效应误报成「刺得深」的效应。",
+        "按下刺深度分档_pen_pct": _by(
+            "pen_pct", [(0, 0.005), (0.005, 0.01), (0.01, 0.02), (0.02, 0.05),
+                        (0.05, 1e9)],
+            ["<0.5%", "0.5~1%", "1~2%", "2~5%", "≥5%"]),
+        "按量比分档_vol_ratio": _by(
+            "vol_ratio", [(0, 0.5), (0.5, 0.65), (0.65, 1.0), (1.0, 1.5),
+                          (1.5, 1e9)],
+            ["<0.50", "0.50~0.65", "0.65~1.00", "1.00~1.50", "≥1.50"]),
+        "怎么读": "哪一个因子的分档之间差得更开,后续表现就主要由它决定。",
+    }
+
+
 # ===========================================================================
 # ⑥ 技-4:枢纽点 +$0.10 占股价的比例分布
 # ===========================================================================
@@ -412,6 +462,7 @@ def main() -> int:
                      ("③技-5_缩量三端", q3_vcp_dryup_ends),
                      ("④技-14_走带实测", q4_walking_the_bands),
                      ("⑤技-11_Spring分流", q5_spring_triage),
+                     ("⑤b技-11_Spring单因子交叉检查", q5b_spring_one_factor),
                      ("⑥技-4_枢纽点10美分", q6_pivot_ten_cents)):
         t = time.time()
         print(f"\n跑 {name} ...")
