@@ -79,6 +79,51 @@ def _dist(a, qs=(1, 5, 10, 25, 50, 75, 90, 95, 99)) -> dict:
 # 第二件 ① · 连续穿轨天数的游程分布
 # ===========================================================================
 
+def _runs_on_index(period: int = 20, k: float = 2.0) -> dict:
+    """
+    ★ 交叉检查:同一个游程口径,在**指数(SPY)**上再算一遍。
+
+    ★ 为什么要加这一道:专家给的 78%/16%/<2.5% 更像是在【指数】上统计出来的
+      —— 指数的波动被成分股之间的分散性削平,个股的厚尾会被抹掉。
+      ★ 如果 SPY 上对得上、300 只个股上对不上,那差别就在「个股 vs 指数」,
+      ★ 而不是「他对我们错」。这一道是为了不把口径差异说成结论差异。
+    """
+    spy = data.load_benchmark("SPY")
+    c = spy["close"].astype(float)
+    mid = c.rolling(period, min_periods=period).mean()
+    sd = c.rolling(period, min_periods=period).std(ddof=0)
+    below = (c < (mid - k * sd)).fillna(False).to_numpy(bool)
+    pm = np.asarray((c.index >= pd.Timestamp(data.PERF_START))
+                    & (c.index <= pd.Timestamp(data.PERF_END)))
+    runs, i, T = [], 0, len(below)
+    while i < T:
+        if below[i]:
+            s = i
+            while i < T and below[i]:
+                i += 1
+            if pm[s]:
+                runs.append(i - s)
+        else:
+            i += 1
+    lens = np.asarray(runs, dtype=int)
+    tot = int(lens.size)
+    out = {"标的": "SPY", "游程总数": tot}
+    for key, pred in (("k=1", 0.78), ("k=2", 0.16), ("k≥4", 0.025)):
+        got = (float((lens == 1).mean()) if key == "k=1" else
+               float((lens == 2).mean()) if key == "k=2" else
+               float((lens >= 4).mean())) if tot else None
+        out[key] = {"专家预测": pred,
+                    "SPY实测": round(got, 4) if got is not None else None,
+                    "★对上了吗": (None if got is None else
+                                  ("对上了" if abs(got - pred) <= 0.05
+                                   else "★★ 没对上"))}
+    out["最长游程天数"] = int(lens.max()) if tot else 0
+    out["★注"] = ("★ SPY 的游程样本只有几十条,★ 本身就是高方差的 —— "
+                  "这一道只用来判断「差别是不是口径(个股 vs 指数)造成的」,"
+                  "★ 不用来下结论。")
+    return out
+
+
 def q_run_length(syms: list[str], period: int = 20, k: float = 2.0) -> dict:
     _, _, lo, _, _ = pat6_ops.bollinger(period, k, syms)
     close = cache.field("close", syms)
@@ -137,6 +182,7 @@ def q_run_length(syms: list[str], period: int = 20, k: float = 2.0) -> dict:
         "恒定输出体检": ("★★ 报警:某一个 k 值占比 >95%,这个分布几乎不产生区分"
                          if mx > CONSTANT_ALARM else
                          f"过(最大单值占比 {mx:.1%} ≤ {CONSTANT_ALARM:.0%})"),
+        "★★ 指数口径交叉检查(SPY)": _runs_on_index(period, k),
         "怎么读": "★ 对上 → 它的框架成立,我们之前量的「单点触轨反转概率」确实量错了;"
                   "★ 对不上 → 必须说明差在哪,不许往它的方向解释。",
     }
@@ -187,7 +233,7 @@ def q_tail_risk(syms: list[str], period: int = 20, k: float = 2.0,
         """
         rows_mae = {20: [], 60: []}
         rows_mae_walk = []
-        gap20, gap60, fwd20 = [], [], []
+        gap20, gap60, fwd20, rows_touch = [], [], [], []
         used = 0
         for j, s, L in episodes:
             if not sel_len(L):
@@ -206,9 +252,18 @@ def q_tail_risk(syms: list[str], period: int = 20, k: float = 2.0,
                 seg = seg[np.isfinite(seg)]
                 if seg.size:
                     rows_mae[H].append(seg.min() / px - 1.0)
+                # ★ 跳空穿透的口径和引擎一致:★ 只看【第一次】止损被触及那天 ——
+                #   那天 Open < 止损 = 开盘就跳到止损下方,挂的止损单成交不到止损价。
+                #   ★ 不许用「窗口内任意一天 Open < 止损」:单子在第一次触及
+                #     就已经被打掉了,后面的开盘价和这笔单子无关。
+                lw = la[e:hi, j]
                 op = oa[e:hi, j]
-                g = bool(np.nanmin(op) < stop) if np.isfinite(op).any() else False
+                touch = np.flatnonzero(np.isfinite(lw) & (lw <= stop))
+                g = bool(touch.size and np.isfinite(op[touch[0]])
+                         and op[touch[0]] < stop)
                 (gap20 if H == 20 else gap60).append(g)
+                if H == 20:
+                    rows_touch.append(bool(touch.size))
             # 走带结束为止(游程剩余 + 之后 1 天)
             hi = min(T, s + L + 1)
             seg = la[e:hi, j]
@@ -224,9 +279,14 @@ def q_tail_risk(syms: list[str], period: int = 20, k: float = 2.0,
             "★MAE_未来20日": _dist(rows_mae[20], qs=(1, 5, 25, 50, 75, 95, 99)),
             "★MAE_未来60日": _dist(rows_mae[60], qs=(1, 5, 25, 50, 75, 95, 99)),
             "MAE_到走带结束为止": _dist(rows_mae_walk, qs=(1, 5, 25, 50, 75, 95, 99)),
-            "★跳空穿透止损比例_20日窗口":
+            "止损被触及的比例_20日窗口":
+                round(float(np.mean(rows_touch)), 4) if rows_touch else None,
+            "★跳空穿透止损比例_20日窗口_占全部笔子":
                 round(float(np.mean(gap20)), 4) if gap20 else None,
-            "跳空穿透止损比例_60日窗口":
+            "★跳空穿透止损比例_20日窗口_占【被止损的】笔子":
+                (round(float(np.sum(gap20)) / float(np.sum(rows_touch)), 4)
+                 if np.sum(rows_touch) else None),
+            "跳空穿透止损比例_60日窗口_占全部笔子":
                 round(float(np.mean(gap60)), 4) if gap60 else None,
             "进场后20日收益": _dist(fwd20, qs=(1, 5, 25, 50, 75, 95, 99)),
         }
