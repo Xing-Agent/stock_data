@@ -388,6 +388,31 @@ def _universe_rule_mask(rule: dict, syms: list[str], index: pd.DatetimeIndex
         hi = float(p.get("max_score", 9))
         return _as_bool(fs.notna() & (fs >= lo) & (fs <= hi))
 
+    # ------------------------------------------------------------------
+    # ★★ 1029 第二轮裁决新增 —— 实现在 engine/ops_1029.py,老算子一个没动
+    # ------------------------------------------------------------------
+    if t == "piotroski_f_score_three_layer":
+        # ★ F-Score 三层修补:行业豁免 / 容差缩放 / 严重缺失降级
+        from . import ops_1029
+        gate, _, stat = ops_1029.f_score_three_layer(
+            syms,
+            min_score=float(p.get("min_score", 5)),
+            min_valid_items=int(p.get("min_valid_items", 7)),
+            z2_threshold=float(p.get("z2_fallback_threshold", 1.80)))
+        _DISABLED_LOG.append("★ F-Score 三层修补分流统计:" + repr(stat))
+        return _as_bool(gate.reindex(index=index, columns=syms))
+
+    if t == "altman_z_double_prime_exclude_bottom":
+        # ★ 剔除池内 Z'' 最低的 N%。★ 注意一个事实:这是**分位**闸门,所以
+        #   Altman 系数版本(1983 无常数 vs 1995 的 +3.25)在这一条上
+        #   **完全不影响结果** —— 加一个常数是所有票同时平移,横截面排序一字不变。
+        #   ★ 这正是「系数版本三轮未答」在这一条上不卡的原因,必须写进报告。
+        from . import ops_1029          # noqa: F401  (注册派生指标)
+        z = fundamentals.get("altman_z2", syms)
+        pct = z.rank(axis=1, pct=True)
+        bot = float(p.get("exclude_bottom_pct", 10)) / 100.0
+        return _as_bool(z.notna() & (pct > bot))
+
     if t == "momentum_dual_gate":
         # 若干子条件按 logic 组合(专家第二轮明确为 AND)
         logic = str(rule.get("logic", "AND")).upper()
@@ -773,10 +798,22 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
         vmin5 = v.rolling(look, min_periods=look).min().shift(1)
         g1 = _as_bool(vmin5 <= float(p.get("dryup_day_ratio", 0.60)) * sma_s1)
 
-        # 门禁2 突破日点火:Volume[t] ≥ 1.00 × SMA50_Volume[t−1]
-        #   ★ 只有下界,没有上界(1.80 上限已按裁决物理删除)
-        g2 = _as_bool(v >= float(p.get("breakout_vs_slow", 1.00)) * sma_s1)
-
+        # ==================================================================
+        # ★★★ 2026-10-29 **第二轮**裁决:门禁2 彻底废除。
+        #   breakout_vs_slow 写成 null(或整个不写)→ ★ 突破日无任何成交量条件。
+        #   ★ 专家给的机制:门禁1 考核供给端枯竭(浮动筹码已离场、盘子锁死),
+        #     门禁2 考核需求端暴动(当天就得放量)。两者冲突 ——
+        #     ★ 筹码深度沉淀之后卖盘极度匮乏,主力只要很弱的买盘就能拉穿阻力位,
+        #       很多高质量爆发**不在突破第一天放量**,是第二三天追风资金才进来。
+        #   ★ 出处 Minervini (2013, Ch.10)「Contraction precedes expansion」。
+        #   ★ 这里保留「写了数就照跑」的能力,★ 但不是开关默认开着:
+        #     默认值是 None = 废除。要跑回带门禁2 的旧版必须在配置里显式写数,
+        #     于是任何一版的口径都看得见,不会悄悄回到旧行为。
+        # ==================================================================
+        bvs = p.get("breakout_vs_slow", None)
+        if bvs is None:
+            return g1
+        g2 = _as_bool(v >= float(bvs) * sma_s1)
         return g1 & g2
 
     if t == "sigma_squeeze":
@@ -799,6 +836,105 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
         # ★ 第①关:几何收缩选拔门禁(状态机,见本文件上方说明)
         gate, _ = vcp_matrices(p, symbols)
         return _as_bool(gate)
+
+    # ==================================================================
+    # ★★ 1029 第二轮裁决新增的进场算子 —— 全部实现在 engine/ops_1029.py
+    # ==================================================================
+    if t == "swing_low_exists":
+        # ★★ 流派三的摆动波谷 = Connors 滚动 20 日绝对低点 + ★ 4 天存活门禁。
+        #   ★ 彻底不再复用流派二那个 5 根 Bar 的 2-1-2 分型 ——
+        #     专家理由:2-1-2 每隔 3~5 天就造一个微观波谷,那种地方
+        #     根本没有大规模止损盘;猎杀的必须是全市场公认的关键结构防线。
+        #   ★ 出处已核实:Connors & Raschke《Street Smarts》(1995) Ch.4
+        #     Turtle Soup, Rule 2 —— "The previous 20-day low must have
+        #     occurred at least four trading sessions earlier."
+        from . import ops_1029
+        return ops_1029.age_gate(
+            symbols, int(p.get("lookback", 20)),
+            int(p.get("min_bars_before", ops_1029.CONNORS_MIN_AGE)))
+
+    if t == "intraday_break_below_swing_low":
+        from . import ops_1029
+        return ops_1029.break_below_swing_low(
+            symbols, int(p.get("min_new_low_days", p.get("lookback", 20))))
+
+    if t == "close_reclaim_above_swing_low":
+        # 「强力收复」两条 AND:绝对缓冲垫 0.15×ATR14 + BCL ≥ 0.65
+        from . import ops_1029
+        comps = {c.get("name"): (c.get("params") or {})
+                 for c in (rule.get("components") or [])}
+        pa = next((v for k, v in comps.items() if "缓冲垫" in str(k)), {})
+        pb = next((v for k, v in comps.items() if "BCL" in str(k)), {})
+        return ops_1029.close_reclaim(
+            symbols, int(p.get("lookback", 20)),
+            int(pa.get("atr_period", 14)), float(pa.get("atr_multiple", 0.15)),
+            float(pb.get("min_bcl", 0.65)))
+
+    if t == "bullish_candle":
+        from . import ops_1029
+        return ops_1029.bullish_candle(symbols)
+
+    # ==================================================================
+    # ★★ A0 十二条新增的进场算子 —— 全部实现在 engine/ops_a0.py
+    # ==================================================================
+    if t == "monthly_sma_above":
+        # 技-2 法伯:月末收盘 > 10 月线。months 来自原著(Faber 2007)。
+        from . import ops_a0
+        return ops_a0.monthly_sma_state(symbols, int(p.get("months", 10)))
+
+    if t == "turtle_soup":
+        # 技-10 海龟汤。★ require_close_confirm 必须由配置显式写出 ——
+        #   附录 D.8 说原著「可能不要求收盘确认」,我方卡片写的是要求。
+        #   这正是本次要跑两版的那一处,引擎不许给默认值。
+        from . import ops_a0
+        if p.get("require_close_confirm") is None:
+            raise NotImplementedError(
+                "技-10 turtle_soup 的 require_close_confirm 必须在配置里显式写 —— "
+                "附录 D.8 把这一处标为「待核实(来源存疑)」,两版结果不同,"
+                "★ 引擎不替它选一边。")
+        return ops_a0.turtle_soup_entry(
+            symbols,
+            lookback=int(p.get("lookback", 20)),
+            min_bars_before=int(p.get("min_bars_before", 4)),
+            require_close_confirm=bool(p["require_close_confirm"]))
+
+    if t == "htf_flag_breakout":
+        # 技-8 高紧旗形。runup_min / max_pullback 必须显式写(原著 ② 是区间)。
+        from . import ops_a0
+        return ops_a0.htf_flag_breakout(
+            symbols,
+            runup_min=ops_a0._need(p, "runup_min", "技-8 htf_flag_breakout"),
+            max_pullback=ops_a0._need(p, "max_pullback", "技-8 htf_flag_breakout"),
+            flag_min_bars=int(p.get("flag_min_bars", 3)),
+            flag_max_bars=int(p.get("flag_max_bars", 25)))
+
+    if t == "td_buy_setup":
+        from . import ops_a0
+        return ops_a0.td_buy_setup(symbols, int(p.get("count", 9)),
+                                   int(p.get("ref_lag", 4)))
+
+    if t == "td_buy_countdown":
+        from . import ops_a0
+        return ops_a0.td_buy_countdown(
+            symbols, int(p.get("setup_count", 9)), int(p.get("ref_lag", 4)),
+            int(p.get("countdown", 13)), int(p.get("cd_lag", 2)))
+
+    if t == "deep_value_two_stage":
+        # ★★ 流派一的双阶段状态机(第二轮裁决:原来那条「同一根 K 线既破底
+        #   又站上 EMA20」在深度价值股上几乎不可能,实测砍掉 98.3% 样本)。
+        #   ★ 这里只返回「进场事件」;T0 的止损锚另由 build() 存进
+        #     Matrices.t0_stop,由 ④ 的 t0_anchor_stop 读。
+        from . import ops_1029
+        ev, _, diag = ops_1029.deep_value_two_stage(
+            symbols,
+            lookback=int(p.get("lookback", 20)),
+            min_age=int(p.get("min_bars_before", ops_1029.CONNORS_MIN_AGE)),
+            ema_period=int(p.get("ema_period", 20)),
+            max_wait_days=int(p.get("max_wait_days", 10)),
+            atr_period=int(p.get("atr_period", 14)),
+            atr_multiple=float(p.get("stop_atr_multiple", 0.5)))
+        _DISABLED_LOG.append("★ 流派一双阶段状态机分流统计:" + repr(diag))
+        return _as_bool(ev)
 
     from .config_adapter import BLOCKED_REASONS
     why = BLOCKED_REASONS.get(t, "引擎还没实现这条规则")
@@ -883,6 +1019,14 @@ FUND_EXIT_METRICS = {
     "fcf_ttm": "fcf_ttm",
     "sloan_accrual": "sloan_accrual",
     "piotroski_f_score": "f_score",
+    # ★★ 1029 第二轮:三层修补版的「有效分」—— 第二层容差缩放后的 9 分制分数。
+    #   ★ 为什么离场要换成这个:闸门已经换成三层修补版了,如果离场还用老的
+    #     严格 F-Score,就会出现「按新口径买得进、按旧口径马上被清仓」的
+    #     口径打架。★ 行业豁免的票和有效项 < 7 的票这里是 NaN,
+    #     而 NaN **不触发清仓**(拿不到数据不该凭空卖掉持仓)——
+    #     ★ 代价是:金融股买进来之后,F-Score 这条主动离场对它们不生效,
+    #       必须写进报告。
+    "piotroski_f_score_scaled": "f_score_scaled",
 }
 
 
@@ -957,10 +1101,23 @@ def exit_signal_matrix(spec: dict, symbols: list[str]) -> pd.DataFrame:
             out |= _as_bool(close < sma_matrix(int(p["ma"]), symbols))
         elif t == "close_below_ema":
             out |= _as_bool(close < ema_matrix(int(p["ema"]), symbols))
+        elif t == "close_below_lowest_low":
+            # ★ A0：技-1 海龟反向通道退出（原著通道可往下跑，所以不用移动止损）
+            from . import ops_a0
+            out |= ops_a0.close_below_lowest_low(symbols, int(p["lookback"]))
+        elif t == "close_above_ma":
+            # ★ A0:技-12 康纳斯「回到 5 日均线之上就走」(原著写死的离场)
+            from . import ops_a0
+            out |= ops_a0.close_above_sma(symbols, int(p["ma"]))
+        elif t == "monthly_sma_below":
+            # ★ A0:技-2 法伯「月末收盘跌破 10 月线就清仓」—— 只在月末评估
+            from . import ops_a0
+            out |= ops_a0.monthly_sma_below(symbols, int(p.get("months", 10)))
         else:
             raise NotImplementedError(
                 f"离场规则 {t} 还没实现 —— ★ 没有悄悄忽略它。"
-                f"支持:close_below_ma / close_below_ema / close_below_trailing_stop")
+                f"支持:close_below_ma / close_below_ema / close_above_ma / "
+                f"monthly_sma_below / close_below_trailing_stop")
     return out
 
 
@@ -1062,6 +1219,14 @@ class Matrices:
     zero_bar: np.ndarray          # 破产类 0 价 bar 的行号;没有则 -1
     size_mult: np.ndarray = None  # type: ignore  # ★ 广度风险预算标尺,一维,每天一个乘数
     breadth_diag: dict = None     # type: ignore  # ★ 标尺失效天数等诊断
+    # ★★ 1029 新增:流派一双阶段状态机的「T0 绝对初始止损锚点」
+    #   Stop = Low[T0] − 0.5 × ATR14[T0]。进场日那一格放的就是这个价。
+    #   ★ 为什么必须单开一张表:进场日是第二阶段(T0+1..T0+10),而止损锚
+    #     定在第一阶段 T0 那一根 —— 用进场那根的最低价算会算出完全不同的止损。
+    t0_stop: np.ndarray = None    # type: ignore
+    # ★★ 1029 新增:⑤ 分级移动止损里 when.close_above_ma 要比的那条均线
+    #   (流派三的「站上 SMA20 后止损移到保本」)。没配就全是 NaN = 该级不生效。
+    stage_ma: np.ndarray = None   # type: ignore
     col: dict[str, int] = None    # type: ignore
 
     def __post_init__(self):
@@ -1070,6 +1235,10 @@ class Matrices:
             self.size_mult = np.ones(len(self.index), dtype=float)
         if self.breadth_diag is None:
             self.breadth_diag = {}
+        if self.t0_stop is None:
+            self.t0_stop = np.full((len(self.index), len(self.symbols)), np.nan)
+        if self.stage_ma is None:
+            self.stage_ma = np.full((len(self.index), len(self.symbols)), np.nan)
 
 
 def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
@@ -1104,6 +1273,32 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
             ema_n = int((st.get("params", {}) or {}).get("ema", 10))
     ema_t = (ema_matrix(ema_n, syms).to_numpy(dtype=float) if ema_n
              else np.full((len(idx), len(syms)), np.nan))
+
+    # ★★ 1029:⑤ 分级里 when.close_above_ma 用的均线(流派三的「站上 SMA20 保本」)
+    stage_ma_n = None
+    for st_ in ((cfg.get("trailing_stop") or {}).get("stages") or []):
+        w_ = (st_.get("when") or {})
+        if w_.get("close_above_ma") is not None:
+            stage_ma_n = int(w_["close_above_ma"])
+    stage_ma_m = (sma_matrix(stage_ma_n, syms).to_numpy(dtype=float) if stage_ma_n
+                  else np.full((len(idx), len(syms)), np.nan))
+
+    # ★★ 1029:流派一双阶段状态机的 T0 止损锚点。配置里写了这条进场规则才算。
+    t0_stop_m = np.full((len(idx), len(syms)), np.nan)
+    for r in ((cfg.get("entry") or {}).get("rules") or []):
+        if r.get("type") == "deep_value_two_stage" \
+                and r.get("enabled", True) is not False:
+            from . import ops_1029
+            pp = r.get("params", {}) or {}
+            _, st0, _ = ops_1029.deep_value_two_stage(
+                syms,
+                lookback=int(pp.get("lookback", 20)),
+                min_age=int(pp.get("min_bars_before", ops_1029.CONNORS_MIN_AGE)),
+                ema_period=int(pp.get("ema_period", 20)),
+                max_wait_days=int(pp.get("max_wait_days", 10)),
+                atr_period=int(pp.get("atr_period", 14)),
+                atr_multiple=float(pp.get("stop_atr_multiple", 0.5)))
+            t0_stop_m = st0.reindex(index=idx, columns=syms).to_numpy(dtype=float)
 
     # ---- ★★ 广度:两个口径,一个当开关(regime),一个当仓位标尺(sizing)
     reg_spec = cfg.get("regime") or {}
@@ -1171,6 +1366,8 @@ def build(cfg: dict, symbols: list[str] | None = None) -> Matrices:
         zero_bar=np.array(zb),
         size_mult=size_mult,
         breadth_diag=bdiag,
+        t0_stop=t0_stop_m,
+        stage_ma=stage_ma_m,
     )
 
 

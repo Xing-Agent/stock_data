@@ -235,6 +235,11 @@ _QCOLS = {
     "ca": ("CurrentAssets", "pt"),
     "cl": ("CurrentLiabilities", "pt"),
     "ltd": ("LongTermDebt", "pt"),
+    # ★ 1029 新增(Altman Z'' 四变量用)—— 只是多取四个科目,老指标一个没动
+    "re": ("RetainedEarningsAccumulatedDeficit", "pt"),
+    "eq": ("StockholdersEquity", "pt"),
+    "liab": ("Liabilities", "pt"),
+    "ebit": ("EBIT", "ttm"),
 }
 
 
@@ -304,6 +309,12 @@ def metric_quarterly(symbol: str, name: str) -> tuple[pd.Series, pd.Series]:
     vals, ef = quarter_frame(symbol)
     if vals.empty:
         return pd.Series(dtype=float), pd.Series(dtype="datetime64[ns]")
+
+    # ★ 1029 新增派生指标(Altman Z'' / F-Score 逐项有效性 / 容差缩放分)转发到
+    #   engine/ops_1029.py。★ 老指标的代码路径一个字没改。
+    from . import ops_1029
+    if name in ops_1029.METRICS:
+        return ops_1029.metric_quarterly(symbol, name, vals, ef)
 
     if name == "fcf_ttm":
         cap, cap_e = _capex(vals, ef)

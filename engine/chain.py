@@ -165,7 +165,8 @@ def _friction_bps(tier: int, tiers_cfg: dict, flat: float | None) -> float:
     return float(tiers_cfg.get(keys[tier], FRICTION_TIERS_DEFAULT[keys[tier]]))
 
 
-def _stage_hits(when: dict, r_now: float, held: int) -> bool:
+def _stage_hits(when: dict, r_now: float, held: int,
+                extra: dict | None = None) -> bool:
     """
     多级移动止损:判断当前是不是落在这一级的条件里。
     认得的条件:unrealized_r_gt / unrealized_r_lt / unrealized_r_between /
@@ -191,6 +192,20 @@ def _stage_hits(when: dict, r_now: float, held: int) -> bool:
                 return False
         elif k == "days_held_lte":
             if not held <= int(v):
+                return False
+        # ------------------------------------------------------------------
+        # ★★ 1029 第二轮新增两个条件 —— 为了让流派三的 ⑤ 能跑。
+        #   两条都是 A 类(口径本来就讲得清楚,只是引擎没写),★ 不是我们在填参数:
+        #   · close_above_ma: N   收盘价站上 N 日简单均线
+        #   · after_stage: 名字   前面那一级已经触发过了(分级有先后顺序)
+        # ★ 需要的数由主循环通过 extra 传进来;extra 没给 → 这一级不生效(返回
+        #   False),★ 不会悄悄放宽成 True。
+        # ------------------------------------------------------------------
+        elif k == "close_above_ma":
+            if extra is None or not extra.get("close_above_ma", False):
+                return False
+        elif k == "after_stage":
+            if extra is None or str(v) not in (extra.get("stages_done") or set()):
                 return False
         else:
             return False       # 不认识的条件 → 这一级不生效
@@ -248,6 +263,16 @@ def _one_stop(m: matrices.Matrices, j: int, i: int, entry_px: float,
     if kind == "chandelier":
         raw = m.chandelier[k, j]
         return float(min(raw, entry_px * 0.999)) if np.isfinite(raw) else float("nan")
+    if kind == "none":
+        # ★★ A0:「原著不设止损」的显式表达方式(技-2 法伯 / 技-12 康纳斯)。
+        #   止损价写 0.0 —— 只有价格归零(破产退市那根 0 价 bar)才会触发,
+        #   也就是说普通行情下永远不止损,★ 这正是原著的行为。
+        #   ★ 为什么不用「pct: 0.99」那种远止损顶替:那会让 1R = 99% 的进场价,
+        #     R 乘数(模-5)全部被稀释成假数字。写 0 的话 risk = 进场价,
+        #     R 退化成「收益率」,口径清楚、可解释。
+        #   ★ 代价必须写明:这条链的 R 不是「风险归一化」后的 R,
+        #     不能和有止损的链比每笔 R。
+        return 0.0
     if kind == "lowest_low":
         n = int(p.get("lookback", 20))
         lo = m.low[max(0, k - n + 1):k + 1, j]
@@ -264,6 +289,20 @@ def _one_stop(m: matrices.Matrices, j: int, i: int, entry_px: float,
         #   并且这种情况下配置必然没标 source,validate 那一关已经拦住了。
         mult = p.get("atr_multiple", p.get("multiple", 0.3))
         return float(lo.min()) - float(mult) * float(a)
+    if kind == "t0_anchor_stop":
+        # ★★ 1029:流派一双阶段状态机的「绝对初始止损锚点」
+        #   Stop = Low[T0] − 0.5 × ATR14[T0],T0 = 第一阶段触底排毒那一根。
+        #   ★ 值已在第一层算好存进 m.t0_stop(进场日那一格),这里只取出来。
+        #   ★ 为什么不能用 day_low_minus_atr 顶替:进场发生在第二阶段
+        #     (T0+1 .. T0+10),用进场那根的最低价算会得到完全不同的止损 ——
+        #     专家裁决写的是「记录当日最低价 Low[T0] 作为绝对初始止损锚点」。
+        v = m.t0_stop[k, j]
+        if not np.isfinite(v):
+            raise ValueError(
+                "④ t0_anchor_stop 在进场日取不到 T0 止损锚点 —— ★ 没有悄悄回退到"
+                "进场那根的最低价(那会算出完全不同的止损)。检查 ③ 是否写了"
+                "deep_value_two_stage,以及 matrices.build 是否把 t0_stop 填上了。")
+        return float(v)
     raise ValueError(f"不认识的初始止损 type={kind}")
 
 
@@ -292,6 +331,23 @@ def _initial_stop_spec(m: matrices.Matrices, j: int, i: int, entry_px: float,
         max_pct = float((hg.get("params", {}) or {}).get("max_pct", 100.0)) / 100.0
         if (entry_px - stop) / entry_px > max_pct:
             return float("nan")      # ★ 止损太远 → 拒掉这个信号,不是放大止损
+    # ★ 1029:顶层写法 max_stop_distance_pct + on_exceed 也认一下。
+    #   ★★ 诚实交代:我一开始以为这是一个「配置写了、引擎没执行」的失真 bug,
+    #     ★ 核下来**不是** —— config_adapter 第 320 行已经把顶层写法翻成
+    #     hard_gate 了,所以走正常加载路径的配置一直都在执行这道硬闸,
+    #     ★ 流派一历史结果**没有**受影响,不需要重跑校正。
+    #   ★ 这里留着只是兜底:直接把原始 dict 喂给执行器、不过适配层的时候
+    #     (测试、留一法里手搓的 dict)也不会漏掉这道闸。
+    #   ★ 两条路径阈值相同 → 重复判一次是幂等的,不改变任何结果。
+    flat = spec.get("max_stop_distance_pct")
+    if flat is not None:
+        oe = str(spec.get("on_exceed", "reject_entry"))
+        if oe != "reject_entry":
+            raise NotImplementedError(
+                f"④ max_stop_distance_pct 的 on_exceed={oe!r} 还没实现 —— "
+                f"★ 没有悄悄当成 reject_entry 处理。")
+        if (entry_px - stop) / entry_px > float(flat) / 100.0:
+            return float("nan")
     return stop
 
 
@@ -339,7 +395,14 @@ def run_chain(cfg: ChainConfig,
     trail_type = trail.get("type", "none")
     be_trigger = (trail.get("params", {}) or {}).get("breakeven_after_r")
     be_trigger = float(be_trigger) if be_trigger is not None else None
-    stages = trail.get("stages") or []
+    # ★★ 1029 修一处「反向的悄悄忽略」:执行器以前不看分级上的 enabled: false,
+    #   config_adapter 看(_off),于是会出现「适配层说这一级已显式关掉、
+    #   执行器照样在跑」的不一致 —— 方向上比漏执行更坏:报告里写着关掉了,
+    #   实际它还在干活。★ 现在两边口径一致。
+    stages = [s for s in (trail.get("stages") or [])
+              if not (isinstance(s, dict) and s.get("enabled") is False)]
+    _stages_off = [s.get("name") for s in (trail.get("stages") or [])
+                   if isinstance(s, dict) and s.get("enabled") is False]
 
     exp_ = (cfg.get("exit") or {}).get("params", {}) or {}
     target_r = exp_.get("profit_target_r")
@@ -496,10 +559,24 @@ def run_chain(cfg: ChainConfig,
                 #   → EMA10 跟踪(>3R),取第一个的话浮盈 5R 时会停在「保本」那级,
                 #   EMA10 跟踪永远不会启动 —— 配置里写了的东西没被执行。
                 held = i - p["entry_i"]
+                # ★★ 1029:给 _stage_hits 补两个它自己算不出来的条件
+                #   (close_above_ma 要价格和均线,after_stage 要持仓的历史状态)
+                ma_ok = False
+                if np.isfinite(m.stage_ma[i, j]):
+                    ma_ok = bool(cl > m.stage_ma[i, j])
+                extra = {"close_above_ma": ma_ok,
+                         "stages_done": p.setdefault("stages_done", set())}
                 st = None
                 for cand in stages:
-                    if _stage_hits(cand.get("when") or {}, r_now, held):
+                    if _stage_hits(cand.get("when") or {}, r_now, held, extra):
                         st = cand
+                        # ★ 记下「这一级触发过」,给 after_stage 用。
+                        #   ★ 注意顺序:先记录再执行,所以同一天后面那一级
+                        #     就能看到前一级已经触发 —— 这正是「保本 → 前低跟踪」
+                        #     要的语义(站上 MA20 的那天起就可以开始跟踪)。
+                        nm = cand.get("name")
+                        if nm:
+                            extra["stages_done"].add(str(nm))
                 if st is not None:
                     act = st.get("action")
                     if act == "hold_initial_stop":

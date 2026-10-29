@@ -46,6 +46,13 @@ IMPLEMENTED = {
         "fcf_yield_rank_top",         # FCF Yield 池内横截面前 N%
         "sloan_accrual_below",        # Hribar & Collins (2002) 现金流量表法应计项
         "piotroski_f_score_above",    # Piotroski 9 项(★ 9 项全齐才算,否则判不合格)
+        # ★★ 1029 第二轮裁决新实现(engine/ops_1029.py):
+        #   F-Score 三层修补(行业豁免 / 容差缩放 / 严重缺失降级)
+        "piotroski_f_score_three_layer",
+        #   Altman Z'' 池内分位闸门。★ 注意:分位闸门对 Altman 的系数版本
+        #   **不敏感** —— 加常数是所有票同时平移,横截面排序一字不变,
+        #   所以「系数版本三轮未答」在这一条上不卡。
+        "altman_z_double_prime_exclude_bottom",
     },
     "regime": {
         "none", "index_above_ma", "index_above_ma_scaled", "index_ma_slope",
@@ -70,9 +77,26 @@ IMPLEMENTED = {
         "undercut_and_rally", "close_above_ema",
         # ★ 进场里的曼斯菲尔德 RS:★ 只有 against: SPY 能跑(SECTOR 非 PIT)
         "mansfield_rs_positive",
+        # ★★ 1029 第二轮裁决新实现(engine/ops_1029.py):
+        #   流派三:摆动波谷 = Connors 滚动 20 日绝对低点 + ★ 4 天存活门禁
+        #   (出处已核实:Street Smarts 1995 Ch.4 Turtle Soup, Rule 2)
+        "swing_low_exists", "intraday_break_below_swing_low",
+        "close_reclaim_above_swing_low", "bullish_candle",
+        #   流派一:双阶段状态机(触底排毒 T0 → 10 日内均线收复)
+        "deep_value_two_stage",
+        # ★★ 1029 A0 十二条新增（engine/ops_a0.py）
+        "monthly_sma_above",      # 技-2 法伯 10 月线
+        "turtle_soup",            # 技-10 海龟汤（两版；收盘确认必须显式写）
+        "htf_flag_breakout",      # 技-8 高紧旗形（runup_min / max_pullback 必须显式写）
+        "td_buy_setup",           # 技-13 TD Buy Setup 9
+        "td_buy_countdown",       # 技-13 TD Buy Countdown 13
     },
     "exit": {
         "close_below_ma", "close_below_ema", "close_below_trailing_stop",
+        # ★★ 1029 A0 新增
+        "close_below_lowest_low",  # 技-1 海龟反向通道退出
+        "close_above_ma",         # 技-12 康纳斯：回到 5 日均线之上就走
+        "monthly_sma_below",      # 技-2 法伯：月末跌破 10 月线清仓
         "rules", "signal_only",     # 适配层自己塞的标记,不是规则
         # ★ 1029 新实现:基本面季度否决 / 季度再平衡(PIT 生效日触发)
         "fundamental_quarterly_reject", "fundamental_quarterly_rebalance",
@@ -81,6 +105,12 @@ IMPLEMENTED = {
     "initial_stop": {
         "atr_multiple", "pct", "chandelier", "lowest_low", "tightest_of",
         "structure_low_minus_atr", "day_low_minus_atr",
+        # ★★ 1029:流派一双阶段状态机的 T0 绝对初始止损锚点
+        #   Stop = Low[T0] − 0.5 × ATR14[T0](T0 = 第一阶段那根,不是进场那根)
+        "t0_anchor_stop",
+        # ★★ 1029 A0：「原著不设止损」的显式写法（技-2 法伯 / 技-12 康纳斯）
+        #   止损价 = 0.0，只有破产退市那根 0 价 bar 才触发
+        "none",
     },
     "trailing_stop": {"chandelier", "none", "staged", "ema_trail",
                       # ★ 1029 新实现:Stop_t = max(Stop_{t−1}, LowestLow_N)
@@ -104,12 +134,23 @@ BLOCKED_REASONS = {
     #   matrices.py VCP 那一段的注释里,报告里也列为待确认项。
     "rotate_out": "⑤「滞涨换血」的触发条件 candidate_pool_has_new_high_signal 没定义"
                   "(新高是几日新高?动量怎么比?)—— 不能猜,见审计 §2-C",
-    "swing_low_exists": "swing_definition / min_bars_before 是 null —— 摆动低点的定义没定",
-    "intraday_break_below_swing_low": "依赖 swing_low_exists 的定义,同上",
-    "close_reclaim_above_swing_low": "strength_metric / min_reclaim 是 null —— 收复强度没定",
+    # ★★ 2026-10-29 第二轮裁决:下面这三条**已解封**,定义到位、4 天规则到位:
+    #   摆动波谷 = Connors 滚动 20 日绝对低点 min(Low[t−20..t−1]);
+    #   Age_Gate = t − t_low ≥ 4 个交易日
+    #   ★ 出处已亲自核实原文:Connors & Raschke《Street Smarts》(1995)
+    #     Ch.4 "Turtle Soup", Rule 2 —— "The previous 20-day low must have
+    #     occurred at least four trading sessions earlier. This is very important."
+    #   ★ 明确不复用流派二那个 5 根 Bar 的 2-1-2 分型(专家理由:2-1-2 每 3~5 天
+    #     就造一个微观波谷,那里根本没有大规模止损盘)。实现在 engine/ops_1029.py。
     "credit_spread_weekly_change_below": "series 是 null,且仓库里没有信用利差数据 —— 拿不到",
-    "altman_z_double_prime_exclude_bottom":
-        "Altman Z'' 需要的几个科目,仓库基本面里不是每只票每期都齐 —— 算不全就不算",
+    # ★★ 2026-10-29:altman_z_double_prime_exclude_bottom **已解封**。
+    #   科目齐备率确实不高(实测绩效窗口内 25.6% 的格子算得出 Z''),
+    #   ★ 但「算不出就不合格」本来就是这道闸的既定口径,不是不能跑的理由;
+    #   ★ 而且它是**分位**闸门,对 Altman 的系数版本不敏感(加常数不改排序)。
+    #   ★★ 必须跟着结果一起讲的局限:算不出的那 74.4% 格子会被判出局,
+    #     而算不出最集中的恰恰是银行 / REIT(它们不报流动资产/流动负债,
+    #     而 X1 = 营运资金/总资产 正需要这两项)—— ★ 所以这道闸同样带
+    #     系统性的行业选择偏差,方向和 F-Score 那道闸完全一样。
     "mktcap_rank_exclude_bottom":
         "仓库没有严格 PIT 的市值(README 明确说 WeightedAverageDilutedShares × 收盘价 "
         "只是规模代理,不是 PIT 市值)—— 改用 dollar_volume_rank_exclude_bottom 或等定义",
@@ -361,7 +402,11 @@ def adapt(raw: dict) -> tuple[dict, AdaptReport]:
         for cond in (st.get("when") or {}):
             if cond not in ("unrealized_r_gt", "unrealized_r_lt",
                             "unrealized_r_between", "days_held_gte",
-                            "days_held_lte"):
+                            "days_held_lte",
+                            # ★★ 1029 第二轮新实现(A 类,口径本来就清楚):
+                            #   close_above_ma 收盘站上 N 日均线(流派三 ⑤ 保本级)
+                            #   after_stage    前一级已经触发过(分级有先后)
+                            "close_above_ma", "after_stage"):
                 rep.unimplemented.append((
                     "trailing_stop",
                     f"{st.get('name') or '?'}(when.{cond})",
