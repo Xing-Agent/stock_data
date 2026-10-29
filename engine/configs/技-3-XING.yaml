@@ -1,0 +1,143 @@
+# ============================================================================
+# 技-3 · 温斯坦阶段分析(作为交易策略) · XING版
+#
+# 三秒版:一只票横了很久、30 周线不再往下、然后**放量**突破横盘区上沿 → 买。
+#         跌破 30 周线(150 日线)就走。
+#
+# ★★ 本条最要紧的一件事:原著的「放量 ≥2 倍均量」是**周线口径**。
+#   引文(Weinstein 1988《Secrets for Profiting in Bull and Bear Markets》
+#   Ch.4 "The Buying Process", §"Volume Is a Must", p.74)【待核实】:
+#     "Never trust a breakout that isn't accompanied by a significant increase
+#      in volume. Either: a. a one-week volume spike that is at least twice the
+#      average volume of the past few weeks, or b. a volume build-up over the
+#      past 3-4 weeks that is at least twice the average volume of the past
+#      several weeks, coupled with at least some increase in the breakout week."
+#   ★ Weinstein 整套方法看**周线图**,所以「2 倍」是「一周累计量 vs 前几周周均量」。
+#   ★ 把它机械地套成「单日量 ≥ 2×SMA50」是**换了口径**,
+#     ★ 今天已经在 状-3 上撞过同一个坑(原著阈值是单根 K 线口径,
+#       套到 20 根均值上导致 99.6% 输出「混合」)。
+#
+# ★★ 原著跑不了的一项:「长期横盘」要多久。
+#   原文只有(Ch.2, p.12)【待核实】:"This base-building process can take
+#   anywhere from a few months to several years." → **没有可执行阈值**。
+#   ★ 本文件用的底盘长度是**我们的读法**(区间下沿「≥2~3 个月」),
+#     ★ 不许当成原著写死的数。
+#
+# ★★ 另一项原著未写死:「上翘」。
+#   原文只有 "The 30-week MA loses its downward slope and starts to flatten
+#   out... and usually starts moving up shortly after breakout."【待核实】
+#   → 原著版**不加这一条**(不许我们填一个斜率阈值);行业版才加。
+# ============================================================================
+
+meta:
+  name: 技-3_XING版
+  master: Stan Weinstein
+  book: Secrets for Profiting in Bull and Bear Markets (1988)
+  三版归属: XING版
+  原著未给出可执行阈值的项: 不适用
+  caveat: >-
+    原著是在**周线图**上做的,标的也不限于美股个股。本次跑的是 300 只美股、
+    只做多。★ 原著证据不能搬过来。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 —— ★ 三版一律全池,不加任何闸门。
+#   ★ 加一条就是我们自己发明的选股条件,会把「形态有没有用」和
+#     「选股闸门有没有用」混在一起。
+# ---------------------------------------------------------------------------
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 —— ★ 三版一律留空。
+#   ★ 这**不是**「原著没有」:Weinstein 和 O'Neil 都看大盘。
+#   留空的理由是**可比性**:三版之间只允许形态参数不同。
+#   ★ 所以本次任何一版的成绩都**不含大盘择时的贡献**,报告里必须写明。
+# ---------------------------------------------------------------------------
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(三版可比性要求;★ 不是原著无此条)
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 —— XING版
+# ★★ 必须如实交代:**我们从来没有为 技-3 单独建过配置**。
+#   这一版是用仓库里现有的写法拼出来的:
+#     · 箱体 =「近 25 根 (max(High) − min(Low)) / mean(Close) ≤ 0.20」
+#       —— 出自 engine/state_axis_tri_1029.py 里 状-2 行业版的箱体实现
+#     · 上翘 = SMA150 的 20 日变化率 ≥0 —— 同一处
+#     · 放量 = ★ **没有**。我们现有的突破类配置里没有放量确认。
+#       ★ 这本身就是一个发现:XING 版把原著写得最死的那一条(放量 ≥2 倍)丢了。
+# ---------------------------------------------------------------------------
+entry:
+  rules:
+    - type: pat6_narrow_box_breakout
+      params:
+        bars: 25
+        max_range_pct: 0.20
+      source: >-
+        XING 现有写法(state_axis_tri_1029.py 状-2 行业版箱体实现:
+        近 25 根收盘/高低点区间收窄到 20%)
+    - type: pat6_ma_slope_up
+      params:
+        ma_period: 150
+        slope_lookback: 20
+        min_slope_pct: 0.0
+      source: XING 现有写法(同上)
+  signal_freeze: close
+  fill: next_open
+  source: XING版
+
+# ---------------------------------------------------------------------------
+# ④ 初始止损 / ⑤ 移动止损 / ⑥ 离场 —— ★ 三版完全一致
+#   止损:突破前 20 日的最低价(原著「止损放在支撑位下方」的最机械读法)
+#   离场:收盘跌破 150 日线(= 30 周线)—— ★ 这条是原著自己的(阶段四)
+# ---------------------------------------------------------------------------
+initial_stop:
+  type: lowest_low
+  params: { lookback: 20 }
+  source: 执行细节(原著说「止损放在支撑位下方」,没给几日;20 日是三版统一口径)
+
+trailing_stop:
+  type: none
+  source: 执行细节(三版统一不设移动止损,免得把形态的功劳和跟踪止损的功劳混在一起)
+
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 150 }
+      source: 原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 原著(温斯坦不设固定止盈)
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位 / 槽位 / 排序 / 成本 / 基准 —— ★ 同一条形态的三版完全一致
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 行业惯例(三版统一口径,★ 不是哪一版原著给的数)
+
+slots: 10
+source_slots: 行业惯例(三版统一,为了让三版之间只差形态参数)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(槽位满时要有决胜规则,选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null

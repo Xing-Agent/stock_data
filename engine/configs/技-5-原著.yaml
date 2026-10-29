@@ -1,0 +1,149 @@
+# ============================================================================
+# 技-5 · 米奈尔维尼 VCP(波动率收缩形态) · 原著版(缩量严格端 0.50)
+#
+# 三秒版:一只强势股的回调一次比一次浅(20% → 10% → 5%),成交量越来越小,
+#         最后一次缩量到地量,然后突破 → 买。
+#
+# ★ 专家给的引文(Minervini 2013 Ch.10 / 2017 Ch.5)【全部待核实】:
+#   · 次数:"Typically, most VCP setups will be formed by two to four
+#     contractions, although sometimes there can be as many as five or six."
+#   · 衰减:"...usually the first correction might be 20%, 25%, 33%—and then it
+#     contracts usually to about half of the previous correction."
+#   · 缩量:"You look for volume to dry up significantly, often with one or two
+#     days where volume is 40% to 50% below the 50-day average, showing that
+#     selling has stopped."
+#
+# ★★ 本条最重要的一个核对:「低于 50 日均量 40%~50%」= 量比在 **0.50 ~ 0.60**
+#   之间。我们现在用的 0.60 **正好是这个区间最宽松的那一端**。
+#   ★ 所以要把 0.50 / 0.55 / 0.60 三端都跑,并报出三端各自的笔数 ——
+#     取严格端样本会更少,必须说清样本还够不够下结论。
+# ============================================================================
+
+meta:
+  name: 技-5_原著版_缩量0.50
+  master: Mark Minervini
+  book: Trade Like a Stock Market Wizard (2013) Ch.10;
+        Think & Trade Like a Champion (2017) Ch.5
+  三版归属: 原著版·严格端
+  区间端: 缩量 0.50 ×SMA50(= 低于均量 50%,区间严格端)
+  caveat: >-
+    ★ 本文件的 ①②④⑤⑥⑦ 和 技-5 真实在跑的 vcp_momentum.yaml **不一样**:
+    那条链带着 3 条环境过滤(SPY>200MA 等)和分级移动止损。
+    为了让三版之间只差形态参数,本次把它们拿掉了。
+    ★ 所以本次「XING版」的成绩**不等于** vcp_momentum.yaml 的历史成绩。
+
+# ---------------------------------------------------------------------------
+# ① 选股范围 —— ★ 三版一律全池,不加任何闸门。
+#   ★ 加一条就是我们自己发明的选股条件,会把「形态有没有用」和
+#     「选股闸门有没有用」混在一起。
+# ---------------------------------------------------------------------------
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+
+# ---------------------------------------------------------------------------
+# ② 环境过滤 —— ★ 三版一律留空。
+#   ★ 这**不是**「原著没有」:Weinstein 和 O'Neil 都看大盘。
+#   留空的理由是**可比性**:三版之间只允许形态参数不同。
+#   ★ 所以本次任何一版的成绩都**不含大盘择时的贡献**,报告里必须写明。
+# ---------------------------------------------------------------------------
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(三版可比性要求;★ 不是原著无此条)
+
+entry:
+  rules:
+    - type: vcp_contraction
+      stage: selection_gate
+      params:
+        swing_method: fractal_2_1_2
+        fractal_half_width: 2
+        base_min_days: 15
+        base_max_days: 65
+        range_metric: "(High_k - Low_k) / High_k"
+        forbid_atr_ratio: true
+        first_contraction_max_depth: 0.33
+        decay_coefficient: 0.5
+        min_contractions: 2
+        max_contractions: 4
+      source: >-
+        衰减 ≈0.50(原著「about half of the previous correction」)/ 次数 2~4(原著 typically two to four)/
+        第一段上限 0.33(原著「20%, 25%, 33%」的上限)—— 全部原著【待核实】;
+        基底 15~65 个交易日沿用 vcp_momentum.yaml,★ 原著未给。
+    - type: vcp_volume_duo
+      params:
+        slow_period: 50
+        min_day_lookback: 5
+        dryup_day_ratio: 0.5
+        breakout_vs_slow: null
+      source: >-
+        缩量阈值 0.5 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。
+        ★ 本档取 0.5。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。
+    - type: donchian_close_breakout
+      params: { lookback: 5 }
+      source: 行业惯例(沿用 vcp_momentum.yaml:突破前 5 日高点。★ 原著的枢纽点
+              定义在 技-4 里,这里用的是我们三版统一的突破口径)
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节
+
+# ---------------------------------------------------------------------------
+# ④⑤⑥ —— ★ 三版完全一致(取自 vcp_momentum.yaml 的 ④⑥,但去掉分级跟踪)
+# ---------------------------------------------------------------------------
+initial_stop:
+  type: structure_low_minus_atr
+  params:
+    structure_lookback: 5
+    atr_period: 14
+    atr_multiple: 0.2
+  hard_gate:
+    type: max_stop_distance_pct
+    params: { max_pct: 8.0 }
+    on_violation: reject_signal
+    source: 原著(Minervini「止损距离超过 8% 这单就不做」)【待核实】
+  source: 行业惯例(沿用 vcp_momentum.yaml 的 ④)
+
+trailing_stop:
+  type: none
+  source: 执行细节(三版统一;★ vcp_momentum.yaml 真实配置里是分级跟踪,此处拿掉)
+
+exit:
+  rules:
+    - type: close_below_ema
+      params: { ema: 10 }
+      source: 原著(Minervini 以 EMA10 为短线防线)【待核实】
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 行业惯例(沿用 vcp_momentum.yaml 的 ⑥)
+
+# ---------------------------------------------------------------------------
+# ⑦ 仓位 / 槽位 / 排序 / 成本 / 基准 —— ★ 同一条形态的三版完全一致
+# ---------------------------------------------------------------------------
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 行业惯例(三版统一口径,★ 不是哪一版原著给的数)
+
+slots: 10
+source_slots: 行业惯例(三版统一,为了让三版之间只差形态参数)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(槽位满时要有决胜规则,选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null

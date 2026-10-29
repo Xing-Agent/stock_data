@@ -1,0 +1,12 @@
+=== 二 · 文件类型分布 ===
+--- /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据
+  33425 zst
+  10948 gz
+   1384 json
+   1009 tar
+      9 csv
+      5 py
+      3 txt
+      2 sqlite3
+      2 md
+      2 html

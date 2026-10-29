@@ -1,0 +1,54 @@
+# 买入持有 —— 最简单的一条链,专门用来给链执行器对数的。
+# 作用:selftest 第③项拿它验证「执行器算出来的收益 = 手算的收益」。
+# 七步里该关的全关掉:不过滤环境、不设止损、不止盈、不限笔数。
+meta:
+  name: buy_and_hold
+  purpose: 对数用的基线链;selftest ③ 依赖它
+  owner: engine/selftest.py
+
+# ① 选股范围:全开(实际用哪些票由命令行 --pool 或调用方的 symbols 决定)
+universe: {}
+
+# ② 环境过滤:不过滤
+regime:
+  rules: []
+  flatten_when_off: false
+
+# ③ 进场扳机:天天成立 → 第一个可交易日开盘买入,之后不再有现金可买
+entry:
+  type: always
+  source: 基线链定义,非参数
+
+# ④ 初始止损:等价于不设(0.1% 的名义止损价,实际永不触及)
+initial_stop:
+  type: pct
+  params: { pct: 0.999 }
+  source: 基线链定义,等价于不设止损
+
+# ⑤ 移动止损:无
+trailing_stop:
+  type: none
+
+# ⑥ 离场:无(不止盈、不时间止损)
+exit:
+  type: signal_only
+  params: {}
+
+# ⑦ 仓位:等权买入持有,把现金一次性平摊给当天所有候选
+sizing:
+  type: equal_weight_all
+  params: { max_weight: 1.0, max_positions: 1000 }
+  source: 基线链定义,非参数
+
+# 摩擦成本:对数时设 0,正式跑链一律 5bp
+costs:
+  one_way_bps: 0.0
+
+benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:买入持有是单边多头基线链 —— 单边多头指数就是它的天然对照
+  family: trend
+  component_match: large        # large→SPY / mid→MDY(仓库暂无) / small→IWM / equal_weight→RSP
+  risk_free_annual: null        # ★ 仓库没有无风险利率序列,现金腿按 0% 记并标明

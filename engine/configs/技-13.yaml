@@ -1,0 +1,112 @@
+# ============================================================================
+# 技-13 · TD 序列(汤姆·狄马克)
+#
+# 三秒版:用一套固定计数规则,数出买方/卖方快没力气了的那个位置。
+#         Setup 数到 9、Countdown 数到 13 标记为衰竭点。
+#
+# ★★ 本条**明确不是**原著完整 —— 手册自己在「规则归属」里写的是:
+#     「规则是专有的,存在多个流传版本,独立第三方验证很薄。
+#       我们的实现必须标注为『XING 基于公开描述的实现』」
+#   ★ 而且手册正文**根本没有给进场和离场规则**,原文只有:
+#     「标记为衰竭点。下跌趋势中的衰竭点作为超跌参考。」
+#   ★ 所以「数到 9 / 13 就买」这件事是**我们加的**,手册没这么说。
+#   ★ 本条的跑分只能当「这个计数位置后面涨不涨」的描述性统计,
+#     ★ 不能当成「技-13 这条策略成立/不成立」的结论。
+# ============================================================================
+
+meta:
+  name: 技-13_TD序列
+  master: Tom DeMark
+  book: DeMark《The New Science of Technical Analysis》(1994);★ 规则专有,多版本流传
+  handbook_ref: v11 第 379 行;附录 A 技-13
+  orig_claim: >-
+    ★ 规则是专有的,存在多个流传版本,独立第三方验证很薄。
+    我们的实现必须标注为「XING 基于公开描述的实现」
+  param_gap: >-
+    ★★ 手册正文没有进场规则、没有离场规则、没有止损定义。
+    「衰竭点作为超跌参考」不是一条可回测的交易规则。
+    ★ 本条配置里的进场/离场全部是我们加的 —— 已列入报告「要回去问」。
+
+universe:
+  rules: []
+  source: 原著(无选股条件)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: >-
+    ★ 手册写「谁不该用:趋势市。强趋势里计数会反复触发而价格继续走」——
+    这是一个定性的失效条件,没给可自动触发的判定。★ 本次没装开关。
+
+entry:
+  rules:
+    - type: td_buy_setup
+      params: { count: 9, ref_lag: 4 }
+      source: >-
+        计数规则:连续 9 根收盘价低于 4 根之前的收盘价。
+        ★ 9 和 4 来自流传最广的那个版本;手册只给了「9」,没给「比较 4 根前」。
+        ★ 标注为「XING 基于公开描述的实现」(手册自己要求这样标)。
+        ★ runner 另跑 Countdown 13 那一档。
+  signal_freeze: close
+  fill: next_open
+  source: >-
+    ★★ 执行细节 + 我们加的规则:手册没说「计数到就买」。
+    「在计数完成那根的收盘确认、次日开盘买入」整条是我们加的。
+
+# ④ 止损:手册写「以计数形成时的极值为止损」—— 这句是有定义的
+initial_stop:
+  type: day_low_minus_atr
+  params: { structure_lookback: 9, atr_period: 14, atr_multiple: 0.0 }
+  source: >-
+    原著(手册原文):「以计数形成时的极值为止损」→
+    取 Setup 那 9 根里的最低价,缓冲 0。
+    ★ structure_lookback: 9 = Setup 的长度,不是我们挑的数。
+    ★ 缓冲 0 是为了不拍一个数(手册没给缓冲)。
+
+trailing_stop:
+  type: none
+  source: 原著(手册未提移动止损)
+
+exit:
+  rules:
+    - type: close_below_trailing_stop
+      source: 原著(靠止损出场)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: >-
+    ★ 手册的另一条离场是「等待反向计数出现」(= 反向的 Setup 9)。
+    ★ 本次**没有装**这一条 —— 因为「反向计数」在手册里也没给完整定义
+    (是 Sell Setup 9 还是 Sell Countdown 13?),不能猜。
+    已列入报告「要回去问」。本次只靠止损出场。
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 执行细节(手册无仓位规则)
+
+slots: 10
+source_slots: 执行细节(手册无槽位规则)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(手册无排序)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:★ 专家点名的均值回归之一(TD 序列)
+  family: meanrev
+  component_match: large
+  risk_free_annual: null

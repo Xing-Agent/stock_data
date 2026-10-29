@@ -1,0 +1,173 @@
+{
+ "cache": "engine/cache/ohlcv_panel.parquet",
+ "cache_mtime_utc": "2026-10-29 08:45:20.216646194+00:00",
+ "total_return_default": false,
+ "chains": [
+  {
+   "chain": "buy_and_hold",
+   "config": "engine/configs/buy_and_hold.yaml",
+   "slots": null,
+   "n_trades": 300,
+   "e_bar": 0.9916217391602127,
+   "index": "SPY",
+   "chain_return_price": 0.6490734083394327,
+   "chain_return_total": 1.2691628348201363,
+   "chain_dividend_effect": 0.6200894264807035,
+   "dividend_note": "★ 分红口径 = 总收益:收到股息 162,316.06(占初始资金 16.2316%),共 5967 次入账。★ 信号未受影响(分红只记现金、不改价格)",
+   "fill_diagnostics": {
+    "n_entry_date_differs": 2,
+    "n_earlier_under_total_return": 2,
+    "n_later_under_total_return": 0,
+    "detail": [
+     [
+      "SQBG",
+      "2021-03-22",
+      "2020-07-28"
+     ],
+     [
+      "FTLF",
+      "2021-03-22",
+      "2019-04-23"
+     ]
+    ],
+    "explained_by_cash": true,
+    "sizing_type": "equal_weight_all"
+   },
+   "seconds": 8.4,
+   "benchmark_price": 1.520678895767876,
+   "benchmark_total_return": 1.8550274344503248,
+   "benchmark_delta": 0.33434853868244874,
+   "excess_price": -0.8716054874284433,
+   "excess_total_return": -0.5858645996301886,
+   "excess_delta": 0.2857408877982548
+  },
+  {
+   "chain": "流派一_趋势跟随_slots5",
+   "config": "engine/configs/trend_following.yaml",
+   "slots": 5,
+   "n_trades": 245,
+   "e_bar": 0.5094508237638228,
+   "index": "SPY",
+   "chain_return_price": -0.08792549806247796,
+   "chain_return_total": -0.005950272248716915,
+   "chain_dividend_effect": 0.08197522581376104,
+   "dividend_note": "★ 分红口径 = 总收益:收到股息 86,932.27(占初始资金 8.6932%),共 73 次入账。★ 信号未受影响(分红只记现金、不改价格)",
+   "fill_diagnostics": {
+    "n_entry_date_differs": 0,
+    "n_earlier_under_total_return": 0,
+    "n_later_under_total_return": 0,
+    "detail": [],
+    "explained_by_cash": false,
+    "sizing_type": "risk_fraction"
+   },
+   "seconds": 1.1,
+   "benchmark_price": 0.6695020330630734,
+   "benchmark_total_return": 0.7794067282293644,
+   "benchmark_delta": 0.10990469516629098,
+   "excess_price": -0.7574275311255514,
+   "excess_total_return": -0.7853570004780813,
+   "excess_delta": -0.027929469352529934
+  },
+  {
+   "chain": "流派一_趋势跟随_slots10",
+   "config": "engine/configs/trend_following.yaml",
+   "slots": 10,
+   "n_trades": 436,
+   "e_bar": 0.5108409692537763,
+   "index": "SPY",
+   "chain_return_price": 0.048817131463268604,
+   "chain_return_total": 0.12973666447437693,
+   "chain_dividend_effect": 0.08091953301110832,
+   "dividend_note": "★ 分红口径 = 总收益:收到股息 82,072.53(占初始资金 8.2073%),共 130 次入账。★ 信号未受影响(分红只记现金、不改价格)",
+   "fill_diagnostics": {
+    "n_entry_date_differs": 0,
+    "n_earlier_under_total_return": 0,
+    "n_later_under_total_return": 0,
+    "detail": [],
+    "explained_by_cash": false,
+    "sizing_type": "risk_fraction"
+   },
+   "seconds": 1.4,
+   "benchmark_price": 0.6716574041549288,
+   "benchmark_total_return": 0.7820151728236482,
+   "benchmark_delta": 0.11035776866871938,
+   "excess_price": -0.6228402726916602,
+   "excess_total_return": -0.6522785083492713,
+   "excess_delta": -0.029438235657611056
+  },
+  {
+   "chain": "流派一_深度价值_slots12",
+   "config": "engine/configs/deep_value.yaml",
+   "slots": 12,
+   "n_trades": 311,
+   "e_bar": 0.5298423029392965,
+   "index": "SPY",
+   "chain_return_price": -0.08318323855310517,
+   "chain_return_total": -0.03296838760465404,
+   "chain_dividend_effect": 0.05021485094845113,
+   "dividend_note": "★ 分红口径 = 总收益:收到股息 57,941.20(占初始资金 5.7941%),共 143 次入账。★ 信号未受影响(分红只记现金、不改价格)",
+   "fill_diagnostics": {
+    "n_entry_date_differs": 0,
+    "n_earlier_under_total_return": 0,
+    "n_later_under_total_return": 0,
+    "detail": [],
+    "explained_by_cash": false,
+    "sizing_type": "risk_fraction"
+   },
+   "seconds": 51.4,
+   "benchmark_price": 0.7012980374156321,
+   "benchmark_total_return": 0.8179476773789263,
+   "benchmark_delta": 0.11664963996329414,
+   "excess_price": -0.7844812759687373,
+   "excess_total_return": -0.8509160649835803,
+   "excess_delta": -0.06643478901484301
+  }
+ ],
+ "reconciliation": [
+  {
+   "chain": "buy_and_hold",
+   "excess_price_rerun": -0.8716054874284433,
+   "excess_price_prior": 0.801187,
+   "excess_price_gap": -1.6727924874284432,
+   "excess_tr_rerun": -0.5858645996301886,
+   "excess_tr_prior_main": 0.6293,
+   "excess_tr_prior_additive": 0.8382,
+   "gap_vs_main": -1.2151645996301885,
+   "gap_vs_additive": -1.4240645996301886
+  },
+  {
+   "chain": "流派一_趋势跟随_slots5",
+   "excess_price_rerun": -0.7574275311255514,
+   "excess_price_prior": -0.446878,
+   "excess_price_gap": -0.3105495311255514,
+   "excess_tr_rerun": -0.7853570004780813,
+   "excess_tr_prior_main": -0.4518,
+   "excess_tr_prior_additive": -0.4387,
+   "gap_vs_main": -0.33355700047808134,
+   "gap_vs_additive": -0.34665700047808135
+  },
+  {
+   "chain": "流派一_趋势跟随_slots10",
+   "excess_price_rerun": -0.6228402726916602,
+   "excess_price_prior": -0.656696,
+   "excess_price_gap": 0.033855727308339745,
+   "excess_tr_rerun": -0.6522785083492713,
+   "excess_tr_prior_main": -0.6853,
+   "excess_tr_prior_additive": -0.6393,
+   "gap_vs_main": 0.03302149165072876,
+   "gap_vs_additive": -0.012978508349271278
+  },
+  {
+   "chain": "流派一_深度价值_slots12",
+   "excess_price_rerun": -0.7844812759687373,
+   "excess_price_prior": -0.802406,
+   "excess_price_gap": 0.017924724031262662,
+   "excess_tr_rerun": -0.8509160649835803,
+   "excess_tr_prior_main": -0.8614,
+   "excess_tr_prior_additive": -0.8137,
+   "gap_vs_main": 0.010483935016419754,
+   "gap_vs_additive": -0.03721606498358032
+  }
+ ],
+ "verdict_ok_to_switch_default": false
+}

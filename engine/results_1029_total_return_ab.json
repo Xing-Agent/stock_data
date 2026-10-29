@@ -1,0 +1,868 @@
+{
+ "benchmark_leg": {
+  "spy_price": 1.5371879302005325,
+  "spy_total_return": 1.8767754129125995,
+  "has_dividends": true
+ },
+ "terciles": {
+  "groups": [
+   {
+    "组": "低股息三分之一",
+    "只数": 68,
+    "股息率_中位": 0.007897593964851086,
+    "股息率_区间": [
+     0.00013537623345702526,
+     0.015459996277247643
+    ],
+    "纯价格收益_中位": 0.9157203523120478,
+    "总收益_中位": 1.0204565925243685,
+    "收益差_中位": 0.10242240731718666,
+    "收益差_均值": 0.15025690320893967
+   },
+   {
+    "组": "中股息三分之一",
+    "只数": 68,
+    "股息率_中位": 0.021126273115121066,
+    "股息率_区间": [
+     0.0154999392057438,
+     0.030811995271560415
+    ],
+    "纯价格收益_中位": 0.38705664108113325,
+    "总收益_中位": 0.6861466062722702,
+    "收益差_中位": 0.2815527174077821,
+    "收益差_均值": 0.31011952815819605
+   },
+   {
+    "组": "高股息三分之一",
+    "只数": 68,
+    "股息率_中位": 0.04284362100614963,
+    "股息率_区间": [
+     0.03127215632089327,
+     0.36897333607419563
+    ],
+    "纯价格收益_中位": -0.036326347013735105,
+    "总收益_中位": 0.47541157506315845,
+    "收益差_中位": 0.44013880875140576,
+    "收益差_均值": 0.5890430430974188
+   },
+   {
+    "组": "零分红(单独列,不塞进低组)",
+    "只数": 96,
+    "股息率_中位": 0.0,
+    "股息率_区间": [
+     0.0,
+     0.0
+    ],
+    "纯价格收益_中位": -0.1481678443720328,
+    "总收益_中位": -0.1481678443720344,
+    "收益差_中位": 0.0,
+    "收益差_均值": 0.0
+   }
+  ],
+  "n_total": 300,
+  "detail": [
+   {
+    "symbol": "KDP",
+    "years": 7.994524298425736,
+    "div_per_share": 109.72750000000003,
+    "avg_price": 37.19870959721531,
+    "div_yield_annual": 0.36897333607419563,
+    "ret_price": -0.7059934921801196,
+    "ret_total": 0.9916210739291613,
+    "ret_delta": 1.697614566109281
+   },
+   {
+    "symbol": "FF",
+    "years": 7.994524298425736,
+    "div_per_share": 9.920000000000002,
+    "avg_price": 9.434783689706613,
+    "div_yield_annual": 0.1315185759290131,
+    "ret_price": -0.7732764747690121,
+    "ret_total": -0.33218672060823684,
+    "ret_delta": 0.4410897541607752
+   },
+   {
+    "symbol": "UHAL",
+    "years": 7.994524298425736,
+    "div_per_share": 470.069,
+    "avg_price": 471.3934485330682,
+    "div_yield_annual": 0.12473417018530522,
+    "ret_price": 0.35262506256421067,
+    "ret_total": 1.6176524762362519,
+    "ret_delta": 1.2650274136720412
+   },
+   {
+    "symbol": "AGNC",
+    "years": 7.994524298425736,
+    "div_per_share": 12.920000000000005,
+    "avg_price": 13.477553455992044,
+    "div_yield_annual": 0.11991094449453292,
+    "ret_price": -0.46238716148445336,
+    "ret_total": 0.4639970555954098,
+    "ret_delta": 0.9263842170798632
+   },
+   {
+    "symbol": "MSB",
+    "years": 7.994524298425736,
+    "div_per_share": 22.979999999999997,
+    "avg_price": 24.871216061660864,
+    "div_yield_annual": 0.11557406194482119,
+    "ret_price": 0.4293135435992581,
+    "ret_total": 2.440499561398082,
+    "ret_delta": 2.011186017798824
+   },
+   {
+    "symbol": "DX",
+    "years": 7.994524298425736,
+    "div_per_share": 13.939999999999996,
+    "avg_price": 15.285087021382397,
+    "div_yield_annual": 0.11407808740057689,
+    "ret_price": -0.32902298850574707,
+    "ret_total": 0.7095547228469852,
+    "ret_delta": 1.0385777113527324
+   },
+   {
+    "symbol": "USAC",
+    "years": 7.994524298425736,
+    "div_per_share": 16.8,
+    "avg_price": 18.53662854301343,
+    "div_yield_annual": 0.1133668051494957,
+    "ret_price": 0.357733175914994,
+    "ret_total": 2.5375482976136383,
+    "ret_delta": 2.1798151216986446
+   },
+   {
+    "symbol": "OMF",
+    "years": 7.994524298425736,
+    "div_per_share": 34.58,
+    "avg_price": 42.61820487319742,
+    "div_yield_annual": 0.10149326160752109,
+    "ret_price": 1.5684410646387832,
+    "ret_total": 4.5611496740944455,
+    "ret_delta": 2.9927086094556623
+   },
+   {
+    "symbol": "RITM",
+    "years": 7.994524298425736,
+    "div_per_share": 9.4,
+    "avg_price": 11.826683242168075,
+    "div_yield_annual": 0.0994196572652096,
+    "ret_price": -0.38032973280272875,
+    "ret_total": 0.36375706817782816,
+    "ret_delta": 0.7440868009805569
+   },
+   {
+    "symbol": "BSM",
+    "years": 7.994524298425736,
+    "div_per_share": 10.7325,
+    "avg_price": 13.899149676777721,
+    "div_yield_annual": 0.09658730279505046,
+    "ret_price": -0.2608453837597331,
+    "ret_total": 0.5753593772440846,
+    "ret_delta": 0.8362047610038177
+   },
+   {
+    "symbol": "STWD",
+    "years": 7.994524298425736,
+    "div_per_share": 15.36,
+    "avg_price": 20.873470909995028,
+    "div_yield_annual": 0.09204578753470034,
+    "ret_price": -0.15007078810759789,
+    "ret_total": 0.8266260220035784,
+    "ret_delta": 0.9766968101111763
+   },
+   {
+    "symbol": "MTR",
+    "years": 7.994524298425736,
+    "div_per_share": 6.7178,
+    "avg_price": 10.13778423669816,
+    "div_yield_annual": 0.08288795011712263,
+    "ret_price": -0.7683646112600536,
+    "ret_total": -0.5866524383781002,
+    "ret_delta": 0.1817121728819534
+   },
+   {
+    "symbol": "WLKP",
+    "years": 7.994524298425736,
+    "div_per_share": 14.7275,
+    "avg_price": 22.95501491795127,
+    "div_yield_annual": 0.08025254710922688,
+    "ret_price": -0.24151696606786432,
+    "ret_total": 0.44010078649655404,
+    "ret_delta": 0.6816177525644184
+   },
+   {
+    "symbol": "BBWI",
+    "years": 7.994524298425736,
+    "div_per_share": 22.879799999999996,
+    "avg_price": 36.8503281949279,
+    "div_yield_annual": 0.07766372857922658,
+    "ret_price": -0.6647186508599099,
+    "ret_total": -0.47386844333494804,
+    "ret_delta": 0.19085020752496185
+   },
+   {
+    "symbol": "MAIN",
+    "years": 7.994524298425736,
+    "div_per_share": 25.574999999999996,
+    "avg_price": 42.50415713575336,
+    "div_yield_annual": 0.07526474716798914,
+    "ret_price": 0.5135338345864662,
+    "ret_total": 1.7709349010929185,
+    "ret_delta": 1.2574010665064523
+   },
+   {
+    "symbol": "BGS",
+    "years": 7.994524298425736,
+    "div_per_share": 11.485,
+    "avg_price": 19.27548483341621,
+    "div_yield_annual": 0.07453033307385343,
+    "ret_price": -0.8780141843971632,
+    "ret_total": -0.7568016872996243,
+    "ret_delta": 0.1212124970975389
+   },
+   {
+    "symbol": "SGA",
+    "years": 7.994524298425736,
+    "div_per_share": 14.16,
+    "avg_price": 24.03829870711089,
+    "div_yield_annual": 0.07368293198899188,
+    "ret_price": -0.7155329192546585,
+    "ret_total": -0.48141699750700107,
+    "ret_delta": 0.23411592174765739
+   },
+   {
+    "symbol": "MO",
+    "years": 7.994524298425736,
+    "div_per_share": 28.880000000000003,
+    "avg_price": 49.55826454500249,
+    "div_yield_annual": 0.07289344443164147,
+    "ret_price": -0.18490245971162,
+    "ret_total": 0.48288260787615656,
+    "ret_delta": 0.6677850675877766
+   },
+   {
+    "symbol": "ORI",
+    "years": 7.994524298425736,
+    "div_per_share": 14.919999999999998,
+    "avg_price": 25.758731974142215,
+    "div_yield_annual": 0.0724522231581014,
+    "ret_price": 1.1661129568106312,
+    "ret_total": 2.9515505940454845,
+    "ret_delta": 1.7854376372348533
+   },
+   {
+    "symbol": "EPD",
+    "years": 7.994524298425736,
+    "div_per_share": 15.15,
+    "avg_price": 26.25752859273993,
+    "div_yield_annual": 0.0721715709971679,
+    "ret_price": 0.19270833333333348,
+    "ret_total": 1.1420453625655376,
+    "ret_delta": 0.9493370292322041
+   }
+  ]
+ },
+ "value_overlap": {
+  "n_held": 92,
+  "n_zero_dividend": 26,
+  "yield_median": 0.010933007112905,
+  "yield_mean": 0.018169434796665555,
+  "top": [
+   {
+    "symbol": "KDP",
+    "div_yield_annual": 0.36897333607419563
+   },
+   {
+    "symbol": "BBWI",
+    "div_yield_annual": 0.07766372857922658
+   },
+   {
+    "symbol": "MO",
+    "div_yield_annual": 0.07289344443164147
+   },
+   {
+    "symbol": "EPD",
+    "div_yield_annual": 0.0721715709971679
+   },
+   {
+    "symbol": "MSGS",
+    "div_yield_annual": 0.05025388372505413
+   },
+   {
+    "symbol": "KHC",
+    "div_yield_annual": 0.04586125475431717
+   },
+   {
+    "symbol": "DVN",
+    "div_yield_annual": 0.044787932718776124
+   },
+   {
+    "symbol": "CAG",
+    "div_yield_annual": 0.036844398560524495
+   },
+   {
+    "symbol": "NFG",
+    "div_yield_annual": 0.03287663740138652
+   },
+   {
+    "symbol": "SXC",
+    "div_yield_annual": 0.032407540450805905
+   },
+   {
+    "symbol": "WEC",
+    "div_yield_annual": 0.03183083758986251
+   },
+   {
+    "symbol": "LNT",
+    "div_yield_annual": 0.03127215632089327
+   }
+  ]
+ },
+ "chains": [
+  {
+   "chain": "★流派一_深度价值_Z1.8_slots12(主档)",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_第二轮/流派一_深度价值_Z1.8_slots12.csv",
+    "n_trades": 313,
+    "n_trades_with_dividend": 110,
+    "n_ex_dates_crossed": 143,
+    "dividend_cash": 53021.57843214281,
+    "contribution_of_initial_capital": 0.05302157843214281,
+    "n_symbols_without_dividend_data": 26,
+    "top_contributors": [
+     [
+      "NFG",
+      3917.474638724449
+     ],
+     [
+      "LNT",
+      3144.41996198668
+     ],
+     [
+      "WEC",
+      2668.6476928560805
+     ],
+     [
+      "NEU",
+      2497.7894876620344
+     ],
+     [
+      "TXN",
+      2403.885454004707
+     ],
+     [
+      "JNPR",
+      2340.9429118000294
+     ],
+     [
+      "TGNA",
+      1819.370341104755
+     ],
+     [
+      "WEN",
+      1787.8807688602508
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 0.6797233241256773,
+    "total_return": 0.791781964502549,
+    "delta": 0.11205864037687174,
+    "delta_additive": 0.06433282332434279,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": -0.122683,
+   "chain_dividend_contribution": 0.05302157843214281,
+   "chain_return_total": -0.06966142156785719,
+   "excess_price": -0.8024063241256773,
+   "excess_total_return": -0.8614433860704062,
+   "excess_delta": -0.05903706194472891,
+   "excess_total_return_additive_both": -0.8137175690178772,
+   "excess_delta_additive_both": -0.011311244892199923,
+   "reported_excess": -0.802406,
+   "repro_error": -3.241256772978929e-07,
+   "convention_robust": true
+  },
+  {
+   "chain": "流派三_现金流纪律_slots5",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_基本面/流派三_现金流纪律_slots5.csv",
+    "n_trades": 291,
+    "n_trades_with_dividend": 53,
+    "n_ex_dates_crossed": 59,
+    "dividend_cash": 24912.039086197823,
+    "contribution_of_initial_capital": 0.024912039086197824,
+    "n_symbols_without_dividend_data": 14,
+    "top_contributors": [
+     [
+      "EPD",
+      4237.388188787029
+     ],
+     [
+      "GM",
+      2664.951130751714
+     ],
+     [
+      "COF",
+      2168.3847613244097
+     ],
+     [
+      "DFS",
+      1882.739794170082
+     ],
+     [
+      "TGNA",
+      1661.755759639359
+     ],
+     [
+      "MO",
+      1585.7729953713795
+     ],
+     [
+      "SXC",
+      1286.7668056727312
+     ],
+     [
+      "CAH",
+      1180.4655590438585
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 0.3689514467270767,
+    "total_return": 0.42171546079327715,
+    "delta": 0.05276401406620046,
+    "delta_additive": 0.03773402404985491,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": -0.255802,
+   "chain_dividend_contribution": 0.024912039086197824,
+   "chain_return_total": -0.23088996091380215,
+   "excess_price": -0.6247534467270767,
+   "excess_total_return": -0.6526054217070794,
+   "excess_delta": -0.02785197498000269,
+   "excess_total_return_additive_both": -0.6375754316907338,
+   "excess_delta_additive_both": -0.012821984963657163,
+   "reported_excess": -0.624753,
+   "repro_error": -4.467270766639331e-07,
+   "convention_robust": true
+  },
+  {
+   "chain": "流派三_现金流纪律_slots10",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_基本面/流派三_现金流纪律_slots10.csv",
+    "n_trades": 431,
+    "n_trades_with_dividend": 82,
+    "n_ex_dates_crossed": 89,
+    "dividend_cash": 40485.98091672694,
+    "contribution_of_initial_capital": 0.04048598091672694,
+    "n_symbols_without_dividend_data": 15,
+    "top_contributors": [
+     [
+      "PGR",
+      4262.655679074844
+     ],
+     [
+      "EPD",
+      4181.038742594394
+     ],
+     [
+      "BGS",
+      2760.37122132876
+     ],
+     [
+      "DFS",
+      2664.7726907968813
+     ],
+     [
+      "GM",
+      2562.468618301463
+     ],
+     [
+      "COF",
+      2491.121127249074
+     ],
+     [
+      "TGNA",
+      2451.1532927048697
+     ],
+     [
+      "STBA",
+      2174.3780237534274
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 0.5248081469075114,
+    "total_return": 0.6056919547354911,
+    "delta": 0.08088380782797966,
+    "delta_additive": 0.05152704679638205,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": -0.30825,
+   "chain_dividend_contribution": 0.04048598091672694,
+   "chain_return_total": -0.2677640190832731,
+   "excess_price": -0.8330581469075115,
+   "excess_total_return": -0.8734559738187642,
+   "excess_delta": -0.04039782691125271,
+   "excess_total_return_additive_both": -0.8440992127871666,
+   "excess_delta_additive_both": -0.011041065879655143,
+   "reported_excess": -0.833058,
+   "repro_error": -1.4690751148904724e-07,
+   "convention_robust": true
+  },
+  {
+   "chain": "流派三_现金流纪律_slots20",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_基本面/流派三_现金流纪律_slots20.csv",
+    "n_trades": 438,
+    "n_trades_with_dividend": 81,
+    "n_ex_dates_crossed": 88,
+    "dividend_cash": 36712.289415340616,
+    "contribution_of_initial_capital": 0.03671228941534062,
+    "n_symbols_without_dividend_data": 16,
+    "top_contributors": [
+     [
+      "EPD",
+      4303.590518615347
+     ],
+     [
+      "BGS",
+      2789.1853492916707
+     ],
+     [
+      "DFS",
+      2710.5434228342465
+     ],
+     [
+      "GM",
+      2584.8957778102085
+     ],
+     [
+      "COF",
+      2530.943694602008
+     ],
+     [
+      "CAH",
+      2220.310876074906
+     ],
+     [
+      "STBA",
+      2203.702909152095
+     ],
+     [
+      "TGNA",
+      2003.784887738082
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 0.5205408323018628,
+    "total_return": 0.6006108913426484,
+    "delta": 0.08007005904078568,
+    "delta_additive": 0.05116239277575991,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": -0.293969,
+   "chain_dividend_contribution": 0.03671228941534062,
+   "chain_return_total": -0.2572567105846594,
+   "excess_price": -0.8145098323018627,
+   "excess_total_return": -0.8578676019273078,
+   "excess_delta": -0.04335776962544513,
+   "excess_total_return_additive_both": -0.8289599356622821,
+   "excess_delta_additive_both": -0.014450103360419408,
+   "reported_excess": -0.81451,
+   "repro_error": 1.676981372655817e-07,
+   "convention_robust": true
+  },
+  {
+   "chain": "流派一_趋势跟随_slots3",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_趋势跟随/流派一_趋势跟随_slots3.csv",
+    "n_trades": 159,
+    "n_trades_with_dividend": 50,
+    "n_ex_dates_crossed": 55,
+    "dividend_cash": 29218.03051992155,
+    "contribution_of_initial_capital": 0.02921803051992155,
+    "n_symbols_without_dividend_data": 29,
+    "top_contributors": [
+     [
+      "MO",
+      3777.720671789044
+     ],
+     [
+      "MAIN",
+      2550.4818674787
+     ],
+     [
+      "STWD",
+      2188.651904092947
+     ],
+     [
+      "AGNC",
+      2074.4808869239764
+     ],
+     [
+      "KHC",
+      2015.5303934184033
+     ],
+     [
+      "DX",
+      1461.9793140688937
+     ],
+     [
+      "POR",
+      1059.096494429161
+     ],
+     [
+      "CDP",
+      992.8010150193734
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 0.2105024146526837,
+    "total_return": 0.23814757964410127,
+    "delta": 0.02764516499141756,
+    "delta_additive": 0.0225505786393966,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": -0.116733,
+   "chain_dividend_contribution": 0.02921803051992155,
+   "chain_return_total": -0.08751496948007845,
+   "excess_price": -0.3272354146526837,
+   "excess_total_return": -0.3256625491241797,
+   "excess_delta": 0.0015728655285039972,
+   "excess_total_return_additive_both": -0.32056796277215877,
+   "excess_delta_additive_both": 0.006667451880524922,
+   "reported_excess": -0.327235,
+   "repro_error": -4.1465268368900965e-07,
+   "convention_robust": true
+  },
+  {
+   "chain": "流派一_趋势跟随_slots5",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_趋势跟随/流派一_趋势跟随_slots5.csv",
+    "n_trades": 247,
+    "n_trades_with_dividend": 69,
+    "n_ex_dates_crossed": 74,
+    "dividend_cash": 43459.23159114778,
+    "contribution_of_initial_capital": 0.04345923159114778,
+    "n_symbols_without_dividend_data": 38,
+    "top_contributors": [
+     [
+      "MO",
+      3884.140615062357
+     ],
+     [
+      "AGNC",
+      3130.6362364371134
+     ],
+     [
+      "RITM",
+      2857.4554441992204
+     ],
+     [
+      "MAIN",
+      2596.245542878522
+     ],
+     [
+      "STWD",
+      2307.3641923632604
+     ],
+     [
+      "KHC",
+      2112.7293712876462
+     ],
+     [
+      "PAA",
+      1664.3670154043461
+     ],
+     [
+      "DX",
+      1542.4728353198486
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 0.34260150858788974,
+    "total_return": 0.39094167243848754,
+    "delta": 0.048340163850597806,
+    "delta_additive": 0.035297387183851614,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": -0.104277,
+   "chain_dividend_contribution": 0.04345923159114778,
+   "chain_return_total": -0.06081776840885222,
+   "excess_price": -0.44687850858788974,
+   "excess_total_return": -0.45175944084733977,
+   "excess_delta": -0.0048809322594500215,
+   "excess_total_return_additive_both": -0.4387166641805936,
+   "excess_delta_additive_both": 0.00816184440729617,
+   "reported_excess": -0.446878,
+   "repro_error": -5.085878897470586e-07,
+   "convention_robust": false
+  },
+  {
+   "chain": "流派一_趋势跟随_slots10",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_趋势跟随/流派一_趋势跟随_slots10.csv",
+    "n_trades": 435,
+    "n_trades_with_dividend": 121,
+    "n_ex_dates_crossed": 132,
+    "dividend_cash": 80647.67914456883,
+    "contribution_of_initial_capital": 0.08064767914456883,
+    "n_symbols_without_dividend_data": 54,
+    "top_contributors": [
+     [
+      "RITM",
+      7364.747217468203
+     ],
+     [
+      "MAIN",
+      5884.39587995534
+     ],
+     [
+      "MO",
+      4355.15438855087
+     ],
+     [
+      "PAA",
+      3829.6552630518963
+     ],
+     [
+      "AGNC",
+      3514.6274058766417
+     ],
+     [
+      "EPD",
+      3400.5594948345633
+     ],
+     [
+      "DX",
+      2435.5348790102867
+     ],
+     [
+      "KHC",
+      2365.2604033264843
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 0.6665005002538997,
+    "total_return": 0.7757752603131949,
+    "delta": 0.10927476005929515,
+    "delta_additive": 0.06327065161299215,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": 0.009804,
+   "chain_dividend_contribution": 0.08064767914456883,
+   "chain_return_total": 0.09045167914456884,
+   "excess_price": -0.6566965002538997,
+   "excess_total_return": -0.685323581168626,
+   "excess_delta": -0.02862708091472632,
+   "excess_total_return_additive_both": -0.639319472722323,
+   "excess_delta_additive_both": 0.01737702753157666,
+   "reported_excess": -0.656696,
+   "repro_error": -5.002538997489481e-07,
+   "convention_robust": false
+  },
+  {
+   "chain": "buy_and_hold(新基准线)",
+   "ledger": {
+    "ledger": "engine/ledgers_1029_新基准线/buy_and_hold.csv",
+    "n_trades": 300,
+    "n_trades_with_dividend": 204,
+    "n_ex_dates_crossed": 5967,
+    "dividend_cash": 160137.3182858123,
+    "contribution_of_initial_capital": 0.1601373182858123,
+    "n_symbols_without_dividend_data": 94,
+    "top_contributors": [
+     [
+      "OMF",
+      4403.8052545114015
+     ],
+     [
+      "KDP",
+      3868.5972604362273
+     ],
+     [
+      "USAC",
+      3320.131856665156
+     ],
+     [
+      "MSB",
+      2861.37639924791
+     ],
+     [
+      "STWD",
+      2439.3575088061384
+     ],
+     [
+      "ORI",
+      2375.1002890872655
+     ],
+     [
+      "FF",
+      2374.3645223984836
+     ],
+     [
+      "DX",
+      2230.735502619588
+     ]
+    ]
+   },
+   "benchmark": {
+    "market_neutral": false,
+    "index": "SPY",
+    "has_dividends": true,
+    "price": 1.513246928274898,
+    "total_return": 1.8452479629261895,
+    "delta": 0.3320010346512916,
+    "delta_additive": 0.12315222777274458,
+    "index_price": 1.5371879302005325,
+    "index_tr": 1.8767754129125995
+   },
+   "chain_return_price": 2.3144340875867857,
+   "chain_dividend_contribution": 0.1601373182858123,
+   "chain_return_total": 2.474571405872598,
+   "excess_price": 0.8011871593118878,
+   "excess_total_return": 0.6293234429464083,
+   "excess_delta": -0.17186371636547948,
+   "excess_total_return_additive_both": 0.8381722498249553,
+   "excess_delta_additive_both": 0.03698509051306753,
+   "reported_excess": 0.8011871593118878,
+   "repro_error": 0.0,
+   "convention_robust": false
+  }
+ ]
+}

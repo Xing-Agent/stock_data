@@ -1,0 +1,103 @@
+# ============================================================================
+# 技-2 · 法伯月线择时(梅布·法伯)
+#
+# 三秒版:每月最后一个交易日看一眼 —— 收盘在 10 个月均线之上就持有,之下就清仓。
+#         一年只看 12 次,中途跌成什么样都不动。
+#
+# ★ 这是 12 条里**唯一一条真正「原著完整、一个数都不用我们填」**的。
+#   原著给死的:月末判断 / 10 个月 SMA / 之上持有、之下换现金 / 不设止损止盈。
+# ★ "执行细节" = 2 条(月末的定义、槽位),逐条标在下面。
+# ============================================================================
+
+meta:
+  name: 技-2_法伯月线择时
+  master: Meb Faber
+  book: Faber (2007) "A Quantitative Approach to Tactical Asset Allocation"
+  handbook_ref: v11 第 254 行;附录 A 技-2
+  orig_claim: 规则来自作者论文,完整公开
+  caveat: >-
+    原著是在**资产类别指数**上跑的(美股/外股/债/房地产/商品 五类等权),
+    不是在个股上跑的。本次跑的是 300 只美股个股,★ 口径不同,
+    原著的证据不能搬过来 —— 这一条必须写在报告里。
+
+# ① 选股范围 —— 原著无个股选股条件(它根本不选股)
+universe:
+  rules: []
+  source: 原著(法伯不选股;本次按「每只票各自做自己的月线择时」读)
+
+# ② 环境过滤 —— ★ 原著的「环境过滤」就是它自己的月线规则,不另设
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 原著
+
+# ③ 进场扳机:月末收盘 > 10 个月 SMA
+entry:
+  rules:
+    - type: monthly_sma_above
+      params: { months: 10 }
+      source: 原著(Faber 2007 全文用 10 个月 SMA;月末判断一次)
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(原著说「月末收盘在均线上就持有」,没说几点成交;
+          引擎统一用次日开盘)
+
+# ④ 初始止损 —— ★ 原著明文「中途不管跌成什么样都不动,只在月末判断一次」
+#   = 没有止损。用 type: none 显式表达(止损价 0,只有破产归零才触发)。
+#   ★ 代价:这条链的 1R = 进场价,R 乘数退化成收益率,不能和有止损的链比每笔 R。
+initial_stop:
+  type: none
+  source: 原著(法伯不设止损 —— ★ 这不是漏填,是原著就没有)
+
+# ⑤ 移动止损 —— 原著没有
+trailing_stop:
+  type: none
+  source: 原著
+
+# ⑥ 离场:月末收盘跌破 10 个月 SMA → 清仓
+exit:
+  rules:
+    - type: monthly_sma_below
+      params: { months: 10 }
+      source: 原著(月末收盘低于 10 月线 → 清仓换现金或短债)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 原著
+
+# ⑦ 仓位:原著是等权满仓(五类资产各 20%)
+sizing:
+  type: equal_weight_all
+  params:
+    max_positions: 20
+    max_weight: 0.05
+  source: >-
+    原著(等权、满仓、不按波动率缩放)。★ 槽位 20 / 单票 5% 是执行细节:
+    原著在 5 个资产类别上等权,换到 300 只个股上「等权」必须定一个并发只数,
+    原著没给这个数。★ 20 这个数是我们定的 —— 已列入报告「要回去问」。
+
+slots: 20
+source_slots: 执行细节(原著在 5 类资产上等权;换到个股池必须定并发只数,原著没给)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(原著无排序;槽位满时的决胜规则选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:法伯月线择时 —— 趋势类
+  family: trend
+  component_match: large
+  risk_free_annual: null
+  # ★ 原著清仓后是「换现金或短债」,有利息收入。仓库没有短端利率序列,
+  #   现金腿按 0% 记 —— ★ 这会系统性低估法伯(2018-2025 短端利率不是 0)。
+  #   报告里必须写明这个方向。

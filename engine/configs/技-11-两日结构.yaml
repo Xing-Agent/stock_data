@@ -1,0 +1,132 @@
+# ============================================================================
+# 技-11 · 威科夫 Spring · ★★ 两日结构版(批五修正 2026-10-29)
+#
+# 三秒版:第一天价格往下扫一针、跌破前面的关键低点,但当天就强力收回来了,
+#         ★ 而且那一针【是放量的】(止损盘被打爆、有人在接);
+#         之后几天价格缓缓回踩到那条线上方,★ 这一天【才要求极度缩量】
+#         (洗盘后已经没人抛了)→ 买。
+#
+# ★★ 这一版修的是什么 bug:
+#   老的 技-11-行业.yaml 把「下刺收复日」和「缩量测试日」强行合成了一天,
+#   并要求收复当天 Volume ≤ 0.65×SMA50 —— ★ 物理上自相矛盾:
+#   既然空头止损盘被触发、主力在吸货(Absorption),那一天不可能缩量。
+#   ★ 实测也早就说了这件事:量比 1.00~1.50 那一档后续 60 日 +3.85%,
+#     量比 <0.50 那一档 −1.80%。
+#
+# ★★ 归属标注(硬纪律 8):
+#   Wyckoff 1931 原著【只有 Terminal Shakeout,没有 1/2/3 号分类】。
+#   1/2/3 号与两日结构都是 Bob Evans(1930s-50s)口头归纳,
+#   由 Pruden (2007) 与 Tom Williams (1993) 整理出版 ——
+#   ★ 用的全部是 1930-1980 年代极少数蓝筹股的人工手绘图,
+#   ★ 从未披露样本量、无回测表、无 p 值。
+#   ★★ 所以本文件一律标【后人量化版,无统计支持】,★ 不是【原著写死】。
+#   ★ 所有引文【待核实】。
+# ============================================================================
+
+meta:
+  name: 技-11_两日结构版_批五修正
+  master: Richard D. Wyckoff(原著);Bob Evans / Hank Pruden / Tom Williams(量化版)
+  book: Pruden (2007) Ch.4;Williams (1993) Ch.3 —— ★【待核实】
+  三版归属: 行业版(= 后人量化版 · 两日结构)
+  原著性质: >-
+    ★★【后人量化版,无统计支持】。原著只有 Terminal Shakeout 的散文描述,
+    两日结构、深度阈值、量比阈值三项原著全未写死。
+  caveat: >-
+    ★ ②④⑤⑥⑦ 与 技-11-行业.yaml / 技-11-XING.yaml 完全一致 ——
+    这样「修这个 bug 改了多少」才是只差进场扳机的干净对照。
+
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(三版可比性要求;★ 不是原著无此条)
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 —— ★★ 两日结构
+#   Day 1(Spring):盘中跌破前 20 日低点(该低点 ≥4 天老)
+#                  + 当日收盘 ≥ 前低 + 0.10×ATR14
+#                  + ★★ 当日成交量【≥】spring_vol_min_ratio × SMA50
+#   Day 2~N(Test):N 个交易日内出现一次回踩 ——
+#                  Low > 前低(守住)且 Close ≤ Spring 日收盘(确实是回踩)
+#                  + ★★ Vol ≤ 0.65×SMA50(★ 这一条才是原著体系的缩量要求)
+#   进场:Test 日收盘确认 → 次日开盘
+#
+# ★ 深度上限写 null = 不设 —— 深度该不该禁由实测分档回答,不先筛掉。
+# ★ 「回踩」的两条判据是★★【我们自己定的可执行化口径】,原著没有阈值。
+# ---------------------------------------------------------------------------
+entry:
+  rules:
+    - type: pat6_spring_two_day
+      params:
+        lookback: 20
+        min_bars_before: 4
+        atr_period: 14
+        reclaim_atr_multiple: 0.10
+        spring_vol_min_ratio: 1.0
+        depth_hard_cap_atr: null
+        test_max_bars: 3
+        test_vol_max_ratio: 0.65
+        vol_slow_period: 50
+      source: >-
+        ★★【后人量化版,无统计支持】。前低 = Connors 滚动 20 日绝对低点
+        + 4 天存活门禁(Connors & Raschke《Street Smarts》1995 Ch.4
+        Turtle Soup Rule 2 —— 已核实)。两日结构归 Evans → Pruden (2007) /
+        Williams (1993)【待核实】。spring_vol_min_ratio 与 test_max_bars
+        各跑三组看单调性,★ 不是哪一本书给的数。
+  signal_freeze: close
+  fill: next_open
+  source: 后人量化版
+
+# ---------------------------------------------------------------------------
+# ④⑤⑥ —— ★ 和 技-11-行业.yaml / 技-11-XING.yaml 一字不差
+# ---------------------------------------------------------------------------
+initial_stop:
+  type: day_low_minus_atr
+  params:
+    atr_period: 14
+    atr_multiple: 0.3
+  source: 行业惯例(沿用 liquidity_sweep.yaml)
+
+trailing_stop:
+  type: none
+  source: 执行细节(各版统一)
+
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 20 }
+      source: 行业惯例(沿用 liquidity_sweep.yaml)
+  params:
+    profit_target_r: 2.0
+    time_stop_days: null
+  fill: next_open
+  source: 行业惯例(沿用 liquidity_sweep.yaml 的 2R 止盈)
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 行业惯例(各版统一口径)
+
+slots: 10
+source_slots: 行业惯例(各版统一)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(槽位满时要有决胜规则,选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null

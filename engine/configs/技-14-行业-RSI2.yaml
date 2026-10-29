@@ -1,0 +1,141 @@
+# ============================================================================
+# 技-14 · 布林带均值回归 · ★★ 行业版-RSI2(批五修正 2026-10-29)
+#
+# 三秒版:大趋势向上(站在 200 日线上方、200 日线还在往上走),
+#         价格被砸到两日 RSI ≤10 的极度超卖,当天盘中跌穿布林下轨、
+#         收盘又收回到下轨上方并收阳线 → 次日开盘买。
+#
+# ★★ 这一版改的是什么:【废除 ADX(14) ≤ 25】,换成 RSI(2) ≤ 10。
+#   专家自认 ADX≤25 是「教科书里流传最广但未经解耦的教条毒药」:
+#   ★ ADX 是【不分方向】的动能绝对值。均值回归的超额收益恰恰来自
+#     「强牛市中的深度急跌黄金坑」—— 那时跌势极凶,ADX 会被瞬间推到
+#     30 甚至 45 以上,于是 ADX≤25 精准切断了全周期弹性最大、
+#     盈亏比最高的反弹买点;
+#   ★ 而 ADX≤25 真正放行的是【毫无动能的死水横盘期】,
+#     那里反弹空间极窄、扣费后必然最差。
+#   ★ 旧版实测佐证:三道过滤器一起只放过 19.3% 的触轨事件,
+#     而「在 200 日线上方且 ADX≤25」那一桶的 20 日中位收益 +0.71%,
+#     是四桶里最差的一桶。
+#
+# ★ 带宽突变熔断(3 日带宽变化率 ≤20%)专家没说废 ——
+#   所以它单独拆成一条规则,由跑的脚本做「带它 / 不带它」的对照。
+#
+# ★ 引文一律【待核实】:
+#   Bollinger《Bollinger on Bollinger Bands》(2001) Ch.12 Rule 4;
+#   Ch.9 "Walks along the Bands" (p.83-90) —— ★ 专家说该章纯定性警告、
+#   无任何量化统计表。RSI(2) 体系归 Connors & Alvarez (2008)。
+# ============================================================================
+
+meta:
+  name: 技-14_行业版_RSI2_批五修正
+  master: John Bollinger(带);Larry Connors(RSI2 超卖扳机)
+  book: Bollinger (2001) Ch.9/Ch.12;Connors & Alvarez (2008) —— ★【待核实】
+  三版归属: 行业版·RSI2(批五修正)
+  原著性质: >-
+    ★ 原著反对裸碰轨(Rule 4)。本版是【行业量化版】:趋势闸门 + 超卖扳机
+    + 收复反转三者同时成立才进场。★ ADX 那一道已废除。
+
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(各版可比性要求;★ 不是原著无此条)
+
+# ---------------------------------------------------------------------------
+# ③ 进场扳机 —— 专家给的新组合,逐字落地:
+#   Trend_Gate       = (Close > SMA200) and (Slope20(SMA200) >= 0)
+#   Oversold_Trigger = (RSI2(Close) <= 10.0)
+#   Reversal_Trigger = (Low < LowerBand) and (Close > LowerBand) and (Close > Open)
+#   Entry            = Trend_Gate and Oversold_Trigger and Reversal_Trigger
+#   (+ 可选第四道:带宽突变熔断,由脚本做对照)
+# ---------------------------------------------------------------------------
+entry:
+  rules:
+    - type: pat6_bb_trend_gate
+      params:
+        ma_period: 200
+        slope_lookback: 20
+      source: 行业惯例(保留;★ ADX≤25 那一道已废除)
+    - type: pat6_rsi_oversold
+      params:
+        rsi_period: 2
+        max_rsi: 10.0
+      source: Connors & Alvarez (2008) RSI(2) 体系 —— ★【待核实】
+    - type: pat6_bb_reversal
+      params:
+        period: 20
+        k: 2.0
+      source: 行业惯例(专家给的 Reversal_Trigger,逐字)
+    - type: pat6_bb_bw_jump_gate
+      params:
+        period: 20
+        k: 2.0
+        bw_jump_lookback: 3
+        bw_jump_max: 0.20
+      enabled: true
+      source: >-
+        行业惯例(带宽突变熔断)。★ 专家没说废这一道 ——
+        跑的脚本会做「带它 / 不带它」两组对照。
+  signal_freeze: close
+  fill: next_open
+  source: 行业惯例
+
+# ---------------------------------------------------------------------------
+# ④⑤⑥ —— ★ 和 技-14-行业.yaml 一字不差(否则和旧版不可比)
+#
+# ★★ 引擎做不到的一处,显式交代:行业版原文写的是「触中轨平 50%、
+#   触上轨清仓」—— 引擎不支持分批离场。本版按「触中轨全平」跑
+#   (= 保守端:更早离场、吃不到上轨那一段),★ 会系统性低估总收益。
+# ---------------------------------------------------------------------------
+initial_stop:
+  type: day_low_minus_atr
+  params:
+    atr_period: 14
+    atr_multiple: 0.3
+  source: 行业惯例(沿用 技-14-行业.yaml)
+
+trailing_stop:
+  type: none
+  source: 执行细节(各版统一)
+
+exit:
+  rules:
+    - type: pat6_close_above_bb_mid
+      params: { period: 20, k: 2.0 }
+      source: >-
+        行业惯例(触中轨离场)。★ 原文是「触中轨平 50%、触上轨清仓」,
+        引擎不支持分批 → 按触中轨**全平**跑,★ 这是保守端。
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 行业惯例
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 行业惯例(各版统一口径)
+
+slots: 10
+source_slots: 行业惯例(各版统一)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(槽位满时要有决胜规则,选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null

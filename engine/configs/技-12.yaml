@@ -1,0 +1,111 @@
+# ============================================================================
+# 技-12 · 康纳斯均值回归(拉里·康纳斯)
+#
+# 三秒版:在 200 日均线之上(长期趋势向上),但 2 日 RSI 跌到极低值时买入;
+#         回到 5 日均线之上就走。
+#
+# ★★ 本条**不是**原著完整 —— 手册附录 A 写的是「规则与参数来自原著,公开完整」,
+#   但手册正文第 371 行写的是「2 日 RSI 跌到**极低值**」,★ 没有给这个数。
+#   同样「持有超过 N 天无条件平仓」里的 N 也没给。
+#   ★ 所以这条有两个必须回去问的数:
+#       ① RSI(2) 的买入阈值
+#       ② 时间止损的天数 N
+#   ★ 本次按两档阈值并列跑(由 runner 控制),★ 两档都不构成结论,
+#     只是让「这个数有多重要」看得见。时间止损显式关掉。
+# ============================================================================
+
+meta:
+  name: 技-12_康纳斯均值回归
+  master: Larry Connors
+  book: Connors & Alvarez《Short Term Trading Strategies That Work》(2008)
+  handbook_ref: v11 第 368 行;附录 A 技-12
+  orig_claim: 规则与参数来自原著,公开完整
+  param_gap: >-
+    ★ 手册正文没给 RSI(2) 的阈值(只写「极低值」),也没给时间止损的 N。
+    ★ 附录 A 说「参数来自原著,公开完整」与正文不一致 —— 已列入报告「要回去问」。
+
+# ① 「200 日均线之上」—— 手册明文「这个前提不允许用户关掉」
+universe:
+  rules:
+    - type: price_above_ma
+      params: { ma: 200 }
+      source: 原著(「价格在 200 日均线之上」;手册明文此前提不允许关掉)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 原著(康纳斯无另设的大盘开关;200 日线这一条已在 ① 里)
+
+# ③ 2 日 RSI 跌到阈值以下
+entry:
+  rules:
+    - type: rsi_oversold
+      params: { period: 2, threshold: 5.0 }    # ★ 阈值由 runner 跑 5 / 10 两档
+      source: >-
+        原著:RSI 周期 = 2(手册正文明确写「2 日 RSI」)。
+        ★★ 阈值 = 手册**没给**(原文只写「极低值」)——
+        5 / 10 两档是常见流传值,★ 不是手册所载,两档并列只作敏感度,
+        ★ 不构成结论。已列入报告「要回去问」。
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(收盘确认、次日开盘)
+
+# ④ ★ 原著这一套是明确「不带止损」测试的(康纳斯书里自己强调不加止损)
+initial_stop:
+  type: none
+  source: >-
+    原著(康纳斯的 RSI(2) 系统在原书里是**不带止损**测试的)。
+    ★ 代价:1R = 进场价,R 乘数退化成收益率,不能和有止损的链比每笔 R。
+
+trailing_stop:
+  type: none
+  source: 原著
+
+# ⑥ 离场:回到 5 日均线之上
+exit:
+  rules:
+    - type: close_above_ma
+      params: { ma: 5 }
+      source: 原著(「价格回到 5 日均线之上就走」)
+  params:
+    profit_target_r: null
+    time_stop_days: null      # ★ 原著「持有超过 N 天无条件平仓」—— N 没给,显式关掉
+  fill: next_open
+  source: >-
+    ★ 原著的第二条离场「持有超过 N 天无条件平仓」里的 N 手册没给 →
+    本次显式关掉(不是忽略)。已列入报告「要回去问」。
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: >-
+    ★ 执行细节:原著是单品种/等权测试,没给组合仓位规则。
+    ★ 注意:initial_stop = none 时 risk_per_trade 按「进场价」算风险,
+    等价于每笔买 1% 权益 —— 槽位 10 下实际常年低仓位,
+    ★ 这会让绝对收益看着低,必须和「同等仓位大盘」基准比,不能看绝对数。
+
+slots: 10
+source_slots: 执行细节(原著无槽位规则)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(原著无排序;★ 康纳斯信号同一天会大批触发,
+            槽位满时买哪几只由它决定,结论对它敏感)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:★ 专家点名的均值回归之一(康纳斯)
+  family: meanrev
+  component_match: large
+  risk_free_annual: null

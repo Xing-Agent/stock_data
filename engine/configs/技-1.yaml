@@ -1,0 +1,117 @@
+# ============================================================================
+# 技-1 · 系统化趋势跟随(丹尼斯 / 塞科塔 —— 海龟原始规则)
+#
+# 三秒版:价格收盘创 N 日新高就买,跌破 M 日新低就走,止损 2N,不设止盈。
+#
+# ★ source 三选一:原著 / 行业惯例 / 执行细节(我们的改动)
+#   ★ 本文件 "行业惯例" = 1 条(摩擦成本),"执行细节" = 2 条,其余全部原著。
+#
+# ★★ 手册明文:这一条「必须拆成两个版本,不能混为一谈」。
+#   本文件复现的是**海龟原始规则的参数**,执行时点用的是「收盘确认 / 次日开盘」
+#   —— ★ 所以它既不是原版、也不是手册写的 XING 版,是两者的交集。
+#   报告里必须这样写,不许继承原版的证据。
+#
+# ★★ 三处「原著有、引擎做不到」,全部显式记在这里(不是悄悄忽略):
+#   一、加仓:原著「每前进 0.5N 加一个单位,最多四个单位」—— 引擎不支持
+#       金字塔加仓,本次只跑**单个单位**。
+#       ★ 没有加仓的海龟不是完整的海龟系统,这一版的结论不能当成海龟原版的结论。
+#   二、盘中成交:原著盘中突破即成交;引擎只能收盘确认 + 次日开盘。
+#   三、System 1 的「上一次突破是赢家就跳过」过滤器:引擎没实现,本次显式不加。
+#       ★ 所以 20 日那一档比原著更频繁地进场;55 日(System 2)原著无此过滤器,
+#       不受影响 —— 两档并列报,就是为了让这个差别看得见。
+# ============================================================================
+
+meta:
+  name: 技-1_系统化趋势跟随_海龟原始参数
+  master: Richard Dennis / Ed Seykota(海龟)
+  book: 《The Original Turtle Trading Rules》(Faith 2003)
+  handbook_ref: v11 第 219 行;附录 A 技-1
+  orig_claim: 原版规则公开且完整;XING 版是我们的改写,尚未验证
+  caveat: >-
+    原著证据来自期货 / 多空 / 跨品种分散;本次跑的是美股个股 / 只做多,
+    手册明文「不能搬」。本次结论只对「美股个股只做多」这个口径成立。
+
+# ① 选股范围 —— ★ 原著没有选股条件(海龟交易事先定好的流动品种清单),
+#    所以这里不加任何闸门,全池。★ 加一条就是我们自己发明的。
+universe:
+  rules: []
+  source: 原著(海龟无个股选股条件,全池照跑)
+
+# ② 环境过滤 —— ★ 原著没有大盘择时开关。海龟从不看大盘在不在均线上。
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 原著(海龟无环境过滤;★ 留空是照原文,不是忘了填)
+
+# ③ 进场扳机
+entry:
+  rules:
+    - type: donchian_close_breakout
+      params: { lookback: 20 }
+      source: 原著(Faith 2003,System 1 入场 20 日通道;runner 另跑 55 日 System 2)
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(原著盘中突破即成交;引擎只能收盘确认次日开盘)
+
+# ④ 初始止损 = 2N,N = 20 日 ATR
+initial_stop:
+  type: atr_multiple
+  params: { atr_period: 20, multiple: 2.0 }
+  source: 原著(海龟 2N 止损;N = 20 日 ATR。ATR 定义 Wilder 1978)
+
+# ⑤ 移动止损 —— ★ 原著没有移动止损,退出靠反向通道(见 ⑥)。
+trailing_stop:
+  type: none
+  source: 原著(海龟无移动止损;★ 留 none 是照原文)
+
+# ⑥ 离场 = 10 日反向通道(System 1 → 10 日;System 2 → 20 日)
+#   ★ 写成离场规则、不写成移动止损 —— 原著的反向通道可以往下跑,
+#   而引擎的移动止损有「只许上移」铁律,两者不等价。
+exit:
+  rules:
+    - type: close_below_lowest_low
+      params: { lookback: 10 }
+      source: 原著(System 1 退出 = 10 日反向通道)
+    - type: close_below_trailing_stop
+      source: 原著(初始 2N 止损照常生效)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 原著(海龟不设止盈)
+
+# ⑦ 仓位
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.02
+    max_positions: 12
+    max_weight: 1.0
+  source: >-
+    原著(推导写明):海龟「1 单位 = 账户 1% / N」,止损在 2N
+    → 单笔风险 = 2% 账户。引擎的 risk_per_trade 是「到止损为止亏多少」,
+    所以填 0.02 才等于原著的 1 单位。★ 不是我们挑的数,是换算出来的。
+    槽位 12 = 原著「总持仓上限 12 个单位」;单票名义上限 1.0 = 原著无名义上限,
+    实际由现金约束(期货靠保证金,股票靠现金)。
+
+slots: 12
+source_slots: 原著(海龟总上限 12 个单位,单单位制下 = 12 个并发持仓)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(原著无排序;槽位满时必须有个决胜规则,选了最不含观点的那个)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:海龟突破 —— 趋势类
+  family: trend
+  component_match: large
+  risk_free_annual: null

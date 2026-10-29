@@ -1,0 +1,96 @@
+======================================================================
+三 · 关键三问
+======================================================================
+
+扫到行情类文件总数(上限 40 万):12341
+看起来按代码命名的不同代码数:4
+
+----------------------------------------------------------------------
+★ 第一问:有没有已经退市 / 被收购 / 破产的公司?
+----------------------------------------------------------------------
+  ❌ 没有 SIVB   硅谷银行 —— 2023-03 倒闭
+  ❌ 没有 FRC    第一共和银行 —— 2023-05 被接管
+  ❌ 没有 XLNX   赛灵思 —— 2022-02 被 AMD 换股收购
+  ❌ 没有 ALXN   Alexion —— 2021-07 被 AstraZeneca 收购
+  ❌ 没有 SQBG   Sequential Brands —— 2021 破产
+  ❌ 没有 WPG    Washington Prime —— 2021 破产重整
+
+  ❌ 对照(今天还在交易)AAPL
+  ❌ 对照(今天还在交易)MSFT
+  ❌ 对照(今天还在交易)KO
+
+  ★ 结论:退市试纸 0/6 命中。
+  ★★ 一个都没有 → 它很可能是『今天还在交易的所有票』。
+     修不了幸存者偏差;但分钟线那部分照样有用。
+
+----------------------------------------------------------------------
+★ 第二问:日线里有没有【拆股系数】和【分红】字段?
+----------------------------------------------------------------------
+
+  ?  /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/upload_audit/summary.json
+    表头: {   "states": {     "done": 1366   } } 
+      拆股   : ❌ 没看到
+      分红   : ❌ 没看到
+      除息日  : ❌ 没看到
+      复权价  : ❌ 没看到
+
+  ?  /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/upload_audit/file_index.txt
+    表头: /mnt/tool_aggregator_storage/massive_rest_stocks_minutes_2016_20210326/minute/2016/2016-01-29.status.json
+      拆股   : ❌ 没看到
+      分红   : ❌ 没看到
+      除息日  : ❌ 没看到
+      复权价  : ❌ 没看到
+
+  ?  /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/00_整理导航_20261022/00_先读说明.txt
+    表头: ﻿P04 美股1分钟行情（Massive） — 整理导航（2026-10-22）
+      拆股   : ❌ 没看到
+      分红   : ❌ 没看到
+      除息日  : ❌ 没看到
+      复权价  : ❌ 没看到
+
+  ?  /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/00_整理导航_20261022/01_目录分类索引.csv
+    表头: ﻿分类,年份或检索分组,类型,名称,当前位置,原位置,fs_id,字节数,本次移动
+      拆股   : ❌ 没看到
+      分红   : ❌ 没看到
+      除息日  : ❌ 没看到
+      复权价  : ❌ 没看到
+
+  ?  /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/00_整理导航_20261022/02_原路径到现路径.csv
+    表头: ﻿分类,年份或检索分组,类型,名称,当前位置,原位置,fs_id,字节数,本次移动
+      拆股   : ❌ 没看到
+      分红   : ❌ 没看到
+      除息日  : ❌ 没看到
+      复权价  : ❌ 没看到
+
+  ?  /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/all/2025-08-18.csv.gz
+    表头: ticker,volume,open,close,high,low,window_start,transactions
+      拆股   : ❌ 没看到
+      分红   : ❌ 没看到
+      除息日  : ❌ 没看到
+      复权价  : ❌ 没看到
+
+----------------------------------------------------------------------
+★ 第三问:分钟线是什么粒度、覆盖多少年、多少只票?
+----------------------------------------------------------------------
+  找到 11 个疑似盘中数据目录,按文件数排前 12:
+       1256 个文件 |     24G | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/all
+        524 个文件 |    4.9G | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2020
+        522 个文件 |    3.9G | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2019
+        522 个文件 |    3.9G | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2018
+        522 个文件 |    3.8G | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2016
+        520 个文件 |    3.6G | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2017
+        122 个文件 |    1.4G | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2021
+          4 个文件 |    156M | 粒度线索=intraday | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/xing_pit
+          3 个文件 |     20K | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/00_整理导航_20261022
+          3 个文件 |     24K | 粒度线索=1min     | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/massive_us_etf_1min_20161013_20261012/00_整理导航_20261022
+          2 个文件 |    756K | 粒度线索=minute   | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/upload_audit
+
+  样本文件:/sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/all/2025-08-18.csv.gz
+    表头: ticker,volume,open,close,high,low,window_start,transactions
+    行数: 155347
+    第二行: I5��w[��P��EQ$EQ������?���������������������׿~���?��׿�����������������?��߿���������������?��u�W�w-�YJ	�u�_�~�
+    最后一行: �N���T+�De�,���r����S�Rě˥lL�FHJc�4�����"XAm�i"2� ��=uSM��I�S�Z�~V�ao�<���G�Yr��9���ۡ�%�[h����"��p�n1}���bc���R�^8��Wr9,G#�ߘ1�y����Ԓ,R���i�n4�$
+
+★ 已写出 xing-data-probe-20261029-094157/代码清单.csv —— 共 4 个代码
+
+★ 摘要: {"退市试纸命中": "0/6", "命中的": [], "没命中的": ["SIVB", "FRC", "XLNX", "ALXN", "SQBG", "WPG"], "不同代码数": 4, "行情类文件数": 12341, "疑似盘中目录数": 11}

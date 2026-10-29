@@ -1,0 +1,21 @@
+=== 一 · 找装着大量行情文件的目录(可能要几分钟)===
+3552 个条目 | 1.4G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2016
+3391 个条目 | 1.4G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2015
+3225 个条目 | 1.3G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2014
+3030 个条目 | 1.2G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2013
+2829 个条目 | 1.1G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2012
+2694 个条目 | 1.1G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2011
+2612 个条目 | 1005M | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2010
+2492 个条目 | 1003M | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2009
+2396 个条目 | 1.1G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2008
+2284 个条目 | 814M | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2007
+1772 个条目 | 623M | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2006
+1639 个条目 | 526M | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2005
+1522 个条目 | 449M | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/2004
+1256 个条目 | 256M | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/day/all
+1256 个条目 | 24G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/all
+524 个条目 | 4.9G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2020
+522 个条目 | 3.9G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2019
+522 个条目 | 3.9G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2018
+522 个条目 | 3.8G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2016
+520 个条目 | 3.6G | /sessions/rcw-01pfnzy2sljzmzqhyctnddgj/mnt/美股历史数据/minute/2017
