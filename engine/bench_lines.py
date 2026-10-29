@@ -507,15 +507,15 @@ def residual_jump_blackout(symbols: list[str], index: pd.DatetimeIndex,
     """
     ★★ 把「已知的假跳变 bar」周围的进场信号屏蔽掉。
 
-    大白话:仓库这 300 只票里,还剩 30 根没修的拆股跳变(比如 BNED 2024-06-12
-    一天 ×74、PROP 2020-02-28 一天 ×28.6)。这不是我发现的新问题 ——
+    大白话:仓库这 300 只票里,还剩 17 根没修的拆股跳变(1b6b28e 根因修复前是 48 根)(比如 PROP 2020-02-28
+    一天 ×28.6、AMRS 2017-06-06 一天 ×16.4)。这不是我发现的新问题 ——
     engine/split_gate.py 自己的 residual_jumps() 就是专门列这份「我们还欠多少」
     的清单,自检每次都打出来。
 
     ★ 为什么偏偏是朴素-均值回归基准会被它炸穿:这条基准的定义就是
     「买过去 5 天跌得最深的那 5%」—— 而即将做反向拆股(1 合 N)的仙股,
     拆股前恰恰就是跌得最深的那一批。于是基准系统性地专门去捡这些
-    「第二天价格 ×74」的假 bar。实测:不剔除 → 八年 +47493%;剔除 → 见报告。
+    「第二天价格 ×28」的假 bar。实测(5bp 一刀切成本):不剔除 → 八年 +3560%;剔除 → +723%。
     ★ 所以这个数不剔除就没有任何参考价值,必须两版都报。
 
     ★ 剔除口径不是新参数:阈值用的就是 split_gate.residual_jumps() 的默认
@@ -602,7 +602,8 @@ def naive_baseline(kind: str, symbols: list[str], slots: int, costs: dict,
                 f"split_gate.residual_jumps(3.0) 列出 {len(jumps)} 根残余跳变,"
                 f"屏蔽后进场信号格子 {n_before} → {n_after}"
                 f"(砍掉 {n_before - n_after} 格,{(n_before-n_after)/max(1,n_before):.2%})。"
-                f"★ 不剔除的话这条基准专门去捡 BNED ×74 / PROP ×28.6 这种假 bar。")
+                f"★ 不剔除的话这条基准专门去捡 PROP ×28.6 / AMRS ×16.4 / FTLF ×10.3 "
+                f"这种假 bar(残余清单由 split_gate 自己维护,根因修复后从 48 根降到 17 根)。")
         m.entry = entry.reindex(index=m.index, columns=m.symbols).to_numpy(dtype=bool)
         m.rank_score = score.reindex(index=m.index,
                                      columns=m.symbols).to_numpy(dtype=float)
