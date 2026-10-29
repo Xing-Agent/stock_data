@@ -33,6 +33,7 @@ from __future__ import annotations
 import copy
 import json
 import os
+import subprocess
 import time
 
 import numpy as np
@@ -41,11 +42,47 @@ import yaml
 from . import (analyze, cache, chain, data, matrices, ops_1029, ops_a0,
                stats_gate, window_pool)
 from .run_batch import _num, signal_funnel, window_pool_gate
+from .bench_lines import _concentration   # ★ 集中度自检，现成实现，不重写
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG_DIR = os.path.join(HERE, "configs")
-OUT_JSON = os.path.join(HERE, "results_1029_A0十二条.json")
-LEDGER_DIR = os.path.join(HERE, "ledgers_1029_A0十二条")
+OUT_JSON = os.path.join(HERE, "results_1029_A0十二条_新拆股口径.json")
+LEDGER_DIR = os.path.join(HERE, "ledgers_1029_A0十二条_新拆股口径")
+
+
+def _cache_provenance() -> dict:
+    """
+    ★★ 报告模板新增的一欄（2026-10-29 策略组接受并推广）：
+      commit hash + 读的是哪份缓存 + 缓存构建时间。
+
+    大白话：多个会话在同一份工作树上并行干活时，光有 commit hash
+      已经定不住一份结果了 —— 价格缓存可能在你跑的过程中被别人重建。
+      ★ 所以必须把「我读的是哪份缓存、它是何时构建的」一起记下来。
+    """
+    out = {}
+    try:
+        out["git_commit"] = subprocess.run(
+            ["git", "rev-parse", "HEAD"], cwd=os.path.dirname(HERE),
+            capture_output=True, text=True, timeout=20).stdout.strip()
+        out["git_工作树是否干净"] = (subprocess.run(
+            ["git", "status", "--porcelain"], cwd=os.path.dirname(HERE),
+            capture_output=True, text=True, timeout=20).stdout.strip() == "")
+    except Exception as e:
+        out["git_commit"] = f"拿不到：{e}"
+    for name, path in (("价格缓存", cache.PANEL_PARQUET),
+                       ("缓存元数据", cache.META_PARQUET)):
+        try:
+            st = os.stat(path)
+            out[name] = path
+            out[f"{name}_构建时间"] = time.strftime(
+                "%Y-%m-%d %H:%M:%S", time.localtime(st.st_mtime))
+            out[f"{name}_字节数"] = st.st_size
+        except Exception as e:
+            out[name] = f"拿不到：{e}"
+    out["说明"] = ("★ cache.py 把面板一次性读进模块级变量，"
+                    "进程启动后不再重读 —— 所以运行期间别人重建缓存"
+                    "影响不到已启动的进程，本批 13 个版本跑在同一份价格数据上。")
+    return out
 
 
 def _load(name: str) -> dict:
@@ -247,6 +284,12 @@ def run_one(label: str, yaml_name: str, override, why: str, version: str,
                    else f"★ 不够(n={n} < {stats_gate.SYSTEM_MIN_TRADES})"),
         "信号漏斗": funnel,
         "持仓时长": _num(hold),
+        # ★★ 2026-10-29 新增：集中度自检（策略组要求，每条链都要报）。
+        #   背景：技-2 法伯的旧结果里 82.1% 的净盈利来自 14 笔骑在未修拆股
+        #   断裂上的持仓，其中单独一笔 LFMD 就占整条链盈利的 63%。
+        #   ★ 教训：**受影响笔数占比小 ≠ 影响小**，因为假跳变那几笔的
+        #   幅度是异常的（+456% 复利成 +42 倍）。所以必须直接看集中度。
+        "★集中度自检": _num(_concentration(led)),
         "绝对表现": _num(out["绝对表现"]),
         "坑一_现金拖累": _num(out["坑一_现金拖累"]),
         "坑二_跳空穿透止损": _num(out["坑二_跳空穿透止损"]),
@@ -405,6 +448,7 @@ def main(argv=None) -> int:
         "跑的时间": time.strftime("%Y-%m-%d %H:%M:%S"),
         "全池只数": len(syms),
         "绩效窗口": f"{data.PERF_START} .. {data.PERF_END}(2016 起热机)",
+        "★溯源": _cache_provenance(),
         "口径": ("2026-10-29 A0 十二条。硬纪律:Bootstrap 在交易流水层面 B=1000 / "
                  "三套对照组同环境取样 / 两窗口两池子硬关 FNV-1a 确定性种子 / "
                  "两条基准线(Ē 全周期固定)/ 笔数<150 打警示 / 不网格搜索"),

@@ -39,7 +39,7 @@ import pandas as pd
 from . import cache, data, matrices, stages
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT_JSON = os.path.join(HERE, "results_1029_A0状态两条.json")
+OUT_JSON = os.path.join(HERE, "results_1029_A0状态两条_新拆股口径.json")
 
 #: 状-6 的评估日 —— 取绩效窗口内每个日历月的最后一个交易日。
 #   ★ 为什么不是每一天:共振计数是「此刻哪些价位重要」的快照,
