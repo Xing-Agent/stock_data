@@ -198,5 +198,10 @@ costs:
   source: 行业惯例                # SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A
 
 benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:趋势/突破类
+  family: trend
   component_match: large
   risk_free_annual: null         # 仓库没有短端利率序列,现金腿按 0% 记并在结果里标明

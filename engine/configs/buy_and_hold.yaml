@@ -45,5 +45,10 @@ costs:
   one_way_bps: 0.0
 
 benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:买入持有是单边多头基线链 —— 单边多头指数就是它的天然对照
+  family: trend
   component_match: large        # large→SPY / mid→MDY(仓库暂无) / small→IWM / equal_weight→RSP
   risk_free_annual: null        # ★ 仓库没有无风险利率序列,现金腿按 0% 记并标明

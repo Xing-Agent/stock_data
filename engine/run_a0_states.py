@@ -142,8 +142,8 @@ def base_of(sym: str) -> dict | None:
     is_me = np.empty(len(idx), dtype=bool)
     is_me[:-1] = per[1:] != per[:-1]
     is_me[-1] = True
-    in_perf = ((idx >= pd.Timestamp(data.PERF_START)) &
-               (idx <= pd.Timestamp(data.PERF_END))).to_numpy(bool)
+    in_perf = np.asarray((idx >= pd.Timestamp(data.PERF_START)) &
+                         (idx <= pd.Timestamp(data.PERF_END)), dtype=bool)
     _BASE[sym] = {"idx": idx, "close": close, "high": high, "low": low,
                   "vol": vol, "atr": atr, "mas": mas, "hist": hist,
                   "stage": st, "is_me": is_me, "in_perf": in_perf,
@@ -332,43 +332,14 @@ def _round_levels(px: float) -> list[float]:
 
 def confluence_one(sym: str, tol_k: float, use_wick: bool) -> list[int]:
     """单只票:在每个评估日算一次共振计数,返回所有价位的 0-6 分数列表。"""
-    df = data.load_daily(sym)
-    if df.empty or len(df) < 420:
+    b = base_of(sym)
+    if b is None:
         return []
-    close = df["close"].to_numpy(float)
-    high = df["high"].to_numpy(float)
-    low = df["low"].to_numpy(float)
-    vol = df["volume"].to_numpy(float)
-    idx = df.index
-
-    tr = np.maximum.reduce([
-        high - low,
-        np.abs(high - np.concatenate([[np.nan], close[:-1]])),
-        np.abs(low - np.concatenate([[np.nan], close[:-1]]))])
-    atr = matrices._wilder(pd.DataFrame({"x": pd.Series(tr, index=idx)}),
-                           14)["x"].to_numpy(float)
-
-    ser = pd.Series(close, index=idx)
-    mas = {m: ser.rolling(m, min_periods=m).mean().to_numpy(float) for m in MA_SET}
-
-    # MACD 12/26/9(手册给死的)
-    ema12 = ser.ewm(span=12, adjust=False).mean()
-    ema26 = ser.ewm(span=26, adjust=False).mean()
-    macd = (ema12 - ema26)
-    sig = macd.ewm(span=9, adjust=False).mean()
-    hist = (macd - sig).to_numpy(float)
-
-    st = stages.stage_series(df[["close"]]).to_numpy(object)
-    piv = zigzag_pivots(high, low, close, atr, k=3.0, use_wick=use_wick)
-
+    close, high, low, vol = b["close"], b["high"], b["low"], b["vol"]
+    atr, mas, hist, st = b["atr"], b["mas"], b["hist"], b["stage"]
+    piv = piv_of(sym, use_wick)
     # 评估日 = 绩效窗口内每个日历月的最后一个交易日
-    per = idx.to_period("M")
-    is_me = np.empty(len(idx), dtype=bool)
-    is_me[:-1] = per[1:] != per[:-1]
-    is_me[-1] = True
-    in_perf = (idx >= pd.Timestamp(data.PERF_START)) & \
-              (idx <= pd.Timestamp(data.PERF_END))
-    eval_i = np.flatnonzero(is_me & in_perf)
+    eval_i = np.flatnonzero(b["is_me"] & b["in_perf"])
 
     scores: list[int] = []
     for t in eval_i:

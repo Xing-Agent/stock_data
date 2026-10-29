@@ -525,6 +525,11 @@ costs:
   #   和另外三份不一致是**有意的**,见报告「要 Lin 拍板」第 5 条。
 
 benchmark:
+  # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。
+  #   trend   → 动态开关基准 + 静态基准 + 槽位机会成本线
+  #   meanrev → 双轨:① 底线 = 无风险利率 ② 技能 = 朴素基准
+  #   ★ 理由:★ 专家只点名了「康纳斯/海龟汤/TD序列/布林带/流动性猎杀」五条算均值回归;深度价值是单边多头选股,暂按 trend,★ 待策略组拍板
+  family: trend
   component_match: large
   risk_free_annual: null
   # 仓库没有短端利率序列,现金腿按 0% 记并在结果里标明(重建说明第九节)
