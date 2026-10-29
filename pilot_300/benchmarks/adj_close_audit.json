@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "symbols": 14,
+  "total_rows": 40684,
+  "required_fields": [
+    "adj_close",
+    "close",
+    "date",
+    "high",
+    "low",
+    "open",
+    "volume"
+  ],
+  "all_adj_close_match_provider": true,
+  "duplicate_dates": 0,
+  "raw_ohlcv_comparison_to_prior_delivery": [
+    {
+      "symbol": "SPY",
+      "changed_raw_ohlcv_dates": 1,
+      "examples": [
+        "2015-03-06"
+      ]
+    },
+    {
+      "symbol": "IWM",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLK",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLF",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLE",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLV",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLI",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLY",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLP",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLU",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLB",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLRE",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    },
+    {
+      "symbol": "XLC",
+      "changed_raw_ohlcv_dates": 0,
+      "examples": []
+    }
+  ],
+  "prior_snapshot_difference": {
+    "symbol": "SPY",
+    "date": "2015-03-06",
+    "previous": {
+      "open": 210.46,
+      "high": 210.46
+    },
+    "current": {
+      "open": 209.42,
+      "high": 209.94
+    },
+    "unchanged_fields": [
+      "low",
+      "close",
+      "volume"
+    ],
+    "interpretation": "difference between vendor snapshots; cause not established; previous delivery retained"
+  }
+}

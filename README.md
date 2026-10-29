@@ -51,3 +51,8 @@ Cash-flow tags retain the original reported duration, which may be year-to-date 
 
 
 October 27 history expansion acceptance is recorded in `pilot_300/fundamentals_history_acceptance.json`. All 248 eligible SEC sources completed; FRC and MTR remain explicit source gaps. The 250 files contain 585,214 financial versions, of which 571,806 pass strict PIT checks; noneligible versions remain flagged for audit. The original 1,497,688 CompanyFacts rows retained their values and snapshot hashes, and 2,568,925 older records were added. See the acceptance JSON and `fundamentals_export_manifest.json` for per-tag coverage and missing-symbol lists.
+
+
+## Market benchmark and reference data
+
+Unified entry: [pilot_300/benchmarks/README.md](pilot_300/benchmarks/README.md). Read `manifest.json` and resolve each `file` relative to that directory. SPY, QQQ, IWM, RSP and the 11 sector ETFs are now together with the existing style, rates, volatility and credit references. Files retain their own ranges and adjustment bases; the 14 ETF update includes vendor snapshot `adj_close`, not vendor revision PIT. Source snapshots and scoped audits are retained. Top-level SPY/IWM remain legacy compatibility exports; new consumers should use benchmarks. Exporter: `scripts/export_etf_benchmarks.py` (stage fresh downloads to a temporary output directory).

@@ -41,12 +41,16 @@
       "bars": 3018,
       "first": "2014-01-02",
       "last": "2025-12-31",
-      "sha256": "03587ade10c50e224a859fd00898c457d19ebf0c4b3de71a6be65542c665f76f",
+      "sha256": "fc958233ebf055cbc1820bc26d6e038f79a077de0acb6f04e1a76ba2246fec06",
       "ohlcv_sha256": "50d047c9819d001b716f9a3f888560627270fe0f597aa97fde40e3c0412a22be",
       "actions_status": "ready",
       "payment_date_issues": [],
       "missing_us_equity_sessions": [],
-      "dates_outside_us_equity_calendar": []
+      "dates_outside_us_equity_calendar": [],
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/IWM.json",
+      "source_sha256": "79063a62c125639c4246c52382b6ca6e039d2f4fb4ad0bbff3f74706b1f5d5c2"
     },
     {
       "symbol": "SPY",
@@ -54,8 +58,8 @@
       "bars": 3018,
       "first": "2014-01-02",
       "last": "2025-12-31",
-      "sha256": "397fb808e281cdbe7ac33dcb1d1c3b33be76eff54b50698a3f403e3b14e28645",
-      "ohlcv_sha256": "09b5ca7a38fc9bbef399e4a14f5faeed6e4d7ddd480c224b11ed782b3863ee61",
+      "sha256": "e922a889a381cf6d1bb74d52609fe95b3ff6747a0654aff9af6681ab5afa55b7",
+      "ohlcv_sha256": "dc7c09a78388295291f974505c39803c6b83fc1a9337a6dde87eeb7a4e341327",
       "actions_status": "unavailable",
       "payment_date_issues": [
         {
@@ -76,7 +80,11 @@
         }
       ],
       "missing_us_equity_sessions": [],
-      "dates_outside_us_equity_calendar": []
+      "dates_outside_us_equity_calendar": [],
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/SPY.json",
+      "source_sha256": "84b75fc511fe47f1ec616b6e492166935b1ea841320c0f4729d8c21ddc64d47e"
     },
     {
       "symbol": "TLT",
@@ -131,6 +139,236 @@
         "2025-09-01",
         "2025-11-27"
       ]
+    },
+    {
+      "symbol": "QQQ",
+      "file": "QQQ/daily.json",
+      "sha256": "c2083daf499e1e4e79f86ab7bf27c230c7f42ee654c382ffcb1595f2c054e954",
+      "ohlcv_sha256": "f7d93a1753140c48170a281b6c111fec86b88e4c848e9dbf50f98f09d8feb448",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/QQQ.json",
+      "source_sha256": "6f1b0494f3be2da421468db3b9211e269bdab75b00fb3a70a79bcb5aa5858988"
+    },
+    {
+      "symbol": "RSP",
+      "file": "RSP/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "7e6ce06f85a086fe9f7df32aa1c208fbfbcab6538f482143878d759b30440ae7"
+    },
+    {
+      "symbol": "XLB",
+      "file": "XLB/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "d1b30ec5e9fd4981f8b623090f7b9618b8f580a32d7d27192b83bbee3178d762",
+      "ohlcv_sha256": "ed8526468e943c8e08b383c8a8003d4b52e090afd6bcb5ba228b75d3b0df32be",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLB.json",
+      "source_sha256": "8f76dd65150e6cf6d9b7e026f214b19ec6bd13cf09ac44e55b9ff27e165a2f15"
+    },
+    {
+      "symbol": "XLC",
+      "file": "XLC/daily.json",
+      "status": "ready",
+      "bars": 1895,
+      "first": "2018-06-19",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "cb30f6e85fd7cfaa59a5692bd8b5fc3cd2c9233dda8ae591ef1313d664c92e8b",
+      "ohlcv_sha256": "4bdeba1801f24cd511660646655a2919c433c0c4e986b5104faee3d082316b55",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLC.json",
+      "source_sha256": "b2cfbd309a65f5128cee05caaf044893ff83fe093a92f84abc3525c5dd486e6a"
+    },
+    {
+      "symbol": "XLE",
+      "file": "XLE/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "56ed457beda56df9dffcab94788289181b409b0505394f83254569bbef3d44b2",
+      "ohlcv_sha256": "2897c085c65e5b8fcebed903dc1d126fd8b94ec1c787eddd5d1ae524ee6cabca",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLE.json",
+      "source_sha256": "afc0807779d5940a5bc0e09d8dc796bcc74b1756cd657f4b827f0d1f1c9d7cd7"
+    },
+    {
+      "symbol": "XLF",
+      "file": "XLF/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "d1b1619aa7553e6c117e22a3f971e7c071e477a2a91a0f3f923da2cb6638c5d9",
+      "ohlcv_sha256": "3cf40f4e892d4407e3f793edd1aba0bc25b4cae24ccbdb457f1f84f18e78b633",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLF.json",
+      "source_sha256": "34ade9f7c5d834c59bb8942860c393fefad810d0e732d3267a24e6efa41a32f1"
+    },
+    {
+      "symbol": "XLI",
+      "file": "XLI/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "2f1c9c7f59e0c9c253a970c3eb9623cb8c101908cf529824b5386458504f72ac",
+      "ohlcv_sha256": "473de83790b2987f3d0c1391377c017efe91aa7fb64abee9d85c58398343da02",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLI.json",
+      "source_sha256": "ec2c38bd402c1aec152f86a78d76fdf6581b96e01bac06d2c3ccde416449b0cf"
+    },
+    {
+      "symbol": "XLK",
+      "file": "XLK/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "4557ac93b0c906e8dadd522598ceb36c9d8da55251bc55c5de190da92e007e4f",
+      "ohlcv_sha256": "84de1c347cfce1406de3e990122c05346a3ad11efcc8c2a57f07f00db5082125",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLK.json",
+      "source_sha256": "f2a6d230db7cde8e1087c0601c86f7c0c079386d4df5a9781573bd9047e23bbc"
+    },
+    {
+      "symbol": "XLP",
+      "file": "XLP/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "daafc6198c6be70df1cdcf7e142aad738b69a24c905281f6df2a9e0086220c2c",
+      "ohlcv_sha256": "28b83549b1f2ddc087ae15ac950d4840e1d7d09c3e60bfed33a0a542942431cf",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLP.json",
+      "source_sha256": "a58034696ddbc1f90c69017cd0140f9d4bd3d6bc51ba33434c1c39ca19ce328f"
+    },
+    {
+      "symbol": "XLRE",
+      "file": "XLRE/daily.json",
+      "status": "ready",
+      "bars": 2573,
+      "first": "2015-10-08",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "db3858411224692bc83730d56b3d81fd510eb1a19c7a82793e093ea5c7a6a228",
+      "ohlcv_sha256": "9632aa386bdd383133a74da1136bfd35e3c635d77c8835af59541049631a6e0a",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLRE.json",
+      "source_sha256": "1910c354c75fa714d5807493495a4f63558d6493f1854e741695d609c9eb04a2"
+    },
+    {
+      "symbol": "XLU",
+      "file": "XLU/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "f540abe08406514a83117c3925ced405d3ce2b149e1438a9815ed398629250e1",
+      "ohlcv_sha256": "5376db36ac2e75ea83586cbe6ed6d904ed157ebabcf9414337ba78cc6d759ed5",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLU.json",
+      "source_sha256": "c2955ecb2ad3ca783826a9a44940b005426d6649c1fe21ef32cf4140d5ac76c0"
+    },
+    {
+      "symbol": "XLV",
+      "file": "XLV/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "unavailable",
+      "issues": [],
+      "sha256": "72ca278e3761becc0def71cf29780f9872114f2a5e580a25eb81305cb4458473",
+      "ohlcv_sha256": "5ab0765b601404d25d6e3505e0718c5e8303ce5ef10dd65bdf14c0f001dda633",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLV.json",
+      "source_sha256": "b0b33b166f7f7c70fd3759c9b686330e39e11e11636ace8c413e07ac46a7b035"
+    },
+    {
+      "symbol": "XLY",
+      "file": "XLY/daily.json",
+      "status": "ready",
+      "bars": 3018,
+      "first": "2014-01-02",
+      "last": "2025-12-31",
+      "actions_status": "ready",
+      "issues": [],
+      "sha256": "d34dc4eb8330e95bc79e3c1458e7ff4dbc1c3ddb79c0aaccfe597e7e1410192b",
+      "ohlcv_sha256": "51b089041e561738bbe72b5ed67b216302e8d2bb4e59cc620111debab6bf6bcc",
+      "adj_close_status": "complete",
+      "adj_close_basis": "vendor_snapshot_backward_adjusted_for_splits_and_dividends; not rebased to delivery_end",
+      "source_snapshot": "sources/XLY.json",
+      "source_sha256": "af954673df11700537c238fa227a41723b7b7d46edd50dd4bf0d5b38437bd4d0"
+    },
+    {
+      "symbol": "HYG",
+      "file": "HYG/daily.json",
+      "bars": 2708,
+      "first": "2016-01-04",
+      "last": "2026-10-09",
+      "sha256": "21a805c3cd9fe27cf9e0786f0839488d09c9183d74442ed9b9d42b98af121ec3",
+      "provider": "massive_grouped_daily(2016-01-04..2026-08-03)+minute_rth_agg(2026-08-04..2026-10-09)",
+      "warnings": [
+        "2026-08-04 起的 48 天由 1 分钟线常规时段自行聚合,开高低收与官方日线可能差几分钱",
+        "分红:2021-12 起取 stockanalysis.com(5 位小数),之前取 Yahoo Finance(3 位小数);两源重叠的 59 笔全部一致",
+        "没有拆股(2016 起 HYG/LQD 都未拆股),split_coefficient 全为 1"
+      ],
+      "adj_close_status": "not_updated_in_14_etf_delivery"
+    },
+    {
+      "symbol": "LQD",
+      "file": "LQD/daily.json",
+      "bars": 2708,
+      "first": "2016-01-04",
+      "last": "2026-10-09",
+      "sha256": "8d4f66e147236d7225a6930fae68e8c9c7d4e58ec21944b7c8a6e0a5aa2d313c",
+      "provider": "massive_grouped_daily(2016-01-04..2026-08-03)+minute_rth_agg(2026-08-04..2026-10-09)",
+      "warnings": [
+        "2026-08-04 起的 48 天由 1 分钟线常规时段自行聚合,开高低收与官方日线可能差几分钱",
+        "分红:2021-12 起取 stockanalysis.com(5 位小数),之前取 Yahoo Finance(3 位小数);两源重叠的 59 笔全部一致",
+        "没有拆股(2016 起 HYG/LQD 都未拆股),split_coefficient 全为 1"
+      ],
+      "adj_close_status": "not_updated_in_14_etf_delivery"
     }
   ],
   "notes": [
@@ -138,6 +376,36 @@
     "VIX prefers the CBOE snapshot; the unmodified FMP series and comparison report are retained.",
     "SPY has four unresolved company-action reconciliation events; do not claim total-return data is fully ready.",
     "For the regime gate, explicitly align VIX to SPY sessions and use only historical observations available by the decision time.",
-    "No 5-minute data was downloaded in this expansion."
-  ]
+    "No 5-minute data was downloaded in this expansion.",
+    "RSP and 11 sector ETFs relocated from reference_etfs_20261025; daily files and source snapshots unchanged by relocation. HYG/LQD indexed from their existing delivery with their own date ranges."
+  ],
+  "etf_daily_update_20261029": {
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "XLK",
+      "XLF",
+      "XLE",
+      "XLV",
+      "XLI",
+      "XLY",
+      "XLP",
+      "XLU",
+      "XLB",
+      "XLRE",
+      "XLC"
+    ],
+    "fields": [
+      "date",
+      "open",
+      "high",
+      "low",
+      "close",
+      "adj_close",
+      "volume"
+    ],
+    "pit_status": "historical_vendor_snapshot_not_revision_pit"
+  },
+  "window_scope": "analysis_window/download_window describe the original core benchmark batch; each series first/last is authoritative"
 }
