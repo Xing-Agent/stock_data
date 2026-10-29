@@ -63,8 +63,26 @@ def _vol(mult: float):
 
 
 def _vcp_real(ratio: float):
-    """★ 技-5:在**真实在跑的那条链**(vcp_momentum.yaml)上只改缩量阈值。"""
+    """
+    ★ 技-5:在**真实在跑的那条链**(vcp_momentum.yaml)上只改缩量阈值。
+
+    ★ 另外沿用 run_second_round_1029.py 里**前两批就有**的两处「显式关掉」——
+      ★ 不是本次新关的,口径和那条线完全一致,否则笔数不可比:
+      ① universe 的「宏观基底_行业 RS」(against: SECTOR)—— 行业标签非 PIT
+      ② ⑤「15 日滞涨换血」(action: rotate_out)—— 触发条件没定义,不能猜
+    ★ 代价:换血是专家宣称的三大改进之一 → 这一版不是完整的这一派。
+    """
     def f(raw):
+        for r in raw["universe"]["rules"]:
+            for c in (r.get("components") or []):
+                if (c.get("type") == "mansfield_rs_positive"
+                        and str((c.get("params") or {}).get("against")) == "SECTOR"):
+                    c["enabled"] = False
+        key = "stop_trail" if "stop_trail" in raw else "trailing_stop"
+        before = len(raw[key]["stages"])
+        raw[key]["stages"] = [s for s in raw[key]["stages"]
+                              if s.get("action") != "rotate_out"]
+        assert len(raw[key]["stages"]) == before - 1
         for r in raw["entry"]["rules"]:
             if r["type"] == "vcp_volume_duo":
                 r["params"]["dryup_day_ratio"] = ratio
@@ -287,6 +305,17 @@ def main(argv=None) -> int:
                            "为什么跑不了": "部分项跑不了(配置里已逐项标出)",
                            "原著未给出可执行阈值的项":
                                m.get("原著未给出可执行阈值的项")})
+
+    # ★ 只跑了一部分时,和已有结果**合并**而不是覆盖 —— 否则补跑三条会把
+    #   前面 24 条的结果抹掉。合并按「报表名」为准,同名的用新结果替换。
+    if only and os.path.exists(OUT_JSON):
+        old = json.load(open(OUT_JSON, encoding="utf-8"))
+        names = {r["报表名"] for r in rows}
+        rows = [r for r in old.get("各版结果", []) if r["报表名"] not in names] + rows
+        fails = [f for f in old.get("跑挂的", []) if f["报表名"] not in names] + fails
+        order = [v[0] for v in VARIANTS]
+        rows.sort(key=lambda r: order.index(r["报表名"])
+                  if r["报表名"] in order else 999)
 
     out = {
         "git_commit": head,

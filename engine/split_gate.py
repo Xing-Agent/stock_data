@@ -125,13 +125,185 @@ EVENTS: tuple[SplitEvent, ...] = (
                 "授权不等于实施。★ 这一天的 −67.2% 是真实的财报暴跌",
         source="sec.gov/Archives/edgar/data/1592058/000119312519286588/R1.htm",
     ),
+    # ★★ 2026-10-29 第三批:PROP 2020-05-14 原来是 no_action(原样留着 4.0x)。
+    #   ★ 现在改成在 2023-05-03 整段切开(见下面的 cut_series)——
+    #   因为根因不是"这天是不是拆股",而是"2023-05-03 之前整段历史不属于这个发行人"。
+    #   ★ 所以这里不再登记 no_action;CANDIDATES 里的历史记录照旧保留。
+
+    # ── ★ 第三批判定为「真实行情」→ 什么都不做(★ 这几根本来就该留着)
     SplitEvent(
-        "PROP", "2020-05-14", "no_action",
-        label="原记 4合1 —— 不是拆股",
-        verdict="旧 PROP ticker 的证券身份和当前样本发行人无法仅凭 ticker 对应。"
-                "★ 技术方:不要把 2020 年及更早的 PROP 价格归给现在这个发行人。"
-                "★ 另见 DATA_INTEGRITY_FLAGS —— 这只票有一个比拆股更大的问题",
+        "RKDA", "2018-03-14", "no_action",
+        label="价 11.67→47.99(4.11x),★ 量 54万→1386万(×25.7)",
+        verdict="真实行情。前几根已经在剧烈放量上涨(03-09 区间 6.40~11.60、"
+                "03-12 成交 354万),当日成交 1386 万股、区间 18.50~54.99 连续 —— "
+                "这是微盘股真实挤空,★ 修了就是把真事件抹掉",
+        source="daily.json 量价自证:split_coefficient=1,corporate_actions 无 split",
+    ),
+    SplitEvent(
+        "EXPR", "2021-01-27", "no_action",
+        label="价 3.04→9.55(3.14x),★ 量 7334万→2.80亿",
+        verdict="真实行情。2021-01-25 就已经成交 3.53 亿股、区间 3.89~4.44 —— "
+                "这是 2021 年 1 月那轮散户挤空(meme 行情)。★ 真实涨跌,必须留",
+        source="daily.json 量价自证;market_coverage.status=complete",
+    ),
+    SplitEvent(
+        "CNVS", "2020-06-04", "no_action",
+        label="价 1.31→3.63(2.77x),★ 量 5370万→2.23亿",
+        verdict="真实行情。前一日已放量至 5370 万股、区间 0.72~1.50;"
+                "当日 2.23 亿股、区间 3.15~6.00 连续。★ 真实挤空,必须留",
+        source="daily.json 量价自证;market_coverage.status=complete",
+    ),
+    SplitEvent(
+        "BNED", "2024-05-17", "no_action",
+        label="价 0.1781→0.45(2.53x),★ 量 294万→6946万,之后两日 2.16亿/2.95亿",
+        verdict="真实行情。当日区间 0.17~0.60 连续,随后 05-21/05-22 成交 2.16 亿 / "
+                "2.95 亿股、价格一路到 1.13 —— 这是 BNED 2024 年 5 月重整行情。"
+                "★ 该票 2024-06-12 的 1:100 反向拆股源头有系数、已正常修,两件事不要混",
+        source="daily.json 量价自证;market_coverage.status=complete",
+    ),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # ★★ 2026-10-29 第三批:A0 线实测出「涨幅侧 11 只仍有 >+150% 跳变」之后
+    #    逐只判定的结果。★ 判据只用三样硬证据,不猜:
+    #      ① 源头 split_coefficient / corporate_actions.events(有没有拆股)
+    #      ② 成交量方向(反向拆股 → 价涨量缩;真实行情 → 价涨量暴增)
+    #      ③ 源头自报的数据质量(market_coverage.status / corporate_actions.status）
+    #    ★ 判不出来的一律 cut_series,★ 绝不编一个系数填进去
+    #      (上一批 8 条被技术方核出错 5 条,根因就是在猜)。
+    # ══════════════════════════════════════════════════════════════════════
+
+    # ── 判不出来 → 切开(★ 疑似未复权反向拆股,但源头无系数、无 CA 事件 → 不编)
+    SplitEvent(
+        "AMRS", "2017-06-06", "cut_series", keep="after",
+        label="价 0.22→3.60(16.36x)、量 730万→129万(÷5.6)—— 疑似 1:15 反向拆股",
+        verdict="★ 判不出来。价涨量缩 = 反向拆股的典型形态,但源头 split_coefficient "
+                "整列为空、corporate_actions 里没有任何 split 事件 → ★ 不编系数。"
+                "★ keep=after 保住 2023-08 的破产 −100%(那是样本里最该留的一段)",
+        source="daily.json: split_coefficient 整列 null;corporate_actions.events 无 split",
+    ),
+    SplitEvent(
+        "FTLF", "2019-04-22", "cut_series", keep="after",
+        label="价 0.58→6.00(10.35x),★ 跳变前两根成交量为 0 —— 疑似 1:10 反向拆股",
+        verdict="★ 判不出来。跳变前 2019-04-17/18 两根成交量都是 0、收盘价都卡在 0.58"
+                "(= 无成交的陈旧 bar),之后直接跳到 6.00。源头系数写 1 → ★ 不编系数",
+        source="daily.json: 该日 split_coefficient=1;corporate_actions.events 无 split",
+    ),
+    SplitEvent(
+        "XPRO", "2021-10-04", "cut_series", keep="after",
+        label="价 3.15→20.83(6.61x)、量 105万→33万(÷3.1)—— 疑似并购+反向拆股",
+        verdict="★ 判不出来。2021-10-01 Frank's International 与 Expro 合并,"
+                "同时做了反向拆股,但比例我们拿不到。"
+                "★★ 源头自己承认对不上:corporate_actions.status=unavailable,"
+                "warnings=['corporate_action_reconciliation_unresolved'] → ★ 不编系数",
+        source="daily.json: corporate_actions.status=unavailable / "
+               "corporate_action_reconciliation_unresolved",
+    ),
+    SplitEvent(
+        "LIXT", "2017-03-07", "cut_series", keep="after",
+        label="价 0.11→0.30(2.73x)、量 332万→11万(÷30)",
+        verdict="★ 判不出来。量缩 30 倍、且 market_coverage.status=gaps(缺 8 根 bar)。"
+                "源头系数写 1 → ★ 不编系数。"
+                "★ 这只票 2020-11-20 / 2023-06-05 两次反向拆股源头都有系数、已正常修,"
+                "只有 2017-03-07 这一根没有",
+        source="daily.json: 该日 split_coefficient=1;market_coverage.status=gaps",
+    ),
+    SplitEvent(
+        "OMEX", "2024-09-17", "cut_series", keep="after",
+        label="★ 口径在同一根 bar 内变了:开 4.72 / 高 5.08 / ★ 低 0.450 / 收 0.4963",
+        verdict="★ 判不出来。同一根 bar 的开盘高点在旧口径(~4.7~5.1)、"
+                "低点收盘在新口径(~0.45~0.50),比值 9.5~11.3 ★ 不是一个干净的整数比 —— "
+                "既不像 10:1 拆股,也不像真实行情。之后 09-18 起全部在新口径上交易。"
+                "★ keep=after 同时消掉 09-17 的 −90% 和 09-18 的 +182%",
+        source="daily.json: 该日 split_coefficient=1;corporate_actions.events 无 split",
+    ),
+    SplitEvent(
+        "ACOR", "2024-04-11", "cut_series", keep="before",
+        label="价 0.088→0.661(7.51x),★ 是退市前最后一根 bar",
+        verdict="★ 判不出来。ACOR 的 split_coefficient 整列是 NaN(2082 根里只有 2 根有值),"
+                "且技术方已判定「daily.json 自称 raw 但观测价格和独立来源差 60 倍,"
+                "source needs revalidation」。"
+                "★ keep=before 只丢掉这最后一根假跳变,"
+                "★ 退市结算的 0 价 bar 会接在 2024-04-10 之后 → −100% 一分不少地保住",
+        source="corporate_action_review_20261028.json: "
+               "ACOR provider_label_inconsistent_with_observed_prices",
+    ),
+    # ── ★ 证券身份变更(不是拆股、也不是数据断裂)→ 切开
+    SplitEvent(
+        "PROP", "2023-05-03", "cut_series", keep="after",
+        label="★ 2023-05-03 之前的 PROP 价格属于**另一个发行人**",
+        verdict="技术方核实:CIK 1162896 原名 Creek Road Miners,2023-05-03 合并后"
+                "才改名 Prairie Operating 并启用 PROP 这个 ticker。"
+                "★ 所以 2023-05-03 之前那段历史是「张冠李戴」,比拆股严重。"
+                "★ 这一刀同时消掉 2020-02-28 的 +2757% 和 2020-05-14 的 +300% —— "
+                "那两根跳变前的成交量分别是 0 和 2 股(= 几乎无人交易的壳),"
+                "★ 本来就不该当成当前发行人的价格历史。"
+                "★ 原来 DATA_INTEGRITY_FLAGS 里写「按 Lin 的指示不动它」,"
+                "★ 1029 协调人已授权处理判不出来的这一类 → 现在切开",
         source="sec.gov/Archives/edgar/data/1162896/000149315223030135/ex99-3.htm",
+    ),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # ★★ 第三批(跌幅侧)—— 守门自检 cut_coverage_check() 揪出来的 7 根"无人认领"。
+    # ★ 逐只看量价后结论一致:**全部是真实暴跌**,★ 一根都不许修。
+    # ★★ 这一组最能说明「不许对跌幅侧一刀切」:SIVB 和 FRC 就是 2023 年 3 月
+    #   那场银行危机 —— 样本里最重要的两根真实暴跌。把它们"修平"等于把
+    #   硅谷银行倒闭从历史里删掉。
+    # ★ 共同特征(这就是判据):成交量放大 9~80 倍 + 当日区间**连续地**穿过跌幅,
+    #   而不是开盘就跳到新口径上。拆股造成的假跳空没有这个特征。
+    # ══════════════════════════════════════════════════════════════════════
+    SplitEvent(
+        "SIVB", "2023-03-09", "no_action",
+        label="价 267.83→106.04(0.396x),★ 量 83万→3357万(×40)",
+        verdict="真实暴跌。★ 硅谷银行 2023-03-09 —— 当日开 176.55 / 低 100.00,"
+                "区间连续穿过跌幅。★ 这是样本里最重要的一根真实暴跌,修了就是"
+                "把银行危机从历史里删掉",
+        source="daily.json 量价自证;split_coefficient=1;corporate_actions 无 split",
+    ),
+    SplitEvent(
+        "FRC", "2023-03-13", "no_action",
+        label="价 96.01→31.21(0.325x),★ 量 932万→1.35亿",
+        verdict="真实暴跌。★ First Republic Bank 2023 年 3 月银行危机 —— "
+                "03-10 已放量 5142 万股、低点 45.00;03-13 开 26.76 / 高 42.00 / 低 17.53。"
+                "★ 真实行情,必须留",
+        source="daily.json 量价自证;corporate_actions 无 split",
+    ),
+    SplitEvent(
+        "AVEO", "2019-01-31", "no_action",
+        label="价 1.77→0.6994(0.395x),★ 量 43万→2954万(×68)",
+        verdict="真实暴跌。当日开 1.07 / 高 1.10 / 低 0.6701 连续,次日继续放量 1555 万股。"
+                "★ 该票 2020-02-20 的 1:10 反向拆股源头有系数、已正常修,两件事不要混",
+        source="daily.json 量价自证;该日 split_coefficient=1",
+    ),
+    SplitEvent(
+        "PRTY", "2022-05-09", "no_action",
+        label="价 3.06→1.18(0.386x),★ 量 343万→3236万(×9.5)",
+        verdict="真实暴跌。当日开 1.80 / 高 1.83 / 低 1.09 连续。Party City 财报暴跌。"
+                "★ 和该票 2019-11-07 那根(技术方已核实是真实财报暴跌)同一性质",
+        source="daily.json 量价自证;corporate_actions 无 split",
+    ),
+    SplitEvent(
+        "BNED", "2024-04-16", "no_action",
+        label="价 0.70→0.25(0.357x),★ 量 29万→2313万(×80)",
+        verdict="真实暴跌。当日开 0.23 / 高 0.339 / 低 0.18 连续。"
+                "★ 该票 2024-06-12 的 1:100 反向拆股源头有系数、已正常修;"
+                "2024-05-17 的 +153% 是真实挤空。三件事都不要混",
+        source="daily.json 量价自证;该日 split_coefficient=1",
+    ),
+    SplitEvent(
+        "WPG", "2021-03-04", "no_action",
+        label="价 6.28→2.51(0.400x),★ 量 36万→1140万(×31)",
+        verdict="真实暴跌。当日开 6.39 / 高 6.57 / ★ 低 2.3401 —— "
+                "区间连续穿过跌幅(不是开盘跳到新口径),破产预警行情。"
+                "★ 该票 2020-12-22 的 1:9 反向拆股源头有系数、已正常修",
+        source="daily.json 量价自证;该日 split_coefficient=NaN,corporate_actions 无 split",
+    ),
+    SplitEvent(
+        "GNCA", "2022-06-06", "no_action",
+        label="价 0.051→0.0185(0.363x),★ 量 6.8万→964万",
+        verdict="真实暴跌。清算过程中的仙股,当日区间 0.012~0.023 连续。"
+                "★ GNCA 另有 2017-09-26 / 2022-04-08 / 2022-05-24 三根同性质的,"
+                "登记在 UNRESOLVED_BREAKS 里(幅度更极端、单独列出)",
+        source="daily.json 量价自证;该日 split_coefficient=1",
     ),
 
     # ── ★ 有断裂但技术方说不是拆股 → 切开,只用自洽的那一段(★ 需 Lin 拍板)
@@ -228,11 +400,115 @@ DATA_INTEGRITY_FLAGS: tuple[str, ...] = (
 # ★ 不再有任何票因为「判不准」被剔除 —— 这是本次最重要的一处收回
 EXCLUDED_SYMBOLS: frozenset[str] = frozenset()
 
+# ══════════════════════════════════════════════════════════════════════════
+# ★★★ 两个清单的分工 —— 写死在这里,★ 以后不许再混成一件事
+# ══════════════════════════════════════════════════════════════════════════
+#
+#   ┌────────────────┬──────────────────────┬────────────────────────────────┐
+#   │                │ FIX_EVENTS           │ CUT_EVENTS                     │
+#   ├────────────────┼──────────────────────┼────────────────────────────────┤
+#   │ 修的是什么     │ ★ 拆股**比例**       │ ★ 数据**断裂**                 │
+#   │ 来源           │ 源头 split_coefficient│ ★ SEC 证据 / 源头自报的数据问题│
+#   │                │ (已接管)            │ ★ 系数字段答不了这一类          │
+#   │ 现在该是什么   │ ★ 保持为空           │ ★★ 必须非空(只要还有残余跳变) │
+#   │ 为什么         │ 比例一律读源头,     │ "切哪一刀"必须有证据,          │
+#   │                │ 手工猜过一次错 5 条  │ 源头系数在这些日子写的是 1 或空 │
+#   │ 空了会怎样     │ 无事(源头接管)     │ ★★ 这一类**无人认领** —— 假跳变 │
+#   │                │                      │ 静默留在价格面板里              │
+#   └────────────────┴──────────────────────┴────────────────────────────────┘
+#
+# ★★ 2026-10-29 的教训:授权说"手工清单清空"时,★ 这两个清单被当成了一件事。
+#   FIX_EVENTS 清空是对的(源头系数接管);
+#   ★ CUT_EVENTS 如果也清空,那么"源头系数解释不了的断裂"就没人管了 ——
+#   实测后果:全池 20 只票仍有 >+150% / <−60% 的单日假跳变,涨幅侧 11 只,
+#   最大 PROP +2757%。★ 这一类只能靠证据手工切,没有自动来源。
+#
+# ★★ 守门的自检:cut_coverage_check() —— CUT_EVENTS 为空而全池仍有残余跳变 → 直接 FAIL。
+#   ★ 理由:今天已经吃过三次"静默"的亏(delisting_reason / LongTermDebt /
+#   split_coefficient),所以这一类绝不允许静默地无人认领。
+
 FIX_EVENTS: tuple[SplitEvent, ...] = tuple(
     e for e in EVENTS if e.action == "ratio_fix")
 
 CUT_EVENTS: tuple[SplitEvent, ...] = tuple(
     e for e in EVENTS if e.action == "cut_series")
+
+#: ★ 残余跳变的告警阈值(单日)。A0 线用的就是这一对。
+RESIDUAL_UP, RESIDUAL_DOWN = 2.50, 0.40      # >+150% / <−60%
+
+
+def cut_coverage_check(verbose: bool = False) -> tuple[bool, list[str]]:
+    """
+    ★★ 守门自检:「数据断裂」这一类有没有被静默地无人认领。
+
+    规则(任一条不满足 → FAIL):
+      ① CUT_EVENTS 为空,而全池仍有 >+150% / <−60% 的单日跳变 → ★ FAIL。
+         这正是 2026-10-29 踩过的那个坑:两个清单被当成一件事清空了。
+      ② 残余跳变必须**逐根有归属** —— 要么登记在 EVENTS 里(cut / no_action),
+         要么出现在 UNRESOLVED_BREAKS 里。★ 既不在清单里、也不在待办里 = 无人认领 → FAIL。
+    """
+    res = residual_jumps_window(RESIDUAL_UP, RESIDUAL_DOWN)
+    lines: list[str] = []
+    ok = True
+    if not CUT_EVENTS and res:
+        ok = False
+        lines.append(f"  ★★ FAIL:CUT_EVENTS 是空的,而全池还有 {len(res)} 根残余跳变 —— "
+                     f"「数据断裂」这一类无人认领!"
+                     f"★ FIX_EVENTS 可以空(源头系数接管),CUT_EVENTS 不行。")
+    else:
+        lines.append(f"  CUT_EVENTS {len(CUT_EVENTS)} 条 / 残余跳变 {len(res)} 根 "
+                     f"→ {'✅ 不是"空清单+有跳变"的组合' if (CUT_EVENTS or not res) else '★ FAIL'}")
+    claimed = {(e.symbol, e.date) for e in EVENTS}
+    claimed_syms = {e.symbol for e in CUT_EVENTS}
+    unresolved = {(s, d) for s, d, _ in UNRESOLVED_BREAKS}
+    orphan = []
+    for sym, d, r in res:
+        if (sym, d) in claimed or (sym, d) in unresolved:
+            continue
+        # cut 之后该票仍有跳变 → 也算有归属(已知局限,会在下面列出来)
+        if sym in claimed_syms:
+            continue
+        orphan.append((sym, d, r))
+    if orphan:
+        ok = False
+        lines.append(f"  ★★ FAIL:{len(orphan)} 根残余跳变既不在 EVENTS 里、"
+                     f"也不在 UNRESOLVED_BREAKS 里 —— ★ 无人认领,不许静默:")
+        for sym, d, r in orphan:
+            lines.append(f"      {sym:6s} {d}  {r:9.3f}x  ★ 请判定:"
+                         f"未复权拆股 / 数据断裂 / 真实行情")
+    else:
+        lines.append(f"  ✅ {len(res)} 根残余跳变逐根都有归属"
+                     f"(EVENTS 或 UNRESOLVED_BREAKS)")
+    if verbose:
+        print("\n".join(lines))
+    return ok, lines
+
+
+#: ★★ 已知但还没判出来的断裂 —— ★ 必须显式登记在这里,不许只存在于某份报告里。
+#  登记在这里 = 「我们知道它在、我们判不出来、我们没有偷偷修它」。
+#  ★ cut_coverage_check() 会拿它和实测残余跳变对账,少登记一根就 FAIL。
+UNRESOLVED_BREAKS: tuple[tuple[str, str, str], ...] = (
+    ("ACOR", "2022-10-17",
+     "价 ×2.66。ACOR 的 split_coefficient 整列是 NaN,技术方已判定整条价格序列"
+     "需要重新验证(差 60 倍)。★ 切这一刀会把 2021-11-30..2022-10-14 之后的段"
+     "也切掉,连带丢掉 2024 年的破产 −100% —— 两害相权,★ 留着并报出来,待拍板。"),
+    ("KDP", "2018-07-10",
+     "价 ×0.179。Keurig × Dr Pepper Snapple 换股并购(技术方已核实),"
+     "★ 不是拆股,源头系数正确地写 1。换股比例我们拿不到 → 不编。"
+     "★ 这就是 Q6 要公司行动流水表的那个洞。"),
+    ("GNCA", "2017-09-26", "价 ×0.235。voluntary_wind_down 清算过程中,判不出来。"),
+    ("GNCA", "2022-04-08", "价 ×0.308。同上。"),
+    ("GNCA", "2022-05-24", "价 ×0.273。同上。"),
+    ("OVV", "2020-03-09",
+     "价 ×0.280。★ 2020-03-09 是沙特-俄罗斯油价战当日,E&P 股普遍暴跌 —— "
+     "高度疑似真实行情,但 −72% 的单日幅度需要技术方确认,★ 不自己拍。"),
+    ("CLVS", "2022-11-09", "价 ×0.284。破产退市前,split_coefficient 为空,判不出来。"),
+    ("PRTY", "2019-11-07",
+     "价 ×0.328。技术方已核实「不是拆股,是真实财报暴跌」→ 已登记 no_action,"
+     "★ 这一根是该留的,列在这里只是为了让对账表完整。"),
+    ("AMRS", "2023-08-10",
+     "价 ×0.192。技术方已核实「不是拆股,是破产申请」→ 已登记 no_action,该留。"),
+)
 
 NO_ACTION_EVENTS: tuple[SplitEvent, ...] = tuple(
     e for e in EVENTS if e.action == "no_action")
@@ -442,14 +718,33 @@ def self_check(verbose: bool = True) -> tuple[bool, str]:
             lines.append(
                 f"  {sym:5s} {date}  cut_series keep={ev.keep}  序列状态 "
                 f"{st}  {'✅ 已切开,跨断裂的收益不存在' if good else f'★ 断裂还在,跳变 {j:.3f}x'}")
+        elif ev is not None and ev.action == "no_action":
+            # ★ 显式登记为 no_action 的,优先走"断言我们没动过"这一支 ——
+            #   ★ 即使这只票在别的日子被切过(例:AMRS 2017-06-06 切过,
+            #     但 2023-08-10 的 −80.7% 是技术方核实过的真实暴跌,必须原样留着)。
+            raw = _raw_jump(sym, date)
+            good = (j is not None and raw is not None and abs(j - raw) < 1e-6)
+            lines.append(
+                f"  {sym:5s} {date}  no_action  跳变 "
+                f"{j if j is None else f'{j:.4f}'}x "
+                f"(源头原始 {raw if raw is None else f'{raw:.4f}'}x)  "
+                f"{'✅ 确实一个数都没动(真实暴跌,该留)' if good else '★ 被动过了!'}")
+        elif sym in {e.symbol for e in CUT_EVENTS}:
+            # ★★ 2026-10-29 第三批:这只票整体被切过(切点可能不是这一天)——
+            #   断言这一天的断裂"已经不可能被跨越":要么不在序列里,要么是第一根。
+            good = st in ("not_in_series", "first_bar")
+            cut = next(e for e in CUT_EVENTS if e.symbol == sym)
+            lines.append(
+                f"  {sym:5s} {date}  ★ 该票已在 {cut.date} 切开(keep={cut.keep})  "
+                f"这一天的状态 {st}  "
+                f"{'✅ 跨断裂的收益不存在' if good else f'★ 断裂还在,跳变 {j:.3f}x'}")
         else:
             # no_action:断言我们确实没动 —— 和源头原始跳变逐位对上
             raw = _raw_jump(sym, date)
             good = (j is not None and raw is not None
                     and abs(j - raw) < 1e-6)
             tail = ("(AMRS / PRTY:这是真实暴跌,该留)" if sym in ("AMRS", "PRTY")
-                    else "(★ PROP:这 4.0x 没有拆股证据,★ 按 Lin 的指示原样留着,"
-                         "★ 是遗留风险,见 DATA_INTEGRITY_FLAGS)")
+                    else "(真实行情,该留)")
             lines.append(
                 f"  {sym:5s} {date}  no_action  跳变 {j if j is None else f'{j:.4f}'}x "
                 f"(源头原始 {raw if raw is None else f'{raw:.4f}'}x)  "
@@ -491,6 +786,13 @@ def self_check(verbose: bool = True) -> tuple[bool, str]:
     k_ok, k_lines = khc_regression()
     lines += k_lines
     ok &= k_ok
+
+    # ───────────── ⑨ ★★ 守门:「数据断裂」这一类有没有被静默地无人认领 ─────────────
+    lines.append("")
+    lines.append("  ⑨ ★★ 守门自检:FIX_EVENTS / CUT_EVENTS 分工 + 残余跳变逐根有归属:")
+    c_ok, c_lines = cut_coverage_check()
+    lines += c_lines
+    ok &= c_ok
 
     # ★ 残余扫描:全池还剩多少根 3 倍以上的单日跳变 —— ★ 不许藏起来
     lines.append("")
@@ -767,6 +1069,27 @@ def khc_regression() -> tuple[bool, list[str]]:
         f"{'✅ 一个数都没动' if g3 else '★ 被乘过了!'}")
     ok &= g3
     return ok, lines
+
+
+def residual_jumps_window(up: float = RESIDUAL_UP, down: float = RESIDUAL_DOWN
+                          ) -> list[tuple[str, str, float]]:
+    """
+    ★ 修完之后全池还剩哪些单日跳变 —— 上下阈值分开给(A0 线用的是 >+150% / <−60%)。
+    """
+    import numpy as np
+    from . import cache
+    c = cache.load()["close"]
+    out: list[tuple[str, str, float]] = []
+    for sym in c.columns:
+        s = c[sym].dropna()
+        s = s[s > 0]
+        if len(s) < 2:
+            continue
+        r = (s / s.shift(1)).to_numpy(float)[1:]
+        hit = np.flatnonzero((r >= up) | (r <= down))
+        for k in hit:
+            out.append((sym, str(s.index[k + 1].date()), float(r[k])))
+    return sorted(out)
 
 
 def residual_jumps(min_jump: float = 3.0) -> list[tuple[str, str, float]]:

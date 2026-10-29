@@ -320,14 +320,24 @@ def benchmark_total_return_daily(symbol: str, index: pd.DatetimeIndex
             break
         df["date"] = pd.to_datetime(df["date"])
         df = df.set_index("date").sort_index()
-        c = pd.to_numeric(df["close"], errors="coerce").reindex(index).ffill()
         if "dividend_amount" in df.columns:
-            dv = pd.to_numeric(df["dividend_amount"], errors="coerce").fillna(0.0)
-            dv = dv[dv != 0.0].reindex(index).fillna(0.0)
-            has = bool((dv != 0).any())
+            dv_raw = pd.to_numeric(df["dividend_amount"], errors="coerce").fillna(0.0)
         else:
-            dv = pd.Series(0.0, index=index)
-            has = False
+            dv_raw = pd.Series(0.0, index=df.index)
+        # ★★ 2026-10-29:这里原来也不做拆股修正 —— 和 load_benchmark() 同一个 bug。
+        #   ★ 价格**和每股分红**都要按源头系数折算,否则两者不在同一个口径上:
+        #     拆股后每股分红会变小,拿未折算的历史分红去除以已折算的价格 = 虚高股息。
+        c_raw = pd.to_numeric(df["close"], errors="coerce")
+        for ev in split_gate.ratio_events_from_rows(symbol, rows):
+            ts = pd.Timestamp(ev.date)
+            mask = df.index < ts
+            if not mask.any():
+                continue
+            c_raw.loc[mask] = c_raw.loc[mask] * ev.ratio
+            dv_raw.loc[mask] = dv_raw.loc[mask] * ev.ratio
+        c = c_raw.reindex(index).ffill()
+        dv = dv_raw[dv_raw != 0.0].reindex(index).fillna(0.0)
+        has = bool((dv != 0).any())
         prev = c.shift(1)
         r = ((c - prev + dv) / prev).replace([np.inf, -np.inf], np.nan).fillna(0.0)
         return r, has
@@ -377,19 +387,43 @@ def trading_calendar() -> pd.DatetimeIndex:
 
 @functools.lru_cache(maxsize=32)
 def load_benchmark(symbol: str) -> pd.DataFrame:
-    """读基准 ETF / VIX。先找 pilot_300/benchmarks,再找板块 ETF 目录。"""
+    """
+    读基准 ETF / VIX。先找 pilot_300/benchmarks,再找板块 ETF 目录。
+
+    ★★ 2026-10-29 修复:这个函数**以前完全不做拆股修正** —— 只有 load_daily() 做。
+    ★ 后果(A0 线实测):五只行业 ETF 在 2025-12-05 有 −50% 的假跳空
+      XLK −49.6% / XLB −50.2% / XLE −50.2% / XLU −50.5% / XLY −49.7%
+      —— 那是 Select Sector SPDR 的 2:1 拆股。
+    ★ 而这些文件里 split_coefficient **本来就写着 2.0** —— 和前面三次一样,
+      字段在文件里,我们没读。这是第四次同类问题。
+    ★ 现在和个股走**同一条**修正路径(engine/split_gate.ratio_events_from_rows),
+      所以口径一致、不会出现"个股修了 ETF 没修"。
+    """
     for base in (BENCH_DIR, SECTOR_ETF_DIR):
         p = os.path.join(base, symbol, "daily.json")
         if os.path.exists(p):
             with open(p, encoding="utf-8") as fh:
                 raw = json.load(fh)
-            df = pd.DataFrame(raw["data"])
+            rows = raw["data"]
+            df = pd.DataFrame(rows)
             df["date"] = pd.to_datetime(df["date"])
             df = df.set_index("date").sort_index()
             cols = [c for c in ("open", "high", "low", "close", "adjusted_close", "volume")
                     if c in df.columns]
             df = df[cols].apply(pd.to_numeric, errors="coerce")
-            return df[~df.index.duplicated(keep="last")]
+            df = df[~df.index.duplicated(keep="last")]
+            # ★ 和个股同一条路径:比例读源头 split_coefficient
+            for ev in split_gate.ratio_events_from_rows(symbol, rows):
+                ts = pd.Timestamp(ev.date)
+                mask = df.index < ts
+                if not mask.any():
+                    continue
+                for col in ("open", "high", "low", "close", "adjusted_close"):
+                    if col in df.columns:
+                        df.loc[mask, col] = df.loc[mask, col] * ev.ratio
+                if "volume" in df.columns:
+                    df.loc[mask, "volume"] = df.loc[mask, "volume"] / ev.ratio
+            return df
     raise FileNotFoundError(
         f"仓库里没有 {symbol} 的日线。可用的是:"
         f"{sorted(available_benchmarks())} —— 拿不到就是拿不到,不用别的顶上(硬纪律第 7 条)"
