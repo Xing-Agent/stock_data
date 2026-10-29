@@ -59,9 +59,11 @@
 from __future__ import annotations
 
 import functools
+import os
 
 import numpy as np
 import pandas as pd
+import yaml
 
 from . import cache, data
 
@@ -96,6 +98,69 @@ def _note(s: str) -> None:
 
 def _as_bool(df: pd.DataFrame) -> pd.DataFrame:
     return df.fillna(False).astype(bool)
+
+
+# ================================================================
+# ★★★ YAML 重复 key 的严格加载器 —— 本轮踩到一次真实的静默失真,必须堵住
+# ================================================================
+# 大白话(三秒):YAML 里同一个 mapping 写了两次同名的 key,解析器**不报错**,
+#   静默取最后一个。所以你在前面写 `enabled: false`、后面还留着一行
+#   `enabled: true`,配置看起来是关掉的,★ 实际它还在干活。
+#
+# ★★ 本轮实际发生的事:deep_value.yaml 里 piotroski_f_score_above 这条旧闸门,
+#   我在第 240 行写了 enabled: false,★ 但第 271 行还留着原来的 enabled: true
+#   —— 同一个 mapping 的重复 key,YAML 取最后一个 → ★ 旧的严格 F-Score 闸门
+#   **一直在和三层修补版 AND 在一起跑**,把修补的效果整个抵消掉了。
+#   ★ 第一次跑出来的 210 笔就是这个状态下的数,★ 已作废重跑。
+#
+# ★ 为什么这个坑特别坏:它和「悄悄忽略」是同一类失真,但方向相反 ——
+#   报告里写着「这条已关掉」,实际它在执行。而且 adapt_report 也看不出来,
+#   因为它读到的 dict 里就只有一个 enabled,值是 true。
+#
+# ★ 处理:加载时直接报错,★ 不是警告。重复 key 没有任何正当用途。
+
+class _StrictLoader(yaml.SafeLoader):
+    """★ 遇到重复 key 直接报错的 YAML 加载器。"""
+
+
+def _no_dup_mapping(loader, node, deep=False):
+    seen: dict = {}
+    for k_node, _ in node.value:
+        key = loader.construct_object(k_node, deep=deep)
+        if key in seen:
+            raise ValueError(
+                f"★★ YAML 重复 key:{key!r} 在第 {seen[key]} 行和第 "
+                f"{k_node.start_mark.line + 1} 行各出现一次 —— "
+                f"★ YAML 会静默取**最后一个**,于是「前面写了关掉、后面还留着开着」"
+                f"这种写法会让配置看起来关掉了、实际还在干活。\n"
+                f"★ 这不是警告是报错:重复 key 没有任何正当用途,请删掉多余那一行。\n"
+                f"★ 文件:{loader.name}")
+        seen[key] = k_node.start_mark.line + 1
+    return yaml.SafeLoader.construct_mapping(loader, node, deep=deep)
+
+
+_StrictLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _no_dup_mapping)
+
+
+def load_yaml_strict(path: str):
+    """★ 加载配置,重复 key 直接报错。所有新脚本都该用这个,不要用 yaml.safe_load。"""
+    with open(path, encoding="utf-8") as fh:
+        return yaml.load(fh, _StrictLoader)   # noqa: S506 —— 自定义的 SafeLoader 子类
+
+
+def scan_configs_for_dup_keys(config_dir: str) -> list[str]:
+    """★ 把一整个 configs 目录扫一遍,返回有问题的文件说明(给 selftest 用)。"""
+    import glob
+    bad = []
+    for p in sorted(glob.glob(os.path.join(config_dir, "*.yaml"))):
+        try:
+            load_yaml_strict(p)
+        except ValueError as e:
+            bad.append(f"{os.path.basename(p)}: {e}")
+        except Exception:
+            pass          # 解析错误是另一回事,不在这一关管
+    return bad
 
 
 # ================================================================

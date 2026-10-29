@@ -71,8 +71,11 @@ PLACEHOLDER_RANKING = {
 
 
 def _load(name: str) -> dict:
-    with open(os.path.join(CONFIG_DIR, name), encoding="utf-8") as fh:
-        return yaml.safe_load(fh)
+    # ★★ 用严格加载器:YAML 重复 key 直接报错,不许静默取最后一个。
+    #   ★ 本轮踩过一次 —— deep_value.yaml 里旧 F-Score 闸门的 enabled 写了两次
+    #     (false 在前、true 在后),于是旧闸门一直在和三层修补版 AND 在一起跑,
+    #     把修补的效果整个抵消掉了。详见 ops_1029 里那一段注释。
+    return ops_1029.load_yaml_strict(os.path.join(CONFIG_DIR, name))
 
 
 # ================================================================ 流派二
@@ -259,6 +262,7 @@ def run_one(name: str, raw: dict, notes: list[str], is_main: bool,
     for nt in notes:
         print("  ⚠ " + nt)
 
+    chain.reset_t0_fallback_count()
     cfg = chain.ChainConfig.from_dict(copy.deepcopy(raw))
     rep = cfg.adapt_report
     print("  " + rep.text().replace("\n", "\n  "))
@@ -276,6 +280,9 @@ def run_one(name: str, raw: dict, notes: list[str], is_main: bool,
     res = chain.run_chain(cfg, syms)
     os.makedirs(LEDGER_DIR, exist_ok=True)
     res.save_ledger(os.path.join(LEDGER_DIR, f"{name}.csv"))
+    # ★★ 关键自检:正式链跑完,T0 止损锚点的回退次数必须是 0 ——
+    #   回退路径只允许在「基准一 随机进场」和归因中间行里走。
+    t0_fb_mainchain = chain.t0_fallback_count()
 
     n = len(res.ledger)
     banner = analyze.sample_size_banner(n)
@@ -334,6 +341,19 @@ def run_one(name: str, raw: dict, notes: list[str], is_main: bool,
         "征兆警报": alarm,
         "引擎显式关掉的东西": matrices.disabled_log(),
         "★实现口径里我们自己做的选择": ops_1029.notes(),
+        "★T0止损锚点回退次数_正式链": t0_fb_mainchain,
+        "★T0止损锚点回退次数_含基准与归因": chain.t0_fallback_count(),
+        "★T0回退怎么读": (
+            "★ 正式链那个数**必须是 0** —— 状态机吐信号的同时就写了 T0 锚点,"
+            "所以正式链每个进场日都有锚点。"
+            "★ 第二个数 > 0 是预期的:「基准一 随机进场」和分步归因中间行"
+            "把 ③ 换掉了,没有第一阶段、也就没有 T0 锚点,"
+            "它们回退到「同一个 0.5×ATR14 公式、锚在自己的信号根上」。"
+            "★★ 所以基准一和正式链的止损锚点**不是同一根 K 线**:"
+            "方向上正式链的锚点(T0 的低点)通常更低 → 止损更宽、每笔 R 的分母更大。"
+            "★ 这个差别对基准一的比较是**不利于正式链**的方向吗?不一定 —— "
+            "止损更宽同时意味着更不容易被打掉,所以方向不单一,★ 只能如实标明、"
+            "不许声称基准一是完全同口径的。"),
         "耗时秒": round(time.time() - t0, 1),
     }
     # ★★ 纪律 9 要的三个数,单独拎出来,不许只看总收益

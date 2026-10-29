@@ -1,0 +1,124 @@
+# ============================================================================
+# 技-10 · 海龟汤(琳达·拉什克 / 维克多·斯波朗迪)
+#
+# 三秒版:价格刚创 20 日新低就被拉回去,说明下面没有真卖盘,反手做多。
+#
+# ★★ 本条跑两版 —— 附录 D.8 自己把这一处标成「待核实(来源存疑)」:
+#     「原始规则可能要求前低至少 4 个交易日之前,且不要求收盘确认;
+#       我方卡片写的是收盘确认」
+#   V1 = 要求收盘确认(我方卡片口径)
+#   V2 = 不要求收盘确认(附录 D.8 猜测的原著口径)
+#   ★ 两版都开着 4 天存活门禁(Connors Ch.4 Rule 2,出处 ops_1029 已核实),
+#     这样两版之差**只有收盘确认这一处**,才测得出它的影响。
+#     如果两处一起变,就分不清是哪一处造成的差别。
+#
+# ★★ 本条有两处「手册没写死」—— 已列入报告「要回去问」:
+#   一、止损「设在那根假突破 K 线的最低点下方一点点」—— ★「一点点」没给数。
+#       本次用 0 缓冲(就设在那根最低点),理由:0 是唯一不含自由参数的读法。
+#       ★ 这不是原著写的数,是我们为了不拍数而选的边界值。
+#   二、离场「目标位是箱体的另一端,或者几天内的均值回归」——
+#       ★ 两个都没给定义(箱体怎么定?几天?)。本次**显式不设止盈、不设时间止损**,
+#       只靠止损出场。★ 这等于把原著的离场规则整条拿掉了,
+#       所以本次结果不能代表原著的完整表现。
+# ============================================================================
+
+meta:
+  name: 技-10_海龟汤
+  master: Linda Raschke / Victor Sperandeo
+  book: Connors & Raschke《Street Smarts》(1995) Ch.4 Turtle Soup
+  handbook_ref: v11 第 346 行;附录 A 技-10;附录 D.8「待核实(来源存疑)」
+  orig_claim: 规则来自原著。计划止损距离小,但实际损失受跳空、流动性与成交影响
+  caveat: >-
+    手册明文「必须和市场状态判断绑定(见 状-1、状-3),不允许在趋势市里自动触发」,
+    并且方法自带「大牛市主升浪期间禁用」。★ 状-1 的参数在附录 D.8 里是「待校准」,
+    所以这个禁用开关现在**接不上**—— 本次是**没有装禁用开关**跑的,
+    报告里必须写明。这不是忽略,是前置条件还没校准。
+
+universe:
+  rules: []
+  source: 原著(无选股条件)
+
+# ② ★ 原著自带「大牛市主升浪禁用」,但它依赖 状-1 / 状-3,而 状-1 参数待校准。
+#    ★ 这里显式留空,并在报告里列为「原著有、我们现在接不上」。
+regime:
+  rules: []
+  flatten_when_off: false
+  source: >-
+    ★ 原著有禁用条件(大牛市主升浪),但它要 状-1 的摆动点定义,
+    而 状-1 的 ZigZag 阈值与「摆动点取影线还是收盘」在附录 D.8 里是待校准 ——
+    接不上,所以本次没装。★ 不是忽略。
+
+entry:
+  rules:
+    - type: turtle_soup
+      params:
+        lookback: 20
+        min_bars_before: 4
+        require_close_confirm: true     # ★ V1;V2 由 runner 改成 false
+      source: >-
+        原著:20 日新低(Street Smarts Ch.4);前低至少 4 个交易日之前
+        (Ch.4 Rule 2,原文 "must have occurred at least four trading
+        sessions earlier",ops_1029 已核实)。
+        ★ require_close_confirm 这一处是附录 D.8 标的「待核实」,两版并列跑。
+  signal_freeze: close
+  fill: next_open
+  source: >-
+    执行细节:原著是「第二天价格越过前一天高点」时盘中挂 stop order 成交;
+    引擎只能「次日收盘站上前一天高点 → 第三天开盘成交」。★ 比原著晚一天。
+
+# ④ 止损 = 假突破那根 K 线的最低点(缓冲 0)
+initial_stop:
+  type: day_low_minus_atr
+  params: { structure_lookback: 3, atr_period: 14, atr_multiple: 0.0 }
+  source: >-
+    原著「止损设在那根假突破 K 线的最低点下方一点点」。
+    ★「一点点」原著没给数 → 本次用 0 缓冲(atr_multiple: 0.0),
+    理由:0 是唯一不含自由参数的读法。★ 已列入报告「要回去问」。
+    ★ structure_lookback: 3 = 回看 3 根取最低,覆盖「假突破那根 + 确认那根 + 进场那根」,
+    因为引擎的执行比原著晚一天,进场日已经离假突破那根 2 根了。
+
+trailing_stop:
+  type: none
+  source: 原著(海龟汤无移动止损)
+
+# ⑥ 离场 —— ★ 原著的两个目标位都没定义,本次显式全关
+exit:
+  rules:
+    - type: close_below_trailing_stop
+      source: 原著(靠止损出场)
+  params:
+    profit_target_r: null       # ★ 原著「箱体另一端」—— 箱体没定义,显式不设
+    time_stop_days: null        # ★ 原著「几天内的均值回归」—— 几天没给,显式不设
+  fill: next_open
+  source: >-
+    ★ 原著的离场是「箱体另一端 或 几天内均值回归」,两者手册都没给定义。
+    本次显式不设止盈、不设时间止损 —— ★ 等于把原著的离场整条拿掉,
+    结果不能代表原著的完整表现。已列入报告「要回去问」。
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: >-
+    ★ 执行细节:原著没给仓位规则(Street Smarts 是单品种短线书)。
+    1% 固定分数法是行业惯例;槽位 10 / 单票 10% 与别的链保持一致,
+    ★ 都不是原著的数 —— 已列入报告「要回去问」。
+
+slots: 10
+source_slots: 执行细节(原著无仓位与槽位规则)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(原著无排序)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  component_match: large
+  risk_free_annual: null

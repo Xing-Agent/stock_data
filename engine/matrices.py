@@ -709,6 +709,18 @@ def _entry_rule_raw(rule: dict, symbols: list[str]) -> pd.DataFrame:
     if t == "close_above_ema":
         return _as_bool(close > ema_matrix(int(p.get("period", p.get("ema", 20))), symbols))
 
+    if t == "rsi_oversold":
+        # ★ A0：技-12 康纳斯要的是 RSI(2) 跌到阈值**以下**就买（状态）。
+        #   ★ 注意和 entry_trigger 里同名的单条规则版本不同：
+        #     那个版本是「从阈值下方穿回来」（反弹确认），
+        #     这个版本是「当天就在阈值之下」—— 原著写的是后者
+        #     （「2 日 RSI 跌到极低值，买入」）。
+        #   ★ 多条规则 AND 之后由 entry_trigger 的 _event_only 统一转成事件，
+        #     所以这里返回状态是对的，不会粘住开仓。
+        n = int(p.get("period", 14))
+        thr = float(p.get("threshold", 30.0))
+        return _as_bool(rsi_matrix(n, symbols) < thr)
+
     if t == "mansfield_rs_positive":
         against = str(p.get("against", "SPY")).upper()
         if against == "SECTOR":
@@ -1167,6 +1179,14 @@ def rank_score_matrix(spec, symbols: list[str], cfg: dict | None = None
             raise ValueError(f"atr_pct_denominator 只认 close_t / sma20_close,"
                              f"给的是 {denom}")
         score = mom / atr_pct.replace(0.0, np.nan)
+    elif "BCL" in f.upper():
+        # ★★ 1029:流派三的主排序 BCL = (Close − Low) / (High − Low),从大到小。
+        #   ★ 它同时也是进场门槛(≥0.65),所以排序实际是在「已过 0.65 门槛」的
+        #     票里按 BCL 再排一次 —— 这是自洽的,不是重复条件(配置里已说明)。
+        #   ★ High == Low 的那天(一字板/停牌)分母为 0 → NaN,不排它。
+        high = cache.field("high", symbols)
+        low = cache.field("low", symbols)
+        score = (close - low) / (high - low).replace(0.0, np.nan)
     elif "D_last" in f:
         vcp_p = _find_vcp_params(cfg or {})
         if vcp_p is None:

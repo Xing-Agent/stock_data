@@ -108,6 +108,65 @@ def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
     return best
 
 
+#: ★★ 新硬纪律 A（2026-10-29 策略组拍板）：随机对照用 5 个种子并池。
+#   原因（实测出来的）：单种子噪声（每笔 R σ=0.112）比效应本身还大，
+#   能把 Z 从 −0.57 翻到 +0.56 —— 单种子的 Z 符号本身就是噪声。
+#   ★ 5 个种子必须是写死的常量，不许随机生成 —— 否则结论不可复现。
+CONTROL_SEEDS: tuple[int, ...] = (424242, 20181001, 20220101, 777013, 31337)
+
+
+def pooled_random_control(cfg: "chain.ChainConfig", symbols: list[str] | None,
+                          start: str, end: str, target_trades: int,
+                          initial_equity: float,
+                          seeds: tuple[int, ...] = CONTROL_SEEDS
+                          ) -> dict[str, Any]:
+    """
+    ★★ 硬纪律 A：随机对照 5 种子并池。
+
+    做法：每个种子各走一遍「按实际成交笔数校准」的流程（沿用已定口径），
+    然后把 5 条对照流水**纵向拼起来**当一个对照池。
+
+    ★ 为什么是并池而不是「跑 5 遍取平均 Z」：
+      并池是把对照分布估得更准（5 倍样本），然后只算一个 Z；
+      取平均 Z 是把 5 个各自带噪声的 Z 平均，它不减小对照分布的估计误差。
+    ★ 校准仍然只看笔数、不看成绩（纪律 6）—— 每个种子各自校准到真链笔数，
+      谁的成绩好看根本不进入选择。
+    """
+    per: list[dict[str, Any]] = []
+    frames: list[pd.DataFrame] = []
+    for sd in seeds:
+        cal = calibrated_random_rate(cfg, symbols, start, end, target_trades,
+                                     initial_equity, seed=sd)
+        led = cal.get("ledger")
+        n_ctrl = 0 if led is None or led.empty else len(led)
+        rbar = (float(led["r_multiple"].dropna().mean())
+                if n_ctrl else float("nan"))
+        per.append({"种子": sd, "rate": cal["rate"],
+                    "对照成交笔数": n_ctrl,
+                    "该种子对照每笔R": rbar,
+                    "校准轮次": cal["tries"]})
+        if n_ctrl:
+            frames.append(led)
+    pool = pd.concat(frames, ignore_index=True) if frames else None
+    rs = (pool["r_multiple"].dropna().to_numpy(dtype=float)
+          if pool is not None and not pool.empty else np.array([]))
+    single = [d["该种子对照每笔R"] for d in per
+              if np.isfinite(d["该种子对照每笔R"])]
+    return {
+        "ledger": pool,
+        "种子": list(seeds),
+        "逐种子": per,
+        "并池总笔数": int(rs.size),
+        "并池对照每笔R": float(np.mean(rs)) if rs.size else float("nan"),
+        "★单种子每笔R的极差": (float(max(single) - min(single))
+                                        if len(single) > 1 else float("nan")),
+        "★单种子每笔R的标准差": (float(np.std(single, ddof=1))
+                                          if len(single) > 1 else float("nan")),
+        "口径": ("硬纪律 A：5 种子并池；每个种子各自按实际成交笔数校准，"
+                 "校准只看笔数、不看成绩"),
+    }
+
+
 # ================================================================ 置信区间
 
 def ci95(values, stat=np.mean, B: int = CI_B, seed: int = 20181001
@@ -372,8 +431,16 @@ def bootstrap_on_ledger(res: chain.ChainResult,
     pol_s = stats_gate.bootstrap_test(
         "极性反转·做空", -r,
         stats_gate.circular_block_sampler(-ctrl, n_draw=r.size), B=B,
-        note="同样进场点强制做空")
-    return stats_gate.verdict(strat, block, pol_l, pol_s)
+        note="同样进场点强制做空;★★ 严格镜像:Z ≡ −Z_做多,零信息量,"
+             "不许当独立证据")
+    v = stats_gate.verdict(strat, block, pol_l, pol_s)
+    # ★★★ 2026-10-29 新增第四套:真正测「是不是在挑波动大的票」。
+    #   ★ 原来的极性反转是严格镜像(信号和对照同时取负)→ 测不了这件事。
+    #   ★ 这一关只**附加报告**,不改 verdict 的通过/不通过逻辑 ——
+    #     改判定线是策略层的决定,不是我这一轮该擅自动的。
+    v.results["波动率选择(|R|)"] = stats_gate.volatility_selection_test(
+        r, ctrl, B=B)
+    return v
 
 
 # ================================================================ 分步归因
@@ -581,14 +648,16 @@ def evaluate(cfg: chain.ChainConfig,
         # ★ 2026-10-29:这里原来写的是 `len(led) / len(eq) / 100` —— 量纲不对
         #   (把池内票数硬编成 100),实测触发率高约 3 倍。
         #   现在和基准一 / 四格硬关共用同一个口径:校准到实际成交笔数一致。
-        cal_g = calibrated_random_rate(cfg, symbols, start, end, len(led),
-                                       initial_equity, seed=424242)
-        out["判据_随机对照口径"] = RANDOM_RATE_DEF
-        out["判据_随机对照触发率"] = cal_g["rate"]
-        out["判据_随机对照闭式起点"] = cal_g["闭式起点"]
-        out["判据_随机对照校准轮次"] = cal_g["tries"]
-        out["判据_随机对照笔数"] = cal_g["n_ctrl"]
-        ctrl = cal_g["ledger"]
+        # ★★ 硬纪律 A（2026-10-29）：改成 5 种子并池，不再用单种子。
+        #   沙包里的原注：这里曾经写过 `len(led)/len(eq)/100`（量纲不对），
+        #   后来改成单种子按成交笔数校准；★ 现在是 5 种子并池。
+        pooled = pooled_random_control(cfg, symbols, start, end, len(led),
+                                       initial_equity)
+        out["判据_随机对照口径"] = pooled["口径"]
+        out["判据_随机对照_5种子并池"] = {
+            k: v for k, v in pooled.items() if k != "ledger"}
+        out["判据_随机对照笔数"] = pooled["并池总笔数"]
+        ctrl = pooled["ledger"]
         out["判据"] = bootstrap_on_ledger(res, ctrl)
 
     if with_attribution:

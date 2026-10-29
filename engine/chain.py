@@ -165,6 +165,20 @@ def _friction_bps(tier: int, tiers_cfg: dict, flat: float | None) -> float:
     return float(tiers_cfg.get(keys[tier], FRICTION_TIERS_DEFAULT[keys[tier]]))
 
 
+#: ★ t0_anchor_stop 回退到「进场根最低价」的次数。
+#   ★ 用途:证明**正式链一次都没走到回退路径**(只有基准一/归因中间行会走)。
+#   跑完用 t0_fallback_count() 读,报告里打出来。
+_T0_FALLBACK = {"n": 0}
+
+
+def t0_fallback_count() -> int:
+    return int(_T0_FALLBACK["n"])
+
+
+def reset_t0_fallback_count() -> None:
+    _T0_FALLBACK["n"] = 0
+
+
 def _stage_hits(when: dict, r_now: float, held: int,
                 extra: dict | None = None) -> bool:
     """
@@ -297,12 +311,45 @@ def _one_stop(m: matrices.Matrices, j: int, i: int, entry_px: float,
         #     (T0+1 .. T0+10),用进场那根的最低价算会得到完全不同的止损 ——
         #     专家裁决写的是「记录当日最低价 Low[T0] 作为绝对初始止损锚点」。
         v = m.t0_stop[k, j]
-        if not np.isfinite(v):
-            raise ValueError(
-                "④ t0_anchor_stop 在进场日取不到 T0 止损锚点 —— ★ 没有悄悄回退到"
-                "进场那根的最低价(那会算出完全不同的止损)。检查 ③ 是否写了"
-                "deep_value_two_stage,以及 matrices.build 是否把 t0_stop 填上了。")
-        return float(v)
+        if np.isfinite(v):
+            return float(v)
+        # ==============================================================
+        # ★★ 取不到 T0 锚点怎么办 —— 这一段必须讲清楚,它关系到基准一公不公平。
+        #
+        # 什么时候会取不到:**只有当进场扳机被换掉的时候**。
+        #   · 「基准一 同环境随机进场」把 ③ 换成随机进场 → 随机那天没有 T0
+        #   · 分步归因的中间行(买入持有 / +环境 / +选股)同理
+        #   ★ 正式链的每一个进场日都必然有 T0 锚点(状态机吐信号的同时就写了锚点),
+        #     ★ 所以正式链**永远不会**走到这里 —— 下面的计数器可以证明这一点。
+        #
+        # 怎么处理:★ 回退到「同一个公式、锚在进场那根」= Low[进场根] − mult×ATR14。
+        #   ★ 为什么这是对的:基准一问的是「**扳机**挑得准不准」,
+        #     所以除了扳机以外的六步要尽量一样。而 T0 锚点本身是**扳机状态机的一部分**
+        #     (它来自第一阶段那根),随机进场根本没有「第一阶段」——
+        #     ★ 最接近的同类止损就是「同样的 0.5×ATR14,锚在它自己的信号根上」。
+        #   ★★ 但必须如实标明:基准一和正式链的止损锚点**不是同一根 K 线**,
+        #     所以两者的 R 定义有细微差别。方向上:正式链的锚点(T0 的低点)通常
+        #     比进场根的低点更低、更远 → 正式链的止损更宽、每笔 R 的分母更大。
+        #   ★ 必须显式开启(fallback_to_signal_bar_low: true),★ 不是默认行为 ——
+        #     默认仍然报错,免得哪天真链出问题被这条路径悄悄盖过去。
+        # ==============================================================
+        if p.get("fallback_to_signal_bar_low"):
+            lo = m.low[k, j]
+            a = m.atr[k, j]
+            if np.isfinite(lo) and np.isfinite(a):
+                mult = p.get("atr_multiple", p.get("multiple", 0.5))
+                _T0_FALLBACK["n"] += 1
+                return float(lo) - float(mult) * float(a)
+            return float("nan")
+        raise ValueError(
+            "④ t0_anchor_stop 在进场日取不到 T0 止损锚点 —— ★ 没有悄悄回退到"
+            "进场那根的最低价(那会算出完全不同的止损)。\n"
+            "★ 如果你是在跑「基准一 随机进场」或分步归因的中间行,这是预期的:"
+            "那些变体把 ③ 换掉了,没有第一阶段、也就没有 T0 锚点 —— "
+            "请在 stop_init.params 里显式写 fallback_to_signal_bar_low: true,"
+            "并在报告里写明基准一的止损锚点和正式链不是同一根 K 线。\n"
+            "★ 如果这是正式链报的,那是真 bug:检查 ③ 是否写了 "
+            "deep_value_two_stage,以及 matrices.build 是否把 t0_stop 填上了。")
     raise ValueError(f"不认识的初始止损 type={kind}")
 
 

@@ -1,0 +1,125 @@
+# ============================================================================
+# 技-8 · 高紧旗形 HTF(丹·赞格)
+#
+# 三秒版:股票四到八周里翻一倍,然后在高位窄幅横着不跌,突破横盘上沿那一刻进。
+#
+# ★★ 本条**不是**原著完整。手册附录 A 自己写的是「形态描述来自作者;
+#   幸存者偏差极重 —— 证据几乎全部来自事后挑出来的成功图例」。
+#   手册正文第 325-326 行给的五个条件里,★ 只有两个是能照原文落地的死数:
+#     ① 四到八周内涨幅 > 100%            ✓ 能落地(20~40 个交易日)
+#     ② 回调幅度不超过 20–25%            ★ 是**区间**,不是一个数 → 跑两端
+#     ③ 整理期间缩量                     ★ 没给量比 → 显式关掉
+#     ④ 突破旗形上沿买入                  ✓ 能落地(= 整理段最高价)
+#     ⑤ 跌破旗形下沿全退 + 时间止损三到五天不启动就走
+#                                        ★ 下沿能落地;「三到五天」是区间,
+#                                          「不启动」没定义 → 显式关掉
+#   ★ 另外整理段本身的长度(几根)手册也没给 —— 本次用的机械读法边界
+#     [3, 25] 根写在 ops_a0.htf_flag_breakout 里,★ 也是我们定的。
+#
+# ★ 所以这条总共有 4 处要回去问,结论只能是「参数不全」,不给成立/不成立。
+# ============================================================================
+
+meta:
+  name: 技-8_高紧旗形HTF
+  master: Dan Zanger
+  book: 作者公开描述(chartpattern.com);★ 无成体系出版物,页码无法提供
+  handbook_ref: v11 第 322 行;附录 A 技-8
+  orig_claim: >-
+    形态描述来自作者;★ 幸存者偏差极重 —— 证据几乎全部来自事后挑出来的成功图例
+  param_gap: >-
+    ★ 四处手册没写死:② 回调上限是 20–25% 区间;③ 缩量量比没给;
+    ⑤ 时间止损「三到五天」是区间且「不启动」没定义;整理段长度没给。
+  must_show: >-
+    手册明文要求「产品里必须同时显示符合形态却随后失败的样本比例」——
+    报告里必须报胜率,不许只报收益。
+
+universe:
+  rules: []
+  source: 原著(无额外选股条件;「全市场最狂暴的那几只」由形态本身筛出来)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: >-
+    ★ 手册写「什么时候用:牛市里最强的那一小批股票」—— 定性描述,
+    没给可自动触发的大盘开关。★ 本次没装。
+
+entry:
+  rules:
+    - type: htf_flag_breakout
+      params:
+        runup_min: 1.00          # 原著:四到八周涨幅 > 100%
+        max_pullback: 0.20       # ★ 原著区间 20–25% 的下端;runner 另跑 0.25
+        flag_min_bars: 3         # ★ 我们定的机械读法边界,不是原著
+        flag_max_bars: 25        # ★ 我们定的机械读法边界,不是原著
+      source: >-
+        原著:涨幅 100%(runup_min);四到八周 = 20~40 个交易日
+        (写死在 ops_a0.HTF_RUNUP_MIN_BARS / MAX_BARS);
+        突破旗形上沿 = 整理段最高价。
+        ★ max_pullback 是原著区间 20–25% 的端点,两端并列跑
+        —— 做法参照附录 D.8 对 SFP 影线「按 1.5 / 2.0 / 2.5 三组跑」的先例。
+        ★ flag_min_bars / flag_max_bars 是我们的读法边界,原著没给。
+    # ★ 原著条件 ③「整理期间缩量」:量比没给 → 显式关掉,不是忽略
+    - type: volume_dryup
+      params: { fast_period: 5, slow_period: 50, max_ratio: null, offset_days: 1 }
+      enabled: false
+      source: >-
+        ★ 原著条件 ③「整理期间缩量」。★ max_ratio 手册没给 → enabled: false
+        显式关掉。★ 不许从别的链(流派二 VCP 的 0.60)搬一个数过来顶上 ——
+        那是另一条策略的参数,搬过来等于我们自己定了一个门禁还假托有出处。
+        已列入报告「要回去问」。
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(收盘确认、次日开盘)
+
+# ④ 止损 = 旗形下沿
+initial_stop:
+  type: day_low_minus_atr
+  params: { structure_lookback: 25, atr_period: 14, atr_multiple: 0.0 }
+  source: >-
+    原著「跌破旗形下沿立刻全退」→ 止损设在整理段最低价,缓冲 0。
+    ★ structure_lookback: 25 = 与 flag_max_bars 一致(整理段的最大长度),
+    ★ 这个数跟着上面那个我们定的边界走,不是原著。
+
+trailing_stop:
+  type: none
+  source: 原著(未提移动止损)
+
+exit:
+  rules:
+    - type: close_below_trailing_stop
+      source: 原著(跌破旗形下沿全退)
+  params:
+    profit_target_r: null
+    time_stop_days: null    # ★ 原著「三到五天不启动就走」—— 区间 + 无定义,显式关掉
+  fill: next_open
+  source: >-
+    ★ 原著条件 ⑤ 的时间止损:「三到五天」是区间,「不启动」没有定义
+    (不启动 = 没涨?涨不到多少?)→ 本次显式关掉。
+    ★ 这条拿掉之后,持仓会比原著拿得久,结果不能代表原著。
+    已列入报告「要回去问」。
+
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.10
+  source: 执行细节(原著无仓位规则)
+
+slots: 10
+source_slots: 执行细节(原著无槽位规则)
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(原著无排序)
+
+costs:
+  one_way_bps: 5.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  component_match: large
+  risk_free_annual: null

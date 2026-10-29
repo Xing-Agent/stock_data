@@ -42,6 +42,30 @@ Z_INSTITUTIONAL = 2.0  # 机构级
 MIN_N = 100           # 九关第六关:样本量下限
 
 # ============================================================================
+# ★★★ 新硬纪律 A(2026-10-29,策略组拍板):随机对照 **5 种子并池**
+#
+# 大白话(三秒):以前整个随机分布是**一个种子**生出来的。实测那一个种子
+#   本身的噪声(每笔 R 的 σ ≈ 0.112)**比我们要测的效应还大** ——
+#   ★ 换个种子能把 Z 从 −0.57 翻到 +0.56,正负号都能翻。
+#   那就不是尺子,是抽签。
+#
+# ★ 改法:跑 5 个种子,每个种子 B 次重抽,★ 把 5×B 个随机统计量**并成一池**,
+#   再用这一池算 μ / σ / 经验 p。于是种子本身的运气被摊掉。
+#
+# ★ 为什么必须改(还有第二个理由):★ 基准一(同环境随机进场)**已经**用 5 个
+#   种子了。同一份报告里判据用单种子、基准一用 5 种子 —— ★ 两套口径,
+#   这正是我们刚刚修过的那个毛病(同一件事两个算法)。现在统一。
+#
+# ★ 仍然沿用的口径(没变):随机对照必须按【实际成交笔数】校准,不是按信号数;
+#   ★ 校准只看笔数、不看成绩(见 analyze.random_entry_benchmark)。
+#
+# ★ 仍然严禁:取随机分布的最大值(见本文件开头)。并池只改 μ/σ 的估计精度,
+#   ★ 不改判定线(Z ≥ 1.65 / 2.00),也不改「不许取 max」这一条。
+# ============================================================================
+SEEDS_DEFAULT = (20181001, 20181002, 20181003, 20181004, 20181005)
+N_SEEDS_DEFAULT = len(SEEDS_DEFAULT)
+
+# ============================================================================
 # ★★ 新纪律(2026-10-28):全系统全周期有效交易笔数的统计底线
 #
 # 原话(外部专家给的,我们认为成立):
@@ -153,7 +177,8 @@ def bootstrap_test(name: str,
                    signal_values: Sequence[float],
                    random_sampler: Callable[[np.random.Generator], Sequence[float]],
                    B: int = B_DEFAULT,
-                   seed: int = 20181001,
+                   seed: int | None = None,
+                   seeds: Sequence[int] | None = None,
                    statistic: Callable[[Sequence[float]], float] | None = None,
                    note: str = "") -> BootstrapResult:
     """
@@ -161,26 +186,57 @@ def bootstrap_test(name: str,
     signal_values  —— 信号实际拿到的一串结果(每笔的收益或 R 倍数)
     random_sampler —— 给一个随机数发生器,吐出「同等数量」的一串随机结果
     statistic      —— 默认取均值(每笔平均收益)
+
+    ★★★ 新硬纪律 A(2026-10-29,策略组拍板):★ 随机对照 **5 种子并池**。
+      默认跑 SEEDS_DEFAULT 这 5 个种子、每个 B 次,把 5×B 个随机统计量并成一池,
+      ★ 用这一池算 μ / σ / 经验 p。
+      大白话:以前整个随机分布由一个种子生成,实测那一个种子的噪声比效应本身
+      还大(换种子能把 Z 从 −0.57 翻到 +0.56),正负号都能翻 —— 那是抽签不是尺子。
+
+    ★ seeds 可以显式给(比如种子稳定性检查要逐个种子跑);
+    ★ seed=<单个整数> 仍然认,但那是**单种子口径**,只应该在
+      「专门研究种子敏感性」时用 —— 正式结论一律走默认的 5 种子并池。
     """
     stat = statistic or (lambda v: float(np.nanmean(v)) if len(v) else float("nan"))
     sig = np.asarray(signal_values, dtype=float)
     sig = sig[np.isfinite(sig)]
+    if seeds is None:
+        seeds = (int(seed),) if seed is not None else SEEDS_DEFAULT
+    seeds = tuple(int(s) for s in seeds)
     if sig.size == 0:
         return BootstrapResult(name, 0, B, float("nan"), float("nan"), float("nan"),
                                1.0, float("nan"), "信号一笔都没有,无法判定")
     s_stat = stat(sig)
-    rng = np.random.default_rng(seed)
     rand_stats: list[float] = []
-    for _ in range(B):
-        sample = random_sampler(rng)
-        if sample is None or len(sample) == 0:
-            continue
-        rand_stats.append(stat(np.asarray(sample, dtype=float)))
+    per_seed: list[float] = []       # ★ 每个种子自己的 μ,用来量化种子噪声
+    for sd_i in seeds:
+        rng = np.random.default_rng(sd_i)
+        this_seed: list[float] = []
+        for _ in range(B):
+            sample = random_sampler(rng)
+            if sample is None or len(sample) == 0:
+                continue
+            this_seed.append(stat(np.asarray(sample, dtype=float)))
+        rand_stats.extend(this_seed)
+        if this_seed:
+            per_seed.append(float(np.mean(this_seed)))
     z, mu, sd = effect_z(s_stat, rand_stats)
+    # ★ 把「种子之间的离散度」记进 note —— 这是新纪律 A 的证据链:
+    #   如果 seed_spread 比 |信号均值 − 随机均值| 还大,就说明单种子口径
+    #   根本测不出这个效应,★ 必须并池。
+    extra = ""
+    if len(per_seed) >= 2:
+        spread = float(np.std(per_seed, ddof=1))
+        extra = (f"5种子并池(B={B}×{len(seeds)}={len(rand_stats)});"
+                 f"★种子间μ离散σ={spread:.4f}"
+                 f"(信号−随机={s_stat - mu:+.4f})")
+        if abs(s_stat - mu) < spread:
+            extra += " ★★ 种子噪声 > 效应本身 —— 单种子口径在这条上根本测不出来"
     return BootstrapResult(name=name, n_signal=int(sig.size), B=len(rand_stats),
                            signal_mean=s_stat, random_mean=mu, random_std=sd,
                            p_empirical=empirical_p(s_stat, rand_stats),
-                           z_effect=z, note=note)
+                           z_effect=z,
+                           note=(note + (";" if note and extra else "") + extra))
 
 
 # ---------------------------------------------------------------- 三套对照组
@@ -240,12 +296,64 @@ def circular_block_sampler(series: Sequence[float],
     return sampler
 
 
+def volatility_selection_test(signal_values: Sequence[float],
+                              control_values: Sequence[float],
+                              B: int = B_DEFAULT,
+                              seeds: Sequence[int] | None = None
+                              ) -> BootstrapResult:
+    """
+    ★★★ 2026-10-29 新增:真正测「是不是在挑波动大的票」的那一关。
+
+    ================== 为什么要新增这一关 ==================
+    ★★ 原来的「③ 极性反转」**测不了它声称要测的东西** ——
+      analyze 里把信号和对照**同时取负**(signal=−r,control=−ctrl),
+      于是 μ→−μ、σ 不变,★ 数学上 Z_做空 ≡ −Z_做多,**严格镜像**。
+      · 所以「做空 Z = +4.47」从来不是一个独立结果,★ 它就是「做多 Z = −4.47」
+        的另一种写法,不许当成正面证据。
+      · 而且 polarity_check 里那条「多空两边 Z 都 ≥ 1.65 → 挑的是波动大的票」
+        的分支 ★★ 永远不可能成立(zs = −zl,两个不可能同时 ≥ 1.65)——
+        ★ 那是一段**死代码**,重建说明里列为「三套对照组缺一不可」的第三套,
+        实际上一直是空的。
+
+    ★ 正确的测法:方向性信号 vs 波动率选择,区别在**绝对值**上 ——
+      · 真方向性:signed R 显著 > 随机,|R| 不特别高
+      · 挑波动大的票:★ |R| 显著 > 随机,而 signed R 不显著
+      所以这一关测的是 **mean(|R|) 信号 vs 随机**,和 signed 那一关并列看。
+
+    ★ 读法(报告里必须按这个读):
+      signed 不显著 + |R| 显著偏高  → ★★ 典型的「挑波动大的票」,不是 alpha
+      signed 显著   + |R| 也偏高    → 方向性成立,但吃的是高波动溢价,要看回撤
+      signed 显著   + |R| 不偏高    → ★ 最干净的方向性 alpha
+      两个都不显著                  → 什么都没挑到
+    """
+    sig = np.abs(np.asarray(signal_values, dtype=float))
+    ctrl = np.abs(np.asarray(control_values, dtype=float))
+    sig = sig[np.isfinite(sig)]
+    ctrl = ctrl[np.isfinite(ctrl)]
+    if sig.size == 0 or ctrl.size == 0:
+        return BootstrapResult("波动率选择(|R|)", int(sig.size), 0,
+                               float("nan"), float("nan"), float("nan"),
+                               1.0, float("nan"), "没有可用样本")
+    return bootstrap_test(
+        "波动率选择(|R|)", sig,
+        circular_block_sampler(ctrl, n_draw=sig.size), B=B, seeds=seeds,
+        note="★ 测「是不是在挑波动大的票」:Z 高 = 信号挑到的票振幅系统性大于随机。"
+             "★ 这一关取代原来那个严格镜像、因此没有信息量的极性反转")
+
+
 def polarity_check(long_result: BootstrapResult,
                    short_result: BootstrapResult) -> tuple[bool, str]:
     """
     ③ 极性反转的判读。
-    ★ 多空两边 Z 都 ≥ 1.65 → 这不是方向性信号,是在挑波动大的票。
-    返回 (是否通过, 说明)。
+
+    ★★★ 2026-10-29 必须知道的事实:analyze 里信号和对照是**同时取负**的,
+      所以 ★ Z_做空 ≡ −Z_做多,**严格镜像、零信息量**。
+      · 「做空 Z = +4.47」就是「做多 Z = −4.47」的另一种写法,
+        ★ 报告里不许把它当成一个独立的正面结果。
+      · 下面那条「两边都 ≥ 1.65」的分支 ★ 永远不可能成立 —— 死代码,保留只为留痕。
+      · 所以这一关实际上退化成「Z_做多 > 0 吗」,★ 它并没有在测
+        「是不是挑波动大的票」。
+      ★ 真正测那件事的是上面新增的 volatility_selection_test(|R| 口径)。
     """
     zl, zs = long_result.z_effect, short_result.z_effect
     # ★ 2026-10-28:Z 算不出来(随机分布退化)时不许说「通过」——
