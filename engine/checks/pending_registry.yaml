@@ -1,0 +1,105 @@
+# ============================================================================
+# ★★ 五 ·「报告里写了、代码里没写」登记簿
+#
+# 今天的原话,原样留下:★★「报告读完就放下,代码不会。」
+#
+# 规则:凡是报告里写了「待裁决 / 待修 / 待确认 / 待核实 / 待校准 / 要回去问」
+#       的条目,都必须登记在这里,每条带四件事:
+#         条目 · 哪份报告 · 代码里有没有对应物(code_anchor) · 状态
+#
+# 状态取值:
+#   已落地   —— 代码里有对应物,且那个对应物会自己报警 / FAIL
+#   待修     —— 报告写了,代码里还没有对应物     ★ 跑批时会进警告清单
+#   待拍板   —— 代码里登记了、每次都打印,但口径还没定  ★ 不算未落地
+#
+# code_anchor:一个在 engine/ 下 grep 得到的符号(或 "文件:符号")。
+#   ★ 检查器就是去 grep 它。grep 不到 → 这条登记项是空的。
+#
+# ★ 这份文件只登记,不改任何跑批逻辑。
+# ============================================================================
+
+items:
+
+  # ── 今天最该记的那一条:我当时的诊断是**错的** ─────────────────────────
+  - 条目: 残余假跳变逐根裁决(数据断裂这一类)
+    报告: 拆股闸重写与偏差量化-1029.md;闸门新方案-结果-1028.md
+    code_anchor: "engine/split_gate.py:CUT_EVENTS"
+    状态: 已落地
+    备注: >-
+      ★★ 留痕一条错误诊断:我当时说「CUT_SERIES 被清空」——★ 这是错的,它一直在,
+      现在是 10 条。真实的问题是另一件:报告的「待裁决」一节里还有条目
+      没有写进代码,而我把两件事混成了一件。
+      ★ 所以这份登记簿要查的不是「清单空不空」,是「报告里的每一条有没有对应物」。
+
+  - 条目: 残余跳变里还判不出来的那几根(未裁决)
+    报告: 拆股闸重写与偏差量化-1029.md「待裁决」
+    code_anchor: "engine/split_gate.py:UNRESOLVED_BREAKS"
+    状态: 已落地
+    备注: 既不在 EVENTS 里也不在 UNRESOLVED_BREAKS 里 = 无人认领 → cut_coverage_check() 判 FAIL。
+
+  - 条目: 换股并购盲区 —— 价格连续、系数恒为 1,两个信号都为零
+    报告: 拆股闸重写与偏差量化-1029.md;幸存者偏差-实测-1029.md
+    code_anchor: "engine/split_gate.py:MERGER_BLIND_SPOT_SYMBOLS"
+    状态: 已落地
+    备注: 7 只票,每次跑完都打印 —— 不打印会让人以为「接了官方字段,问题没了」。
+
+  - 条目: 系数非标准比例(股票股利 / 分拆)该不该照系数修 —— 口径待拍板
+    报告: 拆股闸重写与偏差量化-1029.md
+    code_anchor: "engine/split_gate.py:nonstandard_events"
+    状态: 待拍板
+
+  - 条目: 时间止损 p75 的四条口径(收盘价 / 未触达全排除 / 只看 N_win / 全周期固定)
+    报告: 批五修正-结果-1029.md;问Gemini-批五-1029.md
+    code_anchor: "engine/timestop_p5_1029.py:N_WIN_FLOOR"
+    状态: 已落地
+    备注: >-
+      ★ 另加 engine/checks/time_scale_unit.py:check_timestop_spec() ——
+      口径块缺任一条直接 FAIL。原来这四条只在 docstring 和报告里,docstring 不会 FAIL。
+
+  - 条目: 极性反转是死代码(Z_做空 ≡ −Z_做多),「三套对照组」的第三套一直是空的
+    报告: 状态轴三版-结果-1029.md;engine重建说明-1028.md
+    code_anchor: "engine/stats_gate.py:volatility_selection_test"
+    状态: 已落地
+    备注: >-
+      第三套已由 volatility_selection_test(|R| 口径)顶上;
+      ★ 另加 engine/checks/constant_output.py:check_mirror_pair() 防止镜像再被当成独立结果。
+
+  # ── 下面这些是**报告写了、代码里还没有对应物**的 ★ 跑批时会进警告清单 ───
+  - 条目: 技-13 的反向计数离场(Sell Setup 9 还是 Sell Countdown 13?原著没给完整定义)
+    报告: A0十二条-结果-1029.md;engine/configs/技-13.yaml 的 exit.source
+    code_anchor: "engine/stages.py:td_reverse_countdown_exit"
+    状态: 待修
+    备注: 本次只靠止损出场 = 把原著的另一条离场整条拿掉了,结果不能代表原著表现。
+
+  - 条目: 技-10 止损缓冲「那根假突破 K 线的最低点下方一点点」——「一点点」原著没给数
+    报告: A0十二条-结果-1029.md;engine/configs/技-10.yaml 的 initial_stop.source
+    code_anchor: "engine/configs:turtle_soup_stop_buffer_decided"
+    状态: 待修
+    备注: 本次用 0 缓冲,理由是「0 是唯一不含自由参数的读法」—— ★ 这不是原著的数。
+
+  - 条目: 技-10 / 技-13 的「大牛市主升浪禁用」开关 —— 依赖 状-1,而 状-1 参数待校准
+    报告: A0十二条-结果-1029.md;附录 D.8
+    code_anchor: "engine/signals.py:regime_disable_major_advance"
+    状态: 待修
+    备注: >-
+      手册明文「必须和市场状态判断绑定,不允许在趋势市里自动触发」,
+      ★ 而我们是**没有装禁用开关**跑的。接不上不是忽略,但它必须一直在清单里。
+
+  - 条目: 状-1 的 ZigZag 阈值 + 摆动点取影线还是收盘(附录 D.8 标「待校准」)
+    报告: 状态轴三版-结果-1029.md;附录 D.8
+    code_anchor: "engine/stages.py:zigzag_threshold_calibrated"
+    状态: 待修
+    备注: ★ 它是技-10 / 技-13 禁用开关的前置条件 —— 一条待校准卡住了两条链。
+
+  - 条目: ATR%20 的分母 —— ATR20 / Close 还是 ATR20 / SMA20(Close)?
+    报告: engine/configs/trend_following.yaml 的「待确认」;三流派配置-参数审计-1028.md
+    code_anchor: "engine/signals.py:atr_pct_denominator_decided"
+    状态: 待修
+
+  - 条目: 达瓦斯箱体 —— 离散事件规则被我们做成了百分比阈值,两种写法只有 41% 重叠
+    报告: 自检盘点-1029.md §三·戊
+    code_anchor: "engine/signals.py:darvas_box_discrete_rule"
+    状态: 待修
+    备注: >-
+      ★ 这一类自检程序查不出来 —— 它要求有人读过原著。
+      登记在这里的意义只有一个:★ 不让它从清单上消失。

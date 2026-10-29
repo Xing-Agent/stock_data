@@ -1,0 +1,12 @@
+# 本次任务声明的改动范围(每行一个 glob;# 开头是注释)。
+# staged_scope.py 读这份文件。
+#
+# 用法:每开一个任务就把这份文件改成那个任务的范围,
+#       提交前跑 `python3 engine/checks/staged_scope.py` ——
+#       暂存区里有范围外的文件就挡住。
+#
+# ★ 当前任务(2026-10-29):七类无守护的自检落地成会 FAIL 的检查。
+#   ★ 明确不许碰:engine/configs/ · probe/exits_1029/ · 任何 技-*.yaml ·
+#     engine/ 下现有的跑批逻辑。
+engine/checks/*
+probe/checks_1029/*
