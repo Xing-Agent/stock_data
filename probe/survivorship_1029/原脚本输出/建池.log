@@ -1,0 +1,25 @@
+日线覆盖 2004-01-02 .. 2026-08-03,共 5681 个交易日
+对照组 AAPL/MSFT/KO 通过
+段表已加载:../xing-pit-universe-20261029-025954/pit_company_segments.csv,28960 段
+2015: 基准日 2015-01-02 · 在册 7802 · 候选 7409 · 取 1000 · ★ 没匹配到段的 1000 只 → pool_pit_2015.csv
+2016: 基准日 2016-01-04 · 在册 7963 · 候选 7514 · 取 1000 · ★ 没匹配到段的 0 只 → pool_pit_2016.csv
+2017: 基准日 2017-01-03 · 在册 7980 · 候选 7505 · 取 1000 · ★ 没匹配到段的 0 只 → pool_pit_2017.csv
+2018: 基准日 2018-01-02 · 在册 8168 · 候选 7661 · 取 1000 · ★ 没匹配到段的 0 只 → pool_pit_2018.csv
+2019: 基准日 2019-01-02 · 在册 8395 · 候选 7863 · 取 1000 · ★ 没匹配到段的 0 只 → pool_pit_2019.csv
+2020: 基准日 2020-01-02 · 在册 8581 · 候选 8032 · 取 1000 · ★ 没匹配到段的 0 只 → pool_pit_2020.csv
+2021: 基准日 2021-01-04 · 在册 9374 · 候选 8311 · 取 1000 · ★ 没匹配到段的 0 只 → pool_pit_2021.csv
+Traceback (most recent call last):
+  File "/home/claude/sd3/probe/survivorship_1029/建池-逐年-1029.py", line 160, in <module>
+    main()
+    ~~~~^^
+  File "/home/claude/sd3/probe/survivorship_1029/建池-逐年-1029.py", line 147, in main
+    made = [p for p in (build_one_year(dates, by_date, y, segs) for y in years) if p]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/sd3/probe/survivorship_1029/建池-逐年-1029.py", line 147, in <genexpr>
+    made = [p for p in (build_one_year(dates, by_date, y, segs) for y in years) if p]
+                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/sd3/probe/survivorship_1029/建池-逐年-1029.py", line 107, in build_one_year
+    w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+                                          ~~~~^^^
+IndexError: list index out of range
+EXIT 1
