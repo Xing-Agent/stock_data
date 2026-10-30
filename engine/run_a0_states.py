@@ -68,6 +68,38 @@ def zigzag_pivots(high: np.ndarray, low: np.ndarray, close: np.ndarray,
           是一个**还没做的定义选择**。取影线和取收盘会得出不同的摆动点,
           进而得出不同的区间边界、不同的事件计数、不同的斐波那契锚点。
     ★ 所以 use_wick 两个取值都要跑,不许只跑一个。
+
+    ══════════════════════════════════════════════════════════════════════
+    ★★★ 2026-10-30 修一个**静默失败**:k ≥ 6 时整函数返回空列表
+    ══════════════════════════════════════════════════════════════════════
+    症状(实测 299 只票 / 2016-01-04 起 / use_wick=True):
+        k=4 → 11.7% 的票得 0 个摆动点
+        k=5 → 42.1%      k=6 → 70.9%      k=8 → 92.6%      k=12 → 98.7%
+
+    ★★★ 病根(**只在 bootstrap 那一段**,方向还没定的时候):
+      原来写的是 `if direction >= 0:` 和 `if direction <= 0:` 两个**独立**的 if,
+      ★ 于是 `direction == 0` 时**两段在同一根 bar 里都执行**:
+          第一段把 ext_v 往上记成当根最高价,
+        ★★ 第二段紧接着又把 ext_v 覆盖成当根**最低价**(lo < ext_v 几乎恒成立)。
+      ★★★ 跟踪极值被**每根 bar 重置一次** → 跳出条件退化成
+           「**单根 bar 振幅 ≥ k × ATR**」。
+      ★ 而方向一直定不下来,所以整条序列一个摆动点都出不来。
+
+    ★★ 直接证据(两条曲线重合,不是推理):
+        「单根 bar 振幅 ≥ k×ATR」的天数占比(中位)
+          k=2 → 2.3866%   k=3 → 0.3182%   k=4 → 0.0398%
+          k=5 → 0.0000%   k=6 → 0.0000%   ……
+      ★ 失败率在 k=4 起飞、k=6 过七成,和上面这条概率曲线**同一个 k 上塌**。
+
+    ★ 修法:方向未定时**同时**记住跑到过的最高和最低(两个独立的游标),
+      谁先满足 k×ATR 的反转就定方向。★★ 方向定了之后的逻辑、严格交替、
+      取更极端 —— ★ 一个字都没改。出处:probe/snapshot_features_1030/
+      zigzag_bug_1030.py 的 `zz_fixed()`(本函数在它基础上补回 use_wick 和 NaN 保护)。
+
+    ★★★ 顺带一条待办的处置:附录 D.8 的「ZigZag 阈值 3×ATR 待校准」
+      —— ★ 在修好之前这件事**根本做不了**:往上调阈值,所有下游判据会
+      **静默**变成 0 个事件,看起来像「这个阈值很严格」,实际是函数坏了。
+      修好之后才第一次可校准。
     """
     hi_src = high if use_wick else close
     lo_src = low if use_wick else close
@@ -75,6 +107,10 @@ def zigzag_pivots(high: np.ndarray, low: np.ndarray, close: np.ndarray,
     piv: list[tuple[int, str, float]] = []
     # 方向未定时先找第一个够大的摆动
     direction = 0            # +1 = 正在找高点, -1 = 正在找低点
+    # ★★ bootstrap 的两个**独立**游标 —— 这就是修好的那一处。
+    #   ★ 不能共用一个 ext_v:共用就会被对侧分支每根 bar 覆盖掉(见上面病根)。
+    hi_i, hi_v = 0, hi_src[0] if np.isfinite(hi_src[0]) else np.nan
+    lo_i, lo_v = 0, lo_src[0] if np.isfinite(lo_src[0]) else np.nan
     ext_i, ext_v = 0, close[0] if np.isfinite(close[0]) else np.nan
     for i in range(1, n):
         a = atr[i]
@@ -84,21 +120,34 @@ def zigzag_pivots(high: np.ndarray, low: np.ndarray, close: np.ndarray,
         h, lo = hi_src[i], lo_src[i]
         if not (np.isfinite(h) and np.isfinite(lo)):
             continue
-        if direction >= 0:
-            if np.isfinite(ext_v) and h > ext_v:
+        if direction == 0:
+            # ★ NaN 保护:第一根有效 bar 直接把两个游标坐实(原版靠
+            #   `if not np.isfinite(ext_v)` 那一行兜底,这里按游标各兜一次)
+            if not np.isfinite(hi_v) or h > hi_v:
+                hi_i, hi_v = i, h
+            if not np.isfinite(lo_v) or lo < lo_v:
+                lo_i, lo_v = i, lo
+            # ★ hi_i < i / lo_i < i:摆动点必须在**之前**的某根 bar 上,
+            #   不许拿当根 bar 自己的高低差当一个反转(那正是旧版的退化形态)
+            if (hi_v - lo) >= thr and hi_i < i:
+                piv.append((hi_i, "H", float(hi_v)))
+                direction, ext_i, ext_v = -1, i, lo
+            elif (h - lo_v) >= thr and lo_i < i:
+                piv.append((lo_i, "L", float(lo_v)))
+                direction, ext_i, ext_v = 1, i, h
+            continue
+        if direction > 0:
+            if not np.isfinite(ext_v) or h > ext_v:
                 ext_i, ext_v = i, h
-            if np.isfinite(ext_v) and (ext_v - lo) >= thr:
+            if (ext_v - lo) >= thr:
                 piv.append((ext_i, "H", float(ext_v)))
                 direction, ext_i, ext_v = -1, i, lo
-                continue
-        if direction <= 0:
-            if np.isfinite(ext_v) and lo < ext_v:
+        else:
+            if not np.isfinite(ext_v) or lo < ext_v:
                 ext_i, ext_v = i, lo
-            if np.isfinite(ext_v) and (h - ext_v) >= thr:
+            if (h - ext_v) >= thr:
                 piv.append((ext_i, "L", float(ext_v)))
                 direction, ext_i, ext_v = 1, i, h
-        if not np.isfinite(ext_v):
-            ext_i, ext_v = i, h if direction >= 0 else lo
     # 严格交替(同类连续时保留更极端的)
     out: list[tuple[int, str, float]] = []
     for p in piv:
