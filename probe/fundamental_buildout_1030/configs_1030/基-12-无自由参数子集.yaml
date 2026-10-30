@@ -1,0 +1,118 @@
+# ============================================================================
+# 基-12 回购筛选 —— ★★★ **只跑无自由参数子集**(2026-10-30,★ 跑之前提交)
+#
+# 三秒版:找那种每年拿自由现金流大量回购注销自己股票的公司。
+#
+# ★★★ 必须先说清楚这个文件**不是**基-12:
+#   ★ 基-12 整条卡在「**大量**回购」这个阈值上 —— 方法卡没给数,★★ 本轮不拍。
+#   ★★★ 所以本文件跑的是它的**无自由参数子集**:
+#        「摊薄股数同比下降(< 0)」且「FCF_ttm > 0」
+#        —— 两个都是**符号条件**,★ 一个阈值都没有。
+#   ★★ 这个子集**不改变**基-12 的四态判定(它仍然是丁类)。
+#   ★ 报告里这条链一律写成「基-12-无自由参数子集(XING 读法,不是原著)」。
+# ★★★ 红线③ 预先登记:本文件在接触任何回测结果之前提交;★ 登记后公式不改。
+# ============================================================================
+meta:
+  name: 基-12_无自由参数子集
+  master: 源自威廉·索恩代克的资本配置框架(★ 这条卡本身标的是 XING)
+  method_card: 基-12
+  question_answered: 找那种每年拿自由现金流大量回购注销自己股票的公司。
+  # ★ 方法卡原文(使用条件):「成熟行业里的现金牛公司。」
+  # ★ 方法卡原文(data_requirement):「股本变动和自由现金流都是财报直接字段。」
+  # ★ 方法卡原文(出处完整性):「这是一个筛选器,只覆盖索恩代克框架的一小部分。」
+  evidence_note: >-
+    ★★ 一处口径必须讲明:「**注销**」和「回库(treasury)」在 SEC 口径里
+    分不开,★ 我们只看**净股数变化**。所以「股数下降」里混着
+    「真注销」和「回购量大于股权激励增发量」两种情形,★★ 分不开。
+
+pit:
+  effective: filing_date_plus_1_trading_day
+  forbid: 严禁用报告期截止日
+  missing_policy: 未公布期间 ffill;第一次公布之前 = NaN = 不合格
+  source: 原著
+
+universe:
+  rules:
+    - type: share_count_declining
+      params: {}
+      source: XING 读法(无自由参数)
+      # ★ 摊薄股数同比(4 个季度前)变化 < 0。
+      # ★★ 股数走 engine/share_gate 的三道闸(单位 / 区间 / 拆股),★ 没另写一套。
+    - type: fcf_positive
+      params: {}
+      source: XING 读法(无自由参数)
+      # ★ FCF_ttm = OCF_ttm − 资本开支_ttm > 0
+      # ★ 资本开支主用 PPE、缺的回落到 ProductiveAssets
+      #   (和 engine/fundamentals.py:_capex 同一口径,★ 没另写一套)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  # ★★★ 红线⑤:★ 这一格**是真的空** —— 方法卡的使用条件
+  #   「成熟行业里的现金牛公司」是一个**个股层面**的描述,
+  #   ★★ 不是大盘环境条件;★★★ 装进 ② regime 就是把选股条件
+  #     当成大盘总开关(regime 是一维的、全池共用)。
+  #   → ★ 所以这一条的 ② 显式标记为 **Environment = Unspecified**,
+  #     ★★ 并在结果里按红线⑤ 的要求**单独标出来**:
+  #     这条链的八年是「每一个交易日都在开枪」,包括去杠杆熊市。
+
+environment_declaration: Unspecified
+environment_declaration_note: >-
+  ★★★ 红线⑤ 要求:原著版未给环境过滤 → 不许用隐式默认值顶替。
+  ★ 这里显式声明 Environment = Unspecified。
+  ★★ 本轮的处置不是「阻断执行」而是「显式标注 + 结果里单列」——
+  理由:本轮的任务就是把基本面跑起来看个底数,★ 阻断等于什么都看不到。
+  ★★★ 但报告里这条链的每一个数都必须带着这个声明走。
+
+entry:
+  type: always
+  fill: next_open_market
+  source: XING 读法(筛选器,无扳机)
+
+initial_stop:
+  type: none
+  source: >-
+    ★ 筛选器本身不含止损,方法卡也没给 → 明确为无 + 有出处。
+    ★★★ 代价:1R = 进场价 → R 退化成收益率,不能和有止损的链同列比。
+
+trailing_stop:
+  type: none
+  source: ★ 同 ④。
+
+exit:
+  type: rules
+  rules:
+    - type: screen_dropout
+      params: { screen: 基-12 }
+      source: XING 读法(无自由参数)
+
+add_on:
+  type: none
+  source: ★ 方法卡未提加仓。
+
+sizing:
+  type: equal_weight
+  params: { max_positions: 30, max_weight: 0.034 }
+  source: ★ XING
+
+slots: 30
+slots_prior_grid: [15, 30, 45]
+source_slots: ★★ 红线② 先验网格。
+
+ranking:
+  primary: { formula: ADV20, order: desc }
+  tiebreak: symbol
+  source: ★ 占位排序(不是策略的一部分)。
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0,
+                    low_liquidity_bps: 30.0 }
+  source: 行业惯例
+
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null
+  # ★★ 这一条归**趋势族**,和另外四条不同 —— ★ 理由:它赌的不是估值回归,
+  #   是「每股数量持续下降 → 每股价值持续抬升」的**延续**。
+  #   ★★ 这是一个**我们的判断**,不是专家裁决过的;★ 报告里标明。

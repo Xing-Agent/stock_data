@@ -1,0 +1,107 @@
+# ============================================================================
+# 基-5 低市盈率逆向(德雷曼)—— ★★★ 翻译登记版(2026-10-30,★ 跑之前提交)
+#
+# 三秒版:买全市场市盈率最低的那一批,靠的是人们对坏消息反应过度。
+# ★★★ 红线③ 预先登记:本文件在接触任何回测结果之前提交;★ 登记后公式不改。
+# ============================================================================
+meta:
+  name: 基-5_低市盈率逆向
+  master: 大卫·德雷曼
+  method_card: 基-5
+  question_answered: 买全市场市盈率最低的那一批,靠的是人们对坏消息反应过度。
+  # ★ 方法卡原文(使用条件):「任何时候都可作为底仓方法,泡沫破裂之后的几年效果最好。」
+  # ★ 方法卡原文(data_requirement):「完全可编。关键是数据必须用 PIT 口径。」
+  # ★ 方法卡原文(出处完整性):「方法与长期检验来自作者著述与研究。」
+  evidence_note: >-
+    ★★ 原著给的是「最低的那一批」,没给分位数字。★★★ 本配置用的后 20%
+    **不是本轮新拍的** —— 它逐字指到 engine/configs/deep_value.yaml ①
+    ev_ebitda_rank_bottom.params.rank_bottom_pct = 20(该文件自标
+    source: 行业惯例,Greenblatt 神奇公式分位体系),★ 已提交在仓库里。
+    ★ 并且按红线② 跑 3 个邻近点的先验网格,见 universe 那一段。
+
+pit:
+  effective: filing_date_plus_1_trading_day
+  forbid: 严禁用报告期截止日
+  missing_policy: 未公布期间 ffill;第一次公布之前 = NaN = 不合格
+  source: 原著
+  # ★★ 方法卡原文专门点了这一句:「关键是数据必须用 PIT 口径」——
+  #   ★ 这是 23 条里唯一一条**原著自己强调 PIT** 的。
+
+universe:
+  rules:
+    - type: pe_rank_bottom
+      params: { rank_bottom_pct: 20 }
+      source: 行业惯例(出处已提交:deep_value.yaml rank_bottom_pct=20)
+      # ★ P/E = 收盘价 / DilutedEPS_ttm(覆盖率 层一 96.0%)
+      # ★★★ EPS ≤ 0 的格子判**不合格** —— ★ 原著的低 PE 组本来就不含亏损股;
+      #   把负 PE 排进「最便宜」那一端是口径陷阱(负数比任何正数都小)。
+      # ★★ 「池内后 20%」≠「全市场后 20%」—— 我们的池子是 250 只有基本面
+      #   数据的票,★ 这道闸在我们池子里是**池内分位**,结果里必须标明。
+rank_prior_grid: [10, 20, 30]
+rank_prior_grid_note: >-
+  ★★★ 红线② 禁止单点估计 —— 分位这一个自由参数跑 10 / 20 / 30 三个邻近点,
+  ★ 考核标准是三点同向稳健,★★ 不是挑最好的那一点。
+
+regime:
+  rules: []
+  flatten_when_off: false
+  # ★★★ 红线⑤ 的处置:★ 这一格的空**不是隐式默认值** ——
+  #   方法卡原文明说「**任何时候**都可作为底仓方法」。
+  #   ★★ 也就是说原著对这条策略声明的环境条件就是「无条件」,
+  #   ★★★ 所以 regime 空是**原著的意思**,不是我们漏装。
+  #   ★ 「泡沫破裂之后的几年效果最好」是**效果描述**,不是使用条件 ——
+  #     ★★ 不许把它翻译成一个开关(那就是我们在替原著加条件)。
+
+entry:
+  type: always
+  fill: next_open_market
+  source: 原著(机械底仓,无扳机)
+
+initial_stop:
+  type: none
+  source: >-
+    ★★★ 原著不设止损 —— 德雷曼这一派靠的是分位重置(便宜不再就换),
+    不靠价格止损。★ 明确为无 + 有出处,不是空着。
+    ★★★ 代价:1R = 进场价 → **R 退化成收益率**,不能和有止损的链同列比。
+
+trailing_stop:
+  type: none
+  source: ★ 同 ④。
+
+exit:
+  type: rules
+  rules:
+    - type: screen_dropout
+      params: { screen: 基-5 }
+      source: 原著(无自由参数读法)
+      # ★ 「不再是最低那一批了就卖」。
+      # ★★★ 再平衡频率原著没给 → 本轮没拍,用「条件不再成立就走」。
+
+add_on:
+  type: none
+  source: ★ 原著未提加仓。
+
+sizing:
+  type: equal_weight
+  params: { max_positions: 30, max_weight: 0.034 }
+  source: ★ XING(原著没给持仓只数)
+
+slots: 30
+slots_prior_grid: [15, 30, 45]
+source_slots: ★★ 红线② 先验网格;★ 三点同向稳健才算数。
+
+ranking:
+  primary: { formula: ADV20, order: desc }
+  tiebreak: symbol
+  source: ★ 占位排序(不是策略的一部分),复用 run_fundamental.PLACEHOLDER_RANKING。
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0,
+                    low_liquidity_bps: 30.0 }
+  source: 行业惯例
+
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null
+  # ★ 低 PE 逆向赌的是估值回归 → 均值回归族(同深度价值的裁决口径)。

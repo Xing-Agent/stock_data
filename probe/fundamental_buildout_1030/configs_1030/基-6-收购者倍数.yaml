@@ -1,0 +1,106 @@
+# ============================================================================
+# 基-6 收购者倍数(卡莱尔)—— ★★★ 翻译登记版(2026-10-30,★ 跑之前提交)
+#
+# 三秒版:只看一个数 —— 把整家公司买下来要多少年营业利润回本(EV/EBIT)。
+#
+# ★★★ 这一条在本轮有**额外的身份**:它是「EV/EBITDA 算不出」的**替代口径**。
+#   ★ EV/EBIT **不需要折旧摊销**,而折旧摊销正是 EBITDA 唯一的卡点。
+#   ★★ 实测(补标签后):EV/EBIT 可算 票·日 53.3% / 票数 170/250;
+#      EV/EBITDA 只有 票·日 31.1% / 票数 114/250。
+# ★★★ 红线③ 预先登记:本文件在接触任何回测结果之前提交;★ 登记后公式不改。
+# ============================================================================
+meta:
+  name: 基-6_收购者倍数
+  master: 托拜厄斯·卡莱尔
+  method_card: 基-6
+  question_answered: 把整家公司(股权加净负债)买下来,要多少年的营业利润才能回本。
+  # ★ 方法卡原文(使用条件):「和神奇公式同样的场景,作为长期机械执行的底仓。」
+  # ★ 方法卡原文(data_requirement):「一个公式加一次排序。」
+  # ★★ 方法卡原文(出处完整性):「EV/EBIT 作为价值因子有广泛的独立学术支持;
+  #   『优于神奇公式』是作者自己的回测结论。两者证据强度不同,
+  #   产品里可以并列提供,**不宣称其中一个更好**。」
+  evidence_note: >-
+    ★★★ 必须跟着结果一起讲的一处口径让步:EV 的股权腿 =
+    **摊薄股数 × 收盘价**,★ 这是**规模代理,不是 PIT 市值**
+    (README 明说仓库没有 PIT 市值)。★★ 净债走本轮补标签后的
+    LongTermDebtTotal(含当期)+ 短期借款 − 现金;★ 长期债务那一项
+    必须有值,全缺 = NaN = 不合格(不猜不补)。
+
+pit:
+  effective: filing_date_plus_1_trading_day
+  forbid: 严禁用报告期截止日
+  missing_policy: 未公布期间 ffill;第一次公布之前 = NaN = 不合格
+  source: 原著
+  # ★★★ 本条用到的 EBIT / 长期债务里有一部分来自**本轮补标签的覆盖层**,
+  #   ★ 那些记录的生效基准是 `filed`(日期,无时分),不是 accepted_at。
+  #   ★★ 实测偏差:4,788 个两边都有的期里 93.5% 同一天、304 期 dump 更晚
+  #     (= 更保守),★★★ 只有 2 期 dump 更早(BKNG 223 天 / 另一期 8 天)
+  #     —— 这 2 期是本条链唯一的偷看风险点,已登记在册。
+
+universe:
+  rules:
+    - type: ev_ebit_rank_bottom
+      params: { rank_bottom_pct: 20 }
+      source: 行业惯例(出处已提交:deep_value.yaml rank_bottom_pct=20)
+      # ★ EBIT ≤ 0 判不合格;EV ≤ 0 判不合格。
+      # ★★ 「池内后 20%」是池内分位,不是全市场分位 —— 结果里标明。
+rank_prior_grid: [10, 20, 30]
+rank_prior_grid_note: ★★ 红线② 先验网格,三点同向稳健才算数。
+
+regime:
+  rules: []
+  flatten_when_off: false
+  # ★★★ 红线⑤:这一格的空**不是隐式默认值** —— 方法卡原文
+  #   「作为**长期机械执行**的底仓」,★ 原著声明的使用条件就是无条件常开。
+
+entry:
+  type: always
+  fill: next_open_market
+  source: 原著(机械底仓,无扳机)
+
+initial_stop:
+  type: none
+  source: >-
+    ★★★ 原著不设止损(机械底仓,靠分位重置换血)。明确为无 + 有出处。
+    ★★★ 代价:1R = 进场价 → R 退化成收益率,不能和有止损的链同列比。
+
+trailing_stop:
+  type: none
+  source: ★ 同 ④。
+
+exit:
+  type: rules
+  rules:
+    - type: screen_dropout
+      params: { screen: 基-6 }
+      source: 原著(无自由参数读法)
+      # ★★★ 原著的再平衡频率(卡莱尔的书里是一年一次)★ 方法卡没写 ——
+      #   ★★ 本轮**没有拍这个数**,已列进要问 Gemini 的清单。
+
+add_on:
+  type: none
+  source: ★ 原著未提加仓。
+
+sizing:
+  type: equal_weight
+  params: { max_positions: 30, max_weight: 0.034 }
+  source: ★ XING(方法卡没给持仓只数)
+
+slots: 30
+slots_prior_grid: [15, 30, 45]
+source_slots: ★★ 红线② 先验网格。
+
+ranking:
+  primary: { formula: ADV20, order: desc }
+  tiebreak: symbol
+  source: ★ 占位排序(不是策略的一部分)。
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0,
+                    low_liquidity_bps: 30.0 }
+  source: 行业惯例
+
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null

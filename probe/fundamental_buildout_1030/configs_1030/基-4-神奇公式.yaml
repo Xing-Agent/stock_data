@@ -1,0 +1,113 @@
+# ============================================================================
+# 基-4 神奇公式(格林布拉特)—— ★★★ 翻译登记版(2026-10-30,★ 跑之前提交)
+#
+# 三秒版:只看两件事 —— 这门生意赚钱效率高不高、现在的价格贵不贵;
+#         两个排名加起来最靠前的就买。
+#
+# ★★★ 本条是**乙类**(缺字段、用派生公式补),不是甲类。★ 必须和甲类分开统计。
+# ★★★ 红线③ 预先登记:本文件在接触任何回测结果之前提交;★ 登记后公式不改。
+# ============================================================================
+meta:
+  name: 基-4_神奇公式
+  master: 乔尔·格林布拉特
+  method_card: 基-4
+  question_answered: 只看两件事:生意赚钱效率高不高,价格贵不贵。两个排名加起来最靠前的就买。
+  # ★ 方法卡原文(使用条件):「作为长期机械执行的底仓方法。」
+  # ★★ 方法卡原文(data_requirement):「两个公式加一次排序。
+  #   **金融股和公用事业通常要排除。**」
+  # ★ 方法卡原文(出处完整性):「两个指标与排序方法来自原著。」
+  evidence_note: >-
+    ★★★ 这一条是乙类的原因只有一个:原著 ROC 的分母要**净固定资产**,
+    ★ 而我们 35 个字段里**没有 PropertyPlantAndEquipmentNet**。
+    ★★ 本配置用派生式顶:净固定资产 ≈ TotalAssets − CurrentAssets − (无形+商誉)。
+    ★★★ 失真方向**单一,不是噪声**:这个派生式把递延税、长期应收、
+    使用权资产也算进了固定资产 → 分母偏大 → **ROC 系统性偏低**。
+    ★ 所以本条的 ROC **一律标「我们算的」**,不许说成格林布拉特的 ROC。
+    ★★ 覆盖率上限 = 无形+商誉那一项的 58.8%(层一)。
+
+pit:
+  effective: filing_date_plus_1_trading_day
+  forbid: 严禁用报告期截止日
+  missing_policy: 未公布期间 ffill;第一次公布之前 = NaN = 不合格
+  source: 原著
+
+universe:
+  rules:
+    - type: magic_formula_rank_top
+      params: { rank_top_pct: 20 }
+      source: 行业惯例(出处已提交:deep_value.yaml rank_bottom_pct=20 的同一个分位体系)
+      # ★ ROC 降序排名 + EV/EBIT 升序排名,两个名次相加取前 20%。
+      # ★★ 两个指标**都要算得出**才进候选 —— 缺一个 = 不合格(不猜不补)。
+rank_prior_grid: [10, 20, 30]
+rank_prior_grid_note: ★★ 红线② 先验网格。
+
+  # ★★★ 一处**故意没装**的条件,必须登记:
+  #   方法卡 data_requirement 原文写着「金融股和公用事业通常要排除」。
+  #   ★ 这是**原著给的条件**,算子也现成(probe/masters_57_1030/ops_q57_1030.py
+  #     的 exclude_sic_groups)。★★ 但本轮**没装**,理由是:
+  #     ★★★ 它会和「覆盖率门槛」纠缠在一起,分不清一只票是被行业规则排掉的
+  #       还是被我们算不出指标排掉的。★ 1030 已实测的偏斜就是这个形状:
+  #       覆盖率门槛把原著想留的铁路整类挡掉(3→0),却留下原著想排的
+  #       公用事业 82.3%。
+  #   → ★ 处置:本轮**单独跑一条「装了行业排除」的参照臂**,两条并列报,
+  #     ★★ 这样「行业规则」和「覆盖率」的效果能分开看。
+
+regime:
+  rules: []
+  flatten_when_off: false
+  # ★★★ 红线⑤:方法卡原文「作为**长期机械执行**的底仓方法」→ 原著声明无条件。
+
+entry:
+  type: always
+  fill: next_open_market
+  source: 原著(机械底仓,无扳机)
+
+initial_stop:
+  type: none
+  source: >-
+    ★★★ 原著不设止损(《股市稳赚》明确是机械持有一年再换)。明确为无 + 有出处。
+    ★★★ 代价:1R = 进场价 → R 退化成收益率,不能和有止损的链同列比。
+
+trailing_stop:
+  type: none
+  source: ★ 同 ④。
+
+exit:
+  type: rules
+  rules:
+    - type: screen_dropout
+      params: { screen: 基-4 }
+      source: XING 读法(★ 不是原著)
+      # ★★★ 这里要特别诚实:原著的离场**是「持有满一年」**,不是「掉出筛选」。
+      #   ★ 但「一年」在方法卡的字段里**没有**出现(方法卡只说「长期机械执行」),
+      #   ★★ 按纪律不许从书名里补一个数进来 → 本轮用无自由参数的 screen_dropout,
+      #   ★★★ 并把「原著是不是 252 个交易日」列进要问 Gemini 的清单。
+      #   ★ 这是本轮五条链里**离场口径离原著最远的一条**,报告里单独标出来。
+
+add_on:
+  type: none
+  source: ★ 原著未提加仓。
+
+sizing:
+  type: equal_weight
+  params: { max_positions: 30, max_weight: 0.034 }
+  source: ★ XING(原著说 20~30 只,★ 方法卡字段里没有这个数 → 不引用)
+
+slots: 30
+slots_prior_grid: [15, 30, 45]
+source_slots: ★★ 红线② 先验网格。
+
+ranking:
+  primary: { formula: ADV20, order: desc }
+  tiebreak: symbol
+  source: ★ 占位排序(不是策略的一部分)。
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0,
+                    low_liquidity_bps: 30.0 }
+  source: 行业惯例
+
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null
