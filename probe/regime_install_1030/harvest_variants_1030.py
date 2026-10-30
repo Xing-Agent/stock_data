@@ -19,7 +19,17 @@
       所以**不会覆盖任何别人的流水**(纪律 8:只读 probe/ 下别人的目录,
       这里把同一条纪律用在 engine/ledgers_* 上)。
 
-★ 已知代价(写明,不藏):采 = 把那 8 个脚本**各跑一遍**,所以要花它们原本的跑批时间。
+★ 已知代价(写明,不藏):
+  ① 采 = 把那 9 个脚本**各跑一遍**,所以要花它们原本的跑批时间。
+     ★★ 2026-10-30 实测:跑满 9 个**超过 30 分钟**,本轮没跑完。
+  ② ★★★ **流水不落盘,但 `results_*.json` 会被覆盖。**
+     那些脚本除了 `save_ledger` 还会写自己的 `engine/results_*.json`,
+     ★ 本采集器**没有**拦这一路 —— 实测 `engine/results_1028_流派一二.json`
+       被 `run_batch.py` 重写了(内容等价,但 mtime / 排版会变)。
+     ★★ 处置:采完 `git checkout --` 还原,**不要把它提交进去**。
+     ★★★ 下一轮要补的一道:把 `json.dump` 也包一层,或者给这些脚本一个
+          「只算不写」的开关 —— 这样采集就彻底无副作用。
+  ③ ★ 本轮改成**逐脚本落盘**(采完一个写一次),所以中途被打断也留得下成果。
 """
 from __future__ import annotations
 
@@ -40,16 +50,18 @@ from engine import chain                                        # noqa: E402
 OUT = os.path.join(HERE, "harvested_variants_1030.json")
 
 #: ★ 上一轮没覆盖的跑批脚本 → 它写的流水目录(实测映射,不是猜)
+#: ★★ 顺序 = 按「脚本行数」从小到大 —— 先采便宜的，★ 这样被打断也先抿到成果
+#:   （2026-10-30 实测：9 个一起跑**超过 30 分钟**，所以顺序很要紧）
 TARGETS = [
-    ("engine.run_batch", "ledgers_1028", 5),
+    ("engine.run_trend_1029", "ledgers_1029_趋势跟随", 3),
     ("engine.run_vcp_fixed", "ledgers_1028_vcp修正后", 3),
-    ("engine.run_gate_redesign", "ledgers_1028_闸门", 15),
-    ("engine.run_vcp_simplified", "ledgers_1029_vcp简化后", 3),
-    ("engine.run_fundamental", "ledgers_1029_基本面", 6),
     ("engine.run_split_bias", "ledgers_1029_拆股偏差", 3),
     ("engine.bench_run_1029", "ledgers_1029_新基准线", 15),
+    ("engine.run_batch", "ledgers_1028", 5),
+    ("engine.run_vcp_simplified", "ledgers_1029_vcp简化后", 3),
+    ("engine.run_fundamental", "ledgers_1029_基本面", 6),
+    ("engine.run_gate_redesign", "ledgers_1028_闸门", 15),
     ("engine.run_second_round_1029", "ledgers_1029_第二轮", 12),
-    ("engine.run_trend_1029", "ledgers_1029_趋势跟随", 3),
 ]
 
 
@@ -93,6 +105,19 @@ def harvest(modname: str, timeout_note: str = "") -> dict:
             "出错": err, "变体": rec}
 
 
+def _dump(out: list) -> None:
+    """★ 逐脚本落盘 —— 中途被打断也留得下成果(见文件头代价 ③)。"""
+    tot = sum(r["采到"] for r in out)
+    json.dump({"说明": "★ 采 = 跑一遍脚本并录下 (流水名 → cfg.raw);流水不落盘",
+               "★已知副作用": "那些脚本自己的 engine/results_*.json 会被重写 —— "
+                              "采完 git checkout -- 还原,不要提交",
+               "合计采到": tot,
+               "已采的脚本数": len(out), "目标脚本数": len(TARGETS),
+               "逐脚本": out},
+              open(OUT, "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1, default=str)
+
+
 def main() -> int:
     out = []
     for modname, ldir, known in TARGETS:
@@ -104,13 +129,10 @@ def main() -> int:
         print(f"    采到 {r['采到']} 个变体 / {r['耗时秒']}s {ok}"
               f"{'  出错: ' + r['出错'] if r['出错'] else ''}", flush=True)
         out.append(r)
+        _dump(out)                      # ★ 采完一个就落一次盘
     tot = sum(r["采到"] for r in out)
     known = sum(r["已知流水份数"] for r in out)
     print(f"\n★ 合计采到 {tot} 个变体(已知未覆盖流水 {known} 份)")
-    json.dump({"说明": "★ 采 = 跑一遍脚本并录下 (流水名 → cfg.raw);不落盘",
-               "合计采到": tot, "已知未覆盖流水份数": known, "逐脚本": out},
-              open(OUT, "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1, default=str)
     print(f"→ {os.path.relpath(OUT, ROOT)}")
     return 0
 

@@ -1,0 +1,1454 @@
+{
+ "说明": "★ 采 = 跑一遍脚本并录下 (流水名 → cfg.raw);流水不落盘",
+ "★已知副作用": "那些脚本自己的 engine/results_*.json 会被重写 —— 采完 git checkout -- 还原,不要提交",
+ "合计采到": 6,
+ "已采的脚本数": 2,
+ "目标脚本数": 9,
+ "逐脚本": [
+  {
+   "模块": "engine.run_trend_1029",
+   "采到": 3,
+   "耗时秒": 197.2,
+   "出错": null,
+   "变体": [
+    {
+     "流水名": "流派一_趋势跟随_slots3",
+     "目录": "ledgers_1029_趋势跟随",
+     "笔数": 163,
+     "raw": {
+      "meta": {
+       "name": "流派一_系统化中长周期趋势跟随",
+       "master": "Richard Donchian / Curtis Faith(海龟)",
+       "modern": "Andreas Clenow (2013/2015);AQR (Moskowitz/Ooi/Pedersen 2012)",
+       "book": "Donchian (1960);Faith《Way of the Turtle》(2007)",
+       "pricing_belief": "收益分布非对称重尾,宏观大资金调仓有物理惯性;截断亏损、让利润奔跑",
+       "best_regime": "宏观单边大牛市、产业主升浪、6 个月以上单边低波推升",
+       "worst_regime": "宽幅震荡、均值回归轮动(2015 全年、2018 前三季)",
+       "evidence_grade": "极高(Moskowitz/Ooi/Pedersen 2012 JFE;Hurst/Ooi/Pedersen 2017 JPM; Brock/Lakonishok/LeBaron 1992 JF)"
+      },
+      "universe": {
+       "rules": [
+        {
+         "type": "adv_rank_exclude_bottom",
+         "params": {
+          "adv_period": 20,
+          "exclude_bottom_pct": 20
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "price_above_ma",
+         "params": {
+          "ma": 200
+         },
+         "source": "行业惯例"
+        }
+       ]
+      },
+      "regime": {
+       "rules": [
+        {
+         "type": "index_above_ma_scaled",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "factor": 0.99
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "index_ma_slope",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "lookback": 20,
+          "min_slope": 0.0
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "flatten_when_off": false,
+       "source": "原著"
+      },
+      "entry": {
+       "rules": [
+        {
+         "type": "donchian_close_breakout",
+         "params": {
+          "lookback": 55
+         },
+         "source": "原著"
+        },
+        {
+         "type": "atr_squeeze",
+         "params": {
+          "atr_fast": 10,
+          "atr_slow_ma": 50,
+          "max_ratio": 0.85,
+          "offset_days": 1
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "signal_freeze": "close",
+       "fill": "next_open",
+       "source": "原著"
+      },
+      "exit": {
+       "rules": [
+        {
+         "type": "close_below_trailing_stop",
+         "source": "原著"
+        },
+        {
+         "type": "close_below_ma",
+         "params": {
+          "ma": 50
+         },
+         "source": "原著"
+        }
+       ],
+       "profit_target_r": null,
+       "time_stop_days": null,
+       "fill": "next_open",
+       "source": "原著",
+       "type": "rules"
+      },
+      "sizing": {
+       "type": "risk_fraction",
+       "params": {
+        "risk_per_trade": 0.01,
+        "max_weight": 0.1,
+        "max_positions": 3
+       },
+       "source": "原著",
+       "rank_by": {
+        "primary": {
+         "formula": "(Close_t / Close_{t-60} - 1) / ATR_pct_20(t)",
+         "order": "desc",
+         "source": "行业惯例"
+        },
+        "tiebreak": {
+         "field": "adv_20",
+         "order": "desc",
+         "source": "行业惯例"
+        },
+        "atr_pct_denominator": "close_t"
+       }
+      },
+      "costs": {
+       "one_way_bps": 5.0,
+       "source": "行业惯例"
+      },
+      "benchmark": {
+       "family": "trend",
+       "component_match": "large",
+       "risk_free_annual": null
+      },
+      "initial_stop": {
+       "type": "tightest_of",
+       "components": [
+        {
+         "type": "atr_multiple",
+         "params": {
+          "atr_period": 20,
+          "multiple": 2.5
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "lowest_low",
+         "params": {
+          "lookback": 20
+         },
+         "source": "原著"
+        }
+       ],
+       "select": "nearest_to_price",
+       "r_definition": "abs(entry_price - stop_price)",
+       "source": "原著"
+      },
+      "trailing_stop": {
+       "stages": [
+        {
+         "name": "锁死期",
+         "when": {
+          "unrealized_r_between": [
+           0.0,
+           2.0
+          ]
+         },
+         "action": "hold_initial_stop",
+         "source": "原著"
+        },
+        {
+         "name": "吊灯期",
+         "when": {
+          "unrealized_r_gt": 2.0
+         },
+         "type": "chandelier",
+         "params": {
+          "lookback": 20,
+          "multiple": 3.0,
+          "atr_period": 20
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "monotonic_up_only": true,
+       "source": "原著",
+       "type": "staged"
+      }
+     }
+    },
+    {
+     "流水名": "流派一_趋势跟随_slots5",
+     "目录": "ledgers_1029_趋势跟随",
+     "笔数": 245,
+     "raw": {
+      "meta": {
+       "name": "流派一_系统化中长周期趋势跟随",
+       "master": "Richard Donchian / Curtis Faith(海龟)",
+       "modern": "Andreas Clenow (2013/2015);AQR (Moskowitz/Ooi/Pedersen 2012)",
+       "book": "Donchian (1960);Faith《Way of the Turtle》(2007)",
+       "pricing_belief": "收益分布非对称重尾,宏观大资金调仓有物理惯性;截断亏损、让利润奔跑",
+       "best_regime": "宏观单边大牛市、产业主升浪、6 个月以上单边低波推升",
+       "worst_regime": "宽幅震荡、均值回归轮动(2015 全年、2018 前三季)",
+       "evidence_grade": "极高(Moskowitz/Ooi/Pedersen 2012 JFE;Hurst/Ooi/Pedersen 2017 JPM; Brock/Lakonishok/LeBaron 1992 JF)"
+      },
+      "universe": {
+       "rules": [
+        {
+         "type": "adv_rank_exclude_bottom",
+         "params": {
+          "adv_period": 20,
+          "exclude_bottom_pct": 20
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "price_above_ma",
+         "params": {
+          "ma": 200
+         },
+         "source": "行业惯例"
+        }
+       ]
+      },
+      "regime": {
+       "rules": [
+        {
+         "type": "index_above_ma_scaled",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "factor": 0.99
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "index_ma_slope",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "lookback": 20,
+          "min_slope": 0.0
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "flatten_when_off": false,
+       "source": "原著"
+      },
+      "entry": {
+       "rules": [
+        {
+         "type": "donchian_close_breakout",
+         "params": {
+          "lookback": 55
+         },
+         "source": "原著"
+        },
+        {
+         "type": "atr_squeeze",
+         "params": {
+          "atr_fast": 10,
+          "atr_slow_ma": 50,
+          "max_ratio": 0.85,
+          "offset_days": 1
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "signal_freeze": "close",
+       "fill": "next_open",
+       "source": "原著"
+      },
+      "exit": {
+       "rules": [
+        {
+         "type": "close_below_trailing_stop",
+         "source": "原著"
+        },
+        {
+         "type": "close_below_ma",
+         "params": {
+          "ma": 50
+         },
+         "source": "原著"
+        }
+       ],
+       "profit_target_r": null,
+       "time_stop_days": null,
+       "fill": "next_open",
+       "source": "原著",
+       "type": "rules"
+      },
+      "sizing": {
+       "type": "risk_fraction",
+       "params": {
+        "risk_per_trade": 0.01,
+        "max_weight": 0.1,
+        "max_positions": 5
+       },
+       "source": "原著",
+       "rank_by": {
+        "primary": {
+         "formula": "(Close_t / Close_{t-60} - 1) / ATR_pct_20(t)",
+         "order": "desc",
+         "source": "行业惯例"
+        },
+        "tiebreak": {
+         "field": "adv_20",
+         "order": "desc",
+         "source": "行业惯例"
+        },
+        "atr_pct_denominator": "close_t"
+       }
+      },
+      "costs": {
+       "one_way_bps": 5.0,
+       "source": "行业惯例"
+      },
+      "benchmark": {
+       "family": "trend",
+       "component_match": "large",
+       "risk_free_annual": null
+      },
+      "initial_stop": {
+       "type": "tightest_of",
+       "components": [
+        {
+         "type": "atr_multiple",
+         "params": {
+          "atr_period": 20,
+          "multiple": 2.5
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "lowest_low",
+         "params": {
+          "lookback": 20
+         },
+         "source": "原著"
+        }
+       ],
+       "select": "nearest_to_price",
+       "r_definition": "abs(entry_price - stop_price)",
+       "source": "原著"
+      },
+      "trailing_stop": {
+       "stages": [
+        {
+         "name": "锁死期",
+         "when": {
+          "unrealized_r_between": [
+           0.0,
+           2.0
+          ]
+         },
+         "action": "hold_initial_stop",
+         "source": "原著"
+        },
+        {
+         "name": "吊灯期",
+         "when": {
+          "unrealized_r_gt": 2.0
+         },
+         "type": "chandelier",
+         "params": {
+          "lookback": 20,
+          "multiple": 3.0,
+          "atr_period": 20
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "monotonic_up_only": true,
+       "source": "原著",
+       "type": "staged"
+      }
+     }
+    },
+    {
+     "流水名": "流派一_趋势跟随_slots10",
+     "目录": "ledgers_1029_趋势跟随",
+     "笔数": 436,
+     "raw": {
+      "meta": {
+       "name": "流派一_系统化中长周期趋势跟随",
+       "master": "Richard Donchian / Curtis Faith(海龟)",
+       "modern": "Andreas Clenow (2013/2015);AQR (Moskowitz/Ooi/Pedersen 2012)",
+       "book": "Donchian (1960);Faith《Way of the Turtle》(2007)",
+       "pricing_belief": "收益分布非对称重尾,宏观大资金调仓有物理惯性;截断亏损、让利润奔跑",
+       "best_regime": "宏观单边大牛市、产业主升浪、6 个月以上单边低波推升",
+       "worst_regime": "宽幅震荡、均值回归轮动(2015 全年、2018 前三季)",
+       "evidence_grade": "极高(Moskowitz/Ooi/Pedersen 2012 JFE;Hurst/Ooi/Pedersen 2017 JPM; Brock/Lakonishok/LeBaron 1992 JF)"
+      },
+      "universe": {
+       "rules": [
+        {
+         "type": "adv_rank_exclude_bottom",
+         "params": {
+          "adv_period": 20,
+          "exclude_bottom_pct": 20
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "price_above_ma",
+         "params": {
+          "ma": 200
+         },
+         "source": "行业惯例"
+        }
+       ]
+      },
+      "regime": {
+       "rules": [
+        {
+         "type": "index_above_ma_scaled",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "factor": 0.99
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "index_ma_slope",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "lookback": 20,
+          "min_slope": 0.0
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "flatten_when_off": false,
+       "source": "原著"
+      },
+      "entry": {
+       "rules": [
+        {
+         "type": "donchian_close_breakout",
+         "params": {
+          "lookback": 55
+         },
+         "source": "原著"
+        },
+        {
+         "type": "atr_squeeze",
+         "params": {
+          "atr_fast": 10,
+          "atr_slow_ma": 50,
+          "max_ratio": 0.85,
+          "offset_days": 1
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "signal_freeze": "close",
+       "fill": "next_open",
+       "source": "原著"
+      },
+      "exit": {
+       "rules": [
+        {
+         "type": "close_below_trailing_stop",
+         "source": "原著"
+        },
+        {
+         "type": "close_below_ma",
+         "params": {
+          "ma": 50
+         },
+         "source": "原著"
+        }
+       ],
+       "profit_target_r": null,
+       "time_stop_days": null,
+       "fill": "next_open",
+       "source": "原著",
+       "type": "rules"
+      },
+      "sizing": {
+       "type": "risk_fraction",
+       "params": {
+        "risk_per_trade": 0.01,
+        "max_weight": 0.1,
+        "max_positions": 10
+       },
+       "source": "原著",
+       "rank_by": {
+        "primary": {
+         "formula": "(Close_t / Close_{t-60} - 1) / ATR_pct_20(t)",
+         "order": "desc",
+         "source": "行业惯例"
+        },
+        "tiebreak": {
+         "field": "adv_20",
+         "order": "desc",
+         "source": "行业惯例"
+        },
+        "atr_pct_denominator": "close_t"
+       }
+      },
+      "costs": {
+       "one_way_bps": 5.0,
+       "source": "行业惯例"
+      },
+      "benchmark": {
+       "family": "trend",
+       "component_match": "large",
+       "risk_free_annual": null
+      },
+      "initial_stop": {
+       "type": "tightest_of",
+       "components": [
+        {
+         "type": "atr_multiple",
+         "params": {
+          "atr_period": 20,
+          "multiple": 2.5
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "lowest_low",
+         "params": {
+          "lookback": 20
+         },
+         "source": "原著"
+        }
+       ],
+       "select": "nearest_to_price",
+       "r_definition": "abs(entry_price - stop_price)",
+       "source": "原著"
+      },
+      "trailing_stop": {
+       "stages": [
+        {
+         "name": "锁死期",
+         "when": {
+          "unrealized_r_between": [
+           0.0,
+           2.0
+          ]
+         },
+         "action": "hold_initial_stop",
+         "source": "原著"
+        },
+        {
+         "name": "吊灯期",
+         "when": {
+          "unrealized_r_gt": 2.0
+         },
+         "type": "chandelier",
+         "params": {
+          "lookback": 20,
+          "multiple": 3.0,
+          "atr_period": 20
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "monotonic_up_only": true,
+       "source": "原著",
+       "type": "staged"
+      }
+     }
+    }
+   ],
+   "已知流水份数": 3,
+   "流水目录": "ledgers_1029_趋势跟随"
+  },
+  {
+   "模块": "engine.run_vcp_fixed",
+   "采到": 3,
+   "耗时秒": 420.9,
+   "出错": null,
+   "变体": [
+    {
+     "流水名": "流派二_VCP_修正版_slots3",
+     "目录": "ledgers_1028_vcp修正后",
+     "笔数": 128,
+     "raw": {
+      "meta": {
+       "name": "流派二_动量结构与波动率挤压突破_VCP",
+       "master": "William O'Neil;Mark Minervini",
+       "modern": "Kristjan Qullamaggie;Bob Volman (2014);George & Hwang (2004)",
+       "book": "O'Neil《How to Make Money in Stocks》(1988, 4th ed 2009) Ch.1 Ch.10; Minervini《Trade Like a Stock Market Wizard》(2013) Ch.8 Ch.10; Minervini《Think & Trade Like a Champion》(2017)",
+       "pricing_belief": "领涨成长股被机构锁仓后微观波动率阶梯衰减;供给枯竭 + 阻力位临界突破 → 抢筹与空头踩踏 → 极端正偏态爆发",
+       "best_regime": "产业革命爆发期(2023–2024 AI 硬件)、脱离熊市底部的 Stage 2 初期",
+       "worst_regime": "加息尾声紧缩去杠杆(2022 全年)、指数虚高但广度恶化的断层期 (2021 下半年,假突破率激增到 70% 以上)",
+       "evidence_grade": "中高 —— 截面动量坚固,几何形态缺独立论文 (Jegadeesh & Titman 1993 JF;George & Hwang 2004 JF; Ang/Hodrick/Xing/Zhang 2006 JF)"
+      },
+      "universe": {
+       "rules": [
+        {
+         "type": "adv_rank_exclude_bottom",
+         "params": {
+          "adv_period": 20,
+          "exclude_bottom_pct": 20
+         },
+         "source": "行业惯例",
+         "pending_lin": "#3 市值 vs ADV —— 此处按 Claude 倾向用 ADV20,待 Lin 确认"
+        },
+        {
+         "type": "momentum_dual_gate",
+         "logic": "AND",
+         "components": [
+          {
+           "name": "宏观基底",
+           "type": "mansfield_rs_positive",
+           "params": {
+            "against": "SPY",
+            "lookback": 250
+           },
+           "source": "原著"
+          },
+          {
+           "name": "宏观基底_行业",
+           "type": "mansfield_rs_positive",
+           "params": {
+            "against": "SECTOR",
+            "lookback": 250
+           },
+           "source": "原著",
+           "enabled": false,
+           "pending_lin": "#4 行业 RS —— 专家第二轮明确要求保留,此处照其设计开启; ★ 我的倾向是另跑一版关掉它做对比(见下 variant 开关),待 Lin 确认"
+          },
+          {
+           "name": "微观进攻",
+           "type": "return_rank_percentile",
+           "params": {
+            "lookback": 60,
+            "min_percentile": 85.0
+           },
+           "source": "行业惯例"
+          }
+         ],
+         "source": "行业惯例",
+         "variant_without_rs_sector": true
+        },
+        {
+         "type": "ma_stack_bullish",
+         "params": {
+          "mas": [
+           50,
+           150,
+           200
+          ],
+          "require_price_above_all": true
+         },
+         "source": "原著"
+        },
+        {
+         "type": "ma_stack_bullish",
+         "params": {
+          "mas": [
+           50,
+           150,
+           200
+          ],
+          "require_price_above_all": true
+         },
+         "source": "原著"
+        }
+       ]
+      },
+      "regime": {
+       "rules": [
+        {
+         "type": "index_above_ma",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "index_ma_slope",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "lookback": 20,
+          "min_slope": 0.0
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "no_distribution_day",
+         "params": {
+          "symbol": "SPY",
+          "window": 5,
+          "single_day_drop_pct": 1.5
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "flatten_when_off": false,
+       "source": "原著"
+      },
+      "entry": {
+       "rules": [
+        {
+         "type": "vcp_contraction",
+         "stage": "selection_gate",
+         "params": {
+          "swing_method": "fractal_2_1_2",
+          "fractal_half_width": 2,
+          "base_min_days": 15,
+          "base_max_days": 65,
+          "range_metric": "(High_k - Low_k) / High_k",
+          "forbid_atr_ratio": true,
+          "first_contraction_max_depth": 0.3,
+          "decay_coefficient": 0.65,
+          "min_contractions": 2,
+          "max_contractions": 4
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "sigma_squeeze",
+         "stage": "ignition_gate",
+         "requires_stage": "selection_gate",
+         "params": {
+          "fast_period": 5,
+          "slow_period": 20,
+          "max_ratio": 0.65,
+          "evaluate_on": "breakout_day",
+          "anchor": "last_contraction_right_side"
+         },
+         "source": "行业惯例",
+         "on_fail": "abandon_breakout"
+        },
+        {
+         "type": "vcp_volume_duo",
+         "params": {
+          "slow_period": 50,
+          "min_day_lookback": 5,
+          "dryup_day_ratio": 0.6,
+          "breakout_vs_slow": null
+         },
+         "source": "行业惯例(专家 2026-10-29 第二轮裁决)"
+        },
+        {
+         "type": "donchian_close_breakout",
+         "params": {
+          "lookback": 5
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "signal_freeze": "close",
+       "fill": "next_open_market",
+       "execution_order": [
+        "selection_gate",
+        "ignition_gate",
+        "volume_tripod",
+        "breakout"
+       ],
+       "source": "原著"
+      },
+      "exit": {
+       "rules": [
+        {
+         "type": "close_below_ema",
+         "params": {
+          "ema": 10
+         },
+         "source": "原著"
+        },
+        {
+         "type": "close_below_trailing_stop",
+         "source": "原著"
+        }
+       ],
+       "profit_target_r": null,
+       "time_stop_days": null,
+       "source": "原著",
+       "type": "rules"
+      },
+      "sizing": {
+       "type": "risk_fraction",
+       "params": {
+        "risk_per_trade": 0.01,
+        "max_weight": 0.1,
+        "max_positions": 3
+       },
+       "source": "行业惯例",
+       "rank_by": {
+        "primary": {
+         "formula": "D_last = (High_last - Low_last) / High_last",
+         "order": "asc",
+         "source": "行业惯例"
+        },
+        "tiebreak": {
+         "field": "return_60d",
+         "order": "desc",
+         "source": "行业惯例"
+        }
+       }
+      },
+      "costs": {
+       "one_way_bps": 5.0,
+       "source": "行业惯例"
+      },
+      "benchmark": {
+       "family": "trend",
+       "component_match": "large",
+       "risk_free_annual": null
+      },
+      "initial_stop": {
+       "type": "structure_low_minus_atr",
+       "params": {
+        "structure_lookback": 5,
+        "atr_period": 14,
+        "atr_multiple": 0.2
+       },
+       "source": "原著",
+       "hard_gate": {
+        "type": "max_stop_distance_pct",
+        "params": {
+         "max_pct": 8.0
+        },
+        "on_violation": "reject_signal",
+        "source": "原著"
+       }
+      },
+      "trailing_stop": {
+       "stages": [
+        {
+         "name": "保护期",
+         "when": {
+          "days_held_lte": 10
+         },
+         "action": "hold_initial_stop",
+         "source": "原著"
+        },
+        {
+         "name": "保本",
+         "when": {
+          "unrealized_r_gt": 2.0
+         },
+         "action": "move_stop_to_breakeven",
+         "source": "行业惯例"
+        },
+        {
+         "name": "EMA10 跟踪",
+         "when": {
+          "unrealized_r_gt": 3.0
+         },
+         "type": "ema_trail",
+         "params": {
+          "ema": 10
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "monotonic_up_only": true,
+       "source": "原著",
+       "type": "staged"
+      }
+     }
+    },
+    {
+     "流水名": "流派二_VCP_修正版_slots5",
+     "目录": "ledgers_1028_vcp修正后",
+     "笔数": 141,
+     "raw": {
+      "meta": {
+       "name": "流派二_动量结构与波动率挤压突破_VCP",
+       "master": "William O'Neil;Mark Minervini",
+       "modern": "Kristjan Qullamaggie;Bob Volman (2014);George & Hwang (2004)",
+       "book": "O'Neil《How to Make Money in Stocks》(1988, 4th ed 2009) Ch.1 Ch.10; Minervini《Trade Like a Stock Market Wizard》(2013) Ch.8 Ch.10; Minervini《Think & Trade Like a Champion》(2017)",
+       "pricing_belief": "领涨成长股被机构锁仓后微观波动率阶梯衰减;供给枯竭 + 阻力位临界突破 → 抢筹与空头踩踏 → 极端正偏态爆发",
+       "best_regime": "产业革命爆发期(2023–2024 AI 硬件)、脱离熊市底部的 Stage 2 初期",
+       "worst_regime": "加息尾声紧缩去杠杆(2022 全年)、指数虚高但广度恶化的断层期 (2021 下半年,假突破率激增到 70% 以上)",
+       "evidence_grade": "中高 —— 截面动量坚固,几何形态缺独立论文 (Jegadeesh & Titman 1993 JF;George & Hwang 2004 JF; Ang/Hodrick/Xing/Zhang 2006 JF)"
+      },
+      "universe": {
+       "rules": [
+        {
+         "type": "adv_rank_exclude_bottom",
+         "params": {
+          "adv_period": 20,
+          "exclude_bottom_pct": 20
+         },
+         "source": "行业惯例",
+         "pending_lin": "#3 市值 vs ADV —— 此处按 Claude 倾向用 ADV20,待 Lin 确认"
+        },
+        {
+         "type": "momentum_dual_gate",
+         "logic": "AND",
+         "components": [
+          {
+           "name": "宏观基底",
+           "type": "mansfield_rs_positive",
+           "params": {
+            "against": "SPY",
+            "lookback": 250
+           },
+           "source": "原著"
+          },
+          {
+           "name": "宏观基底_行业",
+           "type": "mansfield_rs_positive",
+           "params": {
+            "against": "SECTOR",
+            "lookback": 250
+           },
+           "source": "原著",
+           "enabled": false,
+           "pending_lin": "#4 行业 RS —— 专家第二轮明确要求保留,此处照其设计开启; ★ 我的倾向是另跑一版关掉它做对比(见下 variant 开关),待 Lin 确认"
+          },
+          {
+           "name": "微观进攻",
+           "type": "return_rank_percentile",
+           "params": {
+            "lookback": 60,
+            "min_percentile": 85.0
+           },
+           "source": "行业惯例"
+          }
+         ],
+         "source": "行业惯例",
+         "variant_without_rs_sector": true
+        },
+        {
+         "type": "ma_stack_bullish",
+         "params": {
+          "mas": [
+           50,
+           150,
+           200
+          ],
+          "require_price_above_all": true
+         },
+         "source": "原著"
+        },
+        {
+         "type": "ma_stack_bullish",
+         "params": {
+          "mas": [
+           50,
+           150,
+           200
+          ],
+          "require_price_above_all": true
+         },
+         "source": "原著"
+        }
+       ]
+      },
+      "regime": {
+       "rules": [
+        {
+         "type": "index_above_ma",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "index_ma_slope",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "lookback": 20,
+          "min_slope": 0.0
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "no_distribution_day",
+         "params": {
+          "symbol": "SPY",
+          "window": 5,
+          "single_day_drop_pct": 1.5
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "flatten_when_off": false,
+       "source": "原著"
+      },
+      "entry": {
+       "rules": [
+        {
+         "type": "vcp_contraction",
+         "stage": "selection_gate",
+         "params": {
+          "swing_method": "fractal_2_1_2",
+          "fractal_half_width": 2,
+          "base_min_days": 15,
+          "base_max_days": 65,
+          "range_metric": "(High_k - Low_k) / High_k",
+          "forbid_atr_ratio": true,
+          "first_contraction_max_depth": 0.3,
+          "decay_coefficient": 0.65,
+          "min_contractions": 2,
+          "max_contractions": 4
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "sigma_squeeze",
+         "stage": "ignition_gate",
+         "requires_stage": "selection_gate",
+         "params": {
+          "fast_period": 5,
+          "slow_period": 20,
+          "max_ratio": 0.65,
+          "evaluate_on": "breakout_day",
+          "anchor": "last_contraction_right_side"
+         },
+         "source": "行业惯例",
+         "on_fail": "abandon_breakout"
+        },
+        {
+         "type": "vcp_volume_duo",
+         "params": {
+          "slow_period": 50,
+          "min_day_lookback": 5,
+          "dryup_day_ratio": 0.6,
+          "breakout_vs_slow": null
+         },
+         "source": "行业惯例(专家 2026-10-29 第二轮裁决)"
+        },
+        {
+         "type": "donchian_close_breakout",
+         "params": {
+          "lookback": 5
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "signal_freeze": "close",
+       "fill": "next_open_market",
+       "execution_order": [
+        "selection_gate",
+        "ignition_gate",
+        "volume_tripod",
+        "breakout"
+       ],
+       "source": "原著"
+      },
+      "exit": {
+       "rules": [
+        {
+         "type": "close_below_ema",
+         "params": {
+          "ema": 10
+         },
+         "source": "原著"
+        },
+        {
+         "type": "close_below_trailing_stop",
+         "source": "原著"
+        }
+       ],
+       "profit_target_r": null,
+       "time_stop_days": null,
+       "source": "原著",
+       "type": "rules"
+      },
+      "sizing": {
+       "type": "risk_fraction",
+       "params": {
+        "risk_per_trade": 0.01,
+        "max_weight": 0.1,
+        "max_positions": 5
+       },
+       "source": "行业惯例",
+       "rank_by": {
+        "primary": {
+         "formula": "D_last = (High_last - Low_last) / High_last",
+         "order": "asc",
+         "source": "行业惯例"
+        },
+        "tiebreak": {
+         "field": "return_60d",
+         "order": "desc",
+         "source": "行业惯例"
+        }
+       }
+      },
+      "costs": {
+       "one_way_bps": 5.0,
+       "source": "行业惯例"
+      },
+      "benchmark": {
+       "family": "trend",
+       "component_match": "large",
+       "risk_free_annual": null
+      },
+      "initial_stop": {
+       "type": "structure_low_minus_atr",
+       "params": {
+        "structure_lookback": 5,
+        "atr_period": 14,
+        "atr_multiple": 0.2
+       },
+       "source": "原著",
+       "hard_gate": {
+        "type": "max_stop_distance_pct",
+        "params": {
+         "max_pct": 8.0
+        },
+        "on_violation": "reject_signal",
+        "source": "原著"
+       }
+      },
+      "trailing_stop": {
+       "stages": [
+        {
+         "name": "保护期",
+         "when": {
+          "days_held_lte": 10
+         },
+         "action": "hold_initial_stop",
+         "source": "原著"
+        },
+        {
+         "name": "保本",
+         "when": {
+          "unrealized_r_gt": 2.0
+         },
+         "action": "move_stop_to_breakeven",
+         "source": "行业惯例"
+        },
+        {
+         "name": "EMA10 跟踪",
+         "when": {
+          "unrealized_r_gt": 3.0
+         },
+         "type": "ema_trail",
+         "params": {
+          "ema": 10
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "monotonic_up_only": true,
+       "source": "原著",
+       "type": "staged"
+      }
+     }
+    },
+    {
+     "流水名": "流派二_VCP_修正版_slots10",
+     "目录": "ledgers_1028_vcp修正后",
+     "笔数": 145,
+     "raw": {
+      "meta": {
+       "name": "流派二_动量结构与波动率挤压突破_VCP",
+       "master": "William O'Neil;Mark Minervini",
+       "modern": "Kristjan Qullamaggie;Bob Volman (2014);George & Hwang (2004)",
+       "book": "O'Neil《How to Make Money in Stocks》(1988, 4th ed 2009) Ch.1 Ch.10; Minervini《Trade Like a Stock Market Wizard》(2013) Ch.8 Ch.10; Minervini《Think & Trade Like a Champion》(2017)",
+       "pricing_belief": "领涨成长股被机构锁仓后微观波动率阶梯衰减;供给枯竭 + 阻力位临界突破 → 抢筹与空头踩踏 → 极端正偏态爆发",
+       "best_regime": "产业革命爆发期(2023–2024 AI 硬件)、脱离熊市底部的 Stage 2 初期",
+       "worst_regime": "加息尾声紧缩去杠杆(2022 全年)、指数虚高但广度恶化的断层期 (2021 下半年,假突破率激增到 70% 以上)",
+       "evidence_grade": "中高 —— 截面动量坚固,几何形态缺独立论文 (Jegadeesh & Titman 1993 JF;George & Hwang 2004 JF; Ang/Hodrick/Xing/Zhang 2006 JF)"
+      },
+      "universe": {
+       "rules": [
+        {
+         "type": "adv_rank_exclude_bottom",
+         "params": {
+          "adv_period": 20,
+          "exclude_bottom_pct": 20
+         },
+         "source": "行业惯例",
+         "pending_lin": "#3 市值 vs ADV —— 此处按 Claude 倾向用 ADV20,待 Lin 确认"
+        },
+        {
+         "type": "momentum_dual_gate",
+         "logic": "AND",
+         "components": [
+          {
+           "name": "宏观基底",
+           "type": "mansfield_rs_positive",
+           "params": {
+            "against": "SPY",
+            "lookback": 250
+           },
+           "source": "原著"
+          },
+          {
+           "name": "宏观基底_行业",
+           "type": "mansfield_rs_positive",
+           "params": {
+            "against": "SECTOR",
+            "lookback": 250
+           },
+           "source": "原著",
+           "enabled": false,
+           "pending_lin": "#4 行业 RS —— 专家第二轮明确要求保留,此处照其设计开启; ★ 我的倾向是另跑一版关掉它做对比(见下 variant 开关),待 Lin 确认"
+          },
+          {
+           "name": "微观进攻",
+           "type": "return_rank_percentile",
+           "params": {
+            "lookback": 60,
+            "min_percentile": 85.0
+           },
+           "source": "行业惯例"
+          }
+         ],
+         "source": "行业惯例",
+         "variant_without_rs_sector": true
+        },
+        {
+         "type": "ma_stack_bullish",
+         "params": {
+          "mas": [
+           50,
+           150,
+           200
+          ],
+          "require_price_above_all": true
+         },
+         "source": "原著"
+        },
+        {
+         "type": "ma_stack_bullish",
+         "params": {
+          "mas": [
+           50,
+           150,
+           200
+          ],
+          "require_price_above_all": true
+         },
+         "source": "原著"
+        }
+       ]
+      },
+      "regime": {
+       "rules": [
+        {
+         "type": "index_above_ma",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "index_ma_slope",
+         "params": {
+          "symbol": "SPY",
+          "ma": 200,
+          "lookback": 20,
+          "min_slope": 0.0
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "no_distribution_day",
+         "params": {
+          "symbol": "SPY",
+          "window": 5,
+          "single_day_drop_pct": 1.5
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "flatten_when_off": false,
+       "source": "原著"
+      },
+      "entry": {
+       "rules": [
+        {
+         "type": "vcp_contraction",
+         "stage": "selection_gate",
+         "params": {
+          "swing_method": "fractal_2_1_2",
+          "fractal_half_width": 2,
+          "base_min_days": 15,
+          "base_max_days": 65,
+          "range_metric": "(High_k - Low_k) / High_k",
+          "forbid_atr_ratio": true,
+          "first_contraction_max_depth": 0.3,
+          "decay_coefficient": 0.65,
+          "min_contractions": 2,
+          "max_contractions": 4
+         },
+         "source": "行业惯例"
+        },
+        {
+         "type": "sigma_squeeze",
+         "stage": "ignition_gate",
+         "requires_stage": "selection_gate",
+         "params": {
+          "fast_period": 5,
+          "slow_period": 20,
+          "max_ratio": 0.65,
+          "evaluate_on": "breakout_day",
+          "anchor": "last_contraction_right_side"
+         },
+         "source": "行业惯例",
+         "on_fail": "abandon_breakout"
+        },
+        {
+         "type": "vcp_volume_duo",
+         "params": {
+          "slow_period": 50,
+          "min_day_lookback": 5,
+          "dryup_day_ratio": 0.6,
+          "breakout_vs_slow": null
+         },
+         "source": "行业惯例(专家 2026-10-29 第二轮裁决)"
+        },
+        {
+         "type": "donchian_close_breakout",
+         "params": {
+          "lookback": 5
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "signal_freeze": "close",
+       "fill": "next_open_market",
+       "execution_order": [
+        "selection_gate",
+        "ignition_gate",
+        "volume_tripod",
+        "breakout"
+       ],
+       "source": "原著"
+      },
+      "exit": {
+       "rules": [
+        {
+         "type": "close_below_ema",
+         "params": {
+          "ema": 10
+         },
+         "source": "原著"
+        },
+        {
+         "type": "close_below_trailing_stop",
+         "source": "原著"
+        }
+       ],
+       "profit_target_r": null,
+       "time_stop_days": null,
+       "source": "原著",
+       "type": "rules"
+      },
+      "sizing": {
+       "type": "risk_fraction",
+       "params": {
+        "risk_per_trade": 0.01,
+        "max_weight": 0.1,
+        "max_positions": 10
+       },
+       "source": "行业惯例",
+       "rank_by": {
+        "primary": {
+         "formula": "D_last = (High_last - Low_last) / High_last",
+         "order": "asc",
+         "source": "行业惯例"
+        },
+        "tiebreak": {
+         "field": "return_60d",
+         "order": "desc",
+         "source": "行业惯例"
+        }
+       }
+      },
+      "costs": {
+       "one_way_bps": 5.0,
+       "source": "行业惯例"
+      },
+      "benchmark": {
+       "family": "trend",
+       "component_match": "large",
+       "risk_free_annual": null
+      },
+      "initial_stop": {
+       "type": "structure_low_minus_atr",
+       "params": {
+        "structure_lookback": 5,
+        "atr_period": 14,
+        "atr_multiple": 0.2
+       },
+       "source": "原著",
+       "hard_gate": {
+        "type": "max_stop_distance_pct",
+        "params": {
+         "max_pct": 8.0
+        },
+        "on_violation": "reject_signal",
+        "source": "原著"
+       }
+      },
+      "trailing_stop": {
+       "stages": [
+        {
+         "name": "保护期",
+         "when": {
+          "days_held_lte": 10
+         },
+         "action": "hold_initial_stop",
+         "source": "原著"
+        },
+        {
+         "name": "保本",
+         "when": {
+          "unrealized_r_gt": 2.0
+         },
+         "action": "move_stop_to_breakeven",
+         "source": "行业惯例"
+        },
+        {
+         "name": "EMA10 跟踪",
+         "when": {
+          "unrealized_r_gt": 3.0
+         },
+         "type": "ema_trail",
+         "params": {
+          "ema": 10
+         },
+         "source": "行业惯例"
+        }
+       ],
+       "monotonic_up_only": true,
+       "source": "原著",
+       "type": "staged"
+      }
+     }
+    }
+   ],
+   "已知流水份数": 3,
+   "流水目录": "ledgers_1028_vcp修正后"
+  }
+ ]
+}
