@@ -68,7 +68,15 @@ entry:
         (写死在 ops_a0.HTF_RUNUP_MIN_BARS / MAX_BARS);
         突破旗形上沿 = 整理段最高价。
         ★ max_pullback 是原著区间 20–25% 的端点,runner 另跑 0.25 宽松端。
-        ★ flag_min_bars / flag_max_bars 是我们的读法边界,原著没给。
+        ★★ 2026-10-30 更正:这里原来写「flag_min_bars / flag_max_bars 是我们的
+        读法边界,原著没给」—— **原著给了**。手册v13 六附 6.1 ② 引欧奈尔 4th ed.
+        Ch.2 High, Tight Flag:「随后横向整理 **3 至 5 周**」。
+        · 上界 flag_max_bars = 25 = 5 周 × 5 ✓ **已经换算对了**(不是我们定的)
+        · 下界 flag_min_bars = 3 ✗ **应为 15**(3 周 × 5)—— 「3 周」被当成
+          「3 根日线」。★★ **本轮查出来了但没改**:这条链只有 31 / 59 笔
+          (< 150 可采信线)、单笔占总R 60.9%~1260%、总R 在 13~45 之间非单调
+          抖动 → 改了也量不出来。★ 见 time_scale 的 pending 声明与
+          engine/checks/pending_registry.yaml。
     - type: volume_dryup
       params: { fast_period: 5, slow_period: 50, max_ratio: null, offset_days: 1 }
       enabled: false
@@ -141,3 +149,27 @@ benchmark:
   family: trend
   component_match: large
   risk_free_annual: null
+
+# ---------------------------------------------------------------------------
+# ★★ 时间尺度声明(engine/checks/time_scale_unit.py 的 C 式)
+#     ★ `pending` = 「查出来了、但本轮没改」—— 闸门会把它单列成第三个桶,
+#       不混进「马上处理」,也**不算放过**(每次跑都打印)。
+#       ★★ 「没查」/「查了没改」/「没人管」必须是三种状态,不是两种。
+# ---------------------------------------------------------------------------
+time_scale:
+  entry.rules[0].params.flag_min_bars:
+    unit: trading_days          # 我们实际作用在**日线**格子上
+    book_unit: weeks            # ★ 原著给的是**周**
+    book_value: 3               # 原著:横向整理 3 至 5 周,取下界 3
+    pending: 技-8 整理段下界 flag_min_bars 3 应为 15(原著 3 周)—— 样本不足,本轮未改
+    note: >-
+      手册v13 六附 6.1 ② 引 O'Neil 4th ed. Ch.2 High, Tight Flag「随后横向整理
+      3 至 5 周」→ 3 周 × 5 = **15 个交易日**。★ 现值 3 = 把「3 周」当成
+      「3 根日线」,倍率 1×。★★ 2026-10-30 查实但**未改**:n = 31 / 59(< 150)、
+      单笔占总R 60.9%~1259.7%、总R 在 flag_min_bars 13/14/15/16/17 上非单调
+      (13.22 / 11.49 / 45.36 / 42.75 / 40.05)→ 改动效果淹在噪声里,量不出来。
+  entry.rules[0].params.flag_max_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 5
+    note: 原著「横向整理 3 至 5 周」→ 5 周 × 5 = 25 个交易日 ✓ ★ 这个上界换算对了。

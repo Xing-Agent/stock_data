@@ -283,6 +283,17 @@ def _check_conversion(path: str, value: float, unit: str, book: Any,
     lo, hi, how = band
     ratio = float(value) / bv
     if not (lo <= ratio <= hi):
+        # ★★ 「没查」/「查了没改」/「没人管」必须是三种状态,不是两种。
+        #   声明了 `pending: <登记簿条目名>` → 进第三个桶,不混进「马上处理」。
+        #   ★ 这不是放过:它每次跑都打印,而且登记簿那边会查条目在不在。
+        pend = spec.get("pending")
+        if pend:
+            return [
+                f"[{where}] ★ 查出来但没改(已登记) `{path}` = {value}:"
+                f"原著 **{bv:g} {bu}**,应为 **{bv * lo:.4g} ~ {bv * hi:.4g}** "
+                f"`{unit}`,实际倍率 {ratio:.3g}×。"
+                f"★ 登记簿条目:「{pend}」—— 见 engine/checks/pending_registry.yaml。"
+                f"★★ 不改的理由必须写在登记簿的 `备注` 里,不是写在这里。"]
         return [
             f"[{where}] ★★★ FAIL `{path}` = {value}:原著给的是 **{bv:g} {bu}**,"
             f"我们作用在 `{unit}` 上,★ 实际倍率 **{ratio:.3g}×**,"
@@ -312,11 +323,18 @@ def check_config_file(path: str) -> list[str]:
 #  「缺声明」一开闸就是两百多条。★ 那是积压,不是今天新坏的;
 #  而「换算算错了」是**今天就得处理**的。两桶混在一列,没人会看。
 def split_problems(problems: Iterable[str]) -> dict[str, list[str]]:
-    hot, cold = [], []
+    hot, pend, cold = [], [], []
     for p in problems:
-        (hot if "★★★ FAIL" in p or "同单位却不等值" in p
-         or "没有登记过倍率" in p else cold).append(p)
-    return {"★★★ 换算算错了(马上处理)": hot, "缺声明(存量积压)": cold}
+        if "查出来但没改(已登记)" in p:
+            pend.append(p)
+        elif ("★★★ FAIL" in p or "同单位却不等值" in p
+                or "没有登记过倍率" in p):
+            hot.append(p)
+        else:
+            cold.append(p)
+    return {"★★★ 换算算错了(马上处理)": hot,
+            "★ 查出来但没改(已登记)": pend,
+            "缺声明(存量积压)": cold}
 
 
 def scan_config_dir(dirpath: str) -> dict[str, list[str]]:
@@ -469,6 +487,17 @@ def _selftest() -> None:
         _hot = split_problems(check_config_file(_p))["★★★ 换算算错了(马上处理)"]
         assert _hot == [], (_n, _hot)
     print("     → 技-4 四份真实配置:★★★ 桶里 0 条(2026-10-30 的修正已被闸确认)")
+    #   ★ 第三个桶:「查出来但没改(已登记)」—— 技-8 那两份真实配置
+    #     ★★ 这一条必须验,否则下次有人把 pending 支持删掉,
+    #        技-8 会从「已登记」静默跳回「马上处理」,或者反过来被当成修好了。
+    for _n in ("技-8.yaml", "技-8-行业-时间止损20日.yaml"):
+        _b = split_problems(check_config_file(
+            os.path.join(_ENGINE, "configs", _n)))
+        assert _b["★★★ 换算算错了(马上处理)"] == [], (_n, _b)
+        assert len(_b["★ 查出来但没改(已登记)"]) == 1, (_n, _b)
+        assert "pending_registry" in _b["★ 查出来但没改(已登记)"][0]
+    print("     → 技-8 两份真实配置:★★★ 桶 0 条 · ★ 已登记桶各 1 条 "
+          "(阈值 3 未改,但闸门每次都把它打出来,并指回登记簿)")
 
     # 技-10 / 技-13 这两条今天跑过的链必须在清单里
     assert any(k.startswith("技-10") for k in bad), sorted(bad)
