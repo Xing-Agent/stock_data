@@ -388,9 +388,44 @@ exit:
 """
 
 
+#: ★★ 技-4 的时间尺度声明 —— ★ 必须跟着 j4 一起生成,否则重跑一次本文件
+#   就把 2026-10-30 的换算修正**静默冲掉**(`*_bars` 这个后缀只说「根」,
+#   不说哪种根,更不说原著当年是在什么周期上给的数 —— 本轮的错就长在这个缝里)。
+_J4_TIME_SCALE = """
+# ---------------------------------------------------------------------------
+# ★★ 时间尺度声明(engine/checks/time_scale_unit.py 的 C 式)
+# ---------------------------------------------------------------------------
+time_scale:
+  entry.rules[0].params.handle_min_bars:
+    unit: trading_days          # 我们实际作用在**日线**格子上
+    book_unit: weeks            # ★ 原著给的是**周**
+    book_value: 1               # ★ 原著数值:至少 1 周(区间 1–2 周,取下界)
+    note: >-
+      手册v13 六附 6.1 ① 引 O'Neil 4th ed. Ch.2「柄部持续时间:至少 1–2 周
+      (日线至少 5 个交易日)」→ 1 周 × 5 = **5 个交易日**。
+      ★ 原值 3 是把「3 周」当成「3 根日线」,2026-10-30 改正。
+  entry.rules[0].params.handle_max_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 5
+    note: 5 周 × 5 = 25 个交易日;★ 上界本身是我们的读法(原著只给了下界)。
+  entry.rules[0].params.cup_min_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 7
+    note: 原著「杯体持续 7 周至 65 周」→ 7 × 5 = 35 个交易日。
+  entry.rules[0].params.cup_max_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 65
+    note: 原著「杯体持续 7 周至 65 周」→ 65 × 5 = 325 个交易日。
+"""
+
+
 def j4(ver: str, name: str, ver_tag: str, band: str, entry: str) -> str:
     return (_J4_HEAD.format(ver=ver, name=name, ver_tag=ver_tag, band=band)
-            + _UNIVERSE + _REGIME + entry + _J4_STOPEXIT + _tail("trend"))
+            + _UNIVERSE + _REGIME + entry + _J4_STOPEXIT + _tail("trend")
+            + _J4_TIME_SCALE)
 
 
 def _j4_entry(dmin, hmax, vmult, pivot_line, pivot_src, extra="", extra_rules=""):
@@ -404,14 +439,17 @@ entry:
         handle_max_depth: {hmax}
         cup_min_bars: 35
         cup_max_bars: 325
-        handle_min_bars: 3
+        handle_min_bars: 5
         handle_max_bars: 25
         {pivot_line}
       source: >-
         杯深上限 0.33 / 杯长 ≥35 个交易日(= 7 周) / 杯长 ≤325 个交易日
         (= 65 周)= 原著【待核实】;杯深下限 {dmin} 与柄深上限 {hmax} 取自原著给的
-        区间;★ 柄长 3~25 个交易日是**我们的读法**(原著只说柄是
-        "a few days to a few weeks",没给死数)。
+        区间;★ 柄长下界 5 个交易日 = **原著**(手册v13 六附 6.1 ①,引 O'Neil
+        4th ed. Ch.2:柄部持续时间「至少 1–2 周(日线至少 5 个交易日)」)——
+        1 周 × 5 = 5;★ 2026-10-30 之前这里写的是 3,是把「3 周」当成了
+        「3 根日线」,同一个算子里另外三个 bar 参数都 ×5 换算对了,只有这个
+        下界没换。柄长**上界** 25 个交易日(= 5 周 × 5)仍是我们的读法。
         枢纽点:{pivot_src}
     - type: pat6_volume_x_sma
       params:

@@ -70,14 +70,17 @@ entry:
         handle_max_depth: 0.12
         cup_min_bars: 35
         cup_max_bars: 325
-        handle_min_bars: 3
+        handle_min_bars: 5
         handle_max_bars: 25
         pivot_offset_pct: 0.001
       source: >-
         杯深上限 0.33 / 杯长 ≥35 个交易日(= 7 周) / 杯长 ≤325 个交易日
         (= 65 周)= 原著【待核实】;杯深下限 0.12 与柄深上限 0.12 取自原著给的
-        区间;★ 柄长 3~25 个交易日是**我们的读法**(原著只说柄是
-        "a few days to a few weeks",没给死数)。
+        区间;★ 柄长下界 5 个交易日 = **原著**(手册v13 六附 6.1 ①,引 O'Neil
+        4th ed. Ch.2:柄部持续时间「至少 1–2 周(日线至少 5 个交易日)」)——
+        1 周 × 5 = 5;★ 2026-10-30 之前这里写的是 3,是把「3 周」当成了
+        「3 根日线」,同一个算子里另外三个 bar 参数都 ×5 换算对了,只有这个
+        下界没换。柄长**上界** 25 个交易日(= 5 周 × 5)仍是我们的读法。
         枢纽点:★ 行业版把 +$0.10 改成 **+0.1% 缓冲**(或柄部最高点本身)—— 理由是 $0.10 这个绝对数已经和今天的票价结构脱节
     - type: pat6_volume_x_sma
       params:
@@ -153,3 +156,31 @@ benchmark:
   family: trend
   component_match: large
   risk_free_annual: null
+
+# ---------------------------------------------------------------------------
+# ★★ 时间尺度声明(engine/checks/time_scale_unit.py 的 C 式)
+# ---------------------------------------------------------------------------
+time_scale:
+  entry.rules[0].params.handle_min_bars:
+    unit: trading_days          # 我们实际作用在**日线**格子上
+    book_unit: weeks            # ★ 原著给的是**周**
+    book_value: 1               # ★ 原著数值:至少 1 周(区间 1–2 周,取下界)
+    note: >-
+      手册v13 六附 6.1 ① 引 O'Neil 4th ed. Ch.2「柄部持续时间:至少 1–2 周
+      (日线至少 5 个交易日)」→ 1 周 × 5 = **5 个交易日**。
+      ★ 原值 3 是把「3 周」当成「3 根日线」,2026-10-30 改正。
+  entry.rules[0].params.handle_max_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 5
+    note: 5 周 × 5 = 25 个交易日;★ 上界本身是我们的读法(原著只给了下界)。
+  entry.rules[0].params.cup_min_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 7
+    note: 原著「杯体持续 7 周至 65 周」→ 7 × 5 = 35 个交易日。
+  entry.rules[0].params.cup_max_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 65
+    note: 原著「杯体持续 7 周至 65 周」→ 65 × 5 = 325 个交易日。
