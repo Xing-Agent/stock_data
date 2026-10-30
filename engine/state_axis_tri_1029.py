@@ -488,6 +488,35 @@ def _confirm_sequence(raw: np.ndarray, min_bars: int
     把原始标签压成「已确认阶段」序列。
     返回 (逐日阶段, 确认事件列表)。
     事件 = {i: 确认日下标, stage: 1/2/3/4, prev, prev2}
+
+    ══════════════════════════════════════════════════════════════════════
+    ★★★ 2026-10-30 修一处「缺省值替我们表了态,而且表的是看多」
+    ══════════════════════════════════════════════════════════════════════
+    ★ 原来的写法(就在下面那个 else 里):
+          last = confirmed[-1] if confirmed else None
+          if   last == "2":            stage = "3"
+          elif last in ("1", "3"):     stage = last
+          else:                        stage = "1"   # ★★★ 病在这一行
+      ★★ `last is None`(**从来没确认过任何阶段**)和 `last == "4"`
+         (**刚从第四阶段出来**)★★★ 共用同一条 else 分支。
+      ★ 后者推出「阶段一 = 跌完了、在筑底」是对的;★★★ 前者不是 ——
+        我们对那些票**根本没有依据**下这个判断。
+
+    ★★ 规模(实测,见 probe/v2_rerun_1030/stage2_default_bull_1030.json):
+       走平且从未确认过任何阶段的格子,原来**全部**被缺省成「阶段一」。
+       ★ 含 ED / EXC / DTE 这种上市几十年的公用事业股 —— 它们从 2014 数据
+         起点就一直走平、从没确认过趋势阶段,整段被缺省成「底部」。
+       ★ 换起点不变 → ★★★ 它不是编错号,是**缺省值在表态**。
+
+    ★★★ 为什么这一条比别的急:★ 这个值**已经出门了** ——
+       `engine/state2_topology_1029.py` 给运营的逐日状态 CSV 带着它。
+       ★★ 别的 bug 是内部数字错,★★★ 这一个是**对外说了一句我们没有依据的看多**。
+       ★ 而产品侧两条红线正好管它:① 不给方向 ② 每定义一个状态必须同时
+         回答「怎么出来」—— 一个「从来没进去过」的状态被缺省成「底部」,两条都踩。
+
+    ★ 修法:把 `last is None` 从 `last == "4"` 里**拆出来单独走**,
+      ★★ 编成**不确认任何阶段** → 这一格落到 `transition`(说不清)。
+      ★ 阶段四之后走平 → 阶段一,★ 这一条**原样保留**(它是对的)。
     """
     n = len(raw)
     daily = np.full(n, WARMUP, dtype=object)
@@ -518,16 +547,27 @@ def _confirm_sequence(raw: np.ndarray, min_bars: int
                     stage = "3"
                 elif last in ("1", "3"):
                     stage = last
-                else:
+                elif last == "4":
+                    # ★ 刚从第四阶段出来 → 走平就是在筑底。★ 这一条是对的,原样保留。
                     stage = "1"
-            if not confirmed or confirmed[-1] != stage:
-                events.append({
-                    "i": i, "stage": stage,
-                    "prev": confirmed[-1] if confirmed else None,
-                    "prev2": confirmed[-2] if len(confirmed) >= 2 else None,
-                })
-                confirmed.append(stage)
-            cur_stage = stage
+                else:
+                    # ★★★ last is None —— **从来没确认过任何阶段**。
+                    #   ★ 不许缺省成阶段一(那是一个有内容的看多判断,我们没有依据)。
+                    #   ★★ stage = None = 本格**不确认任何阶段**,落到 transition。
+                    stage = None
+            # ★ stage is None:不进 confirmed、不发事件、不改 cur_stage ——
+            #   ★★ 「没有历史」必须一直是「说不清」,直到真有一次 ADV/DEC 把序列起起来。
+            if stage is None:
+                pass
+            else:
+                if not confirmed or confirmed[-1] != stage:
+                    events.append({
+                        "i": i, "stage": stage,
+                        "prev": confirmed[-1] if confirmed else None,
+                        "prev2": confirmed[-2] if len(confirmed) >= 2 else None,
+                    })
+                    confirmed.append(stage)
+                cur_stage = stage
         daily[i] = cur_stage if cur_stage != WARMUP else "transition"
         if cur_stage == WARMUP:
             daily[i] = "transition"
