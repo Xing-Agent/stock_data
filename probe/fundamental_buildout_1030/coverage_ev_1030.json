@@ -1,0 +1,51 @@
+{
+  "票数": 250,
+  "★ 口径定义": {
+    "S_严格": "债务=LongTermDebt;折旧摊销=DepreciationDepletionAndAmortization",
+    "M_放宽同义": "债务=Σ(LongTermDebt,LongTermDebtCurrent,ShortTermBorrowings,DebtCurrent) 至少一项有值;折旧摊销=DDA→DAAN 回落",
+    "L_总负债": "★★ 债务=Liabilities(总负债)—— 口径已改变,不是净债,不许用来装原著那条分位闸",
+    "股权腿": "★ 摊薄股数 × 收盘价 = 规模代理,不是 PIT 市值"
+  },
+  "★ 整段窗口内至少有一个季度算得出的票数": {
+    "EV_EBITDA_严格": 50,
+    "EV_EBITDA_放宽": 68,
+    "EV_EBITDA_总负债档": 62,
+    "EBITDA_严格": 90,
+    "EBITDA_放宽": 101,
+    "EV_严格": 131,
+    "EV_放宽": 176,
+    "EV_总负债档": 175,
+    "EBIT": 150,
+    "折旧摊销_DDA": 150,
+    "折旧摊销_DAAN": 19,
+    "LongTermDebt": 138,
+    "LongTermDebtCurrent": 145,
+    "ShortTermBorrowings": 88,
+    "DebtCurrent": 48,
+    "Liabilities": 190,
+    "Cash": 240,
+    "摊薄股数": 241
+  },
+  "★ 断面覆盖率(票数 / 250)": {
+    "2018-06-30": {
+      "严格": 18,
+      "放宽": 31,
+      "总负债档": 27
+    },
+    "2022-06-30": {
+      "严格": 33,
+      "放宽": 49,
+      "总负债档": 42
+    },
+    "2025-06-30": {
+      "严格": 46,
+      "放宽": 65,
+      "总负债档": 59
+    }
+  },
+  "★ 卡点拆解(整段窗口)": {
+    "EBIT 有值但折旧摊销一期都没有的票": 49,
+    "折旧摊销有值但 EBIT 一期都没有的票": 56,
+    "两个都没有的票": 44
+  }
+}
