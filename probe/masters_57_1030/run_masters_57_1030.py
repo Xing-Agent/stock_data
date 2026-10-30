@@ -54,6 +54,9 @@ for p in (ROOT, HERE, os.path.join(ROOT, "probe", "v2_rerun_1030"),
 from engine import (analyze, cache, chain, data, matrices, pat6_ops,   # noqa: E402
                     pool_scope, stats_gate)
 from engine.run_batch import _num, signal_funnel, window_pool_gate    # noqa: E402
+# ★★ 排序占位:★ 直接用 engine/run_fundamental.py 里**已有**的那一份,
+#   ★★★ 不重新写一个 —— 三条基本面链用的就是它,口径必须统一。
+from engine.run_fundamental import PLACEHOLDER_RANKING               # noqa: E402
 import rerun_core_1030 as RC                                          # noqa: E402
 import regime_vectors_1030 as RV                                      # noqa: E402
 import ops_q57_1030 as Q                                              # noqa: E402
@@ -249,6 +252,70 @@ def _set_universe(raw: dict, types: dict) -> list[str]:
     return log
 
 
+def _fix_blockers(raw: dict) -> list[str]:
+    """
+    ★★★ 两处「引擎没写 / 配置没定」的显式处置 —— 照 engine/run_fundamental.py
+    立的规矩办:**不许悄悄忽略**,每一条原样打进报告。
+
+      C-1 ranking 是 null(专家三轮没给)→ 用 run_fundamental 里**已有**的
+          「ADV20 降序」占位排序。★ 这不是策略的一部分。
+      C-2 ★★ ⑤ 移动止损第二级 `close_below_ma_trail`(>+2R 后 SMA50 收盘破位
+          跟踪)**引擎没实现**(A 类:口径明确,补代码即可)。
+          ★★★ 本版把这一级显式关掉 → 所以这一版**没有移动止损**,
+          只有初始结构止损(局部波谷下方 0.5×ATR14)。
+          ★ 不许拿 ema_trail(EMA50)顶上:EMA ≠ SMA,那是换口径,
+            而且会在仓库里又造一个「同一样东西两种写法」。
+    """
+    log = []
+    if (raw.get("ranking") or {}).get("primary") is None:
+        raw["ranking"] = copy.deepcopy(PLACEHOLDER_RANKING)
+        log.append("★ C-1 ranking 为 null → 用 run_fundamental.PLACEHOLDER_RANKING"
+                   "(ADV20 降序,★ 明确标成「占位排序,不是策略的一部分」)")
+    # ★★★ C-3 本轮撞到的一个**真的、一直在那里的 bug**(不是这一轮造的):
+    #   engine/matrices.py:regime_mask() 读 ② regime 参数的方式**不统一** ——
+    #       index_above_ma        读 rule["symbol"] / rule["ma"]   ← ★ 顶层,不读 params
+    #       vix_below             读 rule["value"]                 ← ★ 顶层,不读 params
+    #       index_ma_slope        读 rule.get("params", rule)      ← ★ params 优先
+    #       index_above_ma_scaled 读 rule.get("params", rule)      ← 同上
+    #   ★★ 而 quality_compounder.yaml 这三条全写在 params 里。后果两件:
+    #     ① `vix_below` → KeyError: 'value' 直接炸(★ 本轮才第一次炸出来,
+    #        因为 ⑤ 以前连适配层都过不了,从来没跑到 ② 这一步);
+    #     ② ★★★ 更坏的那个:`index_above_ma` **不报错**,它悄悄退回默认值
+    #        (SPY / 200)。★ 这份配置写的正好也是 SPY/200,所以结果对 ——
+    #        ★★ 但如果配置写 ma: 150,引擎会用 200,而**没有任何人会发现**。
+    #   ★ 本轮处置:把这两条的 params 抬到顶层(两种写法都写上),engine 不改。
+    for r in ((raw.get("regime") or {}).get("rules") or []):
+        if r.get("type") in ("index_above_ma", "vix_below") and r.get("params"):
+            for k, val in r["params"].items():
+                if k not in r:
+                    r[k] = val
+            log.append(f"★★★ C-3 ② {r['type']} 的 params 已抬到顶层 —— "
+                       f"engine/matrices.py:regime_mask() 这两条**只读顶层、不读 "
+                       f"params**(vix_below 会 KeyError 炸;index_above_ma 会"
+                       f"**静默退回默认值 SPY/200**)。★ 这是 engine 的 bug,"
+                       f"本轮绕过,已登记待办。")
+    stages = ((raw.get("stop_trail") or raw.get("trailing_stop") or {})
+              .get("stages") or [])
+    keep, dropped = [], []
+    for st in stages:
+        if st.get("action") == "close_below_ma_trail":
+            dropped.append(st)
+        else:
+            keep.append(st)
+    if dropped:
+        key = "stop_trail" if "stop_trail" in raw else "trailing_stop"
+        raw[key]["stages"] = keep
+        # ★ 键名不能叫 audit_blocked —— 适配层读那个键,会把整条链判成
+        #   「定义未定,不能猜」而拒跑(★ 本轮踩过一次)。用一个它不读的键名留痕。
+        raw[key]["★本轮处置"] = (
+            "★★ close_below_ma_trail(>+2R 后 SMA50 收盘破位跟踪)引擎没实现 —— "
+            "A 类(口径明确、补代码即可)。本版显式关掉。")
+        log.append("★★ C-2 ⑤ 移动止损第二级 close_below_ma_trail 引擎没实现 → "
+                   "**显式关掉**。★★★ 所以这一版没有移动止损,只有初始结构止损 —— "
+                   "报告必须写明「这一版把跟踪止损拆了」。")
+    return log
+
+
 def _set_veto(raw: dict, on: bool) -> list[str]:
     log = []
     for r in (raw.get("exit", {}).get("rules") or []):
@@ -288,6 +355,7 @@ def variants() -> list[dict]:
                             "net_debt_to_ebitda_below": False,
                             "gross_profit_to_assets_rank_above": True})
     log += _set_veto(a, False)
+    log += _fix_blockers(a)
     out.append({"链": "⑤质量复利_A_只开GPA(对照臂)", "配置": "quality_compounder.yaml",
                 "大师": "⑤", "raw": a, "装的条件": None, "改动": log,
                 "说明": "★ 对照臂:① 只剩 GP/A 一道基本面闸(+ADV20),⑥ 没有基本面否决。"
@@ -299,6 +367,7 @@ def variants() -> list[dict]:
                             "net_debt_to_ebitda_below": True,
                             "gross_profit_to_assets_rank_above": True})
     log += _set_veto(b, True)
+    log += _fix_blockers(b)
     out.append({"链": "★⑤质量复利_B_装齐原著三道闸(主档)",
                 "配置": "quality_compounder.yaml", "大师": "⑤", "raw": b,
                 "装的条件": None, "改动": log, "主档": True,
@@ -417,6 +486,80 @@ def four_doors(met: dict, conc: dict, fs: dict, verdict, z_main) -> dict:
                          "「基准不是裁判,基准是货架上另一个商品」——"
                          "★ 这四个数是**使用说明书**,不是及格线。",
     }
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# 五 · ★★★ 「算不出被剔除」和「分低被剔除」必须分开统计
+# ══════════════════════════════════════════════════════════════════════════
+#
+# ★ 1028 审计里已经点过这件事:按「看不到数据那天算不合格」,一道闸会把
+#   七成的票判出局 —— ★★ **不是因为它们分低,是因为算不出分**。
+#   ★★★ 混在一起会让这道闸看起来比实际有效。本轮必须把两者量开。
+
+def gate_decomposition(syms: list[str], scope_mask) -> dict:
+    """三道基本面闸,各报:可评估票日 / 达标票日 / 可评估里的达标率。"""
+    out = {}
+    pool_cells = int(scope_mask.sum())
+
+    # ① ROIC 连续 3 年 ≥ 15%
+    for mode in ("years", "quarters"):
+        lags = [0, 4, 8] if mode == "years" else list(range(12))
+        evalable = {}
+        for s in syms:
+            vq, e = Q.metric_q(s, "roic_ttm")
+            if vq.empty:
+                continue
+            ok = None
+            for L in lags:
+                c = vq.shift(L).notna()
+                ok = c if ok is None else (ok & c)
+            from engine import fundamentals as F
+            evalable[s] = F._to_daily(ok.astype(float), e,
+                                      data.trading_calendar()).fillna(0.0) > 0.5
+        ev = pd.DataFrame(evalable).reindex(
+            index=data.trading_calendar(), columns=syms).fillna(False)
+        ps = Q.roic_consecutive(tuple(syms), 3, 15.0, mode).reindex(
+            index=ev.index, columns=syms).fillna(False)
+        ev_m = (ev.to_numpy(bool) & scope_mask)
+        ps_m = (ps.to_numpy(bool) & scope_mask)
+        out[f"① ROIC 连续3年≥15%({mode})"] = {
+            "池内票·日": pool_cells,
+            "★可评估票·日(三点都算得出)": int(ev_m.sum()),
+            "可评估占池内": round(float(ev_m.sum()) / pool_cells, 6),
+            "★达标票·日": int(ps_m.sum()),
+            "★★可评估里的达标率": (round(float(ps_m.sum()) / float(ev_m.sum()), 6)
+                                   if ev_m.sum() else None),
+            "★★★ 读法": "「可评估占池内」低 = 我们看不到;"
+                         "「可评估里的达标率」低 = 这个门槛本身严。两件事不许混。",
+        }
+
+    # ② 净负债/EBITDA < 2.5
+    nd = Q.get("net_debt_to_ebitda", syms).reindex(
+        index=data.trading_calendar(), columns=syms)
+    ev_m = (nd.notna().to_numpy(bool) & scope_mask)
+    ps_m = ((nd < 2.5).fillna(False).to_numpy(bool) & scope_mask)
+    out["② 净负债÷EBITDA < 2.5"] = {
+        "池内票·日": pool_cells, "★可评估票·日": int(ev_m.sum()),
+        "可评估占池内": round(float(ev_m.sum()) / pool_cells, 6),
+        "★达标票·日": int(ps_m.sum()),
+        "★★可评估里的达标率": (round(float(ps_m.sum()) / float(ev_m.sum()), 6)
+                               if ev_m.sum() else None)}
+
+    # ③ GP/A 池内分位 ≥ 80
+    gp = Q.get("gpa_ttm", syms).reindex(index=data.trading_calendar(), columns=syms)
+    pct = gp.rank(axis=1, pct=True)
+    ev_m = (gp.notna().to_numpy(bool) & scope_mask)
+    ps_m = ((gp.notna() & (pct >= 0.80)).to_numpy(bool) & scope_mask)
+    out["③ GP/A 池内横截面分位 ≥ 80"] = {
+        "池内票·日": pool_cells, "★可评估票·日": int(ev_m.sum()),
+        "可评估占池内": round(float(ev_m.sum()) / pool_cells, 6),
+        "★达标票·日": int(ps_m.sum()),
+        "★★可评估里的达标率": (round(float(ps_m.sum()) / float(ev_m.sum()), 6)
+                               if ev_m.sum() else None),
+        "★ 注意": "分位闸是**池内横截面**的 —— 算不出的票不参与排名,"
+                   "★★ 所以「前 20%」实际是「**算得出的那批里**的前 20%」,"
+                   "覆盖率低的时候这道闸比纸面上松得多。"}
+    return out
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -549,7 +692,21 @@ def main(argv=None) -> int:
             fails.append((v["链"], repr(exc)[:400]))
     print(f"\n★ 跑完 {round(time.time()-t_all,1)}s")
 
+    # ★★★ 闸门分解(算不出 vs 分低)—— 在大+中池掩膜上量
+    print("\n★★★ 三道基本面闸的分解(算不出被剔除 / 分低被剔除)")
+    cal = data.trading_calendar()
+    perf = (cal >= pd.Timestamp(data.PERF_START)) & (cal <= pd.Timestamp(data.PERF_END))
+    smask, sdiag = RC.scope_mask(have_f, cal, _SCOPE)
+    smask = smask & perf[:, None]
+    decomp = gate_decomposition(have_f, smask)
+    for k, x in decomp.items():
+        print(f"  {k}")
+        print(f"     可评估 {x['★可评估票·日']:>9,d} / 池内 {x['池内票·日']:>9,d}"
+              f" = {x['可评估占池内']:.2%}   达标 {x['★达标票·日']:>9,d}"
+              f"   ★ 可评估里的达标率 {x['★★可评估里的达标率']}")
+
     out = {
+        "★★★闸门分解_算不出vs分低": decomp,
         "口径戳": pool_scope.stamp(_SCOPE, {
             "本轮做法": "★★★ ⑤ 质量复利 / ⑦ 融合大师 —— 装上原著使用条件后真跑;"
                         "缺的五个算子补在 probe/masters_57_1030/ops_q57_1030.py"

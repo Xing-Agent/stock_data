@@ -255,7 +255,15 @@ _UNIVERSE_TYPES = frozenset({
     #     ★ 主结论里不用它。实现放这里是为了让那条臂能跑。
     "exclude_sic_groups",
 })
-_ENTRY_TYPES = frozenset({"bullish_candle_breakout_prior_high"})
+#: ★★★ 「同一样东西两种写法」的又一个变体(本轮新撞,★ 写进报告):
+#:   **同一条规则按「步」注册,而注册漏了一步。**
+#:   `ma_stack_bullish` 在 config_adapter.IMPLEMENTED["universe"] 里有、
+#:   ★ 在 ["entry"] 里**没有** —— 而 quality_compounder.yaml 把它写在 ③ entry。
+#:   ★★ 后果:⑤ 这条链在预检就被判「有没实现的规则,不许带着它跑」,
+#:     ★★★ 而真实情况是**算子早就有了,只是没在那一步登记**。
+#:   ★ 处置:③ 这一步直接**调用 ① 的同一份实现**,一行新算法都不写。
+_ENTRY_TYPES = frozenset({"bullish_candle_breakout_prior_high",
+                          "ma_stack_bullish"})
 _EXIT_TYPES = frozenset({"fundamental_veto"})
 
 _orig_uni = None
@@ -315,8 +323,15 @@ def _uni(rule: dict, syms: list[str], index: pd.DatetimeIndex) -> pd.DataFrame:
 
 
 def _entry(rule: dict, symbols: list[str]) -> pd.DataFrame:
-    if rule.get("type") not in _ENTRY_TYPES:
+    t = rule.get("type")
+    if t not in _ENTRY_TYPES:
         return _orig_entry(rule, symbols)
+    if t == "ma_stack_bullish":
+        _note("★★ ma_stack_bullish 在 ③ entry 上已挂钩 —— ★ 调用的是 ① universe "
+              "里**同一份**实现(matrices._universe_rule_mask),"
+              "★★★ 一行新算法都没写。它原来只在 ① 登记过,③ 没登记。")
+        idx = cache.field("close", symbols).index
+        return _as_bool(_orig_uni(rule, list(symbols), idx))
     _note("★★ bullish_candle_breakout_prior_high 已挂钩,★ 但它是**减配实现**:"
           "只做到「当日阳线 + 收盘 > 前一日最高」,★★★ 「第一根」这个计数"
           "原文没给起点(配置自己标 undefined_param),我们没有替它拍一个。")
