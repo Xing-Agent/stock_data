@@ -35,8 +35,27 @@ CI_B = 1000          # 置信区间的重抽次数,和判据的 B 保持一致
 
 RANDOM_RATE_DEF = ("★ 统一口径:随机对照的触发率 = 「每个某天×某票单元掷一次骰子」的概率,"
                    "起点用 笔数/(交易日数 × 池内票数)(无量纲),"
-                   "再按实际成交笔数校准到与真链一致(±8% 以内,最多 4 轮);"
+                   "再按实际成交笔数校准到与真链一致(★★ 2026-10-30 起 ±5% 以内,"
+                   "最多 6 轮,★★★ 达不到就 raise);"
                    "★ 校准只看笔数、不看成绩")
+
+#: ★★ 2026-10-30 策略组拍板的容差。原来是 ±8%,实测被静默突破(−10.42% / −20.05%)。
+CONTROL_TOL = 0.05
+
+
+class BenchmarkPremiseBroken(RuntimeError):
+    """
+    ★★★ 「检验分母 / 基准零分布」的前提被破坏 —— 破了就停,不许往下算。
+
+    判断标准(2026-10-30 已采纳的外部意见):
+      · 凡是充当**检验分母**或**基准零分布**的前提 → 破了就 **raise**(停)
+      · 只影响表现或边缘属性的 → 破了就 **记**(警示)
+
+    ★ 随机对照的成交笔数属于**前者**:基准一的全部设计意图就是
+      「让对照组出手次数和真链一样多」,这样比的才是「进场时机的选择」,
+      不是「交易频率」。笔数对不上 → 比的东西变了 → 下游每一个数都无意义。
+      ★ 所以这里抛异常,**禁止任何下游计算和渲染**。
+    """
 
 
 def random_control_rate(n_trades: int, n_days: int, n_syms: int) -> float:
@@ -57,10 +76,42 @@ def random_control_rate(n_trades: int, n_days: int, n_syms: int) -> float:
     return min(1.0, max(1e-7, float(n_trades) / cells))
 
 
+def _next_rate(tries: list[dict[str, Any]], target: float, ncol: str) -> float:
+    """
+    ★★ 校准的下一步该把 rate 调到多少 —— 弹性(对数-对数割线)法。
+
+    大白话:原来这里是「按比例放大」:笔数差 10% 就把 rate 放大 10%。
+    ★ 但实测笔数**不是**跟 rate 成正比 —— 槽位有上限,rate 翻一倍、
+      成交笔数只多三成(技-1 实测 rate 从 0.000642 到 0.00207 涨 3.2 倍,
+      笔数只从 198 到 367 涨 1.85 倍 → 弹性 ≈ 0.52)。
+      所以按比例调会**一直从下面慢慢爬**,4 轮都进不了 ±5%。
+    ★ 改法:拿最近两个点量一次弹性 e = ln(n2/n1) / ln(r2/r1),
+      再按 rate ← r2 × (target/n2)^(1/e) 一步跳过去。
+      ★ 单步放大倍数夹在 [0.25, 4] 之间(防止弹性估得很小时一步飞出去)。
+    ★ 这一步只看笔数,不看成绩(纪律 6 没变)。
+    """
+    pts = [(float(t["rate"]), float(t[ncol])) for t in tries
+           if float(t[ncol]) > 0 and float(t["rate"]) > 0]
+    if not pts:
+        return min(1.0, max(1e-7, float(tries[-1]["rate"]) * 2.0))
+    r2, n2 = pts[-1]
+    e = 1.0
+    if len(pts) >= 2:
+        r1, n1 = pts[-2]
+        if r1 != r2 and n1 > 0 and n2 > 0 and n1 != n2:
+            e = float(np.log(n2 / n1) / np.log(r2 / r1))
+    if not np.isfinite(e) or e <= 0.05:
+        e = 1.0
+    step = float((target / n2) ** (1.0 / e))
+    step = float(min(4.0, max(0.25, step)))
+    return min(1.0, max(1e-7, r2 * step))
+
+
 def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
                            start: str, end: str, target_trades: int,
                            initial_equity: float, seed: int = 424242,
-                           max_iter: int = 4, tol: float = 0.08) -> dict[str, Any]:
+                           max_iter: int = 6, tol: float = CONTROL_TOL,
+                           strict: bool = True) -> dict[str, Any]:
     """
     ★★ 2026-10-29:随机对照触发率的**最终口径** —— 对齐「实际成交笔数」。
 
@@ -78,6 +129,16 @@ def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
 
     ★ 这不是网格搜索(纪律 6):校准的目标是**笔数**,不是成绩。
       校准过程完全不看收益、不看 Z,看了就是作弊。
+
+    ★★★ 2026-10-30 修的缺陷(`probe/method_fidelity_1030/` 查出来的):
+      这个函数**自己声明**容差,但 4 轮跑完之后只有 `assert best is not None`,
+      ★ 没有任何地方检查 `best["gap"] <= tol` —— 达不到就直接返回、不报错、不警告。
+      实测后果:技-1 System 1 对照组比真链**少做 10.42%**、System 2 **少做 20.05%**,
+      而「对照组出手次数和真链一样多」正是这条基准的全部设计意图。
+      ★ 修法三件:① 容差 ±8% → **±5%**(CONTROL_TOL);② 轮数 4 → **6**
+      (★ 这一项只影响「能不能收敛」,不是口径);③ ★★★ **达不到就 raise
+      BenchmarkPremiseBroken,禁止任何下游计算和渲染**。
+      ★ `strict=False` 只给「专门研究校准行为本身」的脚本用,默认一律 True。
     """
     n_days = max(1, len(pd.bdate_range(start, end)))
     n_syms = max(1, len(matrices.universe_mask(
@@ -101,10 +162,23 @@ def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
                     "iters": it + 1}
         if gap <= tol or n_ctrl == 0:
             break
-        rate = min(1.0, max(1e-7, rate * target_trades / max(1, n_ctrl)))
+        rate = _next_rate(tries, target_trades, "对照成交笔数")
     assert best is not None
     best["tries"] = tries
     best["闭式起点"] = random_control_rate(target_trades, n_days, n_syms)
+    best["tol"] = float(tol)
+    best["偏差"] = float(best["n_ctrl"] - target_trades) / max(1, target_trades)
+    best["★容差达标"] = bool(best["gap"] <= tol)
+    # ★★★ 这就是本轮补的硬断言 —— 破了就停。
+    if strict and not best["★容差达标"]:
+        raise BenchmarkPremiseBroken(
+            f"★★★ 随机对照的成交笔数校准没达标,禁止往下算:\n"
+            f"    真链笔数 = {target_trades} · 对照组校准后笔数 = {best['n_ctrl']}"
+            f" · 偏差 = {best['偏差']:+.2%} · 容差 = ±{tol:.0%}\n"
+            f"    校准轮次 = {tries}\n"
+            f"    ★ 为什么停:基准一比的是「进场时机的选择」,"
+            f"前提是对照组出手次数和真链一样多。笔数差这么多,比的就变成了"
+            f"「交易频率」—— 下游每一个数都不成立。")
     return best
 
 
@@ -112,8 +186,21 @@ def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
 #   原因（实测出来的）：单种子噪声（每笔 R σ=0.112）比效应本身还大，
 #   能把 Z 从 −0.57 翻到 +0.56 —— 单种子的 Z 符号本身就是噪声。
 #   ★ 5 个种子必须是写死的常量，不许随机生成 —— 否则结论不可复现。
-CONTROL_SEEDS: tuple[int, ...] = (424242, 20181001, 20220101, 777013, 31337,
-                                  90210, 10007, 31415926, 27182818, 65537)
+CONTROL_SEEDS: tuple[int, ...] = (
+    # ★ 前 10 个 = 2026-10-29 硬纪律 A 原来那 10 个，一个没动（可比性）
+    424242, 20181001, 20220101, 777013, 31337,
+    90210, 10007, 31415926, 27182818, 65537,
+    # ★★ 2026-10-30 第三次调整：10 → **50 个**（策略组拍板）。
+    #   ★ 仍然是**写死的常量**，不许随机生成 —— 否则结论不可复现。
+    104729, 1299709, 15485863, 179424673, 2147483647,
+    99991, 611953, 7368787, 86028121, 982451653,
+    13, 17, 19, 23, 29,
+    1000003, 2000003, 3000017, 4000037, 5000011,
+    6000011, 7000003, 8000009, 9000011, 11000003,
+    112233, 445566, 778899, 101010, 202020,
+    303030, 404040, 505050, 606060, 707070,
+    808080, 909090, 123457, 246913, 369371,
+)
 #   ★★ 2026-10-29 第二次调整：5 个种子 → **10 个**。
 #   理由是实测出来的：技-1 上单种子对照每笔 R 在 +0.002 .. +1.042 之间，
 #   极差 1.040R、标准差 0.434R，而策略本身效应只有 0.016R
@@ -125,10 +212,16 @@ CONTROL_SEEDS: tuple[int, ...] = (424242, 20181001, 20220101, 777013, 31337,
 def pooled_random_control(cfg: "chain.ChainConfig", symbols: list[str] | None,
                           start: str, end: str, target_trades: int,
                           initial_equity: float,
-                          seeds: tuple[int, ...] = CONTROL_SEEDS
+                          seeds: tuple[int, ...] = CONTROL_SEEDS[:10]
                           ) -> dict[str, Any]:
     """
     ★★ 硬纪律 A：随机对照 5 种子并池。
+
+    ★★★ 2026-10-30:`CONTROL_SEEDS` 本轮扩到 **50 个**(给基准一用),
+       ★ 但这个函数(判据 / 四格硬关那一路)**仍然只取前 10 个** ——
+       口径没变,行为没变。★ 为什么不一起提到 50:四格硬关是 4 格 × 每格
+       一次并池,提到 50 等于把那一关的机器时间乘 5,而本轮拍板要提的
+       只有基准一。★ 这件事写在这里留痕,不许下一轮以为「两边都 50」。
 
     做法：每个种子各走一遍「按实际成交笔数校准」的流程（沿用已定口径），
     然后把 5 条对照流水**纵向拼起来**当一个对照池。
@@ -376,30 +469,161 @@ def exposure_matched_benchmark(res: chain.ChainResult,
 
 def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
                            symbols: list[str] | None,
-                           start: str, end: str, n_seeds: int = 5) -> dict[str, Any]:
+                           start: str, end: str, n_seeds: int = 50,
+                           keep_ledger: bool = False,
+                           cal_iter: int = 5, cal_seeds: int = 8,
+                           verify_iter: int = 2) -> dict[str, Any]:
     """
     ★ 基准一:同环境随机进场 —— 其余六步完全一样,只把第③步换成随机。
     随机的触发频率对齐真信号的实际频率,这样比的是「挑得准不准」,
     不是「做得多不多」。
+
+    ★★★ 2026-10-30 本轮改了三件事(策略组拍板,前提见
+       `probe/method_fidelity_1030/方法保真度-排查-1030.md` 问一):
+
+      ① **种子 5 → 50**。理由是实测的:技-1 上对照自身每笔 R 的 σ=0.434R,
+         5 个种子时均值标准误 ≈ 0.194R,效应 −0.323R 只有 **1.66 个标准误**。
+         50 个种子把标准误降到 ≈ 0.061R。
+
+      ② ★★★ **真的走 `CONTROL_SEEDS` 那条路,并废掉第二条路。**
+         本函数原来在这里自己生成 `20181001 + 977*k`(只 5 个),
+         而硬纪律 A 的 `CONTROL_SEEDS` 根本没被它用上 ——
+         ★ 这是已登记的「同一样东西两种写法」第 9 处。
+         现在**只剩一条路**:种子一律取 `CONTROL_SEEDS[:n_seeds]`。
+         ★ 自生成那一行已删除,不留并存。
+
+      ③ **笔数前提改成硬断言,而且校准的对象改对了。**
+         ★★★ 这是本轮实跑之后才发现的第四处缺陷:原来的校准**只用一个种子**
+         (`seed=20181001`)把笔数调到容差内,然后让另外几个种子**共用**这个 rate。
+         ★ 实测(技-1 System 1,大+中池):单种子校准完偏差 −4.23%(看着过了),
+           但 50 个种子的**平均**笔数是 374.2 对真链 402 —— 偏差 **−6.92%**,
+           逐种子在 335..420 之间。★ 也就是说,被校准的那个量和被断言的那个量
+           **不是同一个量**:真正充当「基准零分布」的是这 50 条对照流水的总体,
+           所以要对齐的就必须是**它们的均值**。
+         ★ 现在的做法分两段(★★ 为什么分两段:实测把 50 个种子全跑一遍去迭代,
+           1670 笔那条链一条就要 14 分钟,全库要跑好几个小时 —— 机器时间不够):
+             **第一段 · 校准** 用前 `cal_seeds` 个种子(默认 8 个)的**平均笔数**
+               迭代,收敛到更紧的 ±2%(= CONTROL_TOL / 2.5)。
+               ★ 8 个种子的均值已经足够准:技-1 实测逐种子笔数 σ≈20(均值 374,
+                 = 5.3%),8 个取均值 → 1.9%;再加 50 个的 0.76%,
+                 合起来仍远在 ±5% 以内。
+             **第二段 · 核验** 在选定的 rate 上把 50 个种子全跑一遍,
+               ★★★ 断言的就是这 50 个的平均笔数落在 ±5% 内;
+               不落在里面就再按弹性法调一次、重跑一遍(最多 `verify_iter` 次),
+               还不行就 raise。
+         ★ 校准依然**只看笔数、不看成绩**(纪律 6)—— 每一轮比较的只有笔数。
     """
     n_tr = len(res.ledger)
-    # ★ 2026-10-29:三处随机对照统一用 calibrated_random_rate(对齐实际成交笔数)
-    cal = calibrated_random_rate(cfg, symbols, start, end, n_tr,
-                                 res.initial_equity, seed=20181001)
-    rate = cal["rate"]
-    rets, mdds, rbar = [], [], []
-    for k in range(n_seeds):
-        c2 = cfg.copy_with(entry={"type": "random",
-                                  "params": {"rate": rate, "seed": 20181001 + 977 * k},
-                                  "source": "基准一:同环境随机进场,频率对齐真信号"})
-        r2 = chain.run_chain(c2, symbols, start, end, res.initial_equity)
-        rets.append(float(r2.equity.iloc[-1] / r2.equity.iloc[0] - 1.0))
-        mdds.append(drawdown(r2.equity)[0])
-        if not r2.ledger.empty:
-            rbar.append(float(r2.ledger["r_multiple"].mean()))
+    if n_seeds > len(CONTROL_SEEDS):
+        raise ValueError(
+            f"★ 要 {n_seeds} 个种子,但 CONTROL_SEEDS 只写死了 {len(CONTROL_SEEDS)} 个。"
+            f"★ 种子必须是写死的常量(不许随机生成)—— 要加就去 CONTROL_SEEDS 里加。")
+    seeds = CONTROL_SEEDS[:n_seeds]
+    # ★ 闭式起点沿用全系统唯一口径;★ 这里**不再**调单种子的
+    #   calibrated_random_rate —— 校准对象改成「50 个种子的平均笔数」。
+    n_days = max(1, len(pd.bdate_range(start, end)))
+    n_syms = max(1, len(matrices.universe_mask(
+        cfg.get("universe") or {}, symbols).columns))
+    rate0 = random_control_rate(n_tr, n_days, n_syms)
+    # ★ 省机器用的一步:先用**单种子**粗调把 rate 拉到量级上
+    #   (strict=False —— 这一步**不是**判据,它只是给下面的 50 种子循环
+    #    找个好起点,所以这里不断言、也不许用它的结果当结论)。
+    _pre = calibrated_random_rate(cfg, symbols, start, end, n_tr,
+                                  res.initial_equity, seed=20181001,
+                                  max_iter=4, strict=False)
+    rate = float(_pre["rate"])
+
+    def _sweep(seed_set, keep: bool):
+        """在当前 rate 上把给定的一批种子各跑一遍。★ 只收集笔数和成绩,不做选择。"""
+        rets_, mdds_, rbar_, ns_, frames_ = [], [], [], [], []
+        for sd in seed_set:
+            c2 = cfg.copy_with(entry={
+                "type": "random",
+                "params": {"rate": rate, "seed": int(sd)},
+                "source": "基准一:同环境随机进场,频率对齐真信号"})
+            r2 = chain.run_chain(c2, symbols, start, end, res.initial_equity)
+            rets_.append(float(r2.equity.iloc[-1] / r2.equity.iloc[0] - 1.0))
+            mdds_.append(drawdown(r2.equity)[0])
+            ns_.append(int(len(r2.ledger)))
+            if not r2.ledger.empty:
+                rbar_.append(float(r2.ledger["r_multiple"].mean()))
+                if keep:
+                    frames_.append(r2.ledger.assign(**{"对照种子": int(sd)}))
+        return rets_, mdds_, rbar_, ns_, frames_
+
+    # ---- 第一段 · 校准(用 cal_seeds 个种子的平均笔数,收敛到 ±2%)
+    cal_tol = CONTROL_TOL / 2.5
+    cal_tries: list[dict[str, Any]] = []
+    for it in range(cal_iter):
+        _, _, _, ns, _ = _sweep(CONTROL_SEEDS[:cal_seeds], keep=False)
+        mc = float(np.mean(ns)) if ns else 0.0
+        dv = (mc - n_tr) / max(1, n_tr)
+        cal_tries.append({"轮": it + 1, "rate": rate, "校准用种子数": cal_seeds,
+                          "对照平均笔数": mc, "偏差": dv})
+        if abs(dv) <= cal_tol or mc <= 0:
+            break
+        # ★ 饱和检测:连着两轮笔数几乎不动而偏差还在外面 → 再调也没用,早停省机器
+        if len(cal_tries) >= 2:
+            prev = cal_tries[-2]["对照平均笔数"]
+            if prev > 0 and abs(mc - prev) / prev < 0.01:
+                cal_tries[-1]["★早停"] = ("笔数对 rate 已经饱和(两轮变动 <1%),"
+                                          "再调也到不了容差内")
+                break
+        rate = _next_rate(cal_tries, n_tr, "对照平均笔数")
+
+    # ---- 第二段 · 核验(★★★ 断言的就是这 50 个种子的平均笔数)
+    verify: list[dict[str, Any]] = []
+    best: dict[str, Any] | None = None
+    for it in range(verify_iter):
+        rets, mdds, rbar, n_ctrl_per, frames = _sweep(seeds, keep=keep_ledger)
+        mean_ctrl = float(np.mean(n_ctrl_per)) if n_ctrl_per else 0.0
+        dev = (mean_ctrl - n_tr) / max(1, n_tr)
+        verify.append({"轮": it + 1, "rate": rate, "种子数": n_seeds,
+                       "对照平均笔数": mean_ctrl, "偏差": dev})
+        if best is None or abs(dev) < abs(best["dev"]):
+            best = {"rate": rate, "dev": dev, "mean_ctrl": mean_ctrl,
+                    "n_ctrl_per": n_ctrl_per, "rets": rets, "mdds": mdds,
+                    "rbar": rbar, "frames": frames}
+        if abs(dev) <= CONTROL_TOL or mean_ctrl <= 0:
+            break
+        rate = _next_rate(verify, n_tr, "对照平均笔数")
+    assert best is not None
+    rate, dev, mean_ctrl = best["rate"], best["dev"], best["mean_ctrl"]
+    n_ctrl_per, rets, mdds, rbar = (best["n_ctrl_per"], best["rets"],
+                                    best["mdds"], best["rbar"])
+    frames = best["frames"]
+    if abs(dev) > CONTROL_TOL:
+        raise BenchmarkPremiseBroken(
+            f"★★★ {n_seeds} 个种子的对照组**平均成交笔数**没对上真链,禁止往下算:\n"
+            f"    真链笔数 = {n_tr} · 对照均值 = {mean_ctrl:.1f}"
+            f" · 偏差 = {dev:+.2%} · 容差 = ±{CONTROL_TOL:.0%}\n"
+            f"    校准轮次({cal_seeds} 种子)= {cal_tries}\n"
+            f"    核验轮次({n_seeds} 种子)= {verify}\n"
+            f"    逐种子笔数 = {n_ctrl_per}\n"
+            f"    ★ 为什么停:基准一比的是「进场时机的选择」,"
+            f"前提是对照组出手次数和真链一样多。")
     chain_ret = float(res.equity.iloc[-1] / res.equity.iloc[0] - 1.0)
     chain_r = float(res.ledger["r_multiple"].mean()) if not res.ledger.empty else float("nan")
-    return {
+    _pool = (pd.concat(frames, ignore_index=True) if frames else None)
+    out: dict[str, Any] = {
+        # ★ 并池流水只在 keep_ledger=True 时带出来(它是 DataFrame,
+        #   默认带着会把每份 JSON 撑爆)。下游要算 Z 的才需要它。
+        "随机进场_种子表": list(int(s) for s in seeds),
+        "随机进场_种子来源": "analyze.CONTROL_SEEDS[:n_seeds] —— ★ 只有这一条路",
+        "随机进场_逐种子笔数": n_ctrl_per,
+        "随机进场_对照笔数均值": mean_ctrl,
+        "★对照笔数偏差": dev,
+        "★对照笔数容差": CONTROL_TOL,
+        "★对照笔数偏差_逐种子最大绝对值": (
+            float(max(abs(c - n_tr) / max(1, n_tr) for c in n_ctrl_per))
+            if n_ctrl_per else float("nan")),
+        "随机进场_逐种子每笔R": [float(x) for x in rbar],
+        "★单种子每笔R的极差": (float(max(rbar) - min(rbar))
+                               if len(rbar) > 1 else float("nan")),
+        "★单种子每笔R的标准差": (float(np.std(rbar, ddof=1))
+                                 if len(rbar) > 1 else float("nan")),
+        "★对照每笔R均值的标准误": (float(np.std(rbar, ddof=1) / np.sqrt(len(rbar)))
+                                   if len(rbar) > 1 else float("nan")),
         "随机进场_平均总收益": float(np.mean(rets)),
         "随机进场_收益标准差": float(np.std(rets, ddof=1)) if len(rets) > 1 else float("nan"),
         "随机进场_平均每笔R": float(np.nanmean(rbar)) if rbar else float("nan"),
@@ -407,14 +631,23 @@ def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
         "随机进场_种子数": n_seeds,
         "随机进场_触发率": rate,
         "随机进场_触发率口径": RANDOM_RATE_DEF,
-        "随机进场_闭式起点": cal["闭式起点"],
-        "随机进场_校准轮次": cal["tries"],
-        "随机进场_校准后对照笔数": cal["n_ctrl"],
+        "随机进场_闭式起点": rate0,
+        "随机进场_校准轮次": cal_tries,
+        "随机进场_核验轮次(50 种子)": verify,
+        "随机进场_校准用种子数": cal_seeds,
+        "随机进场_校准对象": ("★★★ 50 个种子的**平均**成交笔数"
+                             "(不是单种子 —— 单种子校准和这道断言不是同一个量)"),
+        "随机进场_单种子粗调起点": {"rate": float(_pre["rate"]),
+                                   "该种子笔数": int(_pre["n_ctrl"]),
+                                   "轮次": _pre["tries"]},
         "随机进场_真链笔数": n_tr,
         "★真信号总收益 − 随机进场": chain_ret - float(np.mean(rets)),
         "★真信号每笔R − 随机进场每笔R": (chain_r - float(np.nanmean(rbar))
                                         if rbar else float("nan")),
     }
+    if keep_ledger:
+        out["★对照流水并池"] = _pool
+    return out
 
 
 # ================================================================ 判据(流水层面重抽)
@@ -589,7 +822,13 @@ def evaluate(cfg: chain.ChainConfig,
              start: str = data.PERF_START,
              end: str = data.PERF_END,
              initial_equity: float = 1_000_000.0,
-             n_random_seeds: int = 5,
+             # ★★★ 2026-10-30:基准一的种子数 5 → **50**(策略组拍板)。
+             #   ★ 这里也必须改 —— 只改 random_entry_benchmark 的默认值不够:
+             #     `evaluate()` 是所有跑批脚本的入口,它原来写死传 5,
+             #     ★ 那样「种子提到 50」就只在本轮的探针里成立,产线上还是 5。
+             #   ★ 代价要说清楚:基准一这一步的机器时间约是原来的 7 倍
+             #     (原 ~8 次 run_chain → 现 ~58 次)。
+             n_random_seeds: int = 50,
              with_attribution: bool = True,
              with_sensitivity: bool = True,
              with_gate: bool = True) -> dict[str, Any]:

@@ -89,7 +89,12 @@ add_on:
   source: ★ 原著未提加仓。
 
 sizing:
-  type: equal_weight
+  # ★★ 仓位 type 用 `fixed_fraction` —— ★ engine 认得的三种是
+  #   equal_weight_all / risk_fraction / fixed_fraction,★★ 没有 `equal_weight`
+  #   (我第一版写的就是那个不存在的名字,★ 好在 engine 直接 raise 了,
+  #    没有悄悄回退到某个默认仓位)。
+  # ★ fixed_fraction + max_weight = 1/槽位数 就是「等权占满槽位」。
+  type: fixed_fraction
   params: { max_positions: 30, max_weight: 0.034 }
   source: ★ XING(原著说 20~30 只,★ 方法卡字段里没有这个数 → 不引用)
 

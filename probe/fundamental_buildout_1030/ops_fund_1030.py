@@ -74,6 +74,92 @@ _WITH_OIL = False
 #: ★ 哪些指标名走覆盖层(★ 显式白名单,不许「全部字段都覆盖」)
 _OVERLAY_METRICS = ("LongTermDebt", "EBIT", "LongTermDebtTotal")
 
+# ══════════════════════════════════════════════════════════════════════════
+# 一-B · ★★★ 数据组那份 SEC PIT 主表(2026-10-30 换用)
+# ══════════════════════════════════════════════════════════════════════════
+#
+# ★★★ 这一段是**替换**,不是「只加不改」—— ★ 和上面那个覆盖层的逻辑**相反**,
+#   必须讲清楚为什么:
+#
+#   ★★ 基-6(EV/EBIT 分位)和基-4(神奇公式)做的是**横截面排名**。
+#   ★★★ 如果一部分票的 EBIT 是「营业利润」、另一部分是「税前+利息」,
+#     那这个排名就是**拿苹果和橘子比大小** —— ★ 而且不是噪声:
+#     实测两个口径差超 10% 的期数占 31.58%。
+#   → ★★★ **对横截面排名,口径一致性比覆盖率更重要。**
+#     所以 EBIT / 长期负债**整列换成数据组那一份**(全池同一个口径),
+#     ★★ 不做「我们的优先、它的补缺」那种混着用。
+#
+# ★★ 但它自己内部仍然是**混口径**的(README 二节):
+#     47,002 行 reported_operating_income(88.7%)
+#      6,016 行 derived_pretax_plus_interest(11.3%,★ 推算的)
+#   ★ 所以另外提供 `reported_only=True` 的敏感度臂 —— ★★ 只用报表上的营业利润,
+#     看混口径那 11.3% 有多大影响。
+_SEC_OVERLAY = os.path.join(HERE, "sec_overlay_1030.json.gz")
+_SEC_METRICS = ("EBIT", "LongTermDebt")
+_SEC_MODE: str | None = None
+_SEC_REPORTED_ONLY = False
+#: ★ 数据组点名要剔的 4 只(★★★ 绝对不许填 0)
+SEC_DROP_4 = ("TXT", "PCAR", "MTR", "TMHC")
+
+
+@functools.lru_cache(maxsize=1)
+def _sec_overlay() -> dict:
+    with gzip.open(_SEC_OVERLAY, "rt", encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def _sec_merged(symbol: str) -> dict:
+    base = dict(_orig_load_fund(symbol))
+    if symbol in SEC_DROP_4:
+        # ★★★ 数据组点名:这 4 只**剔除**,★ 不许填 0 ——
+        #   填 0 会把 TXT / PCAR 误判成「零负债的好公司」。
+        #   ★ 这里把两列清空 = 任何用到它们的闸门都判这只票不合格。
+        for mt in _SEC_METRICS:
+            base[mt] = []
+        return base
+    ov = _sec_overlay().get(symbol) or {}
+    for mt in _SEC_METRICS:
+        recs = ov.get(mt) or []
+        if _SEC_REPORTED_ONLY and mt == "EBIT":
+            recs = [r for r in recs
+                    if r.get("basis") == "reported_operating_income"]
+        base[mt] = [dict(r, metric=mt) for r in recs]     # ★★ 替换,不是追加
+    return base
+
+
+def install_sec_overlay(reported_only: bool = False) -> None:
+    """★★★ 换用数据组那份主表(**替换** EBIT / 长期负债两列)。"""
+    global _orig_load_fund, _SEC_MODE, _SEC_REPORTED_ONLY
+    _SEC_REPORTED_ONLY = bool(reported_only)
+    if _orig_load_fund is None:
+        _orig_load_fund = data.load_fundamentals
+    data.load_fundamentals = _sec_merged
+    _SEC_MODE = "reported_only" if reported_only else "all_basis"
+    for fn in (fundamentals.quarterly, fundamentals.ttm,
+               fundamentals.quarter_frame, fundamentals.panel,
+               fundamentals.shares_quarterly):
+        fn.cache_clear()
+    frame.cache_clear()
+    panel.cache_clear()
+    _note("★★★ 已换用数据组的 SEC PIT 主表(sec_ltd_ebit_pit_1030.csv.gz):"
+          "EBIT / 长期负债两列**整列替换**,★ 全池同一个口径(横截面排名的前提)。"
+          f"★★ 当前模式 = {_SEC_MODE}"
+          "(all_basis = 含 11.3% 推算行;reported_only = 只用报表营业利润)。"
+          "★★★ 注意这和我们原有的 EBIT **不是同一个指标**:原有 100% 是"
+          "「税前+利息」推导,这份首选「营业利润」—— 实测两口径差超 10% 的"
+          "期数占 31.58%。")
+    _note("★★★ TXT / PCAR / MTR / TMHC 四只已**剔除**(两列清空)—— "
+          "★ 数据组点名,★★ 绝对不许填 0:TXT/PCAR 有负债但没取到,"
+          "填 0 等于把『缺数据』变成『数据错』(会误判成零负债的好公司)。")
+    _note("★★ 没负债的 13 只(BMI/ISRG/VEEV/ABMD/OFLX/VNDA/TRUE/ENTA/LIXT/"
+          "MPWR/COLM/FF/WLKP)长期负债按 **0** 算 —— ★ 这是「真的没有」,"
+          "不是「缺数据」(数据组点名;BBW / MSB 因为连 EBIT 也没有,"
+          "★ 没能按 0 补上,已登记)。")
+    _note("★★ PIT:这份表只有 `filed`(日期)。★★★ 做**闸门**用 `filed` 是安全的 —— "
+          "SEC 的 filed 是递交日,业绩通常更早已通过 8-K 公布,所以 filed "
+          "**晚于**真实可得日 → 偏保守、不会偷看。★ 本轮五条链全部是闸门,"
+          "没有任何「财报日前后」的事件窗口。")
+
 
 def _merged(symbol: str) -> dict:
     base = dict(_orig_load_fund(symbol))
@@ -398,9 +484,22 @@ def _exit(spec: dict, symbols: list[str]) -> pd.DataFrame:
 # 五 · install
 # ══════════════════════════════════════════════════════════════════════════
 
-def install(with_operating_income: bool = False) -> None:
+def install(with_operating_income: bool = False,
+            source: str = "sec_table", reported_only: bool = False) -> None:
+    """★ source = "sec_table"(★★★ 默认,数据组那份)/ "my_backfill"(我上一轮那份)。
+
+    ★★ 两份都留着的理由:★★★ 交叉校验。实测 6,961 个重叠期里 **98.85% 完全一致**,
+      ★ 只有 50 期(15 只)差超 5% —— ★★ 而那 50 期里 38 期用的是
+      `noncurrent_incl_capital_lease`(含融资租赁 → 口径差,不是错)。
+    ★★★ 两边各自的真问题也对出来了,见报告 §二-B。
+    """
     global _orig_uni, _orig_exit
-    install_overlay(with_operating_income)
+    if source == "sec_table":
+        install_sec_overlay(reported_only=reported_only)
+    elif source == "my_backfill":
+        install_overlay(with_operating_income)
+    else:
+        raise ValueError(f"★ source 只认 sec_table / my_backfill,给的是 {source!r}")
     if _orig_uni is None:
         # ★ 派发器的真名是 `_universe_rule_mask`(带下划线)——
         #   ★★ 「同一样东西两种写法」又一例:我第一版写的是 `universe_rule_matrix`,
