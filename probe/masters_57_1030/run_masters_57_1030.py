@@ -692,16 +692,32 @@ def main(argv=None) -> int:
             fails.append((v["链"], repr(exc)[:400]))
     print(f"\n★ 跑完 {round(time.time()-t_all,1)}s")
 
+    # ★ 先把逐链结果落一次盘 —— ★★ 这样后面的闸门分解万一挂了也不丢成果
+    #   (★ 本轮已经因为一个 print 的键名拼错丢过一次 437 秒的跑批)
+    with open(OUT_JSON, "w", encoding="utf-8") as fh:
+        json.dump({"★未完成_只有逐链": rows, "跑不了的": fails}, fh,
+                  ensure_ascii=False, indent=1, default=str)
+    print(f"★ 逐链结果已先落盘:{os.path.relpath(OUT_JSON, ROOT)}")
+
     # ★★★ 闸门分解(算不出 vs 分低)—— 在大+中池掩膜上量
     print("\n★★★ 三道基本面闸的分解(算不出被剔除 / 分低被剔除)")
     cal = data.trading_calendar()
     perf = (cal >= pd.Timestamp(data.PERF_START)) & (cal <= pd.Timestamp(data.PERF_END))
     smask, sdiag = RC.scope_mask(have_f, cal, _SCOPE)
     smask = smask & perf[:, None]
-    decomp = gate_decomposition(have_f, smask)
+    try:
+        decomp = gate_decomposition(have_f, smask)
+    except Exception as exc:                                # noqa: BLE001
+        import traceback
+        traceback.print_exc()
+        decomp = {"★跑挂了": repr(exc)[:400]}
     for k, x in decomp.items():
+        if not isinstance(x, dict):
+            print(f"  {k}: {x}")
+            continue
+        ev = next((v for kk, v in x.items() if kk.startswith("★可评估票·日")), None)
         print(f"  {k}")
-        print(f"     可评估 {x['★可评估票·日']:>9,d} / 池内 {x['池内票·日']:>9,d}"
+        print(f"     可评估 {ev:>9,d} / 池内 {x['池内票·日']:>9,d}"
               f" = {x['可评估占池内']:.2%}   达标 {x['★达标票·日']:>9,d}"
               f"   ★ 可评估里的达标率 {x['★★可评估里的达标率']}")
 
