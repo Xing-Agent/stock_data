@@ -262,8 +262,23 @@ _UNIVERSE_TYPES = frozenset({
 #:   ★★ 后果:⑤ 这条链在预检就被判「有没实现的规则,不许带着它跑」,
 #:     ★★★ 而真实情况是**算子早就有了,只是没在那一步登记**。
 #:   ★ 处置:③ 这一步直接**调用 ① 的同一份实现**,一行新算法都不写。
+#: ★★★ 「同一样东西两种写法」的第三个变体(本轮新撞,★ 这个最隐蔽):
+#:   **③ 进场有两个派发器,同一条规则只在其中一个里实现。**
+#:       engine/matrices.py:entry_trigger()     ← 单条扳机那一路,line ~1000
+#:                                                 **有** pullback_to_ma
+#:       engine/matrices.py:_entry_rule_raw()   ← rules 列表那一路(logic: all)
+#:                                                 **没有** pullback_to_ma
+#:   ★ 而 config_adapter.IMPLEMENTED["entry"] 里**写着它已实现** → 预检放行,
+#:     ★★ 然后在真跑的时候抛 NotImplementedError。
+#:   ★★★ 更要紧的第二件事:`entry_trigger()` 里那一版**只读 ma 这一个参数**,
+#:     把 quality_compounder.yaml 给的另外三个
+#:     (from_high_lookback 20 / max_distance_atr 1.5 / atr_period 14)
+#:     **全部忽略** —— 它判的是「收盘下穿 SMA50」,
+#:     而配置要的是「从 20 日高点回踩到距 SMA50 ±1.5×ATR14 以内」。
+#:     ★ 这是**两条不同的规则共用一个名字**,比没实现更危险。
+#:   → 本文件按配置原文实现(★ 四个参数全用上,一个新数都没拍)。
 _ENTRY_TYPES = frozenset({"bullish_candle_breakout_prior_high",
-                          "ma_stack_bullish"})
+                          "ma_stack_bullish", "pullback_to_ma"})
 _EXIT_TYPES = frozenset({"fundamental_veto"})
 
 _orig_uni = None
@@ -326,6 +341,25 @@ def _entry(rule: dict, symbols: list[str]) -> pd.DataFrame:
     t = rule.get("type")
     if t not in _ENTRY_TYPES:
         return _orig_entry(rule, symbols)
+    if t == "pullback_to_ma":
+        p = rule.get("params", {}) or {}
+        n = int(p.get("ma", 50))
+        lb = int(p.get("from_high_lookback", 20))
+        k = float(p.get("max_distance_atr", 1.5))
+        ap = int(p.get("atr_period", 14))
+        _note("★★★ pullback_to_ma 已按配置原文实现(③ rules 那一路原来没有它):"
+              "「从 20 日高点回踩到 SMA50 附近(距均线 ±1.5×ATR14 以内)」= "
+              "|收盘 − SMA50| ≤ 1.5×ATR14  且  收盘 < 近 20 日最高。"
+              "★★ engine 里 entry_trigger() 的同名实现只读 ma 一个参数、"
+              "判的是「收盘下穿 SMA50」—— ★★★ 两条不同的规则同一个名字。")
+        close = cache.field("close", symbols)
+        high = cache.field("high", symbols)
+        ma = matrices.sma_matrix(n, symbols)
+        atr = matrices.atr_matrix(ap, symbols)
+        near = (close - ma).abs() <= k * atr
+        off_high = close < high.rolling(lb, min_periods=lb).max()
+        return _as_bool(near & off_high & ma.notna() & atr.notna())
+
     if t == "ma_stack_bullish":
         _note("★★ ma_stack_bullish 在 ③ entry 上已挂钩 —— ★ 调用的是 ① universe "
               "里**同一份**实现(matrices._universe_rule_mask),"
