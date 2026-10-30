@@ -1,0 +1,1 @@
+symbol,entry_date,exit_date,entry_price,exit_price,shares,initial_stop,stop_at_exit,reason,holding_days,gross_return,r_multiple,r_multiple_net,risk_per_share,notional_in,notional_out,friction_bps,friction_cost,net_pnl,gross_pnl,capital_days,gap_through,gap_penetration_r,adv20_at_entry,liquidity_tier,size_mult

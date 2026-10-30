@@ -1,0 +1,3818 @@
+{
+ "口径": {
+  "分类规则": "丙=SIC 6000–6799 金融(方法不适用);乙-1=有 LongTermDebtCurrent;乙-2=NCL/TA ≥ 有LTD那140只的 p1(实测值);甲=NCL ≤ 0(恒等式);丁=本地证据不足(★ 不塞进甲)",
+  "NCL定义": "(TotalAssets − StockholdersEquity) − CurrentLiabilities,走 engine.fundamentals.quarter_frame 的 PIT 层",
+  "★★ 本地无法连 SEC": "代理 403 —— 所以「乙」是本地可证的**下限**,不是上限",
+  "乙-2下界p1": 0.008559964333481947,
+  "参照组分布": {
+   "p1": 0.008559964333481947,
+   "p5": 0.07631604639492287,
+   "p10": 0.1257925553630396,
+   "p25": 0.27064132421145687,
+   "p50": 0.36011642237007596,
+   "p75": 0.5554735493954458,
+   "p95": 0.9429800081610616,
+   "p99": 1.291809469283467
+  }
+ },
+ "标签审计": {
+  "Revenue": {
+   "RevenueFromContractWithCustomerExcludingAssessedTax": 175,
+   "SalesRevenueNet": 98,
+   "Revenues": 182,
+   "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax": 9,
+   "us-gaap:Revenues": 1
+  },
+  "CostOfRevenue": {
+   "CostOfGoodsAndServicesSold": 142,
+   "CostOfRevenue": 64,
+   "us-gaap:CostOfGoodsAndServicesSold": 4,
+   "us-gaap:CostOfRevenue": 2
+  },
+  "EBIT": {
+   "derived_from_sec_pit_facts": 177
+  },
+  "NetIncome": {
+   "NetIncomeLoss": 242,
+   "ProfitLoss": 179,
+   "us-gaap:NetIncomeLoss": 5,
+   "us-gaap:ProfitLoss": 7
+  },
+  "DilutedEPS": {
+   "EarningsPerShareDiluted": 240,
+   "us-gaap:EarningsPerShareDiluted": 12
+  },
+  "CurrentAssets": {
+   "AssetsCurrent": 200,
+   "us-gaap:AssetsCurrent": 8
+  },
+  "CurrentLiabilities": {
+   "LiabilitiesCurrent": 200,
+   "us-gaap:LiabilitiesCurrent": 8
+  },
+  "LongTermDebt": {
+   "LongTermDebtNoncurrent": 140,
+   "us-gaap:LongTermDebtNoncurrent": 5
+  },
+  "TotalAssets": {
+   "Assets": 248,
+   "us-gaap:Assets": 12
+  },
+  "StockholdersEquity": {
+   "StockholdersEquity": 240,
+   "us-gaap:StockholdersEquity": 11
+  },
+  "IntangiblesAndGoodwill": {
+   "derived_from_sec_pit_facts": 147
+  },
+  "OperatingCashFlow": {
+   "NetCashProvidedByUsedInOperatingActivities": 247,
+   "us-gaap:NetCashProvidedByUsedInOperatingActivities": 11
+  },
+  "WeightedAverageDilutedShares": {
+   "WeightedAverageNumberOfDilutedSharesOutstanding": 241,
+   "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding": 12
+  },
+  "IncomeBeforeTax": {
+   "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest": 225,
+   "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest": 8
+  },
+  "InterestExpense": {
+   "InterestExpense": 200,
+   "InterestExpenseNonoperating": 99,
+   "us-gaap:InterestExpense": 8
+  },
+  "IntangibleAssetsNetExcludingGoodwill": {
+   "IntangibleAssetsNetExcludingGoodwill": 158,
+   "us-gaap:IntangibleAssetsNetExcludingGoodwill": 3
+  },
+  "Goodwill": {
+   "Goodwill": 204,
+   "us-gaap:Goodwill": 6
+  },
+  "CashAndCashEquivalentsAtCarryingValue": {
+   "CashAndCashEquivalentsAtCarryingValue": 240
+  },
+  "AccountsReceivableNetCurrent": {
+   "AccountsReceivableNetCurrent": 164
+  },
+  "InventoryNet": {
+   "InventoryNet": 151
+  },
+  "Liabilities": {
+   "Liabilities": 190
+  },
+  "ShortTermBorrowings": {
+   "ShortTermBorrowings": 88
+  },
+  "DebtCurrent": {
+   "DebtCurrent": 48
+  },
+  "LongTermDebtCurrent": {
+   "LongTermDebtCurrent": 148
+  },
+  "RetainedEarningsAccumulatedDeficit": {
+   "RetainedEarningsAccumulatedDeficit": 241
+  },
+  "ResearchAndDevelopmentExpense": {
+   "ResearchAndDevelopmentExpense": 89
+  },
+  "PaymentsToAcquirePropertyPlantAndEquipment": {
+   "PaymentsToAcquirePropertyPlantAndEquipment": 196
+  },
+  "PaymentsOfDividends": {
+   "PaymentsOfDividends": 94
+  },
+  "PaymentsOfDividendsCommonStock": {
+   "PaymentsOfDividendsCommonStock": 111
+  },
+  "PaymentsForRepurchaseOfCommonStock": {
+   "PaymentsForRepurchaseOfCommonStock": 219
+  },
+  "ProceedsFromIssuanceOfCommonStock": {
+   "ProceedsFromIssuanceOfCommonStock": 126
+  },
+  "DepreciationDepletionAndAmortization": {
+   "DepreciationDepletionAndAmortization": 174
+  },
+  "DepreciationAmortizationAndAccretionNet": {
+   "DepreciationAmortizationAndAccretionNet": 23
+  },
+  "PaymentsToAcquireProductiveAssets": {
+   "PaymentsToAcquireProductiveAssets": 85
+  },
+  "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost": {
+   "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost": 11
+  }
+ },
+ "总数": {
+  "有fundamentals": 250,
+  "LongTermDebt有": 140,
+  "LongTermDebt缺": 110,
+  "EBIT有": 177,
+  "EBIT缺": 73
+ },
+ "LongTermDebt缺的三分类计数": {
+  "乙": 55,
+  "丙": 43,
+  "丁": 11,
+  "甲": 1
+ },
+ "LongTermDebt缺的逐只": [
+  {
+   "票": "AAL",
+   "类": "乙",
+   "SIC": "4512",
+   "SIC说明": "AIR TRANSPORTATION, SCHEDULED",
+   "NCL占总资产": 0.667273,
+   "LongTermDebtCurrent记录": 62,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 62 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 62141000000.0,
+    "StockholdersEquity": -3962000000.0,
+    "CurrentLiabilities": 24638000000.0,
+    "NCL": 41465000000.0
+   }
+  },
+  {
+   "票": "ABMD",
+   "类": "乙",
+   "SIC": "3841",
+   "SIC说明": "SURGICAL & MEDICAL INSTRUMENTS & APPARATUS",
+   "NCL占总资产": 0.013378,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0134 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2022-09-30",
+    "TotalAssets": 1696544000.0,
+    "StockholdersEquity": 1539787000.0,
+    "CurrentLiabilities": 134060000.0,
+    "NCL": 22697000.0
+   }
+  },
+  {
+   "票": "ACOR",
+   "类": "乙",
+   "SIC": "2836",
+   "SIC说明": "BIOLOGICAL PRODUCTS (NO DIAGNOSTIC SUBSTANCES)",
+   "NCL占总资产": 0.532148,
+   "LongTermDebtCurrent记录": 5,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 5 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2024-03-31",
+    "TotalAssets": 81575000.0,
+    "StockholdersEquity": -185771000.0,
+    "CurrentLiabilities": 223936000.0,
+    "NCL": 43410000.0
+   }
+  },
+  {
+   "票": "AGNC",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "AIG",
+   "类": "丙",
+   "SIC": "6331",
+   "SIC说明": "FIRE, MARINE & CASUALTY INSURANCE",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 12,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6331 FIRE, MARINE & CASUALTY INSURANCE —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "ALNY",
+   "类": "乙",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "NCL占总资产": 0.631184,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.6312 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 4851662000.0,
+    "StockholdersEquity": 233894000.0,
+    "CurrentLiabilities": 1555477000.0,
+    "NCL": 3062291000.0
+   }
+  },
+  {
+   "票": "ATR",
+   "类": "乙",
+   "SIC": "3089",
+   "SIC说明": "PLASTICS PRODUCTS, NEC",
+   "NCL占总资产": 0.1631,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 88,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.1631 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 88 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 5100848000.0,
+    "StockholdersEquity": 2769708000.0,
+    "CurrentLiabilities": 1499193000.0,
+    "NCL": 831947000.0
+   }
+  },
+  {
+   "票": "BBW",
+   "类": "乙",
+   "SIC": "5945",
+   "SIC说明": "RETAIL-HOBBY, TOY & GAME SHOPS",
+   "NCL占总资产": 0.282883,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 2,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.2829 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 2 条",
+   "NCL明细": {
+    "期末": "2025-11-01",
+    "TotalAssets": 326499000.0,
+    "StockholdersEquity": 150617000.0,
+    "CurrentLiabilities": 83521000.0,
+    "NCL": 92361000.0
+   }
+  },
+  {
+   "票": "BDN",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "BHE",
+   "类": "乙",
+   "SIC": "3672",
+   "SIC说明": "PRINTED CIRCUIT BOARDS",
+   "NCL占总资产": 0.164054,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.1641 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 2067349000.0,
+    "StockholdersEquity": 1109260000.0,
+    "CurrentLiabilities": 618933000.0,
+    "NCL": 339156000.0
+   }
+  },
+  {
+   "票": "BIIB",
+   "类": "乙",
+   "SIC": "2836",
+   "SIC说明": "BIOLOGICAL PRODUCTS (NO DIAGNOSTIC SUBSTANCES)",
+   "NCL占总资产": 0.320773,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 42,
+   "理由": "乙-2:NCL/TA = 0.3208 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 DebtCurrent 42 条",
+   "NCL明细": {
+    "期末": "2023-12-31",
+    "TotalAssets": 26844800000.0,
+    "StockholdersEquity": 14799400000.0,
+    "CurrentLiabilities": 3434300000.0,
+    "NCL": 8611100000.0
+   }
+  },
+  {
+   "票": "BNED",
+   "类": "乙",
+   "SIC": "5940",
+   "SIC说明": "RETAIL-MISCELLANEOUS SHOPPING GOODS STORES",
+   "NCL占总资产": 0.302261,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 89,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.3023 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 89 条",
+   "NCL明细": {
+    "期末": "2025-05-03",
+    "TotalAssets": 790285000.0,
+    "StockholdersEquity": 272188000.0,
+    "CurrentLiabilities": 279225000.0,
+    "NCL": 238872000.0
+   }
+  },
+  {
+   "票": "BZH",
+   "类": "丁",
+   "SIC": "1531",
+   "SIC说明": "OPERATIVE BUILDERS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "CAH",
+   "类": "乙",
+   "SIC": "5122",
+   "SIC说明": "WHOLESALE-DRUGS PROPRIETARIES & DRUGGISTS' SUNDRIES",
+   "NCL占总资产": 0.323006,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.3230 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 55228000000.0,
+    "StockholdersEquity": -2879000000.0,
+    "CurrentLiabilities": 40268000000.0,
+    "NCL": 17839000000.0
+   }
+  },
+  {
+   "票": "CAL",
+   "类": "乙",
+   "SIC": "3140",
+   "SIC说明": "FOOTWEAR, (NO RUBBER)",
+   "NCL占总资产": 0.25874,
+   "LongTermDebtCurrent记录": 16,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 16 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-11-01",
+    "TotalAssets": 2078922000.0,
+    "StockholdersEquity": 616751000.0,
+    "CurrentLiabilities": 924270000.0,
+    "NCL": 537901000.0
+   }
+  },
+  {
+   "票": "CBSH",
+   "类": "丙",
+   "SIC": "6022",
+   "SIC说明": "STATE COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6022 STATE COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "CDNS",
+   "类": "乙",
+   "SIC": "7372",
+   "SIC说明": "SERVICES-PREPACKAGED SOFTWARE",
+   "NCL占总资产": 0.311869,
+   "LongTermDebtCurrent记录": 4,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 4 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 9599271000.0,
+    "StockholdersEquity": 5199002000.0,
+    "CurrentLiabilities": 1406557000.0,
+    "NCL": 2993712000.0
+   }
+  },
+  {
+   "票": "CDP",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "CFFI",
+   "类": "丙",
+   "SIC": "6022",
+   "SIC说明": "STATE COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 86,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6022 STATE COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "CME",
+   "类": "丙",
+   "SIC": "6200",
+   "SIC说明": "SECURITY & COMMODITY BROKERS, DEALERS, EXCHANGES & SERVICES",
+   "NCL占总资产": 0.050053,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 46,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6200 SECURITY & COMMODITY BROKERS, DEALERS, EXCHANGES & SERVICES —— 金融业,方法不适用",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 187144600000.0,
+    "StockholdersEquity": 28190300000.0,
+    "CurrentLiabilities": 149587200000.0,
+    "NCL": 9367100000.0
+   }
+  },
+  {
+   "票": "CMTV",
+   "类": "丙",
+   "SIC": "6021",
+   "SIC说明": "NATIONAL COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6021 NATIONAL COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "COF",
+   "类": "丙",
+   "SIC": "6021",
+   "SIC说明": "NATIONAL COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 88,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6021 NATIONAL COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "COLM",
+   "类": "乙",
+   "SIC": "2300",
+   "SIC说明": "APPAREL & OTHER FINISHED PRODS OF FABRICS & SIMILAR MATERIAL",
+   "NCL占总资产": 0.171035,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 6,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.1710 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 6 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 2712547000.0,
+    "StockholdersEquity": 1655931000.0,
+    "CurrentLiabilities": 592676000.0,
+    "NCL": 463940000.0
+   }
+  },
+  {
+   "票": "CTS",
+   "类": "乙",
+   "SIC": "3672",
+   "SIC说明": "PRINTED CIRCUIT BOARDS",
+   "NCL占总资产": 0.174534,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.1745 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 790371000.0,
+    "StockholdersEquity": 547654000.0,
+    "CurrentLiabilities": 104770000.0,
+    "NCL": 137947000.0
+   }
+  },
+  {
+   "票": "CYRX",
+   "类": "乙",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "NCL占总资产": 0.29743,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.2974 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 774328000.0,
+    "StockholdersEquity": 513271000.0,
+    "CurrentLiabilities": 30749000.0,
+    "NCL": 230308000.0
+   }
+  },
+  {
+   "票": "DFS",
+   "类": "丙",
+   "SIC": "6141",
+   "SIC说明": "PERSONAL CREDIT INSTITUTIONS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 4,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6141 PERSONAL CREDIT INSTITUTIONS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "DHIL",
+   "类": "丙",
+   "SIC": "6282",
+   "SIC说明": "INVESTMENT ADVICE",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6282 INVESTMENT ADVICE —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "DX",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "EAT",
+   "类": "乙",
+   "SIC": "5812",
+   "SIC说明": "RETAIL-EATING PLACES",
+   "NCL占总资产": 0.646055,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.6461 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-24",
+    "TotalAssets": 2712000000.0,
+    "StockholdersEquity": 343900000.0,
+    "CurrentLiabilities": 616000000.0,
+    "NCL": 1752100000.0
+   }
+  },
+  {
+   "票": "ECL",
+   "类": "乙",
+   "SIC": "2840",
+   "SIC说明": "SOAP, DETERGENT, CLEANING PREPARATIONS, PERFUMES, COSMETICS",
+   "NCL占总资产": 0.41805,
+   "LongTermDebtCurrent记录": 2,
+   "ShortTermBorrowings记录": 2,
+   "DebtCurrent记录": 90,
+   "理由": "乙-1:有 LongTermDebtCurrent 2 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 23897600000.0,
+    "StockholdersEquity": 9719000000.0,
+    "CurrentLiabilities": 4188200000.0,
+    "NCL": 9990400000.0
+   }
+  },
+  {
+   "票": "EME",
+   "类": "乙",
+   "SIC": "1731",
+   "SIC说明": "ELECTRICAL WORK",
+   "NCL占总资产": 0.083958,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0840 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 8640270000.0,
+    "StockholdersEquity": 3335398000.0,
+    "CurrentLiabilities": 4579449000.0,
+    "NCL": 725423000.0
+   }
+  },
+  {
+   "票": "ENTA",
+   "类": "乙",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "NCL占总资产": 0.596512,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.5965 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 280732000.0,
+    "StockholdersEquity": 64717000.0,
+    "CurrentLiabilities": 48555000.0,
+    "NCL": 167460000.0
+   }
+  },
+  {
+   "票": "EQIX",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": 0.547399,
+   "LongTermDebtCurrent记录": 4,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 38060000000.0,
+    "StockholdersEquity": 14157000000.0,
+    "CurrentLiabilities": 3069000000.0,
+    "NCL": 20834000000.0
+   }
+  },
+  {
+   "票": "EQS",
+   "类": "丁",
+   "SIC": null,
+   "SIC说明": null,
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "ESS",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "FF",
+   "类": "乙",
+   "SIC": "2860",
+   "SIC说明": "INDUSTRIAL ORGANIC CHEMICALS",
+   "NCL占总资产": 0.044464,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0445 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 203492000.0,
+    "StockholdersEquity": 169123000.0,
+    "CurrentLiabilities": 25321000.0,
+    "NCL": 9048000.0
+   }
+  },
+  {
+   "票": "FRC",
+   "类": "丁",
+   "SIC": null,
+   "SIC说明": null,
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:quarter_frame 为空",
+   "NCL明细": {
+    "错": "quarter_frame 为空"
+   }
+  },
+  {
+   "票": "GM",
+   "类": "乙",
+   "SIC": "3711",
+   "SIC说明": "MOTOR VEHICLES & PASSENGER CAR BODIES",
+   "NCL占总资产": 0.445917,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.4459 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 288168000000.0,
+    "StockholdersEquity": 66374000000.0,
+    "CurrentLiabilities": 93295000000.0,
+    "NCL": 128499000000.0
+   }
+  },
+  {
+   "票": "GNTX",
+   "类": "乙",
+   "SIC": "3714",
+   "SIC说明": "MOTOR VEHICLE PARTS & ACCESSORIES",
+   "NCL占总资产": 0.016702,
+   "LongTermDebtCurrent记录": 21,
+   "ShortTermBorrowings记录": 10,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 21 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 2938754652.0,
+    "StockholdersEquity": 2495214826.0,
+    "CurrentLiabilities": 394456229.0,
+    "NCL": 49083597.0
+   }
+  },
+  {
+   "票": "GT",
+   "类": "乙",
+   "SIC": "3011",
+   "SIC说明": "TIRES AND INNER TUBES",
+   "NCL占总资产": 0.499802,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 88,
+   "DebtCurrent记录": 88,
+   "理由": "乙-2:NCL/TA = 0.4998 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 88 条;另有 DebtCurrent 88 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 20222000000.0,
+    "StockholdersEquity": 3005000000.0,
+    "CurrentLiabilities": 7110000000.0,
+    "NCL": 10107000000.0
+   }
+  },
+  {
+   "票": "HAPN",
+   "类": "丙",
+   "SIC": "6141",
+   "SIC说明": "PERSONAL CREDIT INSTITUTIONS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 16,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6141 PERSONAL CREDIT INSTITUTIONS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "HHH",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "HLT",
+   "类": "乙",
+   "SIC": "7011",
+   "SIC说明": "HOTELS & MOTELS",
+   "NCL占总资产": 1.014062,
+   "LongTermDebtCurrent记录": 6,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 6 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 16641000000.0,
+    "StockholdersEquity": -4932000000.0,
+    "CurrentLiabilities": 4698000000.0,
+    "NCL": 16875000000.0
+   }
+  },
+  {
+   "票": "HOMB",
+   "类": "丙",
+   "SIC": "6022",
+   "SIC说明": "STATE COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 4,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6022 STATE COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "HSIC",
+   "类": "乙",
+   "SIC": "5047",
+   "SIC说明": "WHOLESALE-MEDICAL, DENTAL & HOSPITAL EQUIPMENT & SUPPLIES",
+   "NCL占总资产": 0.413355,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 58,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.4134 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 58 条",
+   "NCL明细": {
+    "期末": "2025-09-27",
+    "TotalAssets": 11097000000.0,
+    "StockholdersEquity": 3361000000.0,
+    "CurrentLiabilities": 3149000000.0,
+    "NCL": 4587000000.0
+   }
+  },
+  {
+   "票": "HST",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "HUBS",
+   "类": "乙",
+   "SIC": "7372",
+   "SIC说明": "SERVICES-PREPACKAGED SOFTWARE",
+   "NCL占总资产": 0.094374,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0944 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 3502358000.0,
+    "StockholdersEquity": 1855842000.0,
+    "CurrentLiabilities": 1315983000.0,
+    "NCL": 330533000.0
+   }
+  },
+  {
+   "票": "INN",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "JBLU",
+   "类": "乙",
+   "SIC": "4512",
+   "SIC说明": "AIR TRANSPORTATION, SCHEDULED",
+   "NCL占总资产": 0.611108,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 4,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.6111 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 4 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 16601000000.0,
+    "StockholdersEquity": 2270000000.0,
+    "CurrentLiabilities": 4186000000.0,
+    "NCL": 10145000000.0
+   }
+  },
+  {
+   "票": "JLL",
+   "类": "丙",
+   "SIC": "6531",
+   "SIC说明": "REAL ESTATE AGENTS & MANAGERS (FOR OTHERS)",
+   "NCL占总资产": 0.177423,
+   "LongTermDebtCurrent记录": 12,
+   "ShortTermBorrowings记录": 66,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6531 REAL ESTATE AGENTS & MANAGERS (FOR OTHERS) —— 金融业,方法不适用",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 17178700000.0,
+    "StockholdersEquity": 7175300000.0,
+    "CurrentLiabilities": 6955500000.0,
+    "NCL": 3047900000.0
+   }
+  },
+  {
+   "票": "KEY",
+   "类": "丙",
+   "SIC": "6021",
+   "SIC说明": "NATIONAL COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6021 NATIONAL COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "KHC",
+   "类": "乙",
+   "SIC": "2030",
+   "SIC说明": "CANNED, FROZEN & PRESERVED FRUIT, VEG & FOOD SPECIALTIES",
+   "NCL占总资产": 0.384136,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 80,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.3841 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 80 条",
+   "NCL明细": {
+    "期末": "2025-09-27",
+    "TotalAssets": 81695000000.0,
+    "StockholdersEquity": 41450000000.0,
+    "CurrentLiabilities": 8863000000.0,
+    "NCL": 31382000000.0
+   }
+  },
+  {
+   "票": "KSU",
+   "类": "乙",
+   "SIC": "4011",
+   "SIC说明": "RAILROADS, LINE-HAUL OPERATING",
+   "NCL占总资产": 0.461058,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 28,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.4611 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 28 条",
+   "NCL明细": {
+    "期末": "2022-12-31",
+    "TotalAssets": 10677400000.0,
+    "StockholdersEquity": 4463800000.0,
+    "CurrentLiabilities": 1290700000.0,
+    "NCL": 4922900000.0
+   }
+  },
+  {
+   "票": "LII",
+   "类": "乙",
+   "SIC": "3585",
+   "SIC说明": "AIR COND & WARM AIR HEATING EQUIP & COMM & INDL REFRIG EQUIP",
+   "NCL占总资产": 0.375844,
+   "LongTermDebtCurrent记录": 20,
+   "ShortTermBorrowings记录": 30,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 20 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 3524600000.0,
+    "StockholdersEquity": 1070100000.0,
+    "CurrentLiabilities": 1129800000.0,
+    "NCL": 1324700000.0
+   }
+  },
+  {
+   "票": "LIXT",
+   "类": "甲",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "NCL占总资产": 0.0,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "NCL/TA = 0.0000 ≤ 0 —— 恒等式口径下确实没有非当期负债",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 5433676.0,
+    "StockholdersEquity": 4912254.0,
+    "CurrentLiabilities": 521422.0,
+    "NCL": 0.0
+   }
+  },
+  {
+   "票": "LUV",
+   "类": "乙",
+   "SIC": "4512",
+   "SIC说明": "AIR TRANSPORTATION, SCHEDULED",
+   "NCL占总资产": 0.33703,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.3370 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 28312000000.0,
+    "StockholdersEquity": 7776000000.0,
+    "CurrentLiabilities": 10994000000.0,
+    "NCL": 9542000000.0
+   }
+  },
+  {
+   "票": "MAIN",
+   "类": "丁",
+   "SIC": null,
+   "SIC说明": null,
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "MET",
+   "类": "丙",
+   "SIC": "6311",
+   "SIC说明": "LIFE INSURANCE",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 91,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6311 LIFE INSURANCE —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "MPWR",
+   "类": "乙",
+   "SIC": "3674",
+   "SIC说明": "SEMICONDUCTORS & RELATED DEVICES",
+   "NCL占总资产": 0.04651,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0465 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 4206392000.0,
+    "StockholdersEquity": 3567947000.0,
+    "CurrentLiabilities": 442804000.0,
+    "NCL": 195641000.0
+   }
+  },
+  {
+   "票": "MRCY",
+   "类": "乙",
+   "SIC": "3670",
+   "SIC说明": "ELECTRONIC COMPONENTS & ACCESSORIES",
+   "NCL占总资产": 0.268718,
+   "LongTermDebtCurrent记录": 10,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 10 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-26",
+    "TotalAssets": 2457592000.0,
+    "StockholdersEquity": 1475009000.0,
+    "CurrentLiabilities": 322183000.0,
+    "NCL": 660400000.0
+   }
+  },
+  {
+   "票": "MTR",
+   "类": "丙",
+   "SIC": "6792",
+   "SIC说明": "OIL ROYALTY TRADERS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6792 OIL ROYALTY TRADERS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "quarter_frame 为空"
+   }
+  },
+  {
+   "票": "NI",
+   "类": "乙",
+   "SIC": "4931",
+   "SIC说明": "ELECTRIC & OTHER SERVICES COMBINED",
+   "NCL占总资产": 0.632252,
+   "LongTermDebtCurrent记录": 4,
+   "ShortTermBorrowings记录": 90,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 4 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 34402900000.0,
+    "StockholdersEquity": 9118200000.0,
+    "CurrentLiabilities": 3533400000.0,
+    "NCL": 21751300000.0
+   }
+  },
+  {
+   "票": "NSC",
+   "类": "乙",
+   "SIC": "4011",
+   "SIC说明": "RAILROADS, LINE-HAUL OPERATING",
+   "NCL占总资产": 0.581314,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 46,
+   "DebtCurrent记录": 8,
+   "理由": "乙-2:NCL/TA = 0.5813 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 46 条;另有 DebtCurrent 8 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 44580000000.0,
+    "StockholdersEquity": 15141000000.0,
+    "CurrentLiabilities": 3524000000.0,
+    "NCL": 25915000000.0
+   }
+  },
+  {
+   "票": "NUAN",
+   "类": "乙",
+   "SIC": "7372",
+   "SIC说明": "SERVICES-PREPACKAGED SOFTWARE",
+   "NCL占总资产": 0.243122,
+   "LongTermDebtCurrent记录": 54,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 54 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2021-09-30",
+    "TotalAssets": 3386653000.0,
+    "StockholdersEquity": 1634934000.0,
+    "CurrentLiabilities": 928349000.0,
+    "NCL": 823370000.0
+   }
+  },
+  {
+   "票": "ODP",
+   "类": "乙",
+   "SIC": "5940",
+   "SIC说明": "RETAIL-MISCELLANEOUS SHOPPING GOODS STORES",
+   "NCL占总资产": 0.283318,
+   "LongTermDebtCurrent记录": 5,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 82,
+   "理由": "乙-1:有 LongTermDebtCurrent 5 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-27",
+    "TotalAssets": 3279000000.0,
+    "StockholdersEquity": 823000000.0,
+    "CurrentLiabilities": 1527000000.0,
+    "NCL": 929000000.0
+   }
+  },
+  {
+   "票": "OFLX",
+   "类": "乙",
+   "SIC": "3430",
+   "SIC说明": "HEATING EQUIP, EXCEPT ELEC & WARM AIR & PLUMBING FIXTURES",
+   "NCL占总资产": 0.048986,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0490 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 103846000.0,
+    "StockholdersEquity": 84200000.0,
+    "CurrentLiabilities": 14559000.0,
+    "NCL": 5087000.0
+   }
+  },
+  {
+   "票": "OMC",
+   "类": "乙",
+   "SIC": "7311",
+   "SIC说明": "SERVICES-ADVERTISING AGENCIES",
+   "NCL占总资产": 0.269836,
+   "LongTermDebtCurrent记录": 26,
+   "ShortTermBorrowings记录": 91,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 26 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 28838600000.0,
+    "StockholdersEquity": 4613300000.0,
+    "CurrentLiabilities": 16443600000.0,
+    "NCL": 7781700000.0
+   }
+  },
+  {
+   "票": "ORI",
+   "类": "丙",
+   "SIC": "6351",
+   "SIC说明": "SURETY INSURANCE",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6351 SURETY INSURANCE —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "PAA",
+   "类": "丁",
+   "SIC": "4610",
+   "SIC说明": "PIPE LINES (NO NATURAL GAS)",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 88,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "PCAR",
+   "类": "丁",
+   "SIC": "3711",
+   "SIC说明": "MOTOR VEHICLES & PASSENGER CAR BODIES",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "PEB",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "PFPT",
+   "类": "乙",
+   "SIC": "7374",
+   "SIC说明": "SERVICES-COMPUTER PROCESSING & DATA PREPARATION",
+   "NCL占总资产": 0.528777,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.5288 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2021-06-30",
+    "TotalAssets": 2511745000.0,
+    "StockholdersEquity": 284406000.0,
+    "CurrentLiabilities": 899185000.0,
+    "NCL": 1328154000.0
+   }
+  },
+  {
+   "票": "PGR",
+   "类": "丙",
+   "SIC": "6331",
+   "SIC说明": "FIRE, MARINE & CASUALTY INSURANCE",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 50,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6331 FIRE, MARINE & CASUALTY INSURANCE —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "PKBK",
+   "类": "丙",
+   "SIC": "6022",
+   "SIC说明": "STATE COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6022 STATE COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "PLD",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "PROP",
+   "类": "乙",
+   "SIC": "1311",
+   "SIC说明": "CRUDE PETROLEUM & NATURAL GAS",
+   "NCL占总资产": 0.737338,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 2,
+   "DebtCurrent记录": 2,
+   "理由": "乙-2:NCL/TA = 0.7373 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 2 条;另有 DebtCurrent 2 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 939788000.0,
+    "StockholdersEquity": 101837000.0,
+    "CurrentLiabilities": 145010000.0,
+    "NCL": 692941000.0
+   }
+  },
+  {
+   "票": "RDIB",
+   "类": "乙",
+   "SIC": "7830",
+   "SIC说明": "SERVICES-MOTION PICTURE THEATERS",
+   "NCL占总资产": 0.771523,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 17,
+   "理由": "乙-2:NCL/TA = 0.7715 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 DebtCurrent 17 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 435186000.0,
+    "StockholdersEquity": -12062000.0,
+    "CurrentLiabilities": 111492000.0,
+    "NCL": 335756000.0
+   }
+  },
+  {
+   "票": "RITM",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "RPM",
+   "类": "乙",
+   "SIC": "2851",
+   "SIC说明": "PAINTS, VARNISHES, LACQUERS, ENAMELS & ALLIED PRODUCTS",
+   "NCL占总资产": 0.43734,
+   "LongTermDebtCurrent记录": 92,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 92 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-08-31",
+    "TotalAssets": 7944545000.0,
+    "StockholdersEquity": 3055198000.0,
+    "CurrentLiabilities": 1414876000.0,
+    "NCL": 3474471000.0
+   }
+  },
+  {
+   "票": "SIVB",
+   "类": "丙",
+   "SIC": "6022",
+   "SIC说明": "STATE COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 56,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6022 STATE COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "SPG",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "SRCE",
+   "类": "丙",
+   "SIC": "6022",
+   "SIC说明": "STATE COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 90,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6022 STATE COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "STBA",
+   "类": "丙",
+   "SIC": "6022",
+   "SIC说明": "STATE COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 63,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6022 STATE COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "STRS",
+   "类": "丙",
+   "SIC": "6552",
+   "SIC说明": "LAND SUBDIVIDERS & DEVELOPERS (NO CEMETERIES)",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6552 LAND SUBDIVIDERS & DEVELOPERS (NO CEMETERIES) —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "STWD",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "SVC",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "TFC",
+   "类": "丙",
+   "SIC": "6021",
+   "SIC说明": "NATIONAL COMMERCIAL BANKS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 92,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6021 NATIONAL COMMERCIAL BANKS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "TMHC",
+   "类": "丁",
+   "SIC": "1531",
+   "SIC说明": "OPERATIVE BUILDERS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "TRNO",
+   "类": "丙",
+   "SIC": "6500",
+   "SIC说明": "REAL ESTATE",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6500 REAL ESTATE —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "TROW",
+   "类": "丙",
+   "SIC": "6282",
+   "SIC说明": "INVESTMENT ADVICE",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6282 INVESTMENT ADVICE —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "TRUE",
+   "类": "乙",
+   "SIC": "7370",
+   "SIC说明": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+   "NCL占总资产": 0.044005,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0440 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 148687000.0,
+    "StockholdersEquity": 114181000.0,
+    "CurrentLiabilities": 27963000.0,
+    "NCL": 6543000.0
+   }
+  },
+  {
+   "票": "TSLA",
+   "类": "乙",
+   "SIC": "3711",
+   "SIC说明": "MOTOR VEHICLES & PASSENGER CAR BODIES",
+   "NCL占总资产": 0.168056,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 79,
+   "理由": "乙-2:NCL/TA = 0.1681 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 DebtCurrent 79 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 133735000000.0,
+    "StockholdersEquity": 79970000000.0,
+    "CurrentLiabilities": 31290000000.0,
+    "NCL": 22475000000.0
+   }
+  },
+  {
+   "票": "TUP",
+   "类": "乙",
+   "SIC": "3089",
+   "SIC说明": "PLASTICS PRODUCTS, NEC",
+   "NCL占总资产": 0.236203,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 15,
+   "DebtCurrent记录": 68,
+   "理由": "乙-2:NCL/TA = 0.2362 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 ShortTermBorrowings 15 条;另有 DebtCurrent 68 条",
+   "NCL明细": {
+    "期末": "2023-09-30",
+    "TotalAssets": 679500000.0,
+    "StockholdersEquity": -524400000.0,
+    "CurrentLiabilities": 1043400000.0,
+    "NCL": 160500000.0
+   }
+  },
+  {
+   "票": "TXT",
+   "类": "丁",
+   "SIC": "3720",
+   "SIC说明": "AIRCRAFT & PARTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "UFI",
+   "类": "乙",
+   "SIC": "2200",
+   "SIC说明": "TEXTILE MILL PRODUCTS",
+   "NCL占总资产": 0.210374,
+   "LongTermDebtCurrent记录": 30,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 30 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2019-06-30",
+    "TotalAssets": 592151000.0,
+    "StockholdersEquity": 392845000.0,
+    "CurrentLiabilities": 74733000.0,
+    "NCL": 124573000.0
+   }
+  },
+  {
+   "票": "UHAL",
+   "类": "丁",
+   "SIC": "7510",
+   "SIC说明": "SERVICES-AUTO RENTAL & LEASING (NO DRIVERS)",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "UNP",
+   "类": "乙",
+   "SIC": "4011",
+   "SIC说明": "RAILROADS, LINE-HAUL OPERATING",
+   "NCL占总资产": 0.671887,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.6719 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 68647000000.0,
+    "StockholdersEquity": 17304000000.0,
+    "CurrentLiabilities": 5220000000.0,
+    "NCL": 46123000000.0
+   }
+  },
+  {
+   "票": "URI",
+   "类": "乙",
+   "SIC": "7359",
+   "SIC说明": "SERVICES-EQUIPMENT RENTAL & LEASING, NEC",
+   "NCL占总资产": 0.560585,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 88,
+   "理由": "乙-2:NCL/TA = 0.5606 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内;另有 DebtCurrent 88 条",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 30065000000.0,
+    "StockholdersEquity": 9000000000.0,
+    "CurrentLiabilities": 4211000000.0,
+    "NCL": 16854000000.0
+   }
+  },
+  {
+   "票": "USNA",
+   "类": "乙",
+   "SIC": "2833",
+   "SIC说明": "MEDICINAL CHEMICALS & BOTANICAL PRODUCTS",
+   "NCL占总资产": 0.109901,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.1099 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-27",
+    "TotalAssets": 726591000.0,
+    "StockholdersEquity": 528074000.0,
+    "CurrentLiabilities": 118664000.0,
+    "NCL": 79853000.0
+   }
+  },
+  {
+   "票": "UTMD",
+   "类": "丁",
+   "SIC": "3841",
+   "SIC说明": "SURGICAL & MEDICAL INSTRUMENTS & APPARATUS",
+   "NCL占总资产": 0.005837,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "NCL/TA = 0.0058 介于 0 和 p1 之间 —— 本地证据不足",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 121975000.0,
+    "StockholdersEquity": 118252000.0,
+    "CurrentLiabilities": 3011000.0,
+    "NCL": 712000.0
+   }
+  },
+  {
+   "票": "VHI",
+   "类": "乙",
+   "SIC": "2810",
+   "SIC说明": "INDUSTRIAL INORGANIC CHEMICALS",
+   "NCL占总资产": 0.478403,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.4784 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 2715700000.0,
+    "StockholdersEquity": 1047500000.0,
+    "CurrentLiabilities": 369000000.0,
+    "NCL": 1299200000.0
+   }
+  },
+  {
+   "票": "VIRT",
+   "类": "丙",
+   "SIC": "6211",
+   "SIC说明": "SECURITY BROKERS, DEALERS & FLOTATION COMPANIES",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 47,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6211 SECURITY BROKERS, DEALERS & FLOTATION COMPANIES —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "VMRK",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "VNDA",
+   "类": "乙",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "NCL占总资产": 0.02873,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "乙-2:NCL/TA = 0.0287 ≥ p1(0.0086),落在有 LongTermDebt 那 140 只的同一区间内",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 601140000.0,
+    "StockholdersEquity": 465999000.0,
+    "CurrentLiabilities": 117870000.0,
+    "NCL": 17271000.0
+   }
+  },
+  {
+   "票": "WKC",
+   "类": "乙",
+   "SIC": "5172",
+   "SIC说明": "WHOLESALE-PETROLEUM & PETROLEUM PRODUCTS (NO BULK STATIONS)",
+   "NCL占总资产": 0.212709,
+   "LongTermDebtCurrent记录": 1,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 24,
+   "理由": "乙-1:有 LongTermDebtCurrent 1 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 6060400000.0,
+    "StockholdersEquity": 1617900000.0,
+    "CurrentLiabilities": 3153400000.0,
+    "NCL": 1289100000.0
+   }
+  },
+  {
+   "票": "WLKP",
+   "类": "丁",
+   "SIC": "2860",
+   "SIC说明": "INDUSTRIAL ORGANIC CHEMICALS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "本地算不出 NCL:TA/EQ/CL 三项没有同时有值的季度",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "WPG",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "WSR",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "NCL占总资产": null,
+   "LongTermDebtCurrent记录": 0,
+   "ShortTermBorrowings记录": 0,
+   "DebtCurrent记录": 0,
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用",
+   "NCL明细": {
+    "错": "TA/EQ/CL 三项没有同时有值的季度"
+   }
+  },
+  {
+   "票": "XPRO",
+   "类": "乙",
+   "SIC": "1389",
+   "SIC说明": "OIL, GAS FIELD SERVICES, NBC",
+   "NCL占总资产": 0.140381,
+   "LongTermDebtCurrent记录": 11,
+   "ShortTermBorrowings记录": 20,
+   "DebtCurrent记录": 0,
+   "理由": "乙-1:有 LongTermDebtCurrent 11 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 2305180000.0,
+    "StockholdersEquity": 1517097000.0,
+    "CurrentLiabilities": 464479000.0,
+    "NCL": 323604000.0
+   }
+  },
+  {
+   "票": "YUM",
+   "类": "乙",
+   "SIC": "5812",
+   "SIC说明": "RETAIL-EATING PLACES",
+   "NCL占总资产": 1.862505,
+   "LongTermDebtCurrent记录": 73,
+   "ShortTermBorrowings记录": 88,
+   "DebtCurrent记录": 10,
+   "理由": "乙-1:有 LongTermDebtCurrent 73 条 —— 长期债务的当期到期部分存在,非当期部分必然也存在",
+   "NCL明细": {
+    "期末": "2025-09-30",
+    "TotalAssets": 7193000000.0,
+    "StockholdersEquity": -7505000000.0,
+    "CurrentLiabilities": 1301000000.0,
+    "NCL": 13397000000.0
+   }
+  }
+ ],
+ "EBIT缺的三分类计数": {
+  "乙": 30,
+  "丙": 20,
+  "丁": 23
+ },
+ "EBIT缺的逐只": [
+  {
+   "票": "ABMD",
+   "类": "乙",
+   "SIC": "3841",
+   "SIC说明": "SURGICAL & MEDICAL INSTRUMENTS & APPARATUS",
+   "IncomeBeforeTax记录": 135,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "AGNC",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 1,
+   "InterestExpense记录": 156,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {
+     "inputs_not_strict_pit": 1
+    }
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "ALXN",
+   "类": "丁",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 73,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "AP",
+   "类": "乙",
+   "SIC": "3561",
+   "SIC说明": "PUMPS & PUMPING EQUIPMENT",
+   "IncomeBeforeTax记录": 56,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "ATVI",
+   "类": "乙",
+   "SIC": "7372",
+   "SIC说明": "SERVICES-PREPACKAGED SOFTWARE",
+   "IncomeBeforeTax记录": 26,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "AVA",
+   "类": "丁",
+   "SIC": "4931",
+   "SIC说明": "ELECTRIC & OTHER SERVICES COMBINED",
+   "IncomeBeforeTax记录": 61,
+   "InterestExpense记录": 59,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "两项都有但 derived 0 条:{}"
+  },
+  {
+   "票": "BBW",
+   "类": "乙",
+   "SIC": "5945",
+   "SIC说明": "RETAIL-HOBBY, TOY & GAME SHOPS",
+   "IncomeBeforeTax记录": 147,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "BDN",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 113,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "BGS",
+   "类": "丁",
+   "SIC": "2000",
+   "SIC说明": "FOOD & KINDRED PRODUCTS",
+   "IncomeBeforeTax记录": 71,
+   "InterestExpense记录": 23,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "两项都有但 derived 0 条:{}"
+  },
+  {
+   "票": "BNED",
+   "类": "乙",
+   "SIC": "5940",
+   "SIC说明": "RETAIL-MISCELLANEOUS SHOPPING GOODS STORES",
+   "IncomeBeforeTax记录": 75,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "BWA",
+   "类": "乙",
+   "SIC": "3714",
+   "SIC说明": "MOTOR VEHICLE PARTS & ACCESSORIES",
+   "IncomeBeforeTax记录": 145,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "CAKE",
+   "类": "乙",
+   "SIC": "5812",
+   "SIC说明": "RETAIL-EATING PLACES",
+   "IncomeBeforeTax记录": 98,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "CAL",
+   "类": "丁",
+   "SIC": "3140",
+   "SIC说明": "FOOTWEAR, (NO RUBBER)",
+   "IncomeBeforeTax记录": 87,
+   "InterestExpense记录": 37,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "两项都有但 derived 0 条:{}"
+  },
+  {
+   "票": "CAT",
+   "类": "丁",
+   "SIC": "3531",
+   "SIC说明": "CONSTRUCTION MACHINERY & EQUIP",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "CDP",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 78,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "CHRW",
+   "类": "乙",
+   "SIC": "4731",
+   "SIC说明": "ARRANGEMENT OF TRANSPORTATION OF FREIGHT & CARGO",
+   "IncomeBeforeTax记录": 65,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "CLH",
+   "类": "乙",
+   "SIC": "4955",
+   "SIC说明": "HAZARDOUS WASTE MANAGEMENT",
+   "IncomeBeforeTax记录": 61,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "CLVS",
+   "类": "乙",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "IncomeBeforeTax记录": 145,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "CME",
+   "类": "丙",
+   "SIC": "6200",
+   "SIC说明": "SECURITY & COMMODITY BROKERS, DEALERS, EXCHANGES & SERVICES",
+   "IncomeBeforeTax记录": 189,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6200 SECURITY & COMMODITY BROKERS, DEALERS, EXCHANGES & SERVICES —— 金融业,方法不适用"
+  },
+  {
+   "票": "COLM",
+   "类": "乙",
+   "SIC": "2300",
+   "SIC说明": "APPAREL & OTHER FINISHED PRODS OF FABRICS & SIMILAR MATERIAL",
+   "IncomeBeforeTax记录": 65,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "CSOD",
+   "类": "丁",
+   "SIC": "7372",
+   "SIC说明": "SERVICES-PREPACKAGED SOFTWARE",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 76,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "CYH",
+   "类": "乙",
+   "SIC": "8062",
+   "SIC说明": "SERVICES-GENERAL MEDICAL & SURGICAL HOSPITALS, NEC",
+   "IncomeBeforeTax记录": 177,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "DHIL",
+   "类": "丙",
+   "SIC": "6282",
+   "SIC说明": "INVESTMENT ADVICE",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6282 INVESTMENT ADVICE —— 金融业,方法不适用"
+  },
+  {
+   "票": "DLTR",
+   "类": "乙",
+   "SIC": "5331",
+   "SIC说明": "RETAIL-VARIETY STORES",
+   "IncomeBeforeTax记录": 95,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "DVN",
+   "类": "丁",
+   "SIC": "1311",
+   "SIC说明": "CRUDE PETROLEUM & NATURAL GAS",
+   "IncomeBeforeTax记录": 58,
+   "InterestExpense记录": 5,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "两项都有但 derived 0 条:{}"
+  },
+  {
+   "票": "DX",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 147,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "EQS",
+   "类": "丁",
+   "SIC": null,
+   "SIC说明": null,
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 52,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "ESS",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 141,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "EXPR",
+   "类": "丁",
+   "SIC": "5600",
+   "SIC说明": "RETAIL-APPAREL & ACCESSORY STORES",
+   "IncomeBeforeTax记录": 32,
+   "InterestExpense记录": 36,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "两项都有但 derived 0 条:{}"
+  },
+  {
+   "票": "FRC",
+   "类": "丁",
+   "SIC": null,
+   "SIC说明": null,
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "GNCA",
+   "类": "丁",
+   "SIC": "2836",
+   "SIC说明": "BIOLOGICAL PRODUCTS (NO DIAGNOSTIC SUBSTANCES)",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 75,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "GNTX",
+   "类": "乙",
+   "SIC": "3714",
+   "SIC说明": "MOTOR VEHICLE PARTS & ACCESSORIES",
+   "IncomeBeforeTax记录": 65,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "GTT",
+   "类": "丁",
+   "SIC": "4813",
+   "SIC说明": "TELEPHONE COMMUNICATIONS (NO RADIO TELEPHONE)",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "HSIC",
+   "类": "丁",
+   "SIC": "5047",
+   "SIC说明": "WHOLESALE-MEDICAL, DENTAL & HOSPITAL EQUIPMENT & SUPPLIES",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 141,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "HSTM",
+   "类": "乙",
+   "SIC": "7370",
+   "SIC说明": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+   "IncomeBeforeTax记录": 140,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "INGR",
+   "类": "乙",
+   "SIC": "2040",
+   "SIC说明": "GRAIN MILL PRODUCTS",
+   "IncomeBeforeTax记录": 141,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "LIXT",
+   "类": "丁",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 60,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "LNC",
+   "类": "丙",
+   "SIC": "6311",
+   "SIC说明": "LIFE INSURANCE",
+   "IncomeBeforeTax记录": 79,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6311 LIFE INSURANCE —— 金融业,方法不适用"
+  },
+  {
+   "票": "MAIN",
+   "类": "丁",
+   "SIC": null,
+   "SIC说明": null,
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 22,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "MCD",
+   "类": "丁",
+   "SIC": "5812",
+   "SIC说明": "RETAIL-EATING PLACES",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 141,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "MET",
+   "类": "丙",
+   "SIC": "6311",
+   "SIC说明": "LIFE INSURANCE",
+   "IncomeBeforeTax记录": 144,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6311 LIFE INSURANCE —— 金融业,方法不适用"
+  },
+  {
+   "票": "MKC",
+   "类": "丁",
+   "SIC": "2090",
+   "SIC说明": "MISCELLANEOUS FOOD PREPARATIONS & KINDRED PRODUCTS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 145,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "MNST",
+   "类": "乙",
+   "SIC": "2086",
+   "SIC说明": "BOTTLED & CANNED SOFT DRINKS CARBONATED WATERS",
+   "IncomeBeforeTax记录": 125,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "MPWR",
+   "类": "乙",
+   "SIC": "3674",
+   "SIC说明": "SEMICONDUCTORS & RELATED DEVICES",
+   "IncomeBeforeTax记录": 182,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "MRO",
+   "类": "乙",
+   "SIC": "1311",
+   "SIC说明": "CRUDE PETROLEUM & NATURAL GAS",
+   "IncomeBeforeTax记录": 117,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "MTR",
+   "类": "丙",
+   "SIC": "6792",
+   "SIC说明": "OIL ROYALTY TRADERS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6792 OIL ROYALTY TRADERS —— 金融业,方法不适用"
+  },
+  {
+   "票": "MTX",
+   "类": "丁",
+   "SIC": "2810",
+   "SIC说明": "INDUSTRIAL INORGANIC CHEMICALS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 111,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "MZTI",
+   "类": "乙",
+   "SIC": "2030",
+   "SIC说明": "CANNED, FROZEN & PRESERVED FRUIT, VEG & FOOD SPECIALTIES",
+   "IncomeBeforeTax记录": 65,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "NI",
+   "类": "丁",
+   "SIC": "4931",
+   "SIC说明": "ELECTRIC & OTHER SERVICES COMBINED",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 143,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "OFLX",
+   "类": "乙",
+   "SIC": "3430",
+   "SIC说明": "HEATING EQUIP, EXCEPT ELEC & WARM AIR & PLUMBING FIXTURES",
+   "IncomeBeforeTax记录": 103,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "OMC",
+   "类": "丁",
+   "SIC": "7311",
+   "SIC说明": "SERVICES-ADVERTISING AGENCIES",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 145,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "ORI",
+   "类": "丙",
+   "SIC": "6351",
+   "SIC说明": "SURETY INSURANCE",
+   "IncomeBeforeTax记录": 50,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6351 SURETY INSURANCE —— 金融业,方法不适用"
+  },
+  {
+   "票": "PCAR",
+   "类": "乙",
+   "SIC": "3711",
+   "SIC说明": "MOTOR VEHICLES & PASSENGER CAR BODIES",
+   "IncomeBeforeTax记录": 140,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "PGR",
+   "类": "丙",
+   "SIC": "6331",
+   "SIC说明": "FIRE, MARINE & CASUALTY INSURANCE",
+   "IncomeBeforeTax记录": 65,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6331 FIRE, MARINE & CASUALTY INSURANCE —— 金融业,方法不适用"
+  },
+  {
+   "票": "ROG",
+   "类": "乙",
+   "SIC": "2821",
+   "SIC说明": "PLASTICS, MATERIALS, SYNTH RESINS & NONVULCAN ELASTOMERS",
+   "IncomeBeforeTax记录": 137,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "SBAC",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 141,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "SPG",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 168,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "SQBG",
+   "类": "丁",
+   "SIC": "2300",
+   "SIC说明": "APPAREL & OTHER FINISHED PRODS OF FABRICS & SIMILAR MATERIAL",
+   "IncomeBeforeTax记录": 8,
+   "InterestExpense记录": 16,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "两项都有但 derived 0 条:{}"
+  },
+  {
+   "票": "STRS",
+   "类": "丙",
+   "SIC": "6552",
+   "SIC说明": "LAND SUBDIVIDERS & DEVELOPERS (NO CEMETERIES)",
+   "IncomeBeforeTax记录": 14,
+   "InterestExpense记录": 38,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6552 LAND SUBDIVIDERS & DEVELOPERS (NO CEMETERIES) —— 金融业,方法不适用"
+  },
+  {
+   "票": "TMHC",
+   "类": "乙",
+   "SIC": "1531",
+   "SIC说明": "OPERATIVE BUILDERS",
+   "IncomeBeforeTax记录": 134,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "TRNO",
+   "类": "丙",
+   "SIC": "6500",
+   "SIC说明": "REAL ESTATE",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 141,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6500 REAL ESTATE —— 金融业,方法不适用"
+  },
+  {
+   "票": "TROW",
+   "类": "丙",
+   "SIC": "6282",
+   "SIC说明": "INVESTMENT ADVICE",
+   "IncomeBeforeTax记录": 141,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6282 INVESTMENT ADVICE —— 金融业,方法不适用"
+  },
+  {
+   "票": "TXN",
+   "类": "乙",
+   "SIC": "3674",
+   "SIC说明": "SEMICONDUCTORS & RELATED DEVICES",
+   "IncomeBeforeTax记录": 145,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "UAA",
+   "类": "丁",
+   "SIC": "2300",
+   "SIC说明": "APPAREL & OTHER FINISHED PRODS OF FABRICS & SIMILAR MATERIAL",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "连 IncomeBeforeTax 都没有 —— 本地证据不足"
+  },
+  {
+   "票": "URI",
+   "类": "乙",
+   "SIC": "7359",
+   "SIC说明": "SERVICES-EQUIPMENT RENTAL & LEASING, NEC",
+   "IncomeBeforeTax记录": 141,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "UTMD",
+   "类": "丁",
+   "SIC": "3841",
+   "SIC说明": "SURGICAL & MEDICAL INSTRUMENTS & APPARATUS",
+   "IncomeBeforeTax记录": 70,
+   "InterestExpense记录": 3,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "两项都有但 derived 0 条:{}"
+  },
+  {
+   "票": "VIRT",
+   "类": "丙",
+   "SIC": "6211",
+   "SIC说明": "SECURITY BROKERS, DEALERS & FLOTATION COMPANIES",
+   "IncomeBeforeTax记录": 133,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6211 SECURITY BROKERS, DEALERS & FLOTATION COMPANIES —— 金融业,方法不适用"
+  },
+  {
+   "票": "VMRK",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 1,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "VNDA",
+   "类": "乙",
+   "SIC": "2834",
+   "SIC说明": "PHARMACEUTICAL PREPARATIONS",
+   "IncomeBeforeTax记录": 65,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "WMT",
+   "类": "乙",
+   "SIC": "5331",
+   "SIC说明": "RETAIL-VARIETY STORES",
+   "IncomeBeforeTax记录": 91,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "WPG",
+   "类": "丙",
+   "SIC": "6798",
+   "SIC说明": "REAL ESTATE INVESTMENT TRUSTS",
+   "IncomeBeforeTax记录": 0,
+   "InterestExpense记录": 76,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "SIC 6798 REAL ESTATE INVESTMENT TRUSTS —— 金融业,方法不适用"
+  },
+  {
+   "票": "XPRO",
+   "类": "乙",
+   "SIC": "1389",
+   "SIC说明": "OIL, GAS FIELD SERVICES, NBC",
+   "IncomeBeforeTax记录": 139,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  },
+  {
+   "票": "YUM",
+   "类": "乙",
+   "SIC": "5812",
+   "SIC说明": "RETAIL-EATING PLACES",
+   "IncomeBeforeTax记录": 141,
+   "InterestExpense记录": 0,
+   "derived": {
+    "formula": "IncomeBeforeTax + InterestExpense",
+    "records_derived": 0,
+    "skipped_by_reason": {}
+   },
+   "理由": "乙:有 IncomeBeforeTax 但没有 InterestExpense —— ★ 公式 IncomeBeforeTax+InterestExpense 的第二项缺标签。★★ 无息负债公司的正确答案是 InterestExpense=0 → EBIT=IncomeBeforeTax,所以这一格要么是甲要么是乙,★ 本地分不开 —— 归乙(保守:算成我们的问题)"
+  }
+ ],
+ "门槛后池子": {
+  "只要 EBIT": {
+   "只数": 177,
+   "占比": 0.708,
+   "其中金融": 32,
+   "全池金融只数": 52,
+   "金融保留率": 0.6154,
+   "票": [
+    "AAL",
+    "ABT",
+    "ACIW",
+    "ACOR",
+    "AIG",
+    "AJG",
+    "ALNY",
+    "AMRS",
+    "AR",
+    "ATNI",
+    "ATR",
+    "AWI",
+    "BBWI",
+    "BDX",
+    "BHE",
+    "BIIB",
+    "BKH",
+    "BKNG",
+    "BZH",
+    "CAG",
+    "CAH",
+    "CASY",
+    "CBRE",
+    "CBSH",
+    "CDNS",
+    "CDZI",
+    "CERN",
+    "CFFI",
+    "CHD",
+    "CHEF",
+    "CIEN",
+    "CMP",
+    "CMTV",
+    "CNC",
+    "CNVS",
+    "COF",
+    "CPK",
+    "CSGP",
+    "CTAS",
+    "CTS",
+    "CTXS",
+    "CYRX",
+    "DFS",
+    "DHR",
+    "DIN",
+    "DIS",
+    "DK",
+    "DLTH",
+    "EAT",
+    "ECL",
+    "EIX",
+    "ELSE",
+    "ELV",
+    "EME",
+    "ENTA",
+    "ENVA",
+    "EOG",
+    "EPC",
+    "EPD",
+    "EQIX",
+    "ETR",
+    "EVC",
+    "EXAS",
+    "EXC",
+    "FAST",
+    "FF",
+    "FIS",
+    "FMC",
+    "FRPT",
+    "FTK",
+    "FWONA",
+    "GHC",
+    "GM",
+    "GNE",
+    "GRPN",
+    "GT",
+    "GWW",
+    "HAPN",
+    "HELE",
+    "HES",
+    "HHH",
+    "HLT",
+    "HLX",
+    "HNNA",
+    "HOMB",
+    "HST",
+    "HUBS",
+    "IFF",
+    "ILMN",
+    "INN",
+    "JBLU",
+    "JLL",
+    "JNPR",
+    "KDP",
+    "KEY",
+    "KHC",
+    "KSU",
+    "KVHI",
+    "LDOS",
+    "LEA",
+    "LFMD",
+    "LII",
+    "LNT",
+    "LPTH",
+    "LUV",
+    "MCK",
+    "MG",
+    "MGNI",
+    "MO",
+    "MRCY",
+    "MRSH",
+    "MSGS",
+    "NATR",
+    "NEU",
+    "NFG",
+    "NSC",
+    "NUAN",
+    "NUE",
+    "ODP",
+    "PAA",
+    "PCG",
+    "PEB",
+    "PFPT",
+    "PKBK",
+    "PLD",
+    "POCI",
+    "POR",
+    "PPG",
+    "PRIM",
+    "PROP",
+    "PRTY",
+    "PVH",
+    "QCOM",
+    "QRVO",
+    "RDIB",
+    "REV",
+    "RITM",
+    "ROP",
+    "RPM",
+    "RVTY",
+    "SAIC",
+    "SCSC",
+    "SIVB",
+    "SRCE",
+    "SSP",
+    "STBA",
+    "STWD",
+    "SVC",
+    "SXC",
+    "SXT",
+    "TFC",
+    "TGNA",
+    "TPC",
+    "TRUE",
+    "TSLA",
+    "TTWO",
+    "TUP",
+    "TXT",
+    "TYL",
+    "UAL",
+    "UFI",
+    "UHAL",
+    "UHS",
+    "UNP",
+    "USAC",
+    "USNA",
+    "VHI",
+    "VMC",
+    "VSH",
+    "WDC",
+    "WEC",
+    "WEN",
+    "WKC",
+    "WLKP",
+    "WSR",
+    "WST",
+    "XLNX"
+   ]
+  },
+  "只要 LongTermDebt": {
+   "只数": 140,
+   "占比": 0.56,
+   "其中金融": 9,
+   "全池金融只数": 52,
+   "金融保留率": 0.1731,
+   "票": [
+    "ABT",
+    "ACIW",
+    "AJG",
+    "ALXN",
+    "AMRS",
+    "AP",
+    "AR",
+    "ATNI",
+    "ATVI",
+    "AVA",
+    "AWI",
+    "BBWI",
+    "BDX",
+    "BGS",
+    "BKH",
+    "BKNG",
+    "BWA",
+    "CAG",
+    "CAKE",
+    "CASY",
+    "CAT",
+    "CBRE",
+    "CDZI",
+    "CERN",
+    "CHD",
+    "CHEF",
+    "CHRW",
+    "CIEN",
+    "CLH",
+    "CLVS",
+    "CMP",
+    "CNC",
+    "CNVS",
+    "CPK",
+    "CSGP",
+    "CSOD",
+    "CTAS",
+    "CTXS",
+    "CYH",
+    "DHR",
+    "DIN",
+    "DIS",
+    "DK",
+    "DLTH",
+    "DLTR",
+    "DVN",
+    "EIX",
+    "ELSE",
+    "ELV",
+    "ENVA",
+    "EOG",
+    "EPC",
+    "EPD",
+    "ETR",
+    "EVC",
+    "EXAS",
+    "EXC",
+    "EXPR",
+    "FAST",
+    "FIS",
+    "FMC",
+    "FRPT",
+    "FTK",
+    "FWONA",
+    "GHC",
+    "GNCA",
+    "GNE",
+    "GRPN",
+    "GTT",
+    "GWW",
+    "HELE",
+    "HES",
+    "HLX",
+    "HNNA",
+    "HSTM",
+    "IFF",
+    "ILMN",
+    "INGR",
+    "JNPR",
+    "KDP",
+    "KVHI",
+    "LDOS",
+    "LEA",
+    "LFMD",
+    "LNC",
+    "LNT",
+    "LPTH",
+    "MCD",
+    "MCK",
+    "MG",
+    "MGNI",
+    "MKC",
+    "MNST",
+    "MO",
+    "MRO",
+    "MRSH",
+    "MSGS",
+    "MTX",
+    "MZTI",
+    "NATR",
+    "NEU",
+    "NFG",
+    "NUE",
+    "PCG",
+    "POCI",
+    "POR",
+    "PPG",
+    "PRIM",
+    "PRTY",
+    "PVH",
+    "QCOM",
+    "QRVO",
+    "REV",
+    "ROG",
+    "ROP",
+    "RVTY",
+    "SAIC",
+    "SBAC",
+    "SCSC",
+    "SQBG",
+    "SSP",
+    "SXC",
+    "SXT",
+    "TGNA",
+    "TPC",
+    "TTWO",
+    "TXN",
+    "TYL",
+    "UAA",
+    "UAL",
+    "UHS",
+    "USAC",
+    "VMC",
+    "VSH",
+    "WDC",
+    "WEC",
+    "WEN",
+    "WMT",
+    "WST",
+    "XLNX"
+   ]
+  },
+  "★ EBIT + LongTermDebt 都要(ROIC 口径)": {
+   "只数": 107,
+   "占比": 0.428,
+   "其中金融": 7,
+   "全池金融只数": 52,
+   "金融保留率": 0.1346,
+   "票": [
+    "ABT",
+    "ACIW",
+    "AJG",
+    "AMRS",
+    "AR",
+    "ATNI",
+    "AWI",
+    "BBWI",
+    "BDX",
+    "BKH",
+    "BKNG",
+    "CAG",
+    "CASY",
+    "CBRE",
+    "CDZI",
+    "CERN",
+    "CHD",
+    "CHEF",
+    "CIEN",
+    "CMP",
+    "CNC",
+    "CNVS",
+    "CPK",
+    "CSGP",
+    "CTAS",
+    "CTXS",
+    "DHR",
+    "DIN",
+    "DIS",
+    "DK",
+    "DLTH",
+    "EIX",
+    "ELSE",
+    "ELV",
+    "ENVA",
+    "EOG",
+    "EPC",
+    "EPD",
+    "ETR",
+    "EVC",
+    "EXAS",
+    "EXC",
+    "FAST",
+    "FIS",
+    "FMC",
+    "FRPT",
+    "FTK",
+    "FWONA",
+    "GHC",
+    "GNE",
+    "GRPN",
+    "GWW",
+    "HELE",
+    "HES",
+    "HLX",
+    "HNNA",
+    "IFF",
+    "ILMN",
+    "JNPR",
+    "KDP",
+    "KVHI",
+    "LDOS",
+    "LEA",
+    "LFMD",
+    "LNT",
+    "LPTH",
+    "MCK",
+    "MG",
+    "MGNI",
+    "MO",
+    "MRSH",
+    "MSGS",
+    "NATR",
+    "NEU",
+    "NFG",
+    "NUE",
+    "PCG",
+    "POCI",
+    "POR",
+    "PPG",
+    "PRIM",
+    "PRTY",
+    "PVH",
+    "QCOM",
+    "QRVO",
+    "REV",
+    "ROP",
+    "RVTY",
+    "SAIC",
+    "SCSC",
+    "SSP",
+    "SXC",
+    "SXT",
+    "TGNA",
+    "TPC",
+    "TTWO",
+    "TYL",
+    "UAL",
+    "UHS",
+    "USAC",
+    "VMC",
+    "VSH",
+    "WDC",
+    "WEC",
+    "WEN",
+    "WST",
+    "XLNX"
+   ]
+  },
+  "★ 再加 CostOfRevenue(GP/A 口径)": {
+   "只数": 86,
+   "占比": 0.344,
+   "其中金融": 5,
+   "全池金融只数": 52,
+   "金融保留率": 0.0962,
+   "票": [
+    "ABT",
+    "ACIW",
+    "AJG",
+    "AMRS",
+    "AWI",
+    "BBWI",
+    "BDX",
+    "BKH",
+    "BKNG",
+    "CAG",
+    "CASY",
+    "CBRE",
+    "CDZI",
+    "CERN",
+    "CHD",
+    "CHEF",
+    "CIEN",
+    "CNC",
+    "CNVS",
+    "CSGP",
+    "CTAS",
+    "CTXS",
+    "DHR",
+    "DIN",
+    "DK",
+    "DLTH",
+    "ELSE",
+    "ELV",
+    "ENVA",
+    "EPC",
+    "EPD",
+    "EVC",
+    "EXAS",
+    "FAST",
+    "FIS",
+    "FMC",
+    "FRPT",
+    "FTK",
+    "FWONA",
+    "GNE",
+    "GRPN",
+    "GWW",
+    "HELE",
+    "HLX",
+    "IFF",
+    "ILMN",
+    "JNPR",
+    "KDP",
+    "KVHI",
+    "LDOS",
+    "LEA",
+    "LFMD",
+    "LNT",
+    "LPTH",
+    "MCK",
+    "MG",
+    "MGNI",
+    "MO",
+    "NATR",
+    "NEU",
+    "NFG",
+    "NUE",
+    "POCI",
+    "PPG",
+    "PRIM",
+    "PRTY",
+    "PVH",
+    "QCOM",
+    "QRVO",
+    "REV",
+    "ROP",
+    "RVTY",
+    "SAIC",
+    "SCSC",
+    "SXT",
+    "TGNA",
+    "TPC",
+    "TTWO",
+    "TYL",
+    "VMC",
+    "VSH",
+    "WDC",
+    "WEC",
+    "WEN",
+    "WST",
+    "XLNX"
+   ]
+  }
+ },
+ "行业偏斜": [
+  {
+   "SIC两位": "13",
+   "全池": 7,
+   "门槛后": 3,
+   "保留率": 0.4286
+  },
+  {
+   "SIC两位": "14",
+   "全池": 2,
+   "门槛后": 2,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "15",
+   "全池": 3,
+   "门槛后": 1,
+   "保留率": 0.3333
+  },
+  {
+   "SIC两位": "16",
+   "全池": 1,
+   "门槛后": 1,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "17",
+   "全池": 1,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "20",
+   "全池": 9,
+   "门槛后": 3,
+   "保留率": 0.3333
+  },
+  {
+   "SIC两位": "21",
+   "全池": 1,
+   "门槛后": 1,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "22",
+   "全池": 1,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "23",
+   "全池": 5,
+   "门槛后": 2,
+   "保留率": 0.4
+  },
+  {
+   "SIC两位": "28",
+   "全池": 30,
+   "门槛后": 12,
+   "保留率": 0.4
+  },
+  {
+   "SIC两位": "29",
+   "全池": 2,
+   "门槛后": 2,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "30",
+   "全池": 4,
+   "门槛后": 1,
+   "保留率": 0.25
+  },
+  {
+   "SIC两位": "31",
+   "全池": 1,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "33",
+   "全池": 2,
+   "门槛后": 2,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "34",
+   "全池": 1,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "35",
+   "全池": 5,
+   "门槛后": 2,
+   "保留率": 0.4
+  },
+  {
+   "SIC两位": "36",
+   "全池": 12,
+   "门槛后": 7,
+   "保留率": 0.5833
+  },
+  {
+   "SIC两位": "37",
+   "全池": 7,
+   "门槛后": 1,
+   "保留率": 0.1429
+  },
+  {
+   "SIC两位": "38",
+   "全池": 10,
+   "门槛后": 8,
+   "保留率": 0.8
+  },
+  {
+   "SIC两位": "40",
+   "全池": 3,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "45",
+   "全池": 4,
+   "门槛后": 1,
+   "保留率": 0.25
+  },
+  {
+   "SIC两位": "46",
+   "全池": 1,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "47",
+   "全池": 2,
+   "门槛后": 1,
+   "保留率": 0.5
+  },
+  {
+   "SIC两位": "48",
+   "全池": 7,
+   "门槛后": 6,
+   "保留率": 0.8571
+  },
+  {
+   "SIC两位": "49",
+   "全池": 17,
+   "门槛后": 14,
+   "保留率": 0.8235
+  },
+  {
+   "SIC两位": "50",
+   "全池": 3,
+   "门槛后": 2,
+   "保留率": 0.6667
+  },
+  {
+   "SIC两位": "51",
+   "全池": 4,
+   "门槛后": 2,
+   "保留率": 0.5
+  },
+  {
+   "SIC两位": "52",
+   "全池": 1,
+   "门槛后": 1,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "53",
+   "全池": 2,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "55",
+   "全池": 1,
+   "门槛后": 1,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "56",
+   "全池": 2,
+   "门槛后": 1,
+   "保留率": 0.5
+  },
+  {
+   "SIC两位": "58",
+   "全池": 6,
+   "门槛后": 2,
+   "保留率": 0.3333
+  },
+  {
+   "SIC两位": "59",
+   "全池": 5,
+   "门槛后": 2,
+   "保留率": 0.4
+  },
+  {
+   "SIC两位": "60",
+   "全池": 11,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "61",
+   "全池": 3,
+   "门槛后": 1,
+   "保留率": 0.3333
+  },
+  {
+   "SIC两位": "62",
+   "全池": 5,
+   "门槛后": 1,
+   "保留率": 0.2
+  },
+  {
+   "SIC两位": "63",
+   "全池": 7,
+   "门槛后": 2,
+   "保留率": 0.2857
+  },
+  {
+   "SIC两位": "64",
+   "全池": 2,
+   "门槛后": 2,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "65",
+   "全池": 4,
+   "门槛后": 1,
+   "保留率": 0.25
+  },
+  {
+   "SIC两位": "67",
+   "全池": 20,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "70",
+   "全池": 1,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "73",
+   "全池": 21,
+   "门槛后": 11,
+   "保留率": 0.5238
+  },
+  {
+   "SIC两位": "75",
+   "全池": 1,
+   "门槛后": 0,
+   "保留率": 0.0
+  },
+  {
+   "SIC两位": "78",
+   "全池": 2,
+   "门槛后": 1,
+   "保留率": 0.5
+  },
+  {
+   "SIC两位": "79",
+   "全池": 2,
+   "门槛后": 2,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "80",
+   "全池": 4,
+   "门槛后": 3,
+   "保留率": 0.75
+  },
+  {
+   "SIC两位": "82",
+   "全池": 1,
+   "门槛后": 1,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "87",
+   "全池": 1,
+   "门槛后": 1,
+   "保留率": 1.0
+  },
+  {
+   "SIC两位": "??",
+   "全池": 3,
+   "门槛后": 0,
+   "保留率": 0.0
+  }
+ ]
+}
