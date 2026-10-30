@@ -320,6 +320,25 @@ def install() -> None:
       加一个 key,套路和 engine/ops_exits_1029.py 已经立过的运行时挂钩完全一样。
     ★ 注意它只是让「add_on 这一步的类型」有地方登记;真正的校验走 validate_add_on,
       因为 config_adapter.adapt() 遍历的步骤名是写死的七步,★ 我们不动它。
+
+    ══════════════════════════════════════════════════════════════════════
+    ★★ 为什么**没有**把校验接进 config_adapter.adapt()(2026-10-30,Lin 已拍板)
+    ══════════════════════════════════════════════════════════════════════
+    接进去只需 1 行(adapt() 末尾 return 之前调一次 validate_add_on(cfg)),
+    ★ 但要让 adapt() 真正「看见」这一步,得改它写死的七步 tuple 和 `need` 列表;
+    而 `need` 加一项会让 `cfg.setdefault("add_on", {})` 对**每一份**配置生效,
+    下游凡是遍历 cfg 键的地方都可能受影响。
+
+    ★ 拍板的理由(两条):
+      ① 现在 **0 份**配置有 add_on,这道闸唯一能挡的是
+         **将来有人新写一份带 add_on 的配置** —— 而那个人一定会跑 run_all.py,
+         engine/checks/addon_schema.py 会在那里拦住他。
+      ② 为一个**还没发生**的场景动 config_adapter.py 的 `need` 列表,
+         风险大于收益。
+
+    ★★ 所以结论是:**等第一份真实 add_on 配置出现时再评估**。
+       ★ 下一个人不用重新推一遍这个判断 —— 到那时再看要不要把这 1 行加上。
+    ══════════════════════════════════════════════════════════════════════
     """
     from . import config_adapter
     config_adapter.IMPLEMENTED.setdefault(ADD_ON_CANONICAL, set())

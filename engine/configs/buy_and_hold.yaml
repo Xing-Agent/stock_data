@@ -28,6 +28,11 @@ initial_stop:
 # ⑤ 移动止损:无
 trailing_stop:
   type: none
+  source: >-
+    ★ XING 定义(不是原著)。buy_and_hold 是我们建的基线链,
+    它的定义就是「买入后不做任何离场动作」,所以移动止损明确为无。
+    ★ 代价:和 initial_stop 一样 —— 1R = 进场价,R 乘数退化成收益率,
+    不能和有止损的链比每笔 R。
 
 # ⑥ 离场:无(不止盈、不时间止损)
 exit:

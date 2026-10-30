@@ -6,6 +6,16 @@
 跑法:python3 engine/checks/run_all.py
 ★ 串行,不并行 —— 另一个 agent 在同一台机器上跑回测(2 核 / 7GB)。
 ★ 全部只读:不改配置、不改跑批逻辑、不动暂存区。
+
+══════════════════════════════════════════════════════════════════════════
+★★★ 要写一个新检查?先读这两张表 —— engine/checks/four_slot_complete.py 里:
+      ①「同一个槽位已知有几种写法」—— 同一样东西两种写法、检查只认一种,
+         这一类 bug 今天已经发生 6 次(initial_stop/stop_init ·
+         trailing_stop/stop_trail · stop_trail.type vs .stages ·
+         英文键/中文键 · ledger 在目录名上 · git quotepath)
+      ②「两种跑法只测了一种」—— ★ 新检查必须**单跑**和**在 run_all 里跑**
+         各跑一遍。@dataclass 在这里会炸(见下面 _load 的注释),而单跑正常。
+══════════════════════════════════════════════════════════════════════════
 """
 
 from __future__ import annotations
@@ -51,6 +61,14 @@ ORDER = [
 
 
 def _load(mod: str):
+    # ★★ 注意:这里**不往 sys.modules 注册**。后果:被加载的模块里不能用
+    #   @dataclass —— dataclass 求值时要回查 sys.modules[cls.__module__].__dict__,
+    #   这里查到 None,炸成 "'NoneType' object has no attribute '__dict__'",
+    #   ★ 而单跑那个文件时完全正常(第 6 次「两种跑法只测了一种」,2026-10-30)。
+    # ★ 新检查请用 collections.namedtuple 或普通 class
+    #   (实例:engine/checks/r_denominator_lock.py 的 Leg)。
+    # ★ 这里**故意不改**成注册进 sys.modules:改了会影响已有 13 个检查的加载语义,
+    #   收益只是让 @dataclass 可用 —— 不值。
     path = os.path.join(_HERE, mod + ".py")
     spec = importlib.util.spec_from_file_location("checks_" + mod, path)
     m = importlib.util.module_from_spec(spec)
