@@ -681,21 +681,48 @@ def main(argv=None) -> int:
           (("⑤" in x["大师"]) if only == "5" else ("⑦" in x["大师"]))] \
         if only else variants()
 
+    # ★★★ 断点续跑(本轮逼出来的):2 核 / 8GB 上,一条链连着跑完
+    #   「真链 + 基准一的 5 条随机链 + 判据重抽」之后 RSS 到 2GB+,
+    #   ★ 进程被 OOM 杀掉**不留 traceback** —— 看起来像「卡住了」。
+    #   ★★ 处置:**每跑完一条链就落一次盘**,并且重跑时自动跳过已经有结果的链。
+    #     ★ 这样一次被杀掉只丢一条链,再跑一遍就能接上。
+    done: dict = {}
+    if os.path.exists(OUT_JSON):
+        try:
+            with open(OUT_JSON, encoding="utf-8") as fh:
+                prev = json.load(fh)
+            for r in (prev.get("逐链") or prev.get("★未完成_只有逐链") or []):
+                if isinstance(r, dict) and r.get("链") and "★跑不了" not in r:
+                    done[r["链"]] = r
+        except Exception:                                   # noqa: BLE001
+            done = {}
+    if done:
+        print(f"★ 断点续跑:已有 {len(done)} 条链的结果,本轮跳过 —— "
+              f"{sorted(done)}\n")
+
     rows, fails = [], []
     t_all = time.time()
     for v in vs:
+        if v["链"] in done:
+            rows.append(done[v["链"]])
+            print(f"★ 跳过(已有结果):{v['链']}")
+            continue
         try:
             rows.append(run_one(v, syms, quick))
         except Exception as exc:                            # noqa: BLE001
             import traceback
             traceback.print_exc()
             fails.append((v["链"], repr(exc)[:400]))
+        # ★ 每条链落一次盘
+        with open(OUT_JSON, "w", encoding="utf-8") as fh:
+            json.dump({"逐链": rows, "跑不了的": fails}, fh,
+                      ensure_ascii=False, indent=1, default=str)
     print(f"\n★ 跑完 {round(time.time()-t_all,1)}s")
 
     # ★ 先把逐链结果落一次盘 —— ★★ 这样后面的闸门分解万一挂了也不丢成果
     #   (★ 本轮已经因为一个 print 的键名拼错丢过一次 437 秒的跑批)
     with open(OUT_JSON, "w", encoding="utf-8") as fh:
-        json.dump({"★未完成_只有逐链": rows, "跑不了的": fails}, fh,
+        json.dump({"逐链": rows, "跑不了的": fails}, fh,
                   ensure_ascii=False, indent=1, default=str)
     print(f"★ 逐链结果已先落盘:{os.path.relpath(OUT_JSON, ROOT)}")
 
