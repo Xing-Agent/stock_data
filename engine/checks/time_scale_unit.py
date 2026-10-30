@@ -13,7 +13,26 @@
   ② 同一批里还撞了两次「周期口径被偷换」:
      · 状-3:Brooks 的实体占比阈值是**单根 K 线**口径 → 我们套到了 20 根均值上
      · 技-3:Weinstein 的 ≥2 倍放量是**周线**口径 → 我们套到了日线单日上
-     后果量化过:同一个「2 倍」,日口径发生率 5.22%、周口径 23.15% —— ★ 差 4.4 倍。
+     ★★ 2026-10-30 更正:这里原来写「日口径发生率 5.22%、周口径 23.15%,
+        差 4.4 倍」。★ 23.15% 这个数**全仓库没有任何产物支撑**,只出现在本段
+        docstring 里,而且复算不出来。实测(300 票 × 2018–2025,口径和
+        `pat6_ops.weinstein_weekly_breakout` 逐行一致,见
+        probe/weekly_daily_mapping_1030/quantify_results_1030.json):
+            日口径 **5.11%**(573,507 格) · 周口径 **4.57%**(125,100 格)
+            → 比值 **0.89**,两个口径几乎一样严,★ **不是「差 4.4 倍」**。
+        ★ 口径被偷换这件事成立,但「后果有 4.4 倍」这个量级是假的 ——
+          一个会被反复引用的、没有出处的数,留在这里比没有更坏。
+
+  ③ 2026-10-30 又撞了一次,而且**这道闸在设计上看不见它**(见下面三条 加 的注释):
+     · 技-4 柄长:原著「柄至少 1–2 周」→ 写成 `handle_min_bars: 3`(应为 5)
+     · 技-8 整理段:原著「横向整理 3 至 5 周」→ 写成 `flag_min_bars: 3`(应为 15)
+     · 技-3 / 状-2:原著「30 周均线」→ 写成 `ma: 150`(30 周实测只有 144.6 个交易日)
+     三个漏法各不相同,★ 所以补了三处,不是一处:
+       (a) `_bars` 后缀原来算「自带声明」→ 前两条直接免检;
+       (b) `ma` / `mas` / `near_ma` 这一族原来**一个都不命中** _NEEDS_UNIT;
+       (c) 就算声明了,旧版也只查「有没有写 note」,★★ **不查换算有没有真的做**
+           —— 前两条的病根正是「依据写了、倍率是 1」。所以加了 `book_value`
+           的算术对账(_check_conversion)。
 
 ★★ 声明方式(三种任选一种,★ 都在配置文件自己里面,不需要改跑批代码):
    A. 键名自带单位后缀:`time_stop_trading_days` / `*_calendar_days` / `*_bars` / `*_weeks`
@@ -23,9 +42,13 @@
         time_scale:
           exit.params.time_stop_days:
             unit: trading_days          # 我们实际作用在什么周期上
-            book_unit: trading_days     # ★ 原著是在什么周期上给这个数的
+            book_unit: weeks            # ★ 原著是在什么周期上给这个数的
+            book_value: 4               # ★★ 原著原文给的**那个数**(选填但强烈建议)
             note: ...                   # 两者不一致时必须写换算依据
    ★ unit 与 book_unit 不一致而没有 note → 同样 FAIL(这就是状-3 / 技-3 那两次)。
+   ★★★ 填了 `book_value` → 本闸会**把换算真的算一遍**:
+       4 周 × 5 = 20,写 4 就 FAIL(倍率 1.0×,不在 [4.6, 5.2] 里)。
+       ★ 这一条是 2026-10-30 加的,专治「依据写了、换算没做」。
 
 ★ 本文件只读配置,不改配置、不改跑批逻辑。
 """
@@ -52,27 +75,74 @@ VALID_UNITS = {
     "交易日", "自然日", "根", "周线", "月线",
 }
 
-#: 已经自带单位、无需另外声明的键名后缀。
-_SELF_DECLARING = (
-    "_trading_days", "_calendar_days", "_bars", "_weeks", "_months",
+#: ★ 键名自带单位、**可以**免另外声明的后缀 —— 只有真正点明了日历单位的才算。
+_UNAMBIGUOUS_UNIT = (
+    "_trading_days", "_calendar_days", "_weeks", "_months",
     "_交易日", "_自然日",
 )
+
+#: ★★ 2026-10-30 加 —— `_bars` **不再**算自带声明。
+#  理由(本轮踩的那个坑):`handle_min_bars` / `flag_min_bars` 这两个名字
+#  只说了「根」,★ 没说**哪种根**(日线根?周线根?),更没说
+#  ★★ **原著当年是在什么周期上给这个数的**。于是「柄至少 1 周」被写成
+#  `handle_min_bars: 3`、「整理 3 至 5 周」被写成 `flag_min_bars: 3`,
+#  而同一个算子里另外三个 bar 参数都 ×5 换算对了 —— 半边做了半边没做。
+#  ★ 旧版把 `_bars` 放进自带声明里,所以这道闸在**设计上就看不见**这一类。
+_AMBIGUOUS_BAR = ("_bars", "_bar", "_根")
+
+#: 兼容老名字(外部还有地方 import)。
+_SELF_DECLARING = _UNAMBIGUOUS_UNIT
 
 #: 需要声明的键名长相 —— ★ 按本代码库实际在用的键名写。
 #  教训来自 user_facing_ban:只写英文会在我们自己的中文产物上拦不住东西。
 _NEEDS_UNIT = re.compile(
     r"(days?$|_days?_|^days?_|天数?$|_天|"
     r"lookback|look_?back|period|window|holding|hold_|"
-    r"min_bars|structure_lookback|time_stop|存活|持有|回看|窗口)",
+    r"min_bars|structure_lookback|time_stop|存活|持有|回看|窗口|"
+    # ★★ 2026-10-30 加 —— 均线周期这一族,旧版**一个都不命中**。
+    #   甲类里 7 处 `ma: 150`(原著「30 周均线」)就是这么漏过去的:
+    #   `ma` 这两个字母不含 day / period / lookback,正则碰不到它。
+    #   ★ 「同一样东西几种写法」:ma · ma_period · mas(列表)· near_ma ·
+    #     close_above_ma · atr_slow_ma —— 六种写法,必须一起认。
+    r"^mas?$|^ma_|_ma$|_mas$|near_ma|close_above_ma|"
+    # ★ `*_bars` 也进来 —— 它不再靠后缀自动过关(见 _AMBIGUOUS_BAR)。
+    r"_bars?$|_根$)",
     re.IGNORECASE,
 )
 
 #: 这些键名虽然命中上面的正则,但它们**不是时间阈值** → 不要求声明。
+#  ★★ 2026-10-30 收窄:这几个词只豁免「**无量纲比值**」。
+#  见下面 _EXEMPT_CANCELLED_BY_TIME_UNIT。
 _EXEMPT = re.compile(
     r"(bps|pct|percent|ratio|multiple|thr$|_thr|threshold|"
     r"fraction|weight|slots|count$|比例|倍|阈值)",
     re.IGNORECASE,
 )
+
+#: ★★★ 2026-10-30 加 —— 豁免的**撤销条件**。
+#  规矩:`multiple|ratio|倍|threshold|pct` 这几个词只豁免**无量纲比值**;
+#  ★ 凡是键名**以时间单位收尾**的(= 它量的是一段时间的长短,不是一个比值),
+#    一律**不豁免**,照样要声明。
+#  为什么用「收尾」而不是「出现过就算」:`dryup_day_ratio`(缩量日的量比)和
+#  `single_day_drop_pct`(单日跌幅)里的 day 是在**修饰那个比值**,它们是真
+#  比值,不是时间长度 —— ★ 「出现过就算」会把这 9 处全报成红的,是误伤。
+_EXEMPT_CANCELLED_BY_TIME_UNIT = re.compile(
+    r"(bars?|days?|weeks?|months?|根|周|日|天|月)$", re.IGNORECASE)
+
+#: ★★★ 2026-10-30 加 —— 周 / 月 → 交易日 的**换算倍率允许区间**。
+#  用区间而不是一个数,因为仓库里两把尺子都在用,两把都该放过:
+#    · 手册惯例    1 周 = 5 个交易日
+#    · 实测跨度    1 周 = 4.8134 个交易日(627 周里 112 个四天周;
+#                  见 probe/weekly_daily_mapping_1030/)
+#  ★ 这个闸要拦的不是「5 还是 4.81」这种 3.6% 的分歧,★★ 是**忘了换算**
+#    —— 倍率 ≈ 1 的那一类,也就是本轮的 技-4 / 技-8。
+_CONVERSION_BAND: dict[tuple[str, str], tuple[float, float, str]] = {
+    ("weeks", "trading_days"): (4.6, 5.2, "1 周 ≈ 4.81~5 个交易日"),
+    ("weeks", "bars"): (4.6, 5.2, "1 周 ≈ 4.81~5 根日线"),
+    ("months", "trading_days"): (19.0, 23.0, "1 个月 ≈ 21 个交易日"),
+    ("months", "bars"): (19.0, 23.0, "1 个月 ≈ 21 根日线"),
+    ("months", "weeks"): (4.0, 4.6, "1 个月 ≈ 4.33 周"),
+}
 
 
 def _flatten(obj: Any, path: str = "") -> Iterable[tuple[str, Any]]:
@@ -90,9 +160,11 @@ def _flatten(obj: Any, path: str = "") -> Iterable[tuple[str, Any]]:
 
 def needs_unit(key: str) -> bool:
     leaf = key.split(".")[-1].split("[")[0]
-    if leaf.endswith(_SELF_DECLARING):
+    # ★ 只有真正点明日历单位的后缀才算自带声明;`_bars` 不算(见 _AMBIGUOUS_BAR)
+    if leaf.endswith(_UNAMBIGUOUS_UNIT):
         return False
-    if _EXEMPT.search(leaf):
+    # ★★ 豁免 → 但以时间单位收尾的撤销豁免
+    if _EXEMPT.search(leaf) and not _EXEMPT_CANCELLED_BY_TIME_UNIT.search(leaf):
         return False
     return bool(_NEEDS_UNIT.search(leaf))
 
@@ -104,8 +176,8 @@ def needs_unit(key: str) -> bool:
 def _declared_unit(cfg: dict, full_path: str, parent: Any, leaf: str
                    ) -> tuple[str | None, dict]:
     """按 A / B / C 三种方式找声明。返回 (unit, 声明块)。"""
-    # A · 键名自带
-    if leaf.endswith(_SELF_DECLARING):
+    # A · 键名自带 —— ★ 只认点明了日历单位的后缀
+    if leaf.endswith(_UNAMBIGUOUS_UNIT):
         return leaf.rsplit("_", 1)[-1], {}
 
     # B · 同级 units 子块
@@ -169,9 +241,62 @@ def check_config(cfg: dict, *, where: str = "<未命名>") -> list[str]:
                 f"[{where}] ★★ FAIL `{path}`:我们作用在 `{unit}` 上,"
                 f"而原著是在 `{book}` 上给这个数的,★ 两者不一致却没写换算依据(note)。"
                 f"★ 这正是状-3(单根 K 线阈值套到 20 根均值)和"
-                f"技-3(周线放量套到日线单日,发生率 5.22% vs 23.15%,差 4.4 倍)"
-                f"那两次踩的坑。")
+                f"技-3(周线放量套到日线单日)那两次踩的坑。")
+            continue
+        # ★★★ 2026-10-30 加 —— **把换算真的算一遍**。
+        #   上面那一条只查「有没有写换算依据」;★ 本轮(技-4 柄长 3、技-8
+        #   整理段 3)那两处的病根是**依据写了、换算没做**,倍率是 1 不是 5。
+        #   ★ 光查「有没有 note」拦不住它,必须拿 book_value 算。
+        problems += _check_conversion(path, value, unit, book, spec, where=where)
     return problems
+
+
+def _check_conversion(path: str, value: float, unit: str, book: Any,
+                      spec: dict, *, where: str) -> list[str]:
+    """
+    ★ 声明了 `book_value`(原著原文给的那个数)就把换算算一遍。
+    三秒版:原著说「至少 1 周」,我们写了 3 —— 倍率 3.0 不在 [4.6, 5.2] 里 → 拦下。
+    """
+    bv = spec.get("book_value")
+    if bv is None:
+        return []
+    try:
+        bv = float(bv)
+    except (TypeError, ValueError):
+        return [f"[{where}] ★★ FAIL `{path}`:`book_value` = {spec['book_value']!r} "
+                f"不是一个数 —— ★ 它要填**原著原文给的那个数**,不是说明文字。"]
+    if bv == 0:
+        return [f"[{where}] ★★ FAIL `{path}`:`book_value` = 0,★ 换算倍率算不出来。"]
+    bu = str(book) if book else unit
+    if bu == unit:                        # 同一个单位 → 数值必须相等
+        if abs(float(value) - bv) > 1e-9:
+            return [f"[{where}] ★★ FAIL `{path}` = {value},而原著在**同一个单位**"
+                    f"(`{unit}`)上给的是 {bv:g} —— ★ 同单位却不等值,"
+                    f"要么数抄错了,要么 book_unit 填错了。"]
+        return []
+    band = _CONVERSION_BAND.get((bu, unit))
+    if band is None:
+        return [f"[{where}] ★★ FAIL `{path}`:原著单位 `{bu}` → 我们的单位 `{unit}` "
+                f"这个换算方向**没有登记过倍率**(已登记:"
+                f"{sorted(_CONVERSION_BAND)})。★ 「没查」和「查了没问题」必须分开 —— "
+                f"不登记就不许静默放过。"]
+    lo, hi, how = band
+    ratio = float(value) / bv
+    if not (lo <= ratio <= hi):
+        return [
+            f"[{where}] ★★★ FAIL `{path}` = {value}:原著给的是 **{bv:g} {bu}**,"
+            f"我们作用在 `{unit}` 上,★ 实际倍率 **{ratio:.3g}×**,"
+            f"不在允许区间 [{lo}, {hi}]×({how})。"
+            f"★ 应该是 **{bv * lo:.4g} ~ {bv * hi:.4g}**。"
+            + ("  ★★★ 倍率**小于**应有的换算倍率 —— 这是**换算没做(或只做了一半)**"
+               "那一类,不是阈值松紧之争。本轮两处都长这样:"
+               "技-4 柄长(原著「至少 1–2 周」、写成 3 根,倍率 3×)、"
+               "技-8 整理段(原著「3 至 5 周」、写成 3 根,★ 倍率正好 1×)。"
+               "★ 典型病根:同一个算子里**上界换算了、下界没换**。"
+               if ratio < lo else
+               "  ★ 倍率**大于**应有的换算倍率 —— 要么换算做了两遍,"
+               "要么 book_value 填的不是原著原文那个数。")]
+    return []
 
 
 def check_config_file(path: str) -> list[str]:
@@ -180,6 +305,18 @@ def check_config_file(path: str) -> list[str]:
     with open(path, encoding="utf-8") as fh:
         cfg = yaml.safe_load(fh) or {}
     return check_config(cfg, where=os.path.basename(path))
+
+
+#: ★★ 2026-10-30 加 —— 两桶必须分开报,否则新发现的换算错会淹在存量积压里。
+#  存量:全库在今天之前**0 份**配置写过 time_scale / book_unit,所以
+#  「缺声明」一开闸就是两百多条。★ 那是积压,不是今天新坏的;
+#  而「换算算错了」是**今天就得处理**的。两桶混在一列,没人会看。
+def split_problems(problems: Iterable[str]) -> dict[str, list[str]]:
+    hot, cold = [], []
+    for p in problems:
+        (hot if "★★★ FAIL" in p or "同单位却不等值" in p
+         or "没有登记过倍率" in p else cold).append(p)
+    return {"★★★ 换算算错了(马上处理)": hot, "缺声明(存量积压)": cold}
 
 
 def scan_config_dir(dirpath: str) -> dict[str, list[str]]:
@@ -248,10 +385,90 @@ def _selftest() -> None:
     bad = scan_config_dir(os.path.join(_ENGINE, "configs"))
     assert bad, "★ 这道闸在真实配置上一条都没拦住 —— 那它是假的"
     n = sum(len(v) for v in bad.values())
-    print(f"  ① engine/configs/ 真实配置:{len(bad)} 份文件、共 {n} 处"
-          f"「以天为单位但没声明交易日/自然日」→ 全部 FAIL")
+    buckets = split_problems(g for v in bad.values() for g in v)
+    print(f"  ① engine/configs/ 真实配置:{len(bad)} 份文件、共 {n} 处 FAIL")
+    print(f"     · ★★★ 换算算错了(马上处理):{len(buckets['★★★ 换算算错了(马上处理)'])} 处")
+    print(f"     · 缺声明(存量积压,全库今天之前 0 份写过 book_unit):"
+          f"{len(buckets['缺声明(存量积压)'])} 处")
     for f in list(bad)[:3]:
         print(f"     · {f}:{len(bad[f])} 处,例 → {bad[f][0].split('★★')[1][:88]} …")
+
+    # ── ★ 本轮新补的三个漏法,逐个证明它现在看得见 ─────────────────────
+    #   (不证明「闸能看见」,就只是改了个正则)
+    assert needs_unit("handle_min_bars"), "★ (a) `_bars` 后缀还在自动过关"
+    assert needs_unit("flag_min_bars"), "★ (a) 同上"
+    assert needs_unit("ma"), "★ (b) `ma` 这一族还是一个都不命中"
+    for k in ("mas", "ma_period", "near_ma", "close_above_ma", "atr_slow_ma"):
+        assert needs_unit(k), f"★ (b) 均线周期的写法 `{k}` 漏了"
+    #   ★ 豁免收窄:带时间单位收尾的不豁免,真比值照旧豁免(不许误伤)
+    assert needs_unit("ratio_bars"), \
+        "★ 以时间单位收尾的,豁免必须被撤销(这就是收窄 _EXEMPT 的那一条)"
+    assert needs_unit("volume_multiple") is False, "★ 真·无量纲比值被误伤了"
+    assert needs_unit("dryup_day_ratio") is False, \
+        "★ `dryup_day_ratio` 是「缩量日的量比」,day 在修饰比值 —— 误伤了"
+    assert needs_unit("single_day_drop_pct") is False, "★ 同上,误伤"
+    print("  ①b 三个漏法现在都看得见:`_bars` 不再免检 · `ma` 一族 6 种写法全命中 · "
+          "豁免只保留无量纲比值(dryup_day_ratio / single_day_drop_pct 不误伤)")
+
+    # ── ★★★ 反向自测:**故意塞一个错的换算**,必须被拦下 ────────────────
+    #   用的就是 2026-10-30 之前 技-4 盘上的真实原值(handle_min_bars: 3),
+    #   以及它的原著出处(手册v13 六附 6.1 ①:柄部持续时间 至少 1–2 周)。
+    POISON = {
+        "entry": {"rules": [{"type": "pat6_cup_with_handle",
+                             "params": {"handle_min_bars": 3,      # ★ 错的那个值
+                                        "handle_max_bars": 25}}]},
+        "time_scale": {
+            "entry.rules[0].params.handle_min_bars": {
+                "unit": "trading_days", "book_unit": "weeks",
+                "book_value": 1,
+                "note": "原著「柄至少 1–2 周」—— ★ 依据写了,但换算没做"},
+            "entry.rules[0].params.handle_max_bars": {
+                "unit": "trading_days", "book_unit": "weeks",
+                "book_value": 5, "note": "5 周 × 5 = 25 ✓"},
+        },
+    }
+    got_p = check_config(POISON, where="★故意塞错的换算")
+    assert len(got_p) == 1, f"★ 应该只拦下那一处(上界 25 是对的):{got_p}"
+    assert "换算没做" in got_p[0] and "应该是" in got_p[0], got_p
+    print("  ② ★★★ 反向自测通过 —— 故意塞 技-4 的真实原值 "
+          "`handle_min_bars: 3`(原著「柄至少 1–2 周」)后被拦下:")
+    print(f"     {got_p[0]}")
+
+    #   ★ 第二个毒样本:技-8 的真实原值 —— 倍率正好 1.0×(「3 周」写成「3 根」)
+    POISON8 = {
+        "entry": {"rules": [{"type": "htf_flag_breakout",
+                             "params": {"flag_min_bars": 3, "flag_max_bars": 25}}]},
+        "time_scale": {
+            "entry.rules[0].params.flag_min_bars": {
+                "unit": "trading_days", "book_unit": "weeks", "book_value": 3,
+                "note": "原著「随后横向整理 3 至 5 周」(手册v13 六附 6.1 ②)"},
+            "entry.rules[0].params.flag_max_bars": {
+                "unit": "trading_days", "book_unit": "weeks", "book_value": 5,
+                "note": "5 周 × 5 = 25 ✓"},
+        },
+    }
+    got_8 = check_config(POISON8, where="★故意塞错的换算·技-8")
+    assert len(got_8) == 1 and "倍率 **1×**" in got_8[0], got_8
+    print("     ★ 第二个毒样本(技-8 真实原值 `flag_min_bars: 3`,原著「3 至 5 周」)"
+          "—— 倍率正好 1×,同样被拦下:")
+    print(f"     {got_8[0]}")
+    #   ★ 而正确的换算必须放过(否则这道闸是「一律报红」,不是「查对错」)
+    FIXED = {
+        "entry": {"rules": [{"type": "pat6_cup_with_handle",
+                             "params": {"handle_min_bars": 5,
+                                        "handle_max_bars": 25}}]},
+        "time_scale": POISON["time_scale"],
+    }
+    assert check_config(FIXED, where="★改对之后") == [], check_config(FIXED)
+    print("     → 同一份配置把 3 改成 5(= 1 周 × 5)后立刻放过 ✓ "
+          "★ 证明它查的是**换算对不对**,不是一律报红")
+    #   ★ 技-4 那 4 份**真实配置**现在必须一条 ★★★ 都不剩(本轮刚改完)
+    for _n in ("技-4-原著.yaml", "技-4-原著-中值.yaml",
+               "技-4-原著-宽松端.yaml", "技-4-行业.yaml"):
+        _p = os.path.join(_ENGINE, "configs", _n)
+        _hot = split_problems(check_config_file(_p))["★★★ 换算算错了(马上处理)"]
+        assert _hot == [], (_n, _hot)
+    print("     → 技-4 四份真实配置:★★★ 桶里 0 条(2026-10-30 的修正已被闸确认)")
 
     # 技-10 / 技-13 这两条今天跑过的链必须在清单里
     assert any(k.startswith("技-10") for k in bad), sorted(bad)
