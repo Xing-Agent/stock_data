@@ -82,7 +82,10 @@ def _selftest() -> None:
     for line in r["话"]:
         print("  ", line)
     assert r["级别"] == "OK", r["违规"]
-    assert r["配置数"] == 48, r["配置数"]        # ★ 回归断言:48 份(不含模板)
+    # ★ 回归断言(不含模板)。★ 2026-10-31:48 → 49,新增
+    #   `trend_following-原著-唐奇安反向通道离场.yaml`(把那条署名海龟的链里
+    #   三处「自称原著其实不是原著」的部件改回原著)。
+    assert r["配置数"] == 49, r["配置数"]
 
     # ── 拿**真实配置**当底子做反向自测(不是手搓的假 dict)────────────
     trend = _load(os.path.join(_CONFIG_DIR, "技-4-原著.yaml"))     # 欧奈尔,family: trend
