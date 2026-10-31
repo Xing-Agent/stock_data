@@ -1,6 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""★ 把 bench1_rerun_1031.json 变成报告里那几张表(md)。只读,不重算。"""
+"""★ 把 bench1_rerun_1031.json 变成报告里那几张表(md)。只读,不重算。
+
+★★★ 2026-10-31 修了这张表的两个 bug(方法保真度排查 问一 / 问二 第 1、2 行):
+
+  ① **「有值的被印成破折号」**。1029 那张汇总表把技-1 原著 System 2 的基准一
+     印成了 `—`,而那个 **+0.070324 在 JSON 里一直都有**。下游于是把它读成
+     「算不出」,把 System 2 的笔数(364)和 System 1 的差值(−0.323)
+     拼成了一张表,还标成「System 1 的实测」。
+     ★ 病根是「—」这一个符号被当成了三件事:「真的没有这个数」、
+       「算出来了但不许当结论」、「前提破了」。
+     ★ 修法:三种状态**分开印**,并加一道硬闸 —— 只要传进来的值不是 None
+       却要印成「—」,**直接 raise**(见 `cell()` 与 `_selftest()`)。
+
+  ② **被闸挡下的链悄悄消失**。技-1 原著 System 2 的集中度 0.5593 > 0.5,
+     按既有口径这一版的收益数字本来就不可用 —— 它**不该给出一个数**,
+     但也**不该从表里消失得无影无踪**(消失了,读表的人就只看到
+     「System 1 输给随机」,看不到「System 2 这一版根本不出数」)。
+     ★ 修法:新增「表五 · 被闸挡下、不出数的链」,逐条印出理由,
+       集中度过半的显式印成「★数字不可用」。
+"""
 from __future__ import annotations
 
 import json
@@ -8,33 +27,95 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+if HERE not in sys.path:
+    sys.path.insert(0, HERE)
+
+import gate_roster_1031 as GR  # noqa: E402
+
 SRC = os.path.join(HERE, "bench1_rerun_1031.json")
 HOLD = os.path.join(HERE, "holdout_1031.json")
 DEGEN = os.path.join(HERE, "degenerate_r_1031.json")
+PREV = os.path.join(os.path.dirname(os.path.dirname(HERE)),
+                    "probe", "v2_rerun_1030", "rerun_results_1030.json")
 OUT = os.path.join(HERE, "表-逐链-1031.md")
 
+#: ★ 「真的没有这个数」—— 只有这一种情况才许印破折号
+NO_VALUE = "—"
 
-def f(x, nd=4):
+
+class DashBug(AssertionError):
+    """★★★ 有值却要印成「—」—— 这正是 1029 那个 bug,不许再发生一次。"""
+
+
+def cell(x, nd=4, *, 不出数=None):
+    """★★★ 这张表里**唯一**的渲染口径。三种状态分开:
+
+      · 不出数 给了原因  → 印「★不出数(原因)」★ 绝不印「—」
+      · x is None        → 印「—」=「真的没有这个数」
+      · 其余             → 印数字
+
+    ★ 硬闸:`不出数` 没给、而 x **有值**,却渲染出「—」→ raise DashBug。
+    """
+    if 不出数:
+        if str(不出数).strip() in ("", "-", NO_VALUE):
+            raise DashBug("★ 「不出数」必须说出理由,不许只给一个破折号")
+        return f"**★不出数({不出数})**"
     if x is None:
-        return "—"
+        return NO_VALUE
     if isinstance(x, bool):
-        return "是" if x else "否"
-    try:
-        return f"{float(x):+.{nd}f}"
-    except (TypeError, ValueError):
-        return str(x)
+        out = "是" if x else "否"
+    else:
+        try:
+            out = f"{float(x):+.{nd}f}"
+        except (TypeError, ValueError):
+            out = str(x)
+    if out.strip() == NO_VALUE:
+        raise DashBug(f"★★★ 有值({x!r})却渲染成了破折号 —— 1029 那个 bug")
+    return out
 
 
-def pc(x, nd=2):
-    if x is None:
-        return "—"
+def pcell(x, nd=2, *, 不出数=None):
+    """百分比版,口径与 `cell` 完全一致(同一样东西一个口径)。"""
+    if 不出数 or x is None:
+        return cell(None, 不出数=不出数)
     try:
-        return f"{float(x)*100:+.{nd}f}%"
+        out = f"{float(x)*100:+.{nd}f}%"
     except (TypeError, ValueError):
-        return str(x)
+        out = str(x)
+    if out.strip() == NO_VALUE:
+        raise DashBug(f"★★★ 有值({x!r})却渲染成了破折号")
+    return out
+
+
+def _selftest() -> None:
+    """★ 反向自测:这几条一条都不许过不去 —— 过不去就说明闸是假的。"""
+    # ① 有值必须印出来(1029 那个 +0.070324 就是在这里丢的)
+    assert cell(0.070324) == "+0.0703", cell(0.070324)
+    # ② 真的没有 → 破折号
+    assert cell(None) == NO_VALUE
+    # ③ 有值但不许当结论 → 印理由,不印破折号
+    assert cell(0.070324, 不出数="集中度 0.5593 > 0.5").startswith("**★不出数(")
+    assert NO_VALUE not in cell(0.070324, 不出数="集中度 0.5593 > 0.5")
+    # ④ 「不出数」不许拿破折号当理由
+    try:
+        cell(1.0, 不出数="—")
+    except DashBug:
+        pass
+    else:
+        raise AssertionError("★ 闸没拦住「拿破折号当理由」")
+    # ⑤ 百分比版同口径
+    assert pcell(None) == NO_VALUE
+    assert pcell(-0.1042) == "-10.42%"
+    assert pcell(-0.1042, 不出数="前提破了").startswith("**★不出数(")
+
+
+#: ★ 旧名字继续可用,但它们现在走的是同一道闸(不许再有第二个渲染口径)
+f = cell
+pc = pcell
 
 
 def main() -> int:
+    _selftest()
     d = json.load(open(SRC, encoding="utf-8"))
     h = json.load(open(HOLD, encoding="utf-8"))
     g = json.load(open(DEGEN, encoding="utf-8"))
@@ -70,29 +151,34 @@ def main() -> int:
     L.append("|--:|---|--:|--:|--:|--:|--:|--:|--:|:-:|:-:|:-:|--:|")
     for i, r in enumerate(rows, 1):
         if r.get("★跑不了"):
-            L.append(f"| {i} | {r['链']} | — | — | **★跑不了** | — | — | — | — | — | — | — | — |")
+            L.append(f"| {i} | {r['链']} | {NO_VALUE} | {NO_VALUE} | **★跑不了** | "
+                     + " | ".join([NO_VALUE] * 8) + " |")
             continue
         b1 = r.get("★新基准一值")
         broke = bool(r.get("★前提破了_禁止下游"))
         bl = r["链"] in blown
-        dupmark = ("★副本" if r["链"] not in first_of else "—")
+        dupmark = ("★副本" if r["链"] not in first_of else NO_VALUE)
+        # ★★★ 「不出数」和「没有这个数」从这里开始分开:
+        #   退化 R / 前提破裂 → 数**算出来了**,只是不许当结论 → 印理由
+        #   ★ 以前这三列一律印「—」,于是「有值但不出」和「真的没有」
+        #     在表面上一模一样 —— 那正是 1029 把 +0.070324 印成「—」的病根。
+        why = None
         if bl:
-            cell = "**★退化R·不出数**"
-            diff = flip = "—"
+            why = f"退化 R,数值已毁({blown[r['链']]:.3e})"
         elif broke:
-            cell = "**★前提破裂·不出数**"
-            diff = flip = "—"
+            why = "对照组笔数没校准到容差内,基准一的前提破了"
+        if why:
+            b1cell = f"**★不出数({why})**"
         else:
-            cell = f"**{f(b1)}**"
-            diff = f(r.get("★和旧值的差"))
-            flip = f(r.get("★符号是否翻转"))
+            b1cell = f"**{cell(b1)}**"
         L.append("| {} | {} | {} | {} | {} | {} | {} | {} | {} | {} | {} | {} | {} |".format(
-            i, r["链"], r.get("笔数"), r.get("旧笔数(全大中池)") or "—",
-            cell,
-            ("—" if broke else pc(r.get("★对照笔数偏差"))),
-            pc(r.get("旧对照笔数偏差")),
-            f(r.get("旧基准一(作废·仅用于看污染有多大)")),
-            diff, flip,
+            i, r["链"], r.get("笔数"), r.get("旧笔数(全大中池)") or NO_VALUE,
+            b1cell,
+            pcell(r.get("★对照笔数偏差"), 不出数=("前提破了" if broke else None)),
+            pcell(r.get("旧对照笔数偏差")),
+            cell(r.get("旧基准一(作废·仅用于看污染有多大)")),
+            cell(r.get("★和旧值的差"), 不出数=why),
+            cell(r.get("★符号是否翻转"), 不出数=why),
             ("★是" if r.get("★无止损_R退化成收益率_不可和有止损同列排序") else "否"),
             dupmark,
             r.get("耗时秒")))
@@ -137,6 +223,30 @@ def main() -> int:
         L.append("| {} | {} | ×{} | {} |".format(
             k[0], (f"{k[1]:.4e}" if k[1] is not None and abs(k[1]) > 10
                    else f(k[1])), len(v), "<br>".join(v)))
+
+    # ── 表五 · ★★★ 被闸挡下、根本没进上面那张表的链(以前它们是悄悄消失的)
+    prev = json.load(open(PREV, encoding="utf-8"))
+    prows = [x for x in prev["逐链"] if "★跑不了" not in x]
+    GR.selftest(prows)                     # ★ 拆理由不许改变判决,变了就 raise
+    blocked = [(x["链"], GR.verdict(x)) for x in prows if not GR.gates_pass(x)]
+    L.append("\n## 表五 · ★★★ 被闸挡下、**不出数**的链({} 条)\n".format(len(blocked)))
+    L.append("> ★ 为什么要印出来:这些链**没有进表一**。以前它们是**悄悄消失**的 —— "
+             "表里既没有它们、也没有一句「为什么不在」,")
+    L.append("> 读表的人会以为「表里没有 = 没跑过」或者直接忽略掉。")
+    L.append("> ★★ 技-1 原著 System 2 就是这么丢的:它的集中度 0.5593 > 0.5,"
+             "按既有口径**这一版的收益数字本来就不可用**,")
+    L.append("> 它既不该给出一个会被当成结论的数,也不该从表里消失。\n")
+    L.append("| 链 | 笔数 | 集中度 | **数字能不能当结论** | 被挡下的理由 |")
+    L.append("|---|--:|--:|:-:|---|")
+    for n, v in blocked:
+        L.append("| {} | {} | {} | **{}** | {} |".format(
+            n, v["笔数"],
+            cell(v["集中度"]),
+            v["数字可用吗"],
+            "<br>".join(v["挡下的理由"])))
+    L.append("\n★ 读法:**「被闸挡下」不等于「这一派不成立」** —— "
+             "样本不足、R 退化、集中度过半,说的都是"
+             "「这一版的数字不能用来下结论」,不是「这个方法没用」。")
 
     if s["符号翻转名单"]:
         real = [n for n in s["符号翻转名单"] if n not in blown]

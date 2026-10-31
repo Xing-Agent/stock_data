@@ -51,13 +51,14 @@ import yaml
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 V2 = os.path.join(ROOT, "probe", "v2_rerun_1030")
-for p in (ROOT, V2):
+for p in (ROOT, V2, HERE):
     if p not in sys.path:
         sys.path.insert(0, p)
 
 from engine import (analyze, cache, chain, data, matrices, ops_exits_1029,  # noqa: E402
                     pat6_ops, pool_scope, stats_gate)
 import rerun_core_1030 as RC                                               # noqa: E402
+import gate_roster_1031 as GR                                              # noqa: E402
 
 CONFIG_DIR = os.path.join(ROOT, "engine", "configs")
 OLD_BENCH = os.path.join(V2, "bench_two_1030.json")
@@ -67,6 +68,9 @@ HOLDOUT_JSON = os.path.join(HERE, "holdout_1031.json")
 PER_CHAIN = os.path.join(HERE, "per_chain")
 LEDGERS = os.path.join(HERE, "ledgers_1031")
 OUT = os.path.join(HERE, "bench1_rerun_1031.json")
+
+#: ★ chain_list() 填:被闸挡下、没进「逐链」的链(连理由)
+BLOCKED_ROSTER: list[dict] = []
 
 N_SEEDS = 50
 SCOPE = "large_mid"
@@ -153,20 +157,22 @@ def old_bench1() -> dict[str, dict]:
     return {r["链"]: r for r in d["逐链"]}
 
 
-def gates_pass(r) -> bool:
-    """★ 照抄 bench_two_1030.gates_pass,一个字不改(同一样东西一个口径)。"""
-    a = r["大中_重跑"]
-    c = a["集中度"]
-    sh = c.get("集中度_前10笔占总盈利")
-    return (a["笔数"] >= 30
-            and r["四槽位"]["三槽位齐全_不含加仓"]
-            and not c.get("★退化") and not c.get("★半退化")
-            and sh is not None and sh <= 0.50)
+#: ★★★ 闸门判据只有**一份**,在 gate_roster_1031 里(它自己 import 时自测)。
+#   ★ 以前这里抄了一份 bench_two_1030.gates_pass —— 抄两份就是排查报告 §五
+#     那张「同一样东西两种写法」表上的第 12 行。现在两边都走同一份。
+gates_pass = GR.gates_pass
 
 
 def chain_list() -> list[tuple]:
     prev = json.load(open(OLD_RERUN, encoding="utf-8"))
-    keep = {r["链"] for r in prev["逐链"] if "★跑不了" not in r and gates_pass(r)}
+    prows = [r for r in prev["逐链"] if "★跑不了" not in r]
+    GR.selftest(prows)
+    keep = {r["链"] for r in prows if gates_pass(r)}
+    # ★★★ 被挡下的链**不许悄悄消失** —— 名单和理由一起写进结果 JSON,
+    #   由 make_tables_1031 的「表五」逐条印出来。
+    global BLOCKED_ROSTER
+    BLOCKED_ROSTER = [{"链": r["链"], **GR.verdict(r)}
+                      for r in prows if not gates_pass(r)]
     out, seen = [], set()
     for batch, modname in VARIANT_MODULES:
         mod = __import__(modname, fromlist=["VARIANTS"])
@@ -425,6 +431,8 @@ def main() -> int:
                 for r in nostop],
         },
         "逐链": rows,
+        # ★★★ 被闸挡下、没进「逐链」的链 —— 连理由一起留下,不许悄悄消失
+        "★被闸挡下_不出数的链": BLOCKED_ROSTER,
         "总耗时秒": round(time.time() - t0, 1),
     }
     with open(OUT, "w", encoding="utf-8") as fh:
