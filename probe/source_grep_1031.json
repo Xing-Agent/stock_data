@@ -1,0 +1,1431 @@
+{
+  "summary": {
+    "claimed": 135,
+    "found": 40,
+    "missing": 29,
+    "undecidable": 40,
+    "unmappable": 26,
+    "files_without_method_id": 7
+  },
+  "reports": [
+    {
+      "file": "engine/configs/buy_and_hold.yaml",
+      "ids": [],
+      "section_found": false,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/cashflow_discipline.yaml",
+      "ids": [],
+      "section_found": false,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/deep_value.yaml",
+      "ids": [],
+      "section_found": false,
+      "claimed_original": 8,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": [
+        {
+          "path": "universe.rules[2].params.threshold",
+          "value": 1.1,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "universe.rules[2].params.coefficients.X1",
+          "value": 6.56,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "universe.rules[2].params.coefficients.X2",
+          "value": 3.26,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "universe.rules[2].params.coefficients.X3",
+          "value": 6.72,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "universe.rules[2].params.coefficients.X4",
+          "value": 1.05,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "universe.rules[2].params.constant",
+          "value": 0.0,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "exit.rules[0].conditions_any[0].value",
+          "value": 4,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "exit.rules[0].conditions_any[1].value",
+          "value": 40,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        }
+      ]
+    },
+    {
+      "file": "engine/configs/liquidity_sweep.yaml",
+      "ids": [],
+      "section_found": false,
+      "claimed_original": 4,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": [
+        {
+          "path": "entry.rules[0].params.lookback",
+          "value": 20,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "entry.rules[0].params.min_bars_before",
+          "value": 4,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "entry.rules[1].params.min_new_low_days",
+          "value": 20,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 20,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        }
+      ]
+    },
+    {
+      "file": "engine/configs/quality_compounder.yaml",
+      "ids": [],
+      "section_found": false,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/trend_following.yaml",
+      "ids": [],
+      "section_found": false,
+      "claimed_original": 5,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": [
+        {
+          "path": "entry.rules[0].params.lookback",
+          "value": 55,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "stop_init.components[1].params.lookback",
+          "value": 20,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "exit.rules[1].params.ma",
+          "value": 50,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "sizing.params.risk_per_trade",
+          "value": 0.01,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "sizing.params.max_weight",
+          "value": 0.1,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        }
+      ]
+    },
+    {
+      "file": "engine/configs/vcp_momentum.yaml",
+      "ids": [],
+      "section_found": false,
+      "claimed_original": 9,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": [
+        {
+          "path": "universe.rules[1].components[0].params.lookback",
+          "value": 250,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "universe.rules[1].components[1].params.lookback",
+          "value": 250,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "stop_init.params.structure_lookback",
+          "value": 5,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "stop_init.params.atr_period",
+          "value": 14,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "stop_init.params.atr_multiple",
+          "value": 0.2,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "stop_init.hard_gate.params.max_pct",
+          "value": 8.0,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "stop_trail.stages[0].when.days_held_lte",
+          "value": 10,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "stop_trail.stages[1].when.days_held_gte",
+          "value": 15,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        },
+        {
+          "path": "exit.rules[0].params.ema",
+          "value": 10,
+          "source": "原著",
+          "why": "配置里没写它对应方法卡哪一条"
+        }
+      ]
+    },
+    {
+      "file": "engine/configs/技-1-原著-唐奇安反向通道离场.yaml",
+      "ids": [
+        "技-1"
+      ],
+      "section_found": true,
+      "claimed_original": 4,
+      "found": [
+        {
+          "path": "entry.rules[0].params.lookback",
+          "value": 20,
+          "source": "原著(Faith 2003):系统 1 入场 = 20 日通道突破。 ★ runner 另跑系统 2(55 日入场 / 20 日出场)。",
+          "hit_as": "20"
+        },
+        {
+          "path": "initial_stop.params.atr_period",
+          "value": 20,
+          "source": "原著:海龟 2N 止损;N = ATR(20)(ATR 定义 Wilder 1978)。 ★ 任务书明文 N = ATR(20) —— 与本文件一致。 ★ 单单位版里这条线同时**就是**原著那条「灾难防守线」:\n  「跌破最后一次加仓点下方 2.0N」在只有 1 个单位时 ≡ 进场价 − 2.0N。",
+          "hit_as": "20"
+        },
+        {
+          "path": "exit.rules[0].params.lookback",
+          "value": 10,
+          "source": "★★ 原著离场:系统 1 退出 = 跌破过去 **10 日最低价** 全部平仓。 ★ runner 跑系统 2 时改成 20 日。 ★ 写成**离场规则**而不是移动止损:原著的反向通道可以**往下跑**,\n  而引擎的移动止损有「只许上移」铁律,两者不等价。",
+          "hit_as": "10"
+        }
+      ],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "initial_stop.params.multiple",
+          "value": 2.0,
+          "source": "原著:海龟 2N 止损;N = ATR(20)(ATR 定义 Wilder 1978)。 ★ 任务书明文 N = ATR(20) —— 与本文件一致。 ★ 单单位版里这条线同时**就是**原著那条「灾难防守线」:\n  「跌破最后一次加仓点下方 2.0N」在只有 1 个单位时 ≡ 进场价 − 2.0N。"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-1.yaml",
+      "ids": [
+        "技-1"
+      ],
+      "section_found": true,
+      "claimed_original": 4,
+      "found": [
+        {
+          "path": "entry.rules[0].params.lookback",
+          "value": 20,
+          "source": "原著(Faith 2003,System 1 入场 20 日通道;runner 另跑 55 日 System 2)",
+          "hit_as": "20"
+        },
+        {
+          "path": "initial_stop.params.atr_period",
+          "value": 20,
+          "source": "原著(海龟 2N 止损;N = 20 日 ATR。ATR 定义 Wilder 1978)",
+          "hit_as": "20"
+        },
+        {
+          "path": "exit.rules[0].params.lookback",
+          "value": 10,
+          "source": "原著(System 1 退出 = 10 日反向通道)",
+          "hit_as": "10"
+        }
+      ],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "initial_stop.params.multiple",
+          "value": 2.0,
+          "source": "原著(海龟 2N 止损;N = 20 日 ATR。ATR 定义 Wilder 1978)"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-10-原著-持仓2至5天离场.yaml",
+      "ids": [
+        "技-10",
+        "状-1"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "entry.rules[0].params.lookback",
+          "value": 20,
+          "source": "原著:20 日新低;前低至少 4 个交易日之前 (Ch.4 Rule 2,原文 \"must have occurred at least four trading sessions earlier\",ops_1029 已核实)。 ★ require_close_confirm 固定 true(我方卡片口径),本轮不动这一轴。",
+          "hit_as": "20"
+        },
+        {
+          "path": "initial_stop.params.tick",
+          "value": 0.01,
+          "source": "原著:「买入后挂在当日创出的新 20 日最低价下方 1 tick」。 ★ 1 tick = $0.01(美股最小报价单位)—— 这是执行细节的落地,\n  「1 tick」本身是原著写死的。\n★ structure_lookback: 3 = 回看 3 根取最低,覆盖「假突破那根 + 确认那根 +\n  进场那根」。引擎的执行比原著晚一天,进场日已经离假突破那根 2 根了。\n  ★ 这个 3 与 技-10.yaml 逐字相同 —— 本轮在止损上唯一的改动是那 1 tick。",
+          "hit_as": "1"
+        }
+      ],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "entry.rules[0].params.min_bars_before",
+          "value": 4,
+          "source": "原著:20 日新低;前低至少 4 个交易日之前 (Ch.4 Rule 2,原文 \"must have occurred at least four trading sessions earlier\",ops_1029 已核实)。 ★ require_close_confirm 固定 true(我方卡片口径),本轮不动这一轴。"
+        },
+        {
+          "path": "initial_stop.params.structure_lookback",
+          "value": 3,
+          "source": "原著:「买入后挂在当日创出的新 20 日最低价下方 1 tick」。 ★ 1 tick = $0.01(美股最小报价单位)—— 这是执行细节的落地,\n  「1 tick」本身是原著写死的。\n★ structure_lookback: 3 = 回看 3 根取最低,覆盖「假突破那根 + 确认那根 +\n  进场那根」。引擎的执行比原著晚一天,进场日已经离假突破那根 2 根了。\n  ★ 这个 3 与 技-10.yaml 逐字相同 —— 本轮在止损上唯一的改动是那 1 tick。"
+        },
+        {
+          "path": "exit.rules[0].params.max_holding_days",
+          "value": 2,
+          "source": "原著:「持仓 2~5 天获利离场」。★ 这是一个**区间**,不是一个数 —— 按硬纪律第 2 条跑三组:2 天(严格端)/ 3 天(中值)/ 5 天(宽松端)。 ★ 本文件是 2 天那一档;3 / 5 由 runner 覆盖 exit.params.time_stop_days,\n  覆盖后 meta.name 一并改掉,报告里三组并列。\n★ 引擎口径:持仓满 N 天的那根收盘触发、次日开盘平仓\n  → 实测 holding_days ≈ N+1。这一点在报告里标明,不含糊。"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-10.yaml",
+      "ids": [
+        "技-10",
+        "状-1",
+        "状-3"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "entry.rules[0].params.lookback",
+          "value": 20,
+          "source": "原著:20 日新低(Street Smarts Ch.4);前低至少 4 个交易日之前 (Ch.4 Rule 2,原文 \"must have occurred at least four trading sessions earlier\",ops_1029 已核实)。 ★ require_close_confirm 这一处是附录 D.8 标的「待核实」,两版并列跑。",
+          "hit_as": "20"
+        },
+        {
+          "path": "initial_stop.params.atr_period",
+          "value": 14,
+          "source": "原著「止损设在那根假突破 K 线的最低点下方一点点」。 ★「一点点」原著没给数 → 本次用 0 缓冲(atr_multiple: 0.0), 理由:0 是唯一不含自由参数的读法。★ 已列入报告「要回去问」。 ★ structure_lookback: 3 = 回看 3 根取最低,覆盖「假突破那根 + 确认那根 + 进场那根」, 因为引擎的执行比原著晚一天,进场日已经离假突破那根 2 根了。",
+          "hit_as": "14"
+        }
+      ],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "entry.rules[0].params.min_bars_before",
+          "value": 4,
+          "source": "原著:20 日新低(Street Smarts Ch.4);前低至少 4 个交易日之前 (Ch.4 Rule 2,原文 \"must have occurred at least four trading sessions earlier\",ops_1029 已核实)。 ★ require_close_confirm 这一处是附录 D.8 标的「待核实」,两版并列跑。"
+        },
+        {
+          "path": "initial_stop.params.structure_lookback",
+          "value": 3,
+          "source": "原著「止损设在那根假突破 K 线的最低点下方一点点」。 ★「一点点」原著没给数 → 本次用 0 缓冲(atr_multiple: 0.0), 理由:0 是唯一不含自由参数的读法。★ 已列入报告「要回去问」。 ★ structure_lookback: 3 = 回看 3 根取最低,覆盖「假突破那根 + 确认那根 + 进场那根」, 因为引擎的执行比原著晚一天,进场日已经离假突破那根 2 根了。"
+        },
+        {
+          "path": "initial_stop.params.atr_multiple",
+          "value": 0.0,
+          "source": "原著「止损设在那根假突破 K 线的最低点下方一点点」。 ★「一点点」原著没给数 → 本次用 0 缓冲(atr_multiple: 0.0), 理由:0 是唯一不含自由参数的读法。★ 已列入报告「要回去问」。 ★ structure_lookback: 3 = 回看 3 根取最低,覆盖「假突破那根 + 确认那根 + 进场那根」, 因为引擎的执行比原著晚一天,进场日已经离假突破那根 2 根了。"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-11-XING.yaml",
+      "ids": [
+        "技-11"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [],
+      "missing": [
+        {
+          "path": "entry.rules[0].params.lookback",
+          "value": 20,
+          "source": "原著(Connors & Raschke 1995 Ch.4 Rule 2 —— 已核实)",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[0].params.min_bars_before",
+          "value": 4,
+          "source": "原著(Connors & Raschke 1995 Ch.4 Rule 2 —— 已核实)"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-11-两日结构.yaml",
+      "ids": [
+        "技-11"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-11-原著.yaml",
+      "ids": [
+        "技-11"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-11-行业.yaml",
+      "ids": [
+        "技-11"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-12.yaml",
+      "ids": [
+        "技-12"
+      ],
+      "section_found": true,
+      "claimed_original": 7,
+      "found": [
+        {
+          "path": "universe.rules[0].params.ma",
+          "value": 200,
+          "source": "原著(「价格在 200 日均线之上」;手册明文此前提不允许关掉)",
+          "hit_as": "200"
+        },
+        {
+          "path": "sizing.params.risk_per_trade",
+          "value": 0.01,
+          "source": "★ 执行细节:原著是单品种/等权测试,没给组合仓位规则。 ★ 注意:initial_stop = none 时 risk_per_trade 按「进场价」算风险, 等价于每笔买 1% 权益 —— 槽位 10 下实际常年低仓位, ★ 这会让绝对收益看着低,必须和「同等仓位大盘」基准比,不能看绝对数。",
+          "hit_as": "1"
+        }
+      ],
+      "missing": [
+        {
+          "path": "sizing.params.max_positions",
+          "value": 10,
+          "source": "★ 执行细节:原著是单品种/等权测试,没给组合仓位规则。 ★ 注意:initial_stop = none 时 risk_per_trade 按「进场价」算风险, 等价于每笔买 1% 权益 —— 槽位 10 下实际常年低仓位, ★ 这会让绝对收益看着低,必须和「同等仓位大盘」基准比,不能看绝对数。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "sizing.params.max_weight",
+          "value": 0.1,
+          "source": "★ 执行细节:原著是单品种/等权测试,没给组合仓位规则。 ★ 注意:initial_stop = none 时 risk_per_trade 按「进场价」算风险, 等价于每笔买 1% 权益 —— 槽位 10 下实际常年低仓位, ★ 这会让绝对收益看着低,必须和「同等仓位大盘」基准比,不能看绝对数。",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[0].params.period",
+          "value": 2,
+          "source": "原著:RSI 周期 = 2(手册正文明确写「2 日 RSI」)。 ★★ 阈值 = 手册**没给**(原文只写「极低值」)—— 5 / 10 两档是常见流传值,★ 不是手册所载,两档并列只作敏感度, ★ 不构成结论。已列入报告「要回去问」。"
+        },
+        {
+          "path": "entry.rules[0].params.threshold",
+          "value": 5.0,
+          "source": "原著:RSI 周期 = 2(手册正文明确写「2 日 RSI」)。 ★★ 阈值 = 手册**没给**(原文只写「极低值」)—— 5 / 10 两档是常见流传值,★ 不是手册所载,两档并列只作敏感度, ★ 不构成结论。已列入报告「要回去问」。"
+        },
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 5,
+          "source": "原著(「价格回到 5 日均线之上就走」)"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-13-原著-四重离场.yaml",
+      "ids": [
+        "技-13"
+      ],
+      "section_found": true,
+      "claimed_original": 7,
+      "found": [
+        {
+          "path": "exit.rules[0].params.countdown",
+          "value": 13,
+          "source": "原著离场①:Buy Setup 9 完成后进场,后续顺向计数, 出现第 13 根满足条件的 Countdown 柱(该日收盘价 ≥ 2 根 K 线前的最高价) 时全部平仓。 ★ 注意:这个条件的方向和 ops_a0.td_buy_countdown(close ≤ low[t−2],\n  那是**进场**用的 Buy Countdown)**相反** —— 别张冠李戴。\n★ 「新的 Setup 完成会重置计数」是流传版本的做法,不是原文。 ★ 出处的章节号/页码【待核实】。",
+          "hit_as": "13"
+        }
+      ],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "exit.rules[0].params.setup_count",
+          "value": 9,
+          "source": "原著离场①:Buy Setup 9 完成后进场,后续顺向计数, 出现第 13 根满足条件的 Countdown 柱(该日收盘价 ≥ 2 根 K 线前的最高价) 时全部平仓。 ★ 注意:这个条件的方向和 ops_a0.td_buy_countdown(close ≤ low[t−2],\n  那是**进场**用的 Buy Countdown)**相反** —— 别张冠李戴。\n★ 「新的 Setup 完成会重置计数」是流传版本的做法,不是原文。 ★ 出处的章节号/页码【待核实】。"
+        },
+        {
+          "path": "exit.rules[0].params.ref_lag",
+          "value": 4,
+          "source": "原著离场①:Buy Setup 9 完成后进场,后续顺向计数, 出现第 13 根满足条件的 Countdown 柱(该日收盘价 ≥ 2 根 K 线前的最高价) 时全部平仓。 ★ 注意:这个条件的方向和 ops_a0.td_buy_countdown(close ≤ low[t−2],\n  那是**进场**用的 Buy Countdown)**相反** —— 别张冠李戴。\n★ 「新的 Setup 完成会重置计数」是流传版本的做法,不是原文。 ★ 出处的章节号/页码【待核实】。"
+        },
+        {
+          "path": "exit.rules[0].params.cd_lag",
+          "value": 2,
+          "source": "原著离场①:Buy Setup 9 完成后进场,后续顺向计数, 出现第 13 根满足条件的 Countdown 柱(该日收盘价 ≥ 2 根 K 线前的最高价) 时全部平仓。 ★ 注意:这个条件的方向和 ops_a0.td_buy_countdown(close ≤ low[t−2],\n  那是**进场**用的 Buy Countdown)**相反** —— 别张冠李戴。\n★ 「新的 Setup 完成会重置计数」是流传版本的做法,不是原文。 ★ 出处的章节号/页码【待核实】。"
+        },
+        {
+          "path": "exit.rules[1].params.ref_lag",
+          "value": 4,
+          "source": "原著离场②:多头持仓中出现 Close_t < Close_t−4 即离场。 ★ 按收盘价判定,全程不碰盘中价(硬纪律第 5 条)。 ★ 出处的章节号/页码【待核实】。"
+        },
+        {
+          "path": "exit.rules[3].params.count",
+          "value": 9,
+          "source": "原著离场④:持仓期走出完整 Sell Setup 9(连续 9 根收盘价高于 4 根前) → 强制平仓。 ★ 原著「反向计数」有两种读法(Sell Setup 9 / Sell Countdown 13),\n  本轮取 Sell Setup 9 —— ★ 这个取舍是任务书定的,写进报告。\n★ 出处的章节号/页码【待核实】。"
+        },
+        {
+          "path": "exit.rules[3].params.ref_lag",
+          "value": 4,
+          "source": "原著离场④:持仓期走出完整 Sell Setup 9(连续 9 根收盘价高于 4 根前) → 强制平仓。 ★ 原著「反向计数」有两种读法(Sell Setup 9 / Sell Countdown 13),\n  本轮取 Sell Setup 9 —— ★ 这个取舍是任务书定的,写进报告。\n★ 出处的章节号/页码【待核实】。"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-13.yaml",
+      "ids": [
+        "技-13"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-14-XING.yaml",
+      "ids": [
+        "技-14"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "entry.rules[0].params.period",
+          "value": 20,
+          "source": "XING 现有写法。★★ 性质:**作者点名反对**(Bollinger 2001 Ch.12 Rule 4)。 ★ 不是「原著没写」,是「原著写了不要这么干」。",
+          "hit_as": "20"
+        }
+      ],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "entry.rules[0].params.k",
+          "value": 2.0,
+          "source": "XING 现有写法。★★ 性质:**作者点名反对**(Bollinger 2001 Ch.12 Rule 4)。 ★ 不是「原著没写」,是「原著写了不要这么干」。"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-14-原著.yaml",
+      "ids": [
+        "技-14"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-14-行业-RSI2.yaml",
+      "ids": [
+        "技-14"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-14-行业.yaml",
+      "ids": [
+        "技-14"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-2.yaml",
+      "ids": [
+        "技-2"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "entry.rules[0].params.months",
+          "value": 10,
+          "source": "原著(Faber 2007 全文用 10 个月 SMA;月末判断一次)",
+          "hit_as": "10"
+        },
+        {
+          "path": "exit.rules[0].params.months",
+          "value": 10,
+          "source": "原著(月末收盘低于 10 月线 → 清仓换现金或短债)",
+          "hit_as": "10"
+        }
+      ],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-3-XING.yaml",
+      "ids": [
+        "技-3",
+        "状-2",
+        "状-3"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "initial_stop.params.lookback",
+          "value": 20,
+          "source": "执行细节(原著说「止损放在支撑位下方」,没给几日;20 日是三版统一口径)",
+          "hit_as": "20"
+        },
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 150,
+          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
+          "hit_as": "150"
+        }
+      ],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-3-原著-底盘9周.yaml",
+      "ids": [
+        "技-3",
+        "状-3"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "initial_stop.params.lookback",
+          "value": 20,
+          "source": "执行细节(原著说「止损放在支撑位下方」,没给几日;20 日是三版统一口径)",
+          "hit_as": "20"
+        }
+      ],
+      "missing": [
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 150,
+          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-3-原著-机械日线.yaml",
+      "ids": [
+        "技-3",
+        "状-3"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "initial_stop.params.lookback",
+          "value": 20,
+          "source": "执行细节(原著说「止损放在支撑位下方」,没给几日;20 日是三版统一口径)",
+          "hit_as": "20"
+        }
+      ],
+      "missing": [
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 150,
+          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-3-原著.yaml",
+      "ids": [
+        "技-3",
+        "状-3"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "initial_stop.params.lookback",
+          "value": 20,
+          "source": "执行细节(原著说「止损放在支撑位下方」,没给几日;20 日是三版统一口径)",
+          "hit_as": "20"
+        }
+      ],
+      "missing": [
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 150,
+          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-3-行业.yaml",
+      "ids": [
+        "技-3",
+        "状-3"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "initial_stop.params.lookback",
+          "value": 20,
+          "source": "执行细节(原著说「止损放在支撑位下方」,没给几日;20 日是三版统一口径)",
+          "hit_as": "20"
+        }
+      ],
+      "missing": [
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 150,
+          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-4-原著-中值.yaml",
+      "ids": [
+        "技-4"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "initial_stop.params.pct",
+          "value": 0.08,
+          "source": "原著(O'Neil「一律在亏 7~8% 时砍掉」,取 8%)【待核实 —— 专家本次未给引文】",
+          "hit_as": "8%"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[1].params.period",
+          "value": 50,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.45×",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "entry.rules[1].params.multiple",
+          "value": 1.45,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.45×",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 50,
+          "source": "原著(O'Neil 以 50 日线为持股防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.baseline_offset_days",
+          "value": 1,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.45×"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-4-原著-宽松端.yaml",
+      "ids": [
+        "技-4"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "initial_stop.params.pct",
+          "value": 0.08,
+          "source": "原著(O'Neil「一律在亏 7~8% 时砍掉」,取 8%)【待核实 —— 专家本次未给引文】",
+          "hit_as": "8%"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[1].params.period",
+          "value": 50,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.4×",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "entry.rules[1].params.multiple",
+          "value": 1.4,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.4×",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 50,
+          "source": "原著(O'Neil 以 50 日线为持股防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.baseline_offset_days",
+          "value": 1,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.4×"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-4-原著.yaml",
+      "ids": [
+        "技-4"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "initial_stop.params.pct",
+          "value": 0.08,
+          "source": "原著(O'Neil「一律在亏 7~8% 时砍掉」,取 8%)【待核实 —— 专家本次未给引文】",
+          "hit_as": "8%"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[1].params.period",
+          "value": 50,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.5×",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "entry.rules[1].params.multiple",
+          "value": 1.5,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.5×",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 50,
+          "source": "原著(O'Neil 以 50 日线为持股防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.baseline_offset_days",
+          "value": 1,
+          "source": "原著区间(突破日量 ≥ 均量 +40~50%)【待核实】;本档 = 1.5×"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-4-行业.yaml",
+      "ids": [
+        "技-4",
+        "技-5"
+      ],
+      "section_found": true,
+      "claimed_original": 2,
+      "found": [
+        {
+          "path": "initial_stop.params.pct",
+          "value": 0.08,
+          "source": "原著(O'Neil「一律在亏 7~8% 时砍掉」,取 8%)【待核实 —— 专家本次未给引文】",
+          "hit_as": "8%"
+        },
+        {
+          "path": "exit.rules[0].params.ma",
+          "value": 50,
+          "source": "原著(O'Neil 以 50 日线为持股防线)【待核实】",
+          "hit_as": "50"
+        }
+      ],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-5-XING.yaml",
+      "ids": [
+        "技-4",
+        "技-5"
+      ],
+      "section_found": true,
+      "claimed_original": 12,
+      "found": [
+        {
+          "path": "entry.rules[0].params.base_min_days",
+          "value": 15,
+          "source": "XING 现有值(engine/configs/vcp_momentum.yaml):第一段 ≤30%、衰减 0.65、次数 2~4、缩量 0.60。 ★ 其中 0.30 这个第一段上限**低于**原著给的 0.33,衰减 0.65 **宽于**原著的 0.50。",
+          "hit_as": "15"
+        },
+        {
+          "path": "entry.rules[1].params.slow_period",
+          "value": 50,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "hit_as": "50"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[0].params.base_max_days",
+          "value": 65,
+          "source": "XING 现有值(engine/configs/vcp_momentum.yaml):第一段 ≤30%、衰减 0.65、次数 2~4、缩量 0.60。 ★ 其中 0.30 这个第一段上限**低于**原著给的 0.33,衰减 0.65 **宽于**原著的 0.50。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "entry.rules[0].params.first_contraction_max_depth",
+          "value": 0.3,
+          "source": "XING 现有值(engine/configs/vcp_momentum.yaml):第一段 ≤30%、衰减 0.65、次数 2~4、缩量 0.60。 ★ 其中 0.30 这个第一段上限**低于**原著给的 0.33,衰减 0.65 **宽于**原著的 0.50。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "entry.rules[0].params.decay_coefficient",
+          "value": 0.65,
+          "source": "XING 现有值(engine/configs/vcp_momentum.yaml):第一段 ≤30%、衰减 0.65、次数 2~4、缩量 0.60。 ★ 其中 0.30 这个第一段上限**低于**原著给的 0.33,衰减 0.65 **宽于**原著的 0.50。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "entry.rules[1].params.dryup_day_ratio",
+          "value": 0.6,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "exit.rules[0].params.ema",
+          "value": 10,
+          "source": "原著(Minervini 以 EMA10 为短线防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[0].params.fractal_half_width",
+          "value": 2,
+          "source": "XING 现有值(engine/configs/vcp_momentum.yaml):第一段 ≤30%、衰减 0.65、次数 2~4、缩量 0.60。 ★ 其中 0.30 这个第一段上限**低于**原著给的 0.33,衰减 0.65 **宽于**原著的 0.50。"
+        },
+        {
+          "path": "entry.rules[0].params.min_contractions",
+          "value": 2,
+          "source": "XING 现有值(engine/configs/vcp_momentum.yaml):第一段 ≤30%、衰减 0.65、次数 2~4、缩量 0.60。 ★ 其中 0.30 这个第一段上限**低于**原著给的 0.33,衰减 0.65 **宽于**原著的 0.50。"
+        },
+        {
+          "path": "entry.rules[0].params.max_contractions",
+          "value": 4,
+          "source": "XING 现有值(engine/configs/vcp_momentum.yaml):第一段 ≤30%、衰减 0.65、次数 2~4、缩量 0.60。 ★ 其中 0.30 这个第一段上限**低于**原著给的 0.33,衰减 0.65 **宽于**原著的 0.50。"
+        },
+        {
+          "path": "entry.rules[1].params.min_day_lookback",
+          "value": 5,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。"
+        },
+        {
+          "path": "initial_stop.hard_gate.params.max_pct",
+          "value": 8.0,
+          "source": "原著(Minervini「止损距离超过 8% 这单就不做」)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-5-原著-中值.yaml",
+      "ids": [
+        "技-4",
+        "技-5"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "entry.rules[1].params.slow_period",
+          "value": 50,
+          "source": "缩量阈值 0.55 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.55。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "hit_as": "50"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[1].params.dryup_day_ratio",
+          "value": 0.55,
+          "source": "缩量阈值 0.55 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.55。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "exit.rules[0].params.ema",
+          "value": 10,
+          "source": "原著(Minervini 以 EMA10 为短线防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.min_day_lookback",
+          "value": 5,
+          "source": "缩量阈值 0.55 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.55。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。"
+        },
+        {
+          "path": "initial_stop.hard_gate.params.max_pct",
+          "value": 8.0,
+          "source": "原著(Minervini「止损距离超过 8% 这单就不做」)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-5-原著-宽松端.yaml",
+      "ids": [
+        "技-4",
+        "技-5"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "entry.rules[1].params.slow_period",
+          "value": 50,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "hit_as": "50"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[1].params.dryup_day_ratio",
+          "value": 0.6,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "exit.rules[0].params.ema",
+          "value": 10,
+          "source": "原著(Minervini 以 EMA10 为短线防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.min_day_lookback",
+          "value": 5,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。"
+        },
+        {
+          "path": "initial_stop.hard_gate.params.max_pct",
+          "value": 8.0,
+          "source": "原著(Minervini「止损距离超过 8% 这单就不做」)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-5-原著.yaml",
+      "ids": [
+        "技-4",
+        "技-5"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "entry.rules[1].params.slow_period",
+          "value": 50,
+          "source": "缩量阈值 0.5 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.5。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "hit_as": "50"
+        },
+        {
+          "path": "entry.rules[1].params.dryup_day_ratio",
+          "value": 0.5,
+          "source": "缩量阈值 0.5 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.5。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "hit_as": "50"
+        }
+      ],
+      "missing": [
+        {
+          "path": "exit.rules[0].params.ema",
+          "value": 10,
+          "source": "原著(Minervini 以 EMA10 为短线防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.min_day_lookback",
+          "value": 5,
+          "source": "缩量阈值 0.5 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.5。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。"
+        },
+        {
+          "path": "initial_stop.hard_gate.params.max_pct",
+          "value": 8.0,
+          "source": "原著(Minervini「止损距离超过 8% 这单就不做」)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-5-行业.yaml",
+      "ids": [
+        "技-4",
+        "技-5"
+      ],
+      "section_found": true,
+      "claimed_original": 5,
+      "found": [
+        {
+          "path": "entry.rules[1].params.slow_period",
+          "value": 50,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "hit_as": "50"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[1].params.dryup_day_ratio",
+          "value": 0.6,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。",
+          "why": "本段原文里 grep 不到这个数"
+        },
+        {
+          "path": "exit.rules[0].params.ema",
+          "value": 10,
+          "source": "原著(Minervini 以 EMA10 为短线防线)【待核实】",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.min_day_lookback",
+          "value": 5,
+          "source": "缩量阈值 0.6 —— 原著说「低于 50 日均量 40%~50%」= 0.50~0.60 区间。 ★ 本档取 0.6。★ 门禁2(突破日放量)按 1029 第二轮裁决已废除。"
+        },
+        {
+          "path": "initial_stop.hard_gate.params.max_pct",
+          "value": 8.0,
+          "source": "原著(Minervini「止损距离超过 8% 这单就不做」)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-6-XING.yaml",
+      "ids": [
+        "技-6",
+        "状-2"
+      ],
+      "section_found": true,
+      "claimed_original": 1,
+      "found": [],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "exit.rules[0].params.confirm_days",
+          "value": 3,
+          "source": "原著(跌破箱底就走;箱底由 3 日规则认定)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-6-原著.yaml",
+      "ids": [
+        "技-6"
+      ],
+      "section_found": true,
+      "claimed_original": 1,
+      "found": [],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "exit.rules[0].params.confirm_days",
+          "value": 3,
+          "source": "原著(跌破箱底就走;箱底由 3 日规则认定)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-6-行业.yaml",
+      "ids": [
+        "技-6"
+      ],
+      "section_found": true,
+      "claimed_original": 1,
+      "found": [],
+      "missing": [],
+      "undecidable": [
+        {
+          "path": "exit.rules[0].params.confirm_days",
+          "value": 3,
+          "source": "原著(跌破箱底就走;箱底由 3 日规则认定)【待核实】"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-8-行业-时间止损20日.yaml",
+      "ids": [
+        "技-8"
+      ],
+      "section_found": true,
+      "claimed_original": 6,
+      "found": [
+        {
+          "path": "sizing.params.risk_per_trade",
+          "value": 0.01,
+          "source": "执行细节(原著无仓位规则;与 技-8.yaml 逐字相同)",
+          "hit_as": "1"
+        },
+        {
+          "path": "sizing.params.max_positions",
+          "value": 10,
+          "source": "执行细节(原著无仓位规则;与 技-8.yaml 逐字相同)",
+          "hit_as": "10"
+        },
+        {
+          "path": "sizing.params.max_weight",
+          "value": 0.1,
+          "source": "执行细节(原著无仓位规则;与 技-8.yaml 逐字相同)",
+          "hit_as": "10"
+        }
+      ],
+      "missing": [
+        {
+          "path": "entry.rules[1].params.slow_period",
+          "value": 50,
+          "source": "★ 原著条件 ③「整理期间缩量」。★ max_ratio 手册没给 → enabled: false 显式关掉。★ 不许从别的链搬一个数过来顶上。",
+          "why": "本段原文里 grep 不到这个数"
+        }
+      ],
+      "undecidable": [
+        {
+          "path": "entry.rules[1].params.fast_period",
+          "value": 5,
+          "source": "★ 原著条件 ③「整理期间缩量」。★ max_ratio 手册没给 → enabled: false 显式关掉。★ 不许从别的链搬一个数过来顶上。"
+        },
+        {
+          "path": "entry.rules[1].params.offset_days",
+          "value": 1,
+          "source": "★ 原著条件 ③「整理期间缩量」。★ max_ratio 手册没给 → enabled: false 显式关掉。★ 不许从别的链搬一个数过来顶上。"
+        }
+      ],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-8.yaml",
+      "ids": [
+        "技-8"
+      ],
+      "section_found": true,
+      "claimed_original": 3,
+      "found": [
+        {
+          "path": "sizing.params.risk_per_trade",
+          "value": 0.01,
+          "source": "执行细节(原著无仓位规则)",
+          "hit_as": "1"
+        },
+        {
+          "path": "sizing.params.max_positions",
+          "value": 10,
+          "source": "执行细节(原著无仓位规则)",
+          "hit_as": "10"
+        },
+        {
+          "path": "sizing.params.max_weight",
+          "value": 0.1,
+          "source": "执行细节(原著无仓位规则)",
+          "hit_as": "10"
+        }
+      ],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/技-9.yaml",
+      "ids": [
+        "技-9"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/模-1.yaml",
+      "ids": [
+        "技-1",
+        "模-1"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/模-5.yaml",
+      "ids": [
+        "技-1",
+        "技-12",
+        "技-2",
+        "模-5"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/模-6.yaml",
+      "ids": [
+        "技-1",
+        "模-6"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/状-4.yaml",
+      "ids": [
+        "状-1",
+        "状-4",
+        "状-6"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    },
+    {
+      "file": "engine/configs/状-6.yaml",
+      "ids": [
+        "状-1",
+        "状-6"
+      ],
+      "section_found": true,
+      "claimed_original": 0,
+      "found": [],
+      "missing": [],
+      "undecidable": [],
+      "unmappable": []
+    }
+  ]
+}
