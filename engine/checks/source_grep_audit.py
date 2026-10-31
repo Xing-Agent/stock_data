@@ -135,6 +135,19 @@ def audit_file(p: Path, sections: dict[str, str]) -> dict:
     if not isinstance(cfg, dict):
         return {"file": str(p), "error": "顶层不是 dict"}
 
+    prov = cfg.get("provenance") or {}
+    if prov.get("composite") and not prov.get("per_rule_cards_filled"):
+        # ★ 合成流派且未逐条登记来源卡 → 单独一桶,不混进「找不到」
+        items_c: list[dict] = []
+        walk(cfg, "", None, items_c)
+        claimed_c = [it for it in items_c if claims_original(it["source"])]
+        for it in claimed_c:
+            it["why"] = "合成流派,未逐条登记来源方法卡 → 无法对账"
+        return {"file": str(p), "ids": [], "section_found": False,
+                "composite_unregistered": True,
+                "claimed_original": len(claimed_c), "found": [], "missing": [],
+                "undecidable": [], "unmappable": claimed_c}
+
     ids = infer_ids(cfg, raw)
     corpus = "\n".join(sections.get(i, "") for i in ids)
 
@@ -203,6 +216,7 @@ def main() -> int:
     n_und = sum(len(r["undecidable"]) for r in ok)
     n_unmap = sum(len(r["unmappable"]) for r in ok)
     n_nomap_files = sum(1 for r in ok if not r["section_found"])
+    n_comp = sum(1 for r in ok if r.get("composite_unregistered"))
 
     print("=" * 72)
     print("第三道卡口 · 出处 grep 对账")
@@ -219,10 +233,13 @@ def main() -> int:
         print("─" * 72)
         print("★★★ 「查不了」是这一轮最大的一桶 —— 而它本身就是一个结论")
         print("─" * 72)
-        print(f"  {n_nomap_files} 份配置里没有任何字段写明「这份配置对应方法卡哪一条」。")
-        print("  ★ 所以这些配置的出处**无法被任何机械手段对账** —— 不是我们没查,是查不了。")
-        print("  ★★★ 修法:给每份配置加一个 method_id 字段,指向方法卡编号。")
-        print("     ★ 在那之前,这些配置的 source=原著 **一律不能当成已核实**。")
+        print(f"  其中 {n_comp} 份是**我们自己合成的「流派」** —— ★ 它们不对应单一方法卡,")
+        print("  所以不是「漏填 method_id」,给它们补一个 method_id 本身就是错的修法。")
+        print("  ★★★ 正确修法:在 provenance 里逐条登记 ——")
+        print("     method_cards: 这一份借用了哪几张卡;")
+        print("     per_rule_cards_filled: 每条 source:原著 是否已指明来自哪张卡。")
+        print("  ★ 在填完之前,这些配置里的「原著」**一律不算已核实**。")
+        print(f"  (另有 {n_nomap_files - n_comp} 份是真的推不出策略号。)")
         print()
 
     if n_miss:

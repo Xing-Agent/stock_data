@@ -1,8 +1,8 @@
 {
   "summary": {
-    "claimed": 135,
-    "found": 40,
-    "missing": 29,
+    "claimed": 130,
+    "found": 39,
+    "missing": 25,
     "undecidable": 40,
     "unmappable": 26,
     "files_without_method_id": 7
@@ -12,6 +12,7 @@
       "file": "engine/configs/buy_and_hold.yaml",
       "ids": [],
       "section_found": false,
+      "composite_unregistered": true,
       "claimed_original": 0,
       "found": [],
       "missing": [],
@@ -22,6 +23,7 @@
       "file": "engine/configs/cashflow_discipline.yaml",
       "ids": [],
       "section_found": false,
+      "composite_unregistered": true,
       "claimed_original": 0,
       "found": [],
       "missing": [],
@@ -32,6 +34,7 @@
       "file": "engine/configs/deep_value.yaml",
       "ids": [],
       "section_found": false,
+      "composite_unregistered": true,
       "claimed_original": 8,
       "found": [],
       "missing": [],
@@ -41,49 +44,49 @@
           "path": "universe.rules[2].params.threshold",
           "value": 1.1,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "universe.rules[2].params.coefficients.X1",
           "value": 6.56,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "universe.rules[2].params.coefficients.X2",
           "value": 3.26,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "universe.rules[2].params.coefficients.X3",
           "value": 6.72,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "universe.rules[2].params.coefficients.X4",
           "value": 1.05,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "universe.rules[2].params.constant",
           "value": 0.0,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "exit.rules[0].conditions_any[0].value",
           "value": 4,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "exit.rules[0].conditions_any[1].value",
           "value": 40,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         }
       ]
     },
@@ -91,6 +94,7 @@
       "file": "engine/configs/liquidity_sweep.yaml",
       "ids": [],
       "section_found": false,
+      "composite_unregistered": true,
       "claimed_original": 4,
       "found": [],
       "missing": [],
@@ -100,25 +104,25 @@
           "path": "entry.rules[0].params.lookback",
           "value": 20,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "entry.rules[0].params.min_bars_before",
           "value": 4,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "entry.rules[1].params.min_new_low_days",
           "value": 20,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "exit.rules[0].params.ma",
           "value": 20,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         }
       ]
     },
@@ -126,6 +130,7 @@
       "file": "engine/configs/quality_compounder.yaml",
       "ids": [],
       "section_found": false,
+      "composite_unregistered": true,
       "claimed_original": 0,
       "found": [],
       "missing": [],
@@ -136,6 +141,7 @@
       "file": "engine/configs/trend_following.yaml",
       "ids": [],
       "section_found": false,
+      "composite_unregistered": true,
       "claimed_original": 5,
       "found": [],
       "missing": [],
@@ -145,31 +151,31 @@
           "path": "entry.rules[0].params.lookback",
           "value": 55,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "stop_init.components[1].params.lookback",
           "value": 20,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "exit.rules[1].params.ma",
           "value": 50,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "sizing.params.risk_per_trade",
           "value": 0.01,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "sizing.params.max_weight",
           "value": 0.1,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         }
       ]
     },
@@ -177,6 +183,7 @@
       "file": "engine/configs/vcp_momentum.yaml",
       "ids": [],
       "section_found": false,
+      "composite_unregistered": true,
       "claimed_original": 9,
       "found": [],
       "missing": [],
@@ -186,55 +193,55 @@
           "path": "universe.rules[1].components[0].params.lookback",
           "value": 250,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "universe.rules[1].components[1].params.lookback",
           "value": 250,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "stop_init.params.structure_lookback",
           "value": 5,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "stop_init.params.atr_period",
           "value": 14,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "stop_init.params.atr_multiple",
           "value": 0.2,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "stop_init.hard_gate.params.max_pct",
           "value": 8.0,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "stop_trail.stages[0].when.days_held_lte",
           "value": 10,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "stop_trail.stages[1].when.days_held_gte",
           "value": 15,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         },
         {
           "path": "exit.rules[0].params.ema",
           "value": 10,
           "source": "原著",
-          "why": "配置里没写它对应方法卡哪一条"
+          "why": "合成流派,未逐条登记来源方法卡 → 无法对账"
         }
       ]
     },
@@ -668,19 +675,13 @@
         "状-3"
       ],
       "section_found": true,
-      "claimed_original": 2,
+      "claimed_original": 1,
       "found": [
         {
           "path": "initial_stop.params.lookback",
           "value": 20,
           "source": "执行细节(原著说「止损放在支撑位下方」,没给几日;20 日是三版统一口径)",
           "hit_as": "20"
-        },
-        {
-          "path": "exit.rules[0].params.ma",
-          "value": 150,
-          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
-          "hit_as": "150"
         }
       ],
       "missing": [],
@@ -694,7 +695,7 @@
         "状-3"
       ],
       "section_found": true,
-      "claimed_original": 2,
+      "claimed_original": 1,
       "found": [
         {
           "path": "initial_stop.params.lookback",
@@ -703,14 +704,7 @@
           "hit_as": "20"
         }
       ],
-      "missing": [
-        {
-          "path": "exit.rules[0].params.ma",
-          "value": 150,
-          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
-          "why": "本段原文里 grep 不到这个数"
-        }
-      ],
+      "missing": [],
       "undecidable": [],
       "unmappable": []
     },
@@ -721,7 +715,7 @@
         "状-3"
       ],
       "section_found": true,
-      "claimed_original": 2,
+      "claimed_original": 1,
       "found": [
         {
           "path": "initial_stop.params.lookback",
@@ -730,14 +724,7 @@
           "hit_as": "20"
         }
       ],
-      "missing": [
-        {
-          "path": "exit.rules[0].params.ma",
-          "value": 150,
-          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
-          "why": "本段原文里 grep 不到这个数"
-        }
-      ],
+      "missing": [],
       "undecidable": [],
       "unmappable": []
     },
@@ -748,7 +735,7 @@
         "状-3"
       ],
       "section_found": true,
-      "claimed_original": 2,
+      "claimed_original": 1,
       "found": [
         {
           "path": "initial_stop.params.lookback",
@@ -757,14 +744,7 @@
           "hit_as": "20"
         }
       ],
-      "missing": [
-        {
-          "path": "exit.rules[0].params.ma",
-          "value": 150,
-          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
-          "why": "本段原文里 grep 不到这个数"
-        }
-      ],
+      "missing": [],
       "undecidable": [],
       "unmappable": []
     },
@@ -775,7 +755,7 @@
         "状-3"
       ],
       "section_found": true,
-      "claimed_original": 2,
+      "claimed_original": 1,
       "found": [
         {
           "path": "initial_stop.params.lookback",
@@ -784,14 +764,7 @@
           "hit_as": "20"
         }
       ],
-      "missing": [
-        {
-          "path": "exit.rules[0].params.ma",
-          "value": 150,
-          "source": "原著(跌破 30 周线 = 进入阶段四;★ 150 个交易日 ≈ 30 周)【待核实】",
-          "why": "本段原文里 grep 不到这个数"
-        }
-      ],
+      "missing": [],
       "undecidable": [],
       "unmappable": []
     },
