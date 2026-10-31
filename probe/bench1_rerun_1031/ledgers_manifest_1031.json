@@ -1,0 +1,459 @@
+{
+  "这是什么": "★★★ 90 份流水的指纹清单 —— **流水本身不入库**(压缩后仍 295MB,会让以后每次 clone 都慢)。",
+  "怎么用": "重跑 run_bench1_1031.py 之后,对一下每份的 sha256。对得上 = 同一份数据;对不上 = 口径变了,要查。",
+  "为什么能这么做": "★ 种子写死在 analyze.CONTROL_SEEDS,跑批是确定性的 —— 同样的代码 + 同样的池子 = 同样的流水。",
+  "总份数": 90,
+  "压缩后总字节": 308109020,
+  "逐份": [
+    {
+      "file": "CTRL__A0十二条_技-12·康纳斯(RSI2<10).csv.gz",
+      "bytes": 17160360,
+      "sha256": "5b0da8d167c3c06a9a6877afd811763a10826156eabaf7d4fdc26b6a251facc0"
+    },
+    {
+      "file": "CTRL__A0十二条_技-12·康纳斯(RSI2<5).csv.gz",
+      "bytes": 12174410,
+      "sha256": "a2af53f352a486b5da3b85146fff471102f7fd4e9317cbc2eddff37598da9355"
+    },
+    {
+      "file": "CTRL__A0十二条_技-1·XING日终趋势突破版(2ATR跟踪止损).csv.gz",
+      "bytes": 4591652,
+      "sha256": "acc52407d5dd2998e25a0deb79a88fd98b7cb0268d9083146332b0fff08f91b4"
+    },
+    {
+      "file": "CTRL__A0十二条_技-1·海龟System1(20日入_10日出).csv.gz",
+      "bytes": 2920987,
+      "sha256": "f96d81c8e31f95584477de5bcfc9f8ac4bea8937a37105d9cf0932b90988dda5"
+    },
+    {
+      "file": "CTRL__A0十二条_技-2·法伯月线择时(10月线).csv.gz",
+      "bytes": 8192844,
+      "sha256": "4b6a22ea2796784ba6f2065496750aa388f0c66ec713816851ace5e65677780d"
+    },
+    {
+      "file": "CTRL__剔污染_buy_and_hold(锚点).csv.gz",
+      "bytes": 900340,
+      "sha256": "a8bac2bd74f5fb646013a9496b3afd473a39d4c3ae7b46ad7910c7eae0afb7e1"
+    },
+    {
+      "file": "CTRL__剔污染_技-10·原著离场·持仓3天(中值).csv.gz",
+      "bytes": 7218827,
+      "sha256": "751ec074787e73516fda84275cca2fe67357781cae6af93e9367d9030b9fb44d"
+    },
+    {
+      "file": "CTRL__剔污染_技-10·原著离场·持仓5天(宽松端).csv.gz",
+      "bytes": 7056607,
+      "sha256": "30b10434e04921427bcd467803227e53ce75fb69bf8e6ee8ce535602a685a691"
+    },
+    {
+      "file": "CTRL__剔污染_技-11·行业版(后人量化版Spring:下刺+收复+缩量).csv.gz",
+      "bytes": 787166,
+      "sha256": "01abd8b1b4a69eb77eb764b94a1505d3cd0502f7dc0645358a910d2701491576"
+    },
+    {
+      "file": "CTRL__剔污染_技-12·康纳斯(RSI2<10).csv.gz",
+      "bytes": 17160358,
+      "sha256": "670d88fc61e47924b4d399496aa2e9be65b76b52f6c86b95ea7d11ec2df7d903"
+    },
+    {
+      "file": "CTRL__剔污染_技-13·原著四重离场·Countdown13进场.csv.gz",
+      "bytes": 16841182,
+      "sha256": "24361cbc79828a01161f678efd9925f61edd89f0b06113da8b76a4bd697e5131"
+    },
+    {
+      "file": "CTRL__剔污染_技-14·行业版(三步进场+三道趋势过滤,含ADX≤25).csv.gz",
+      "bytes": 4534789,
+      "sha256": "419b68a53c0e61a3d444aa5493cf53920d905790b68e6355e8c59d2871c8be4d"
+    },
+    {
+      "file": "CTRL__剔污染_技-14·行业版RSI2≤10(不带带宽熔断).csv.gz",
+      "bytes": 2626514,
+      "sha256": "ecd6a4d29ffb21bca8fca4dee8651dedadb5de1c5390bda2510d2c1ed9638def"
+    },
+    {
+      "file": "CTRL__剔污染_技-14·行业版RSI2≤10(带带宽熔断).csv.gz",
+      "bytes": 1970177,
+      "sha256": "2e6041b02ce396f53a099c423381ef5f9aa127f9f387ae5fa6c8214e13b1f479"
+    },
+    {
+      "file": "CTRL__原著离场_技-10·★原著离场·持仓2天(严格端).csv.gz",
+      "bytes": 7298072,
+      "sha256": "d7308005bba5ece61c2ab65f48064798cd7198b8282541b163740b0355baab7b"
+    },
+    {
+      "file": "CTRL__原著离场_技-10·★原著离场·持仓3天(中值).csv.gz",
+      "bytes": 7218833,
+      "sha256": "7b1a8babddffeb6b840d169793110729dd60669d3deccab3300c039b10258954"
+    },
+    {
+      "file": "CTRL__原著离场_技-10·★原著离场·持仓5天(宽松端).csv.gz",
+      "bytes": 7056613,
+      "sha256": "b89f2daeba3462e55e5181714af0af7cf1cf5aad34119b70c8e506d61c1e516f"
+    },
+    {
+      "file": "CTRL__原著离场_技-13·★原著四重离场·Countdown13进场.csv.gz",
+      "bytes": 16841188,
+      "sha256": "06abe95230a2c15f5b71ab123ca0ac6465f452e2612ae430a83b0a305c72b80c"
+    },
+    {
+      "file": "CTRL__原著离场_技-13·★原著四重离场·Setup9进场.csv.gz",
+      "bytes": 17757422,
+      "sha256": "39591af77b9bff48fb9dcdf21361252123b766e09bd1be1346bbc4327c40a07c"
+    },
+    {
+      "file": "CTRL__原著离场_技-1·★★装错的那一版对照:trend_following(吊灯3ATR+MA50).csv.gz",
+      "bytes": 2606555,
+      "sha256": "73d66e1c21b6d9e5c38ea4d67a9bbd42ce5a2098af961c2505887bc21bbd9cc2"
+    },
+    {
+      "file": "CTRL__原著离场_技-1·★原著离场·System1(20日入_10日反向通道出).csv.gz",
+      "bytes": 2921011,
+      "sha256": "f9ab4debf0930574fc64a06ea549310c889adc14d5e0231e8ffcb6f5776d619a"
+    },
+    {
+      "file": "CTRL__原著离场_技-6·原著版3日规则(箱底0容差).csv.gz",
+      "bytes": 2705214,
+      "sha256": "723d90100b04f511c326d8185272a7c981c297257c429c508ca465b4669396a1"
+    },
+    {
+      "file": "CTRL__批五修正_技-11·XING版(跌破20日低点再收回·完全不看量).csv.gz",
+      "bytes": 8587611,
+      "sha256": "272507b8e93838e3d96b13c21b58711c9faefefd9c764aca7d9876c656402a90"
+    },
+    {
+      "file": "CTRL__批五修正_技-11·★旧实现(一日合并版:收复日要求缩量≤0.65×).csv.gz",
+      "bytes": 787176,
+      "sha256": "12d6c44aae127c248ab2dd04e7f8f15c6f1c7a87028987970f36a26f93c3b2b8"
+    },
+    {
+      "file": "CTRL__批五修正_技-14·★新组合RSI(2)≤10(★不带带宽熔断).csv.gz",
+      "bytes": 2626525,
+      "sha256": "a5fd8f89494742f7f21b36501465c7b704b4e3c1818aa9966c576d94851cbf23"
+    },
+    {
+      "file": "CTRL__批五修正_技-14·★新组合RSI(2)≤10(★带带宽熔断).csv.gz",
+      "bytes": 1970188,
+      "sha256": "8f11eb0ffe5a4b59cfae0bbe6ee9db2afe7745110c523c2ae6ef32d805146939"
+    },
+    {
+      "file": "CTRL__批五修正_技-14·★旧三道过滤器版(含ADX(14)≤25).csv.gz",
+      "bytes": 4534779,
+      "sha256": "a2551b475bd8de090d27803b44f54f9f39e3d03ffc3b10966a0c356ddfc92217"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-11·XING版(跌破20日低点再收回).csv.gz",
+      "bytes": 8587603,
+      "sha256": "f0b9c43c9b7fecbadc55a41b85c1e91e1aa72ce28841f548104158ed765fdc34"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-11·行业版(后人量化版:下刺0.15~0.80ATR+收复+缩量).csv.gz",
+      "bytes": 787184,
+      "sha256": "7a06ad8e1fd881b9c81f479e4226c93fade68654bd13a507d584648e216f79e0"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-14·XING版(触下轨就买).csv.gz",
+      "bytes": 25142356,
+      "sha256": "8c4b7b58d957361bb234c296d1e6155511cf2f869e188a45f8dc0098aa3a4afe"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-14·原著版(MethodIII近似:W底+MFI底背离).csv.gz",
+      "bytes": 26823896,
+      "sha256": "f2fc17be72f6e89d79c8f42f520b3d40e48b84a73d31cefc97f31269c16ef277"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-14·行业版(三步进场+三道趋势过滤).csv.gz",
+      "bytes": 4534789,
+      "sha256": "d78fc76ef75e8d97facef112ce187f790eb8f2fd66ec9731e53eb8deb99943ae"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-3·XING版.csv.gz",
+      "bytes": 1632451,
+      "sha256": "1962a4cbb174959eddb2f6e55bb7ecb1febfa2e81ff875a41b9df6db56a6ad4d"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-3·行业版(放量1.55×·中值).csv.gz",
+      "bytes": 1459601,
+      "sha256": "b67f8fefd3bd920cc4bb0ead9dc6dbc75df6ff6382eb48cd92f60cece2581738"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-3·行业版(放量1.80×·宽松端).csv.gz",
+      "bytes": 1303425,
+      "sha256": "88787407d009165b3d4308d373b9984a77c7119721f53cbef194762fbbbdb8b7"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-4·原著版(宽松端:杯深≥12%_柄深≤15%_放量1.40×).csv.gz",
+      "bytes": 1033149,
+      "sha256": "0a9d864a46833786877d0f599d48f1de7bf7f69ffab7a5591eb5c7c79c765961"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-4·行业版(枢纽+0.1%_放量1.20×_柄部极端缩量).csv.gz",
+      "bytes": 970117,
+      "sha256": "00da22332ec69551e735390c3a2544fc877fb71a4e557ceecb91d8fc11875885"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-5·XING版(第一段≤30%_衰减0.65_2~4次_缩量0.60).csv.gz",
+      "bytes": 11028860,
+      "sha256": "95a1072eb57d933d6c78b28e18c97dfa387c53a9fcaf66b2229cbe4a4fa021e3"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-5·原著版(缩量0.50·严格端).csv.gz",
+      "bytes": 5333542,
+      "sha256": "dcf482706e225397c36e4320e35d6cad8747db009691433cbc138655d34cd718"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-5·原著版(缩量0.55·中值).csv.gz",
+      "bytes": 7195878,
+      "sha256": "7f18400e877a60f201eece6578d542337fb4d17e7cfd68c3951d6de4e8c2982f"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-5·原著版(缩量0.60·宽松端).csv.gz",
+      "bytes": 8741988,
+      "sha256": "3b9878fc06a78edb5c6b0804fde1ccf5731072e78409d6db667bc9fb684dc937"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-5·行业版(次数≥3_衰减0.65_缩量0.60).csv.gz",
+      "bytes": 2760873,
+      "sha256": "62869f2bde9fafa021d5afb98f4c1a49e6572c690f84839614c8d6eeb0f046a6"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-6·XING版(近25根区间收窄到20%).csv.gz",
+      "bytes": 2293892,
+      "sha256": "a2d31ae6f227ef0be697f347143ceb24088ab3763d81e8cce9e5a64710a02c9b"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-6·原著版(3日规则,★无振幅条件).csv.gz",
+      "bytes": 2705229,
+      "sha256": "0a6447e6f38064225966e0054adb32c10255574de5e18ee24a6e46e73e23b21c"
+    },
+    {
+      "file": "CTRL__技术派六条三版_技-6·行业版(3日规则+振幅≤18%+存活≥10日).csv.gz",
+      "bytes": 2511850,
+      "sha256": "dae5dcfe54d00b4002cf9af9ce3a8a6316e24dcdfa6f50c1bd28686a7908ec0f"
+    },
+    {
+      "file": "REAL__A0十二条_技-12·康纳斯(RSI2<10).csv.gz",
+      "bytes": 353133,
+      "sha256": "c187c62a45fce7e862278af96689d55469d83163ec3e3a29bd28cf0d9386a859"
+    },
+    {
+      "file": "REAL__A0十二条_技-12·康纳斯(RSI2<5).csv.gz",
+      "bytes": 251857,
+      "sha256": "3312968faaaa015ed5d84105041a823f8b4587d297c17f210fe7b747c6c43cdd"
+    },
+    {
+      "file": "REAL__A0十二条_技-1·XING日终趋势突破版(2ATR跟踪止损).csv.gz",
+      "bytes": 110736,
+      "sha256": "e35cfd503dfd02bcbcbe5d22acce1f8ae71897bae22bee0025efb8441bbfe8aa"
+    },
+    {
+      "file": "REAL__A0十二条_技-1·海龟System1(20日入_10日出).csv.gz",
+      "bytes": 61671,
+      "sha256": "fb8b65bf597c442e2ec94cf287bcb9b9d9350fb170b50528c168316d58439b00"
+    },
+    {
+      "file": "REAL__A0十二条_技-2·法伯月线择时(10月线).csv.gz",
+      "bytes": 164424,
+      "sha256": "681f058fd270dfe7562c8cae622f8d3f6e28e23271056a524a1ce575d7554039"
+    },
+    {
+      "file": "REAL__剔污染_buy_and_hold(锚点).csv.gz",
+      "bytes": 19021,
+      "sha256": "2c6677fcc140ba7cbbe46a4cef85e4f247be5b68984515b97c9199d788785cbb"
+    },
+    {
+      "file": "REAL__剔污染_技-10·原著离场·持仓3天(中值).csv.gz",
+      "bytes": 151270,
+      "sha256": "d2ef84053afdcc83d9a163b8a6eb4f39aa447e346ff872f07f47c5d0c48c7fde"
+    },
+    {
+      "file": "REAL__剔污染_技-10·原著离场·持仓5天(宽松端).csv.gz",
+      "bytes": 148482,
+      "sha256": "7e01be51bcd1212076a0cd6931f68cfd12cd34f7263b2179bb440c2236d725ae"
+    },
+    {
+      "file": "REAL__剔污染_技-11·行业版(后人量化版Spring:下刺+收复+缩量).csv.gz",
+      "bytes": 16693,
+      "sha256": "5d7c0904a67065b15a783203993e02a3ceea603d43fbe8de05ecedeb23d46c79"
+    },
+    {
+      "file": "REAL__剔污染_技-12·康纳斯(RSI2<10).csv.gz",
+      "bytes": 353131,
+      "sha256": "77016f18affb21520952f13642867d9c12c336230e2e69e5aa938554ea8e2b95"
+    },
+    {
+      "file": "REAL__剔污染_技-13·原著四重离场·Countdown13进场.csv.gz",
+      "bytes": 330540,
+      "sha256": "49845c6ee3849e9b7414720bc2ecacaadbe2f311e404b6cc20cbb49844b0abde"
+    },
+    {
+      "file": "REAL__剔污染_技-14·行业版(三步进场+三道趋势过滤,含ADX≤25).csv.gz",
+      "bytes": 95024,
+      "sha256": "2eccd41e1ad24c45e13262f2d63eb3f9d90323024ff17c38a0f73c9c82308485"
+    },
+    {
+      "file": "REAL__剔污染_技-14·行业版RSI2≤10(不带带宽熔断).csv.gz",
+      "bytes": 54572,
+      "sha256": "246b835ad3a4ec763b8f1f7881bc985d17af1f5f4034356c3cb2a1c0d05f088e"
+    },
+    {
+      "file": "REAL__剔污染_技-14·行业版RSI2≤10(带带宽熔断).csv.gz",
+      "bytes": 40798,
+      "sha256": "32a910c7471fb47cca1c18274a47ce2c4c23fb2941fff9bf94e649dd97597109"
+    },
+    {
+      "file": "REAL__原著离场_技-10·★原著离场·持仓2天(严格端).csv.gz",
+      "bytes": 152429,
+      "sha256": "56029e7d3edbf55ce2a4e75661414f5c2d2e92c8d88200e8e813f9fba75f26ed"
+    },
+    {
+      "file": "REAL__原著离场_技-10·★原著离场·持仓3天(中值).csv.gz",
+      "bytes": 151276,
+      "sha256": "eafe4d35db6d92a2a99a05139a3b4353e5bf8b6836d19851845d99e12377b40f"
+    },
+    {
+      "file": "REAL__原著离场_技-10·★原著离场·持仓5天(宽松端).csv.gz",
+      "bytes": 148488,
+      "sha256": "aa0088fe8914ec0128dbf1d4f83da5bdbee4c45ed40bacead4595d6be35e97c9"
+    },
+    {
+      "file": "REAL__原著离场_技-13·★原著四重离场·Countdown13进场.csv.gz",
+      "bytes": 330546,
+      "sha256": "bd643055db4e0c63c5a3bb4717ae15933fb0521b631c88de11003f60059d5c2b"
+    },
+    {
+      "file": "REAL__原著离场_技-13·★原著四重离场·Setup9进场.csv.gz",
+      "bytes": 352408,
+      "sha256": "2fe6bd738b90d8bcf43a62d5f90a49b691ee59d8b4f1b15c00502d5e3019e7f6"
+    },
+    {
+      "file": "REAL__原著离场_技-1·★★装错的那一版对照:trend_following(吊灯3ATR+MA50).csv.gz",
+      "bytes": 56591,
+      "sha256": "eb5d4939d0bcf155297ad602c734c697fc6ca057087725be4cba9ef161006eb7"
+    },
+    {
+      "file": "REAL__原著离场_技-1·★原著离场·System1(20日入_10日反向通道出).csv.gz",
+      "bytes": 61695,
+      "sha256": "f90730aebd19443bbaa70205ceff92d28a9750eb69a0ab522eea9b3a26d2f5fc"
+    },
+    {
+      "file": "REAL__原著离场_技-6·原著版3日规则(箱底0容差).csv.gz",
+      "bytes": 57330,
+      "sha256": "733c62e62a57ac5ff92a182c0b95c0f7e904a053415c2fcfe3ffba4394f6fbaa"
+    },
+    {
+      "file": "REAL__批五修正_技-11·XING版(跌破20日低点再收回·完全不看量).csv.gz",
+      "bytes": 178698,
+      "sha256": "443c5891e14b5ab5be070070eed96b68abd2b1f56fbf7890d135ec7309af44a6"
+    },
+    {
+      "file": "REAL__批五修正_技-11·★旧实现(一日合并版:收复日要求缩量≤0.65×).csv.gz",
+      "bytes": 16703,
+      "sha256": "e25d078298e63771cf5563fa186a4b761bdb83012849eb021920658ae6b206ea"
+    },
+    {
+      "file": "REAL__批五修正_技-14·★新组合RSI(2)≤10(★不带带宽熔断).csv.gz",
+      "bytes": 54583,
+      "sha256": "58e03b5c01750b82786b8f847137e078a5e6615903887c3d0e3d98fdfec09704"
+    },
+    {
+      "file": "REAL__批五修正_技-14·★新组合RSI(2)≤10(★带带宽熔断).csv.gz",
+      "bytes": 40809,
+      "sha256": "58cf10edebdf08f25c653fc34423933f32e2f8e67474d4e962a0d849c32b6583"
+    },
+    {
+      "file": "REAL__批五修正_技-14·★旧三道过滤器版(含ADX(14)≤25).csv.gz",
+      "bytes": 95014,
+      "sha256": "404edf20c567272b55348738c72e65050273e170b60bcd8fe2d9e9e4ed8270c1"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-11·XING版(跌破20日低点再收回).csv.gz",
+      "bytes": 178690,
+      "sha256": "e44ee672f19bc46f8cb96befcfb76a2262c9d6ffc245b9bc5263b577d613f9db"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-11·行业版(后人量化版:下刺0.15~0.80ATR+收复+缩量).csv.gz",
+      "bytes": 16711,
+      "sha256": "1b8f2568bbf81c74e15fe36a02a9784289b785525625bfd2302f2a593ac38035"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-14·XING版(触下轨就买).csv.gz",
+      "bytes": 505554,
+      "sha256": "7e93da1ffca0c637dedffcc98dfbb6076b5243d523eba0e16b13b07903f89f31"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-14·原著版(MethodIII近似:W底+MFI底背离).csv.gz",
+      "bytes": 540459,
+      "sha256": "090c9a49b9ac704e70ec859f0ac6820045127c35e1d0199cef98d65805d5aad6"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-14·行业版(三步进场+三道趋势过滤).csv.gz",
+      "bytes": 95024,
+      "sha256": "7781e4ba46170573d9d6fe7a81cde2d6cef82ef251473e2e57655198698ada44"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-3·XING版.csv.gz",
+      "bytes": 35097,
+      "sha256": "123d390042154ae2d3c8f35236f76fa818597ada7104a2966b7a20bf5369daa2"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-3·行业版(放量1.55×·中值).csv.gz",
+      "bytes": 31509,
+      "sha256": "506cbe68c282629ce2ed7fc587aca5717dfb40cce4bc54e0c55d92c7606eeb2b"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-3·行业版(放量1.80×·宽松端).csv.gz",
+      "bytes": 28406,
+      "sha256": "d007ef85f988c96a08401db45c2b2b017708b3106b958a73fba646c2266c31fc"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-4·原著版(宽松端:杯深≥12%_柄深≤15%_放量1.40×).csv.gz",
+      "bytes": 22477,
+      "sha256": "7d085c0ba082cacf7af71618c3c5b00a0f83c5709ff11ac43ee0e076bf687565"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-4·行业版(枢纽+0.1%_放量1.20×_柄部极端缩量).csv.gz",
+      "bytes": 20575,
+      "sha256": "f25d88682900b3d17eecc2a2ed1e61d0075fe796b4076fdfe38e3b8bd34de721"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-5·XING版(第一段≤30%_衰减0.65_2~4次_缩量0.60).csv.gz",
+      "bytes": 228553,
+      "sha256": "d7adcfab58387eda64bb659c3ba753322dfb9d55a52c76438526a32d43197ed8"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-5·原著版(缩量0.50·严格端).csv.gz",
+      "bytes": 112390,
+      "sha256": "00649275e02a12e6a684687da646a53ac93fb4788de5b042cbbe96f4039b4b92"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-5·原著版(缩量0.55·中值).csv.gz",
+      "bytes": 150023,
+      "sha256": "1653092b9884539b07a0a6f824a643c6e368a7af5906aaa14ff97daf80584028"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-5·原著版(缩量0.60·宽松端).csv.gz",
+      "bytes": 182783,
+      "sha256": "760740224cd891d4fe537491787a4d206d7452f25336a44bd6c0d98012130127"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-5·行业版(次数≥3_衰减0.65_缩量0.60).csv.gz",
+      "bytes": 58934,
+      "sha256": "83cdd4b922bc0b60db7ed9e81bf2c9b8fa322df059c7224573089ab018278f57"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-6·XING版(近25根区间收窄到20%).csv.gz",
+      "bytes": 49528,
+      "sha256": "9c15f7774722908a67e3e9178fb2e6539b6c77720a36ad319e9cbfe89a6abc8e"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-6·原著版(3日规则,★无振幅条件).csv.gz",
+      "bytes": 57345,
+      "sha256": "9a97ea4ec29d2fa9eca90f3de33076f62dd75552c912e6bbffeb360daeca77d9"
+    },
+    {
+      "file": "REAL__技术派六条三版_技-6·行业版(3日规则+振幅≤18%+存活≥10日).csv.gz",
+      "bytes": 52957,
+      "sha256": "e47995812afecb055405dc5703896da8b313c7f1bf79180e37a035d2290a93f8"
+    }
+  ]
+}
