@@ -45,6 +45,11 @@ TRADING_DAYS_PER_YEAR = 252
 # ★ 坑四:统一扣固定摩擦会系统性美化高频、惩罚低频。按 ADV20 分位数分三档。
 # ★ 具体数值定不下来,所以做成配置项,并默认同时报三档敏感度 ——
 #   不许自己挑一个好看的。
+# ★★★ 退化 R 的判据(2026-10-31 · 策略组拍板甲)
+#   risk 占进场价的比例低于这个数,就认为「本来准备亏多少」说不清 → 这笔 R 剔掉。
+#   ★ 1e-4 = 万分之一。$100 的票对应 1 分钱 —— 比任何真实止损距离都小几个量级。
+DEGENERATE_R_MIN = 1e-4
+
 FRICTION_TIERS_DEFAULT = {
     "high_liquidity_bps": 5.0,    # ADV20 排在全池前 1/3
     "mid_liquidity_bps": 15.0,    # 中间 1/3
@@ -530,6 +535,16 @@ def run_chain(cfg: ChainConfig,
         cash += nout * (1 - rate)
         cash_gross += nout
         risk = abs(p["entry"] - p["init_stop"])
+        # ★★★ 退化 R(2026-10-31 定,策略组拍板「甲:剔掉这一笔」)
+        #   止损价落在进场价上 → 这笔「本来准备亏」= 0 → R = 盈亏 ÷ 0。
+        #   ★ 原来只挡 `risk > 0`,挡不住 risk 是**极小正数**(浮点残差)的情况 ——
+        #     实测算出 1.75e14,一笔就把技-10 的基准一毁成 −31 亿。
+        #   ★★ 判据用相对值(risk 占进场价的比例),不用绝对值 ——
+        #     因为 $5 的票和 $500 的票,同样的绝对 risk 含义完全不同。
+        #   ★★★ 剔掉 = 承认「这一笔算不出来」,★ 其余所有 R 一个不动
+        #     (另一种补法「用进场价当分母」会改全库每一个 R,已否决)。
+        #   ★ 实测:真链流水 0 笔退化,全部出在随机对照组那边。
+        r_ok = risk > 0 and p["entry"] > 0 and (risk / p["entry"]) >= DEGENERATE_R_MIN
         hd = i - p["entry_i"]
         rows.append({
             "symbol": m.symbols[j],
@@ -538,11 +553,13 @@ def run_chain(cfg: ChainConfig,
             "initial_stop": p["init_stop"], "stop_at_exit": p["stop"],
             "reason": reason, "holding_days": hd,
             "gross_return": px / p["entry"] - 1.0 if p["entry"] > 0 else np.nan,
-            "r_multiple": (px - p["entry"]) / risk if risk > 0 else np.nan,
+            "r_multiple": (px - p["entry"]) / risk if r_ok else np.nan,
             # ★ 扣掉摩擦之后的 R —— 比较高频/低频策略必须看这个,
             #   价格口径的 R 不受摩擦影响,会系统性美化高频
             "r_multiple_net": ((nout - nin - fric) / (risk * p["shares"])
-                               if risk > 0 and p["shares"] > 0 else np.nan),
+                               if r_ok and p["shares"] > 0 else np.nan),
+            # ★ 留痕:这一笔是不是因为退化 R 被剔掉的(便于事后对账,不许静默丢弃)
+            "r_degenerate": bool(not r_ok),
             "risk_per_share": risk,
             "notional_in": nin, "notional_out": nout,
             "friction_bps": bps, "friction_cost": fric,
