@@ -71,6 +71,37 @@ def _load(name: str) -> dict:
         return yaml.safe_load(fh)
 
 
+# ★★★ 「这一版缺哪几道闸 / 结论只许怎么写」—— 口径只有一份,在配置里。
+#   ★ 2026-10-31 加。病根:这两条链的结论一直写成「这一派不成立」
+#     (⑥ 还加了「且反向显著」)。但三道闸是「参数没定 / 数据没有」,
+#     不是「这个方法试过了、不行」—— ★ 那句话的名义比证据大。
+#   ★ 这个函数不许自己编内容:只从配置的 `实现缺口` 块里读。
+#     配置里没写 → raise,★ 不许静默跑过去,也不许由代码替配置编一句。
+GAP_KEY = "实现缺口"
+
+
+def gap_notice(raw: dict, chain_label: str) -> dict:
+    """从配置读出实现缺口 → 一段必须跟着结果走的口径。
+
+    ★ 返回的 dict 会原样进结果 JSON,所以任何下游报告都带着它。
+    """
+    gap = raw.get(GAP_KEY)
+    if not isinstance(gap, dict) or not gap.get("结论怎么写"):
+        raise RuntimeError(
+            f"★★★ {chain_label} 的配置里没有 `{GAP_KEY}.结论怎么写` —— "
+            f"★ 这条链已知有装不上的闸,不许在没有「结论只许怎么写」的情况下跑。"
+            f"★ 到配置里补上这一块(照 cashflow_discipline.yaml 的格式)。")
+    missing = gap.get("这一版缺哪几道闸") or gap.get("这一版缺哪几处") or []
+    names = [str(x.get("闸") or x.get("项") or x) for x in missing]
+    return {
+        "★这一版缺哪几道闸": names,
+        "★缺口逐条": missing,
+        "★★★ 结论只许这么写": gap["结论怎么写"].get("只许这么写"),
+        "★★★ 结论不许这么写": gap["结论怎么写"].get("不许这么写"),
+        "为什么要降级": gap["结论怎么写"].get("理由"),
+    }
+
+
 # ================================================================ 配置变体
 
 def cashflow_variants(slots_list=(5, 10, 20)) -> list:
@@ -106,6 +137,12 @@ def cashflow_variants(slots_list=(5, 10, 20)) -> list:
             "① 的「无大规模增发」闸门阈值未定、③ 没有放量确认。"
             "★ 资本配置纪律(Thorndike 那一半)在 ① 里整个没了,"
             "只在 ⑥ 的清仓规则里还留着。")
+        # ★★★ 2026-10-31:结论**降级**,口径从配置里读(不许在代码里另编一句)
+        g = gap_notice(raw, "流派三 cashflow_discipline")
+        notes.append(
+            "★★★ 结论只许写成:" + str(g["★★★ 结论只许这么写"])
+            + " ★ 不许写成:" + " / ".join(g["★★★ 结论不许这么写"] or [])
+            + " ★ 理由:" + str(g["为什么要降级"]))
 
         raw["ranking"] = copy.deepcopy(PLACEHOLDER_RANKING)
         notes.append("★ C-1 " + PLACEHOLDER_RANKING["source"])
@@ -134,6 +171,13 @@ def deep_value_variants(slots_list=(12, 15, 24)) -> list:
             "自由参数的机械读法**:当日最低跌破前 20 日最低、当日收盘又收回其上。"
             "★ 这是我们的读法,不是专家给的口径 —— 待确认。",
         ]
+        # ★★★ 2026-10-31:同一天给 A 和 B **一起**降级 ——
+        #   纪律项:给一条链装上的东西,所有同类链都要装,不许只给一条降级。
+        g = gap_notice(raw, "流派一 deep_value")
+        notes.append(
+            "★★★ 结论只许写成:" + str(g["★★★ 结论只许这么写"])
+            + " ★ 不许写成:" + " / ".join(g["★★★ 结论不许这么写"] or [])
+            + " ★ 理由:" + str(g["为什么要降级"]))
         raw["ranking"] = copy.deepcopy(PLACEHOLDER_RANKING)
         notes.append("★ C-1 " + PLACEHOLDER_RANKING["source"])
         raw["slots"] = s
@@ -294,6 +338,9 @@ def run_one(name: str, raw: dict, notes: list[str], is_main: bool,
         "链名": name,
         "★是否主档": is_main,
         "slots": slots,
+        # ★★★ 这一版缺哪几道闸 + 结论只许怎么写(从配置的 `实现缺口` 块读,
+        #   配置里没写就 raise)。★ 放进每一条记录,所以任何下游报告都带着它。
+        "★★★ 实现缺口与结论口径": gap_notice(raw, name),
         "★必须讲清楚的前提": notes,
         "适配层报告": rep.text(),
         "笔数": n,
