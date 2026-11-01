@@ -109,3 +109,16 @@
 - ★ **又一个坑**:按名字搜编号,可能搜到后来接手这个名字的公司。HOS(Hornbeck)搜到的编号其实是 Helix,2026 年才改名叫 Hornbeck;GRA 搜到的是另一家 Grace。这 2 只已放回待人工
 - **剩下 68 只**(`exam_pending_manual_1101.csv`):45 只是名字搜不到(CHK、SYMC、CVC、DISCA、HRS……以外国公司和中小盘为主),21 只是多类股或合伙企业取不到股本(MPLX、W、Z、AMH……),2 只是上面那种编号搜错的
 - 建议:68 只里明显是美国大中盘的(CHK、SYMC、CVC、DISCA、HRS、WRK、SBNY……约 20 只),下一轮逐个手工补编号;其余维持待定,对考卷整体影响很小
+
+
+---
+
+# v3 更新(16:30)· 剩下的美国大中盘手工补完
+
+> **三秒版:名单 1,042 只(大盘 314、中盘 728;后来退市或被收购 353 只)。剩 37 只待定,都是合伙企业、商业发展公司(BDC)或多类股的中小盘,取不到当时的股本,对考卷影响很小。**
+
+- 50 只逐个手工填了 SEC 公司编号,每个都核对了 2014–16 年的报表和当时的股本
+- 补进来 18 只:CHK、SYMC、CVC、TYC、DISCA、VNTV、WRK、HRS、CAB、MPLX、FCS、LGF、GRA、NGLS、SRC、CXW、TWO、TEP
+- 市值不到 20 亿剔掉 12 只:TASR、MDR、PNK、AKS、NSM、DV、HOS、BBCN、YRCW、BDSI、MDP、VLP
+- DSW 就是老池里的 DBI(Designer Brands 改名前的代码),剔掉
+- **剩 37 只**:W、Z、SAM、AMH、ARCC、PSEC、RNG、IRWD 等,SEC 汇总里没有当时的合计股本。建议维持待定、先不进考卷;将来要补,得逐只翻 2015 年的年报
