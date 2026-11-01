@@ -24,7 +24,9 @@ best = cand.sort("err").group_by("id").first()
 S = S.join(best.select("id", pl.col("d").alias("aligned_date"), "jump", "err"), on="id", how="left")
 S = S.with_columns(
     pl.when(pl.col("err").is_null()).then(pl.lit("无行情"))
-      .when(pl.col("err") < 0.15).then(pl.when(pl.col("aligned_date") == pl.col("execution_date")).then(pl.lit("确认·同日")).otherwise(pl.lit("确认·日期改")))
+      # 容差:小比例(送股)0.15;大比例拆股/合股常伴随当天大涨大跌,放宽到 0.4,但方向必须一致
+      .when((pl.col("err") < 0.15) | ((pl.col("ratio").log().abs() >= 0.5) & (pl.col("err") < 0.4)
+            & ((pl.col("jump").log() * pl.col("ratio").log()) > 0))).then(pl.when(pl.col("aligned_date") == pl.col("execution_date")).then(pl.lit("确认·同日")).otherwise(pl.lit("确认·日期改")))
       .otherwise(pl.lit("价格没跳")).alias("check"))
 S.drop("ei").write_csv("polygon_splits_aligned_1101.csv")
 print(S.group_by("check").len().sort("len", descending=True))
