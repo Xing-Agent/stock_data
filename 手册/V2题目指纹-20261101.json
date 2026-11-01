@@ -1,0 +1,542 @@
+{
+  "这是什么": "★★★ V2 **题目指纹** —— 只含 engine(代码 + 配置),**不含手册**。",
+  "为什么要单独出这一份": "★ 第一份冻结清单(V2冻结清单-20261101.json)把 手册/*.md 也冻进去了 —— ★★ 那是我定错了范围:手册是**文档**,不是题目。★★★ 按那份清单,改一句文档指纹就变,等于考完之前什么都不许写。★ 第一份保留不动(它是冻结那一刻的历史记录),★★★ **以这一份为准**:考完之前 engine 一行都不许改,手册照常更新。",
+  "冻结时间": "2026-11-01",
+  "提交": "952fa23aff47516efbdcd1557f9f7aca710dec86",
+  "文件数": 133,
+  "★题目指纹": "ea289aba709287e33b761f55b569c171cdac0e06b5e87d0b4399e51408c39ee6",
+  "逐份": [
+    {
+      "file": "engine/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "engine/addon_slot.py",
+      "sha256": "bae393cffec3ec7a8a88725ed2a56d7a324786f522e3a28901dd23053bdb4450"
+    },
+    {
+      "file": "engine/analyze.py",
+      "sha256": "57945a3f55ea9747cda49b611d41c80671432c70f8126472c4c9ed5bdb41427b"
+    },
+    {
+      "file": "engine/bench_jump_audit.py",
+      "sha256": "cd9a8e3490c594844776f1e7bd58fea2dfcd3cf643c04b48ad05abd9f051bf04"
+    },
+    {
+      "file": "engine/bench_lines.py",
+      "sha256": "16070eb7eb6e4bd675cbd317983b05f408ef6724828c0414fc20ec158c821752"
+    },
+    {
+      "file": "engine/bench_run_1029.py",
+      "sha256": "2b7b8e20a7e7298e241b20ea5fb40d3bf15e64315337b116589668c068a74143"
+    },
+    {
+      "file": "engine/breakeven_1029.py",
+      "sha256": "20f6d23374ab5c7125b79fad2b96fe6bcea7d72b0a966ebffbd9dd0539844bf1"
+    },
+    {
+      "file": "engine/cache.py",
+      "sha256": "f0339674eaae7c196b7b0381db6d07ecdb62a37abc062158496c28a163795e52"
+    },
+    {
+      "file": "engine/chain.py",
+      "sha256": "ee345a93df36642f834a5637a31290f762d51a5b1944a7121c942a5f4bc60a94"
+    },
+    {
+      "file": "engine/checks/addon_schema.py",
+      "sha256": "3cc6a9addba9bb310daaa8d93307904c1ef72b8d47e68e24468a19dd39a3dcc8"
+    },
+    {
+      "file": "engine/checks/anchor_health.py",
+      "sha256": "4c25877edd18a377be499f9237efb9040130229c91a1132833289b4c3080c875"
+    },
+    {
+      "file": "engine/checks/concentration_degenerate.py",
+      "sha256": "8c2b0798a05fec31f6dc050120ec78e72ac0753fd91729f54bfd30dd92e662a8"
+    },
+    {
+      "file": "engine/checks/constant_output.py",
+      "sha256": "9734b0d0882c8ebb9c932baf417d893aee7c1606dafb4b7e527f14020f726e39"
+    },
+    {
+      "file": "engine/checks/default_value_neutrality.py",
+      "sha256": "5ee986ab92596ca19dac38cfce79affdc6c72240c3abac1e9dec074bc62691df"
+    },
+    {
+      "file": "engine/checks/empty_result_guard.py",
+      "sha256": "cad5d22b7443b5d29efea5e96d434c7ed33a60518cb235e76e8fdce8655f5e30"
+    },
+    {
+      "file": "engine/checks/four_slot_complete.py",
+      "sha256": "1c8ebcc265263daa40687e7bc0aee5c3040ab7ca4023336d230d947c9e85a0eb"
+    },
+    {
+      "file": "engine/checks/jump_removal_coverage.py",
+      "sha256": "0f39122987fe5a6fea73bb373f13a184ee3c09e357225e2e1922845c4fbe15df"
+    },
+    {
+      "file": "engine/checks/pending_registry.py",
+      "sha256": "dcd66b3fd606391112c6c8d216652a03a09dadc86e5270dfef57458567178b69"
+    },
+    {
+      "file": "engine/checks/r_denominator_lock.py",
+      "sha256": "4aba0bbe9bec60a2532cd6bbbb66723f552da1394435cceba9c3224b421d801d"
+    },
+    {
+      "file": "engine/checks/run_all.py",
+      "sha256": "7f4ad7e3e791ec53eda451a0888220cc3b150ca777c2c33241fef9c51488b6ed"
+    },
+    {
+      "file": "engine/checks/seed_stability.py",
+      "sha256": "272793068815ffb3b7821f7121771066c90a1cd2515d16fb4412710924d8e293"
+    },
+    {
+      "file": "engine/checks/silent_truncation.py",
+      "sha256": "c8d436683354555ab8a53a7d598574d4851ed9a9fdb6090b9dd07d11a1b960ad"
+    },
+    {
+      "file": "engine/checks/source_grep_audit.py",
+      "sha256": "16c8198013579c39734b05f80236e164d9a2cb110a483e920368fd4d33320107"
+    },
+    {
+      "file": "engine/checks/staged_scope.py",
+      "sha256": "f33d90665862d28b390ee770384734a1f5b64341d684962a4b76b052acc49d8f"
+    },
+    {
+      "file": "engine/checks/threshold_vs_distribution.py",
+      "sha256": "0a697be0904d0ab6118788ee07448f66029e14908b77ffe1e96e406c51b4369a"
+    },
+    {
+      "file": "engine/checks/time_scale_unit.py",
+      "sha256": "655d2754e0e6d2d00195c64dcd55a706535cee09f936e4b931f319cb8edde9fd"
+    },
+    {
+      "file": "engine/checks/user_facing_ban.py",
+      "sha256": "662e9859636d0e9186fac5413a401251f36ba284d96635f4e6fd73758ef9ced1"
+    },
+    {
+      "file": "engine/checks/verdict_inputs.py",
+      "sha256": "81f7443b6f7573c87120a32a82951b6c73090bad6cae1bd9c963cb0d84bab12f"
+    },
+    {
+      "file": "engine/config_adapter.py",
+      "sha256": "cdbaf7b28438be1c372758d52bca885031acbf37721d2b4b3d25fb485d214b73"
+    },
+    {
+      "file": "engine/configs/_TEMPLATE_master.yaml",
+      "sha256": "c8e55e80eac5e63886828f70752e2109c39941aab2b0b3615bcee9f2f40cb4e5"
+    },
+    {
+      "file": "engine/configs/buy_and_hold.yaml",
+      "sha256": "cb9a0dc8b9607a80264ad0af3040c3c63237a80495501f9f0971af46ef841f5b"
+    },
+    {
+      "file": "engine/configs/cashflow_discipline.yaml",
+      "sha256": "2bbfd46de95a932f33608ea5d8e83169d719aaf4a6f28b3510e9b56e9e57725d"
+    },
+    {
+      "file": "engine/configs/deep_value.yaml",
+      "sha256": "ae1ad0be14c1b8a64aeaff2c6ecad46063e8657b955fef1cb0430d611cdbad73"
+    },
+    {
+      "file": "engine/configs/liquidity_sweep.yaml",
+      "sha256": "f223ad2ccb1e2435e622845414296e99a0f72b7e66ad7108b218652209840d9a"
+    },
+    {
+      "file": "engine/configs/quality_compounder.yaml",
+      "sha256": "0caa6b251deb12719fad028a3a709e6bfb7657b5a4825968eb299d7b465654f0"
+    },
+    {
+      "file": "engine/configs/trend_following-原著-唐奇安反向通道离场.yaml",
+      "sha256": "9755dabeab34d6270e7f8087bdbc37eff6e9adddebf208d61d588c52e8e7b3c4"
+    },
+    {
+      "file": "engine/configs/trend_following.yaml",
+      "sha256": "e241dc8b35aeaf82f6c9e8dcdf06f0944e856772974e1a8ee4f4f343896c037a"
+    },
+    {
+      "file": "engine/configs/vcp_momentum.yaml",
+      "sha256": "eee5802c3114aa7b2cfa8732ebd6bc275322816940762c0efa5c0d1b181b48ec"
+    },
+    {
+      "file": "engine/configs/技-1-原著-唐奇安反向通道离场.yaml",
+      "sha256": "2c73c7006292439afe7e545ecfd4bfed938526e136a692217fb04e58b23bad7d"
+    },
+    {
+      "file": "engine/configs/技-1.yaml",
+      "sha256": "ec7fd97bf1d0af1a5231d3bd8677265e12ee92a610695979b2f16ada357e5e15"
+    },
+    {
+      "file": "engine/configs/技-10-原著-持仓2至5天离场.yaml",
+      "sha256": "edf8d5a473c2f4c0fa65832013aa8ac7b04d0d0412f2f6c647bd76f0657aee8c"
+    },
+    {
+      "file": "engine/configs/技-10.yaml",
+      "sha256": "44f23e98839ef06095f1e07c53efd88500f4575a63419583889e8174da2207fa"
+    },
+    {
+      "file": "engine/configs/技-11-XING.yaml",
+      "sha256": "a4c285477ce8629069fa321a4b8845ee0e939165017142be9f4353f3209b4c05"
+    },
+    {
+      "file": "engine/configs/技-11-两日结构.yaml",
+      "sha256": "2ebab8c9a8588991b0d5b567712c687e52ff47f4e1a42dd653118d31728c8d9e"
+    },
+    {
+      "file": "engine/configs/技-11-原著.yaml",
+      "sha256": "72e2da080da82ed9d39698a7443a9c0c51cbb0ae69d9dd23ebaa905a7b2e91d5"
+    },
+    {
+      "file": "engine/configs/技-11-行业.yaml",
+      "sha256": "58239f8f1a96e29b73bd097158dcebac3ad7959a62fc70bee66f64ea2802989d"
+    },
+    {
+      "file": "engine/configs/技-12.yaml",
+      "sha256": "79cf3bcc8e333d6181e0db4fc73feee869ab2492aca3f0ee821563ff5c9c2c76"
+    },
+    {
+      "file": "engine/configs/技-13-原著-四重离场.yaml",
+      "sha256": "45e62f3fe166622da5cac3bc93779c4a9849d103fe94d3524672ef8393869bb2"
+    },
+    {
+      "file": "engine/configs/技-13.yaml",
+      "sha256": "e0366e78e4d0317767703192659c0c61825576b942458c16e7dfc01dede490eb"
+    },
+    {
+      "file": "engine/configs/技-14-XING.yaml",
+      "sha256": "4ae3bc45b0a096f881a1fb59e962c962de06c7d64284afb4b6c890e1cff45917"
+    },
+    {
+      "file": "engine/configs/技-14-原著.yaml",
+      "sha256": "52a1c180f4c655e06fdda99af29134fbafced400170117c3f02b50ae6b207f0e"
+    },
+    {
+      "file": "engine/configs/技-14-行业-RSI2.yaml",
+      "sha256": "fbdaf56e8fb2ab6d823208c5dc6fbf892c6fd09ab402b79cf8e9e46405892fc8"
+    },
+    {
+      "file": "engine/configs/技-14-行业.yaml",
+      "sha256": "660d0e1b0c5a9cd8c2537733bd4192705f751acb9edb8651b9479cbd6043dc9e"
+    },
+    {
+      "file": "engine/configs/技-2.yaml",
+      "sha256": "8d510c7ee709fd9cad72e7d9e1a066856dbeb48c319e33365695847cce198a2f"
+    },
+    {
+      "file": "engine/configs/技-3-XING.yaml",
+      "sha256": "cb88d6275ac6a00fb8fd13769b6de94cc2142a7796cc1557369d8e499abd444b"
+    },
+    {
+      "file": "engine/configs/技-3-原著-底盘9周.yaml",
+      "sha256": "b5b0843a17216d56e98530ea3b9f53963a02fcb231dc468d4fabf2f53b7eda70"
+    },
+    {
+      "file": "engine/configs/技-3-原著-机械日线.yaml",
+      "sha256": "91dba01da573fa61084337c62ae247eb98dbab2db623937dd6ae8e235f568448"
+    },
+    {
+      "file": "engine/configs/技-3-原著.yaml",
+      "sha256": "eae0e167b8f5c02c42f8b2c1413fd53a834ad32531384534792632daaca063d0"
+    },
+    {
+      "file": "engine/configs/技-3-行业.yaml",
+      "sha256": "a5a3960ccef1d4bba72bcc1eb45811524c6c9bd109f915d63d03ed13cc92737c"
+    },
+    {
+      "file": "engine/configs/技-4-原著-中值.yaml",
+      "sha256": "9497caaf7f06d9f8d623db994c5d6f3e81b1bff740f810a5cdd42ebc17c0c08a"
+    },
+    {
+      "file": "engine/configs/技-4-原著-宽松端.yaml",
+      "sha256": "7ee1997f769a882bb1b1ebad9eb9c6c1353289ab35a242848cbcdc8db021a253"
+    },
+    {
+      "file": "engine/configs/技-4-原著.yaml",
+      "sha256": "03fb9c1a10a78b92a00d7d9c0e03dc54a6fa3b26b55a22d3dedf099a53fab847"
+    },
+    {
+      "file": "engine/configs/技-4-行业.yaml",
+      "sha256": "159690b31bad5915be003aeac7c37ab05201caf9ac07eab6e93312f13496ee43"
+    },
+    {
+      "file": "engine/configs/技-5-XING.yaml",
+      "sha256": "db0125caa1f14dc938e757c7ca26216221669a9a9a270d17896f8f6b1065447b"
+    },
+    {
+      "file": "engine/configs/技-5-原著-中值.yaml",
+      "sha256": "540660fc9f8bb93c3640c32d54275a3e5d9566a3538e4a9346077a087b91b323"
+    },
+    {
+      "file": "engine/configs/技-5-原著-宽松端.yaml",
+      "sha256": "c97edd3ef665d51ce9ec48eb6cf22d745b6d333db6b3731d257e86f7dd43686e"
+    },
+    {
+      "file": "engine/configs/技-5-原著.yaml",
+      "sha256": "104d4155ea46c94ffcb2e3170fdbd87b2b834cafb486ab45050061d3239417db"
+    },
+    {
+      "file": "engine/configs/技-5-行业.yaml",
+      "sha256": "3d7d0f79cf1a3dfee9cf68b93c463e6c05e269d4e50afb59240d058a120fab39"
+    },
+    {
+      "file": "engine/configs/技-6-XING.yaml",
+      "sha256": "dce4e02d71e4f1de879b9b60f53d4b766db7a9a76d099e97b70acf3d1d5ea734"
+    },
+    {
+      "file": "engine/configs/技-6-原著.yaml",
+      "sha256": "2a777f507490dd489f0f4ef6078773b63bef854897c6f63052f7be1a9ac3f6fd"
+    },
+    {
+      "file": "engine/configs/技-6-行业.yaml",
+      "sha256": "d43e2ec7c4ec08c7e39b6e768f7d336c00504a9393d692876187eff9d8fbabff"
+    },
+    {
+      "file": "engine/configs/技-8-行业-时间止损20日.yaml",
+      "sha256": "24d4cc933ede31b6525ee5ea36a7d4325543b667d93ba15ebadac571aafa3705"
+    },
+    {
+      "file": "engine/configs/技-8.yaml",
+      "sha256": "416873db9a4ac6bc18b8beb5289e5ed6d825882933db23ff253ec636e840942b"
+    },
+    {
+      "file": "engine/configs/技-9.yaml",
+      "sha256": "47474865c3bd87327bb66c313e9c0cdd34419aa9a6531832ebc3a9e17924b50d"
+    },
+    {
+      "file": "engine/configs/模-1.yaml",
+      "sha256": "9b941ca305b616598b0b90af861e0c89a214160d33e28da83582ca948e19b649"
+    },
+    {
+      "file": "engine/configs/模-5.yaml",
+      "sha256": "6cc846efc2680f8c4199721b16ed1316b76b335dc348a527244d3a1a7a1100c3"
+    },
+    {
+      "file": "engine/configs/模-6.yaml",
+      "sha256": "bca09821c001513970a7fcedb9cf020d9644e3b4a2957b19fc7bd1f4960b7f7a"
+    },
+    {
+      "file": "engine/configs/状-4.yaml",
+      "sha256": "3780ec7f412afc180ac75f1f4ea5657cf7602b96b04e8a7a3644cf7f8f450eb7"
+    },
+    {
+      "file": "engine/configs/状-6.yaml",
+      "sha256": "9bd8382f8c640da636a832490eb83ff61c010c876180e74c23539846eb47b942"
+    },
+    {
+      "file": "engine/data.py",
+      "sha256": "403c1d835ce78312b536d46b65bee1fea47f61926ac5755c8801707e52555692"
+    },
+    {
+      "file": "engine/delisting_gate.py",
+      "sha256": "20c4da1c52534e5515d63234b702f3e4226fb094116d46f9790e92d3da9df191"
+    },
+    {
+      "file": "engine/diag_vcp.py",
+      "sha256": "a69690fa927b4bf32b42fb67ac761cf268b88724b54f7eb74bf6d5b971e433e4"
+    },
+    {
+      "file": "engine/evidence_1029.py",
+      "sha256": "663e49f60ea2d85bf5d06cccae40865d1a6ff2ba3add044866ca91b41f1351b8"
+    },
+    {
+      "file": "engine/evidence_bench_split_impact.py",
+      "sha256": "2ddc7266fd9533e28d671ee8f96583e80bf42ab7ec5cbb32e0e4d2407c5668fb"
+    },
+    {
+      "file": "engine/evidence_precheck.py",
+      "sha256": "4a5d251ac1087a8944b43b2129ac159066ff98b09ae7c006017f2f2a858a56fd"
+    },
+    {
+      "file": "engine/evidence_total_return.py",
+      "sha256": "71750c097dd00d7020bfa533b25ee42da1d0d96f345ab85ed5d7989749c74f64"
+    },
+    {
+      "file": "engine/evidence_tr_rerun.py",
+      "sha256": "4c3360da0bb4a55ead141eeacd893cb1df7790d5eeddf732a7bac273f06b0276"
+    },
+    {
+      "file": "engine/fundamentals.py",
+      "sha256": "c0aec7b0c56b15c5199b6decabc766ee9d40ba934d0df11929282b3fde3f34fb"
+    },
+    {
+      "file": "engine/matrices.py",
+      "sha256": "61ba4020b00f6461c4b1ed34da3795dec08add9976805337af5903a622939d7c"
+    },
+    {
+      "file": "engine/measure_p5_1029.py",
+      "sha256": "9d9999f498f4b542f18b25acb754a31dec4c61efafedf572e35177dc547d41ae"
+    },
+    {
+      "file": "engine/measure_p5_bb_gates.py",
+      "sha256": "a894908bba2568b76d14397b04f49a2ba0aa7c3e31544d2298177da860dc6301"
+    },
+    {
+      "file": "engine/ops_1029.py",
+      "sha256": "313d88d791f299599078ed6cc42398b013d838a4792f19e09464349b7674798c"
+    },
+    {
+      "file": "engine/ops_a0.py",
+      "sha256": "f030a6dfd43c2b45e6792e3b41b29c382fead19ebf8a719a9219b7393b4566a5"
+    },
+    {
+      "file": "engine/ops_exits_1029.py",
+      "sha256": "8d945e175e2b0dfc629073f05a9c9f11cfb9fc92e1fb5c32b1b59f540d56b59e"
+    },
+    {
+      "file": "engine/pat6_make_configs.py",
+      "sha256": "4e3a6eae5e39d8c8e85a558f08fd992abcfaa09b25c28c0c9209388f32ee0973"
+    },
+    {
+      "file": "engine/pat6_measure.py",
+      "sha256": "9fbce455ed524d04cd8acfe3c982bb954a271a161262cb7aaabd321a3334f7ec"
+    },
+    {
+      "file": "engine/pat6_ops.py",
+      "sha256": "8ade7ef7b5a610c055762ead33b65771b66cc2f479a5a13268229b8f0d74e082"
+    },
+    {
+      "file": "engine/pat6_run.py",
+      "sha256": "f4a62ba23b8b5e460d08fd2cf0f1fb68520a140b92acc3466ac132f9df972f92"
+    },
+    {
+      "file": "engine/pat6_table.py",
+      "sha256": "3b1800a7d2804107b748d35bf559c1f4ba4e06b4882dfc4471a4122df38a70ff"
+    },
+    {
+      "file": "engine/pool_scope.py",
+      "sha256": "9aad4311026f1ad2469ab9fae2429cfad9a7ef8f53340884e16eb4b7f5391b04"
+    },
+    {
+      "file": "engine/run_a0_12.py",
+      "sha256": "bfaba277e84536c9b618d2d9cc09913767a00f0bdefff29ec6e856fe080c521e"
+    },
+    {
+      "file": "engine/run_a0_states.py",
+      "sha256": "1d5968563c03a8ae73871ba4fadf66df2011ea364558a1729c178ff0530632d4"
+    },
+    {
+      "file": "engine/run_batch.py",
+      "sha256": "aab57012fc270313ddc44c3b52d016b104e0902a806d3d0d75b14cb8e2770131"
+    },
+    {
+      "file": "engine/run_declean_1030.py",
+      "sha256": "9f6f466f6b16f85d11777f528d17b0d8dc573e68e6b705e5e68d9006b0afadef"
+    },
+    {
+      "file": "engine/run_dv_compare_1029.py",
+      "sha256": "0016fe015a6c29025d55ac2f0bacb9b1e3cd43c54e91df508d38a9cbdf462e1e"
+    },
+    {
+      "file": "engine/run_fundamental.py",
+      "sha256": "45178c3ba78b3d4c3851ab6d4c663796fb649045a7b3f765139531e81f4a0604"
+    },
+    {
+      "file": "engine/run_gate_redesign.py",
+      "sha256": "3d177689b653a4f12f98adc028f33ce894dedec6f145ce5d4575c61f428a3bc7"
+    },
+    {
+      "file": "engine/run_gates.py",
+      "sha256": "0e4e25fa2fbaa099b0ff389ded00214a9caf3397675de1d8b9e5345207fcef96"
+    },
+    {
+      "file": "engine/run_orig_exits_1029.py",
+      "sha256": "1dadbed66d2a74dfa568c941d3b8086b56243474a12cd08b6efb7989528b9a64"
+    },
+    {
+      "file": "engine/run_p5_1029.py",
+      "sha256": "e033d46e5f9417e6b0bf9ebb13d460b89cf2d1cb7f53b119ae2a811216abbeab"
+    },
+    {
+      "file": "engine/run_second_round_1029.py",
+      "sha256": "a8d683fbef7983aeca65c772ee48cafe1e66d39c849ff8aba2d92cbe3eb4b35f"
+    },
+    {
+      "file": "engine/run_split_bias.py",
+      "sha256": "c0e800c620fbcb7af5eb690f40612041ae53cd2821818200bc04183c72c55e50"
+    },
+    {
+      "file": "engine/run_trend_1029.py",
+      "sha256": "6240539178762dc5933e965407767618a2a404f72852a695d1f9e65ccb382dc3"
+    },
+    {
+      "file": "engine/run_trend_1029_extra.py",
+      "sha256": "fbf704f6c5b805124c3046cb94a72dae117dde4b38dfa2424685043cd29ef8f5"
+    },
+    {
+      "file": "engine/run_trend_1029_seedcheck.py",
+      "sha256": "bac9b23cbaa2cfa2bc01bbd5f1a1af17a647e4587a3546f3905c06ffe1913ce2"
+    },
+    {
+      "file": "engine/run_vcp_fixed.py",
+      "sha256": "ab56950bb1e110ef35fede46fee71455091c9a9d4501cc4ad8ec9ddc951ba0f5"
+    },
+    {
+      "file": "engine/run_vcp_simplified.py",
+      "sha256": "ef0e288cf31b2cc7c374d2f7faa5a2279592e50e1c4fbe1cf2b942aa2d5e8a0d"
+    },
+    {
+      "file": "engine/run_vcp_volume_decomp.py",
+      "sha256": "c76fba962d5b817fb77cbcc5038b7d38ca788721b678d974ceb8c2fa649c368f"
+    },
+    {
+      "file": "engine/run_z110_1029.py",
+      "sha256": "157508c51610fc33c057523c5144586be93dcd6ee1502cb82a2445d3f84c61e1"
+    },
+    {
+      "file": "engine/selftest.py",
+      "sha256": "0dc39d8639f2ca7bda54ff6ba54ae0eafa89dce74f61c083928fe3133f879eea"
+    },
+    {
+      "file": "engine/share_gate.py",
+      "sha256": "61a766de219acf9f5a51462d19f9f651f34c1f1686a5354acc54fb98b9656c13"
+    },
+    {
+      "file": "engine/signals.py",
+      "sha256": "639f374343ce91a1fdb5c7b3a4d2749e6ea72cd3471a6301f32858cd094ba36f"
+    },
+    {
+      "file": "engine/split_gate.py",
+      "sha256": "09ef2c4703900826959fb4befb06b66f99bb0c842fc5f6c5aedc822f207c3628"
+    },
+    {
+      "file": "engine/stages.py",
+      "sha256": "797a278fdeefd9ea63abd1bccf3b38f965a4e74b68b01505d4101b29ccace6e0"
+    },
+    {
+      "file": "engine/state2_topology_1029.py",
+      "sha256": "cb5dec89f799359a6303fd669cdb0c54adcd0db6980497101b48d0434d41bba3"
+    },
+    {
+      "file": "engine/state_axis_run_1029.py",
+      "sha256": "21ec20115298bfb6ba10b536f819fbac70a73635f9567bee1ae0983359cde2fe"
+    },
+    {
+      "file": "engine/state_axis_tri_1029.py",
+      "sha256": "f38940f1b0d52207c07842df424602b41f7faf0ae7746149f56d0d0e0fc22afa"
+    },
+    {
+      "file": "engine/stats_gate.py",
+      "sha256": "aaeac973e0431a71c56a5b58d6e22ee2725ff57cb099661d45397cc6005617c3"
+    },
+    {
+      "file": "engine/table_declean_1030.py",
+      "sha256": "b71b47e302f2bc0f8bd2c9adc249fc11c9caff031ff94c660d25916b8cd38918"
+    },
+    {
+      "file": "engine/table_orig_exits_1029.py",
+      "sha256": "d791ab5c560015988e8ade66712afa245b70d58fd6c5e697e01302858a143169"
+    },
+    {
+      "file": "engine/timestop_p5_1029.py",
+      "sha256": "1da269951ddf53c05ca4d7f5b6828adf9d0c54f970dc97bc523cc93caa84d5c4"
+    },
+    {
+      "file": "engine/verify_vcp_volume.py",
+      "sha256": "98d8840aac8af240fc6873424cd36e97d7f67ab5d8e3421f535be9e8efff6b15"
+    },
+    {
+      "file": "engine/window_pool.py",
+      "sha256": "54f22e3edce8619ed812d1520fd3cd30523ce61ee6de3307147e303c8a0a9dbc"
+    }
+  ]
+}
