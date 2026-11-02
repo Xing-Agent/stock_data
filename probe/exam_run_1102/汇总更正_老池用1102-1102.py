@@ -15,7 +15,7 @@
   另出一份更正汇总,★ 报告一律引用这一份。
 
 ★ 本脚本只读不写原件,输出 `汇总更正_老池用1102-1102.json`。
-"""
+
 ★★★ 2026-11-02 策略组要求的第二处更正 —— **退化 R 必须拆成两个数**:
    ★ 原来写成一个 `考卷_退化R再出现的 = 6`,★★ 它的定义是「真链**或**对照组
      任一有退化笔的链数」—— 而日志里打印的 `退化R=0` 是**真链**的笔数。
@@ -63,6 +63,68 @@ def b1_of(r: dict):
     return (r.get("★基准一") or {}).get("★真信号每笔R − 随机进场每笔R")
 
 
+# ══════════════════════════════════════════════════════════════════════════
+# ★★★ 退化 R —— 四个数,真链和对照组**分开**
+#
+# ★ 为什么要自己从流水反算,不读结果 JSON 里的字段:
+#   `bench1_rerun_1102.json` 的 `★真链退化R` 是去读流水的 `r_degenerate` 列,
+#   ★★ 而那一列被 `LEDGER_COLUMNS` 静默丢掉了(手册 v3.1 坑表第 37 处)——
+#   所以那个字段实测是 `{"退化R笔数": null, "有r_degenerate列": false}`,**没有数**。
+#   ★★★ 唯一能数的办法:按 engine 里那同一行判据从 risk_per_share/entry_price 反算。
+# ══════════════════════════════════════════════════════════════════════════
+
+#: ★ 和 engine/chain.py:51 DEGENERATE_R_MIN 同一个数
+DEGEN_REL = 1e-4
+
+
+def _scan_one(path: str) -> tuple[int, int]:
+    """-> (总笔数, 退化笔数)。"""
+    try:
+        df = pd.read_csv(path, usecols=lambda c: c in (
+            "entry_price", "risk_per_share"))
+    except Exception:                                            # noqa: BLE001
+        return 0, 0
+    if df.empty or "risk_per_share" not in df.columns:
+        return int(len(df)), 0
+    rps = pd.to_numeric(df["risk_per_share"], errors="coerce").abs()
+    ep = pd.to_numeric(df.get("entry_price"), errors="coerce").abs()
+    rel = rps / ep.replace(0, np.nan)
+    bad = (rel < DEGEN_REL) | rps.isna() | (rps == 0)
+    return int(len(df)), int(bad.sum())
+
+
+def degen_from_ledgers(ledger_dir: str) -> dict:
+    """扫一个流水目录,真链和对照组分别统计。★ 四个数,名字写明哪一边。"""
+    real_chains, real_trades, ctrl_chains, ctrl_trades = [], 0, [], 0
+    n_real = n_ctrl = 0
+    for p in sorted(glob.glob(os.path.join(ledger_dir, "REAL__*.csv"))):
+        n_real += 1
+        n, b = _scan_one(p)
+        if b:
+            real_chains.append({"链文件名": os.path.basename(p)[6:-4],
+                                "退化笔数": b, "总笔数": n})
+            real_trades += b
+    for p in sorted(glob.glob(os.path.join(ledger_dir, "CTRL__*.csv"))):
+        n_ctrl += 1
+        n, b = _scan_one(p)
+        if b:
+            ctrl_chains.append({"链文件名": os.path.basename(p)[6:-4],
+                                "退化笔数": b, "总笔数": n})
+            ctrl_trades += b
+    return {
+        "判据": f"risk_per_share / entry_price < {DEGEN_REL}"
+                " —— ★ 和 engine/chain.py:51 DEGENERATE_R_MIN 同一个数",
+        "★扫了多少条真链流水": n_real,
+        "★扫了多少条对照组流水": n_ctrl,
+        "★★★真链_有退化笔的链数": len(real_chains),
+        "★★★真链_退化笔总数": real_trades,
+        "★★★对照组_有退化笔的链数": len(ctrl_chains),
+        "★★★对照组_退化笔总数": ctrl_trades,
+        "真链_逐条": real_chains,
+        "对照组_逐条": ctrl_chains,
+    }
+
+
 def main() -> int:
     rows = exam_rows()
     old_d = json.load(open(OLD, encoding="utf-8"))
@@ -72,9 +134,17 @@ def main() -> int:
     broke = [r for r in rows if r.get("★前提破了_禁止下游")]
     crash = [r for r in rows if r.get("★跑不了")]
     thin = [r for r in rows if r.get("笔数") is not None and r["笔数"] < 30]
-    degen = [r for r in rows if r.get("★退化R_本轮是否出现")]
     tol_over = [r for r in ok if r.get("★对照笔数偏差") is not None
                 and abs(r["★对照笔数偏差"]) > 0.05]
+    # ★★★ 无止损:R 是收益率不是风险倍数 → 不可和有止损的链同列排序
+    nostop = [r for r in rows
+              if r.get("★无止损_R退化成收益率_不可和有止损同列排序")]
+    nostop_old = [old[l] for l in old
+                  if old[l].get("★无止损_R退化成收益率_不可和有止损同列排序")]
+    # ★★★ 退化 R:四个数,两边分开
+    degen_exam = degen_from_ledgers(os.path.join(HERE, "ledgers_1102"))
+    degen_old = degen_from_ledgers(
+        os.path.join(ROOT, "probe", "bench1_rerun_1102", "ledgers_1102"))
 
     pairs, flips, missing_old = [], [], []
     for r in ok:
@@ -134,8 +204,19 @@ def main() -> int:
             "考卷_前提破裂的": len(broke),
             "考卷_跑不了的": len(crash),
             "考卷_笔数<30的": len(thin),
-            "考卷_退化R再出现的": len(degen),
             "考卷_对照偏差超±5%的": len(tol_over),
+            # ★★★ 退化 R —— 四个数,真链和对照组分开(策略组 2026-11-02 要求)
+            "★★★考卷_真链有退化笔的链数": degen_exam["★★★真链_有退化笔的链数"],
+            "★★★考卷_真链退化笔总数": degen_exam["★★★真链_退化笔总数"],
+            "★★★考卷_对照组有退化笔的链数": degen_exam["★★★对照组_有退化笔的链数"],
+            "★★★考卷_对照组退化笔总数": degen_exam["★★★对照组_退化笔总数"],
+            "★★★老池_真链有退化笔的链数": degen_old["★★★真链_有退化笔的链数"],
+            "★★★老池_真链退化笔总数": degen_old["★★★真链_退化笔总数"],
+            "★★★老池_对照组有退化笔的链数": degen_old["★★★对照组_有退化笔的链数"],
+            "★★★老池_对照组退化笔总数": degen_old["★★★对照组_退化笔总数"],
+            # ★★★ 无止损
+            "★★★考卷_无止损的链数": len(nostop),
+            "★★★老池_无止损的链数": len(nostop_old),
             "考卷_赢随机": len(exam_pos),
             "考卷_输随机": len(ok) - len(exam_pos),
             "老池_赢随机": len(old_pos),
@@ -144,6 +225,40 @@ def main() -> int:
             "★★★符号翻转的": len(flips),
             "符号翻转名单": [f["链"] for f in flips],
             "老池那边没有可比数的": missing_old,
+        },
+        "★★★退化R_考卷(真链和对照组分开)": degen_exam,
+        "★★★退化R_老池(真链和对照组分开)": degen_old,
+        "★★★退化R_两边并列一句话": (
+            "★ 退化 R 在**考卷的真链**上"
+            f"{'没有再出现' if degen_exam['★★★真链_有退化笔的链数'] == 0 else '又出现了'}"
+            f"({degen_exam['★★★真链_有退化笔的链数']} 条链 / "
+            f"{degen_exam['★★★真链_退化笔总数']} 笔,"
+            f"扫了 {degen_exam['★扫了多少条真链流水']} 条真链流水);"
+            f"★★ 在**老池的真链**上有 {degen_old['★★★真链_有退化笔的链数']} 条链 / "
+            f"{degen_old['★★★真链_退化笔总数']} 笔。"
+            "★★★ 两边都是实测,**不要合成一句话** —— 这两个池子在这件事上行为不同。"),
+        "★★★无止损的链(R 是收益率不是风险倍数)": {
+            "为什么要单列": "★ 无止损 → 1R = 进场价 → R 退化成收益率。"
+                            "★★★ 任何「考卷上哪条最好」的排名里,"
+                            "这几条**必须单独一组**,不可和有止损的链同列排序。",
+            "考卷_条数": len(nostop),
+            "考卷_名单": [{"链": r["链"], "怎么判的": r.get("★无止损_怎么判的")}
+                          for r in nostop],
+            "老池_条数": len(nostop_old),
+            "老池_名单": [{"链": r["链"], "怎么判的": r.get("★无止损_怎么判的")}
+                          for r in nostop_old],
+        },
+        "★★两条口径(手册 v3.1 坑表 41/42,报告里不许写错)": {
+            "绩效窗口": "★★★ **2018-01-01 ~ 2025-12-31 = 8 年**(engine/data.py:42-44)。"
+                        "★ 日历起点 2014(12 年)、热机起点 2016 是另外两个数。"
+                        "★★★ 报告里**不许用「十年」描述成绩** —— 成绩只有 8 年。",
+            "regime开关": "★ 45 条链只有 4 套 (universe, regime) 规格,其中 3 套"
+                          "等于没有开关:技-1 那套 **40 条链**、技-12 套 3 条、"
+                          "buy_and_hold 1 条,regime 全期 **100% 开着**。"
+                          "★★ 唯一有真开关的是 trend_following(76.9%,2022 年只有 19%)。"
+                          "★★★ 所以「这些策略熊市会不会被挡住」的答案是"
+                          "**不会 —— 40 条里一条开关都没装**。"
+                          "★ 这一条是策略组实测,不是我测的。",
         },
         "逐链并列": sorted(pairs, key=lambda x: x["链"]),
     }
@@ -155,6 +270,16 @@ def main() -> int:
         print(f"可并列 {s['★能并列对比的链数']} 条 · 翻转 {s['★★★符号翻转的']} 条 · "
               f"考卷赢随机 {s['考卷_赢随机']}/{s['考卷_算出基准一的']} · "
               f"老池赢随机 {s['老池_赢随机']}/45")
+        print(f"★ 退化R 考卷:真链 {s['★★★考卷_真链有退化笔的链数']} 条/"
+              f"{s['★★★考卷_真链退化笔总数']} 笔 · "
+              f"对照组 {s['★★★考卷_对照组有退化笔的链数']} 条/"
+              f"{s['★★★考卷_对照组退化笔总数']} 笔")
+        print(f"★ 退化R 老池:真链 {s['★★★老池_真链有退化笔的链数']} 条/"
+              f"{s['★★★老池_真链退化笔总数']} 笔 · "
+              f"对照组 {s['★★★老池_对照组有退化笔的链数']} 条/"
+              f"{s['★★★老池_对照组退化笔总数']} 笔")
+        print(f"★ 无止损 考卷 {s['★★★考卷_无止损的链数']} 条 · "
+              f"老池 {s['★★★老池_无止损的链数']} 条")
     except Exception:
         pass
     return 0
