@@ -16,11 +16,25 @@
 
 ★ 本脚本只读不写原件,输出 `汇总更正_老池用1102-1102.json`。
 """
+★★★ 2026-11-02 策略组要求的第二处更正 —— **退化 R 必须拆成两个数**:
+   ★ 原来写成一个 `考卷_退化R再出现的 = 6`,★★ 它的定义是「真链**或**对照组
+     任一有退化笔的链数」—— 而日志里打印的 `退化R=0` 是**真链**的笔数。
+   ★★★ 一个合起来的「6」会让读的人以为**考卷的真链出了退化 R**,
+     ★ 而实测恰好相反:真链一笔都没有。
+   ★ 策略组原话:「我今天就因为同一类错,对着老池说了四次『真链 0 笔、
+     全在对照组』才说对」(手册 v3.1 坑表第 36 处)。
+   → 所以本脚本一律给四个数:真链链数 / 真链笔数 / 对照组链数 / 对照组笔数,
+     ★★ 名字里写明是哪一边,**不许合并**。
+"""
 from __future__ import annotations
 
+import glob
 import json
 import os
 import sys
+
+import numpy as np
+import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
