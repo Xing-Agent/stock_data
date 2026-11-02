@@ -1,3 +1,4 @@
-cache_exam/
+cache_exam*/
 ledgers*/
 *.csv
+*.parquet
