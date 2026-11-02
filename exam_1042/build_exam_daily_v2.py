@@ -172,6 +172,16 @@ div_on = defaultdict(float)
 for t, d, a in DV.select('ticker', 'ex_dividend_date', pl.col('cash_amount').cast(pl.Float64)).iter_rows():
     if a: div_on[(t, d)] += a
 
+# 大额一次性派现(Lin 11-02 同意):≥ 前收 10% 的加系数;下面 5 次 Polygon 没记,按公司公告补(金额、除息日)
+SPECIAL_MIN = 0.10
+SPECIAL_MISSING = {('MIC', '2021-01-11'): 11.00,        # 出售 IMTT 后的特别分红(businesswire 2020-12-23)
+                   ('MIC', '2021-10-08'): 37.386817,    # 出售 Atlantic Aviation 后的分配(businesswire 2021-09-23)
+                   ('AABA', '2019-09-24'): 51.50,       # Altaba 解散前清算分配(altaba.com 2019-09-06)
+                   ('EQC', '2024-12-09'): 19.00,        # Equity Commonwealth 首次清算分配(businesswire 2024-11-15)
+                   ('NLOK', '2020-02-03'): 12.00}       # NortonLifeLock 特别分红(businesswire 2020-01-09)
+# HR/HTA 合并那天 4.82 是只发给 HTA 股东的,HTA 那条链的接续系数已经包含;老 HR 股东没拿到 —— 两边都不再加
+SPECIAL_SKIP = {('HR', '2022-07-21')}
+special_rows = []
 Og = {t: g.sort('d') for (t,), g in O.group_by(['ticker'])}
 os.makedirs(OUT, exist_ok=True)
 man = []
@@ -195,6 +205,22 @@ for r in L.iter_rows(named=True):
     rows.sort(key=lambda x: x['date'])
     # 同一天两段重叠(改名当天)只留一根
     ded = {}; [ded.__setitem__(x['date'], x) for x in rows]; rows = [ded[k] for k in sorted(ded)]
+    # ── 11-02 Lin 拍板:一次性派现 ≥ 前收 10% 的,按分拆同样处理 —— 系数 = 前收 ÷(前收 − 派现)──
+    for a, b in zip(rows, rows[1:]):
+        k = (b['source_ticker'], b['date'])
+        if k in SPECIAL_SKIP: continue
+        amt = SPECIAL_MISSING.get(k)
+        if amt is not None:
+            b['dividend_amount'] = round(b['dividend_amount'] + amt, 6)
+            events.append({'effective_date': b['date'], 'action_type': 'dividend', 'cash_amount': amt, 'source_ticker': b['source_ticker'], 'note': 'Polygon 漏记,按公司公告补'})
+        amt = b['dividend_amount']
+        pc = a['close']
+        if amt and pc and amt / pc >= SPECIAL_MIN and amt < pc:
+            c = pc / (pc - amt)
+            b['split_coefficient'] = round((b['split_coefficient'] or 1.0) * c, 8)
+            events.append({'effective_date': b['date'], 'action_type': 'special_distribution', 'cash_amount': amt, 'prev_close': pc,
+                           'coefficient': round(c, 8), 'split_coefficient': b['split_coefficient'], 'source_ticker': b['source_ticker']})
+            special_rows.append((sym, b['source_ticker'], b['date'], amt, pc, round(amt / pc, 4), round(c, 6), 'Polygon 漏记' if k in SPECIAL_MISSING else 'Polygon 分红'))
     last = rows[-1]['date'] if rows else None
     delisted = bool(last and last < '2025-12-31' and last < last_td)
     doc = {'status': 'ready', 'symbol': sym, 'interval': '1d', 'timezone': 'America/New_York', 'adjustment': 'raw',
@@ -213,6 +239,8 @@ for r in L.iter_rows(named=True):
                 'data_path': f'{sym}/daily.json', 'download_end_date': last or '', 'bars': len(rows), 'cik': r['cik'],
                 'company_id': r['company_id']})
 M = pl.DataFrame(man); M.write_csv(f'{OUT}/manifest.csv')
+pl.DataFrame(special_rows, schema=['symbol', 'ticker', 'ex_date', 'cash_amount', 'prev_close', 'pct_of_prev_close', 'coefficient', 'source'], orient='row').sort('ex_date').write_csv(f'{OUT}/special_distributions_1102.csv')
+print('大额派现', len(special_rows))
 pl.DataFrame(spin_rows, schema=['parent_ticker', 'spinco', 'spinco_ticker', 'ex_date', 'coefficient'], orient='row').write_csv(f'{OUT}/spinoffs_manual_1102.csv')
 print('只数', M.height, '· 退市', M['delisted'].sum(), '· 行数中位', M['bars'].median(), '· 0 行', M.filter(pl.col('bars') == 0).height)
 print('拆股事件', sum(1 for k in split_on), '· 分拆', len(spin_on), '· 接续', len(cont_on), cont_on)
