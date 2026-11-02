@@ -93,6 +93,50 @@ def _scan_one(path: str) -> tuple[int, int]:
     return int(len(df)), int(bad.sum())
 
 
+def pnl_from_ledgers(ledger_dir: str) -> dict:
+    """★★★ 逐链全期净盈亏(从真链流水 net_pnl 加总)。
+
+    ★ 为什么要另算:跑批脚本的逐链记录里**没有**净盈亏这一格
+      (只有笔数 / 每笔净R / 每笔毛R / 胜率)。★★ 而「锚点 buy_and_hold
+      赢不赢」是比任何单条策略成绩都重要的一条,必须有这个数。
+    ★★★ 口径:**在 100 万美元账户上**(engine 的 initial_equity 默认值)——
+      ★ 换账户规模不是线性的,引用这个数必须把口径一起说。
+    ★ 净盈亏和 R 是两套尺子:无止损的链 R 退化成收益率、不可和有止损同列排序,
+      ★★ 但净盈亏不受这个影响(它是钱,不是风险倍数)→ 可以同列排。
+    """
+    rows = []
+    for p in sorted(glob.glob(os.path.join(ledger_dir, "REAL__*.csv"))):
+        name = os.path.basename(p)[6:-4]
+        try:
+            df = pd.read_csv(p, usecols=lambda c: c in ("net_pnl", "gross_pnl"))
+        except Exception:                                        # noqa: BLE001
+            continue
+        if df.empty or "net_pnl" not in df.columns:
+            rows.append({"链文件名": name, "净盈亏": 0.0, "笔数": int(len(df))})
+            continue
+        v = pd.to_numeric(df["net_pnl"], errors="coerce")
+        rows.append({"链文件名": name,
+                     "净盈亏": float(np.nansum(v.to_numpy())),
+                     "笔数": int(len(df))})
+    rows.sort(key=lambda x: x["净盈亏"], reverse=True)
+    for i, r in enumerate(rows, 1):
+        r["净盈亏排名"] = i
+    anchor = [r for r in rows if "buy_and_hold" in r["链文件名"]]
+    return {
+        "口径": "★★★ 在 100 万美元账户上(engine initial_equity 默认值)—— "
+                "★ 换规模不是线性的,引用必须带口径",
+        "怎么算的": "真链流水 net_pnl 逐笔加总(已扣摩擦)",
+        "链数": len(rows),
+        "为正的链数": sum(1 for r in rows if r["净盈亏"] > 0),
+        "★最高的那条": rows[0] if rows else None,
+        "★第二高": rows[1] if len(rows) > 1 else None,
+        "★★★锚点 buy_and_hold": anchor[0] if anchor else None,
+        "★★★锚点是不是第一": (bool(anchor and anchor[0]["净盈亏排名"] == 1)
+                              if anchor else None),
+        "逐链": rows,
+    }
+
+
 def degen_from_ledgers(ledger_dir: str) -> dict:
     """扫一个流水目录,真链和对照组分别统计。★ 四个数,名字写明哪一边。"""
     real_chains, real_trades, ctrl_chains, ctrl_trades = [], 0, [], 0
@@ -144,6 +188,10 @@ def main() -> int:
     # ★★★ 退化 R:四个数,两边分开
     degen_exam = degen_from_ledgers(os.path.join(HERE, "ledgers_1102"))
     degen_old = degen_from_ledgers(
+        os.path.join(ROOT, "probe", "bench1_rerun_1102", "ledgers_1102"))
+    # ★★★ 净盈亏 —— 「锚点 buy_and_hold 在考卷上还赢不赢」
+    pnl_exam = pnl_from_ledgers(os.path.join(HERE, "ledgers_1102"))
+    pnl_old = pnl_from_ledgers(
         os.path.join(ROOT, "probe", "bench1_rerun_1102", "ledgers_1102"))
 
     pairs, flips, missing_old = [], [], []
