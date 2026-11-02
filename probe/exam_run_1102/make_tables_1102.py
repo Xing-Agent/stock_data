@@ -18,12 +18,54 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(HERE))
 SRC = os.path.join(HERE, "exam_run_1102.json")
 OUT = os.path.join(HERE, "表-逐链-1102.md")
+
+# ══════════════════════════════════════════════════════════════════════════
+# ★★★ 老池那一列的来源 —— 2026-11-02 策略组更正
+#
+# ★ 原来打算用 probe/bench1_rerun_1031/bench1_rerun_1031.json。★★ 不能用:
+#   那一份是 10-31 **11:22** 跑的(口径戳提交号 fbf760f = 10-31 11:30),
+#   而退化 R 的修复是同日 **14:25** 才提交(95e293b)。
+#   ★★★ 所以那份里 **35 条的基准一是坏数**(技-10 三档 −31 亿 / −53 亿 / −60 亿)。
+#
+# ★ 正确来源:probe/bench1_rerun_1102/(策略组另开一轮重跑,修复后的 engine)。
+#   ★★ 它还没跑完时,**老池那一列一律写「待补」**,★★★ 不许拿 1031 那份顶上。
+# ══════════════════════════════════════════════════════════════════════════
+OLD_NEW = os.path.join(ROOT, "probe", "bench1_rerun_1102", "bench1_rerun_1102.json")
+OLD_STALE = os.path.join(ROOT, "probe", "bench1_rerun_1031",
+                         "bench1_rerun_1031.json")
+PENDING = "待补"
+
+
+def load_old() -> tuple[dict, str]:
+    """-> ({链: 记录}, 来源说明)。★ 1102 那份没有 → 返回空 dict。"""
+    if os.path.exists(OLD_NEW):
+        d = json.load(open(OLD_NEW, encoding="utf-8"))
+        return ({r["链"]: r for r in d["逐链"]},
+                "probe/bench1_rerun_1102/bench1_rerun_1102.json"
+                "(退化 R 修复**之后**重跑,可比)")
+    return ({}, "★★★ 老池可比口径**待补** —— probe/bench1_rerun_1102/ 还没出结果。"
+                "★ 1031 那一份(fbf760f,10-31 11:30)跑在退化 R 修复(95e293b,"
+                "10-31 14:25)**之前**,35 条的基准一是坏数,**本表不采用**。")
+
+
+def old_cell(old: dict, label: str, key: str):
+    """老池某个数。★ 拿不到 → 返回 PENDING(「待补」),★ 不是「—」。
+    ★ 「—」只许表示「这个数真的没有」;「待补」表示「这一轮还没跑」。"""
+    r = old.get(label)
+    if r is None:
+        return PENDING
+    if key == "基准一":
+        return (r.get("★基准一") or {}).get("★真信号每笔R − 随机进场每笔R")
+    return r.get(key)
 
 
 def cell(v, nd=4) -> str:
     """★ None → 「—」;有值 → 印值。★ 有值却想印「—」是 bug,这里堵死。"""
+    if v == PENDING:
+        return PENDING
     if v is None:
         return "—"
     if isinstance(v, bool):
@@ -36,7 +78,7 @@ def cell(v, nd=4) -> str:
 
 
 def guard(v, rendered: str):
-    if v is not None and rendered == "—":
+    if v is not None and v != PENDING and rendered == "—":
         raise RuntimeError(f"★★★ 值是 {v!r} 却渲染成「—」 —— 坑表第 33 处,停。")
     return rendered
 
@@ -45,16 +87,20 @@ def main() -> int:
     d = json.load(open(SRC, encoding="utf-8"))
     rows = d["逐链"]
     s = d["汇总"]
+    old, old_src = load_old()
     L = []
+    L.append("")
 
     L.append("# 表 · 逐链 —— 考卷 vs 老池 · 2026-11-02\n")
     L.append("> 口径:" + d["口径戳"]["池子口径"]
              + f" · 种子 {rows[0].get('种子数') if rows else '?'} 个 · 容差 ±"
              + f"{d['口径戳'].get('容差')}\n")
-    L.append("> ★ 老池那一列 = `probe/bench1_rerun_1031/bench1_rerun_1031.json`"
-             "(研发池 198 只,同一套口径)。\n")
-    L.append("> ★ 「—」只表示**这个数真的没有**。算出来了但不许当结论的,"
-             "值照印并标 `[不给结论]`。\n")
+    L.append("> ★ 考卷实际参加考试 **1,025 只**(名单 1,042 只,其中 17 只被 engine"
+             " 既有规则「有效 bar 不足 60 根」剔掉 —— ★ 门槛没有被改)。\n")
+    L.append("> ★ 老池那一列来源:" + old_src + "\n")
+    L.append("> ★ 「—」只表示**这个数真的没有**(前提破了 / 没算出来)。"
+             "「待补」表示**这一轮还没跑**。"
+             "算出来了但不许当结论的,值照印并标 `[不给结论]`。\n")
 
     # ── 表一 · 成绩并列
     L.append("\n## 表一 · 每条链:考卷成绩 vs 老池成绩\n")
@@ -72,33 +118,60 @@ def main() -> int:
         if r.get("★退化R_本轮是否出现"):
             mark += " `[退化R·不给结论]`"
         b1 = r.get("★新基准一值")
-        ob1 = r.get("老池_基准一")
-        L.append("| {} | {} | {} | {} | {} | {}{} | {}{} | {} | {} |".format(
-            r["链"], cell(n), cell(r.get("老池_笔数")),
+        lab = r["链"]
+        on = old_cell(old, lab, "笔数")
+        onr = old_cell(old, lab, "每笔净R")
+        ob1 = old_cell(old, lab, "基准一")
+        # ★ 差 和 符号翻转:只有两边都有真数才算;老池待补 → 「待补」
+        if ob1 == PENDING or b1 is None:
+            diff, flip_v = (PENDING if ob1 == PENDING else None), \
+                           (PENDING if ob1 == PENDING else None)
+        elif ob1 is None:
+            diff, flip_v = None, None
+        else:
+            diff, flip_v = b1 - ob1, bool((b1 > 0) != (ob1 > 0))
+        L.append("| {} | {} | {} | {} | {} | {}{} | {} | {} | {} |".format(
+            lab, cell(n), cell(on),
             guard(r.get("每笔净R"), cell(r.get("每笔净R"))),
-            guard(r.get("老池_每笔净R"), cell(r.get("老池_每笔净R"))),
+            guard(onr, cell(onr)),
             guard(b1, cell(b1)), mark,
             guard(ob1, cell(ob1)),
-            " `[老池这条已被退化R判为不可用]`"
-            if r.get("★老池这条链的基准一本来就被退化R判为不可用") else "",
-            guard(r.get("★和老池的差"), cell(r.get("★和老池的差"))),
-            cell(r.get("★符号是否翻转"))))
+            guard(diff, cell(diff)),
+            cell(flip_v)))
 
     # ── 表二 · 符号翻转
     L.append("\n## 表二 · 符号翻转(老池赢随机、考卷输随机,或反过来)\n")
-    L.append(f"**{s['★符号翻转的']} 条翻转。**\n")
-    if s["符号翻转名单"]:
-        L.append("| 链 | 老池基准一 | 考卷基准一 | 方向 |")
-        L.append("|---|---|---|---|")
-        by = {r["链"]: r for r in rows}
-        for lab in s["符号翻转名单"]:
-            r = by[lab]
-            ob, nb = r.get("老池_基准一"), r.get("★新基准一值")
-            direction = ("老池赢随机 → 考卷输随机" if (ob or 0) > 0
-                         else "老池输随机 → 考卷赢随机")
-            L.append(f"| {lab} | {cell(ob)} | {cell(nb)} | {direction} |")
+    if not old:
+        L.append("★★★ **算不了 —— 老池可比口径待补。**\n")
+        L.append("> ★ 符号翻转要两边都有数才能判。老池那一边("
+                 "`probe/bench1_rerun_1102/`)还没出结果,★★ 而 1031 那一份里"
+                 "35 条的基准一是坏数,拿它判翻转会得出假的翻转数。"
+                 "★★★ 所以这一格现在是「**说不清**」,不是「0 条」。\n")
+        L.append("★ 考卷这一侧已经有的数:")
+        pos = [r for r in rows if (r.get("★新基准一值") or 0) > 0]
+        neg = [r for r in rows if r.get("★新基准一值") is not None
+               and r["★新基准一值"] <= 0]
+        L.append(f"- 考卷上**赢随机**(基准一 > 0)的 {len(pos)} 条")
+        L.append(f"- 考卷上**输随机**(基准一 ≤ 0)的 {len(neg)} 条")
     else:
-        L.append("(一条都没有)")
+        flips = []
+        for r in rows:
+            b1 = r.get("★新基准一值")
+            ob1 = old_cell(old, r["链"], "基准一")
+            if b1 is None or ob1 in (None, PENDING):
+                continue
+            if (b1 > 0) != (ob1 > 0):
+                flips.append((r["链"], ob1, b1))
+        L.append(f"**{len(flips)} 条翻转。**\n")
+        if flips:
+            L.append("| 链 | 老池基准一 | 考卷基准一 | 方向 |")
+            L.append("|---|---|---|---|")
+            for lab, ob, nb in sorted(flips):
+                direction = ("老池赢随机 → 考卷输随机" if ob > 0
+                             else "老池输随机 → 考卷赢随机")
+                L.append(f"| {lab} | {cell(ob)} | {cell(nb)} | {direction} |")
+        else:
+            L.append("(一条都没有)")
 
     # ── 表三 · 前提破裂 / 跑不了
     L.append("\n## 表三 · 前提破裂 / 跑不了(逐条说原因)\n")
@@ -123,10 +196,9 @@ def main() -> int:
     if s["★笔数小于30名单"]:
         L.append("| 链 | 考卷笔数 | 老池笔数 |")
         L.append("|---|---|---|")
-        by = {r["链"]: r for r in rows}
         for x in s["★笔数小于30名单"]:
             L.append(f"| {x['链']} | {x['笔数']} | "
-                     f"{cell(by[x['链']].get('老池_笔数'))} |")
+                     f"{cell(old_cell(old, x['链'], '笔数'))} |")
     else:
         L.append("(一条都没有)")
 
