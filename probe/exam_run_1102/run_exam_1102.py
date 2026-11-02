@@ -17,15 +17,37 @@
    · 摩擦 `data.ONE_WAY_COST_BPS`,绩效窗口 data.PERF_START .. PERF_END
    · 链表 = 上一轮那 45 条的同一份(同一个 gate_roster_1031 判据)
 
-★★★ 「不改 engine 一行」是怎么做到的 —— 本脚本只在**运行时**改三样外部指针:
+★★★ 「不改 engine 一行」是怎么做到的 —— 本脚本只在**运行时**改四样外部指针:
    ① data.PILOT / data.MANIFEST_CSV  → 指向 exam_1042(考卷行情在那儿)
       ★ data.BENCH_DIR / BREADTH_CSV **不动**(SPY/VIX/宽度是指数级数据,
         不属于股票池;交易日历也是 SPY 给的,换了就不是同一把尺子)
    ② cache.PANEL_PARQUET / META_PARQUET → 指向本目录下另一份 parquet
       ★ 绝不覆盖 engine/cache/ohlcv_panel.parquet(那是老池的,要留着对照)
-   ③ chain.run_chain → 包一层,让**对照组也进** large_mid 口径
+   ③ ★★★ delisting_gate.REVIEW_JSON → 指向**考卷自己**的退市结算核实表
+      `exam_1042/reviews/delisted_equity_outcome_review_exam_1102.json`
+      ★ 出处:`exam_1042/README-退市结算与接续修正-1102.md` §三 明文写着
+        「★ 技术组注意:`engine/delisting_gate.py` 现在写死读 pilot_300 那份表;
+          考试时要指向这份新表」。
+      ★★ 不指过去的后果:考卷里 **15 只确认归零的破产股**拿不到 0 结算价,
+        引擎退回「最后收盘价」→ ★★★ 系统性**少记亏损、美化成绩**。
+      ★ 另 8 只是 null(老股东拿到权证/新公司零碎股份,证据不足)→ 照规矩
+        **不当 0**,用最后收盘价并单独记账。
+   ④ chain.run_chain → 包一层,让**对照组也进** large_mid 口径
       ★ 这一层照抄上一轮 run_bench1_1031._scoped_run_chain,没有改动
-   ★ engine/*.py 和 engine/**/*.yaml 一个字节都没写过(跑完核指纹验证)。
+   ★ engine/*.py 和 engine/configs/*.yaml 一个字节都没写过(跑完核指纹验证)。
+
+★★★ 2026-11-02 11:2x · 上一次跑批**作废**,这是重跑
+   ★ 作废原因:**数据污染** —— 跑到第 7 条时,考卷行情本身被修正了两次
+     (`f911d02` 一次性大额派现 23 次按分拆处理;
+       `README-退市结算与接续修正-1102.md` 53 个行情文件接续修正 +
+       23 只破产股结算价)。★ 前 7 条跑在**修正前**的数据上。
+   ★ 作废的产物原样留在 `probe/exam_run_1102_作废_数据污染/`,不删(幸存者偏差)。
+   ★★ 本轮必须**重烤缓存**(另一个目录名),不许复用那份 parquet。
+
+★★ 耗时(★ 实测,不是外推 —— 手册 v3.1 坑表第 38 处):
+   ★ 不能按票数线性外推。量快链得出 4.2 倍,★★ 实测最慢那条(法伯月线)
+     老池 161.7s → 考卷 1460.3s = **9.0 倍**,全量真实约 **5 小时**。
+   ★ 本脚本可续跑,进程被 SIGTERM 掉之后原地接着跑即可。
 
 跑法:
    python3 probe/exam_run_1102/run_exam_1102.py --limit 3   # 量耗时
@@ -133,8 +155,14 @@ EXAM_LIST_SHA = "0b8cd4652acf967590b00fca2b417e9685235453756d7a8ca916c15eccbd589
 
 PER_CHAIN = os.path.join(HERE, "per_chain")
 LEDGERS = os.path.join(HERE, "ledgers_1102")
-CACHE_DIR = os.path.join(HERE, "cache_exam")
+#: ★★ 新目录名 —— 作废那一轮的 parquet 在 cache_exam/,★ 不许复用
+CACHE_DIR = os.path.join(HERE, "cache_exam_fixed")
 OUT = os.path.join(HERE, "exam_run_1102.json")
+
+#: ★★★ 考卷自己的退市结算核实表(23 只破产股:15 只确认归零 / 8 只 null)
+EXAM_DELIST_REVIEW = os.path.join(
+    ROOT, "exam_1042", "reviews",
+    "delisted_equity_outcome_review_exam_1102.json")
 
 N_SEEDS = 50
 SCOPE = "large_mid"
@@ -173,11 +201,12 @@ def _rss_mb() -> float:
 
 
 def point_at_exam() -> dict:
-    """★★★ 运行时把 data / cache 的指针指到考卷。返回留痕 dict。"""
-    from engine import cache, data
+    """★★★ 运行时把 data / cache / delisting_gate 的指针指到考卷。返回留痕 dict。"""
+    from engine import cache, data, delisting_gate
 
     before = {"PILOT": data.PILOT, "MANIFEST_CSV": data.MANIFEST_CSV,
-              "PANEL_PARQUET": cache.PANEL_PARQUET}
+              "PANEL_PARQUET": cache.PANEL_PARQUET,
+              "REVIEW_JSON": delisting_gate.REVIEW_JSON}
     data.PILOT = EXAM_DIR
     data.MANIFEST_CSV = os.path.join(EXAM_DIR, "manifest.csv")
     data.load_manifest.cache_clear()
@@ -186,10 +215,33 @@ def point_at_exam() -> dict:
     cache.PANEL_PARQUET = os.path.join(CACHE_DIR, "ohlcv_panel_exam.parquet")
     cache.META_PARQUET = os.path.join(CACHE_DIR, "panel_meta_exam.parquet")
     cache._PANEL = None
+
+    # ★★★ 退市结算核实表 → 考卷自己那份(见本文件顶部 ③)
+    if not os.path.exists(EXAM_DELIST_REVIEW):
+        raise RuntimeError(
+            f"★★★ 拿不到考卷的退市结算核实表:{EXAM_DELIST_REVIEW} —— "
+            "★ 拿不到就是拿不到,不用别的顶上(硬纪律第 7 条)。"
+            "★★ 退回 pilot_300 那份 = 15 只确认归零的破产股按最后收盘价结算 "
+            "= 系统性美化成绩,所以这里直接停。")
+    delisting_gate.REVIEW_JSON = EXAM_DELIST_REVIEW
+    delisting_gate.load.cache_clear()
+    rev = delisting_gate.load()
+    n_zero = sum(1 for s in rev.values() if s.basis == "verified_zero")
+    n_null = sum(1 for s in rev.values() if s.basis == "null_evidence")
+    n_cash = sum(1 for s in rev.values() if s.basis == "verified_cash")
+    if delisting_gate.TREAT_NULL_AS_ZERO:
+        raise RuntimeError("★ TREAT_NULL_AS_ZERO 竟然是 True —— 口径变了,停。")
+
     return {
         "改前": before,
         "改后": {"PILOT": data.PILOT, "MANIFEST_CSV": data.MANIFEST_CSV,
-                 "PANEL_PARQUET": cache.PANEL_PARQUET},
+                 "PANEL_PARQUET": cache.PANEL_PARQUET,
+                 "REVIEW_JSON": delisting_gate.REVIEW_JSON},
+        "★退市结算核实表": {
+            "条数": len(rev), "确认归零(记0)": n_zero,
+            "null(用最后收盘价·不当0)": n_null, "确认现金价": n_cash,
+            "TREAT_NULL_AS_ZERO": delisting_gate.TREAT_NULL_AS_ZERO,
+        },
         "★没动的": {"BENCH_DIR(SPY/VIX/交易日历)": data.BENCH_DIR,
                     "BREADTH_CSV(市场宽度)": data.BREADTH_CSV,
                     "摩擦_单边bps": data.ONE_WAY_COST_BPS,
