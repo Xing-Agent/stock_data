@@ -27,6 +27,8 @@ BENCH = os.path.join(ROOT, "probe/bench1_rerun_1102/bench1_rerun_1102.json")
 # ★★★ 退化 R 的笔数必须从这份独立实测读 —— ★ bench json 里那个计数是 None,
 # ★★ 因为 engine/chain.py 的 LEDGER_COLUMNS 写死 26 列,r_degenerate 没落到流水里(坑表第 37 处)。
 DEGEN = os.path.join(ROOT, "probe/bench1_rerun_1102/退化R实测-1102.json")
+#: ★★★ 第 5 格的实测(只算掩膜,不跑链)
+SLOT5 = os.path.join(HERE, "第5格-按年-1102.json")
 EXAM  = os.path.join(ROOT, "probe/exam_run_1102/exam_run_1102.json")
 CFG   = os.path.join(ROOT, "engine/configs")
 
@@ -100,7 +102,8 @@ def 配名(名: str) -> str:
     return 名.replace(" ", "").replace("/", "_")
 
 
-def 一条说明书(c: dict, exam: dict | None, 退化表: dict[str, int]) -> str:
+def 一条说明书(c: dict, exam: dict | None, 退化表: dict[str, int],
+             slot5: dict | None = None) -> str:
     名 = c["链"]
     cfg_name = c.get("配置", "")
     cfg = 读yaml浅层(os.path.join(CFG, cfg_name)) if cfg_name else {}
@@ -149,9 +152,33 @@ def 一条说明书(c: dict, exam: dict | None, 退化表: dict[str, int]) -> st
     row(4, "要什么样的股票", f"`{c.get('池子口径','?')}`（市值+流动性档）"
                             f"<br>★ 票×年解析：{json.dumps((c.get('universe收窄') or {}).get('票×年 解析方式计数', {}), ensure_ascii=False)}")
 
-    row(5, "条件成立了多久·哪几年完全不成立",
-        空("逐年的「掩膜为真的票日比例」",
-           "按年切一次 regime 掩膜统计 —— ★ 本轮只算了全期合计，没按年切"))
+    五 = (slot5 or {}).get("逐规格", {}).get((slot5 or {}).get("逐链指向规格", {}).get(名, ""), {})
+    if not 五 or 五.get("★算不出来"):
+        row(5, "条件成立了多久·哪几年完全不成立",
+            空("逐年的 regime 掩膜", "跑 `probe/说明书_1102/第5格按年切.py`"))
+    else:
+        逐年 = 五.get("逐年", {})
+        年串 = " · ".join(f"{y} **{v['开关开着的交易日比例']:.0%}**" for y, v in 逐年.items())
+        票串 = " · ".join(f"{y} {v['掩膜为真的票日比例']:.0%}" for y, v in 逐年.items())
+        没开过 = 五.get("★整年一天都没开过的年份") or []
+        if 五.get("★这套开关是不是等于没有开关"):
+            头 = ("★★★ **这条策略没有大盘开关** —— 全期 **100%** 开着。"
+                  "<br>★★ 所以这一格的诚实答案不是一个百分比，是：**它一直「成立」，"
+                  "因为它不要求任何条件。**"
+                  "<br>★★★ 而方法卡是**要求装**的（技-10「大牛市主升浪期间禁用」· "
+                  "技-4「谁不该用：熊市」· 技-6「谁不该用：震荡市」）—— "
+                  "★ `regime.rules: []` 一条都没装，见 `probe/保真度重核-1102.md` ⑤环境那 30 格")
+        else:
+            头 = f"★ 开关开着的交易日比例：全期 **{五['全期开关开着的交易日比例']:.1%}**<br>★★ 逐年：{年串}"
+        if 没开过:
+            头 += f"<br>★★★ **整年一天都没开过的年份：{', '.join(没开过)}**"
+        row(5, "条件成立了多久·哪几年完全不成立",
+            头 + f"<br>★ 池子覆盖（掩膜为真的票日比例）逐年：{票串}"
+               + "<br>★★★ **窗口是 2018–2025 共 8 年**（2011 个交易日）—— "
+                 "★ 规格书这一格的名字写「十二年」，那是**日历全长 2014–2025**，"
+                 "★★ 2016–2017 只用来热机、任何盈亏不计入（坑表第 41 处）"
+               + f"<br>★ 来源 `probe/说明书_1102/第5格-按年-1102.json`"
+                 f"（★★ 45 条链只有 **4** 套开关规格，这条属于 `{五.get('配置样本','?')}` 那套，共 {五.get('链数','?')} 条链共用）")
 
     row(6, "分层表现", 空("同第 3 格", "同第 3 格"))
 
@@ -238,6 +265,11 @@ def main() -> int:
             with open(EXAM, encoding="utf-8") as fh: exam = json.load(fh)
         except Exception: exam = None
 
+    slot5 = None
+    if os.path.exists(SLOT5):
+        try:
+            with open(SLOT5, encoding="utf-8") as fh: slot5 = json.load(fh)
+        except Exception: slot5 = None
     退化表 = 读退化实测()
     if not 退化表:
         print("★★★ 警告:读不到 退化R实测-1102.json —— 退化笔数那一栏会缺", file=sys.stderr)
@@ -245,8 +277,8 @@ def main() -> int:
     if isinstance(链, dict): 链 = list(链.values())
 
     能填 = sum(1 for _, _, _ in GRID)  # 占位,下面按实测数
-    填上了 = [1, 2, 4, 7, 8, 11]
-    填不了 = [3, 5, 6, 9, 10]
+    填上了 = [1, 2, 4, 5, 7, 8, 11] if slot5 else [1, 2, 4, 7, 8, 11]
+    填不了 = [3, 6, 9, 10] if slot5 else [3, 5, 6, 9, 10]
     待考卷 = [12]
 
     out = []
@@ -272,7 +304,7 @@ def main() -> int:
     out.append("|---|---|---|---|")
     缺 = {
         3:  "分环境逐段统计 —— ★ 数据都在，只是这一轮没跑这个切法",
-        5:  "逐年的「掩膜为真的票日比例」—— ★ 本轮只算了全期合计",
+        5:  "—（★ 已填：`probe/说明书_1102/第5格-按年-1102.json`）",
         6:  "同第 3 格",
         9:  "★★★ **逐笔流水没入库**（只存了 90 份 SHA-256 清单）→ 美元口径的代价现在算不出来",
         10: "★ 这一格要人写，不是算出来的",
@@ -288,7 +320,7 @@ def main() -> int:
     out.append("---")
     out.append("")
     for c in 链:
-        out.append(一条说明书(c, exam, 退化表))
+        out.append(一条说明书(c, exam, 退化表, slot5))
         out.append("---")
         out.append("")
 
