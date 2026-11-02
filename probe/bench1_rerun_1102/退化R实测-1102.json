@@ -1,0 +1,2513 @@
+{
+ "这是什么": "★★★ 本轮(退化 R 修复后)流水上**实测**的退化 R 分布 —— ★ 不引用上一轮的说法",
+ "判据": "risk_per_share / entry_price < 0.0001(照抄 engine)",
+ "★★★落盘流水里有没有 r_degenerate 这一列": "★★★ 没有 —— engine/chain.py 的 LEDGER_COLUMNS 里没登记这一列,pd.DataFrame(rows, columns=LEDGER_COLUMNS) 把它静默丢了。★ 提交信息里承诺的「每笔留痕」在落盘流水上没有兑现。★★ 本轮不改 engine(题目冻结),只如实报告。",
+ "真链(REAL__)": {
+  "扫了多少份流水": 45,
+  "总笔数": 46539,
+  "有退化笔的份数": 3,
+  "退化笔总数": 5,
+  "名单": {
+   "技术派六条三版_技-14·XING版(触下轨就买)": 3,
+   "剔污染_技-14·行业版RSI2≤10(不带带宽熔断)": 1,
+   "批五修正_技-14·★新组合RSI(2)≤10(★不带带宽熔断)": 1
+  },
+  "★两条路不一致的份数": 0,
+  "★两条路不一致的名单": [],
+  "★有 r_degenerate 列的份数": 0
+ },
+ "对照组(CTRL__)": {
+  "扫了多少份流水": 45,
+  "总笔数": 2295655,
+  "有退化笔的份数": 35,
+  "退化笔总数": 750,
+  "名单": {
+   "技术派六条三版_技-14·原著版(MethodIII近似:W底+MFI底背离)": 98,
+   "技术派六条三版_技-14·XING版(触下轨就买)": 89,
+   "原著离场_技-10·★原著离场·持仓2天(严格端)": 61,
+   "剔污染_技-10·原著离场·持仓3天(中值)": 60,
+   "原著离场_技-10·★原著离场·持仓3天(中值)": 60,
+   "剔污染_技-10·原著离场·持仓5天(宽松端)": 58,
+   "原著离场_技-10·★原著离场·持仓5天(宽松端)": 58,
+   "技术派六条三版_技-5·XING版(第一段≤30%_衰减0.65_2~4次_缩量0.60)": 39,
+   "技术派六条三版_技-5·原著版(缩量0.60·宽松端)": 24,
+   "批五修正_技-11·XING版(跌破20日低点再收回·完全不看量)": 23,
+   "技术派六条三版_技-11·XING版(跌破20日低点再收回)": 23,
+   "技术派六条三版_技-5·原著版(缩量0.55·中值)": 18,
+   "剔污染_技-14·行业版(三步进场+三道趋势过滤,含ADX≤25)": 12,
+   "批五修正_技-14·★旧三道过滤器版(含ADX(14)≤25)": 12,
+   "技术派六条三版_技-14·行业版(三步进场+三道趋势过滤)": 12,
+   "技术派六条三版_技-5·原著版(缩量0.50·严格端)": 10,
+   "剔污染_技-14·行业版RSI2≤10(不带带宽熔断)": 9,
+   "批五修正_技-14·★新组合RSI(2)≤10(★不带带宽熔断)": 9,
+   "剔污染_技-14·行业版RSI2≤10(带带宽熔断)": 7,
+   "批五修正_技-14·★新组合RSI(2)≤10(★带带宽熔断)": 7,
+   "原著离场_技-6·原著版3日规则(箱底0容差)": 6,
+   "技术派六条三版_技-5·行业版(次数≥3_衰减0.65_缩量0.60)": 6,
+   "技术派六条三版_技-6·原著版(3日规则,★无振幅条件)": 6,
+   "技术派六条三版_技-6·XING版(近25根区间收窄到20%)": 5,
+   "技术派六条三版_技-6·行业版(3日规则+振幅≤18%+存活≥10日)": 5,
+   "剔污染_技-11·行业版(后人量化版Spring:下刺+收复+缩量)": 4,
+   "批五修正_技-11·★旧实现(一日合并版:收复日要求缩量≤0.65×)": 4,
+   "技术派六条三版_技-11·行业版(后人量化版:下刺0.15~0.80ATR+收复+缩量)": 4,
+   "技术派六条三版_技-3·XING版": 4,
+   "技术派六条三版_技-3·行业版(放量1.55×·中值)": 4,
+   "剔污染_技-13·原著四重离场·Countdown13进场": 3,
+   "原著离场_技-13·★原著四重离场·Countdown13进场": 3,
+   "原著离场_技-13·★原著四重离场·Setup9进场": 3,
+   "技术派六条三版_技-3·行业版(放量1.80×·宽松端)": 3,
+   "原著离场_技-1·★★装错的那一版对照:trend_following(吊灯3ATR+MA50)": 1
+  },
+  "★两条路不一致的份数": 0,
+  "★两条路不一致的名单": [],
+  "★有 r_degenerate 列的份数": 0
+ },
+ "逐份_真链": {
+  "A0十二条_技-12·康纳斯(RSI2<10)": {
+   "笔数": 2971,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 2.51,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-12·康纳斯(RSI2<5)": {
+   "笔数": 2112,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 2.4,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-1·XING日终趋势突破版(2ATR跟踪止损)": {
+   "笔数": 721,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0009999999999999321,
+   "最小 risk_per_share": 0.0240000000000009,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-1·海龟System1(20日入_10日出)": {
+   "笔数": 415,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.006239959578142364,
+   "最小 risk_per_share": 0.3460057586079941,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-2·法伯月线择时(10月线)": {
+   "笔数": 1361,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 2.84,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_buy_and_hold(锚点)": {
+   "笔数": 186,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.9989999999999998,
+   "最小 risk_per_share": 4.17582,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-10·原著离场·持仓3天(中值)": {
+   "笔数": 1147,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007090719499478102,
+   "最小 risk_per_share": 0.0900000000000034,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-10·原著离场·持仓5天(宽松端)": {
+   "笔数": 1128,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007090719499478102,
+   "最小 risk_per_share": 0.0900000000000034,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-11·行业版(后人量化版Spring:下刺+收复+缩量)": {
+   "笔数": 111,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007529020824205802,
+   "最小 risk_per_share": 0.0809746189643334,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-12·康纳斯(RSI2<10)": {
+   "笔数": 2971,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 2.51,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-13·原著四重离场·Countdown13进场": {
+   "笔数": 2562,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.00014004621525110427,
+   "最小 risk_per_share": 0.0100000000000051,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-14·行业版(三步进场+三道趋势过滤,含ADX≤25)": {
+   "笔数": 669,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.00031709780416059783,
+   "最小 risk_per_share": 0.0136464233557198,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-14·行业版RSI2≤10(不带带宽熔断)": {
+   "笔数": 379,
+   "退化笔数_判据": 1,
+   "退化笔数_NaN路": 1,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 7.316028123167048e-05,
+   "最小 risk_per_share": 0.0096132609538415,
+   "r_multiple 为 NaN 的总笔数": 1,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "MPWR",
+     "entry_date": "2019-05-13",
+     "entry_price": 131.4,
+     "initial_stop": 131.39038673904616,
+     "risk_per_share": 0.0096132609538415,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "剔污染_技-14·行业版RSI2≤10(带带宽熔断)": {
+   "笔数": 280,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.001611356885489342,
+   "最小 risk_per_share": 0.1058139383825267,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-10·★原著离场·持仓2天(严格端)": {
+   "笔数": 1154,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007090719499478102,
+   "最小 risk_per_share": 0.0900000000000034,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-10·★原著离场·持仓3天(中值)": {
+   "笔数": 1147,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007090719499478102,
+   "最小 risk_per_share": 0.0900000000000034,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-10·★原著离场·持仓5天(宽松端)": {
+   "笔数": 1128,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007090719499478102,
+   "最小 risk_per_share": 0.0900000000000034,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-13·★原著四重离场·Countdown13进场": {
+   "笔数": 2562,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.00014004621525110427,
+   "最小 risk_per_share": 0.0100000000000051,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-13·★原著四重离场·Setup9进场": {
+   "笔数": 2714,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0009562841530053702,
+   "最小 risk_per_share": 0.0699999999999931,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-1·★★装错的那一版对照:trend_following(吊灯3ATR+MA50)": {
+   "笔数": 375,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.008928788454325771,
+   "最小 risk_per_share": 0.2699999999999996,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-1·★原著离场·System1(20日入_10日反向通道出)": {
+   "笔数": 415,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.006239959578142364,
+   "最小 risk_per_share": 0.3460057586079941,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-6·原著版3日规则(箱底0容差)": {
+   "笔数": 412,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.009349010610840239,
+   "最小 risk_per_share": 0.6500000000000004,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "批五修正_技-11·XING版(跌破20日低点再收回·完全不看量)": {
+   "笔数": 1278,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.00045882706493314814,
+   "最小 risk_per_share": 0.0136464233557198,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "批五修正_技-11·★旧实现(一日合并版:收复日要求缩量≤0.65×)": {
+   "笔数": 111,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007529020824205802,
+   "最小 risk_per_share": 0.0809746189643334,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "批五修正_技-14·★新组合RSI(2)≤10(★不带带宽熔断)": {
+   "笔数": 379,
+   "退化笔数_判据": 1,
+   "退化笔数_NaN路": 1,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 7.316028123167048e-05,
+   "最小 risk_per_share": 0.0096132609538415,
+   "r_multiple 为 NaN 的总笔数": 1,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "MPWR",
+     "entry_date": "2019-05-13",
+     "entry_price": 131.4,
+     "initial_stop": 131.39038673904616,
+     "risk_per_share": 0.0096132609538415,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "批五修正_技-14·★新组合RSI(2)≤10(★带带宽熔断)": {
+   "笔数": 280,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.001611356885489342,
+   "最小 risk_per_share": 0.1058139383825267,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "批五修正_技-14·★旧三道过滤器版(含ADX(14)≤25)": {
+   "笔数": 669,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.00031709780416059783,
+   "最小 risk_per_share": 0.0136464233557198,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-11·XING版(跌破20日低点再收回)": {
+   "笔数": 1278,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.00045882706493314814,
+   "最小 risk_per_share": 0.0136464233557198,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-11·行业版(后人量化版:下刺0.15~0.80ATR+收复+缩量)": {
+   "笔数": 111,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0007529020824205802,
+   "最小 risk_per_share": 0.0809746189643334,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-14·XING版(触下轨就买)": {
+   "笔数": 3728,
+   "退化笔数_判据": 3,
+   "退化笔数_NaN路": 3,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.8550335997132434e-05,
+   "最小 risk_per_share": 0.002125740170058,
+   "r_multiple 为 NaN 的总笔数": 3,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "PSX",
+     "entry_date": "2023-03-16",
+     "entry_price": 91.48,
+     "initial_stop": 91.47787425982996,
+     "risk_per_share": 0.002125740170058,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ED",
+     "entry_date": "2023-06-29",
+     "entry_price": 89.4,
+     "initial_stop": 89.39552325250935,
+     "risk_per_share": 0.0044767474906564,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CASY",
+     "entry_date": "2025-10-31",
+     "entry_price": 512.7,
+     "initial_stop": 512.6904892427343,
+     "risk_per_share": 0.0095107572657298,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-14·原著版(MethodIII近似:W底+MFI底背离)": {
+   "笔数": 3989,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0001440465862321055,
+   "最小 risk_per_share": 0.0019652578143212,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-14·行业版(三步进场+三道趋势过滤)": {
+   "笔数": 669,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.00031709780416059783,
+   "最小 risk_per_share": 0.0136464233557198,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-3·XING版": {
+   "笔数": 246,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.012759771723915174,
+   "最小 risk_per_share": 0.7450000000000001,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-3·行业版(放量1.55×·中值)": {
+   "笔数": 218,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0034897603085682375,
+   "最小 risk_per_share": 0.3799999999999954,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-3·行业版(放量1.80×·宽松端)": {
+   "笔数": 195,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.013076030791943425,
+   "最小 risk_per_share": 0.9299999999999996,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-4·原著版(宽松端:杯深≥12%_柄深≤15%_放量1.40×)": {
+   "笔数": 153,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.07999999999999988,
+   "最小 risk_per_share": 1.1007999999999996,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-4·行业版(枢纽+0.1%_放量1.20×_柄部极端缩量)": {
+   "笔数": 140,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.07999999999999988,
+   "最小 risk_per_share": 0.7896000000000001,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-5·XING版(第一段≤30%_衰减0.65_2~4次_缩量0.60)": {
+   "笔数": 1580,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.004846142463008274,
+   "最小 risk_per_share": 0.1263603672263009,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-5·原著版(缩量0.50·严格端)": {
+   "笔数": 768,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.004846142463008274,
+   "最小 risk_per_share": 0.1582272694817206,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-5·原著版(缩量0.55·中值)": {
+   "笔数": 1029,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.004846142463008274,
+   "最小 risk_per_share": 0.1582272694817206,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-5·原著版(缩量0.60·宽松端)": {
+   "笔数": 1259,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.004846142463008274,
+   "最小 risk_per_share": 0.1263603672263009,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-5·行业版(次数≥3_衰减0.65_缩量0.60)": {
+   "笔数": 396,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.003765134737355129,
+   "最小 risk_per_share": 0.0690337454094063,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-6·XING版(近25根区间收窄到20%)": {
+   "笔数": 352,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.010640216411181305,
+   "最小 risk_per_share": 0.5900000000000034,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-6·原著版(3日规则,★无振幅条件)": {
+   "笔数": 412,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.009349010610840239,
+   "最小 risk_per_share": 0.6500000000000004,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-6·行业版(3日规则+振幅≤18%+存活≥10日)": {
+   "笔数": 379,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.026334199480311862,
+   "最小 risk_per_share": 0.4699999999999988,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  }
+ },
+ "逐份_对照组": {
+  "A0十二条_技-12·康纳斯(RSI2<10)": {
+   "笔数": 147999,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 1.92,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-12·康纳斯(RSI2<5)": {
+   "笔数": 104637,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 1.92,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-1·XING日终趋势突破版(2ATR跟踪止损)": {
+   "笔数": 35579,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.0009999999999998237,
+   "最小 risk_per_share": 0.00035,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-1·海龟System1(20日入_10日出)": {
+   "笔数": 19906,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.006482599112576019,
+   "最小 risk_per_share": 0.2181460092772225,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "A0十二条_技-2·法伯月线择时(10月线)": {
+   "笔数": 68005,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 0.392,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_buy_and_hold(锚点)": {
+   "笔数": 9081,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.9989999999999998,
+   "最小 risk_per_share": 2.682315,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-10·原著离场·持仓3天(中值)": {
+   "笔数": 56174,
+   "退化笔数_判据": 60,
+   "退化笔数_NaN路": 60,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.1118734617950085e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 60,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "VIRT",
+     "entry_date": "2023-05-26",
+     "entry_price": 17.6,
+     "initial_stop": 17.599899999999998,
+     "risk_per_share": 0.0001000000000033,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.94999999999999,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LII",
+     "entry_date": "2024-02-01",
+     "entry_price": 427.86,
+     "initial_stop": 427.855,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MRSH",
+     "entry_date": "2024-10-02",
+     "entry_price": 221.72,
+     "initial_stop": 221.71,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MCD",
+     "entry_date": "2022-05-18",
+     "entry_price": 239.46,
+     "initial_stop": 239.45,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "剔污染_技-10·原著离场·持仓5天(宽松端)": {
+   "笔数": 55085,
+   "退化笔数_判据": 58,
+   "退化笔数_NaN路": 58,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.1118734617950085e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 58,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "VIRT",
+     "entry_date": "2023-05-26",
+     "entry_price": 17.6,
+     "initial_stop": 17.599899999999998,
+     "risk_per_share": 0.0001000000000033,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.94999999999999,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LII",
+     "entry_date": "2024-02-01",
+     "entry_price": 427.86,
+     "initial_stop": 427.855,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MRSH",
+     "entry_date": "2024-10-02",
+     "entry_price": 221.72,
+     "initial_stop": 221.71,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MCD",
+     "entry_date": "2022-05-18",
+     "entry_price": 239.46,
+     "initial_stop": 239.45,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "剔污染_技-11·行业版(后人量化版Spring:下刺+收复+缩量)": {
+   "笔数": 5576,
+   "退化笔数_判据": 4,
+   "退化笔数_NaN路": 4,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 4,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ECL",
+     "entry_date": "2022-03-04",
+     "entry_price": 168.78,
+     "initial_stop": 168.76317657930238,
+     "risk_per_share": 0.0168234206976194,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2023-06-20",
+     "entry_price": 51.56666666666666,
+     "initial_stop": 51.5625961524455,
+     "risk_per_share": 0.0040705142211621,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ROST",
+     "entry_date": "2020-10-02",
+     "entry_price": 93.0,
+     "initial_stop": 92.99889673920214,
+     "risk_per_share": 0.001103260797862,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "剔污染_技-12·康纳斯(RSI2<10)": {
+   "笔数": 147999,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.0,
+   "最小 risk_per_share": 1.92,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "剔污染_技-13·原著四重离场·Countdown13进场": {
+   "笔数": 126663,
+   "退化笔数_判据": 3,
+   "退化笔数_NaN路": 3,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.5117930548087238e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 3,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "FMC",
+     "entry_date": "2020-02-27",
+     "entry_price": 94.0,
+     "initial_stop": 94.0,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ISRG",
+     "entry_date": "2020-02-28",
+     "entry_price": 175.96999999999997,
+     "initial_stop": 175.95666666666665,
+     "risk_per_share": 0.0133333333333212,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "EPD",
+     "entry_date": "2021-10-28",
+     "entry_price": 23.42,
+     "initial_stop": 23.42,
+     "risk_per_share": 3.552713678800501e-15,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "剔污染_技-14·行业版(三步进场+三道趋势过滤,含ADX≤25)": {
+   "笔数": 32796,
+   "退化笔数_判据": 12,
+   "退化笔数_NaN路": 12,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 12,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "PCAR",
+     "entry_date": "2023-08-18",
+     "entry_price": 83.21,
+     "initial_stop": 83.20651531504446,
+     "risk_per_share": 0.0034846849555378,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LNT",
+     "entry_date": "2023-06-29",
+     "entry_price": 51.29,
+     "initial_stop": 51.28704411681337,
+     "risk_per_share": 0.0029558831866296,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MNST",
+     "entry_date": "2021-07-08",
+     "entry_price": 45.0,
+     "initial_stop": 44.99841287456091,
+     "risk_per_share": 0.0015871254390873,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "剔污染_技-14·行业版RSI2≤10(不带带宽熔断)": {
+   "笔数": 18915,
+   "退化笔数_判据": 9,
+   "退化笔数_NaN路": 9,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 9,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ECL",
+     "entry_date": "2022-03-04",
+     "entry_price": 168.78,
+     "initial_stop": 168.76317657930238,
+     "risk_per_share": 0.0168234206976194,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "SAIC",
+     "entry_date": "2020-09-17",
+     "entry_price": 77.9,
+     "initial_stop": 77.89502269046466,
+     "risk_per_share": 0.0049773095353486,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BBWI",
+     "entry_date": "2023-03-01",
+     "entry_price": 40.24,
+     "initial_stop": 40.23962095168907,
+     "risk_per_share": 0.0003790483109327,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "剔污染_技-14·行业版RSI2≤10(带带宽熔断)": {
+   "笔数": 14152,
+   "退化笔数_判据": 7,
+   "退化笔数_NaN路": 7,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 7,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ECL",
+     "entry_date": "2022-03-04",
+     "entry_price": 168.78,
+     "initial_stop": 168.76317657930238,
+     "risk_per_share": 0.0168234206976194,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BBWI",
+     "entry_date": "2023-03-01",
+     "entry_price": 40.24,
+     "initial_stop": 40.23962095168907,
+     "risk_per_share": 0.0003790483109327,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2023-06-20",
+     "entry_price": 51.56666666666666,
+     "initial_stop": 51.5625961524455,
+     "risk_per_share": 0.0040705142211621,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "原著离场_技-10·★原著离场·持仓2天(严格端)": {
+   "笔数": 56714,
+   "退化笔数_判据": 61,
+   "退化笔数_NaN路": 61,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.1118734617950085e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 61,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "VIRT",
+     "entry_date": "2023-05-26",
+     "entry_price": 17.6,
+     "initial_stop": 17.599899999999998,
+     "risk_per_share": 0.0001000000000033,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.94999999999999,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LII",
+     "entry_date": "2024-02-01",
+     "entry_price": 427.86,
+     "initial_stop": 427.855,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MRSH",
+     "entry_date": "2024-10-02",
+     "entry_price": 221.72,
+     "initial_stop": 221.71,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MCD",
+     "entry_date": "2022-05-18",
+     "entry_price": 239.46,
+     "initial_stop": 239.45,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "原著离场_技-10·★原著离场·持仓3天(中值)": {
+   "笔数": 56174,
+   "退化笔数_判据": 60,
+   "退化笔数_NaN路": 60,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.1118734617950085e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 60,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "VIRT",
+     "entry_date": "2023-05-26",
+     "entry_price": 17.6,
+     "initial_stop": 17.599899999999998,
+     "risk_per_share": 0.0001000000000033,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.94999999999999,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LII",
+     "entry_date": "2024-02-01",
+     "entry_price": 427.86,
+     "initial_stop": 427.855,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MRSH",
+     "entry_date": "2024-10-02",
+     "entry_price": 221.72,
+     "initial_stop": 221.71,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MCD",
+     "entry_date": "2022-05-18",
+     "entry_price": 239.46,
+     "initial_stop": 239.45,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "原著离场_技-10·★原著离场·持仓5天(宽松端)": {
+   "笔数": 55085,
+   "退化笔数_判据": 58,
+   "退化笔数_NaN路": 58,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.1118734617950085e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 58,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "VIRT",
+     "entry_date": "2023-05-26",
+     "entry_price": 17.6,
+     "initial_stop": 17.599899999999998,
+     "risk_per_share": 0.0001000000000033,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.94999999999999,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LII",
+     "entry_date": "2024-02-01",
+     "entry_price": 427.86,
+     "initial_stop": 427.855,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MRSH",
+     "entry_date": "2024-10-02",
+     "entry_price": 221.72,
+     "initial_stop": 221.71,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MCD",
+     "entry_date": "2022-05-18",
+     "entry_price": 239.46,
+     "initial_stop": 239.45,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "原著离场_技-13·★原著四重离场·Countdown13进场": {
+   "笔数": 126663,
+   "退化笔数_判据": 3,
+   "退化笔数_NaN路": 3,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.5117930548087238e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 3,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "FMC",
+     "entry_date": "2020-02-27",
+     "entry_price": 94.0,
+     "initial_stop": 94.0,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ISRG",
+     "entry_date": "2020-02-28",
+     "entry_price": 175.96999999999997,
+     "initial_stop": 175.95666666666665,
+     "risk_per_share": 0.0133333333333212,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "EPD",
+     "entry_date": "2021-10-28",
+     "entry_price": 23.42,
+     "initial_stop": 23.42,
+     "risk_per_share": 3.552713678800501e-15,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "原著离场_技-13·★原著四重离场·Setup9进场": {
+   "笔数": 133619,
+   "退化笔数_判据": 3,
+   "退化笔数_NaN路": 3,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 1.5117930548087238e-16,
+   "最小 risk_per_share": 3.552713678800501e-15,
+   "r_multiple 为 NaN 的总笔数": 3,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "FMC",
+     "entry_date": "2020-02-27",
+     "entry_price": 94.0,
+     "initial_stop": 94.0,
+     "risk_per_share": 1.4210854715202004e-14,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ISRG",
+     "entry_date": "2020-02-28",
+     "entry_price": 175.96999999999997,
+     "initial_stop": 175.95666666666665,
+     "risk_per_share": 0.0133333333333212,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "EPD",
+     "entry_date": "2021-10-28",
+     "entry_price": 23.42,
+     "initial_stop": 23.42,
+     "risk_per_share": 3.552713678800501e-15,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "原著离场_技-1·★★装错的那一版对照:trend_following(吊灯3ATR+MA50)": {
+   "笔数": 18426,
+   "退化笔数_判据": 1,
+   "退化笔数_NaN路": 1,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.513385006181788e-05,
+   "最小 risk_per_share": 0.0099999999999909,
+   "r_multiple 为 NaN 的总笔数": 1,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "AJG",
+     "entry_date": "2022-01-24",
+     "entry_price": 153.53,
+     "initial_stop": 153.52,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "原著离场_技-1·★原著离场·System1(20日入_10日反向通道出)": {
+   "笔数": 19906,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.006482599112576019,
+   "最小 risk_per_share": 0.2181460092772225,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "原著离场_技-6·原著版3日规则(箱底0容差)": {
+   "笔数": 20432,
+   "退化笔数_判据": 6,
+   "退化笔数_NaN路": 6,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 4.136333553934012e-05,
+   "最小 risk_per_share": 0.0033333333333303,
+   "r_multiple 为 NaN 的总笔数": 6,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.9441,
+     "risk_per_share": 0.0058999999999969,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "GOOG",
+     "entry_date": "2022-09-06",
+     "entry_price": 108.135,
+     "initial_stop": 108.13,
+     "risk_per_share": 0.0050000000000096,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "DFS",
+     "entry_date": "2023-03-16",
+     "entry_price": 94.69,
+     "initial_stop": 94.685,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2021-10-01",
+     "entry_price": 46.42,
+     "initial_stop": 46.41666666666666,
+     "risk_per_share": 0.0033333333333303,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BDX",
+     "entry_date": "2019-11-12",
+     "entry_price": 235.86341463414635,
+     "initial_stop": 235.85365853658536,
+     "risk_per_share": 0.0097560975609667,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "批五修正_技-11·XING版(跌破20日低点再收回·完全不看量)": {
+   "笔数": 61844,
+   "退化笔数_判据": 23,
+   "退化笔数_NaN路": 23,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 23,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "BWA",
+     "entry_date": "2022-12-22",
+     "entry_price": 35.563380281690144,
+     "initial_stop": 35.56160544533259,
+     "risk_per_share": 0.0017748363575549,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "PCAR",
+     "entry_date": "2023-08-18",
+     "entry_price": 83.21,
+     "initial_stop": 83.20651531504446,
+     "risk_per_share": 0.0034846849555378,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CPK",
+     "entry_date": "2024-06-06",
+     "entry_price": 109.52,
+     "initial_stop": 109.51014233161852,
+     "risk_per_share": 0.0098576683814854,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LNT",
+     "entry_date": "2023-06-29",
+     "entry_price": 51.29,
+     "initial_stop": 51.28704411681337,
+     "risk_per_share": 0.0029558831866296,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "批五修正_技-11·★旧实现(一日合并版:收复日要求缩量≤0.65×)": {
+   "笔数": 5576,
+   "退化笔数_判据": 4,
+   "退化笔数_NaN路": 4,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 4,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ECL",
+     "entry_date": "2022-03-04",
+     "entry_price": 168.78,
+     "initial_stop": 168.76317657930238,
+     "risk_per_share": 0.0168234206976194,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2023-06-20",
+     "entry_price": 51.56666666666666,
+     "initial_stop": 51.5625961524455,
+     "risk_per_share": 0.0040705142211621,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ROST",
+     "entry_date": "2020-10-02",
+     "entry_price": 93.0,
+     "initial_stop": 92.99889673920214,
+     "risk_per_share": 0.001103260797862,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "批五修正_技-14·★新组合RSI(2)≤10(★不带带宽熔断)": {
+   "笔数": 18915,
+   "退化笔数_判据": 9,
+   "退化笔数_NaN路": 9,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 9,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ECL",
+     "entry_date": "2022-03-04",
+     "entry_price": 168.78,
+     "initial_stop": 168.76317657930238,
+     "risk_per_share": 0.0168234206976194,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "SAIC",
+     "entry_date": "2020-09-17",
+     "entry_price": 77.9,
+     "initial_stop": 77.89502269046466,
+     "risk_per_share": 0.0049773095353486,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BBWI",
+     "entry_date": "2023-03-01",
+     "entry_price": 40.24,
+     "initial_stop": 40.23962095168907,
+     "risk_per_share": 0.0003790483109327,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "批五修正_技-14·★新组合RSI(2)≤10(★带带宽熔断)": {
+   "笔数": 14152,
+   "退化笔数_判据": 7,
+   "退化笔数_NaN路": 7,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 7,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ECL",
+     "entry_date": "2022-03-04",
+     "entry_price": 168.78,
+     "initial_stop": 168.76317657930238,
+     "risk_per_share": 0.0168234206976194,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BBWI",
+     "entry_date": "2023-03-01",
+     "entry_price": 40.24,
+     "initial_stop": 40.23962095168907,
+     "risk_per_share": 0.0003790483109327,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2023-06-20",
+     "entry_price": 51.56666666666666,
+     "initial_stop": 51.5625961524455,
+     "risk_per_share": 0.0040705142211621,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "批五修正_技-14·★旧三道过滤器版(含ADX(14)≤25)": {
+   "笔数": 32796,
+   "退化笔数_判据": 12,
+   "退化笔数_NaN路": 12,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 12,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "PCAR",
+     "entry_date": "2023-08-18",
+     "entry_price": 83.21,
+     "initial_stop": 83.20651531504446,
+     "risk_per_share": 0.0034846849555378,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LNT",
+     "entry_date": "2023-06-29",
+     "entry_price": 51.29,
+     "initial_stop": 51.28704411681337,
+     "risk_per_share": 0.0029558831866296,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MNST",
+     "entry_date": "2021-07-08",
+     "entry_price": 45.0,
+     "initial_stop": 44.99841287456091,
+     "risk_per_share": 0.0015871254390873,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-11·XING版(跌破20日低点再收回)": {
+   "笔数": 61844,
+   "退化笔数_判据": 23,
+   "退化笔数_NaN路": 23,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 23,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "BWA",
+     "entry_date": "2022-12-22",
+     "entry_price": 35.563380281690144,
+     "initial_stop": 35.56160544533259,
+     "risk_per_share": 0.0017748363575549,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "PCAR",
+     "entry_date": "2023-08-18",
+     "entry_price": 83.21,
+     "initial_stop": 83.20651531504446,
+     "risk_per_share": 0.0034846849555378,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "CPK",
+     "entry_date": "2024-06-06",
+     "entry_price": 109.52,
+     "initial_stop": 109.51014233161852,
+     "risk_per_share": 0.0098576683814854,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LNT",
+     "entry_date": "2023-06-29",
+     "entry_price": 51.29,
+     "initial_stop": 51.28704411681337,
+     "risk_per_share": 0.0029558831866296,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-11·行业版(后人量化版:下刺0.15~0.80ATR+收复+缩量)": {
+   "笔数": 5576,
+   "退化笔数_判据": 4,
+   "退化笔数_NaN路": 4,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 4,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ECL",
+     "entry_date": "2022-03-04",
+     "entry_price": 168.78,
+     "initial_stop": 168.76317657930238,
+     "risk_per_share": 0.0168234206976194,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2023-06-20",
+     "entry_price": 51.56666666666666,
+     "initial_stop": 51.5625961524455,
+     "risk_per_share": 0.0040705142211621,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "ROST",
+     "entry_date": "2020-10-02",
+     "entry_price": 93.0,
+     "initial_stop": 92.99889673920214,
+     "risk_per_share": 0.001103260797862,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-14·XING版(触下轨就买)": {
+   "笔数": 184122,
+   "退化笔数_判据": 89,
+   "退化笔数_NaN路": 89,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 89,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "TUP",
+     "entry_date": "2018-01-30",
+     "entry_price": 63.57,
+     "initial_stop": 63.56433759147643,
+     "risk_per_share": 0.0056624085235696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "NUE",
+     "entry_date": "2019-08-01",
+     "entry_price": 53.85,
+     "initial_stop": 53.84823605472739,
+     "risk_per_share": 0.0017639452726143,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "YUM",
+     "entry_date": "2020-04-21",
+     "entry_price": 80.09,
+     "initial_stop": 80.08297738921803,
+     "risk_per_share": 0.0070226107819735,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "SAIC",
+     "entry_date": "2020-09-17",
+     "entry_price": 77.9,
+     "initial_stop": 77.89502269046466,
+     "risk_per_share": 0.0049773095353486,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "GT",
+     "entry_date": "2020-01-03",
+     "entry_price": 15.13,
+     "initial_stop": 15.12974972993598,
+     "risk_per_share": 0.0002502700640221,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-14·原著版(MethodIII近似:W底+MFI底背离)": {
+   "笔数": 196527,
+   "退化笔数_判据": 98,
+   "退化笔数_NaN路": 98,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 98,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "TUP",
+     "entry_date": "2018-01-30",
+     "entry_price": 63.57,
+     "initial_stop": 63.56433759147643,
+     "risk_per_share": 0.0056624085235696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "NUE",
+     "entry_date": "2019-08-01",
+     "entry_price": 53.85,
+     "initial_stop": 53.84823605472739,
+     "risk_per_share": 0.0017639452726143,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "YUM",
+     "entry_date": "2020-04-21",
+     "entry_price": 80.09,
+     "initial_stop": 80.08297738921803,
+     "risk_per_share": 0.0070226107819735,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "SAIC",
+     "entry_date": "2020-09-17",
+     "entry_price": 77.9,
+     "initial_stop": 77.89502269046466,
+     "risk_per_share": 0.0049773095353486,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "GT",
+     "entry_date": "2020-01-03",
+     "entry_price": 15.13,
+     "initial_stop": 15.12974972993598,
+     "risk_per_share": 0.0002502700640221,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-14·行业版(三步进场+三道趋势过滤)": {
+   "笔数": 32796,
+   "退化笔数_判据": 12,
+   "退化笔数_NaN路": 12,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 6.067392729276938e-07,
+   "最小 risk_per_share": 1.0496589421649103e-05,
+   "r_multiple 为 NaN 的总笔数": 12,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "PCAR",
+     "entry_date": "2023-08-18",
+     "entry_price": 83.21,
+     "initial_stop": 83.20651531504446,
+     "risk_per_share": 0.0034846849555378,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LNT",
+     "entry_date": "2023-06-29",
+     "entry_price": 51.29,
+     "initial_stop": 51.28704411681337,
+     "risk_per_share": 0.0029558831866296,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MET",
+     "entry_date": "2019-10-14",
+     "entry_price": 45.43,
+     "initial_stop": 45.42694679698333,
+     "risk_per_share": 0.0030532030166696,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "MNST",
+     "entry_date": "2021-07-08",
+     "entry_price": 45.0,
+     "initial_stop": 44.99841287456091,
+     "risk_per_share": 0.0015871254390873,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BSM",
+     "entry_date": "2023-12-04",
+     "entry_price": 17.3,
+     "initial_stop": 17.29998950341058,
+     "risk_per_share": 1.0496589421649103e-05,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-3·XING版": {
+   "笔数": 12325,
+   "退化笔数_判据": 4,
+   "退化笔数_NaN路": 4,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 4.136333553934012e-05,
+   "最小 risk_per_share": 0.0033333333333303,
+   "r_multiple 为 NaN 的总笔数": 4,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "DFS",
+     "entry_date": "2023-03-16",
+     "entry_price": 94.69,
+     "initial_stop": 94.685,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2021-10-01",
+     "entry_price": 46.42,
+     "initial_stop": 46.41666666666666,
+     "risk_per_share": 0.0033333333333303,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BDX",
+     "entry_date": "2019-11-12",
+     "entry_price": 235.86341463414635,
+     "initial_stop": 235.85365853658536,
+     "risk_per_share": 0.0097560975609667,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "AJG",
+     "entry_date": "2022-01-24",
+     "entry_price": 153.53,
+     "initial_stop": 153.52,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-3·行业版(放量1.55×·中值)": {
+   "笔数": 11004,
+   "退化笔数_判据": 4,
+   "退化笔数_NaN路": 4,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 4.136333553934012e-05,
+   "最小 risk_per_share": 0.0033333333333303,
+   "r_multiple 为 NaN 的总笔数": 4,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "DFS",
+     "entry_date": "2023-03-16",
+     "entry_price": 94.69,
+     "initial_stop": 94.685,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2021-10-01",
+     "entry_price": 46.42,
+     "initial_stop": 46.41666666666666,
+     "risk_per_share": 0.0033333333333303,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BDX",
+     "entry_date": "2019-11-12",
+     "entry_price": 235.86341463414635,
+     "initial_stop": 235.85365853658536,
+     "risk_per_share": 0.0097560975609667,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "AJG",
+     "entry_date": "2022-01-24",
+     "entry_price": 153.53,
+     "initial_stop": 153.52,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-3·行业版(放量1.80×·宽松端)": {
+   "笔数": 9820,
+   "退化笔数_判据": 3,
+   "退化笔数_NaN路": 3,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 5.280388636598796e-05,
+   "最小 risk_per_share": 0.0033333333333303,
+   "r_multiple 为 NaN 的总笔数": 3,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "DFS",
+     "entry_date": "2023-03-16",
+     "entry_price": 94.69,
+     "initial_stop": 94.685,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2021-10-01",
+     "entry_price": 46.42,
+     "initial_stop": 46.41666666666666,
+     "risk_per_share": 0.0033333333333303,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "AJG",
+     "entry_date": "2022-01-24",
+     "entry_price": 153.53,
+     "initial_stop": 153.52,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-4·原著版(宽松端:杯深≥12%_柄深≤15%_放量1.40×)": {
+   "笔数": 7545,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.07999999999999984,
+   "最小 risk_per_share": 0.04208,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-4·行业版(枢纽+0.1%_放量1.20×_柄部极端缩量)": {
+   "笔数": 7080,
+   "退化笔数_判据": 0,
+   "退化笔数_NaN路": 0,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 0.07999999999999984,
+   "最小 risk_per_share": 0.04208,
+   "r_multiple 为 NaN 的总笔数": 0,
+   "★有没有 r_degenerate 这一列": false
+  },
+  "技术派六条三版_技-5·XING版(第一段≤30%_衰减0.65_2~4次_缩量0.60)": {
+   "笔数": 78035,
+   "退化笔数_判据": 39,
+   "退化笔数_NaN路": 39,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 3.822955214066225e-06,
+   "最小 risk_per_share": 0.0002486596583466,
+   "r_multiple 为 NaN 的总笔数": 39,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "SYY",
+     "entry_date": "2019-10-03",
+     "entry_price": 77.98,
+     "initial_stop": 77.97514692978288,
+     "risk_per_share": 0.0048530702171234,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "VMC",
+     "entry_date": "2024-05-29",
+     "entry_price": 252.47,
+     "initial_stop": 252.45371131306635,
+     "risk_per_share": 0.0162886869336489,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "TUP",
+     "entry_date": "2018-04-04",
+     "entry_price": 46.25,
+     "initial_stop": 46.24644958964176,
+     "risk_per_share": 0.0035504103582368,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "FMC",
+     "entry_date": "2023-05-25",
+     "entry_price": 104.27,
+     "initial_stop": 104.26125545804894,
+     "risk_per_share": 0.0087445419510601,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "RRC",
+     "entry_date": "2023-11-08",
+     "entry_price": 33.73,
+     "initial_stop": 33.72783370039219,
+     "risk_per_share": 0.0021662996078077,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-5·原著版(缩量0.50·严格端)": {
+   "笔数": 37552,
+   "退化笔数_判据": 10,
+   "退化笔数_NaN路": 10,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 3.822955214066225e-06,
+   "最小 risk_per_share": 0.0002486596583466,
+   "r_multiple 为 NaN 的总笔数": 10,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "HII",
+     "entry_date": "2019-09-23",
+     "entry_price": 213.4,
+     "initial_stop": 213.39470762976208,
+     "risk_per_share": 0.0052923702379246,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "PLD",
+     "entry_date": "2020-02-27",
+     "entry_price": 90.6,
+     "initial_stop": 90.5996536402576,
+     "risk_per_share": 0.0003463597423944,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "RRC",
+     "entry_date": "2023-11-08",
+     "entry_price": 33.73,
+     "initial_stop": 33.72783370039219,
+     "risk_per_share": 0.0021662996078077,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "PCAR",
+     "entry_date": "2021-12-17",
+     "entry_price": 56.83066666666667,
+     "initial_stop": 56.825598724853954,
+     "risk_per_share": 0.0050679418127188,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "COF",
+     "entry_date": "2020-08-20",
+     "entry_price": 64.53,
+     "initial_stop": 64.52447541054916,
+     "risk_per_share": 0.0055245894508431,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-5·原著版(缩量0.55·中值)": {
+   "笔数": 50779,
+   "退化笔数_判据": 18,
+   "退化笔数_NaN路": 18,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 3.822955214066225e-06,
+   "最小 risk_per_share": 0.0002486596583466,
+   "r_multiple 为 NaN 的总笔数": 18,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "SYY",
+     "entry_date": "2019-10-03",
+     "entry_price": 77.98,
+     "initial_stop": 77.97514692978288,
+     "risk_per_share": 0.0048530702171234,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LDOS",
+     "entry_date": "2024-05-29",
+     "entry_price": 146.76,
+     "initial_stop": 146.75192143632032,
+     "risk_per_share": 0.0080785636796747,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "PLD",
+     "entry_date": "2020-02-27",
+     "entry_price": 90.6,
+     "initial_stop": 90.5996536402576,
+     "risk_per_share": 0.0003463597423944,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "TUP",
+     "entry_date": "2018-04-04",
+     "entry_price": 46.25,
+     "initial_stop": 46.24644958964176,
+     "risk_per_share": 0.0035504103582368,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "RRC",
+     "entry_date": "2023-11-08",
+     "entry_price": 33.73,
+     "initial_stop": 33.72783370039219,
+     "risk_per_share": 0.0021662996078077,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-5·原著版(缩量0.60·宽松端)": {
+   "笔数": 61762,
+   "退化笔数_判据": 24,
+   "退化笔数_NaN路": 24,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 3.822955214066225e-06,
+   "最小 risk_per_share": 0.0002486596583466,
+   "r_multiple 为 NaN 的总笔数": 24,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "SYY",
+     "entry_date": "2019-10-03",
+     "entry_price": 77.98,
+     "initial_stop": 77.97514692978288,
+     "risk_per_share": 0.0048530702171234,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "LDOS",
+     "entry_date": "2024-05-29",
+     "entry_price": 146.76,
+     "initial_stop": 146.75192143632032,
+     "risk_per_share": 0.0080785636796747,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "PLD",
+     "entry_date": "2020-02-27",
+     "entry_price": 90.6,
+     "initial_stop": 90.5996536402576,
+     "risk_per_share": 0.0003463597423944,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "TUP",
+     "entry_date": "2018-04-04",
+     "entry_price": 46.25,
+     "initial_stop": 46.24644958964176,
+     "risk_per_share": 0.0035504103582368,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "RRC",
+     "entry_date": "2023-11-08",
+     "entry_price": 33.73,
+     "initial_stop": 33.72783370039219,
+     "risk_per_share": 0.0021662996078077,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-5·行业版(次数≥3_衰减0.65_缩量0.60)": {
+   "笔数": 19359,
+   "退化笔数_判据": 6,
+   "退化笔数_NaN路": 6,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 3.822955214066225e-06,
+   "最小 risk_per_share": 0.0003463597423944,
+   "r_multiple 为 NaN 的总笔数": 6,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "PLD",
+     "entry_date": "2020-02-27",
+     "entry_price": 90.6,
+     "initial_stop": 90.5996536402576,
+     "risk_per_share": 0.0003463597423944,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "RRC",
+     "entry_date": "2023-11-08",
+     "entry_price": 33.73,
+     "initial_stop": 33.72783370039219,
+     "risk_per_share": 0.0021662996078077,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "COF",
+     "entry_date": "2020-08-20",
+     "entry_price": 64.53,
+     "initial_stop": 64.52447541054916,
+     "risk_per_share": 0.0055245894508431,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "SYY",
+     "entry_date": "2019-04-25",
+     "entry_price": 69.83,
+     "initial_stop": 69.82328383340915,
+     "risk_per_share": 0.0067161665908486,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "FMC",
+     "entry_date": "2023-05-25",
+     "entry_price": 104.27,
+     "initial_stop": 104.26125545804894,
+     "risk_per_share": 0.0087445419510601,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-6·XING版(近25根区间收窄到20%)": {
+   "笔数": 17282,
+   "退化笔数_判据": 5,
+   "退化笔数_NaN路": 5,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 4.136333553934012e-05,
+   "最小 risk_per_share": 0.0033333333333303,
+   "r_multiple 为 NaN 的总笔数": 5,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.9441,
+     "risk_per_share": 0.0058999999999969,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "DFS",
+     "entry_date": "2023-03-16",
+     "entry_price": 94.69,
+     "initial_stop": 94.685,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2021-10-01",
+     "entry_price": 46.42,
+     "initial_stop": 46.41666666666666,
+     "risk_per_share": 0.0033333333333303,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BDX",
+     "entry_date": "2019-11-12",
+     "entry_price": 235.86341463414635,
+     "initial_stop": 235.85365853658536,
+     "risk_per_share": 0.0097560975609667,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "AJG",
+     "entry_date": "2022-01-24",
+     "entry_price": 153.53,
+     "initial_stop": 153.52,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-6·原著版(3日规则,★无振幅条件)": {
+   "笔数": 20432,
+   "退化笔数_判据": 6,
+   "退化笔数_NaN路": 6,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 4.136333553934012e-05,
+   "最小 risk_per_share": 0.0033333333333303,
+   "r_multiple 为 NaN 的总笔数": 6,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.9441,
+     "risk_per_share": 0.0058999999999969,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "GOOG",
+     "entry_date": "2022-09-06",
+     "entry_price": 108.135,
+     "initial_stop": 108.13,
+     "risk_per_share": 0.0050000000000096,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "DFS",
+     "entry_date": "2023-03-16",
+     "entry_price": 94.69,
+     "initial_stop": 94.685,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2021-10-01",
+     "entry_price": 46.42,
+     "initial_stop": 46.41666666666666,
+     "risk_per_share": 0.0033333333333303,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BDX",
+     "entry_date": "2019-11-12",
+     "entry_price": 235.86341463414635,
+     "initial_stop": 235.85365853658536,
+     "risk_per_share": 0.0097560975609667,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  },
+  "技术派六条三版_技-6·行业版(3日规则+振幅≤18%+存活≥10日)": {
+   "笔数": 18946,
+   "退化笔数_判据": 5,
+   "退化笔数_NaN路": 5,
+   "两条路是否一致": true,
+   "最小 risk/entry 比": 4.136333553934012e-05,
+   "最小 risk_per_share": 0.0033333333333303,
+   "r_multiple 为 NaN 的总笔数": 5,
+   "★有没有 r_degenerate 这一列": false,
+   "头几笔退化样本": [
+    {
+     "symbol": "CSGP",
+     "entry_date": "2025-05-22",
+     "entry_price": 73.95,
+     "initial_stop": 73.9441,
+     "risk_per_share": 0.0058999999999969,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "DFS",
+     "entry_date": "2023-03-16",
+     "entry_price": 94.69,
+     "initial_stop": 94.685,
+     "risk_per_share": 0.0049999999999954,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "WMT",
+     "entry_date": "2021-10-01",
+     "entry_price": 46.42,
+     "initial_stop": 46.41666666666666,
+     "risk_per_share": 0.0033333333333303,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "BDX",
+     "entry_date": "2019-11-12",
+     "entry_price": 235.86341463414635,
+     "initial_stop": 235.85365853658536,
+     "risk_per_share": 0.0097560975609667,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    },
+    {
+     "symbol": "AJG",
+     "entry_date": "2022-01-24",
+     "entry_price": 153.53,
+     "initial_stop": 153.52,
+     "risk_per_share": 0.0099999999999909,
+     "r_multiple": NaN,
+     "r_multiple_net": NaN
+    }
+   ]
+  }
+ },
+ "读不了的": {}
+}

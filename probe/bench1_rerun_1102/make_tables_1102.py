@@ -28,6 +28,9 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 B1031 = os.path.join(ROOT, "probe", "bench1_rerun_1031")
 
 NEW = os.path.join(HERE, "bench1_rerun_1102.json")
+#: ★★★ 本轮流水上**实测**的退化 R(★ 不能读 r_degenerate 列 —— 那一列
+#   被 engine 的 LEDGER_COLUMNS 静默丢掉了,详见 degen_check_1102.py 的说明)
+DEGEN_NEW = os.path.join(HERE, "退化R实测-1102.json")
 OLD = os.path.join(B1031, "bench1_rerun_1031.json")
 DEGEN = os.path.join(B1031, "degenerate_r_1031.json")
 LEDGERS = os.path.join(HERE, "ledgers_1102")
@@ -60,6 +63,14 @@ def main() -> int:
     new = json.load(open(NEW, encoding="utf-8"))
     old = json.load(open(OLD, encoding="utf-8"))
     dg = json.load(open(DEGEN, encoding="utf-8"))
+    dn = json.load(open(DEGEN_NEW, encoding="utf-8"))
+
+    def safe_name(label: str) -> str:
+        """★ 和 run_bench1_1102.safe_name 一字不差 —— 流水文件名就是这么拼的。"""
+        return label.replace("/", "_").replace(" ", "")
+
+    dn_real = dn["逐份_真链"]
+    dn_ctrl = dn["逐份_对照组"]
 
     nmap = {r["链"]: r for r in new["逐链"]}
     omap = {r["链"]: r for r in old["逐链"]}
@@ -72,8 +83,11 @@ def main() -> int:
         o = omap.get(label, {})
         d = dmap.get(label, {})
         nb, ob = n.get("★新基准一值"), o.get("★新基准一值")
-        real_new = (n.get("★真链退化R") or {}).get("退化R笔数")
-        ctrl_new = (n.get("★对照组退化R_50种子并池") or {}).get("退化R笔数")
+        # ★★★ 修复后的退化 R 笔数 = 在**本轮流水**上按同一个判据实测出来的
+        #   (★ 不是读 r_degenerate 列 —— 那一列落盘时被 engine 丢掉了)
+        sn = safe_name(label)
+        real_new = (dn_real.get(sn) or {}).get("退化笔数_判据")
+        ctrl_new = (dn_ctrl.get(sn) or {}).get("退化笔数_判据")
         real_old = (d.get("真链流水") or {}).get("退化笔数")
         ctrl_old = (d.get("对照流水") or {}).get("退化笔数")
         rows.append({
