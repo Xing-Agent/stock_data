@@ -24,6 +24,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 
 BENCH = os.path.join(ROOT, "probe/bench1_rerun_1102/bench1_rerun_1102.json")
+# ★★★ 退化 R 的笔数必须从这份独立实测读 —— ★ bench json 里那个计数是 None,
+# ★★ 因为 engine/chain.py 的 LEDGER_COLUMNS 写死 26 列,r_degenerate 没落到流水里(坑表第 37 处)。
+DEGEN = os.path.join(ROOT, "probe/bench1_rerun_1102/退化R实测-1102.json")
 EXAM  = os.path.join(ROOT, "probe/exam_run_1102/exam_run_1102.json")
 CFG   = os.path.join(ROOT, "engine/configs")
 
@@ -82,7 +85,22 @@ def 出处分档(cfg: dict) -> tuple[str, dict]:
     return ("合成流派" if prov.get("composite") else "单一流派"), 五档
 
 
-def 一条说明书(c: dict, exam: dict | None) -> str:
+def 读退化实测() -> dict[str, int]:
+    """★ 返回 {流水文件名片段: 退化笔数}。拿不到就返回空 —— 不猜。"""
+    if not os.path.exists(DEGEN): return {}
+    try:
+        with open(DEGEN, encoding="utf-8") as fh: d = json.load(fh)
+        return dict((d.get("真链(REAL__)") or {}).get("名单") or {})
+    except Exception:
+        return {}
+
+
+def 配名(名: str) -> str:
+    """★ 把链名压成和退化实测里那份名单同一种写法(去空格)。"""
+    return 名.replace(" ", "").replace("/", "_")
+
+
+def 一条说明书(c: dict, exam: dict | None, 退化表: dict[str, int]) -> str:
     名 = c["链"]
     cfg_name = c.get("配置", "")
     cfg = 读yaml浅层(os.path.join(CFG, cfg_name)) if cfg_name else {}
@@ -91,7 +109,12 @@ def 一条说明书(c: dict, exam: dict | None) -> str:
     基准一 = c.get("★新基准一值")
     判据 = c.get("★判据Z_用50种子并池对照") or {}
     笔数 = c.get("笔数")
-    退化 = (c.get("★真链退化R") or {})
+    退化 = dict(c.get("★真链退化R") or {})
+    # ★ 用独立实测覆盖那个 None
+    实测 = 退化表.get(配名(名))
+    if 实测 is not None:
+        退化["退化R笔数"] = 实测
+        退化["★这个数哪来的"] = "probe/bench1_rerun_1102/退化R实测-1102.json(独立重算,两条判据笔数一致)"
     L = [f"## {名}", ""]
     L.append(f"> ★ 配置 `engine/configs/{cfg_name}` · 族「{c.get('族','?')}」 · "
              f"池 {c.get('★跑在哪个池','?')} · 口径 `{c.get('池子口径','?')}`")
@@ -179,13 +202,25 @@ def 一条说明书(c: dict, exam: dict | None) -> str:
     # ★ 这条链自己的已知问题
     注 = []
     if 退化.get("退化R笔数"):
-        注.append(f"★★★ 真链有 **{退化['退化R笔数']} 笔**退化 R（已剔出 R 均值，不是删交易）")
+        注.append(f"★★★ 真链有 **{退化['退化R笔数']} 笔**退化 R（已剔出 R 均值，**不是删交易**）"
+                  f"<br>★ 这个数来自 `{退化.get('★这个数哪来的','?')}`"
+                  f"<br>★★ 实测方向：剔掉之后这条链的**成绩变好了** —— "
+                  f"说明被剔的是**假巨亏**（分母近零），不是假巨盈（坑表第 36 处）")
     if not 退化.get("有r_degenerate列", True):
         注.append("★★ 流水里**没有** `r_degenerate` 留痕列（`LEDGER_COLUMNS` 写死 26 列，坑表第 37 处）→ 事后对账只能反推")
     if c.get("★无止损_R退化成收益率_不可和有止损同列排序"):
         注.append("★★★ **这条链无止损** → R 退化成收益率，**不可和有止损的链同列排序**")
+    # ★★★ 不许用 `★符号是否翻转` 当「退化 R 修复的后果」——
+    # ★ 那个字段对的是 **1030 那一轮**,混了三个变化(退化 R 修复 + 5 种子→50 种子 + 全池→研发池)。
+    # ★★ 干净的单变量对比是 `★对1031(修复前)` 里的 `★基准一符号是否翻转(1031→1102)`。
+    对1031 = c.get("★对1031(修复前)") or {}
+    if 对1031.get("★基准一符号是否翻转(1031→1102)"):
+        注.append("★★★ **只因退化 R 修复就让基准一符号翻转** —— ★ 这是单变量对比（1031→1102）")
     if c.get("★符号是否翻转"):
-        注.append("★★ 退化 R 修复前后**符号翻转了**")
+        注.append("★ 基准一符号相对 **1030 那一轮**翻转了 —— ★★★ **但这不能算到退化 R 修复头上**："
+                  "那一轮到现在混了**三个**变化（退化 R 修复 · 种子 5→50 · 全池→研发池 198 只）。"
+                  f"★ 单变量对比（1031→1102）这条链**没有**翻转。1030 值 {c.get('旧基准一(作废·仅用于看污染有多大)', float('nan')):+.4f}"
+                  f" → 1031 值 {对1031.get('1031基准一', float('nan')):+.4f} → 本轮 {c.get('★新基准一值', float('nan')):+.4f}")
     if 注:
         L += ["", "**★ 这条链自己的已知问题：**", ""] + [f"- {x}" for x in 注]
     L.append("")
@@ -203,6 +238,9 @@ def main() -> int:
             with open(EXAM, encoding="utf-8") as fh: exam = json.load(fh)
         except Exception: exam = None
 
+    退化表 = 读退化实测()
+    if not 退化表:
+        print("★★★ 警告:读不到 退化R实测-1102.json —— 退化笔数那一栏会缺", file=sys.stderr)
     链 = bench["逐链"]
     if isinstance(链, dict): 链 = list(链.values())
 
@@ -250,7 +288,7 @@ def main() -> int:
     out.append("---")
     out.append("")
     for c in 链:
-        out.append(一条说明书(c, exam))
+        out.append(一条说明书(c, exam, 退化表))
         out.append("---")
         out.append("")
 
