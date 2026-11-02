@@ -43,9 +43,16 @@ def load_old() -> tuple[dict, str]:
     """-> ({链: 记录}, 来源说明)。★ 1102 那份没有 → 返回空 dict。"""
     if os.path.exists(OLD_NEW):
         d = json.load(open(OLD_NEW, encoding="utf-8"))
-        return ({r["链"]: r for r in d["逐链"]},
+        rows = d["逐链"]
+        # ★★ 老池跑在多少只票上,直接从它自己的记录里读 —— 不许猜。
+        #   ★ 考卷是 1,025 只,老池不是同一个只数 → 「考卷 vs 老池」里混着
+        #     「样本外」和「池子变大」两件事,报告里必须写明分不开。
+        pools = sorted({str(r.get("★跑在哪个池")) for r in rows
+                        if r.get("★跑在哪个池")})
+        return ({r["链"]: r for r in rows},
                 "probe/bench1_rerun_1102/bench1_rerun_1102.json"
-                "(退化 R 修复**之后**重跑,可比)")
+                "(退化 R 修复**之后**重跑,可比)· 老池跑在:"
+                + ("/".join(pools) if pools else "(记录里没写)"))
     return ({}, "★★★ 老池可比口径**待补** —— probe/bench1_rerun_1102/ 还没出结果。"
                 "★ 1031 那一份(fbf760f,10-31 11:30)跑在退化 R 修复(95e293b,"
                 "10-31 14:25)**之前**,35 条的基准一是坏数,**本表不采用**。")
