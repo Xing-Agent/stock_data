@@ -192,6 +192,24 @@ def main(cf_dir, sub_path, map_path, out_dir):
             ('CostOfServices', tag_in('CostOfServices')),
             ('Revenues - GrossProfit', diff('Revenues', 'GrossProfit', 'Revenues-GrossProfit')),
             ('RevenueFromContractWithCustomerExcludingAssessedTax - GrossProfit', diff('RevenueFromContractWithCustomerExcludingAssessedTax', 'GrossProfit', 'RevenueFromContract-GrossProfit'))])
+        # Lin 11-03 拍板:这份 10-K/10-Q 有完整资产负债表(有总资产),但没有任何长期借款类科目 → 长期负债按 0
+        DEBT_TAGS = ('LongTermDebt', 'LongTermDebtNoncurrent', 'LongTermDebtCurrent', 'LongTermDebtAndCapitalLeaseObligations',
+                     'LongTermDebtAndCapitalLeaseObligationsCurrent', 'LongTermDebtNoncurrentExcludingCurrentPortion', 'OtherLongTermDebtNoncurrent',
+                     'SeniorLongTermNotes', 'ConvertibleNotesPayable', 'LongTermNotesPayable')
+        debt_keys = set()
+        for key_, rows_ in cf['u'].items():
+            if key_.split('|')[0].split(':', 1)[1] in DEBT_TAGS:
+                for x in rows_: debt_keys.add((x[7], x[2]))
+        have_ltd = {(r['filing_accession'], r['period_end']) for r in fv['LongTermDebt']}
+        zero_added = 0
+        for r in fv['TotalAssets']:
+            if r['form'] not in ('10-K', '10-Q', '10-K/A', '10-Q/A', '10-KT', '10-QT') or r['period_start'] is not None: continue
+            k2 = (r['filing_accession'], r['period_end'])
+            if k2 in have_ltd or k2 in debt_keys: continue
+            z = dict(r); z.update({'metric': 'LongTermDebt', 'value': '0', 'source_tag': None, 'source_type': 'sec_companyfacts_fallback',
+                                   'fallback_rule': 'no_LTD_tag_with_full_balance_sheet -> 0'})
+            fv['LongTermDebt'].append(z); have_ltd.add(k2); zero_added += 1
+        fb['LongTermDebt_zero'] = zero_added
         # 2019 年新租赁准则以后,很多公司把「固定资产净值」改报成「固定资产 + 融资租赁使用权资产 净值」(UNP、CVX、DAL 都是)
         fb['PropertyPlantAndEquipmentNet'] = fill('PropertyPlantAndEquipmentNet', [
             ('PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization',
