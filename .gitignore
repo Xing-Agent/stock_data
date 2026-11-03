@@ -1,3 +1,7 @@
 __pycache__/
 *.py[cod]
 engine/cache/*.parquet
+
+# ★ 打给 Lin / 团队的交付包 —— 从仓库里的文件打出来的,不入库
+# ★★ 理由:它是仓库内容的第二份副本,下一次改卡就过期了
+XING-V2*.zip
