@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xing.local/skills/xing-primary-implied-expectations/2.1.0/output.schema.json",
+  "title": "隐含预期与估值 Output",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "skill_version",
+    "status",
+    "conclusion",
+    "conclusion_strength",
+    "evidence_items",
+    "unknowns",
+    "conflicts",
+    "next_steps"
+  ],
+  "properties": {
+    "skill_id": {
+      "const": "xing-primary-implied-expectations"
+    },
+    "skill_version": {
+      "const": "2.1.0"
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "partial",
+        "refused",
+        "insufficient_data"
+      ]
+    },
+    "conclusion": {
+      "type": "string"
+    },
+    "conclusion_strength": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "not_applicable"
+      ]
+    },
+    "evidence_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "statement"
+        ],
+        "properties": {
+          "label": {
+            "enum": [
+              "FACT",
+              "CALC",
+              "USER_MATERIAL",
+              "BENCHMARK",
+              "INFERENCE",
+              "ASSUMPTION",
+              "UNKNOWN",
+              "CONFLICT"
+            ]
+          },
+          "statement": {
+            "type": "string"
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "period": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counter_case": {
+      "type": "string"
+    },
+    "invalidation_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "object"
+    },
+    "primary_perspective": {
+      "const": "xing-primary-implied-expectations"
+    },
+    "decision_state": {
+      "enum": [
+        "continue",
+        "watch",
+        "stop",
+        "insufficient_data",
+        "not_applicable"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

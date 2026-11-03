@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xing.local/skills/xing-primary-howard-marks/2.1.0/input.schema.json",
+  "title": "周期位置与二阶思维 Input",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "skill_version",
+    "user_request",
+    "as_of_date",
+    "materials"
+  ],
+  "properties": {
+    "skill_id": {
+      "const": "xing-primary-howard-marks"
+    },
+    "skill_version": {
+      "const": "2.1.0"
+    },
+    "user_request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "company": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "report_periods": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "market_quote_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "mode": {
+      "enum": [
+        "quick",
+        "full",
+        "single_question"
+      ]
+    },
+    "materials": {
+      "type": "object",
+      "required": [
+        "public",
+        "user_private"
+      ],
+      "properties": {
+        "public": {
+          "type": "array"
+        },
+        "user_private": {
+          "type": "array"
+        }
+      }
+    },
+    "skill_specific_inputs": {
+      "type": [
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "constraints": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

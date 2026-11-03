@@ -1,0 +1,13 @@
+interface:
+  display_name: XING 大白话改写
+  short_description: 把复杂的投研、金融和产品内容改写成普通人易懂的表达
+  default_prompt: 使用 $plain-language，把下面的内容改写成普通人一看就懂的大白话。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

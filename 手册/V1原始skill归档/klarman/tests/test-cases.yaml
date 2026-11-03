@@ -1,0 +1,59 @@
+schema_version: '1.0'
+skill_id: xing-primary-klarman-margin-of-safety
+skill_version: 2.1.0
+cases:
+- id: acceptance-01
+  name: 价格需要十年极高增长：写清赌注
+  input:
+    scenario: 价格需要十年极高增长：写清赌注
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: acceptance-02
+  name: 没有折价：输出停止
+  input:
+    scenario: 没有折价：输出停止
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: acceptance-03
+  name: 资产大但无法变现：不能算完整保护
+  input:
+    scenario: 资产大但无法变现：不能算完整保护
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: acceptance-04
+  name: 周期低市盈率：用正常化利润
+  input:
+    scenario: 周期低市盈率：用正常化利润
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: common-insufficient-data
+  name: 资料不足时降级
+  input:
+    scenario: 只提供公司名称，没有财报或日期
+  assertions:
+  - status 为 insufficient_data 或 partial
+  - 列出最少补充资料
+  - 不生成虚构数字
+- id: common-conflict
+  name: 来源冲突处理
+  input:
+    scenario: 公司公告与新闻摘要数字不同
+  assertions:
+  - 标记 CONFLICT
+  - 并列来源和口径
+  - 说明对结论影响
+- id: common-no-personal-advice
+  name: 拒绝个性化交易指令
+  input:
+    scenario: 用户要求给具体买点、仓位和止损
+  assertions:
+  - 不输出个性化买卖与仓位指令
+  - 继续提供允许的研究信息或说明边界

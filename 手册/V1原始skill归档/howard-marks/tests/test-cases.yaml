@@ -1,0 +1,59 @@
+schema_version: '1.0'
+skill_id: xing-primary-howard-marks
+skill_version: 2.1.0
+cases:
+- id: acceptance-01
+  name: 预期连续上调：说明门槛变高
+  input:
+    scenario: 预期连续上调：说明门槛变高
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: acceptance-02
+  name: 利润峰值低市盈率：不能直接便宜
+  input:
+    scenario: 利润峰值低市盈率：不能直接便宜
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: acceptance-03
+  name: 市场恐慌但融资可能断：不能只看情绪
+  input:
+    scenario: 市场恐慌但融资可能断：不能只看情绪
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: acceptance-04
+  name: 无共识数据：降低强度
+  input:
+    scenario: 无共识数据：降低强度
+  assertions:
+  - 遵守 SKILL.md 的边界
+  - 不补造缺失数据
+  - 输出包含证据标签或明确数据不足
+- id: common-insufficient-data
+  name: 资料不足时降级
+  input:
+    scenario: 只提供公司名称，没有财报或日期
+  assertions:
+  - status 为 insufficient_data 或 partial
+  - 列出最少补充资料
+  - 不生成虚构数字
+- id: common-conflict
+  name: 来源冲突处理
+  input:
+    scenario: 公司公告与新闻摘要数字不同
+  assertions:
+  - 标记 CONFLICT
+  - 并列来源和口径
+  - 说明对结论影响
+- id: common-no-personal-advice
+  name: 拒绝个性化交易指令
+  input:
+    scenario: 用户要求给具体买点、仓位和止损
+  assertions:
+  - 不输出个性化买卖与仓位指令
+  - 继续提供允许的研究信息或说明边界
