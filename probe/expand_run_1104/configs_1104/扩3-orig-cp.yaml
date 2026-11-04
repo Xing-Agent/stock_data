@@ -1,0 +1,80 @@
+# ★★★ 预先登记配置 —— 本文件在任何一次回测之前落盘。
+# ★ 登记之后无论结果多惨,公式一个字不改(《35》红线)。
+pit:
+  effective: filing_date_plus_1_trading_day
+  forbid: 严禁用报告期截止日
+  missing_policy: 未公布期间沿用上一期(Forward-fill);第一次公布之前 = NaN = 不合格
+  source: 原著
+regime:
+  rules: []
+  flatten_when_off: false
+  environment_declaration: Unspecified
+  source: ★★★ 原著没给市场级使用条件 → 显式声明 Unspecified,★ **没有悄悄当成「常开」**(《35》口径⑤ / 红线⑤)。
+entry:
+  type: always
+  fill: next_open_market
+  source: 原著(机械筛选,过了筛选就买,无进场扳机)
+initial_stop:
+  type: none
+  source: ★★★ 原著这一派不设价格止损 —— 靠分散和筛选条件承担单票风险。★ 所以这一格是「明确为无 + 有出处」,不是「空着」。★★ 代价:1R = 进场价 → **R 退化成收益率**,★★★
+    不能和有止损的链放在同一列比。
+trailing_stop:
+  type: none
+  source: ★ 同 ④,原著无移动止损。
+add_on:
+  type: none
+  source: ★ 原著未提加仓;全库一条都没有加仓(1030 已登记)。
+sizing:
+  type: fixed_fraction
+  params:
+    max_positions: 30
+    max_weight: 0.033333
+  source: ★ XING(原著只说分散持有,没给只数)
+slots: 30
+slots_prior_grid:
+- 15
+- 30
+- 45
+source_slots: ★★★ 《35》口径⑤ 禁止单点估计。槽位数原著没给 → 声明 3 个邻近点 15 / 30 / 45,★ 考核标准是「3 点同向」,★★★ 不是挑最好的那一点。
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+  tiebreak: symbol
+  source: ★ 占位排序(**不是策略的一部分**),沿用 engine/run_fundamental.PLACEHOLDER_RANKING。★★ 槽位不够时买哪几只由它决定,结论对它敏感。
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例
+  note: ★ 按《23 摩擦口径统一-1104》拍板的三档(5/15/30 bp,进出各扣一次),★★ 不用一刀切 —— 一刀切会系统性补贴随机对照组。
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null
+  note: ★ 仓库没有短端利率序列,现金腿按 0% 记并在结果里标明。
+_r_note: ''
+meta:
+  name: 扩3_LSV逆向价值_现金流价格比_原著
+  master: Lakonishok / Shleifer / Vishny (1994)
+  chain_id: 扩3-orig-cp
+  ★三秒版: 只看一个数(经营现金流 ÷ 市值),买最便宜的那一成票。
+  ★★★归属: ★★★ **原著版** —— ★ 只用原著给的数,一个不添。★ **单指标**十分位(经营现金流 ÷ 市值),买最便宜那一档。★★★ 原著**明确不合成分数** → 三个指标是**三条独立的臂**,★
+    这一条只跑其中一个。
+  pre_registered: probe/expand_run_1104/configs_1104/ —— ★ 本文件在任何一次回测之前落盘
+universe:
+  rules:
+  - type: lsv_single_decile_cheapest
+    params:
+      indicator: cp
+      decile_pct: 10
+    source: 原著
+exit:
+  type: rules
+  rules:
+  - type: screen_dropout
+    params:
+      screen: 扩3-orig-cp
+    source: 原著(无自由参数读法)
+  note: ★ 「筛选条件不再成立」那天收盘走。★★★ 原著的再平衡频率方法卡没给 —— 本轮**没有拍这个数**,★ 用的是唯一不含自由参数的读法。
