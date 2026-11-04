@@ -360,7 +360,10 @@ ranking:
 # 摩擦成本与基准
 # ---------------------------------------------------------------------------
 costs:
-  one_way_bps: 5.0
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
   source: 行业惯例
   # ★ 这条链单笔止损极窄、持仓周期短、换手最高,5bp 摩擦对它的影响
   #   远大于对流派一 —— 结果里必须同时看毛/净两条线。

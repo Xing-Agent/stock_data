@@ -58,9 +58,19 @@ sizing:
   params: { max_weight: 1.0, max_positions: 1000 }
   source: 基线链定义,非参数
 
-# 摩擦成本:对数时设 0,正式跑链一律 5bp
+# 摩擦成本:★★★ 2026-11-04 Lin 拍板 —— 锚点链也付三档摩擦。
+#   ★ 原来是 one_way_bps: 0.0(「对数时设 0」)。改的理由:
+#     锚点的作用是「如果什么都不想就这么买,会怎样」,而真这么买的人也要付摩擦;
+#   ★★ 而且它有 921 笔,不是「买一次拿到底」。
+#   ★★★ bench_lines._naive_costs 早就判定「0 摩擦不适合用来做比较」
+#     (照抄 0 会把日频换手的朴素线美化成永动机)—— 这一改让配置和那个判断一致。
+#   ★ 连带:原文口径下的敞口差额会变大(Ē 变小),那是预期的,不是 bug。
 costs:
-  one_way_bps: 0.0
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
 
 benchmark:
   # ★★ 1029 新增:基准家族(bench_lines.benchmark_family 读这个字段)。

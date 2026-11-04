@@ -235,7 +235,10 @@ ranking:
 # 摩擦成本与基准
 # ---------------------------------------------------------------------------
 costs:
-  one_way_bps: 5.0
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
   source: 行业惯例                # SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A
 
 benchmark:
