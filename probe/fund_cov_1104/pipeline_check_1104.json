@@ -1,0 +1,214 @@
+{
+  "报告": "任务一 · 管线指向核查(2026-11-04)",
+  "库指纹_跑前": "45ac22b4a096924e5bcda97ad77d585699778f2d3be5417ebe8bc1297acf60a6",
+  "老库路径(engine 自己的)": {
+    "代码位置": "engine/data.py:36 PILOT / :104 fpath / :480 load_fundamentals",
+    "实际路径": "pilot_300/<代码>/fundamentals.json",
+    "实体只数": 253
+  },
+  "新库路径(数据组 1104)": {
+    "实际路径": "fundamentals_ext/<代码>/fundamentals.json.gz",
+    "实体只数": 4015
+  },
+  "0_engine登记表原状": {
+    "固定资产(PropertyPlantAndEquipmentNet)": "★★★ 两张登记表都没有 → quarterly() 会 raise KeyError",
+    "毛利(GrossProfit)": "★★★ 两张登记表都没有 → quarterly() 会 raise KeyError",
+    "营业利润(OperatingIncomeLoss)": "★★★ 两张登记表都没有 → quarterly() 会 raise KeyError",
+    "总负债(Liabilities)": "STOCK_METRICS",
+    "SG&A(SellingGeneralAndAdministrativeExpense)": "★★★ 两张登记表都没有 → quarterly() 会 raise KeyError",
+    "持续经营利润(IncomeLossFromContinuingOperations)": "★★★ 两张登记表都没有 → quarterly() 会 raise KeyError",
+    "有价证券(MarketableSecuritiesCurrent)": "★★★ 两张登记表都没有 → quarterly() 会 raise KeyError"
+  },
+  "A_现状": {
+    "install()_读的是什么": {
+      "底座": "engine/data.py:480 load_fundamentals → pilot_300/<代码>/fundamentals.json",
+      "覆盖层文件": "probe/fundamental_buildout_1030/sec_overlay_1030.json.gz",
+      "覆盖层只替换哪两列": [
+        "EBIT",
+        "LongTermDebt"
+      ],
+      "证据_行号": [
+        "probe/fundamental_buildout_1030/ops_fund_1030.py:97  _SEC_OVERLAY = HERE/sec_overlay_1030.json.gz",
+        "probe/fundamental_buildout_1030/ops_fund_1030.py:112 base = dict(_orig_load_fund(symbol))",
+        "probe/fundamental_buildout_1030/ops_fund_1030.py:135 _orig_load_fund = data.load_fundamentals",
+        "probe/fundamental_buildout_1030/ops_fund_1030.py:509-512 install() → install_sec_overlay / install_overlay",
+        "★ 全文搜索 fundamentals_ext:只在 :226 的注释里出现，没有任何路径读取"
+      ]
+    },
+    "四个键实测": {
+      "AAPL": {
+        "错误": "KeyError: 'AAPL'"
+      },
+      "UNP": {
+        "dc": 0,
+        "sga": 0,
+        "icop": 0,
+        "liab": 43,
+        "期数合计": 52
+      },
+      "JPM": {
+        "错误": "KeyError: 'JPM'"
+      }
+    }
+  },
+  "B_指向新库_不挂营业利润": {
+    "备注": "★★ engine 的 data.load_fundamentals 已指向新库 /home/claude/xing-agent-stock_data/fundamentals_ext(实体 4015 家)。★ 新科目已登记:流量 3 个 / 存量 5 个。★★★ 营业利润档 未挂。",
+    "登记表": {
+      "固定资产(PropertyPlantAndEquipmentNet)": "STOCK_METRICS",
+      "毛利(GrossProfit)": "FLOW_METRICS",
+      "营业利润(OperatingIncomeLoss)": "★★★ 两张登记表都没有 → quarterly() 会 raise KeyError",
+      "总负债(Liabilities)": "STOCK_METRICS",
+      "SG&A(SellingGeneralAndAdministrativeExpense)": "FLOW_METRICS",
+      "持续经营利润(IncomeLossFromContinuingOperations)": "FLOW_METRICS",
+      "有价证券(MarketableSecuritiesCurrent)": "STOCK_METRICS"
+    },
+    "四个键实测": {
+      "AAPL": {
+        "错误": "KeyError: 'AAPL'"
+      },
+      "UNP": {
+        "dc": 0,
+        "sga": 0,
+        "icop": 67,
+        "liab": 67,
+        "期数合计": 72
+      },
+      "JPM": {
+        "dc": 0,
+        "sga": 0,
+        "icop": 67,
+        "liab": 67,
+        "期数合计": 70
+      }
+    }
+  },
+  "B2_指向新库_挂营业利润": {
+    "备注": "★★ engine 的 data.load_fundamentals 已指向新库 /home/claude/xing-agent-stock_data/fundamentals_ext(实体 4015 家)。★ 新科目已登记:流量 4 个 / 存量 5 个。★★★ 营业利润档 已挂(单列臂)。",
+    "四个键实测": {
+      "AAPL": {
+        "错误": "KeyError: 'AAPL'"
+      },
+      "UNP": {
+        "dc": 0,
+        "sga": 0,
+        "icop": 67,
+        "liab": 67,
+        "期数合计": 72
+      },
+      "JPM": {
+        "dc": 0,
+        "sga": 0,
+        "icop": 67,
+        "liab": 67,
+        "期数合计": 70
+      }
+    }
+  },
+  "7个新字段_逐个": {
+    "固定资产": {
+      "us-gaap 标签": "PropertyPlantAndEquipmentNet",
+      "新库原始记录条数": {
+        "AAPL": 120,
+        "UNP": 142,
+        "JPM": 124
+      },
+      "过 engine PIT 流水线后的期数": {
+        "AAPL": 56,
+        "UNP": 67,
+        "JPM": 59
+      },
+      "口径": "quarterly"
+    },
+    "毛利": {
+      "us-gaap 标签": "GrossProfit",
+      "新库原始记录条数": {
+        "AAPL": 338,
+        "UNP": 0,
+        "JPM": 0
+      },
+      "过 engine PIT 流水线后的期数": {
+        "AAPL": 67,
+        "UNP": 0,
+        "JPM": 0
+      },
+      "口径": "ttm"
+    },
+    "营业利润": {
+      "us-gaap 标签": "OperatingIncomeLoss",
+      "新库原始记录条数": {
+        "AAPL": 234,
+        "UNP": 320,
+        "JPM": 0
+      },
+      "过 engine PIT 流水线后的期数": {
+        "AAPL": 67,
+        "UNP": 67,
+        "JPM": 0
+      },
+      "口径": "ttm"
+    },
+    "总负债": {
+      "us-gaap 标签": "Liabilities",
+      "新库原始记录条数": {
+        "AAPL": 144,
+        "UNP": 142,
+        "JPM": 147
+      },
+      "过 engine PIT 流水线后的期数": {
+        "AAPL": 67,
+        "UNP": 67,
+        "JPM": 67
+      },
+      "口径": "quarterly"
+    },
+    "SG&A": {
+      "us-gaap 标签": "SellingGeneralAndAdministrativeExpense",
+      "新库原始记录条数": {
+        "AAPL": 237,
+        "UNP": 0,
+        "JPM": 0
+      },
+      "过 engine PIT 流水线后的期数": {
+        "AAPL": 67,
+        "UNP": 0,
+        "JPM": 0
+      },
+      "口径": "ttm"
+    },
+    "持续经营利润": {
+      "us-gaap 标签": "IncomeLossFromContinuingOperations",
+      "新库原始记录条数": {
+        "AAPL": 338,
+        "UNP": 320,
+        "JPM": 236
+      },
+      "过 engine PIT 流水线后的期数": {
+        "AAPL": 67,
+        "UNP": 67,
+        "JPM": 67
+      },
+      "口径": "ttm"
+    },
+    "有价证券": {
+      "us-gaap 标签": "MarketableSecuritiesCurrent",
+      "新库原始记录条数": {
+        "AAPL": 64,
+        "UNP": 0,
+        "JPM": 0
+      },
+      "过 engine PIT 流水线后的期数": {
+        "AAPL": 29,
+        "UNP": 0,
+        "JPM": 0
+      },
+      "口径": "quarterly"
+    }
+  },
+  "新库读取统计": {
+    "命中": 3,
+    "文件不存在": 0
+  },
+  "库指纹_跑后": "45ac22b4a096924e5bcda97ad77d585699778f2d3be5417ebe8bc1297acf60a6",
+  "库指纹_跑前跑后一致": true,
+  "没碰考卷": "★ 全程没有打开 exam_1042/ 下任何文件;实体只从 fundamentals_ext / pilot_300 来"
+}

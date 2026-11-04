@@ -1,0 +1,22 @@
+{
+  "说明": "★ 补测:挑 3 只**确实申报了** DebtCurrent / SG&A / 有价证券 的票,证明指向新库后这几个键能不能真取到非空序列。★★ AAPL/UNP/JPM 里 dc/sga 为 0 是「这几家没报」,不是「取不到」——两件事必须分开。",
+  "库指纹_跑前": "45ac22b4a096924e5bcda97ad77d585699778f2d3be5417ebe8bc1297acf60a6",
+  "A_现状(ops_fund_1030.install())": {
+    "ADI": "KeyError: 'ADI'",
+    "ADP": "KeyError: 'ADP'",
+    "AME": "KeyError: 'AME'"
+  },
+  "B_指向新库": {
+    "ADI": "KeyError: 'ADI'",
+    "ADP": {
+      "dc": 41,
+      "sga": 62,
+      "icop": 34,
+      "liab": 65,
+      "期数合计": 70
+    },
+    "AME": "KeyError: 'AME'"
+  },
+  "库指纹_跑后": "45ac22b4a096924e5bcda97ad77d585699778f2d3be5417ebe8bc1297acf60a6",
+  "库指纹一致": true
+}

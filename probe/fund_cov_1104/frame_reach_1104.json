@@ -1,0 +1,19 @@
+{
+  "抽样": 120,
+  "frame()成功": 71,
+  "失败": {
+    "KeyError": 49
+  },
+  "失败样例": {
+    "KeyError": [
+      "ROKU",
+      "NBR",
+      "GOSS",
+      "OZRK",
+      "SSB"
+    ]
+  },
+  "成功的里面在 pilot_300 manifest 中的": 4,
+  "pilot_300 manifest 只数": 300,
+  "新库∩manifest": 234
+}
