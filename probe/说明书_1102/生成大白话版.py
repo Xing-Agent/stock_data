@@ -82,8 +82,7 @@ OUT   = os.path.join(ROOT, "手册/25-策略说明书-大白话版-全45条-1104
     "day_low_minus_tick":             "止损挂在最近 {structure_lookback} 根的低点下一个最小跳动({tick})",
     "lowest_low":                     "止损挂在 {lookback} 天最低价",
     "structure_low_minus_atr":        "止损挂在最近 {structure_lookback} 根的结构低点再往下 {atr_multiple} 倍 ATR",
-    # ★★★ pct ≥0.9 等价于不设止损(汇总里已登记),★ 所以这里直说
-    "pct":                            "止损挂在买入价下方 {pct}（★★ ≥90% 等于没止损）",
+    "pct":                            "止损挂在买入价下方 {pct}",
     "td_risk_level_stop":             "止损挂在 TD 风险位(回看 {setup_lookback} 根)",
     # 选股 / 环境
     "adv_rank_exclude_bottom":        "把成交额({adv_period} 日)最差的 {exclude_bottom_pct}% 剔掉",
@@ -100,6 +99,9 @@ def 译规则(t, params) -> str:
     if tpl is None:
         return f"`{t}`（★★★ 这一句我没译 —— 别凭名字猜它是什么）"
     out = tpl
+    # ★★★ 只有 pct ≥0.9 才等价于不设止损(汇总里已登记)—— ★ 8% 的止损不许贴这句
+    if str(t) == "pct" and isinstance(p.get("pct"), (int, float)) and p["pct"] >= 0.9:
+        out = tpl + "（★★★ ≥90% = 等于没设止损）"
     for k, v in p.items():
         if v is None:
             continue
