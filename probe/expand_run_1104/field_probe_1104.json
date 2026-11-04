@@ -1,0 +1,156 @@
+{
+  "★口径": "分母 = 有 fundamentals.json 且有行情的票数",
+  "票数": 250,
+  "要用的科目覆盖率": {
+    "Revenue": {
+      "只数": 236,
+      "占比": 0.944
+    },
+    "CostOfRevenue": {
+      "只数": 171,
+      "占比": 0.684
+    },
+    "TotalAssets": {
+      "只数": 248,
+      "占比": 0.992
+    },
+    "CurrentAssets": {
+      "只数": 200,
+      "占比": 0.8
+    },
+    "CurrentLiabilities": {
+      "只数": 200,
+      "占比": 0.8
+    },
+    "Liabilities": {
+      "只数": 190,
+      "占比": 0.76
+    },
+    "InventoryNet": {
+      "只数": 151,
+      "占比": 0.604
+    },
+    "OperatingCashFlow": {
+      "只数": 247,
+      "占比": 0.988
+    },
+    "NetIncome": {
+      "只数": 248,
+      "占比": 0.992
+    },
+    "StockholdersEquity": {
+      "只数": 240,
+      "占比": 0.96
+    },
+    "DilutedEPS": {
+      "只数": 240,
+      "占比": 0.96
+    },
+    "WeightedAverageDilutedShares": {
+      "只数": 241,
+      "占比": 0.964
+    },
+    "PaymentsForRepurchaseOfCommonStock": {
+      "只数": 219,
+      "占比": 0.876
+    },
+    "PaymentsOfDividends": {
+      "只数": 94,
+      "占比": 0.376
+    },
+    "PaymentsOfDividendsCommonStock": {
+      "只数": 111,
+      "占比": 0.444
+    },
+    "ProceedsFromIssuanceOfCommonStock": {
+      "只数": 126,
+      "占比": 0.504
+    },
+    "CashAndCashEquivalentsAtCarryingValue": {
+      "只数": 240,
+      "占比": 0.96
+    },
+    "DebtCurrent": {
+      "只数": 48,
+      "占比": 0.192
+    },
+    "ShortTermBorrowings": {
+      "只数": 88,
+      "占比": 0.352
+    },
+    "LongTermDebt": {
+      "只数": 140,
+      "占比": 0.56
+    },
+    "LongTermDebtCurrent": {
+      "只数": 148,
+      "占比": 0.592
+    },
+    "OperatingIncomeLoss": {
+      "只数": 0,
+      "占比": 0.0
+    },
+    "DepreciationDepletionAndAmortization": {
+      "只数": 174,
+      "占比": 0.696
+    },
+    "DepreciationAmortizationAndAccretionNet": {
+      "只数": 23,
+      "占比": 0.092
+    },
+    "SellingGeneralAndAdministrativeExpense": {
+      "只数": 0,
+      "占比": 0.0
+    },
+    "IncomeTaxesPayable": {
+      "只数": 0,
+      "占比": 0.0
+    },
+    "AccruedIncomeTaxesCurrent": {
+      "只数": 0,
+      "占比": 0.0
+    }
+  },
+  "SIC": {
+    "有 sic_versions 的只数": 249,
+    "占比": 0.996,
+    "版本数中位": 47
+  },
+  "老库里全部出现过的科目(只数)": {
+    "NetIncome": 248,
+    "TotalAssets": 248,
+    "OperatingCashFlow": 247,
+    "WeightedAverageDilutedShares": 241,
+    "RetainedEarningsAccumulatedDeficit": 241,
+    "DilutedEPS": 240,
+    "StockholdersEquity": 240,
+    "CashAndCashEquivalentsAtCarryingValue": 240,
+    "Revenue": 236,
+    "IncomeBeforeTax": 225,
+    "PaymentsForRepurchaseOfCommonStock": 219,
+    "InterestExpense": 205,
+    "Goodwill": 204,
+    "CurrentAssets": 200,
+    "CurrentLiabilities": 200,
+    "PaymentsToAcquirePropertyPlantAndEquipment": 196,
+    "Liabilities": 190,
+    "EBIT": 177,
+    "DepreciationDepletionAndAmortization": 174,
+    "CostOfRevenue": 171,
+    "AccountsReceivableNetCurrent": 164,
+    "IntangibleAssetsNetExcludingGoodwill": 158,
+    "InventoryNet": 151,
+    "LongTermDebtCurrent": 148,
+    "IntangiblesAndGoodwill": 147,
+    "LongTermDebt": 140,
+    "ProceedsFromIssuanceOfCommonStock": 126,
+    "PaymentsOfDividendsCommonStock": 111,
+    "PaymentsOfDividends": 94,
+    "ResearchAndDevelopmentExpense": 89,
+    "ShortTermBorrowings": 88,
+    "PaymentsToAcquireProductiveAssets": 85,
+    "DebtCurrent": 48,
+    "DepreciationAmortizationAndAccretionNet": 23,
+    "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost": 11
+  }
+}
