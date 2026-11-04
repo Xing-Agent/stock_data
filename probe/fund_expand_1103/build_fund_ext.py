@@ -39,7 +39,11 @@ RAW_METRICS = ['CashAndCashEquivalentsAtCarryingValue', 'AccountsReceivableNetCu
                'PaymentsForRepurchaseOfCommonStock', 'ProceedsFromIssuanceOfCommonStock', 'DepreciationDepletionAndAmortization',
                'DepreciationAmortizationAndAccretionNet', 'PaymentsToAcquireProductiveAssets', 'ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost',
                # ★ 1103 新加(第 2 条)
-               'PropertyPlantAndEquipmentNet', 'GrossProfit', 'OperatingIncomeLoss']
+               'PropertyPlantAndEquipmentNet', 'GrossProfit', 'OperatingIncomeLoss',
+               # ★ 1104 新加(手册 20 第 7 条修正后的取数单)
+               'SellingGeneralAndAdministrativeExpense', 'IncomeLossFromContinuingOperations',
+               'MarketableSecuritiesCurrent', 'ShortTermInvestments', 'AvailableForSaleSecuritiesDebtSecuritiesCurrent',
+               'CashCashEquivalentsAndShortTermInvestments']
 FORMS_OK = ('10-K', '10-Q', '10-K/A', '10-Q/A', '10-KT', '10-QT', '10-KT/A', '20-F', '20-F/A', '40-F', '40-F/A', '8-K', '6-K')
 
 
@@ -76,6 +80,9 @@ def econ_period(start, end, fye_mmdd):
 
 def main(cf_dir, sub_path, map_path, out_dir):
     import csv
+    CF2 = {}
+    for f2 in sorted(glob.glob(os.path.join(cf_dir, 'cf2_*.json.gz'))):
+        CF2.update(json.load(gzip.open(f2)))
     SUB = json.load(gzip.open(sub_path))
     mp = list(csv.DictReader(open(map_path)))
     os.makedirs(out_dir, exist_ok=True)
@@ -85,6 +92,8 @@ def main(cf_dir, sub_path, map_path, out_dir):
     # 一批一批读(全读进内存太大)
     for fpath in sorted(glob.glob(os.path.join(cf_dir, 'cf_*.json.gz'))):
       CF = json.load(gzip.open(fpath))
+      for c_, x_ in CF.items():                        # 1104 补抓的标签并进来
+          if c_ in CF2 and x_.get('u') is not None: x_['u'].update(CF2[c_].get('u', {}))
       for cik in [c for c in CF if c in by_cik]:
         row = by_cik[cik]; folder = row['folder']; seen.add(cik)
         cf, sub = CF.get(cik), SUB.get(cik)
@@ -215,6 +224,44 @@ def main(cf_dir, sub_path, map_path, out_dir):
             ('PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization',
              tag_in('PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization')),
             ('PropertyPlantAndEquipmentNetIncludingFinanceLease', tag_in('PropertyPlantAndEquipmentNetIncludingFinanceLease'))])
+        # 1104 · 总负债:不单独报的(可口可乐、沃尔玛……),用会计恒等式还原
+        #   总负债 = 负债和股东权益合计 − 股东权益(含少数股东)− 夹层权益(如果报了)
+        def liab_identity():
+            def g():
+                LSE = {key(r): r for r in raw_recs('LiabilitiesAndStockholdersEquity')}
+                EQN = {key(r): r for r in raw_recs('StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest')}
+                EQ = {key(r): r for r in raw_recs('StockholdersEquity')}
+                MI = {key(r): r for r in raw_recs('MinorityInterest')}
+                TMP = {}
+                for t_ in ('TemporaryEquityCarryingAmountIncludingPortionAttributableToNoncontrollingInterest', 'TemporaryEquityCarryingAmountAttributableToParent',
+                           'RedeemableNoncontrollingInterestEquityCarryingAmount'):
+                    for r_ in raw_recs(t_): TMP.setdefault(key(r_), Decimal(r_['value']))
+                out_ = []
+                for k_, r_ in LSE.items():
+                    if k_ in EQN: eq = Decimal(EQN[k_]['value']); how = 'L&SE - EquityInclNCI'
+                    elif k_ in EQ: eq = Decimal(EQ[k_]['value']) + (Decimal(MI[k_]['value']) if k_ in MI else 0); how = 'L&SE - Equity' + (' - NCI' if k_ in MI else '')
+                    else: continue
+                    v_ = Decimal(r_['value']) - eq - TMP.get(k_, 0)
+                    z = dict(r_); z['value'] = format(v_, 'f'); z['source_tag'] = how + (' - TemporaryEquity' if k_ in TMP else '')
+                    out_.append(z)
+                return out_
+            return g
+        fb['Liabilities'] = fill('Liabilities', [('LiabilitiesAndStockholdersEquity - StockholdersEquity(incl NCI) - TemporaryEquity', liab_identity())])
+        # 1104 · 销售管理费用:没报合计的,用「管理费用 + 销售费用」(同一份申报、同一期都有才算)
+        def sga_sum():
+            SM = {key(x): x for x in raw_recs('SellingAndMarketingExpense')}
+            return [dict(r, value=format(Decimal(r['value']) + Decimal(SM[key(r)]['value']), 'f'), source_tag='G&A+S&M')
+                    for r in raw_recs('GeneralAndAdministrativeExpense') if key(r) in SM]
+        fb['SellingGeneralAndAdministrativeExpense'] = fill('SellingGeneralAndAdministrativeExpense', [
+            ('GeneralAndAdministrativeExpense + SellingAndMarketingExpense', sga_sum)])
+        # 1104 · 持续经营利润:这份申报里没有任何「终止经营」科目的,持续经营利润 = 净利润(含少数股东)
+        disc = set()
+        for key_, rows_ in cf['u'].items():
+            if 'DiscontinuedOperation' in key_.split('|')[0]:
+                for x in rows_: disc.add(x[7])
+        fb['IncomeLossFromContinuingOperations'] = fill('IncomeLossFromContinuingOperations', [
+            ('ProfitLoss when filing has no discontinued-operations tag', lambda: [r for r in raw_recs('ProfitLoss') if r['filing_accession'] not in disc]),
+            ('NetIncomeLoss when filing has no discontinued-operations tag', lambda: [r for r in raw_recs('NetIncomeLoss') if r['filing_accession'] not in disc])])
         fb['Revenue'] = fill('Revenue', [
             ('SalesRevenueGoodsNet', tag_in('SalesRevenueGoodsNet')),
             ('RevenueFromContractWithCustomerIncludingAssessedTax', tag_in('RevenueFromContractWithCustomerIncludingAssessedTax')),
@@ -236,8 +283,11 @@ def main(cf_dir, sub_path, map_path, out_dir):
                         'builder': 'probe/fund_expand_1103/build_fund_ext.py'},
                'financial_versions': fv, 'raw_tags_fields': ['val', 'start', 'end', 'fy', 'fp', 'form', 'filed', 'accn', 'frame'], 'raw_tags': raw_tags}
         p = os.path.join(out_dir, folder); os.makedirs(p, exist_ok=True)
-        with gzip.open(os.path.join(p, 'fundamentals.json.gz'), 'wt', encoding='utf-8') as fh:
-            json.dump(doc, fh, ensure_ascii=False, separators=(',', ':'))
+        # mtime=0:同样的内容 → 同样的字节 → 同样的哈希(库指纹才稳定)
+        raw_bytes = json.dumps(doc, ensure_ascii=False, separators=(',', ':'), sort_keys=True).encode('utf-8')
+        with open(os.path.join(p, 'fundamentals.json.gz'), 'wb') as fh_:
+            with gzip.GzipFile(fileobj=fh_, mode='wb', mtime=0, filename='') as fh:
+                fh.write(raw_bytes)
         n = {m: len(v) for m, v in fv.items()}
         strict = sum(1 for v in fv.values() for r in v if r['pit_status'] == 'strict')
         stats.append({'folder': folder, 'cik': cik, 'status': 'ok', 'records': sum(n.values()), 'strict': strict, **{f'fallback_{m}': c for m, c in fb.items()},
