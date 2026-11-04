@@ -1,0 +1,19 @@
+{
+  "current_source": "XING Master Strategy Handbook v13 (effective v13 overlay over legacy v10/v11 snapshots)",
+  "official_entry_count": 67,
+  "existing_v10_registry_entries_reused": 61,
+  "new_status_entries": 6,
+  "state_count": 12,
+  "provisional_lens_count": 11,
+  "v10_legacy_catalog": "strategy_catalog.json",
+  "v11_new_status_catalog": "v11_new_status_entries.json",
+  "status_all_uncalibrated_in_source": "旧v11来源时点成立；v13不能据此推断技-3/技-12仍全部未验证",
+  "calibration_is_not_strategy_validation": true,
+  "no_executable_strategies_enabled_by_this_package": true,
+  "source_bookkeeping_note": "v11 附录A原 61 条保留；6 条状态补充位于三附，不能简单解释成“61+12全部新增”。",
+  "effective_v13_overlay": "INTEGRATION/V13_METHOD_OVERRIDES.json",
+  "v13_first_batch_validated_methods": [
+    "技-3",
+    "技-12"
+  ]
+}
