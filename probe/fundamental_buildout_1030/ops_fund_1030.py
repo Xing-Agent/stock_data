@@ -215,6 +215,18 @@ _COLS = {
     "ltd": ("LongTermDebt", "pt"),
     "ltdc": ("LongTermDebtCurrent", "pt"),
     "stb": ("ShortTermBorrowings", "pt"),
+    # ★★★ 2026-11-04 新接:DebtCurrent = 一年内到期的**全部**有息债务
+    #   ★ 它 ≈ ShortTermBorrowings + LongTermDebtCurrent(总数,不是重复)——
+    #     实测三者是**互补**关系:同时有 stb 和 ltdc 的格子只有 834 个,
+    #     而「只有 dc」的有 1,154 个 → 这 1,154 个格子以前是白缺的。
+    #   ★★ 数据侧本来就有(715 家),是这张对照表没接 —— 数据组 1104 指出。
+    #   ★★★ 接它的用途:神奇公式 v2 的分母要把短期有息负债从流动负债里剔出去,
+    #     原著意图是剔掉「全部有息的流动负债」,而 DebtCurrent 正是这个总数。
+    "dc": ("DebtCurrent", "pt"),
+    # ★ 1104 一起接的三个新字段(数据组已入正式字段,见 fundamentals_ext/CHANGELOG.md)
+    "sga": ("SellingGeneralAndAdministrativeExpense", "ttm"),
+    "icop": ("IncomeLossFromContinuingOperations", "ttm"),  # ★ 核过真名,不是 IncomeFromContinuingOperations
+    "liab": ("Liabilities", "pt"),
     "ebit": ("EBIT", "ttm"),
     "eps": ("DilutedEPS", "ttm"),
     "ocf": ("OperatingCashFlow", "ttm"),
