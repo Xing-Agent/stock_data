@@ -470,8 +470,12 @@ def _uni(rule: dict, syms: list[str],
         parts = [score(k, syms) for k in ("lsv_bm", "lsv_cp", "lsv_ep")]
         ranks = [x.rank(axis=1, pct=True, na_option="keep") for x in parts]
         both = parts[0].notna() & parts[1].notna() & parts[2].notna()
-        med = pd.concat([r.stack(dropna=False) for r in ranks],
-                        axis=1).median(axis=1).unstack()
+        # ★ 第一版用的是 `stack(dropna=False)` → ★★ 这个 pandas 版本直接 ValueError
+        #   (★★★ 好在它是**报错**,不是悄悄给个错数 —— 3 个格子跑挂、已登记)。
+        #   ★ 改成逐格取三个名次的中位数,★★ 口径一字没变。
+        med = pd.DataFrame(
+            np.median(np.stack([r.to_numpy(dtype=float) for r in ranks]), axis=0),
+            index=ranks[0].index, columns=ranks[0].columns)
         med = med.where(both)
         return fin(_rank_top(med, float(p["decile_pct"])))
 
