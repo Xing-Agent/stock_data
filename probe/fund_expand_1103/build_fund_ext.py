@@ -78,11 +78,15 @@ def econ_period(start, end, fye_mmdd):
     return fy, None
 
 
+ZERO_BY_ABSENCE = os.environ.get('ZERO_BY_ABSENCE', '0') == '1'   # 1105:待 Lin 拍板,默认关
+
+
 def main(cf_dir, sub_path, map_path, out_dir):
     import csv
     CF2 = {}
-    for f2 in sorted(glob.glob(os.path.join(cf_dir, 'cf2_*.json.gz'))):
-        CF2.update(json.load(gzip.open(f2)))
+    for f2 in sorted(glob.glob(os.path.join(cf_dir, 'cf2_*.json.gz'))) + sorted(glob.glob(os.path.join(cf_dir, 'cf3_*.json.gz'))):
+        for c_, x_ in json.load(gzip.open(f2)).items():
+            CF2.setdefault(c_, {'u': {}})['u'].update(x_.get('u', {}))
     SUB = json.load(gzip.open(sub_path))
     mp = list(csv.DictReader(open(map_path)))
     os.makedirs(out_dir, exist_ok=True)
@@ -262,6 +266,65 @@ def main(cf_dir, sub_path, map_path, out_dir):
         fb['IncomeLossFromContinuingOperations'] = fill('IncomeLossFromContinuingOperations', [
             ('ProfitLoss when filing has no discontinued-operations tag', lambda: [r for r in raw_recs('ProfitLoss') if r['filing_accession'] not in disc]),
             ('NetIncomeLoss when filing has no discontinued-operations tag', lambda: [r for r in raw_recs('NetIncomeLoss') if r['filing_accession'] not in disc])])
+        # ── 1105 · 手册 40/41 的三个缺口 ──
+        # 应交所得税:优先「流动的应交所得税」,其次「应交所得税合计」;「应交税费」口径更宽(含非所得税),最后才用
+        fv['IncomeTaxesPayable'] = [dict(r, metric='IncomeTaxesPayable') for r in raw_recs('AccruedIncomeTaxesCurrent')]
+        for r in fv['IncomeTaxesPayable']: r['source_type'] = 'sec_companyfacts'
+        fb['IncomeTaxesPayable'] = fill('IncomeTaxesPayable', [
+            ('AccruedIncomeTaxes (current/noncurrent not split)', lambda: raw_recs('AccruedIncomeTaxes')),
+            ('TaxesPayableCurrent (broader: includes non-income taxes)', lambda: raw_recs('TaxesPayableCurrent'))])
+        # 应交所得税的变动(现金流量表):Sloan 公式要的是变动;只作参照,不和余额混
+        fv['IncreaseDecreaseInIncomeTaxesPayable'] = [dict(r, metric='IncreaseDecreaseInIncomeTaxesPayable', source_type='sec_companyfacts')
+                                                     for t_ in ('IncreaseDecreaseInAccruedIncomeTaxesPayable', 'IncreaseDecreaseInIncomeTaxesPayableNetOfIncomeTaxesReceivable', 'IncreaseDecreaseInIncomeTaxes')
+                                                     for r in raw_recs(t_)]
+        # 短期有息负债:① DebtCurrent → ② 短期借款 + 一年内到期长期负债(有几个加几个)→ ③ 商业票据 + 一年内到期长期负债
+        def std_sum(parts, name):
+            def g():
+                maps = [{key(r): r for r in raw_recs(t_)} for t_ in parts]
+                keys = set().union(*[m_.keys() for m_ in maps])
+                out_ = []
+                for k_ in keys:
+                    rs = [m_[k_] for m_ in maps if k_ in m_]
+                    z = dict(rs[0]); z['value'] = format(sum(Decimal(x['value']) for x in rs), 'f'); z['source_tag'] = '+'.join(t_ for t_, m_ in zip(parts, maps) if k_ in m_)
+                    out_.append(z)
+                return out_
+            return g
+        fv['ShortTermDebt'] = [dict(r, metric='ShortTermDebt', source_type='sec_companyfacts') for r in raw_recs('DebtCurrent')]
+        fb['ShortTermDebt'] = fill('ShortTermDebt', [
+            ('ShortTermBorrowings + LongTermDebtCurrent', std_sum(['ShortTermBorrowings', 'LongTermDebtCurrent'], 'stb+ltdc')),
+            ('CommercialPaper + LongTermDebtCurrent', std_sum(['CommercialPaper', 'LongTermDebtCurrent'], 'cp+ltdc')),
+            ('LongTermDebtAndCapitalLeaseObligationsCurrent', lambda: raw_recs('LongTermDebtAndCapitalLeaseObligationsCurrent'))])
+        # 增发:同一份申报、同一期里,各条「发股收到的钱」相加(不同行,不会重复);都没有才用「发行股权合计」
+        ISS = ['ProceedsFromIssuanceOfCommonStock', 'ProceedsFromStockOptionsExercised', 'ProceedsFromIssuanceOfSharesUnderIncentiveAndShareBasedCompensationPlans',
+               'ProceedsFromIssuanceOfSharesUnderIncentiveAndShareBasedCompensationPlansIncludingStockOptions', 'ProceedsFromEmployeeStockPurchasePlan',
+               'ProceedsFromIssuanceInitialPublicOffering', 'ProceedsFromIssuanceOfPrivatePlacement']
+        fv['StockIssuance'] = [dict(r, metric='StockIssuance', source_type='sec_companyfacts_sum') for r in std_sum(ISS, 'iss')()]
+        fb['StockIssuance'] = fill('StockIssuance', [('ProceedsFromIssuanceOrSaleOfEquity (includes preferred)', lambda: raw_recs('ProceedsFromIssuanceOrSaleOfEquity'))])
+        # 分红、回购:各自原样 + 备选
+        fv['DividendsPaid'] = [dict(r, metric='DividendsPaid', source_type='sec_companyfacts') for r in raw_recs('PaymentsOfDividendsCommonStock')]
+        fb['DividendsPaid'] = fill('DividendsPaid', [('PaymentsOfDividends', lambda: raw_recs('PaymentsOfDividends')),
+                                                     ('PaymentsOfOrdinaryDividends', lambda: raw_recs('PaymentsOfOrdinaryDividends')),
+                                                     ('DistributionMadeToLimitedPartnerCashDistributionsPaid', lambda: raw_recs('DistributionMadeToLimitedPartnerCashDistributionsPaid'))])
+        fv['ShareRepurchase'] = [dict(r, metric='ShareRepurchase', source_type='sec_companyfacts') for r in raw_recs('PaymentsForRepurchaseOfCommonStock')]
+        fb['ShareRepurchase'] = fill('ShareRepurchase', [('PaymentsForRepurchaseOfEquity', lambda: raw_recs('PaymentsForRepurchaseOfEquity'))])
+        # 「报表完整、但没有这一行 → 记 0」—— 只在 ZERO_BY_ABSENCE 打开时做(待 Lin 拍板)
+        if ZERO_BY_ABSENCE:
+            def zero_fill(metric, anchor_metric, need_duration, rule):
+                have = {(r['filing_accession'], r['period_start'], r['period_end']) for r in fv[metric]}
+                n_ = 0
+                for r in fv[anchor_metric]:
+                    if r['form'] not in ('10-K', '10-Q', '10-K/A', '10-Q/A', '10-KT', '10-QT'): continue
+                    if need_duration and r['period_start'] is None: continue
+                    if not need_duration and r['period_start'] is not None: continue
+                    k3 = (r['filing_accession'], r['period_start'], r['period_end'])
+                    if k3 in have: continue
+                    z = dict(r); z.update({'metric': metric, 'value': '0', 'source_tag': None, 'source_type': 'sec_companyfacts_fallback', 'fallback_rule': rule})
+                    z.pop('derivation', None); fv[metric].append(z); have.add(k3); n_ += 1
+                return n_
+            fb['IncomeTaxesPayable_zero'] = zero_fill('IncomeTaxesPayable', 'CurrentLiabilities', False, 'no_income_tax_payable_line_with_current_liabilities -> 0')
+            fb['ShortTermDebt_zero'] = zero_fill('ShortTermDebt', 'CurrentLiabilities', False, 'no_short_term_debt_line_with_current_liabilities -> 0')
+            for m_ in ('StockIssuance', 'DividendsPaid', 'ShareRepurchase'):
+                fb[m_ + '_zero'] = zero_fill(m_, 'OperatingCashFlow', True, f'no_{m_}_line_with_full_cash_flow_statement -> 0')
         fb['Revenue'] = fill('Revenue', [
             ('SalesRevenueGoodsNet', tag_in('SalesRevenueGoodsNet')),
             ('RevenueFromContractWithCustomerIncludingAssessedTax', tag_in('RevenueFromContractWithCustomerIncludingAssessedTax')),
