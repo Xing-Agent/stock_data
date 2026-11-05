@@ -83,10 +83,7 @@ ZERO_BY_ABSENCE = os.environ.get('ZERO_BY_ABSENCE', '0') == '1'   # 1105:待 Lin
 
 def main(cf_dir, sub_path, map_path, out_dir):
     import csv
-    CF2 = {}
-    for f2 in sorted(glob.glob(os.path.join(cf_dir, 'cf2_*.json.gz'))) + sorted(glob.glob(os.path.join(cf_dir, 'cf3_*.json.gz'))):
-        for c_, x_ in json.load(gzip.open(f2)).items():
-            CF2.setdefault(c_, {'u': {}})['u'].update(x_.get('u', {}))
+    EXTRA = sorted(glob.glob(os.path.join(cf_dir, 'cf2_*.json.gz'))) + sorted(glob.glob(os.path.join(cf_dir, 'cf3_*.json.gz')))
     SUB = json.load(gzip.open(sub_path))
     mp = list(csv.DictReader(open(map_path)))
     os.makedirs(out_dir, exist_ok=True)
@@ -96,8 +93,12 @@ def main(cf_dir, sub_path, map_path, out_dir):
     # 一批一批读(全读进内存太大)
     for fpath in sorted(glob.glob(os.path.join(cf_dir, 'cf_*.json.gz'))):
       CF = json.load(gzip.open(fpath))
-      for c_, x_ in CF.items():                        # 1104 补抓的标签并进来
-          if c_ in CF2 and x_.get('u') is not None: x_['u'].update(CF2[c_].get('u', {}))
+      # 1104/1105 补抓的标签并进来(按批读,全读进内存会爆)
+      for f2 in EXTRA:
+          X2 = json.load(gzip.open(f2))
+          for c_, x_ in CF.items():
+              if c_ in X2 and x_.get('u') is not None: x_['u'].update(X2[c_].get('u', {}))
+          del X2
       for cik in [c for c in CF if c in by_cik]:
         row = by_cik[cik]; folder = row['folder']; seen.add(cik)
         cf, sub = CF.get(cik), SUB.get(cik)
