@@ -76,41 +76,79 @@ def random_control_rate(n_trades: int, n_days: int, n_syms: int) -> float:
     return min(1.0, max(1e-7, float(n_trades) / cells))
 
 
+class SaturatedNoUpperBracket(BenchmarkPremiseBroken):
+    """
+    ★★★ 触发率推到上限 1.0 仍然凑不够笔数 —— **找不到上端点**。
+
+    ★ 为什么单独一个类型：★★ 它和「笔数没对上」在报表上必须分开记
+      （「算不出来」和「分数差」分开记）。
+    ★★★ 这一种**不是搜索能修的** —— 二分法没有上端点就无从二分。
+      ★ 真因通常是:这条链的**持有期太长**,随机组的槽位一直是满的,
+        再提高触发频率也换不出更多笔数(槽位上限锁死了笔数)。
+    """
+
+
 def _next_rate(tries: list[dict[str, Any]], target: float, ncol: str) -> float:
     """
-    ★★ 校准的下一步该把 rate 调到多少 —— 弹性(对数-对数割线)法。
+    ★★ 校准的下一步该把 rate 调到多少 —— ★★★ **夹住 + 几何二分**。
 
-    大白话:原来这里是「按比例放大」:笔数差 10% 就把 rate 放大 10%。
-    ★ 但实测笔数**不是**跟 rate 成正比 —— 槽位有上限,rate 翻一倍、
-      成交笔数只多三成(技-1 实测 rate 从 0.000642 到 0.00207 涨 3.2 倍,
-      笔数只从 198 到 367 涨 1.85 倍 → 弹性 ≈ 0.52)。
-      所以按比例调会**一直从下面慢慢爬**,4 轮都进不了 ±5%。
-    ★ 改法:拿最近两个点量一次弹性 e = ln(n2/n1) / ln(r2/r1),
-      再按 rate ← r2 × (target/n2)^(1/e) 一步跳过去。
-      ★ 单步放大倍数夹在 [0.25, 4] 之间(防止弹性估得很小时一步飞出去)。
+    ★ 【2026-11-05 改】原来是「弹性(对数-对数割线)法 + 单步夹在 [0.25, 4]」。
+      ★★ 实跑查出它有两个毛病:
+        ① ★★★ **把笔数为 0 的点过滤掉** —— 于是一塌到 0 就没有可用的点,
+           只能 `rate × 2` 慢慢爬;
+        ② ★★★ **收敛阶段也在 ×4 跳** —— 在低笔数链上一步从 48 笔跳到 63 笔,
+           **跨过了 ±5% 那个窄区间**(39 笔的 ±5% 只有 ±2 笔)。
+
+    ★ 现在的做法(Lin 1105 拍板的三条):
+      ① **0 笔的点不过滤** —— ★★ 0 笔就是「笔数偏少」的一个端点;
+      ② **先夹住**:下端点 n < target、上端点 n > target 都有了之后,
+         ★★ 改成几何中点 `sqrt(r_lo × r_hi)`(★ 因为 rate 跨几个数量级);
+      ③ **没夹住时才扩张**:单边时 ×4 / ÷4 往外**找端点** ——
+         ★★★ 这是找端点,不是收敛时的步长。
+
+    ★★★ 触发率推到上限 1.0 还凑不够笔数 → 抛 `SaturatedNoUpperBracket`
+      (★ 这是「找不到上端点」,**不是**搜索不够聪明)。
+
     ★ 这一步只看笔数,不看成绩(纪律 6 没变)。
     """
     pts = [(float(t["rate"]), float(t[ncol])) for t in tries
-           if float(t[ncol]) > 0 and float(t["rate"]) > 0]
+           if float(t["rate"]) > 0]
     if not pts:
-        return min(1.0, max(1e-7, float(tries[-1]["rate"]) * 2.0))
-    r2, n2 = pts[-1]
-    e = 1.0
-    if len(pts) >= 2:
-        r1, n1 = pts[-2]
-        if r1 != r2 and n1 > 0 and n2 > 0 and n1 != n2:
-            e = float(np.log(n2 / n1) / np.log(r2 / r1))
-    if not np.isfinite(e) or e <= 0.05:
-        e = 1.0
-    step = float((target / n2) ** (1.0 / e))
-    step = float(min(4.0, max(0.25, step)))
-    return min(1.0, max(1e-7, r2 * step))
+        return 1e-4
+    lo = [(r, n) for r, n in pts if n < target]      # ★ 含 n == 0
+    hi = [(r, n) for r, n in pts if n > target]
+    if lo and hi:
+        # ★★★ 夹住了 → 几何二分
+        r_lo = max(r for r, _ in lo)
+        r_hi = min(r for r, _ in hi)
+        if r_hi > r_lo:
+            return float(np.sqrt(r_lo * r_hi))
+        # ★ 笔数对 rate 非单调 → 退回到离目标最近那点附近微调
+        r_best, n_best = min(pts, key=lambda p: abs(p[1] - target))
+        return float(min(1.0, max(1e-7,
+                                  r_best * (1.15 if n_best < target else 0.87))))
+    if hi and not lo:
+        # ★ 全都偏多 → 往稀的方向找下端点
+        return float(max(1e-9, min(r for r, _ in hi) / 4.0))
+    # ★★ 全都偏少(含全 0)→ 往密的方向找上端点
+    r_max = max(r for r, _ in pts)
+    if r_max >= 1.0 - 1e-12:
+        raise SaturatedNoUpperBracket(
+            "★★★ 找不到上端点:触发率已推到上限 1.0(每天每只票都触发),"
+            "对照组平均笔数仍然比真链少。\n"
+            f"    ★ 真链目标笔数 = {target:.0f} · "
+            f"rate=1.0 时对照笔数 = {max(n for _, n in pts):.1f}\n"
+            "    ★★ 这**不是**搜索算法的问题 —— 二分法只能在两个端点之间找,"
+            "没有上端点就无从二分。\n"
+            "    ★★★ 真因:这条链的**持有期太长**,随机组的槽位一直是满的,"
+            "再提高触发频率也换不出更多笔数(槽位上限锁死了笔数)。")
+    return float(min(1.0, max(1e-7, r_max * 4.0)))
 
 
 def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
                            start: str, end: str, target_trades: int,
                            initial_equity: float, seed: int = 424242,
-                           max_iter: int = 6, tol: float = CONTROL_TOL,
+                           max_iter: int = 16, tol: float = CONTROL_TOL,
                            strict: bool = True) -> dict[str, Any]:
     """
     ★★ 2026-10-29:随机对照触发率的**最终口径** —— 对齐「实际成交笔数」。
@@ -160,8 +198,12 @@ def calibrated_random_rate(cfg: "chain.ChainConfig", symbols: list[str] | None,
         if best is None or gap < best["gap"]:
             best = {"rate": rate, "n_ctrl": n_ctrl, "ledger": led, "gap": gap,
                     "iters": it + 1}
-        if gap <= tol or n_ctrl == 0:
+        if gap <= tol:
             break
+        # ★★★ 【1105 改】原来是 `or n_ctrl == 0: break` —— 碰 0 笔就当收敛退出。
+        #   ★ 这一处是实跑里**真正炸掉**的那个:它被 pooled_random_control
+        #     **逐种子**调用,一个种子 0 笔就停,然后 strict 断言直接抛。
+        #   ★★ Lin 1105 拍板:「碰到 0 笔**不准停**,要往触发更密的方向回退」。
         rate = _next_rate(tries, target_trades, "对照成交笔数")
     assert best is not None
     best["tries"] = tries
@@ -471,8 +513,8 @@ def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
                            symbols: list[str] | None,
                            start: str, end: str, n_seeds: int = 50,
                            keep_ledger: bool = False,
-                           cal_iter: int = 5, cal_seeds: int = 8,
-                           verify_iter: int = 2) -> dict[str, Any]:
+                           cal_iter: int = 14, cal_seeds: int = 8,
+                           verify_iter: int = 6) -> dict[str, Any]:
     """
     ★ 基准一:同环境随机进场 —— 其余六步完全一样,只把第③步换成随机。
     随机的触发频率对齐真信号的实际频率,这样比的是「挑得准不准」,
@@ -524,6 +566,15 @@ def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
     n_days = max(1, len(pd.bdate_range(start, end)))
     n_syms = max(1, len(matrices.universe_mask(
         cfg.get("universe") or {}, symbols).columns))
+    if n_tr <= 0:
+        # ★★★ 【1105 新增】真链 0 笔 = 没有可对齐的目标。
+        #   ★ 这**不是**搜索算法的问题,也不是「笔数没对上」——
+        #   ★★ 真因在上游:这条链在这个窗口**一只票都没入选**。
+        raise BenchmarkPremiseBroken(
+            "★★★ 真链成交笔数 = 0,基准一没有可对齐的目标,禁止往下算:\n"
+            "    ★ 校准的目标是「对上真链笔数」,目标本身是 0,\n"
+            "      再好的搜索也无从对齐。\n"
+            "    ★★ 真因在上游:这条链在这个窗口**一只票都没入选**。")
     rate0 = random_control_rate(n_tr, n_days, n_syms)
     # ★ 省机器用的一步:先用**单种子**粗调把 rate 拉到量级上
     #   (strict=False —— 这一步**不是**判据,它只是给下面的 50 种子循环
@@ -560,15 +611,17 @@ def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
         dv = (mc - n_tr) / max(1, n_tr)
         cal_tries.append({"轮": it + 1, "rate": rate, "校准用种子数": cal_seeds,
                           "对照平均笔数": mc, "偏差": dv})
-        if abs(dv) <= cal_tol or mc <= 0:
+        if abs(dv) <= cal_tol:
             break
+        # ★★★ 【1105 改】原来是 `or mc <= 0: break`。★ 同①,碰 0 笔不准停。
         # ★ 饱和检测:连着两轮笔数几乎不动而偏差还在外面 → 再调也没用,早停省机器
         if len(cal_tries) >= 2:
             prev = cal_tries[-2]["对照平均笔数"]
             if prev > 0 and abs(mc - prev) / prev < 0.01:
-                cal_tries[-1]["★早停"] = ("笔数对 rate 已经饱和(两轮变动 <1%),"
-                                          "再调也到不了容差内")
-                break
+                cal_tries[-1]["★饱和痕迹"] = (
+                    "笔数对 rate 两轮变动 <1% —— ★ 【1105 改】只记录,**不早停**。"
+                    "★★ 真饱和会由 _next_rate 抛 SaturatedNoUpperBracket,"
+                    "★★★ 那才是「找不到上端点」。")
         rate = _next_rate(cal_tries, n_tr, "对照平均笔数")
 
     # ---- 第二段 · 核验(★★★ 断言的就是这 50 个种子的平均笔数)
@@ -584,8 +637,9 @@ def random_entry_benchmark(cfg: chain.ChainConfig, res: chain.ChainResult,
             best = {"rate": rate, "dev": dev, "mean_ctrl": mean_ctrl,
                     "n_ctrl_per": n_ctrl_per, "rets": rets, "mdds": mdds,
                     "rbar": rbar, "frames": frames}
-        if abs(dev) <= CONTROL_TOL or mean_ctrl <= 0:
+        if abs(dev) <= CONTROL_TOL:
             break
+        # ★★★ 【1105 改】原来是 `or mean_ctrl <= 0: break`。★ 同①。
         rate = _next_rate(verify, n_tr, "对照平均笔数")
     assert best is not None
     rate, dev, mean_ctrl = best["rate"], best["dev"], best["mean_ctrl"]

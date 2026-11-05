@@ -16,3 +16,6 @@ probe/searchfix_1105/*.tar.gz
 # ★★★ 跑批进行中的日志 —— ★ 它每分钟都在变,会把提交历史刷成噪声。
 # ★★ 跑完之后手动 `git add -f` 把最终版入库,然后删掉这一行。
 probe/searchfix_1105/_blank_v2_log_1105.txt
+probe/searchfix_1105/ledgers45_1105/
+probe/searchfix_1105/per_chain45_1105/
+probe/searchfix_1105/_rerun45_log_1105.txt
