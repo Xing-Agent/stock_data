@@ -1,0 +1,201 @@
+symbol,name,exchange,size_group,market_cap_usd,market_cap_date,sector,sector_basis,delisted,delisting_date
+AA,Alcoa Corp,NYSE,large,10711897487,2026-11-04,Manufacturing,SEC SIC 3334 division,false,
+AAL,American Airlines Group Inc.,NASDAQ,mid,9022650432,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4512 division,false,
+AAN__1821393,"Aaron's Company, Inc.",NYSE,small,309891869,2024-10-03,Services,SEC SIC 7359 division,true,2024-10-03
+AAN__706688,AARON'S INC,NYSE,mid,3676617011,2020-10-29,Services,SEC SIC 7359 division,true,2020-10-29
+AAOI,"APPLIED OPTOELECTRONICS, INC.",NASDAQ,mid,5012418677,2026-11-04,Manufacturing,SEC SIC 3674 division,false,
+AAON,"AAON, INC.",NASDAQ,mid,4802924472,2026-11-04,Manufacturing,SEC SIC 3585 division,false,
+AAT,"American Assets Trust, Inc.",NYSE,small,1356381556,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+AAWW,ATLAS AIR WORLDWIDE HOLDINGS INC,NASDAQ,mid,2934328389,2023-03-17,"Transportation, Communications & Utilities",SEC SIC 4522 division,true,2023-03-17
+ABAT,AMERICAN BATTERY TECHNOLOGY Co,NASDAQ,small,183925308,2026-11-04,Mining,SEC SIC 1400 division,false,
+ABAX,ABAXIS INC,NASDAQ,small,1898293000,2018-07-31,Manufacturing,SEC SIC 3829 division,true,2018-07-31
+ABB,ABB LTD,NYSE,unknown,,2023-05-22,Manufacturing,SEC SIC 3613 division,true,2023-05-22
+ABCB,Ameris Bancorp,NYSE,mid,5646403089,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6022 division,false,
+ABCL,AbCellera Biologics Inc.,NASDAQ,mid,3765188802,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ABEO,ABEONA THERAPEUTICS INC.,NASDAQ,small,241316552,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ABEV,AMBEV S.A.,NYSE,unknown,,2026-07-01,Manufacturing,SEC SIC 2080 division,true,2026-07-01
+ABG,ASBURY AUTOMOTIVE GROUP INC,NYSE,mid,3750351417,2026-11-04,Retail Trade,SEC SIC 5500 division,false,
+ABM,ABM INDUSTRIES INC /DE/,NYSE,mid,3207976620,2026-11-04,Services,SEC SIC 7340 division,false,
+ABMD,ABIOMED INC,NASDAQ,large,17180642928,2022-12-21,Manufacturing,SEC SIC 3841 division,true,2022-12-21
+ABNB,"Airbnb, Inc.",NASDAQ,large,104411040000,2026-11-04,Services,SEC SIC 7340 division,false,
+ABR,ARBOR REALTY TRUST INC,NYSE,small,329676169,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+ABT,ABBOTT LABORATORIES,NYSE,large,201196753674,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ABTC,American Bitcoin Corp.,NASDAQ,small,34445801,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,
+ABTX,"Allegiance Bancshares, Inc.",NASDAQ,small,830941253,2022-09-30,"Finance, Insurance & Real Estate",SEC SIC 6022 division,true,2022-09-30
+ABUS,Arbutus Biopharma Corp,NASDAQ,small,803262210,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ABVX,Abivax S.A.,NASDAQ,unknown,,2026-07-21,Manufacturing,SEC SIC 2834 division,true,2026-07-21
+ACA,"Arcosa, Inc.",NYSE,mid,7324280562,2026-10-22,Manufacturing,SEC SIC 3440 division,true,2026-10-22
+ACB,AURORA CANNABIS INC,NASDAQ,small,294667370,2026-11-04,Manufacturing,SEC SIC 2833 division,false,
+ACCD,"Accolade, Inc.",NASDAQ,small,572730266,2025-04-07,Services,SEC SIC 7389 division,true,2025-04-07
+ACCO,ACCO BRANDS Corp,NYSE,small,508801737,2026-11-04,Manufacturing,SEC SIC 2780 division,false,
+ACET,ACETO CORP,NASDAQ,small,4147909,2019-04-02,Wholesale Trade,SEC SIC 5122 division,true,2019-04-02
+ACHN,ACHILLION PHARMACEUTICALS INC,NASDAQ,small,946715334,2020-01-27,Manufacturing,SEC SIC 2834 division,true,2020-01-27
+ACHR,Archer Aviation Inc.,NYSE,mid,3172498056,2026-11-04,Manufacturing,SEC SIC 3721 division,false,
+ACI,"Albertsons Companies, Inc.",NYSE,mid,6464428492,2026-11-04,Retail Trade,SEC SIC 5411 division,false,
+ACIA,"Acacia Communications, Inc.",NASDAQ,mid,4846137410,2021-02-26,Manufacturing,SEC SIC 3674 division,true,2021-02-26
+ACIW,"ACI WORLDWIDE, INC.",NASDAQ,mid,5975540715,2026-11-04,Services,SEC SIC 7372 division,false,
+ACLS,AXCELIS TECHNOLOGIES INC,NASDAQ,mid,2845420396,2026-11-04,Manufacturing,SEC SIC 3559 division,false,
+ACLX,"Arcellx, Inc.",NASDAQ,mid,6729271967,2026-04-27,Manufacturing,SEC SIC 2836 division,true,2026-04-27
+ACMP,WILLIAMS PARTNERS L.P.,NYSE,mid,9186788832,2015-02-02,"Transportation, Communications & Utilities",SEC SIC 4922 division,true,2015-02-02
+ACMR,"ACM Research, Inc.",NASDAQ,small,1889611010,2026-11-04,Manufacturing,SEC SIC 3559 division,false,
+ACOR,"Acorda Therapeutics, Inc.",NASDAQ,small,821027,2024-04-11,Manufacturing,SEC SIC 2836 division,true,2024-04-11
+ACRX,"TALPHERA, INC.",NASDAQ,small,54501086,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ACVA,ACV Auctions Inc.,NYSE,small,1782983790,2026-10-15,Services,SEC SIC 7389 division,true,2026-10-15
+ACY,Mega Matrix Corp.,NYSE American,small,54105935,2022-03-25,Services,SEC SIC 7812 division,true,2022-03-25
+ADC,AGREE REALTY CORP,NYSE,mid,9101868129,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+ADGI,"Invivyd, Inc.",NASDAQ,small,504973636,2022-09-12,Manufacturing,SEC SIC 2836 division,true,2022-09-12
+ADMA,"ADMA BIOLOGICS, INC.",NASDAQ,mid,2347359446,2026-11-04,Manufacturing,SEC SIC 2836 division,false,
+ADMS,Adamas Pharmaceuticals Inc,NASDAQ,small,376368852,2021-11-23,Manufacturing,SEC SIC 2834 division,true,2021-11-23
+ADNT,Adient plc,NYSE,small,1325296261,2026-11-04,Manufacturing,SEC SIC 3714 division,false,
+ADPT__1478320,Adaptive Biotechnologies Corp,NASDAQ,mid,4262804940,2026-11-04,Manufacturing,SEC SIC 2836 division,false,
+ADPT__1602367,Adeptus Health Inc.,NYSE,small,6902685,2017-04-19,Services,SEC SIC 8060 division,true,2017-04-19
+ADSW,"Advanced Disposal Services, Inc.",NYSE,mid,2749973066,2020-10-29,"Transportation, Communications & Utilities",SEC SIC 4953 division,true,2020-10-29
+ADTN,"ADTRAN Holdings, Inc.",NASDAQ,small,385407055,2026-11-04,Manufacturing,SEC SIC 3661 division,false,
+ADT__1703056,ADT Inc.,NYSE,mid,7531766095,2026-11-04,Services,SEC SIC 7381 division,false,
+ADUS,Addus HomeCare Corp,NASDAQ,mid,2389189942,2026-11-04,Services,SEC SIC 8082 division,false,
+ADVM,"Adverum Biotechnologies, Inc.",NASDAQ,small,96257756,2025-12-08,Manufacturing,SEC SIC 2836 division,true,2025-12-08
+ADVS,ADVENT SOFTWARE INC /DE/,NASDAQ,mid,2331021394,2015-07-07,Services,SEC SIC 7371 division,true,2015-07-07
+ADXS,"Ayala Pharmaceuticals, Inc.",NASDAQ,small,34953230,2021-12-22,Manufacturing,SEC SIC 2834 division,true,2021-12-22
+AEE,AMEREN CORP,NYSE,large,31305434823,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4931 division,false,
+AEG,AEGON LTD.,NYSE,unknown,,2026-07-30,"Finance, Insurance & Real Estate",SEC SIC 6311 division,true,2026-07-30
+AEGR,"Aegerion Pharmaceuticals, Inc.",,small,52885708,2016-12-09,Manufacturing,SEC SIC 2834 division,true,2016-12-09
+AEHR,AEHR TEST SYSTEMS,NASDAQ,small,1984628178,2026-11-04,Manufacturing,SEC SIC 3825 division,false,
+AEIS,ADVANCED ENERGY INDUSTRIES INC,NASDAQ,mid,8564370016,2026-11-04,Manufacturing,SEC SIC 3679 division,false,
+AEL,American National Group Inc.,NYSE,mid,4493440553,2024-05-02,"Finance, Insurance & Real Estate",SEC SIC 6311 division,true,2024-05-02
+AEM,AGNICO EAGLE MINES LTD,NYSE,large,68491382802,2026-07-17,Mining,SEC SIC 1040 division,true,2026-07-17
+AER,AerCap Holdings N.V.,NYSE,large,23362716580,2026-06-12,Services,SEC SIC 7359 division,true,2026-06-12
+AERI,AERIE PHARMACEUTICALS INC,NASDAQ,small,753615457,2022-11-18,Manufacturing,SEC SIC 2836 division,true,2022-11-18
+AESI,Atlas Energy Solutions Inc.,NYSE,small,841273225,2026-11-04,Mining,SEC SIC 1311 division,false,
+AEVA,"Aeva Technologies, Inc.",NASDAQ,small,661507643,2026-11-04,Manufacturing,SEC SIC 3714 division,false,
+AEZS,COSCIENS Biopharma Inc.,NASDAQ,small,6943903,2024-08-08,Manufacturing,SEC SIC 2844 division,true,2024-08-08
+AF,ASTORIA FINANCIAL CORP,NYSE,mid,2186934098,2017-09-29,"Finance, Insurance & Real Estate",SEC SIC 6035 division,true,2017-09-29
+AFRM,"Affirm Holdings, Inc.",NASDAQ,mid,4477903978,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6141 division,false,
+AG,FIRST MAJESTIC SILVER CORP,NYSE,mid,7477925467,2026-07-29,Mining,SEC SIC 1040 division,true,2026-07-29
+AGE,"Serina Therapeutics, Inc.",NYSE American,small,789234,2024-03-26,Manufacturing,SEC SIC 2834 division,true,2024-03-26
+AGEN,AGENUS INC,NASDAQ,small,313792237,2026-11-04,Manufacturing,SEC SIC 2836 division,false,
+AGI,ALAMOS GOLD INC,NYSE,large,12419480808,2026-07-24,Mining,SEC SIC 1040 division,true,2026-07-24
+AGL,"agilon health, inc.",NYSE,small,1615818138,2026-11-04,Services,SEC SIC 8090 division,false,
+AGNC,AGNC Investment Corp.,NASDAQ,large,11298656045,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+AGR,"Avangrid, Inc.",NYSE,large,13936535084,2024-12-20,"Transportation, Communications & Utilities",SEC SIC 4911 division,true,2024-12-20
+AGRI,AVAX ONE TECHNOLOGY LTD.,NASDAQ,small,3051363,2025-11-12,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2025-11-12
+AGRX,AGILE THERAPEUTICS INC,NASDAQ,small,1512520,2024-03-25,Manufacturing,SEC SIC 2834 division,true,2024-03-25
+AGU,AGRIUM INC,NYSE,unknown,,2017-12-29,Manufacturing,SEC SIC 2870 division,true,2017-12-29
+AGX,ARGAN INC,NYSE,mid,4077913876,2026-11-04,Construction,SEC SIC 1700 division,false,
+AGYS,AGILYSYS INC,NASDAQ,mid,3460386325,2026-11-04,Services,SEC SIC 7373 division,false,
+AHCO,AdaptHealth Corp.,NASDAQ,small,996676073,2026-11-04,Services,SEC SIC 8082 division,false,
+AHR,"American Healthcare REIT, Inc.",NYSE,large,12288590947,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+AHT,ASHFORD HOSPITALITY TRUST INC,NYSE,small,17080309,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+AI,"C3.ai, Inc.",NYSE,small,41859904,2026-11-04,Services,SEC SIC 7372 division,false,
+AIG,"AMERICAN INTERNATIONAL GROUP, INC.",NYSE,large,42725600839,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6331 division,false,
+AIMC,Altra Industrial Motion Corp.,NASDAQ,mid,4050847189,2023-03-24,Manufacturing,SEC SIC 3569 division,true,2023-03-24
+AIMT,"Aimmune Therapeutics, Inc.",NASDAQ,mid,2257375398,2020-10-12,Manufacturing,SEC SIC 2834 division,true,2020-10-12
+AIN,ALBANY INTERNATIONAL CORP /DE/,NYSE,mid,2045368000,2026-11-04,Manufacturing,SEC SIC 2221 division,false,
+AINV,MidCap Financial Investment Corp,NASDAQ,small,850909247,2026-11-04,,,false,
+AIR,AAR CORP,NYSE,mid,4370316562,2026-11-04,Manufacturing,SEC SIC 3720 division,false,
+AIRC,Apartment Income REIT Corp.,NYSE,mid,5670672957,2024-06-27,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2024-06-27
+AIRE,reAlpha Tech Corp.,NASDAQ,small,2423144,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6500 division,false,
+AIT,APPLIED INDUSTRIAL TECHNOLOGIES INC,NYSE,large,10892053981,2026-11-04,Wholesale Trade,SEC SIC 5080 division,false,
+AJG,Arthur J. Gallagher & Co.,NYSE,large,73911794000,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6411 division,false,
+AJRD,"AEROJET ROCKETDYNE HOLDINGS, INC.",NYSE,mid,4683208089,2023-07-27,Manufacturing,SEC SIC 3760 division,true,2023-07-27
+AKAO,"Achaogen, Inc.",NASDAQ,small,7026799,2019-04-25,Manufacturing,SEC SIC 2834 division,true,2019-04-25
+AKBA,"Akebia Therapeutics, Inc.",NASDAQ,small,192505708,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+AKRO,"Akero Therapeutics, Inc.",NASDAQ,mid,4498579182,2025-12-08,Manufacturing,SEC SIC 2834 division,true,2025-12-08
+ALAB,"Astera Labs, Inc.",NASDAQ,large,38734019170,2026-11-04,Manufacturing,SEC SIC 3674 division,false,
+ALC,ALCON INC,NYSE,large,33110978606,2026-06-24,Manufacturing,SEC SIC 3851 division,true,2026-06-24
+ALDR,ALDER BIOPHARMACEUTICALS INC,NASDAQ,small,1579070978,2019-10-21,Manufacturing,SEC SIC 2834 division,true,2019-10-21
+ALG,ALAMO GROUP INC,NYSE,small,1754079476,2026-11-04,Manufacturing,SEC SIC 3523 division,false,
+ALGM,"ALLEGRO MICROSYSTEMS, INC.",NASDAQ,mid,5827604750,2026-11-04,Manufacturing,SEC SIC 3674 division,false,
+ALH,Alliance Laundry Holdings Inc.,NYSE,mid,4563738444,2026-11-04,Manufacturing,SEC SIC 3580 division,false,
+ALHC,"Alignment Healthcare, Inc.",NASDAQ,small,1703444727,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6324 division,false,
+ALIT,"Alight, Inc. / Delaware",NYSE,small,284828632,2026-11-04,Services,SEC SIC 7389 division,false,
+ALJ,"Alon USA Energy, Inc.",NYSE,small,957407820,2017-06-30,Manufacturing,SEC SIC 2911 division,true,2017-06-30
+ALKT,"ALKAMI TECHNOLOGY, INC.",NASDAQ,small,1419381150,2026-11-04,Services,SEC SIC 7372 division,false,
+ALLK,Allakos Inc.,NASDAQ,small,29743061,2025-05-14,Manufacturing,SEC SIC 2834 division,true,2025-05-14
+ALLO,"Allogene Therapeutics, Inc.",NASDAQ,small,411134148,2026-11-04,Manufacturing,SEC SIC 2836 division,false,
+ALM,Almonty Industries Inc.,NASDAQ,mid,3618428660,2026-07-17,Mining,SEC SIC 1000 division,true,2026-07-17
+ALNY,"ALNYLAM PHARMACEUTICALS, INC.",NASDAQ,large,21574664742,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ALPN,"ALPINE IMMUNE SCIENCES, INC.",NASDAQ,mid,4456781329,2024-05-17,Manufacturing,SEC SIC 2834 division,true,2024-05-17
+ALRM,"Alarm.com Holdings, Inc.",NASDAQ,mid,3336171895,2026-11-04,Services,SEC SIC 7372 division,false,
+ALTM,Arcadium Lithium plc,NYSE,mid,6288856122,2025-03-05,Manufacturing,SEC SIC 2810 division,true,2025-03-05
+ALTR__1701732,Altair Engineering Inc.,NASDAQ,mid,9404907250,2025-03-25,Services,SEC SIC 7372 division,true,2025-03-25
+ALTR__768251,ALTERA CORP,NASDAQ,large,16342184279,2015-12-24,Manufacturing,SEC SIC 3674 division,true,2015-12-24
+AMAG,"AMAG PHARMACEUTICALS, INC.",NASDAQ,small,477469616,2020-11-13,Manufacturing,SEC SIC 2834 division,true,2020-11-13
+AMAM,"Ambrx Biopharma, Inc.",NASDAQ,small,1768206832,2024-03-06,Manufacturing,SEC SIC 2836 division,true,2024-03-06
+AMBA,AMBARELLA INC,NASDAQ,mid,2689067953,2026-11-04,Manufacturing,SEC SIC 3674 division,false,
+AMCC,APPLIED MICRO CIRCUITS CORP,NASDAQ,small,730530495,2017-01-26,Manufacturing,SEC SIC 3674 division,true,2017-01-26
+AMCR,Amcor plc,NYSE,large,22423765965,2026-11-04,Manufacturing,SEC SIC 3990 division,false,
+AMED,AMEDISYS INC,NASDAQ,mid,3321228136,2025-08-14,Services,SEC SIC 8082 division,true,2025-08-14
+AMEH,"Astrana Health, Inc.",NASDAQ,mid,2379136103,2024-02-23,Services,SEC SIC 8742 division,true,2024-02-23
+AMH,American Homes 4 Rent,NYSE,large,11767329752,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+AMKR,"AMKOR TECHNOLOGY, INC.",NASDAQ,mid,8836911340,2026-11-04,Manufacturing,SEC SIC 3674 division,false,
+AMLX,"Amylyx Pharmaceuticals, Inc.",NASDAQ,mid,3275837611,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+AMN,AMN HEALTHCARE SERVICES INC,NYSE,small,1848969770,2026-11-04,Services,SEC SIC 7363 division,false,
+AMPG,"AmpliTech Group, Inc.",NASDAQ,small,74508840,2026-11-04,Manufacturing,SEC SIC 3669 division,false,
+AMPH,"Amphastar Pharmaceuticals, Inc.",NASDAQ,small,1191913191,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+AMPL,"Amplitude, Inc.",NASDAQ,mid,2224042200,2026-11-04,Services,SEC SIC 7372 division,false,
+AMPX,"Amprius Technologies, Inc.",NYSE,small,1237302834,2026-11-04,Manufacturing,SEC SIC 3690 division,false,
+AMR,"Alpha Metallurgical Resources, Inc.",NYSE,small,1950163911,2026-11-04,Mining,SEC SIC 1221 division,false,
+AMRC,"Ameresco, Inc.",NYSE,small,1125973750,2026-11-04,Construction,SEC SIC 1700 division,false,
+AMRI,ALBANY MOLECULAR RESEARCH INC,NASDAQ,small,937413212,2017-08-31,Services,SEC SIC 8731 division,true,2017-08-31
+AMRN,AMARIN CORP PLC\UK,NASDAQ,unknown,,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+AMRS,"AMYRIS, INC.",NASDAQ,small,18469281,2023-08-18,Manufacturing,SEC SIC 2860 division,true,2023-08-18
+AMRX,"Amneal Pharmaceuticals, Inc.",NASDAQ,mid,6371110684,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+AMRZ,Amrize Ltd,NYSE,large,23505080133,2026-11-04,Manufacturing,SEC SIC 3241 division,false,
+AMSC,AMERICAN SUPERCONDUCTOR CORP /DE/,NASDAQ,small,1272090675,2026-11-04,Manufacturing,SEC SIC 3621 division,false,
+AMTM,"Amentum Holdings, Inc.",NYSE,mid,5435377561,2026-11-04,Services,SEC SIC 7389 division,false,
+AMWD,AMERICAN WOODMARK CORP,NASDAQ,small,700651824,2026-05-27,Manufacturing,SEC SIC 2430 division,true,2026-05-27
+AMWL,American Well Corp,NYSE,small,209023824,2026-11-04,Services,SEC SIC 7389 division,false,
+AMX,AMERICA MOVIL SAB DE CV/,NYSE,unknown,,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4813 division,false,
+AM__1623925,Antero Midstream Corp,NYSE,mid,9380791560,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4922 division,false,
+ANAB,"ANAPTYSBIO, INC",NASDAQ,small,1420323042,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ANDE,"Andersons, Inc.",NASDAQ,small,1880547800,2026-11-04,Wholesale Trade,SEC SIC 5150 division,false,
+ANDX,ANDEAVOR LOGISTICS LP,NYSE,mid,7901931383,2019-07-29,"Transportation, Communications & Utilities",SEC SIC 4610 division,true,2019-07-29
+ANF,ABERCROMBIE & FITCH CO /DE/,NYSE,mid,7260097561,2026-11-04,Retail Trade,SEC SIC 5651 division,false,
+ANGI,Angi Inc.,NASDAQ,small,276739560,2026-11-04,Services,SEC SIC 7310 division,false,
+ANIK,"Anika Therapeutics, Inc.",NASDAQ,small,273012506,2026-11-04,Manufacturing,SEC SIC 3841 division,false,
+ANIP,ANI PHARMACEUTICALS INC,NASDAQ,small,1749853496,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ANN,ANN INC.,NYSE,mid,2064612258,2015-08-21,Retail Trade,SEC SIC 5621 division,true,2015-08-21
+ANTM,"Elevance Health, Inc.",NYSE,large,93807146754,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6324 division,false,
+ANY,DarkHorse Technologies Inc.,NASDAQ,small,25156918,2026-09-16,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2026-09-16
+AOL,AOL Inc.,NYSE,mid,3916309231,2015-06-22,Services,SEC SIC 7374 division,true,2015-06-22
+AOSL,ALPHA & OMEGA SEMICONDUCTOR Ltd,NASDAQ,small,640588428,2026-11-04,Manufacturing,SEC SIC 3674 division,false,
+APAM,Artisan Partners Asset Management Inc.,NYSE,mid,3280243601,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,
+APA__1841666,APA Corp,NASDAQ,large,15587138680,2026-11-04,Mining,SEC SIC 1311 division,false,
+APG,APi Group Corp,NYSE,large,18724129686,2026-11-04,Services,SEC SIC 7340 division,false,
+APGE,"Apogee Therapeutics, Inc.",NASDAQ,large,10176106130,2026-09-02,Manufacturing,SEC SIC 2836 division,true,2026-09-02
+API,"Agora, Inc.",NASDAQ,unknown,,2026-11-04,Services,SEC SIC 7372 division,false,
+APL,Targa Pipeline Partners LP,NYSE,mid,2662476907,2015-02-27,"Transportation, Communications & Utilities",SEC SIC 4922 division,true,2015-02-27
+APLD,Applied Digital Corp.,NASDAQ,mid,5022650395,2026-11-04,Services,SEC SIC 7374 division,false,
+APLE,"Apple Hospitality REIT, Inc.",NYSE,mid,4443076376,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+APLS,"Apellis Pharmaceuticals, Inc.",NASDAQ,mid,5252712995,2026-05-13,Manufacturing,SEC SIC 2834 division,true,2026-05-13
+APLT,"Applied Therapeutics, Inc.",NASDAQ,small,14862969,2026-02-02,Manufacturing,SEC SIC 2834 division,true,2026-02-02
+APOG,"APOGEE ENTERPRISES, INC.",NASDAQ,small,1002779796,2026-11-04,Manufacturing,SEC SIC 3231 division,false,
+APO__1858681,"Apollo Global Management, Inc.",NYSE,large,72495078199,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,
+APP,AppLovin Corp,NASDAQ,large,91115329250,2026-11-04,Services,SEC SIC 7370 division,false,
+APPF,APPFOLIO INC,NASDAQ,mid,8393016600,2026-11-04,Services,SEC SIC 7372 division,false,
+APPN,APPIAN CORP,NASDAQ,mid,3577076000,2026-11-04,Services,SEC SIC 7372 division,false,
+APPS,"Digital Turbine, Inc.",NASDAQ,small,1154495025,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6794 division,false,
+APT,ALPHA PRO TECH LTD,NYSE American,small,58583691,2026-11-04,Manufacturing,SEC SIC 3842 division,false,
+APTI,Apptio Inc,NASDAQ,small,1712617447,2019-01-09,Services,SEC SIC 7372 division,true,2019-01-09
+APVO,Aptevo Therapeutics Inc.,NASDAQ,small,2468699,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+AQB,AQUABOUNTY TECHNOLOGIES INC,NASDAQ,small,5661924,2026-11-04,"Agriculture, Forestry & Fishing",SEC SIC 0900 division,false,
+AQMS,"Aqua Metals, Inc.",NASDAQ,small,4383143,2026-11-04,Manufacturing,SEC SIC 3341 division,false,
+AQN,ALGONQUIN POWER & UTILITIES CORP.,NYSE,mid,3272339360,2026-07-02,"Transportation, Communications & Utilities",SEC SIC 4911 division,true,2026-07-02
+AQUA,Evoqua Water Technologies Corp.,NYSE,mid,6103836949,2023-05-23,Manufacturing,SEC SIC 3580 division,true,2023-05-23
+AR,ANTERO RESOURCES Corp,NYSE,large,11496100480,2026-11-04,Mining,SEC SIC 1311 division,false,
+ARCB,ARCBEST CORP /TX/,NASDAQ,mid,3113320099,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4213 division,false,
+ARCC,ARES CAPITAL CORP,NASDAQ,large,14053914175,2026-11-04,,,false,
+ARCE,Arco Platform Ltd.,NASDAQ,small,702649157,2023-12-06,Services,SEC SIC 8200 division,true,2023-12-06
+ARCH,"ARCH RESOURCES, INC.",NYSE,mid,2441583751,2025-01-13,Mining,SEC SIC 1221 division,true,2025-01-13
+ARCT,Arcturus Therapeutics Holdings Inc.,NASDAQ,small,308958760,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+ARDX,"ARDELYX, INC.",NASDAQ,small,819827112,2026-11-04,Manufacturing,SEC SIC 2834 division,false,
+AREC,American Resources Corp,NASDAQ,small,106575478,2026-11-04,Mining,SEC SIC 1220 division,false,
+ARES,Ares Management Corp,NYSE,large,14141041403,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,
+ARGO,"Argo Group International Holdings, Inc.",NYSE,small,1056113355,2023-11-15,"Finance, Insurance & Real Estate",SEC SIC 6361 division,true,2023-11-15
+ARGX,ARGENX SE,NASDAQ,unknown,,2026-07-17,Manufacturing,SEC SIC 2836 division,true,2026-07-17
+ARI,"Apollo Commercial Real Estate Finance, Inc.",NYSE,small,321812353,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,
+ARIA,ARIAD PHARMACEUTICALS INC,NASDAQ,mid,4658878679,2017-02-15,Manufacturing,SEC SIC 2836 division,true,2017-02-15
+ARII,"American Railcar Industries, Inc.",NASDAQ,small,1335298944,2018-12-04,Manufacturing,SEC SIC 3743 division,true,2018-12-04
+ARLP,ALLIANCE RESOURCE PARTNERS LP,NASDAQ,mid,3239628609,2026-11-04,Mining,SEC SIC 1221 division,false,
+ARM,ARM HOLDINGS PLC /UK,NASDAQ,unknown,,2026-11-04,Manufacturing,SEC SIC 3674 division,false,
+ARNA,ARENA PHARMACEUTICALS INC,NASDAQ,mid,6165321906,2022-03-10,Manufacturing,SEC SIC 2834 division,true,2022-03-10

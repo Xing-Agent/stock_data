@@ -1,0 +1,17 @@
+our_field,polygon_source,note
+date,grouped daily / flat files: t (session date),交易日(纽约时间)
+open,o,原始价,不复权
+high,h,原始价
+low,l,原始价
+close,c,原始价
+price,c,和 close 一样
+volume,v,股数;整数的写整数,Polygon 少数天是小数(零股)原样保留
+adjusted_close,(无),一律 null
+dividend_amount,/v3/reference/dividends: cash_amount(按 ex_dividend_date 落到当天),只取美元;同一天多条(常规 + 特别)相加;完全重复的行只算一次;没有写 0
+split_coefficient,/v3/reference/splits: split_to ÷ split_from(落到「价格真正跳的那天」),1 拆 4 → 4;4 合 1 → 0.25;没有写 1;一次性派现 ≥ 前收 10% 的那天再乘 前收 ÷(前收 − 派现)
+source_ticker,T,这根 K 线当时用的代码(改过名的公司前后代码不同)
+corporate_actions.events[].effective_date,除息日 / 对齐后的拆股日,
+corporate_actions.events[].cash_amount,cash_amount,
+corporate_actions.events[].payment_date,pay_date,
+corporate_actions.events[].action_type,(我们的分类),dividend / split / special_distribution
+(未用),vw / n,成交均价和笔数,没放进文件
