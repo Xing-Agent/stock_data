@@ -14,6 +14,7 @@
 """
 import gzip, json, os, sys, glob
 from datetime import date, timedelta
+from collections import defaultdict
 from decimal import Decimal
 
 METRIC_TAGS = {
@@ -218,12 +219,13 @@ def main(cf_dir, sub_path, map_path, out_dir):
         debt_keys = set()
         for key_, rows_ in cf['u'].items():
             if key_.split('|')[0].split(':', 1)[1] in DEBT_TAGS:
-                for x in rows_: debt_keys.add((x[7], x[2]))
-        have_ltd = {(r['filing_accession'], r['period_end']) for r in fv['LongTermDebt']}
+                for x in rows_: debt_keys.add(x[2])
+        # 1105 修:按「截止日」判断,不按「申报号 + 截止日」(同上,companyfacts 只把同一期的数挂在一份申报下)
+        have_ltd = {r['period_end'] for r in fv['LongTermDebt']}
         zero_added = 0
-        for r in fv['TotalAssets']:
+        for r in sorted(fv['TotalAssets'], key=lambda x: x.get('available_at') or ''):
             if r['form'] not in ('10-K', '10-Q', '10-K/A', '10-Q/A', '10-KT', '10-QT') or r['period_start'] is not None: continue
-            k2 = (r['filing_accession'], r['period_end'])
+            k2 = r['period_end']
             if k2 in have_ltd or k2 in debt_keys: continue
             z = dict(r); z.update({'metric': 'LongTermDebt', 'value': '0', 'source_tag': None, 'source_type': 'sec_companyfacts_fallback',
                                    'fallback_rule': 'no_LTD_tag_with_full_balance_sheet -> 0'})
@@ -316,13 +318,15 @@ def main(cf_dir, sub_path, map_path, out_dir):
         # 「报表完整、但没有这一行 → 记 0」—— 只在 ZERO_BY_ABSENCE 打开时做(待 Lin 拍板)
         if ZERO_BY_ABSENCE:
             def zero_fill(metric, anchor_metric, need_duration, rule):
-                have = {(r['filing_accession'], r['period_start'], r['period_end']) for r in fv[metric]}
+                # 1105 修:按「期间」判断有没有,不按「申报号」—— companyfacts 会把同一期的数只挂在某一份申报下,
+                # 按申报号判断会在别的申报(比如下一年的对比期)里误记 0(AAPL 2016 上半年分红就是这样)
+                have = {(r['period_start'], r['period_end']) for r in fv[metric]}
                 n_ = 0
-                for r in fv[anchor_metric]:
+                for r in sorted(fv[anchor_metric], key=lambda x: x.get('available_at') or ''):
                     if r['form'] not in ('10-K', '10-Q', '10-K/A', '10-Q/A', '10-KT', '10-QT'): continue
                     if need_duration and r['period_start'] is None: continue
                     if not need_duration and r['period_start'] is not None: continue
-                    k3 = (r['filing_accession'], r['period_start'], r['period_end'])
+                    k3 = (r['period_start'], r['period_end'])
                     if k3 in have: continue
                     z = dict(r); z.update({'metric': metric, 'value': '0', 'source_tag': None, 'source_type': 'sec_companyfacts_fallback', 'fallback_rule': rule})
                     z.pop('derivation', None); fv[metric].append(z); have.add(k3); n_ += 1
@@ -331,6 +335,53 @@ def main(cf_dir, sub_path, map_path, out_dir):
             fb['ShortTermDebt_zero'] = zero_fill('ShortTermDebt', 'CurrentLiabilities', False, 'no_short_term_debt_line_with_current_liabilities -> 0')
             for m_ in ('StockIssuance', 'DividendsPaid', 'ShareRepurchase'):
                 fb[m_ + '_zero'] = zero_fill(m_, 'OperatingCashFlow', True, f'no_{m_}_line_with_full_cash_flow_statement -> 0')
+            # 「可疑的 0」(手册 42 第三节,Lin 11-05 同意):记 0 的记录再过两道检查,命中的标 zero_suspect = true(不删,用的时候自己选)
+            #   ① 时间上:前 400 天内这家公司这一行**报过非 0 的数**,这一期突然没有了 → 可能并进了「其他」、或换了自定义科目
+            #   ② 只对资产负债表两项:同一份申报同一天,已知的流动负债分项加起来比「流动负债合计」少 10% 以上 → 差额里可能藏着这一行
+            CL_PARTS = ['AccountsPayableCurrent', 'AccountsPayableAndAccruedLiabilitiesCurrent', 'AccruedLiabilitiesCurrent', 'OtherLiabilitiesCurrent',
+                        'EmployeeRelatedLiabilitiesCurrent', 'DeferredRevenueCurrent', 'ContractWithCustomerLiabilityCurrent', 'OperatingLeaseLiabilityCurrent',
+                        'AccruedIncomeTaxesCurrent', 'TaxesPayableCurrent', 'DebtCurrent', 'ShortTermBorrowings', 'LongTermDebtCurrent', 'CommercialPaper',
+                        'LongTermDebtAndCapitalLeaseObligationsCurrent', 'DividendsPayableCurrent', 'InterestPayableCurrent', 'LiabilitiesOfDisposalGroupIncludingDiscontinuedOperationCurrent']
+            parts = defaultdict(dict)
+            for t_ in CL_PARTS:
+                for r in raw_recs(t_):
+                    if r['period_start'] is None:
+                        try: parts[(r['filing_accession'], r['period_end'])][t_] = float(r['value'])
+                        except Exception: pass
+            cl_tot = {}
+            for r in fv['CurrentLiabilities']:
+                try: cl_tot[(r['filing_accession'], r['period_end'])] = float(r['value'])
+                except Exception: pass
+            def plen(r):
+                return 0 if not r['period_start'] else (date.fromisoformat(r['period_end']) - date.fromisoformat(r['period_start'])).days
+            n_sus = 0
+            for m_ in ('IncomeTaxesPayable', 'ShortTermDebt', 'StockIssuance', 'DividendsPaid', 'ShareRepurchase'):
+                real = [r for r in fv[m_] if not (r.get('fallback_rule') or '').endswith('-> 0')]
+                nz = []
+                for r in real:
+                    try:
+                        if float(r['value']) != 0: nz.append((r['period_end'], plen(r)))
+                    except Exception: pass
+                for r in fv[m_]:
+                    if not (r.get('fallback_rule') or '').endswith('-> 0') or r['value'] != '0': continue
+                    why = []
+                    pe, pl_ = r['period_end'], plen(r)
+                    lo_ = (date.fromisoformat(pe) - timedelta(days=400)).isoformat()
+                    if any(lo_ <= e < pe and abs(L - pl_) <= 31 for e, L in nz): why.append('prior_period_reported_nonzero')
+                    if m_ in ('IncomeTaxesPayable', 'ShortTermDebt'):
+                        k2 = (r['filing_accession'], pe); tot = cl_tot.get(k2)
+                        if tot and tot > 0:
+                            p_ = parts.get(k2, {})
+                            drop = set()                       # 同一块钱的两种报法只算一次
+                            if 'AccountsPayableAndAccruedLiabilitiesCurrent' in p_: drop |= {'AccountsPayableCurrent', 'AccruedLiabilitiesCurrent'}
+                            if 'DebtCurrent' in p_: drop |= {'ShortTermBorrowings', 'LongTermDebtCurrent', 'CommercialPaper', 'LongTermDebtAndCapitalLeaseObligationsCurrent'}
+                            elif 'LongTermDebtCurrent' in p_: drop.add('LongTermDebtAndCapitalLeaseObligationsCurrent')
+                            if 'AccruedIncomeTaxesCurrent' in p_: drop.add('TaxesPayableCurrent')
+                            s_ = sum(v for t_, v in p_.items() if t_ not in drop)
+                            if (tot - s_) / tot > 0.10: why.append('current_liabilities_parts_short_by_over_10pct')
+                    if why:
+                        r['zero_suspect'] = True; r['zero_suspect_reason'] = ';'.join(why); n_sus += 1
+            fb['zero_suspect'] = n_sus
         fb['Revenue'] = fill('Revenue', [
             ('SalesRevenueGoodsNet', tag_in('SalesRevenueGoodsNet')),
             ('RevenueFromContractWithCustomerIncludingAssessedTax', tag_in('RevenueFromContractWithCustomerIncludingAssessedTax')),
