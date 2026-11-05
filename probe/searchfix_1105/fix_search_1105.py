@@ -187,6 +187,16 @@ def _build_cal():
 _SRC, _APPLIED = _build()
 _SRC_CAL, _APPLIED_CAL = _build_cal()
 
+# ★★★ 在**替换之前**把 engine 原函数的源码和哈希存下来。
+#   ★ 1105 11:0x 踩过:install() 之后 `inspect.getsource` 拿不到 exec 出来的函数,
+#     ★★ 于是跑完最后一步自证时崩了(16 条结果都已落盘,只是汇总 JSON 没写出来)。
+import hashlib as _hashlib                                    # noqa: E402
+
+_ORIG_SRC = textwrap.dedent(inspect.getsource(analyze.random_entry_benchmark))
+_ORIG_SRC_CAL = textwrap.dedent(inspect.getsource(analyze.calibrated_random_rate))
+_ORIG_SHA = _hashlib.sha256(_ORIG_SRC.encode()).hexdigest()
+_ORIG_SHA_CAL = _hashlib.sha256(_ORIG_SRC_CAL.encode()).hexdigest()
+
 # ★ 搜索轮次日志(按阶段分开记,便于跑完核「二分有没有真的在二分」)
 _TRACE: dict[str, list[dict[str, Any]]] = {"cal": [], "verify": [], "single": []}
 
@@ -256,29 +266,29 @@ def 改了哪几处() -> list[str]:
 
 
 def 源码自证() -> dict[str, Any]:
-    """★ 跑完要连这个一起归档 —— 证明改的只有列出来那几处。"""
-    import hashlib
-    orig = textwrap.dedent(inspect.getsource(analyze.random_entry_benchmark))
+    """★ 跑完要连这个一起归档 —— 证明改的只有列出来那几处。
+
+    ★★★ 用的是**替换之前**存下来的原函数源码(_ORIG_SRC / _ORIG_SRC_CAL),
+      ★ 不是现场 inspect —— install() 之后 inspect 拿不到 exec 出来的函数。
+    """
     return {
-        "engine 原函数 sha256": hashlib.sha256(orig.encode()).hexdigest(),
-        "改写版 sha256": hashlib.sha256(_SRC.encode()).hexdigest(),
+        "engine 原函数 sha256": _ORIG_SHA,
+        "改写版 sha256": _hashlib.sha256(_SRC.encode()).hexdigest(),
         "改了哪几处": list(_APPLIED),
-        "原函数行数": len(orig.splitlines()),
+        "原函数行数": len(_ORIG_SRC.splitlines()),
         "改写版行数": len(_SRC.splitlines()),
         "★第二条路径(calibrated_random_rate)改了哪几处": list(_APPLIED_CAL),
-        "★第二条路径 engine 原函数 sha256": hashlib.sha256(
-            textwrap.dedent(
-                inspect.getsource(analyze.calibrated_random_rate)).encode()
-        ).hexdigest() if analyze.calibrated_random_rate is not
-        calibrated_random_rate_fixed else "(已被替换,见下一行)",
-        "★第二条路径改写版 sha256": hashlib.sha256(_SRC_CAL.encode()).hexdigest(),
-        "★容差有没有动": ("没有 —— CONTROL_TOL = %r,源码里 CONTROL_TOL 出现 %d 次,"
-                          "和原函数一样 %d 次"
-                          % (analyze.CONTROL_TOL, _SRC.count("CONTROL_TOL"),
-                             orig.count("CONTROL_TOL"))),
+        "★第二条路径 engine 原函数 sha256": _ORIG_SHA_CAL,
+        "★第二条路径改写版 sha256": _hashlib.sha256(_SRC_CAL.encode()).hexdigest(),
+        "★容差有没有动": (
+            "没有 —— CONTROL_TOL = %r,改写版里 CONTROL_TOL 出现 %d 次,"
+            "和原函数一样 %d 次"
+            % (analyze.CONTROL_TOL, _SRC.count("CONTROL_TOL"),
+               _ORIG_SRC.count("CONTROL_TOL"))),
         "★判的还是不是 50 种子平均": (
             "是 —— 断言句 `abs(dev) > CONTROL_TOL` 原样保留:%s"
             % ("abs(dev) > CONTROL_TOL" in _SRC)),
+        "★engine 文件本身": "★★★ 一个字节没改 —— 用 `git status --short engine/` 自证(输出为空)",
     }
 
 
