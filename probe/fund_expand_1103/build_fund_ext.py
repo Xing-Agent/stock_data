@@ -81,6 +81,11 @@ def econ_period(start, end, fye_mmdd):
 ZERO_BY_ABSENCE = os.environ.get('ZERO_BY_ABSENCE', '0') == '1'   # 1105:待 Lin 拍板,默认关
 
 
+def rec_key(r):
+    return (r.get('period_end') or '', r.get('period_start') or '', r.get('available_at') or '', r.get('filing_accession') or '',
+            r.get('source_tag') or '', r.get('fallback_rule') or '', str(r.get('value')))
+
+
 def main(cf_dir, sub_path, map_path, out_dir):
     import csv
     EXTRA = sorted(glob.glob(os.path.join(cf_dir, 'cf2_*.json.gz'))) + sorted(glob.glob(os.path.join(cf_dir, 'cf3_*.json.gz')))
@@ -338,6 +343,8 @@ def main(cf_dir, sub_path, map_path, out_dir):
         used = {t for ts in METRIC_TAGS.values() for t in ts} | set(RAW_METRICS)
         raw_tags = {k: v for k, v in cf['u'].items() if k.split('|')[0].split(':', 1)[1] not in used or not k.startswith('us-gaap:')}
 
+        # 1105:每个科目的记录按固定顺序排(截止日、开始日、公开时间、申报号、来源标签)—— 以前备选科目补出来的记录顺序会随运行变,同内容不同哈希
+        fv = {m: sorted(v, key=rec_key) for m, v in fv.items()}
         doc = {'symbol': folder, 'cik': cik, 'company_id': row['company_id'], 'sec_name': sub.get('n'),
                'cohort': {'origin': 'fund_expand_1103', 'pool_symbols': row['symbols'].split(';'), 'pool_years': [row['y0'], row['y1']]},
                'meta': {'retrieved_at': row.get('retrieved_at') or '2026-11-03', 'sources': ['SEC CompanyFacts', 'SEC submissions (acceptanceDateTime)'],
