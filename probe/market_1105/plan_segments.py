@@ -32,11 +32,22 @@ def main(list_path, out_path):
     # 同一个 company_id(价格连续的一串)在不同年份可能归不同 CIK(代码被收购方接走)。
     # 按选股池逐年的归属切时间:第一年之前归第一年的主人,最后一年之后归最后一年的主人;
     # 主人换了的那一年,切在旧主人的「结束日」(退市申报 +10 天 / 最后定期报告 +120 天),和下一年年底取早的那个
-    def bounds(c):
-        s_ = SUB.get(c, {}); per = sorted(x[2] for x in s_.get('f', []) if x[1].startswith(PERIODIC))
+    def end_of(s_):
+        # 这家在 SEC 的「结束日」:
+        #   · 最后一份定期报告之后交过退市申报(25 / 15)→ 那天 +10 天
+        #   · 没有退市申报、但最近半年还在向 SEC 交东西(任何表格)→ 还活着,不设结束日
+        #   · 否则:最后一份定期报告 +120 天;只交年报的外国公司(20-F / 40-F)+400 天
+        #   (1105 修:以前一律 +120 天,只交年报的外国公司还活着也被提前截断,ABEV、ASML 这类)
+        per = sorted((x[2], x[1]) for x in s_.get('f', []) if x[1].startswith(PERIODIC))
         if not per: return None
-        tail = [x[2] for x in s_.get('f', []) if x[1].startswith(('25', '15')) and x[2] >= per[-1]]
-        return (date.fromisoformat(min(tail)) + timedelta(days=10)).isoformat() if tail else (date.fromisoformat(per[-1]) + timedelta(days=120)).isoformat()
+        # 最近半年还交过「退市 / 注销」以外的东西 → 还活着(注意 25 也可能只是某只债券或优先股退市,AZN 2026 年就是)
+        if any(x[2] >= '2026-05-01' and not x[1].startswith(('25', '15')) for x in s_['f']): return '2100-01-01'
+        tail = [x[2] for x in s_.get('f', []) if x[1].startswith(('25', '15')) and x[2] >= per[-1][0]]
+        if tail: return (date.fromisoformat(min(tail)) + timedelta(days=10)).isoformat()
+        g = 400 if per[-1][1].startswith(('20-F', '40-F')) else 120
+        return (date.fromisoformat(per[-1][0]) + timedelta(days=g)).isoformat()
+    def bounds(c):
+        return end_of(SUB.get(c, {}))
     cid_years = defaultdict(dict)
     for r in csv.DictReader(open(f'{ROOT}/probe/fund_expand_1103/pool_cik_by_year_1103.csv')):
         cid_years[r['company_id']][int(r['year'])] = r['cik']
@@ -71,17 +82,53 @@ def main(list_path, out_path):
             own_cache[cid] = spans
         return [(a, b) for c, a, b in own_cache[cid] if c == cik]
     # 2013 年以前:价格连续切段是从 2013-01-02 开始做的,所以最早一段往前接 —— 只要同一个代码在全量日线里连续交易
-    # (中间断档不超过 10 个交易日)、而且还在这家 SEC 存续区间里,就一路接回 2004-01-02
-    import polars as pl
-    PX = pl.read_parquet('/home/claude/mkt/ohlcv.parquet', columns=['ticker', 'd'])
+    # (中间断档不超过 30 个交易日;1105 从 10 放宽,flat files 偶有整段缺)、而且还在这家 SEC 存续区间里,就一路接回 2004-01-02
+    import polars as pl, glob as _g, bisect
+    # 往前接(1105 改):
+    #   ① 同一个代码:最早一段从 2013-01-02 开始(切段的样本起点)的,只要这个代码在全量日线里连续交易
+    #      (断档不超过 65 个交易日 —— flat files 偶有整段缺,如 AEIS 2005 年 5~7 月),就一路接回 2004-01-02
+    #   ② 换过代码、但切段时没接上的(CECE → CECO 这种):Polygon 年度代码表里登记在同一个 CIK 下的另一个代码,
+    #      前一个交易日(最多差 5 天)停牌、这一段开始,而且价格接得上(前收和今开差 < 25%)→ 接到前面;再对它做 ①
+    want = {cl[f]['cik'] for f in L}
+    tick_by_cik = defaultdict(set)
+    for fp in sorted(_g.glob(f'{ROOT}/probe/fund_expand_1103/polygon_tickers_*.json.gz')) + [f'{ROOT}/probe/exam_1101/polygon_tickers_20151231.json.gz']:
+        for r in json.load(gzip.open(fp))['rows']:
+            if r[4] and r[4].lstrip('0') in want: tick_by_cik[r[4].lstrip('0')].add(r[0])
+    need = {t for c in want for t in tick_by_cik[c]} | {t for cid in seg for t, *_ in seg[cid]}
+    PX = pl.read_parquet('/home/claude/mkt/ohlcv.parquet', columns=['ticker', 'd', 'open', 'close'])
     CAL = sorted(PX['d'].unique().to_list()); CI = {d: i for i, d in enumerate(CAL)}
-    PXD = {t: g['d'].sort().to_list() for (t,), g in PX.filter(pl.col('d') <= '2013-01-02').group_by(['ticker'])}
+    PXD = {t: (g['d'].to_list(), g['open'].to_list(), g['close'].to_list()) for (t,), g in PX.filter(pl.col('ticker').is_in(list(need))).sort('d').group_by(['ticker'])}
+    all_ticks = set(PX['ticker'].unique().to_list())
+    del PX
+    def run_start(t, end_d, lo):
+        """代码 t 在 end_d(含)往前连续交易到哪天(断档 ≤ 65 个交易日,不早于 lo)"""
+        ds = PXD.get(t, ([], [], []))[0]
+        k = bisect.bisect_right(ds, end_d) - 1
+        if k < 0: return None
+        while k > 0 and CI[ds[k]] - CI[ds[k - 1]] <= 66 and ds[k - 1] >= lo: k -= 1
+        return ds[k]
     def back_start(t, lo):
-        ds = PXD.get(t, [])
-        if not ds or ds[-1] != '2013-01-02': return None
-        k = len(ds) - 1
-        while k > 0 and CI[ds[k]] - CI[ds[k - 1]] <= 11 and ds[k - 1] >= lo: k -= 1
-        return ds[k] if ds[k] < '2013-01-02' else None
+        return run_start(t, '2013-01-02', lo)
+    def ok_tick(T):
+        # 不接:发行前交易(…w)、单位(…U)、权证 / 认股权(…W / …R)、优先股(…p…)、带点的特殊类别、…V(发行中)
+        if any(ch.islower() for ch in T) or '.' in T: return False
+        if len(T) >= 4 and T[-1] in 'UVWR' and T[:-1] in all_ticks: return False
+        return True
+    def link_prev(cik, t, a):
+        da, oa_, _ = PXD.get(t, ([], [], []))
+        i = bisect.bisect_left(da, a)
+        if i >= len(da) or da[i] != a or not oa_[i]: return None
+        best = None
+        for T in tick_by_cik.get(cik, ()):
+            if T == t or not ok_tick(T): continue
+            ds, _, cs = PXD.get(T, ([], [], []))
+            k = bisect.bisect_left(ds, a) - 1
+            if k < 0 or not cs[k]: continue
+            if CI[a] - CI[ds[k]] > 5: continue
+            if k + 1 < len(ds) and CI[ds[k + 1]] - CI[a] < 20: continue      # 这个代码之后还在交易 → 不是改名
+            if abs(oa_[i] / cs[k] - 1) >= 0.25: continue
+            if best is None or ds[k] > best[1]: best = (T, ds[k])
+        return best
     plan, fail = {}, []
     for f in L:
         cik = cl[f]['cik']
@@ -93,8 +140,7 @@ def main(list_path, out_path):
         # 开始:这家最早的一份申报(上市文件 S-1 / 10-12B 也算)前 30 天
         lo = (date.fromisoformat(allf[0]) - timedelta(days=30)).isoformat()
         # 结束:最后一份定期报告之后,有退市申报(25 / 15)就用它 +10 天,没有就 +120 天
-        tail = [x[2] for x in s.get('f', []) if x[1].startswith(('25', '15')) and x[2] >= per[-1]]
-        hi = (date.fromisoformat(min(tail)) + timedelta(days=10)).isoformat() if tail else (date.fromisoformat(per[-1]) + timedelta(days=120)).isoformat()
+        hi = end_of(s)
         pieces = []
         for cid in sorted({c for _, c, _ in by_cik_year[cik]}):
             for (oa, ob) in owned(cid, cik):
@@ -102,10 +148,19 @@ def main(list_path, out_path):
                     a2, b2 = max(a, lo, oa, '2004-01-01'), min(b, hi, ob)
                     if a2 <= b2: pieces.append([t, a2, b2, cid, et])
         pieces.sort(key=lambda x: x[1])
-        if pieces and pieces[0][1] == '2013-01-02':
-            b0 = back_start(pieces[0][0], max(lo, '2004-01-01'))
-            if b0: pieces[0][1] = b0
-        warns = [f'代码段 {a}~{b} 是 CIK {c} 和 {n} 换手的那段,哪天换的判不准,两边都没给' for cid in sorted({c for _, c, _ in by_cik_year[cik]}) for a, b, c, n in gap_warn.get((cid, cik), [])]
+        lo4 = max(lo, '2004-01-02'); linked = []
+        for _ in range(6):
+            if not pieces: break
+            if pieces[0][1] == '2013-01-02':
+                b0 = back_start(pieces[0][0], lo4)
+                if b0 and b0 < pieces[0][1]: pieces[0][1] = b0
+            if pieces[0][1] <= lo4: break
+            lk = link_prev(cik, pieces[0][0], pieces[0][1])
+            if not lk: break
+            T, e = lk; st0 = run_start(T, e, lo4)
+            if not st0: break
+            pieces.insert(0, [T, st0, e, 'polygon_cik_link', '改名(按 Polygon 同 CIK + 价格接得上补接)']); linked.append(f'{T}→{pieces[1][0]}')
+        warns = [f'早年代码按 Polygon 同 CIK、价格接得上补接:{x}' for x in linked] + [f'代码段 {a}~{b} 是 CIK {c} 和 {n} 换手的那段,哪天换的判不准,两边都没给' for cid in sorted({c for _, c, _ in by_cik_year[cik]}) for a, b, c, n in gap_warn.get((cid, cik), [])]
         # 同一天两段重叠的,后一段从前一段结束后一天开始
         clean = []
         for p in pieces:
