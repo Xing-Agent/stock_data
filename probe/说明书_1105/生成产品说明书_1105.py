@@ -135,6 +135,47 @@ def 流水(label: str) -> dict | None:
     }
 
 
+def 跑批条件() -> dict:
+    """★ 逐份解析 engine/configs/*.yaml,算出七槽位哪几格是空的。
+    ★★ 这一份披露是配置文件自己要求的(技-6-原著.yaml:42-47)。
+    ★★★ 一个数都不手写。"""
+    import glob
+    import yaml
+    tech, other = [], []
+    for f in sorted(glob.glob("engine/configs/*.yaml")):
+        b = os.path.basename(f)
+        if b.startswith("_"):
+            continue
+        try:
+            d = yaml.safe_load(io.open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        if not isinstance(d, dict):
+            continue
+        rec = {
+            "name": b,
+            "regime": [r for r in ((d.get("regime") or {}).get("rules") or [])],
+            "universe": len((d.get("universe") or {}).get("rules") or []),
+            "sizing": bool((d.get("sizing") or {}).get("type")),
+            "ranking": bool(((d.get("ranking") or {}).get("primary") or {}).get("formula")),
+        }
+        (tech if b.startswith("技-") else other).append(rec)
+    gate_types = sorted({
+        r.get("type") for c in (tech + other) for r in c["regime"]
+        if isinstance(r, dict) and r.get("type")
+    })
+    return {
+        "n_tech": len(tech),
+        "n_tech_regime": sum(1 for c in tech if c["regime"]),
+        "n_tech_universe": sum(1 for c in tech if c["universe"]),
+        "n_tech_sizing": sum(1 for c in tech if c["sizing"]),
+        "n_tech_ranking": sum(1 for c in tech if c["ranking"]),
+        "n_other_regime": sum(1 for c in other if c["regime"]),
+        "gate_types": gate_types,
+        "n_gate_types": len(gate_types),
+    }
+
+
 def main() -> int:
     res = json.load(io.open(RES, encoding="utf-8"))["逐链"]
     it = list(res.values()) if isinstance(res, dict) else res
@@ -173,6 +214,39 @@ def main() -> int:
     A(f"★★★ **所有版本都输的:{len(alllose)} 条**")
     A("")
     A("★★★ **而第 10 格(明确不适用什么)11 条全是空的** —— ★ 严格讲一条都还不能出厂。")
+    A("```")
+    A("")
+    # ------------------------------------------------------------------
+    # ★★★ 跑批条件披露 —— 配置文件自己要求的(技-6-原著.yaml:42-47
+    #   「本次任何一版的成绩都不含大盘择时的贡献,报告里必须写明」)
+    #   ★ 数字由下面的函数现算,不手写。
+    # ------------------------------------------------------------------
+    cond = 跑批条件()
+    A("## ★★★ 这些成绩是在什么条件下跑出来的（★ 必读）")
+    A("")
+    A("```")
+    A("★★★ **这些成绩里,不含任何「看大盘」和「筛股票池」的贡献。**")
+    A("")
+    A(f"★ 技-* 的 {cond['n_tech']} 份配置,★★ 逐份解析的结果:")
+    A(f"   · **环境闸(看大盘)规则数:{cond['n_tech_regime']} 份非空** "
+      f"—— ★★★ 也就是 {cond['n_tech'] - cond['n_tech_regime']} 份一条都没有")
+    A(f"   · **选股池规则数:{cond['n_tech_universe']} 份非空**")
+    A(f"   · 仓位(sizing):{cond['n_tech_sizing']} 份有 · "
+      f"排序(ranking):{cond['n_tech_ranking']} 份有")
+    A("")
+    A("★★ **为什么留空**(★ 配置文件自己写的理由,逐字抄):")
+    A("   「留空的理由是**可比性**:三版之间只允许形态参数不同。")
+    A("     ★ 所以本次任何一版的成绩都**不含大盘择时的贡献,报告里必须写明**。」")
+    A("")
+    A("★★★ **所以这两句话要分清:**")
+    A("   · ✅ 可以说:「这个**形态**本身,在不看大盘的条件下,成绩是这样」")
+    A("   · ❌ **不能说**:「这条**策略**的成绩是这样」—— ★★ 真实的策略是会看大盘的")
+    A("   · ❌ **更不能说**:「这条策略适合 / 不适合什么环境」—— ★★★ 我们**没测过**")
+    A("")
+    A("★★ engine **支持**环境闸(★ 已实现 "
+      f"{cond['n_gate_types']} 种闸门类型,{cond['n_other_regime']} 份老配置在用:"
+      f"{' · '.join(cond['gate_types'])})")
+    A("   → ★★★ 所以这是**没跑**,不是**跑不了**。")
     A("```")
     A("")
     A("### ★ 一屏总表")
