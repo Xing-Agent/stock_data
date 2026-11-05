@@ -1,0 +1,1 @@
+45ac22b4a096924e5bcda97ad77d585699778f2d3be5417ebe8bc1297acf60a6  fundamentals_ext/_MANIFEST.sha256

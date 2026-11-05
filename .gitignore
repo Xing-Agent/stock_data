@@ -8,3 +8,7 @@ XING-V2*.zip
 
 # ★ 扩库全跑 1104 的流水归档 —— ★★ 流水不入库(《35》口径④)
 probe/expand_run_1104/*.tar.gz
+
+# ★ 修搜索 1105 的流水 —— ★★ 流水不入库(《47》口径④)
+probe/searchfix_1105/ledgers_1105/
+probe/searchfix_1105/*.tar.gz
