@@ -1,0 +1,3 @@
+series_id,source_ticker,provider,unit,first_date,last_date,n_rows,adjustment,notes
+VIX,_VIX,cboe,index_points,2008-01-02,2026-11-04,4741,none,"CBOE 官方开高低收;FRED VIXCLS 逐日对收盘,差 > 0.01 的 0 天;美股休市日 CBOE 也发的 33 天另放,不在 data 里"
+DTB3,DTB3,fred,percent_annualized,2008-01-02,2026-11-03,4713,none,"贴现口径;FRED 空值的 203 天(节假日 / 债市休市)不出行,没有补;最新只到 2026-11-03(FRED 还没发 2026-11-04)"
