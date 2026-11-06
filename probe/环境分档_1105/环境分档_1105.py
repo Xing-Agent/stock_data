@@ -13,14 +13,21 @@
    · 每格必报笔数;笔数 < 30 的格子**不给结论**,只给数(规矩⑥:先问判据分辨力)
    · 「算不出」和「成绩差」分开记,不混成一个数
    · 不写「建议用在哪个行业/哪种环境」,只给数字 —— 判断留给 Lin 和用户
+
+★★★ 1106 修 Bug ①(和另两个脚本同一个 bug):
+   45 份 REAL__*.csv 里按内容 sha256 只有 32 份是唯一的(11 组是一模一样的副本),
+   原来 `glob` 一遍全吃进去 → 同一条链被当成两条、笔数被重复计入。
+   ★ 现在 import `去重流水_1106` 按内容去重,★★ 去重全过程写进 json 口径节,不许静默去重。
 """
 from __future__ import annotations
-import glob, io, json, os, re, sys
+import io, json, os, re, sys
 import numpy as np
 import pandas as pd
 
 sys.path.insert(0, os.path.abspath("."))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from engine import data as edata            # noqa: E402
+from 去重流水_1106 import 去重后的流水文件, 去重报告   # noqa: E402
 
 LED = "probe/friction_rerun_1104/ledgers_1104"
 OUT = "probe/环境分档_1105"
@@ -87,7 +94,8 @@ def 格子(g: pd.DataFrame) -> dict:
 def main() -> int:
     env = 大盘轴()
     sec = 行业表()
-    files = sorted(glob.glob(os.path.join(LED, "REAL__*.csv")))
+    报告 = 去重报告(LED)                     # ★★★ Bug ①:去重,且全过程记进 json
+    files = 去重后的流水文件(LED)
     结果, 跳过 = {}, []
     for f in files:
         链 = os.path.basename(f)[len("REAL__"):-len(".csv")]
@@ -124,13 +132,19 @@ def main() -> int:
                      "★★★ 只用于切开看,不得当闸门(engine matrices.py:352 已硬挡)"),
             "不给结论的门槛": f"笔数 < {MIN_N} 的格子只给数",
             "和0分不开的判据": "|每笔净R| <= 2 × 标准误",
+            "★★★1106修的bug": "Bug ①:45 份 REAL__*.csv 里按内容 sha256 只有 32 份唯一"
+                               "(11 组重复副本),原来全吃进去 → 笔数被重复计入。"
+                               "★ 现在按内容去重,明细见「★流水去重」。",
+            "★流水去重": 报告,
         },
         "链数": len(结果), "跳过": 跳过, "逐链": 结果,
     }
     p = os.path.join(OUT, "环境分档_1105.json")
     io.open(p, "w", encoding="utf-8").write(
         json.dumps(payload, ensure_ascii=False, indent=1))
-    print(f"★ 写到 {p} · {len(结果)} 条链 · 跳过 {len(跳过)}")
+    print(f"★ 写到 {p} · {len(结果)} 条链 · 跳过 {len(跳过)} · "
+          f"流水 {报告['原始份数']} 份 → 去重后 {报告['去重后份数']} 份"
+          f"(丢掉 {报告['被丢掉的份数']} 份 / {报告['重复组数']} 组重复)")
     return 0
 
 
