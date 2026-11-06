@@ -33,3 +33,9 @@ probe/挂闸_1106/ledgers_1106/
 probe/挂闸_1106/configs/_gate_*.yaml
 probe/挂件_1106/arms_1106/
 probe/技789_1106/arms_1106/
+
+# ★ 测仓位 1107 的流水 —— ★★ 流水不入库(《35》口径④);CTRL 对照流水单条 70MB
+probe/测仓位_1107/ledgers_1107/
+probe/测仓位_1107/per_chain_1107/
+probe/测仓位_1107/_log_1107.txt
+probe/测仓位_1107/configs/_sz_*.yaml
