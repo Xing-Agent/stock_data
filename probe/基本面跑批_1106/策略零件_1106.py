@@ -77,6 +77,9 @@ def metric_quarterly(F, P, symbol, name, vals, ef):
     空 = (pd.Series(dtype=float), pd.Series(dtype="datetime64[ns]"))
     if vals is None or vals.empty:
         return 空
+    # ★★ 生效日表先统一成日期类型 —— 原表里全空的列是 float,和日期混在一起取 max 会抛错
+    #   (★ 1106 晚实测:研发池 60 只里 53 只因此抛错、被上层吞成「算不出」)
+    ef = ef.apply(pd.to_datetime, errors="coerce")
     生效 = ef.max(axis=1)        # ★ 保守:用到的列里最晚的那个(下面逐个按需收紧)
 
     def 收(v, cols=None):
@@ -119,7 +122,8 @@ def metric_quarterly(F, P, symbol, name, vals, ef):
             return 空
         f = f.reindex(vals.index)
         ni = vals["ni"].where(vals["ni"] > 0)
-        e = pd.concat([fe.reindex(vals.index), ef["ni"]], axis=1).max(axis=1)
+        e = pd.concat([pd.to_datetime(fe.reindex(vals.index), errors="coerce"), ef["ni"]],
+                      axis=1).max(axis=1)
         return (f / ni).replace([np.inf, -np.inf], np.nan), e
     if name in ("eps_q_yoy", "rev_q_yoy"):
         m = "NetIncome" if name == "eps_q_yoy" else "Revenue"
@@ -371,6 +375,8 @@ def install() -> dict:
                 if len(ge) == 0 or len(gr) == 0:
                     return pd.Series(dtype=float), pd.Series(dtype="datetime64[ns]")
                 ge, gr = ge.reindex(vals.index), gr.reindex(vals.index)
+                ee = pd.to_datetime(ee.reindex(vals.index), errors="coerce")
+                er = pd.to_datetime(er.reindex(vals.index), errors="coerce")
                 pos = pd.concat([ge.shift(i) > 0 for i in range(nq)], axis=1).all(axis=1)
                 accel = ge > ge.shift(1)
                 # ★★ 卡原文「营收增长跟得上利润增长(防止只是削减成本)」——

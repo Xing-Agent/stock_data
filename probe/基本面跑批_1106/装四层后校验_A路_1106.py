@@ -11,7 +11,8 @@ for d in ("probe/补齐能力_1106", "probe/基本面跑批_1106", "probe/新策
     sys.path.insert(0, os.path.join(ROOT, d))
 import 接新财报库_1106 as EXT, 瘦身财报库_1106 as SLIM          # noqa: E402
 import 基本面零件_1106 as PARTS, 策略零件_1106 as MINE            # noqa: E402
-EXT.install(); SLIM.install(); PARTS.install(); MINE.install()
+import 补股数闸_1106 as SHARE                                    # noqa: E402
+EXT.install(); SLIM.install(); SHARE.install(); PARTS.install(); MINE.install()
 import 校验配置_1106 as V                                        # noqa: E402
 if __name__ == "__main__":
     raise SystemExit(V.main(sys.argv[1:]))

@@ -37,15 +37,15 @@ def 装层():
     from engine import cache, data, pool_scope, pat6_ops
     pat6_ops.install()
     import 接新财报库_1106 as EXT, 瘦身财报库_1106 as SLIM
-    import 基本面零件_1106 as PARTS, 策略零件_1106 as MINE
+    import 基本面零件_1106 as PARTS, 策略零件_1106 as MINE, 补股数闸_1106 as SHARE
     import rerun_core_1030 as RC
-    a = EXT.install(); b = SLIM.install(); c = PARTS.install(); d = MINE.install()
+    a = EXT.install(); b = SLIM.install(); e = SHARE.install(); c = PARTS.install(); d = MINE.install()
     wide = pd.read_parquet(NEWPANEL)
     cache._PANEL = {f: wide[f] for f in wide.columns.levels[0]}
     RC._IDX_CACHE["idx"] = pool_scope.PoolIndex(path=NEWPOOL)
     data.PERF_START = PERF_START
     return RC, {"财报库": a.get("★家数"), "瘦身": b.get("只数"),
-                "零件": len(c.get("★★新规则") or []), "本路": d.get("新规则")}
+                "零件": len(c.get("★★新规则") or []), "本路": d.get("新规则"), "股数闸": e}
 
 
 def 臂表() -> list[dict]:
