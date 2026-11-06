@@ -7,7 +7,10 @@
 ★★ 纪律:
   · ⚠ 只用研发池(从 friction_rerun_1104 的流水里取 symbol) —— **考卷那 1,042 只不碰**
   · 每段只给到「提问日」为止的数据;后面 40 个交易日另存答案卷,★★★ 提问时不给
-  · 三类环境各 2 段(照 Lin 的三分法:震荡 / 突破 / 大波段),★ 按客观规则挑,不是我挑的
+  · ★★★ 这里原来写「照 Lin 的三分法:震荡/突破/大波段」—— **写错了**:
+    三分法是**策略类型**,而我们挑的是**行情环境**。实际挑的是
+    上行 / 震荡 / 下行,再加一类**真突破**(给「我想做突破单」那道题用)。
+  · ★ 四类各 2 段,★★ 按客观规则挑,不是看图挑的
 """
 from __future__ import annotations
 import glob, io, json, os, sys
@@ -53,14 +56,25 @@ def main() -> int:
             r2 = float(np.corrcoef(x, lr)[0, 1] ** 2)
             斜率 = float(k * 252)
             幅宽 = float((w.max() - w.min()) / w.min())
-            rows.append((s, t, 斜率, r2, 幅宽))
-    d = pd.DataFrame(rows, columns=["symbol", "date", "斜率", "R2", "幅宽"])
+            # ★ 突破判据(只用窗口内数据):当日收盘是窗口内最高收盘 + 当日放量
+            vw = vol[s].iloc[i - WIN + 1:i + 1]
+            基准量 = float(vw.iloc[:-1].mean()) if vw.iloc[:-1].notna().any() else float("nan")
+            放量 = (float(vw.iloc[-1]) / 基准量) if 基准量 and 基准量 > 0 else float("nan")
+            突破 = int(float(w.iloc[-1]) >= float(w.max()) and
+                       np.isfinite(放量) and 放量 >= 1.5)
+            rows.append((s, t, 斜率, r2, 幅宽, 突破, 放量))
+    d = pd.DataFrame(rows, columns=["symbol", "date", "斜率", "R2", "幅宽",
+                                    "突破", "放量倍数"])
     # ★★ 客观挑法(★ 规则写死,不是我看图挑的):
     picks = {
         "大波段(单边上行)": d[(d.斜率 > 0.5) & (d.R2 > 0.8)].nlargest(2, "R2"),
         "震荡(来回磨)":    d[(d.斜率.abs() < 0.15) & (d.R2 < 0.1)
                               & (d.幅宽.between(0.15, 0.45))].nsmallest(2, "R2"),
         "下行(单边向下)":  d[(d.斜率 < -0.5) & (d.R2 > 0.8)].nlargest(2, "R2"),
+        # ★★★ 新增:给「我想做突破单」那道题用。
+        #   客观规则:提问日收盘 = 窗口内最高收盘(创 120 日新高)
+        #   且当日成交量 ≥ 窗口前 119 日均量 × 1.5(放量)
+        "真突破(当日创新高且放量)": d[d.突破 == 1].nlargest(2, "放量倍数"),
     }
     素材, 答案 = [], []
     seen = set()
@@ -80,18 +94,26 @@ def main() -> int:
                 "volume": vol[r.symbol].iloc[w].astype("int64").to_numpy(),
             })
             f = slice(i + 1, i + 1 + FWD)
+            # ★★★ 原来只给 date/high/low/close —— 少了 open 和 volume,
+            #   于是「隔夜跳空有没有跳过止损」和「后 40 根量能配合」两类都核不了。
+            #   ★ open 决定跳空,volume 决定量能,两个都补上。
             fwd = pd.DataFrame({
                 "date": idx[f].strftime("%Y-%m-%d"),
+                "open": op[r.symbol].iloc[f].round(2).to_numpy(),
                 "high": hi[r.symbol].iloc[f].round(2).to_numpy(),
                 "low":  lo[r.symbol].iloc[f].round(2).to_numpy(),
                 "close": cl[r.symbol].iloc[f].round(2).to_numpy(),
+                "volume": vol[r.symbol].iloc[f].astype("int64").to_numpy(),
             })
             素材.append({"编号": f"行情-{len(素材)+1}", "类": 类,
                         "★代码已隐去": True, "真实代码": r.symbol,
                         "提问日": str(r.date.date()),
                         "客观刻度": {"年化斜率": round(float(r.斜率), 3),
                                    "R2": round(float(r.R2), 3),
-                                   "窗口幅宽": round(float(r.幅宽), 3)},
+                                   "窗口幅宽": round(float(r.幅宽), 3),
+                                   "当日创窗口新高": bool(r.突破),
+                                   "当日放量倍数": (round(float(r.放量倍数), 2)
+                                                   if np.isfinite(r.放量倍数) else None)},
                         "bars": bars.to_dict("records")})
             答案.append({"编号": f"行情-{len(答案)+1}", "真实代码": r.symbol,
                         "提问日": str(r.date.date()),
