@@ -1,0 +1,96 @@
+# ==========================================================================
+# 基-6_收购者倍数 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:只看一个数:企业价值 ÷ 息税前利润,最便宜的那批买进,持有一年后重排。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-6
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★ 排除金融股
+    这一版怎么做: ★ 没装 —— 没有历史时点行业分类(同 基-4)
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★ 「持有一年后重排」
+    这一版怎么做: ★ 满 252 个交易日平仓、空槽按 EV/EBIT 从低到高补(仍便宜的会再买回)
+  - 闸: ★ 可挂载的 12 个月动量过滤
+    这一版怎么做: ★ 不挂(卡原文:它是可挂载过滤器,不是这条的一部分)
+  结论怎么写:
+    只许这么写: 「**这一版**(没排除金融股)……」
+meta:
+  name: 基-6_收购者倍数
+  master: 托拜厄斯·卡莱尔
+  card: 基-6
+  book: 《The Acquirer's Multiple》(★ 页码待核)
+  family_label: 基本面
+  三秒版: 只看一个数:企业价值 ÷ 息税前利润,最便宜的那批买进,持有一年后重排。
+  known_gap: ★ 没排除金融股(没有历史行业分类)
+  param_gap: ★★ 原著没给持有只数(★ 作者网站的筛选器常列 30 只,页码待核)→ 跑 20 / 30 / 40 三点
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: ev_ebit_rank_bottom
+    params:
+      rank_bottom_pct: 100
+    source: ★ ①档 卡原文「按企业价值 / 息税前利润(EV/EBIT)给全市场排名」;★★ 这里 100 = 只要算得出就进池,★ 谁先买由排序决定(EV/EBIT 从低到高)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules: []
+  params:
+    profit_target_r: null
+    time_stop_days: 252
+  fill: next_open
+  source: ★ ①档 卡原文「持有一年后重排,不再便宜就换掉」→ 满 252 日平仓,空槽按排序补
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:ev_ebit
+      order: desc
+    source: ★ ①档 卡原文「买最便宜的一批」→ EV/EBIT 从低到高
+  params:
+    max_weight: 0.0333
+    max_positions: 30
+  source: ★ ③档 只数原著没给 → 三点
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: 20只
+  档: ③
+  覆盖:
+    sizing.params.max_positions: 20
+    sizing.params.max_weight: 0.05
+- 名: 30只
+  档: ③
+  覆盖:
+    sizing.params.max_positions: 30
+    sizing.params.max_weight: 0.0333
+- 名: 40只
+  档: ③
+  覆盖:
+    sizing.params.max_positions: 40
+    sizing.params.max_weight: 0.025

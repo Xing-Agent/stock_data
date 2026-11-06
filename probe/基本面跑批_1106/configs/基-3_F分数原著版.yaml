@@ -1,0 +1,101 @@
+# ==========================================================================
+# 基-3_F分数原著版 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:先挑市净率最低的 20%(便宜股),再在里面只买九项财务检查得 8~9 分的;一年重算一次。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-3
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★★ 原著是**年度**数据算 F 分数
+    这一版怎么做: ★ 引擎用季度 TTM 滚动算(fundamentals.py f_score)
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★ 原著是「高分的全部买、等权」
+    这一版怎么做: ★ 30 个槽位,名额不够时按市净率从低到高
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★★ 九项任一算不出 → 整个 F 分数算不出 → 不进池
+    这一版怎么做: ★ 照引擎铁律
+    成绩会偏哪边: ★ 方向不明;★★ 金融股多数不报流动资产/流动负债 → 基本进不来
+  结论怎么写:
+    只许这么写: 「**这一版**(季度滚动算分、30 槽)……」
+meta:
+  name: 基-3_F分数原著版
+  master: 约瑟夫·皮奥特罗斯基
+  card: 基-3
+  book: Piotroski (2000) JAR Vol.38 Supplement(★ 年份 2000,非 2001 —— 已核,见 deep_value.yaml)
+  family_label: 基本面
+  三秒版: 先挑市净率最低的 20%(便宜股),再在里面只买九项财务检查得 8~9 分的;一年重算一次。
+  known_gap: ★ 季度滚动算分(原著年度)· 30 槽(原著全买)
+  param_gap: ★★ 原著主组合 = F 8~9 → 照原著取 ≥ 8;★ 另跑 ≥ 7 / ≥ 9 两个相邻点看是否同向(★ 不是原著没给,是敏感度)
+  ★★★原著版的两步: ① 先选账面市值比最高的 20%(= 市净率最低的 20%,原著第 3.1 节) ② 再在里面按 F 分数挑。★ 这一份**两步都做了**,所以可以标「原著版」。
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: pb_rank_bottom
+    params:
+      rank_bottom_pct: 20
+    source: ★ ①档 原著第 3.1 节:「按上一财年 BM 分五组取最高那组」→ 市净率最低的 20%(★★ 池内横截面,不是全市场 —— 全市场分位拿不到)
+  - type: piotroski_f_score_above
+    params:
+      min_score: 8
+      max_score: 9
+    source: ★ ①档 原著第 3.3 节主组合 F = 8~9(★ 已核,见 deep_value.yaml 注释)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules: []
+  params:
+    profit_target_r: null
+    time_stop_days: 252
+  fill: next_open
+  source: ★ ①档 卡原文「一年重算一次」→ 持满 252 个交易日平仓;★ 空槽按排序补(仍合格的会再买回)
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:pb
+      order: desc
+    source: ★ ③档 我们的:名额不够时按市净率从低到高
+  params:
+    max_weight: 0.0333
+    max_positions: 30
+  source: ★ ③档 我们的:原著是高分全买等权 → 我们 30 槽等权
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: F≥7
+  档: ③相邻点
+  覆盖:
+    universe.rules.1.params.min_score: 7
+- 名: F≥8
+  档: ①原著主组合
+  覆盖:
+    universe.rules.1.params.min_score: 8
+- 名: F≥9
+  档: ③相邻点
+  覆盖:
+    universe.rules.1.params.min_score: 9

@@ -1,0 +1,129 @@
+# ==========================================================================
+# 基-1_格雷厄姆防御七条 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:七条硬性筛选全部通过才买,不需要判断,照着数就行;不再满足就换,一年重检一次。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-1
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★★★ 「10 年连续盈利」「20 年连续分红」「10 年盈利增长」这三条的**回看长度**
+    为什么装不全: ★ 新财报库最早约 2009 年起(SEC 结构化财报起点);回测窗口 2015 起 → ★★ 10 年回看要到 2019 年以后才有第一只票算得出,20 年分红**物理上不存在**。
+    这一版怎么做: ★ 三条共用一个「回看年数」旋钮,跑 5 / 7 / 10 年三点(10 = 原著盈利口径);★★ 分红那条原著 20 年,我们**只能**跟着同一个旋钮(≤10 年)—— 比原著松。
+    成绩会偏哪边: ★★★ 方向不明,不写偏高偏低(★ 回看短 = 放进更多票,好坏都有可能)
+  - 闸: ★ 「规模足够大」的门槛
+    这一版怎么做: ★ 营收 TTM ≥ 6 亿美元 —— ★★ ③档我们的:原著 1972 年写的是年销售 ≥ 1 亿美元,按 CPI 粗折到 2015~2020 约 6 亿;★ 池子本身已是大+中口径
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★ 「长期负债不超过营运资本」—— 没报长期债科目的公司
+    这一版怎么做: ★★★ 没报 LongTermDebt 的票(★ 很多是真没有长期债)算不出 → 判不合格(引擎铁律:NaN 不合格)
+    成绩会偏哪边: ★★ 方向不明;★ 但会系统性**漏掉无债公司**,报结论时必须带这一句
+  - 闸: ★ 原著「一年重检一次」
+    这一版怎么做: ★ 每年第一个交易日检查,不再满足七条就卖(fund_rule_fails · annual)
+  结论怎么写:
+    不许这么写:
+    - 格雷厄姆七条无效
+    - 防御型投资法不成立
+    只许这么写: 「**这一版**(回看长度被数据截短、无债公司被误剔)没有/有通过检验」
+meta:
+  name: 基-1_格雷厄姆防御七条
+  master: 本杰明·格雷厄姆
+  card: 基-1
+  book: 《The Intelligent Investor》第 14 章(★ 页码待核)
+  family_label: 基本面
+  三秒版: 七条硬性筛选全部通过才买,不需要判断,照着数就行;不再满足就换,一年重检一次。
+  known_gap: ★★★ 见 实现缺口:回看长度被数据截短(10/20 年 → 5/7/10 年)· 规模门槛是我们折算的 · 没报长期债的公司被判不合格(★ 方向不明,只记事实)。
+  param_gap: ★★ 原著给了全部数值(流动比率 2、市盈率 15、市净率 1.5、乘积 22.5、增长三分之一)→ 照原著;★★★ 唯一跑三点的是「回看年数」5 / 7 / 10(★ 不是原著没给,是数据不够长)。
+  教学用途: ★ 方法卡第④栏:教学与展示;不进交易契约的风险计算。
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: graham_defensive
+    params:
+      years: 7
+      min_revenue: 600000000.0
+      min_current_ratio: 2.0
+      max_ltd_over_nwc: 1.0
+      min_growth: 0.3333
+      max_pe: 15.0
+      max_pb: 1.5
+      max_product: 22.5
+    source: ★ ①档 原著七条(卡原文:「公司规模足够大;财务稳健(流动比率达标、长期负债不超过营运资本);过去若干年连续盈利,无亏损年;股息记录连续;盈利有长期增长;市盈率低于上限;市净率低于上限,且两者乘积不超过固定阈值」)。★★
+      数值:流动比率 ≥ 2 · 长债 ≤ 净流动资产 · 市盈率(三年平均每股收益)≤ 15 · 市净率 ≤ 1.5 或 市盈率×市净率 ≤ 22.5 · 三年平均每股收益比 N−3 年前高 ≥
+      1/3 —— ①档(页码待核)。★★★ 规模门槛 6 亿 = ③档我们的(CPI 折算);回看年数 = 数据所限,见 实现缺口。
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules:
+  - type: fund_rule_fails
+    params:
+      rule:
+        type: graham_defensive
+        params:
+          years: 7
+          min_revenue: 600000000.0
+          min_current_ratio: 2.0
+          max_ltd_over_nwc: 1.0
+          min_growth: 0.3333
+          max_pe: 15.0
+          max_pb: 1.5
+          max_product: 22.5
+      check: annual
+    source: ★ ①档 卡原文:「不再满足条件就换掉,通常一年重检一次」
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 不再满足条件就卖 —— 用本路覆盖层 fund_rule_fails 在检查日判
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:pe3
+      order: desc
+    source: ★★ ③档 我们的:原著没说名额不够时先买谁 → 按三年平均市盈率从低到高(★ 不写的话引擎默认按 126 日涨幅挑,那不是原著)
+  params:
+    max_weight: 0.0333
+    max_positions: 30
+  source: ★ ②档 卡原文「分散持有……有效性建立在数量上」;★ 原著提到 10~30 只(页码待核)→ 取 30,等权
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: 回看5年
+  档: ③数据所限
+  覆盖:
+    universe.rules.0.params.years: 5
+    exit.rules.0.params.rule.params.years: 5
+- 名: 回看7年
+  档: ③数据所限
+  覆盖:
+    universe.rules.0.params.years: 7
+    exit.rules.0.params.rule.params.years: 7
+- 名: 回看10年
+  档: ①原著盈利口径
+  覆盖:
+    universe.rules.0.params.years: 10
+    exit.rules.0.params.rule.params.years: 10

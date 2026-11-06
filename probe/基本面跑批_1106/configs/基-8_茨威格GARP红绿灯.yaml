@@ -1,0 +1,118 @@
+# ==========================================================================
+# 基-8_茨威格GARP红绿灯 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:要有成长但别太贵:盈利连续几季正增长且在加快、市盈率在市场均值一半到两倍之间;大盘红灯就不买、转红就卖。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-8
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★★★ 红绿灯的「利率方向」
+    这一版怎么做: ★ 用 3 个月期美债(DTB3)比半年前低 = 利率在降(★ ③档我们的读法;原著用贴现率/优惠利率等货币指标,页码待核)
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★★ 红绿灯三态 → 引擎只有开/关
+    这一版怎么做: ★ 绿=两条都成立 · 黄=一条 · 红=都不成立;★★ 「非红就允许开仓,转红就清仓」= ③档我们的映射
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★ 「营收增长跟得上利润增长」
+    这一版怎么做: ★ 单季营收同比 > 0 且 ≥ 利润增速的一半(③档我们的读法)
+  - 闸: ★ 原著看的是**每股收益**增速
+    这一版怎么做: ★ 单季净利润 ÷ 摊薄股数,同比(★ 不是公司公布的 EPS 科目)
+  结论怎么写:
+    只许这么写: 「**这一版**(红绿灯用 3 个月美债 + SPY 200 日线代)……」
+meta:
+  name: 基-8_茨威格GARP红绿灯
+  master: 马丁·茨威格
+  card: 基-8
+  book: 《Winning on Wall Street》(★ 页码待核)
+  family_label: 基本面
+  三秒版: 要有成长但别太贵:盈利连续几季正增长且在加快、市盈率在市场均值一半到两倍之间;大盘红灯就不买、转红就卖。
+  known_gap: ★★★ 红绿灯用 3 个月美债 + SPY 200 日线代(③档读法)· 三态映射成开关(③)
+  param_gap: ★★ 「连续多个季度」原著没给几季 → 2 / 3 / 4 季三点;★ 「市盈率在市场均值的一半到两倍」是卡原文数 → 照用(★ 用池内中位数当「均值」,③)
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: zweig_garp
+    params:
+      growth_quarters: 3
+      pe_lo_mult: 0.5
+      pe_hi_mult: 2.0
+    source: ★ ①档 卡原文「盈利连续多个季度正增长且增速在加快,市盈率在市场均值的一半到两倍之间,营收增长跟得上利润增长」;★★ 季数跑三点;「营收跟得上」的可算读法 ③
+regime:
+  rules:
+  - type: zweig_light
+    params:
+      symbol: SPY
+      ma: 200
+      rate_lookback: 126
+      allow: not_red
+    source: ★ ①档 卡原文「输入是利率方向和大盘长均线,输出红/黄/绿三态」;★★★ 利率用 DTB3、长均线取 200 日、半年回看、非红即开 —— 全部 ③档我们的读法
+  flatten_when_off: true
+  source: ★ ①档 卡原文「大盘不好的时候,再好的股票也不买」「大盘红绿灯转红」就退出 → 转红清仓
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules:
+  - type: fund_rule_fails
+    params:
+      rule:
+        type: fund_metric_threshold
+        params:
+          metric: zweig_growth_ok_3
+          op: ge
+          value: 1.0
+      check: daily
+    source: ★ ①档 卡原文「盈利增速拐头向下」就卖 → 增长条件不再成立的那天收盘判离场(★ 只看增长那半条,不看市盈率带 —— 卡原文离场只说增速)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 不再满足条件就卖 —— 用本路覆盖层 fund_rule_fails 在检查日判
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:eps_q_yoy
+      order: desc
+    source: ★ ③档 我们的:名额不够时按单季每股收益同比增速从高到低
+  params:
+    max_weight: 0.0333
+    max_positions: 30
+  source: ★ ③档 我们的:30 槽等权
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: 2季
+  档: ③
+  覆盖:
+    universe.rules.0.params.growth_quarters: 2
+    exit.rules.0.params.rule.params.metric: zweig_growth_ok_2
+- 名: 3季
+  档: ③
+  覆盖:
+    universe.rules.0.params.growth_quarters: 3
+    exit.rules.0.params.rule.params.metric: zweig_growth_ok_3
+- 名: 4季
+  档: ③
+  覆盖:
+    universe.rules.0.params.growth_quarters: 4
+    exit.rules.0.params.rule.params.metric: zweig_growth_ok_4

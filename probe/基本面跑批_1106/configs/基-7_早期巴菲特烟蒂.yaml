@@ -1,0 +1,99 @@
+# ==========================================================================
+# 基-7_早期巴菲特烟蒂 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:用五毛钱买一块钱的东西 —— 股价低于每股净流动资产的一半就买,涨到净流动资产就卖。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-7
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★★★ 三类机会里只做了第一类(极度低估的普通股)
+    为什么: ★ 卡原文:套利(见第五章)要并购条款、控制型投资「个人做不了」;「这家公司的资产到底值多少钱」需要人工判断
+    这一版怎么做: ★ 「用五毛钱买一块钱」→ 用**净流动资产**(流动资产 − 总负债)当那「一块钱」——★★ ③档我们的读法(★ 这其实是格雷厄姆的 Net-Net 口径,和 基-2 是近亲)
+    成绩会偏哪边: ★ 方向不明
+  结论怎么写:
+    只许这么写: 「**这一版**(只做烟蒂那一类,价值用净流动资产代)……」
+meta:
+  name: 基-7_早期巴菲特烟蒂
+  master: 沃伦·巴菲特(1957–1969 合伙企业时期)
+  card: 基-7
+  book: 合伙企业时期致合伙人信(★ 卡原文)
+  family_label: 基本面
+  三秒版: 用五毛钱买一块钱的东西 —— 股价低于每股净流动资产的一半就买,涨到净流动资产就卖。
+  known_gap: ★★★ 只做三类机会里的一类;「价值」用净流动资产代(③档我们的读法)
+  param_gap: ★★ 卡原文「五毛钱买一块钱」→ 0.5 是原文数;★ 另跑 0.667(格雷厄姆的三分之二)/ 0.8 两个相邻点
+  ★★预警: ★ 大+中口径池子里,股价低于净流动资产一半的票**可能极少** —— 笔数少就如实报「样本不够」
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: net_net_below
+    params:
+      factor: 0.5
+    source: ★ ①档 卡原文「核心是用五毛钱买一块钱的东西」→ 价格 < 0.5 × 每股净流动资产;★★ 「一块钱」用净流动资产 = ③档我们的读法
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules:
+  - type: fund_rule_fails
+    params:
+      rule:
+        type: net_net_below
+        params:
+          factor: 1.0
+      check: daily
+    source: ★ ①档 卡原文「涨到内在价值就卖,换下一个」→ 价格回到 ≥ 每股净流动资产就卖(★ 内在价值用同一读法)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 不再满足条件就卖 —— 用本路覆盖层 fund_rule_fails 在检查日判
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:p_ncav
+      order: desc
+    source: ★ ③档 我们的:名额不够时按「价格 ÷ 净流动资产」从低到高
+  params:
+    max_weight: 0.0333
+    max_positions: 30
+  source: ★ ③档 我们的:30 槽等权
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: 五毛
+  档: ①卡原文
+  覆盖:
+    universe.rules.0.params.factor: 0.5
+- 名: 三分之二
+  档: ②格雷厄姆口径
+  覆盖:
+    universe.rules.0.params.factor: 0.6667
+- 名: 八毛
+  档: ③相邻点
+  覆盖:
+    universe.rules.0.params.factor: 0.8

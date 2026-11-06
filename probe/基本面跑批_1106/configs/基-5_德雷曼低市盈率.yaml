@@ -1,0 +1,99 @@
+# ==========================================================================
+# 基-5_德雷曼低市盈率 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:买市盈率最低的那一档;估值排名回到中位数附近就卖,换进新的最便宜的;每季度重排。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-5
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★ 「可承受的负债」
+    这一版怎么做: ★ 没装 —— 卡没给数;德雷曼原书是「比行业平均低」,★★ 我们没有历史时点行业分类
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★ 「正向盈利」
+    这一版怎么做: ★ 每股收益 ≤ 0 时市盈率算不出 → 不进池(等价于要求正盈利)
+  结论怎么写:
+    只许这么写: 「**这一版**(没装负债闸)……」
+meta:
+  name: 基-5_德雷曼低市盈率
+  master: 大卫·德雷曼
+  card: 基-5
+  book: 《Contrarian Investment Strategies》(★ 页码待核)
+  family_label: 基本面
+  三秒版: 买市盈率最低的那一档;估值排名回到中位数附近就卖,换进新的最便宜的;每季度重排。
+  known_gap: ★ 没装负债闸(要行业平均,没有历史行业分类)
+  param_gap: ★★ 「回到中位数附近」= 第 50 百分位是卡原文;★ 「附近」没给宽度 → 跑 40 / 50 / 60 三点。★ 进池用最便宜 20%(★ 五分组最低一组,②档 德雷曼研究用五分组)
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: pe_rank_bottom
+    params:
+      rank_bottom_pct: 20
+    source: ★ ②档 卡原文「按市盈率把全市场排序,只买最便宜的那一档」;★ 一档 = 五分组的最低一组(德雷曼研究的分组口径,页码待核)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules:
+  - type: fund_rule_fails
+    params:
+      rule:
+        type: pe_rank_bottom
+        params:
+          rank_bottom_pct: 50
+      check: quarterly
+    source: ★ ①档 卡原文「估值排名上升到市场中位数附近时卖出……通常按季度或年度重排」→ 每季第一个交易日,市盈率分位 > 50% 就卖(★★ 50 = 中位数本身;「附近」的宽度跑三点)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 不再满足条件就卖 —— 用本路覆盖层 fund_rule_fails 在检查日判
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:pe
+      order: desc
+    source: ★ ①档 卡原文「只买最便宜的那一档」→ 名额不够时按市盈率从低到高
+  params:
+    max_weight: 0.0333
+    max_positions: 30
+  source: ★ ③档 我们的:30 槽等权(★ 卡原文提醒「分散度不够就会被拖垮」)
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: 中位40
+  档: ③相邻点
+  覆盖:
+    exit.rules.0.params.rule.params.rank_bottom_pct: 40
+- 名: 中位50
+  档: ①卡原文
+  覆盖:
+    exit.rules.0.params.rule.params.rank_bottom_pct: 50
+- 名: 中位60
+  档: ③相邻点
+  覆盖:
+    exit.rules.0.params.rule.params.rank_bottom_pct: 60

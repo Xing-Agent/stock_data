@@ -1,0 +1,4 @@
+# ★ 瘦身财报库副本 —— 625MB 派生缓存,`python3 probe/基本面跑批_1106/瘦身财报库_1106.py` 约 40 秒可复现
+_slim_fund/
+__pycache__/
+_run_log*.txt

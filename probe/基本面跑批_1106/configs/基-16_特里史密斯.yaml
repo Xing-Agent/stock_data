@@ -1,0 +1,111 @@
+# ==========================================================================
+# 基-16_特里史密斯 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:只买长期资本回报高、现金转化好、不靠高负债的好公司,按自由现金流收益率挑不贵的;买完尽量不动。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-16
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★ 「增长靠内生而非并购」「产品不易被技术替代」
+    这一版怎么做: ★ 没装(卡原文:后者需要人工判断)
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★ 「估值高到说不过去」才卖
+    这一版怎么做: ★ 没装(没有给数);只装「质量恶化」那一条
+  结论怎么写:
+    只许这么写: 「**这一版**(只装三道可算筛选)……」
+meta:
+  name: 基-16_特里史密斯
+  master: 特里·史密斯
+  card: 基-16
+  book: Fundsmith 公开投资者信件(★ 卡原文)
+  family_label: 基本面
+  三秒版: 只买长期资本回报高、现金转化好、不靠高负债的好公司,按自由现金流收益率挑不贵的;买完尽量不动。
+  known_gap: ★ 没装内生增长、技术替代、估值离场
+  param_gap: ★★ 「长期高资本回报率」没给数 → ROCE 池内前 10% / 20% / 30% 三点;★ 现金转化 ≥ 0.8、总负债/权益 ≤ 1.0 也是 ③档我们的(只跑中心点)
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: roce_rank_top_x
+    params:
+      rank_top_pct: 20
+    source: ★ ①档 卡原文「长期高资本回报率(不靠杠杆做出来的)」→ ROCE = EBIT ÷(总资产 − 流动负债);★★ 「高」= 池内前 N%,③ 跑三点
+  - type: fund_metric_threshold
+    params:
+      metric: fcf_conv
+      op: ge
+      value: 0.8
+    source: ★ ①档 卡原文「现金转化率高」;★★ 0.8 = ③档我们的
+  - type: fund_metric_threshold
+    params:
+      metric: liab_to_eq
+      op: le
+      value: 1.0
+    source: ★ ①档 卡原文「不依赖高负债」;★★ 1.0 = ③档我们的
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules:
+  - type: fund_rule_fails
+    params:
+      rule:
+        type: roce_rank_top_x
+        params:
+          rank_top_pct: 50
+      check: annual
+    source: ★ ①档 卡原文「只有两个理由卖:公司质量本身恶化……」→ 每年检查,ROCE 跌出池内前一半就卖(★ 50 = ③)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 不再满足条件就卖 —— 用本路覆盖层 fund_rule_fails 在检查日判
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:fcf_yield
+      order: desc
+    source: ★ ①档 卡原文「用自由现金流收益率判断价格是否合理」→ 从高到低
+  params:
+    max_weight: 0.04
+    max_positions: 25
+  source: ★ ①档 卡原文「组合通常只有二三十只」→ 25 只等权
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: ROCE前10%
+  档: ③
+  覆盖:
+    universe.rules.0.params.rank_top_pct: 10
+- 名: ROCE前20%
+  档: ③
+  覆盖:
+    universe.rules.0.params.rank_top_pct: 20
+- 名: ROCE前30%
+  档: ③
+  覆盖:
+    universe.rules.0.params.rank_top_pct: 30

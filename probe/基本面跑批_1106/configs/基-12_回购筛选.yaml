@@ -1,0 +1,111 @@
+# ==========================================================================
+# 基-12_回购筛选 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:找自由现金流为正、而且股数在实打实减少(回购注销)的公司;回购停了就卖。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-12
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★★ 「持续多年而不是一次性」
+    这一版怎么做: ★ 只看近 4 季股数同比(net_dilution_pct)—— ★ 没装「多年持续」(③档,原著没给年数)
+    成绩会偏哪边: ★ 方向不明
+  - 闸: ★ 股数用加权平均摊薄股数
+    这一版怎么做: ★ 引擎口径(★ 回购凶的公司期间加权偏高 → 回购幅度被低估)
+    成绩会偏哪边: ★ 方向不明
+  结论怎么写:
+    只许这么写: 「**这一版**(只看一年、XING 读法)……」
+meta:
+  name: 基-12_回购筛选
+  master: XING(源自威廉·索恩代克的资本配置框架)
+  card: 基-12
+  book: 《The Outsiders》(★ 卡原文:这是一个筛选器,只覆盖框架的一小部分)
+  family_label: 基本面
+  三秒版: 找自由现金流为正、而且股数在实打实减少(回购注销)的公司;回购停了就卖。
+  known_gap: ★ 没装「多年持续」;股数口径是加权平均
+  param_gap: ★★ 「大量」原著没给 → 股数同比减少 > 0% / 2% / 4% 三点
+  ★★卡原文自己的提醒: 「回购金额 ≤ 当期自由现金流」这个条件是 XING 补的 —— ★ 本版**没装**它
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: fund_metric_threshold
+    params:
+      metric: net_dilution_pct
+      op: lt
+      value: 0.0
+    source: ★ ④档 XING 筛选器(卡标题自注「XING」)· 卡原文「持续在二级市场回购注销流通股」→ 股数同比下降;★★ 「大量」阈值 ③ → 三点
+  - type: fund_metric_threshold
+    params:
+      metric: fcf_ttm
+      op: gt
+      value: 0.0
+    source: ★ ④档 卡原文「自由现金流充沛」→ FCF TTM > 0(★ 符号条件,无阈值)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules:
+  - type: fund_rule_fails
+    params:
+      rule:
+        type: fund_metric_threshold
+        params:
+          metric: net_dilution_pct
+          op: lt
+          value: 0.0
+      check: quarterly
+    source: ★ ④档 卡原文「回购停止」就退出 → 每季检查,股数同比不再下降就卖
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 不再满足条件就卖 —— 用本路覆盖层 fund_rule_fails 在检查日判
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:dilution
+      order: desc
+    source: ★ ③档 我们的:名额不够时按股数减少幅度从大到小
+  params:
+    max_weight: 0.0333
+    max_positions: 30
+  source: ★ ③档 我们的:30 槽等权
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: 减0%
+  档: ③
+  覆盖:
+    universe.rules.0.params.value: -0.0
+- 名: 减2%
+  档: ③
+  覆盖:
+    universe.rules.0.params.value: -2.0
+- 名: 减4%
+  档: ③
+  覆盖:
+    universe.rules.0.params.value: -4.0

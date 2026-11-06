@@ -1,0 +1,105 @@
+# ==========================================================================
+# 基-20_价值动量双因子 · ★ 由 写配置_1106.py 生成(改这里请改生成器)
+# ★ 三秒版:给每只票打两个分 —— 便宜分(市净率)和动量分(过去 12 个月剔除最近 1 个月),加权合成,买总分最高的一批,每季重排。
+# ==========================================================================
+provenance:
+  composite: false
+  method_cards:
+  - 基-20
+  per_rule_cards_filled: true
+实现缺口:
+  这一版缺哪几道闸:
+  - 闸: ★ 原研究是多资产、多空
+    这一版怎么做: ★ 只做美股、只做多(★ 标「行业改进版」,不标原著)
+    成绩会偏哪边: ★ 方向不明
+  结论怎么写:
+    只许这么写: 「**这一版**(只做多、权重和再平衡是 XING 的)……」
+meta:
+  name: 基-20_价值动量双因子
+  master: 克利夫·阿斯内斯 / AQR
+  card: 基-20
+  book: Asness, Moskowitz & Pedersen (2013) JF《Value and Momentum Everywhere》(★ 页码待核)
+  family_label: 基本面
+  三秒版: 给每只票打两个分 —— 便宜分(市净率)和动量分(过去 12 个月剔除最近 1 个月),加权合成,买总分最高的一批,每季重排。
+  known_gap: ★ 只做多、只美股
+  param_gap: ★★ 卡原文「具体的权重与再平衡频率是 XING 的实现」→ 价值权重 0.3 / 0.5 / 0.7 三点;★ 每季重排(卡原文「通常季度」);★ 掉出前 30% 就换(③)
+pit:
+  effective: filing_date_plus_1_trading_day
+  update_frequency: quarterly_discrete
+  source: ★ 原著没写时点口径;★★ 引擎铁律(生效日 = 公布日 + 1 个交易日)
+universe:
+  rules:
+  - type: value_momentum_top
+    params:
+      value_weight: 0.5
+      top_pct: 100
+    source: ★ ①档 卡原文「给全市场同时打两个分……按权重合成总分」;★★ 价值腿 = 账面市值比(1/市净率,原研究口径);动量腿 = 12-1 月;★ 两腿都算得出才进池,谁先买由总分排序决定
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 原著没有环境闸 → 不挂(★ 挂了就不是这条策略)
+entry:
+  type: always
+  signal_freeze: close
+  fill: next_open
+  source: '★★★ ③档 我们的(执行细节)。★ 原著是「符合条件就买」,没有进场扳机 → `type: always` =「在池子里、有空槽就买」。★★ 不能写 rules: [] —— 那会落到默认
+    never,一笔都不买(matrices.py:986)。'
+initial_stop:
+  type: none
+  source: ★★ ①档 原著没有价格止损(★ 基本面派靠基本面离场;装止损会改变策略性质)
+trailing_stop:
+  type: none
+  source: ★ 同上
+exit:
+  rules:
+  - type: fund_rule_fails
+    params:
+      rule:
+        type: value_momentum_top
+        params:
+          value_weight: 0.5
+          top_pct: 30
+      check: quarterly
+    source: ★ ①档 卡原文「定期重排(通常季度),总分掉出前列就换掉」;★★ 「前列」= 前 30% = ③
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 不再满足条件就卖 —— 用本路覆盖层 fund_rule_fails 在检查日判
+sizing:
+  type: fixed_fraction
+  rank_by:
+    primary:
+      formula: FUND:value_momentum_w0.5
+      order: desc
+    source: ★ ①档 卡原文「买总分最高的一批」→ 总分从高到低;★★ 加权不是交集(卡原文明说)
+  params:
+    max_weight: 0.02
+    max_positions: 50
+  source: ★ ③档 我们的:50 只等权(★ 卡原文「靠分散和再平衡,持仓数量少了就不成立」)
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(★ 与其他链一致,便于横向比)
+benchmark: SPY
+扫参:
+- 名: 价值权重0.3
+  档: ③
+  覆盖:
+    universe.rules.0.params.value_weight: 0.3
+    exit.rules.0.params.rule.params.value_weight: 0.3
+    sizing.rank_by.primary.formula: FUND:value_momentum_w0.3
+- 名: 价值权重0.5
+  档: ③
+  覆盖:
+    universe.rules.0.params.value_weight: 0.5
+    exit.rules.0.params.rule.params.value_weight: 0.5
+    sizing.rank_by.primary.formula: FUND:value_momentum_w0.5
+- 名: 价值权重0.7
+  档: ③
+  覆盖:
+    universe.rules.0.params.value_weight: 0.7
+    exit.rules.0.params.rule.params.value_weight: 0.7
+    sizing.rank_by.primary.formula: FUND:value_momentum_w0.7
