@@ -19,3 +19,8 @@ probe/searchfix_1105/*.tar.gz
 # ★★ 跑完之后手动 `git add -f` 把最终版入库,然后删掉对应那一行。
 probe/searchfix_1105/_blank_v2_log_1105.txt
 probe/searchfix_1105/_rerun45_log_1105.txt
+
+# ★★★ 新池面板(probe/newpool_1106/) —— 192MB 的派生缓存,不入库。
+# ★ 它是 market_ext_1105 烤出来的,用 probe/newpool_1106/烤新池_1106.py
+#   约 55 秒可完全复现;脚本、报告、元数据(60K)照常入库。
+probe/newpool_1106/ohlcv_panel_newpool.parquet
