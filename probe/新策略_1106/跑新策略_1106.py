@@ -24,6 +24,14 @@ os.chdir(ROOT)
 
 from engine import cache, data, pool_scope                        # noqa: E402
 import rerun_core_1030 as RC                                      # noqa: E402
+from engine import pat6_ops                                       # noqa: E402
+
+# ★★★ 必须调这一行:pat6 的进场/出场零件是**运行时挂钩**上去的,
+#   `run_friction_1104.py` 在它自己的 main() 里调(第 566 行),
+#   ★ 而我们绕过 main() 直接调 run_one → 钩子不会执行 → 那些零件会被判「还没法跑」。
+#   ★★ 已核:非 pat6_* 的类型会原样转回原函数(pat6_ops.py:966),
+#      所以加这一行**不会改变**本轮三条融合策略的结果(它们没用 pat6 零件)。
+pat6_ops.install()
 
 NEWPANEL = "probe/newpool_1106/ohlcv_panel_newpool.parquet"
 NEWPOOL = "probe/newpool_1106/pool_NEWPOOL_ALL_1106.csv"
