@@ -28,3 +28,6 @@ probe/newpool_1106/ohlcv_panel_newpool.parquet
 probe/新策略_1106/per_chain_1106/
 probe/新策略_1106/ledgers_1106/
 probe/新策略_1106/configs/_tmp_*.yaml
+probe/挂闸_1106/per_chain_1106/
+probe/挂闸_1106/ledgers_1106/
+probe/挂闸_1106/configs/_gate_*.yaml
