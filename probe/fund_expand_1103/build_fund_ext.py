@@ -30,6 +30,7 @@ METRIC_TAGS = {
     'OperatingCashFlow': ['NetCashProvidedByUsedInOperatingActivities'],
     'WeightedAverageDilutedShares': ['WeightedAverageNumberOfDilutedSharesOutstanding'],
     'IncomeBeforeTax': ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest'],
+    'IncomeTaxExpenseBenefit': ['IncomeTaxExpenseBenefit'],          # 1106 手册 81 A2:所得税费用(算税后 ROIC / 实际税率)
     'InterestExpense': ['InterestExpense', 'InterestExpenseNonoperating'],
     'IntangibleAssetsNetExcludingGoodwill': ['IntangibleAssetsNetExcludingGoodwill'],
     'Goodwill': ['Goodwill'],
