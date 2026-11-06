@@ -1,0 +1,55 @@
+{
+ "★口径": {
+  "engine改动": "零",
+  "SG&A来源_改前": [
+   "SGA_FROM_RAWTAGS",
+   "ttm"
+  ],
+  "SG&A来源_改后": [
+   "SellingGeneralAndAdministrativeExpense",
+   "ttm"
+  ],
+  "★★为什么改": "★ 老库 financial_versions 里 SG&A 是 0 家 → 只能从 raw_tags 拼(16.87%);★★★ 新库有正式科目",
+  "八项": "★ 全齐才给 M-Score —— 缺一项 = 算不出,不猜不补",
+  "接的库": {
+   "★装上了": true,
+   "库": "/home/claude/xing-agent-stock_data/fundamentals_ext",
+   "★家数": 4005,
+   "★★engine改动": "零 —— 只在进程内替换函数指针",
+   "★★★没命中怎么办": "退回老库 pilot_300（不是悄悄返回空）"
+  },
+  "补的零件": {
+   "★补登记的流量科目": [
+    "DividendsPaid",
+    "GrossProfit",
+    "IncomeLossFromContinuingOperations",
+    "IncreaseDecreaseInIncomeTaxesPayable",
+    "OperatingIncomeLoss",
+    "SellingGeneralAndAdministrativeExpense",
+    "ShareRepurchase",
+    "StockIssuance"
+   ]
+  }
+ },
+ "★抽样": {
+  "家数": 300,
+  "切法": "sha256 排序取前 300 —— ★ 不用随机数"
+ },
+ "m_score": {
+  "有实际数值的家数": 81,
+  "覆盖率": "27.0%",
+  "每家期数中位": 16,
+  "★★★对比_改前": "主档 **0%**(financial_versions 无 SG&A);旁路 16.87%,天花板 18.23%"
+ },
+ "m_score_no_sgai": {
+  "有实际数值的家数": 274,
+  "覆盖率": "91.3%",
+  "每家期数中位": 40
+ },
+ "sga单项": {
+  "有实际数值的家数": 154,
+  "覆盖率": "51.3%",
+  "每家期数中位": 36
+ },
+ "★★★结论": "★ 看 m_score 的覆盖率:★★ 过了 18.23% 这个老天花板,就说明换库真的解开了这条缺口"
+}
