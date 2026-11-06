@@ -1,0 +1,670 @@
+{
+ "★这是什么": "扫「代码只认顶层 + 配置写在 params」= 静默失效的组合",
+ "★为什么要扫": "这类 bug 不报错,只给错数;1106 靠「三档数字完全相同」才发现一处",
+ "扫的代码文件": [
+  "engine/matrices.py",
+  "engine/ops_exits_1029.py",
+  "engine/pat6_ops.py"
+ ],
+ "规则实例总数": 238,
+ "★★★ 有风险的": 19,
+ "安全的": 207,
+ "类型判不出的": 12,
+ "代码侧判定": {
+  "price_above_ma": "看不出(该分支没读参数)",
+  "adv_rank_exclude_bottom": "看不出(该分支没读参数)",
+  "dollar_volume_rank_exclude_bottom": "看不出(该分支没读参数)",
+  "return_rank_top": "看不出(该分支没读参数)",
+  "ma_stack_bullish": "看不出(该分支没读参数)",
+  "hv_below": "看不出(该分支没读参数)",
+  "return_rank_percentile": "看不出(该分支没读参数)",
+  "mansfield_rs_positive": "看不出(该分支没读参数)",
+  "fcf_yield_rank_top": "看不出(该分支没读参数)",
+  "sloan_accrual_below": "看不出(该分支没读参数)",
+  "piotroski_f_score_above": "看不出(该分支没读参数)",
+  "piotroski_f_score_three_layer": "看不出(该分支没读参数)",
+  "altman_z_double_prime_exclude_bottom": "看不出(该分支没读参数)",
+  "momentum_dual_gate": "★★★ 只认顶层",
+  "none": "★★★ 只认顶层",
+  "sector_diffusion_above": "认 params",
+  "index_above_ma": "★★★ 只认顶层",
+  "breadth_above": "★★★ 只认顶层",
+  "breadth_above_chain": "认 params",
+  "vix_below": "★★★ 只认顶层",
+  "index_above_ma_scaled": "认 params",
+  "index_ma_slope": "认 params",
+  "no_distribution_day": "看不出(该分支没读参数)",
+  "no_large_down_day": "认 params",
+  "donchian_close_breakout": "看不出(该分支没读参数)",
+  "donchian_breakout": "看不出(该分支没读参数)",
+  "close_above_ema": "看不出(该分支没读参数)",
+  "rsi_oversold": "看不出(该分支没读参数)",
+  "undercut_and_rally": "看不出(该分支没读参数)",
+  "atr_squeeze": "看不出(该分支没读参数)",
+  "volume_dryup": "看不出(该分支没读参数)",
+  "vcp_volume_duo": "看不出(该分支没读参数)",
+  "sigma_squeeze": "看不出(该分支没读参数)",
+  "vcp_contraction": "看不出(该分支没读参数)",
+  "swing_low_exists": "看不出(该分支没读参数)",
+  "intraday_break_below_swing_low": "看不出(该分支没读参数)",
+  "close_reclaim_above_swing_low": "★★★ 只认顶层",
+  "bullish_candle": "看不出(该分支没读参数)",
+  "monthly_sma_above": "看不出(该分支没读参数)",
+  "turtle_soup": "看不出(该分支没读参数)",
+  "htf_flag_breakout": "看不出(该分支没读参数)",
+  "td_buy_setup": "看不出(该分支没读参数)",
+  "td_buy_countdown": "看不出(该分支没读参数)",
+  "deep_value_two_stage": "★★★ 只认顶层",
+  "ma_cross": "看不出(该分支没读参数)",
+  "roc_momentum": "看不出(该分支没读参数)",
+  "pullback_to_ma": "看不出(该分支没读参数)",
+  "always": "看不出(该分支没读参数)",
+  "never": "看不出(该分支没读参数)",
+  "random": "认 params",
+  "close_below_trailing_stop": "看不出(该分支没读参数)",
+  "fundamental_quarterly_reject": "看不出(该分支没读参数)",
+  "fundamental_quarterly_rebalance": "看不出(该分支没读参数)",
+  "time_stop": "看不出(该分支没读参数)",
+  "close_below_ma": "看不出(该分支没读参数)",
+  "close_below_ema": "看不出(该分支没读参数)",
+  "close_below_lowest_low": "看不出(该分支没读参数)",
+  "close_above_ma": "看不出(该分支没读参数)",
+  "monthly_sma_below": "看不出(该分支没读参数)",
+  "td_countdown_13_exit": "看不出(该分支没读参数)",
+  "td_price_flip_exit": "看不出(该分支没读参数)",
+  "td_sell_setup_exit": "看不出(该分支没读参数)",
+  "pat6_weinstein_weekly_breakout": "看不出(该分支没读参数)",
+  "pat6_daily_base_breakout": "看不出(该分支没读参数)",
+  "pat6_volume_x_sma": "看不出(该分支没读参数)",
+  "pat6_flat_base": "看不出(该分支没读参数)",
+  "pat6_ma_slope_up": "看不出(该分支没读参数)",
+  "pat6_cup_with_handle": "看不出(该分支没读参数)",
+  "pat6_darvas_breakout": "看不出(该分支没读参数)",
+  "pat6_narrow_box_breakout": "看不出(该分支没读参数)",
+  "pat6_spring": "看不出(该分支没读参数)",
+  "pat6_spring_two_day": "看不出(该分支没读参数)",
+  "pat6_bb_reversal": "看不出(该分支没读参数)",
+  "pat6_rsi_oversold": "看不出(该分支没读参数)",
+  "pat6_bb_trend_gate": "看不出(该分支没读参数)",
+  "pat6_bb_bw_jump_gate": "看不出(该分支没读参数)",
+  "pat6_bb_tag_lower": "看不出(该分支没读参数)",
+  "pat6_bb_reclaim": "看不出(该分支没读参数)",
+  "pat6_bb_trend_filters": "看不出(该分支没读参数)",
+  "pat6_w_bottom_divergence": "看不出(该分支没读参数)",
+  "pat6_close_above_bb_mid": "看不出(该分支没读参数)",
+  "pat6_close_above_bb_upper": "看不出(该分支没读参数)",
+  "pat6_close_below_darvas_bottom": "看不出(该分支没读参数)"
+ },
+ "风险明细": [
+  {
+   "文件": "engine/configs/cashflow_discipline.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "engine/configs/deep_value.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "engine/configs/deep_value.yaml",
+   "槽": "entry",
+   "序": 0,
+   "类型": "deep_value_two_stage",
+   "顶层键": [],
+   "params键": [
+    "atr_period",
+    "ema_period",
+    "lookback",
+    "max_wait_days",
+    "min_bars_before",
+    "stop_atr_multiple"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 934,
+    "顶层读到的键": [
+     "enabled"
+    ]
+   }
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "regime",
+   "序": 2,
+   "类型": "vix_below",
+   "顶层键": [
+    "data_gap",
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "value"
+   ],
+   "★问题": "代码只认顶层,配置两层都有 → params 里那部分失效",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 627,
+    "顶层读到的键": [
+     "value"
+    ]
+   }
+  },
+  {
+   "文件": "engine/configs/vcp_momentum.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_大波段_挂闸100日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_大波段_挂闸200日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_大波段_挂闸300日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_突破_挂闸100日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_突破_挂闸200日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_突破_挂闸300日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_震荡_挂闸100日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_震荡_挂闸200日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/挂闸_1106/configs/_gate_震荡_挂闸300日.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/新策略_1106/configs/_tmp_融-3_大波段_60.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/新策略_1106/configs/融-1_震荡.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/新策略_1106/configs/融-2_突破.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  },
+  {
+   "文件": "probe/新策略_1106/configs/融-3_大波段.yaml",
+   "槽": "regime",
+   "序": 0,
+   "类型": "index_above_ma",
+   "顶层键": [],
+   "params键": [
+    "ma",
+    "symbol"
+   ],
+   "★问题": "代码只认顶层,配置写在 params → **静默失效,退回默认值**",
+   "证据": {
+    "文件": "engine/matrices.py",
+    "行": 604,
+    "顶层读到的键": [
+     "ma",
+     "symbol"
+    ]
+   }
+  }
+ ],
+ "类型判不出的明细": [
+  {
+   "文件": "engine/configs/cashflow_discipline.yaml",
+   "槽": "universe",
+   "序": 3,
+   "类型": "net_shareholder_yield_rank_above",
+   "顶层键": [
+    "audit_blocked",
+    "data_missing",
+    "enabled",
+    "formula",
+    "partial_fallback_available"
+   ],
+   "params键": [
+    "lookback",
+    "min_percentile"
+   ]
+  },
+  {
+   "文件": "engine/configs/cashflow_discipline.yaml",
+   "槽": "universe",
+   "序": 4,
+   "类型": "no_large_equity_issuance",
+   "顶层键": [
+    "data_missing",
+    "enabled",
+    "undefined_param"
+   ],
+   "params键": [
+    "lookback_quarters"
+   ]
+  },
+  {
+   "文件": "engine/configs/deep_value.yaml",
+   "槽": "universe",
+   "序": 1,
+   "类型": "ev_ebitda_rank_bottom",
+   "顶层键": [
+    "audit_blocked",
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "rank_bottom_pct"
+   ]
+  },
+  {
+   "文件": "engine/configs/deep_value.yaml",
+   "槽": "universe",
+   "序": 2,
+   "类型": "altman_z_double_prime_above",
+   "顶层键": [
+    "audit_blocked",
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "coefficients",
+    "constant",
+    "threshold",
+    "variant"
+   ]
+  },
+  {
+   "文件": "engine/configs/deep_value.yaml",
+   "槽": "regime",
+   "序": 2,
+   "类型": "credit_ratio_gate",
+   "顶层键": [
+    "audit_blocked",
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "change_formula",
+    "denominator",
+    "gate_off_threshold",
+    "numerator"
+   ]
+  },
+  {
+   "文件": "engine/configs/liquidity_sweep.yaml",
+   "槽": "regime",
+   "序": 1,
+   "类型": "credit_ratio_gate",
+   "顶层键": [
+    "audit_blocked",
+    "compensation_when_disabled",
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "change_formula",
+    "denominator",
+    "gate_off_threshold",
+    "numerator",
+    "ratio"
+   ]
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "universe",
+   "序": 0,
+   "类型": "mktcap_rank_exclude_bottom",
+   "顶层键": [
+    "audit_blocked",
+    "data_missing",
+    "enabled",
+    "pending_lin"
+   ],
+   "params键": [
+    "exclude_bottom_pct"
+   ]
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "universe",
+   "序": 2,
+   "类型": "roic_consecutive_above",
+   "顶层键": [
+    "audit_blocked",
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "basis",
+    "min_roic_pct",
+    "years"
+   ]
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "universe",
+   "序": 3,
+   "类型": "gross_profit_to_assets_rank_above",
+   "顶层键": [
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "basis",
+    "min_percentile"
+   ]
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "universe",
+   "序": 4,
+   "类型": "net_debt_to_ebitda_below",
+   "顶层键": [
+    "audit_blocked",
+    "data_missing",
+    "enabled"
+   ],
+   "params键": [
+    "basis",
+    "threshold"
+   ]
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "entry",
+   "序": 2,
+   "类型": "bullish_candle_breakout_prior_high",
+   "顶层键": [
+    "undefined_param"
+   ],
+   "params键": [
+    "first_up_bar",
+    "near_ma"
+   ]
+  },
+  {
+   "文件": "engine/configs/quality_compounder.yaml",
+   "槽": "exit",
+   "序": 0,
+   "类型": "fundamental_veto",
+   "顶层键": [
+    "action",
+    "conditions_any",
+    "trigger"
+   ],
+   "params键": []
+  }
+ ]
+}
