@@ -1,0 +1,116 @@
+# 技-8 · 高紧旗形 HTF —— B路1106 修正版(由 engine/configs/技-8.yaml 生成,改动见 meta.本轮改了什么)
+meta:
+  name: 技-8_高紧旗形HTF_B路1106修正版
+  master: Dan Zanger
+  book: 作者公开描述(chartpattern.com);★ 无成体系出版物,页码无法提供
+  handbook_ref: v11 第 322 行;附录 A 技-8
+  orig_claim: 形态描述来自作者;★ 幸存者偏差极重 —— 证据几乎全部来自事后挑出来的成功图例
+  param_gap: ★ 四处手册没写死:② 回调上限是 20–25% 区间;③ 缩量量比没给; ⑤ 时间止损「三到五天」是区间且「不启动」没定义;整理段长度没给。
+  must_show: 手册明文要求「产品里必须同时显示符合形态却随后失败的样本比例」—— 报告里必须报胜率,不许只报收益。
+  本轮改了什么: ★ 相对 engine/configs/技-8.yaml 只改两处:① flag_min_bars 3 → 15(原著「3 至 5 周」,老配置自己登记过这是换算错,没改);②
+    加「第 N 天还没启动就走」:持有满 N 天那一天、浮盈 < 1R 就离场(N 主扫 3/5 = 原著「三到五天」两端;「不启动」= 浮盈不到 1R 是 ③
+    我们定的;Gemini 第45轮对技5.1 给的「第3~5天还没走出动量就平」⑤待核)。其余逐字照抄。
+universe:
+  rules: []
+  source: 原著(无额外选股条件;「全市场最狂暴的那几只」由形态本身筛出来)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ★ 手册写「什么时候用:牛市里最强的那一小批股票」—— 定性描述, 没给可自动触发的大盘开关。★ 本次没装。
+entry:
+  rules:
+  - type: htf_flag_breakout
+    params:
+      runup_min: 1.0
+      max_pullback: 0.2
+      flag_min_bars: 15
+      flag_max_bars: 25
+    source: "原著:涨幅 100%(runup_min);四到八周 = 20~40 个交易日 (写死在 ops_a0.HTF_RUNUP_MIN_BARS\
+      \ / MAX_BARS); 突破旗形上沿 = 整理段最高价。 ★ max_pullback 是原著区间 20–25% 的端点,两端并列跑 —— 做法参照附录\
+      \ D.8 对 SFP 影线「按 1.5 / 2.0 / 2.5 三组跑」的先例。 ★★ 2026-10-30 更正:这里原来写「flag_min_bars\
+      \ / flag_max_bars 是我们的 读法边界,原著没给」—— **原著给了**。手册v13 六附 6.1 ② 引欧奈尔 4th ed. Ch.2\
+      \ High, Tight Flag:「随后横向整理 **3 至 5 周**」。 · 上界 flag_max_bars = 25 = 5 周 × 5 ✓\
+      \ **已经换算对了**(不是我们定的) · 下界 flag_min_bars = 3 ✗ **应为 15**(3 周 × 5)—— 「3 周」被当成\n\
+      \  「3 根日线」。★★ **本轮查出来了但没改**:这条链只有 31 / 59 笔\n  (< 150 可采信线)、单笔占总R 60.9%~1260%、总R\
+      \ 在 13~45 之间非单调\n  抖动 → 改了也量不出来。★ 见 time_scale 的 pending 声明与\n  engine/checks/pending_registry.yaml。\
+      \ ★★ B路1106:flag_min_bars 改成 15(=3 周×5,原著)。"
+  - type: volume_dryup
+    params:
+      fast_period: 5
+      slow_period: 50
+      max_ratio: null
+      offset_days: 1
+    enabled: false
+    source: '★ 原著条件 ③「整理期间缩量」。★ max_ratio 手册没给 → enabled: false 显式关掉。★ 不许从别的链(流派二
+      VCP 的 0.60)搬一个数过来顶上 —— 那是另一条策略的参数,搬过来等于我们自己定了一个门禁还假托有出处。 已列入报告「要回去问」。'
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(收盘确认、次日开盘)
+initial_stop:
+  type: day_low_minus_atr
+  params:
+    structure_lookback: 25
+    atr_period: 14
+    atr_multiple: 0.0
+  source: '原著「跌破旗形下沿立刻全退」→ 止损设在整理段最低价,缓冲 0。 ★ structure_lookback: 25 = 与 flag_max_bars
+    一致(整理段的最大长度), ★ 这个数跟着上面那个我们定的边界走,不是原著。'
+trailing_stop:
+  type: staged
+  stages:
+  - name: 第N天不启动就走
+    when:
+      days_held_gte: 5
+      days_held_lte: 5
+      unrealized_r_lt: 1.0
+    action: exit_unconditional
+    source: ①原著「三到五天不启动就走」(N 取端点 3/5 主扫);③「不启动」= 浮盈 < 1R(原著没定义)
+  source: 见 stage
+exit:
+  rules:
+  - type: close_below_trailing_stop
+    source: 原著(跌破旗形下沿全退)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: ★ 原著条件 ⑤ 的时间止损:「三到五天」是区间,「不启动」没有定义 (不启动 = 没涨?涨不到多少?)→ 本次显式关掉。 ★ 这条拿掉之后,持仓会比原著拿得久,结果不能代表原著。
+    已列入报告「要回去问」。
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.1
+  source: 执行细节(原著无仓位规则)
+slots: 10
+source_slots: 执行细节(原著无槽位规则)
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: 执行细节(原著无排序)
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null
+time_scale:
+  entry.rules[0].params.flag_min_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 3
+    pending: 技-8 整理段下界 flag_min_bars 3 应为 15(原著 3 周)—— 样本不足,本轮未改
+    note: 手册v13 六附 6.1 ② 引 O'Neil 4th ed. Ch.2 High, Tight Flag「随后横向整理 3 至 5 周」→ 3
+      周 × 5 = **15 个交易日**。★ 现值 3 = 把「3 周」当成 「3 根日线」,倍率 1×。★★ 2026-10-30 查实但**未改**:n
+      = 31 / 59(< 150)、 单笔占总R 60.9%~1259.7%、总R 在 flag_min_bars 13/14/15/16/17 上非单调
+      (13.22 / 11.49 / 45.36 / 42.75 / 40.05)→ 改动效果淹在噪声里,量不出来。
+  entry.rules[0].params.flag_max_bars:
+    unit: trading_days
+    book_unit: weeks
+    book_value: 5
+    note: 原著「横向整理 3 至 5 周」→ 5 周 × 5 = 25 个交易日 ✓ ★ 这个上界换算对了。

@@ -1,0 +1,99 @@
+# ============================================================================
+# 技-7 · 库拉麦吉 EP(Episodic Pivot,盈利意外跳空)  —— B 路 1106 新写
+#
+# 三秒版:一只之前半年都没怎么涨的票,突然因为大消息**大幅跳空高开 + 放巨量**,
+#         当天守住了开盘价 → 第二天开盘买;跌破跳空那天的最低价就走,
+#         之后收盘跌破 10 日均线也走。
+#
+# ★★ 卡上(METHOD_LIBRARY/技-7.md)只有定性描述,**一个数都没给**:
+#   「重大利好导致跳空高开,成交量是平时的数倍,且股价此前长期趴着没涨过。
+#     开盘后不追最高点,等第一个小时的高点被突破时进。
+#     以开盘区间低点或短期均线为防守线,跌破立刻走。」
+# ★ 所以下面每个数都标了档;原著没给的跑相邻三点(规矩②)—— 主扫跳空幅度 8% / 10% / 15%。
+# ★★★ 两处做不到原样:
+#   ① 「第一个小时的高点被突破时进」要**分时数据**,引擎一天只撮合一次 →
+#      近似成「跳空当天收盘守住开盘价 → 次日开盘买」(③)
+#   ② 「这条消息足不足以改变公司命运」卡上自己写了只能靠人判断 → 不做
+# ★ 「盈利意外」:新财报库有 SEC 接收时间(available_at),另跑一版「跳空发生在交 10-Q/10-K 后 2 个交易日内」;
+#   ★★ 但交报表 ≠ 发业绩:很多公司先发 8-K 新闻稿、几周后才交 10-Q → 这一版**会漏掉大部分真业绩跳空**,只当参考。
+# ============================================================================
+meta:
+  name: 技-7_库拉麦吉EP
+  master: Kristjan Kullamägi
+  book: 作者公开分享(推特/直播/qullamaggie.com);★ 无成体系出版物,页码无法提供
+  orig_claim: 方法来自作者公开分享;卡上无任何具体数字
+  param_gap: >-
+    跳空幅度、放量倍数、「长期趴着」的窗口和涨幅上限、短期均线周期 —— 全部原著没给。
+    主扫跳空幅度 8%/10%/15%,其余固定在中间值。
+  known_gap: >-
+    ① 分时入场(第一小时高点突破)做不到 → 日线近似;② 消息质量的人工判断不做;
+    ③ 盈利公布日只有「交报表时间」,不是新闻稿时间。
+    ★ 这三处会让成绩往哪边偏 —— 没有依据,不写方向。
+
+universe:
+  rules: []
+  source: ③ 无额外选股条件(只用研发池 + 大中盘口径)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ③ 卡上没给大盘条件;★ 不配大盘闸(Gemini 第43轮 + 1106 实测)
+
+entry:
+  rules:
+    - type: b_ep_gap
+      params:
+        gap_min: 0.10        # ★ 主扫 0.08 / 0.10 / 0.15
+        vol_mult: 3.0
+        vol_period: 50
+        prior_lookback: 126
+        prior_max_ret: 0.20
+        hold_gap: true
+      source: >-
+        gap_min = ⑤外部说法·待核(作者公开分享里常说「10% 以上的跳空」,我们没核到原话);
+        vol_mult 3 倍 = ③(卡原文「数倍」);vol_period 50 日 = ③;
+        「长期趴着」= 跳空前半年(126 日)涨幅 ≤ 20% —— ③(卡原文「此前长期趴着没涨过」,没给数);
+        hold_gap = 收盘 ≥ 开盘 —— ③(「不追最高点、等第一小时高点被突破」的日线近似)
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(收盘确认、次日开盘)
+
+initial_stop:
+  type: day_low_minus_atr
+  params: { structure_lookback: 1, atr_period: 14, atr_multiple: 0.0 }
+  source: ③ 卡原文「以开盘区间低点为防守线」→ 日线近似成跳空当天(信号日)的最低价,缓冲 0
+
+trailing_stop:
+  type: none
+  source: 卡上没写移动止损
+
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 10 }
+      source: ③ 卡原文「或短期均线为防守线」—— 周期没给,取 10 日(⑤作者常提 10/20 日均线,待核)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 卡原文
+
+sizing:
+  type: risk_fraction
+  params: { risk_per_trade: 0.01, max_positions: 10, max_weight: 0.10 }
+  source: 执行细节(原著无组合仓位规则;与其他技术面策略同口径)
+
+slots: 10
+source_slots: 执行细节
+
+ranking:
+  primary: { formula: ADV20, order: desc }
+  source: 执行细节
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0, low_liquidity_bps: 30.0 }
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: trend
+  component_match: large

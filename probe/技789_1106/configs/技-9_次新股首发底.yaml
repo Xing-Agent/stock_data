@@ -1,0 +1,87 @@
+# ============================================================================
+# 技-9 · 次新股首发底(戴维·莱恩)  —— B 路 1106 在新池上重写
+#
+# 三秒版:上市不到一年的票,走出第一个横盘整理后**放量突破整理区高点** → 次日开盘买;
+#         跌破整理区最低价就止损;之后收盘跌破 20 日均线就走。
+#
+# ★★★ 老版(engine/configs/技-9.yaml)判「跑不了」的两个理由,在新池上**一个还在、一个没了**:
+#   一、**库里还是没有上市日期字段**(规矩⑬:字段列表已打出来查过,见覆盖层文件头)→
+#      ★ 代理 = 这只票在我们行情里的第一根 K 线(2014-03 之后才出现的才算)。
+#      ★★ 代理会把「拆分出来的新公司 / SPAC 合并后的新代码 / 换 CIK / 数据缺口」也当成次新 —— 已写明,不修。
+#   二、老 300 池「一只真新股都没有」—— ★ 新池 2,807 只里 first_bar 晚于 2016 的有 1,133 只 → **样本有了**。
+# ★ 卡原文:「上市 360 天以内,流通盘较小,走出第一波整理形态后放量突破。跌破整理形态低点即止损。」
+#   · 「流通盘较小」没给数、我们也没有历史流通股数 → 不做(写进 known_gap)
+#   · 整理段长度没给 → 主扫 15 / 20 / 25 日(规矩②)
+# ============================================================================
+meta:
+  name: 技-9_次新股首发底
+  master: David Ryan
+  orig_claim: 方法来自作者公开分享
+  param_gap: 整理段长度(主扫 15/20/25)、放量倍数、离场均线周期 —— 原著都没给
+  known_gap: >-
+    ① 上市日期用「第一根 K 线」代理,会混进分拆/SPAC/换代码的票;② 「流通盘较小」没做;
+    ③ 「第一波」整理没做成「必须是上市后第一个」—— 上市一年内的任何一次整理突破都算。
+    ★ 成绩往哪边偏:没有依据,不写方向。
+
+universe:
+  rules:
+    - type: b_listed_within
+      params: { max_days: 360 }
+      source: ①卡原文「上市 360 天以内」;★ 上市日 = 第一根 K 线(③代理)
+
+regime:
+  rules: []
+  flatten_when_off: false
+  source: ③ 卡上没给大盘条件;不配大盘闸
+
+entry:
+  rules:
+    - type: pat6_daily_base_breakout
+      params: { base_bars: 20 }        # ★ 主扫 15 / 20 / 25
+      source: ③ 卡原文「走出第一波整理形态后突破」—— 整理段长度没给;突破 = 收盘高于之前 N 日最高价
+    - type: pat6_volume_x_sma
+      params: { period: 50, multiple: 1.5, baseline_offset_days: 1 }
+      source: ③ 卡原文「放量突破」—— 倍数没给,取 1.5 倍 50 日均量(②欧奈尔系常用口径,待核)
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节
+
+initial_stop:
+  type: day_low_minus_atr
+  params: { structure_lookback: 20, atr_period: 14, atr_multiple: 0.0 }
+  source: ①卡原文「跌破整理形态低点即止损」—— 整理段最低价,缓冲 0;structure_lookback 跟着 base_bars 走
+
+trailing_stop:
+  type: none
+  source: 卡上没写
+
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 20 }
+      source: ③ 卡原文只说「止损必须比一般更快」,没有获利离场规则 → 取 20 日均线(我们定的)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 见上
+
+sizing:
+  type: risk_fraction
+  params: { risk_per_trade: 0.01, max_positions: 10, max_weight: 0.10 }
+  source: 执行细节
+
+slots: 10
+source_slots: 执行细节
+
+ranking:
+  primary: { formula: ADV20, order: desc }
+  source: 执行细节
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0, low_liquidity_bps: 30.0 }
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+
+benchmark:
+  family: trend
+  component_match: large
