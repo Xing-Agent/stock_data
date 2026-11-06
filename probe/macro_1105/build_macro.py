@@ -11,7 +11,7 @@ import csv, gzip, hashlib, json, os, sys
 from datetime import datetime, timezone
 import polars as pl
 
-START, END = '2008-01-01', '2026-11-04'
+START, END = '2004-01-01', '2026-11-04'   # 1106:从 2008 放宽到 2004,和行情库起点对齐(手册 81 B1)
 
 
 def write(out_dir, sid, doc):
@@ -44,7 +44,7 @@ def main(raw, px, out):
     J = json.load(open(os.path.join(raw, 'cboe_VIX_historical_20261105.json')))
     rows = [r for r in J['data'] if START <= r['date'] <= END]
     fred = {}
-    for r in csv.DictReader(open(os.path.join(raw, 'fred_VIXCLS_fredgraph_20261105.csv'))):
+    for r in csv.DictReader(open(os.path.join(raw, 'fred_VIXCLS_fredgraph_20261106.csv'))):
         if r['VIXCLS'] not in ('', '.'): fred[r['observation_date']] = float(r['VIXCLS'])
     data = [bar(r['date'], float(r['open']), float(r['high']), float(r['low']), float(r['close']), J.get('symbol') or '_VIX', 'cboe') for r in rows]
     # 2022 年起 CBOE 在美股休市日(阵亡将士纪念日、独立日……)也发 VIX(用盘前盘后 / 全球交易时段的期权算的)——
@@ -75,7 +75,7 @@ def main(raw, px, out):
     print('VIX', len(data), doc['qa'], doc['market_coverage']['missing_bars'], doc['market_coverage']['extra_bars_not_in_calendar'])
     # —— DTB3 ——
     rows, blank = [], []
-    for r in csv.DictReader(open(os.path.join(raw, 'fred_DTB3_fredgraph_20261105.csv'))):
+    for r in csv.DictReader(open(os.path.join(raw, 'fred_DTB3_fredgraph_20261106.csv'))):
         d, v = r['observation_date'], r['DTB3']
         if not START <= d <= END: continue
         if v in ('', '.'): blank.append(d); continue
@@ -95,7 +95,7 @@ def main(raw, px, out):
            'note': 'open/high/low 为 null:FRED 只发一个日值,放在 close / price', 'market_coverage': cov, 'data': data}
     shas.append(write(out, 'DTB3', doc))
     man.append(['DTB3', 'DTB3', 'fred', 'percent_annualized', dates[0], dates[-1], len(data), 'none',
-                f'贴现口径;FRED 空值的 {len(blank)} 天(节假日 / 债市休市)不出行,没有补;最新只到 {dates[-1]}(FRED 还没发 {END})'])
+                f'贴现口径;FRED 空值的 {len(blank)} 天(节假日 / 债市休市)不出行,没有补;到 {dates[-1]}'])
     print('DTB3', len(data), 'blank', len(blank), doc['qa'], cov['missing_bars'], cov['extra_bars_not_in_calendar'], cov['extra_examples'][:5])
     with open(os.path.join(out, 'manifest.csv'), 'w', newline='') as fh:
         w = csv.writer(fh); w.writerow(['series_id', 'source_ticker', 'provider', 'unit', 'first_date', 'last_date', 'n_rows', 'adjustment', 'notes']); w.writerows(man)

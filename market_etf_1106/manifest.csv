@@ -1,0 +1,15 @@
+symbol,name,tickers_used,start_date,end_date,bars,missing_bars,dividend_events,split_and_special_events,warnings
+IWM,iShares Russell 2000 ETF,IWM,2004-01-02,2026-11-04,5747,0,79,2005-06-09 split 2.0,
+QQQ,Invesco QQQ Trust,QQQ;QQQQ,2004-01-02,2026-11-04,5747,0,87,,"2004-12-01 ~ 2011-03-22 用的代码是 QQQQ(同一只基金,转到纳斯达克上市期间的代码) | 2004-12-01 代码 QQQ → QQQQ,隔夜 +0.4%(没加接续系数) | 2011-03-23 代码 QQQQ → QQQ,隔夜 -0.4%(没加接续系数)"
+SPY,SPDR S&P 500 ETF Trust,SPY,2004-01-02,2026-11-04,5747,0,90,,
+XLB,Materials Select Sector SPDR,XLB,2004-01-02,2026-11-04,5747,0,79,2025-12-05 split 2.0,
+XLC,Communication Services Select Sector SPDR,XLC,2018-06-19,2026-11-04,2107,0,33,,
+XLE,Energy Select Sector SPDR,XLE,2004-01-02,2026-11-04,5747,0,80,2025-12-05 split 2.0,
+XLF,Financial Select Sector SPDR,XLF,2004-01-02,2026-11-04,5747,0,80,2016-09-19 special_distribution 1.23171976,"2016-09-19 同一天有拆股 1.139146 和大额派现 4.44356(系数 1.2317),隔夜实际 1.2207 倍,只取 special_only"
+XLI,Industrial Select Sector SPDR,XLI,2004-01-02,2026-11-04,5747,0,79,,
+XLK,Technology Select Sector SPDR,XLK,2004-01-02,2026-11-04,5747,0,78,2025-12-05 split 2.0,
+XLP,Consumer Staples Select Sector SPDR,XLP,2004-01-02,2026-11-04,5747,0,79,,
+XLRE,Real Estate Select Sector SPDR,XLRE,2015-10-08,2026-11-04,2778,7,44,,
+XLU,Utilities Select Sector SPDR,XLU,2004-01-02,2026-11-04,5747,0,79,2025-12-05 split 2.0,
+XLV,Health Care Select Sector SPDR,XLV,2004-01-02,2026-11-04,5747,0,80,,
+XLY,Consumer Discretionary Select Sector SPDR,XLY,2004-01-02,2026-11-04,5747,0,79,2025-12-05 split 2.0,

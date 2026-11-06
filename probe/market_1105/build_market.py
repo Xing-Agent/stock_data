@@ -15,7 +15,7 @@
 
 用法:python3 build_market.py plan.json ohlcv.parquet out_dir [only_n]
 """
-import csv, gzip, hashlib, json, os, sys
+import csv, gzip, hashlib, json, math, os, sys
 from collections import defaultdict
 import polars as pl
 
@@ -35,7 +35,7 @@ def main(plan_path, px_path, out_dir, only_n=None):
     cal = sorted(O['d'].unique().to_list())
     last_td = cal[-1]
     # 拆股:2004 起全期对齐表(align_splits.py 产出,和 11-01 那张在 2015 年以后逐条一致),只用「确认」的
-    AL = pl.read_csv(f'{ROOT}/probe/market_1105/polygon_splits_aligned_1105.csv', infer_schema_length=0).filter(pl.col('check').str.starts_with('确认'))
+    AL = pl.read_csv(os.environ.get('SPLITS_CSV') or f'{ROOT}/probe/market_1105/polygon_splits_aligned_1105.csv', infer_schema_length=0).filter(pl.col('check').str.starts_with('确认'))
     # 同一天同一只有两条(Polygon 重复 / 修订版,共 6 处,都是小比例送股)→ 只留和价格跳得最吻合的那条
     AL = AL.with_columns(pl.col('err').cast(pl.Float64)).sort('err').unique(['ticker', 'aligned_date'], keep='first')
     split_on = {(t, d): float(r) for t, d, r in AL.select('ticker', 'aligned_date', 'ratio').iter_rows()}
@@ -94,7 +94,20 @@ def main(plan_path, px_path, out_dir, only_n=None):
         for a_, b_ in zip(rows, rows[1:]):
             pc = a_['close']; amt = b_['dividend_amount']
             if amt and pc and amt / pc >= SPECIAL_MIN and amt < pc:
-                c = pc / (pc - amt); b_['split_coefficient'] = round(b_['split_coefficient'] * c, 8)
+                c = pc / (pc - amt)
+                sc0 = b_['split_coefficient']
+                if sc0 != 1.0 and b_['open']:
+                    # 同一天既有「拆股」又有大额派现:Polygon 有时把同一件事(比如 2016-09-19 XLF 分出 XLRE)两边各记一次。
+                    # 看价格真正跳了多少,三种组合(只拆股 / 只派现 / 两个都算)取最接近的;丢掉的那条写进 warnings
+                    jump = pc / b_['open']
+                    opts = {'split_only': sc0, 'special_only': c, 'both': sc0 * c}
+                    pick = min(opts, key=lambda k: abs(math.log(opts[k] / jump)))
+                    if pick != 'both':
+                        warns.append(f"{b_['date']} 同一天有拆股 {sc0} 和大额派现 {amt}(系数 {c:.4f}),隔夜实际 {jump:.4f} 倍,只取 {pick}")
+                        events = [e for e in events if not (pick == 'special_only' and e['effective_date'] == b_['date'] and e['action_type'] == 'split')]
+                        if pick == 'split_only': continue
+                        b_['split_coefficient'] = 1.0
+                b_['split_coefficient'] = round(b_['split_coefficient'] * c, 8)
                 events.append({'effective_date': b_['date'], 'action_type': 'special_distribution', 'cash_amount': amt, 'prev_close': pc,
                                'split_coefficient': round(c, 8), 'source': 'rule_1102_special_distribution_ge_10pct', 'source_ticker': b_['source_ticker']})
             if a_['source_ticker'] != b_['source_ticker']:
