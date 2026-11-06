@@ -27,82 +27,66 @@ sys.path.insert(0, ROOT); os.chdir(ROOT)
 from engine import data as D                                   # noqa: E402
 
 OUT = "probe/大盘替身_1106"
-_SPY = None
 
-
-def spy():
-    global _SPY
-    if _SPY is None:
-        b = D.load_benchmark("SPY")
-        _SPY = b["close"].dropna()
-    return _SPY
+# ★★★ 1106 21:45 修（★★ B 路查出来的，我独立复核过）——
+#   ★ 原来这份自己写了一套替身算法，有**两个错叠在一起**：
+#     ① ★★★ `if ... j <= i: 算不出 += 1; continue`
+#        把「离场日 = 进场日」的笔**整条扔掉**（连策略那一侧一起扔）。
+#        ★★ 实测（震荡·技-14-原著·不挂闸，10,405 笔）：被扔掉 **2,442 笔（23.5%）**，
+#          其中 **99.96% 是亏的**、平均 **−2.10%**，离场原因 2,438 笔是**止损** ——
+#          ★★★ 也就是**当天就被打掉的单子**。
+#        → ★ 策略真实平均 **−0.14%** 被抬成 **+0.46%**（抬高 0.60 个百分点）。
+#        ★★★ 这是教科书式的**存活者偏差**，而我把它建进了自己的基准里。
+#     ② **时点没对齐**：策略是次日**开盘**成交，而我拿 SPY 的**收盘**比。
+#   → ★★ 修法：**直接复用 B 路那一份实现**（`probe/挂件_1106/台_公共_1106.py`
+#     的 `替身收益()`）—— ★★★ 不许有两份实现，否则下次还会分叉。
+sys.path.insert(0, os.path.join(ROOT, "probe", "挂件_1106"))
+import 台_公共_1106 as 台                                      # noqa: E402
 
 
 def 一条(p: str) -> dict | None:
     d = pd.read_csv(p)
-    need = {"entry_date", "exit_date", "notional_in", "net_pnl", "gross_pnl",
-            "friction_cost"}
+    need = {"entry_date", "exit_date", "notional_in", "net_pnl", "reason"}
     if d.empty or not need <= set(d.columns):
-        return None
+        return {"★跑失败": f"缺列:{sorted(need - set(d.columns))}"}
     for c in ("entry_date", "exit_date"):
         d[c] = pd.to_datetime(d[c], errors="coerce")
-    for c in ("notional_in", "net_pnl", "gross_pnl", "friction_cost"):
+    for c in ("notional_in", "net_pnl"):
         d[c] = pd.to_numeric(d[c], errors="coerce")
     d = d.dropna(subset=["entry_date", "exit_date", "notional_in", "net_pnl"])
+    d = d[d["notional_in"] > 0]
     if d.empty:
         return None
-    s = spy()
-    idx = s.index
 
-    真收益率, 替身收益率, 算不出 = [], [], 0
-    for a, b, 本, 净 in zip(d["entry_date"], d["exit_date"],
-                          d["notional_in"], d["net_pnl"]):
-        if 本 is None or not np.isfinite(本) or 本 <= 0:
-            算不出 += 1
-            continue
-        i = idx.searchsorted(a)
-        j = idx.searchsorted(b)
-        # ★★★ 窗口落在 SPY 序列之外 → 算不出（★ 不外推、不用最近值顶替）
-        if i >= len(idx) or j >= len(idx) or j <= i:
-            算不出 += 1
-            continue
-        p0, p1 = float(s.iloc[i]), float(s.iloc[j])
-        if not (np.isfinite(p0) and np.isfinite(p1) and p0 > 0):
-            算不出 += 1
-            continue
-        真收益率.append(float(净) / float(本))
-        替身收益率.append(p1 / p0 - 1.0)
-
-    if len(真收益率) < 20:
-        return {"★算不出": f"可配对只有 {len(真收益率)} 笔,★ 少于 20 笔不比",
+    真 = d["net_pnl"] / d["notional_in"]          # ★ 已扣摩擦的净收益率
+    替 = 台.替身收益(d)                            # ★★★ 修正口径（当天单不扔、时点对齐）
+    ok = 真.notna() & 替.notna()
+    算不出 = int((~ok).sum())
+    if int(ok.sum()) < 20:
+        return {"★算不出": f"可配对只有 {int(ok.sum())} 笔，★ 少于 20 笔不比",
                 "★算不出笔数": 算不出}
-
-    真 = pd.Series(真收益率)
-    替 = pd.Series(替身收益率)
-    差 = 真 - 替
-    # ★★★ 按进场日聚类（同一天进场的几笔不独立）
-    日 = d["entry_date"].iloc[:len(差)].reset_index(drop=True)
-    g = 差.groupby(日.dt.strftime("%Y-%m-%d").values).mean().dropna()
-    nd = len(g)
-    se = float(g.std(ddof=1) / np.sqrt(nd)) if nd >= 3 else np.nan
-    m = float(差.mean())
-    t = m / se if (np.isfinite(se) and se > 0) else np.nan
+    差 = (真[ok] - 替[ok])
+    st = 台.聚类t(差, d.loc[ok, "entry_date"])
+    t = st["t"]
     return {
-        "①可配对笔数": int(len(真)),
+        "①可配对笔数": int(ok.sum()),
         "★算不出笔数": 算不出,
-        "②真策略_每笔收益率均值pct": round(float(真.mean()) * 100, 4),
-        "③大盘替身_每笔收益率均值pct": round(float(替.mean()) * 100, 4),
-        "★★★④差(真 减 替身)pct": round(m * 100, 4),
-        "★按进场日聚类的标准误pct": (round(se * 100, 4) if np.isfinite(se) else None),
-        "★★聚类数(不同进场日)": nd,
+        "②真策略_每笔收益率均值pct": round(float(真[ok].mean()) * 100, 4),
+        "③大盘替身_每笔收益率均值pct": round(float(替[ok].mean()) * 100, 4),
+        "★★★④差(真 减 替身)pct": round(st["均值"] * 100, 4),
+        "★按进场日聚类的标准误pct": (round(st["聚类标准误"] * 100, 4)
+                              if np.isfinite(st["聚类标准误"]) else None),
+        "★★聚类数(不同进场日)": st["聚类数"],
         "t值": (round(float(t), 2) if np.isfinite(t) else None),
         "★★★判定": ("★ 正且过 2 倍标准误（★★ 比同期大盘好）" if (np.isfinite(t) and t > 2)
                   else ("负且过 2 倍标准误（★★★ 不如同期买大盘）"
                         if (np.isfinite(t) and t < -2)
                         else "★★★ 测不出（在噪声里）")),
         "⑤赢过替身的笔数占比": round(float((差 > 0).mean()) * 100, 1),
-        "⑥平均持有天(日历)": round(float((d["exit_date"] - d["entry_date"])
-                                 .dt.days.mean()), 1),
+        "⑥平均持有天(日历)": round(float((d.loc[ok, "exit_date"]
+                                   - d.loc[ok, "entry_date"]).dt.days.mean()), 1),
+        "★★★当天进当天出的笔数": int((d.loc[ok, "exit_date"]
+                              == d.loc[ok, "entry_date"]).sum()),
     }
 
 
@@ -117,6 +101,7 @@ def main() -> int:
         "标准误": "★★ 按**进场日聚类**",
         "算不出": "★ 窗口落在 SPY 序列之外 → 单独报数，**不外推、不用最近值顶替**",
         "engine改动": "零",
+        "★★★1106_21_45_修": ["① 当天进当天出的笔**不再扔**（原来整条扔掉 → 存活者偏差，实测把技-14 抬高 0.60 个百分点）", "② **时点对齐**：进场用 SPY 开盘；规则/时间离场用离场日开盘；止损/退市/期末用离场日收盘；当天进当天出用当天开→收"],
     }}
     fs = sorted(glob.glob("probe/挂闸_1106/ledgers_1106/REAL__*.csv")) + \
          sorted(glob.glob("probe/新策略_1106/**/REAL__融-*.csv", recursive=True)) + \
