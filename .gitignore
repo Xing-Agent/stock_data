@@ -25,3 +25,6 @@ probe/searchfix_1105/_rerun45_log_1105.txt
 #   约 55 秒可完全复现;脚本、报告、元数据(60K)照常入库。
 probe/newpool_1106/ohlcv_panel_newpool.parquet
 # ★ 新池排名表 20,651 行(1.6MB)照常入库;面板 parquet 见上面那条
+probe/新策略_1106/per_chain_1106/
+probe/新策略_1106/ledgers_1106/
+probe/新策略_1106/configs/_tmp_*.yaml

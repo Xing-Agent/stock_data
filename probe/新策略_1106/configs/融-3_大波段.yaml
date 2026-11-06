@@ -1,0 +1,110 @@
+# ============================================================================
+# 融-3 · 大波段融合策略（纯技术，没有基本面）
+#
+# 三秒版：挑「涨得又稳又顺」的股票拿着，跌破 100 日线或掉出前列就走。
+#
+# ★★★ 这一类是我们最薄的 —— 原来只有海龟和法伯两条。
+# ★★★ 一格缺零件，已留空并记明：**Clenow 分数**（见 meta.known_gap）。
+# ★ 来源：Gemini 第 36 轮「大波段七槽位」。
+# ============================================================================
+
+meta:
+  name: 融-3_大波段
+  master: null
+  book: null
+  family_label: 大波段
+  source_tier: 混合（逐格标）
+  gemini_round: 36
+  known_gap: >-
+    ★★★ **Clenow 分数这一格做不了** —— engine 零件表里没有
+    「90 天对数回归年化斜率 × R²」这个排序公式。
+    ★ Clenow《Stocks on the Move》(2015) **原书写明了按这个分数排序**，
+    所以它是 ①档（原著定义的分数，照原样复原**不撞红线** —— 它不是我们合成的）。
+    ★★★ 但写它要改 engine（新增 ranking formula）→ 硬规矩不许。
+    → ★★ 本条先用 `return_rank_percentile`（纯涨幅分位）替代，
+      ★★★ **这是降级，不是等价**：Clenow 分数的要点正是用 R² 把
+      「跳空暴涨」那类剔掉，纯涨幅分位剔不掉。
+      ★ 所以本条**不能标成 Clenow**，只能标「行业版动量」。
+      ★★★ 这一句必须跟着结论一起报。
+  param_gap: ★ 三个数跑相邻三点：动量回看天数、分位门槛、离场均线长度。
+
+universe:
+  rules:
+    - type: price_above_ma
+      params: { ma: 200 }
+      source: ★★ ②档。★ Gemini：「个股在 100 日、200 日线上方」；本条先用 200
+  source: ★ Gemini 建议的「90 日均成交额 ≥ 2000 万美元」不加（同前，和摩擦分层重复）
+
+regime:
+  rules:
+    - type: index_above_ma
+      params: { symbol: SPY, ma: 200 }
+      source: ★★ ②档（Faber 2007；Brock 等 1992）
+    - type: index_ma_slope
+      params: { symbol: SPY, ma: 200, lookback: 20 }
+      source: ★★ ②档。★ Gemini：「SPY 在 200 日线上方，且 200 日线往上走」
+  flatten_when_off: false
+  source: ★ 接法同前两条
+
+entry:
+  rules:
+    - type: return_rank_percentile
+      params: { period: 90, top_pct: 0.20 }
+      source: >-
+        ★★★ **降级实现**，见 meta.known_gap。★ 原设计是 Clenow 分数
+        （90 天对数回归斜率 × R²，原书写明）；这里只有涨幅分位。
+        ★★ 90 天和前 20% 来自 Clenow 原书 → runner 跑 60/90/120 天 × 10/20/30%。
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节
+
+initial_stop:
+  type: none
+  source: >-
+    ★★ Gemini 给大波段的止损是「从最高收盘价回撤 3 倍 ATR 的移动止损」，
+    ★ 没给初始硬止损 → 这一格显式关掉（**不是忽略**）。
+    ★★★ 代价：1R = 进场价，不能和有止损的链比每笔 R。
+
+trailing_stop:
+  type: chandelier
+  params: { atr_period: 14, multiple: 3.0 }
+  source: ★★ ②档。★ Gemini：「从最高收盘价回撤 3 倍 ATR」→ runner 跑 2.5/3.0/4.0
+
+exit:
+  rules:
+    - type: close_below_ma
+      params: { ma: 100 }
+      source: ★★ ②档。★ Gemini：「跌破 100 日线，或分数掉出前 20%」
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: >-
+    ★★★ 「分数掉出前 20% 就走」这一条**没做** —— engine 的出场零件里
+    没有「排序掉出某分位」这一类。★ 已记，和 Clenow 分数那件是同一个缺口。
+
+sizing:
+  type: risk_fraction
+  params: { risk_per_trade: 0.01, max_positions: 10, max_weight: 0.10 }
+  source: >-
+    ★★★ Gemini 建议大波段「按波动率倒数分配、20–30 只」；
+    ★ engine 没有「波动率倒数」这个 sizing 类型 → **本条用 risk_fraction**，
+    ★★ 已记为第三个缺口。★ 槽位也保持 10（不是 20–30）以便和现有链可比。
+
+slots: 10
+source_slots: 执行细节
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: ★ 执行细节；★★ Gemini 建议按 Clenow 分数降序 —— 零件缺口，见 meta
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0, low_liquidity_bps: 30.0 }
+  source: 行业惯例
+
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null          # ★★★ 待接 DGS3MO

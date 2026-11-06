@@ -1,0 +1,131 @@
+# ============================================================================
+# 融-1 · 震荡类融合策略（纯技术，没有基本面）
+#
+# 三秒版：大趋势向上时，买短期跌过头的；回到 5 日均线之上就走。
+#         ★ 和技-12 的区别：技-12 没有大盘闸、没有时间止损；本条两样都有。
+#
+# ★★★ 本条是**融合策略**，不是任何一位大师的原著。
+#   逐槽位出处见每一格的 source。★ 第 ③ 档（我们的）那几格一律跑相邻三点。
+#
+# ★ 来源：Gemini 第 36 轮「震荡类业内主流做法」+ 我们自己的实现。
+#   ★★ Gemini 原话要点：业内震荡类主流**不是**「箱子里来回做」，
+#      而是「大趋势向上时，买短期跌过头的」（康纳斯一路）。
+# ============================================================================
+
+meta:
+  name: 融-1_震荡
+  master: null                       # ★★★ 没有大师 —— 这是融合策略
+  book: null
+  family_label: 震荡
+  source_tier: 混合（逐格标，见各 source）
+  built_on: 技-12 康纳斯 RSI(2)
+  gemini_round: 36
+  param_gap: >-
+    ★ 三个数原著没给，必须跑相邻三点：RSI(2) 阈值、时间止损天数、大盘闸的均线长度。
+    ★★ 本文件给的是中间那一点，相邻三点由 runner 控制。
+
+# ① 选股池
+universe:
+  rules:
+    - type: price_above_ma
+      params: { ma: 200 }
+      source: 原著（康纳斯：「价格在 200 日均线之上」；手册明文此前提不允许关掉）
+  source: >-
+    ★★ Gemini 还建议加「20 日均成交额 ≥ 1000 万美元、股价 ≥ 5 美元」两条。
+    ★★★ 本次**不加**：① 流动性门槛我们已在 costs 的三档摩擦里体现；
+    ② 股价门槛是惯例、没有实证来源。★ 加了会和摩擦分层重复计一次。
+
+# ② 环境闸 ★★★ 这一格是本条相对技-12 的核心新增
+regime:
+  rules:
+    - type: index_above_ma
+      params: { symbol: SPY, ma: 200 }
+      source: >-
+        ★★ ②档 行业改进。★ 出处：Faber 2007（200 日线有实证）；Brock 等 1992。
+        ★★★ Lin 2026-11-04 拍板的口径就是「SPY 在 200 日线上方才开新仓」。
+        ★ 均线长度 200 有实证；50/100/200 三点仍由 runner 跑一遍看敏感度。
+  flatten_when_off: false
+  source: >-
+    ★★★ 接法用「不满足就不开新仓」—— Gemini 第 36 轮说这是业内最常见的一种，
+    且和我们 11-04 定的一致。★ 它给的另两种：按程度连续调仓位（Carver）=
+    打分，**撞红线不用**；环境差时收紧进场门槛（康纳斯 RSI(2)<2）= 记下待测。
+    ★ flatten_when_off = false：闸关了只是不开新仓，不强平已有仓位。
+
+# ③ 进场
+entry:
+  rules:
+    - type: rsi_oversold
+      params: { period: 2, threshold: 10.0 }
+      source: >-
+        ★ 周期 2 = 原著（康纳斯明文「2 日 RSI」）。
+        ★★★ 阈值 = **原著没给**（原文只写「极低值」）→ 第 ③ 档，
+        runner 跑 5 / 10 / 15 三点，★ 三点是否同向必须报。
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节（收盘确认、次日开盘成交）
+
+# ⑤ 止损 ★★★ 这一格两派，本条选哪一派要说清
+initial_stop:
+  type: none
+  source: >-
+    ★★★ 业内两派（Gemini 第 36 轮）：① 只设巨灾止损和时间止损（康纳斯一路）
+    ② 设 2.5 倍 ATR 硬止损（管别人钱的机构）。
+    ★★ 本条选 ①，理由：原著（康纳斯）自己是**不带止损**测试的，
+    选 ② 就不再是同一条策略。★ ② 另开一条（融-1b）单独跑，不混在一起。
+    ★★★ 代价必须写明：1R = 进场价，R 乘数退化成收益率，
+    **不能和有止损的链比每笔 R**。
+
+trailing_stop:
+  type: none
+  source: 同上（康纳斯一路不带移动止损）
+
+# ⑥ 离场
+exit:
+  rules:
+    - type: close_above_ma
+      params: { ma: 5 }
+      source: 原著（康纳斯：「价格回到 5 日均线之上就走」）
+  params:
+    profit_target_r: null
+    time_stop_days: 10          # ★★★ 这一格是本条相对技-12 的第二个新增
+  fill: next_open
+  source: >-
+    ★★★ 时间止损 = 第 ③ 档（我们的）。★ 原著写了「持有超过 N 天无条件平仓」
+    但 **N 没给**；Gemini 也说 N 没有原著数。
+    ★★ runner 跑 5 / 10 / 15 三点。★★★ 为什么要有它：
+    均值回归最怕的是「跌过头之后一路跌下去」，没有时间止损就会一直拿着。
+    ★ 技-12 把这一格显式关掉了，所以技-12 的成绩里**不含**这个保护。
+
+sizing:
+  type: risk_fraction
+  params: { risk_per_trade: 0.01, max_positions: 10, max_weight: 0.10 }
+  source: >-
+    ★ 执行细节。★★ Gemini 建议震荡类用「固定 10 个槽位等权」；
+    ★★★ 我们用 risk_fraction 是为了和现有 45 条链**可比** ——
+    换成等权就不能和老结论对账。★ 等权另开一条跑。
+    ⚠ initial_stop = none 时 risk_per_trade 按进场价算风险，
+    等价于每笔买 1% 权益 → 实际常年低仓位，**必须和同等仓位大盘基准比**。
+
+slots: 10
+source_slots: 执行细节
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: >-
+      ★ 执行细节。★★ Gemini 建议震荡类按「RSI(2) 由低到高」排序；
+      ★★★ 我们保持 ADV20 以便和现有 45 条链可比。★ RSI 排序另开一条跑。
+      ⚠ 康纳斯信号同一天会大批触发，槽位满时买哪几只由它决定，结论对它敏感。
+
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例（SEC Rule 206(4)-1(d)；GIPS 2020 Section 2.A）
+
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null          # ★★★ 待接 DGS3MO（债券等价口径，1106 已定）

@@ -1,0 +1,124 @@
+# ============================================================================
+# 融-2 · 突破类融合策略（纯技术，没有基本面）
+#
+# 三秒版：大盘向上时，买创 20 日新高、而且是同期最强那一批的股票；
+#         2 倍 ATR 硬止损，吊灯止盈。
+#
+# ★★★ 一格缺零件，已留空并记明 —— 见 entry 里的「★★★ 缺口」。
+# ★ 来源：Gemini 第 36 轮「突破类七槽位」+ 我们自己的实现。
+# ============================================================================
+
+meta:
+  name: 融-2_突破
+  master: null
+  book: null
+  family_label: 突破
+  source_tier: 混合（逐格标）
+  gemini_round: 36
+  param_gap: >-
+    ★ 三个数要跑相邻三点：新高回看天数、相对强度分位、ATR 止损倍数。
+  known_gap: >-
+    ★★★ **「放量确认」这一格做不了** —— engine 的零件表里只有
+    `volume_dryup`（缩量）和 `vcp_volume_duo`（缩量+放量绑成一个组合门），
+    **没有单独的「当日量 ≥ N 倍均量」**。
+    ★ 写新零件要改 engine，而「engine 下一个字节不许改」是硬规矩。
+    ★★★ 所以本条**不含放量过滤**，而 Gemini 给的设计里有这一条
+    （「成交量 > 50 日均量 × 1.5」）。
+    → ★★ 这意味着本条会比它描述的那条**多成交一批假突破**，
+      ★ 成绩应当**偏低**，不是偏高。★★★ 这一句必须跟着结论一起报。
+      ★ 不拿 vcp_volume_duo 顶上：它还带一条缩量腿，那是另一个条件。
+
+# ① 选股池 ★★★ 相对强度前 20%
+universe:
+  rules:
+    - type: return_rank_percentile
+      params: { period: 126, top_pct: 0.20 }
+      source: >-
+        ★★ ②档 行业改进。★ 相对强度动量有实证：Jegadeesh & Titman 1993。
+        ★★★ 但「126 天」和「前 20%」两个数是**惯例，不是原著**
+        → runner 跑 63/126/252 天 × 10/20/30% 看敏感度。
+  source: ★ Gemini 建议的「50 日均成交额 ≥ 1000 万美元」不加（理由同融-1：和摩擦分层重复）
+
+# ② 环境闸 ★★★ 突破类用双条件（比震荡类严）
+regime:
+  rules:
+    - type: index_above_ma
+      params: { symbol: SPY, ma: 50 }
+      source: ★★ ②档 行业改进。★ Gemini 第 36 轮：「SPY 在 50 日线上方」
+    - type: index_ma_slope
+      params: { symbol: SPY, ma: 200, lookback: 20 }
+      source: >-
+        ★★ ②档。★ Gemini 原文是「50 日线在 200 日线上方」；
+        ★★★ engine 没有「两条均线谁在谁上方」这个零件，
+        用「200 日线朝上」近似 —— ★ **这是近似，不是原文**，已标明。
+        ★★ 两者不等价：50>200 是位置关系，斜率是方向。
+  flatten_when_off: false
+  source: ★ 接法同融-1：不满足就不开新仓（Gemini 说这是业内最常见的）
+
+# ③ 进场
+entry:
+  rules:
+    - type: donchian_breakout
+      params: { lookback: 20, use: close }
+      source: >-
+        ★★ ②档 行业改进。★ Gemini：「收盘创 20 日最高收盘价」。
+        ★★★ 20 这个数是惯例 → runner 跑 20/40/55 三点。
+        ★ 55 那一点有原著依据（海龟 System 1 用 20、System 2 用 55）。
+    # ★★★ 缺口：放量确认（当日量 ≥ 1.5 × 50 日均量）—— engine 无零件，见 meta.known_gap
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节
+
+# ⑤ 止损
+initial_stop:
+  type: atr_multiple
+  params: { atr_period: 14, multiple: 2.0 }
+  source: >-
+    ★★ ②档。★ Gemini：「进场价 − 2 倍 ATR」。
+    ★★★ 2.0 是惯例（Wilder 1978 给了 ATR，没给倍数）→ runner 跑 1.5/2.0/3.0。
+
+trailing_stop:
+  type: chandelier
+  params: { atr_period: 14, multiple: 3.0 }
+  source: >-
+    ★★ ②档。★ Gemini 给了两派离场：① 收盘跌破 10 日最低价（海龟）
+    ② 从最高点回撤 3 倍 ATR（吊灯）。★★ 本条选 ②；① 另开一条（融-2b）。
+    ★★★ 3.0 是惯例 → runner 跑 2.5/3.0/4.0。
+
+# ⑥ 离场
+exit:
+  rules: []
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: >-
+    ★★★ 离场全部交给 trailing_stop（吊灯）—— ★ 这是突破/趋势类的本来做法：
+    **不设目标位**，让赢单自己跑。
+    ★★ 这一条正好对上右尾配装单那件事：突破类的钱在少数几笔大赢上，
+    设目标位等于砍掉收益来源。
+
+sizing:
+  type: risk_fraction
+  params: { risk_per_trade: 0.01, max_positions: 10, max_weight: 0.10 }
+  source: ★ 和 Gemini 给的一致（单笔风险 1%、按 2 倍 ATR 算股数、最多 8–10 只）
+
+slots: 10
+source_slots: 执行细节
+
+ranking:
+  primary:
+    formula: ADV20
+    order: desc
+    source: >-
+      ★ 执行细节。★★ Gemini 建议按「相对强度或放量倍数由高到低」；
+      ★★★ 保持 ADV20 以便和现有 45 条链可比，相对强度排序另开一条跑。
+
+costs:
+  friction_tiers: { high_liquidity_bps: 5.0, mid_liquidity_bps: 15.0, low_liquidity_bps: 30.0 }
+  source: 行业惯例（SEC Rule 206(4)-1(d)；GIPS 2020 Section 2.A）
+
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null          # ★★★ 待接 DGS3MO
