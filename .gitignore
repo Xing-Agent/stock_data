@@ -24,3 +24,4 @@ probe/searchfix_1105/_rerun45_log_1105.txt
 # ★ 它是 market_ext_1105 烤出来的,用 probe/newpool_1106/烤新池_1106.py
 #   约 55 秒可完全复现;脚本、报告、元数据(60K)照常入库。
 probe/newpool_1106/ohlcv_panel_newpool.parquet
+# ★ 新池排名表 20,651 行(1.6MB)照常入库;面板 parquet 见上面那条
