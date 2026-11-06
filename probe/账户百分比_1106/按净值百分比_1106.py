@@ -54,9 +54,11 @@ def 逐日净值(d: pd.DataFrame) -> pd.Series:
     实现 = 实现.cumsum()
     # ② 未实现:逐笔在持仓区间内按收盘价算浮盈
     浮 = pd.Series(0.0, index=idx)
+    缺票: set = set()
     for _, r in d.iterrows():
         s = str(r["symbol"])
         if s not in cl.columns:
+            缺票.add(s)
             continue
         a, b = r["entry_date"], r["exit_date"]
         if pd.isna(a):
@@ -74,6 +76,10 @@ def 逐日净值(d: pd.DataFrame) -> pd.Series:
     # ★★★ 规矩⑯:算不出要大声报,不许静悄悄
     if eq.isna().any():
         print(f"   ⚠ 净值曲线里仍有 {int(eq.isna().sum())} 天是 NaN —— 查!", flush=True)
+    if 缺票:
+        # ★★★ 规矩⑯:面板里没有的票要说出来 —— ★ 它们的浮盈没算进净值
+        print(f"   ⚠ 有 {len(缺票)} 只票不在面板里(浮盈没算进净值),"
+              f"例:{sorted(缺票)[:3]}", flush=True)
     return eq
 
 
@@ -127,8 +133,11 @@ def main() -> int:
         "内部研发": "★ 照旧看 R —— 这一份只管**给用户看的**那几个数",
         "初始本金": EQ0,
     }}
+    # ★★★ 1106 补:原来漏了 **11 条策略自己的流水目录**(friction_rerun_1104)——
+    #   ★★ 结果说明书总表那一列全打「★ 算不出」。★ 规矩⑯ 让它大声说出来了,所以当场发现。
     fs = sorted(glob.glob("probe/挂闸_1106/ledgers_1106/REAL__*.csv")) + \
-         sorted(glob.glob("probe/新策略_1106/**/REAL__融-*.csv", recursive=True))
+         sorted(glob.glob("probe/新策略_1106/**/REAL__融-*.csv", recursive=True)) + \
+         sorted(glob.glob("probe/friction_rerun_1104/ledgers_1104/REAL__*.csv"))
     for f in fs:
         名 = os.path.basename(f)[6:-4]
         try:

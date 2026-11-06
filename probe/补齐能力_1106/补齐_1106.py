@@ -11,9 +11,16 @@ import numpy as np, pandas as pd
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, ROOT); os.chdir(ROOT)
 from engine import fundamentals as F, data as D        # noqa: E402
+# ★★★ 1106 17:40:接**新财报库** fundamentals_ext/(4,005 家)——
+#   ★ 原来引擎读老库 pilot_300(280 家)→ 实测覆盖率只有 4.7%,
+#   ★★★ 那不是「没数据」,是**引擎在另一个柜子里找**(数据组 17:31 指出)。
+#   ★★ engine 零改动:进程内替换函数指针。
+sys.path.insert(0, os.path.dirname(__file__))
+import 接新财报库_1106 as EXT                            # noqa: E402
+_EXTINFO = EXT.install()
 
 OUT = os.path.join(ROOT, "probe", "补齐能力_1106")
-报 = {"★口径": {
+报 = {"★接的哪个财报库": None, "★口径": {
     "engine改动": "零",
     "算不出": "一律 NaN —— 不猜不补",
     "覆盖率": "有实际数值的实体数 ÷ 抽样实体数",
@@ -368,6 +375,7 @@ def main() -> int:
                        "★ 这条**没改**，engine 冻结；本算子只给「超额收益率」这个指标本身",
         }
 
+    报["★接的哪个财报库"] = _EXTINFO
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(OUT, "补齐_报告_1106.json"), "w", encoding="utf-8") as fh:
         json.dump(报, fh, ensure_ascii=False, indent=1)
