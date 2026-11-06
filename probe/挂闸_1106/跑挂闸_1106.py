@@ -14,8 +14,17 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "probe", "friction_rerun_1104"))
 sys.path.insert(0, os.path.join(ROOT, "probe", "v2_rerun_1030"))
 os.chdir(ROOT)
-from engine import cache, data, pool_scope                      # noqa: E402
+from engine import cache, data, pool_scope, pat6_ops            # noqa: E402
 import rerun_core_1030 as RC                                    # noqa: E402
+
+# ★★★ 1106 修:原来这个脚本**没有**挂 pat6 钩子,所以 12 条臂里有 8 条
+#   直接 NotImplementedError(技-14 的 pat6_w_bottom_divergence、
+#   技-6 的 pat6_darvas_breakout 两条 entry 规则「引擎还没实现」)。
+#   ★ pat6 算子是**运行时挂钩**在 matrices 上的,不挂就不存在。
+#   ★★ 照抄已有做法:engine/pat6_run.py:271 和
+#      probe/weekly_daily_mapping_1030/impact.py:35 都是这一行。
+#   ★★★ engine/ 一个字节都没改 —— install() 只在进程内替换函数指针。
+pat6_ops.install()
 
 NEWPANEL = "probe/newpool_1106/ohlcv_panel_newpool.parquet"
 NEWPOOL = "probe/newpool_1106/pool_NEWPOOL_ALL_1106.csv"

@@ -50,25 +50,31 @@ regime:
 
 entry:
   rules:
-    - type: roc_momentum
-      params: { lookback: 90, self_quantile: 0.80 }
+    - type: mansfield_rs_positive
+      params: { against: SPY, lookback: 90 }
       source: >-
-        ★★ ②档 行业改进。★★★ 这是 engine 里**最贴近 Clenow 那套**的进场零件：
-        `rs_rank_matrix(lookback) > self_quantile` 再转成「事件」——
-        ★ 也就是「**动量排名升进前 20% 的那一天**」。
-        ★★ 90 天与前 20%（self_quantile 0.80）来自 Clenow 原书 →
-        runner 跑 60/90/120 三点。
-        ★★★ 仍是**降级**（见 meta.known_gap）：Clenow 的分数是「斜率 × R²」，
-        用 R² 把跳空暴涨的剔掉；这里只有涨幅排名，剔不掉。**不得标成 Clenow。**
+        ★★ ②档 行业改进。★ 曼斯菲尔德相对强度（RS）对 SPY 为正 =
+        **跑得比大盘强**，转成事件 = 「由弱转强的那一天」。
+        ★★ 出处：Mansfield RS 是温斯坦（Weinstein 1988）体系里的核心指标。
+        ★★★ 仍是**降级**（见 meta.known_gap）：Clenow 原书的分数是
+        「90 天对数回归斜率 × R²」，★ 用 R² 把跳空暴涨的剔掉；
+        RS 为正只说明跑赢大盘，**剔不掉跳空暴涨**。**不得标成 Clenow。**
+        ★ 回看期 90 天来自 Clenow 原书 → runner 跑 60/90/120 三点。
   signal_freeze: close
   fill: next_open
   source: >-
-    ★★★ 2026-11-06 这一格我改了**三次**，前两次都猜错，如实记：
-      ① 原写 `return_rank_percentile` → engine 拒绝：那是**选股池**规则。
-      ② 改写 `close_above_ma(50)` → engine 又拒绝：那是**出场**规则。
-      ③ 读了 engine 的进场零件表才改对（只有 12 种可当进场，`roc_momentum` 在内）。
-    ★★ 两次都是**engine 明确拒绝、并写明「没有悄悄忽略它」** —— ★★★ 这道闸救了我两次：
-    如果它当初选择静默忽略，这条策略会在「没有进场条件」的状态下跑出一个成绩。
+    ★★★ 2026-11-06 这一格我改了**四次**，前三次都猜错，如实记：
+      ① `return_rank_percentile` → 拒绝：那是**选股池**规则。
+      ② `close_above_ma(50)`     → 拒绝：那是**出场**规则。
+      ③ `roc_momentum`           → 拒绝：★ 我以为它是进场零件，其实它也属**选股池**那一套
+         —— **我读错了函数**（把 `_universe_rule_raw` 的类型表当成了进场的）。
+      ④ `mansfield_rs_positive(against: SPY)` → 过了。
+    ★★ 三次都是 **engine 明确拒绝并写明「★ 没有悄悄忽略它」** ——
+    ★★★ 这道闸救了我三次：若它选择静默忽略，这条策略会在
+    「**没有进场条件**」的状态下跑出一个成绩，而且没人会知道。
+    ★★★ 真正该修的不是这一格，是**我的办法** —— 四次里每次都要跑几十分钟才知道错。
+    已另写 `probe/新策略_1106/校验配置_1106.py`：只拿 8 只票调一次 matrices.build，
+    ★ **同样的错 20 秒就能发现**。以后改配置先过它。
 
 initial_stop:
   type: none

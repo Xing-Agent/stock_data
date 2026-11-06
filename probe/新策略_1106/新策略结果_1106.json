@@ -34,16 +34,16 @@
  "条数": 6,
  "失败": [
   {
-   "链": "融-3_大波段·period=60",
-   "原因": "NotImplementedError: entry 规则 close_above_ma 还没法跑 —— 引擎还没实现这条规则\n★ 没有悄悄忽略它。"
+   "链": "融-3_大波段·lookback=60",
+   "原因": "NotImplementedError: entry 规则 roc_momentum 还没法跑 —— 引擎还没实现这条规则\n★ 没有悄悄忽略它。"
   },
   {
-   "链": "融-3_大波段·period=90",
-   "原因": "NotImplementedError: entry 规则 close_above_ma 还没法跑 —— 引擎还没实现这条规则\n★ 没有悄悄忽略它。"
+   "链": "融-3_大波段·lookback=90",
+   "原因": "NotImplementedError: entry 规则 roc_momentum 还没法跑 —— 引擎还没实现这条规则\n★ 没有悄悄忽略它。"
   },
   {
-   "链": "融-3_大波段·period=120",
-   "原因": "NotImplementedError: entry 规则 close_above_ma 还没法跑 —— 引擎还没实现这条规则\n★ 没有悄悄忽略它。"
+   "链": "融-3_大波段·lookback=120",
+   "原因": "NotImplementedError: entry 规则 roc_momentum 还没法跑 —— 引擎还没实现这条规则\n★ 没有悄悄忽略它。"
   }
  ],
  "逐条": [
@@ -2165,5 +2165,5 @@
    }
   }
  ],
- "耗时秒": 2044.9
+ "耗时秒": 3.6
 }
