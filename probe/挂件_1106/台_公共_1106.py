@@ -163,15 +163,30 @@ def spy():
     return _SPY
 
 
+_SPYB = None
+
+
 def 替身收益(d: pd.DataFrame) -> pd.Series:
-    """★ 大盘替身:同进场日、同离场日买 SPY(口径照抄 probe/大盘替身_1106:收盘对收盘,不扣摩擦)。"""
-    s = spy(); idx = s.index
+    """★ 大盘替身(★★ 修正口径 C,见 替身口径复核_1106.py):
+    同钱同进同出买 SPY,不扣摩擦;★★★ **当天进当天出的不扔**;时点对齐 ——
+      进场 = SPY 进场日**开盘**(策略次日开盘买);
+      离场 = 规则/时间离场用 SPY 离场日**开盘**;止损/退市/期末用离场日**收盘**;
+      当天进当天出 = SPY 当天开→收。
+    ★ 原口径(收→收、扔当天单)会把技-14 一族从负显著抬成正显著 —— 不再用。"""
+    global _SPYB
+    if _SPYB is None:
+        _SPYB = data.load_benchmark("SPY")
+    b = _SPYB; idx = b.index
+    o, c = b["open"].to_numpy(float), b["close"].to_numpy(float)
     i = idx.searchsorted(d["entry_date"].values)
     j = idx.searchsorted(d["exit_date"].values)
-    ok = (i < len(idx)) & (j < len(idx)) & (j > i)
+    ok = (i < len(idx)) & (j < len(idx)) & (j >= i)
     out = np.full(len(d), np.nan)
-    v = s.to_numpy()
-    out[ok] = v[j[ok]] / v[i[ok]] - 1.0
+    盘中 = d["reason"].astype(str).isin(["止损", "退市结算", "期末平仓"]).to_numpy()
+    ii, jj = i[ok], j[ok]
+    px_out = np.where(盘中[ok], c[jj], o[jj])
+    px_out = np.where(jj == ii, c[ii], px_out)
+    out[ok] = px_out / o[ii] - 1.0
     return pd.Series(out, index=d.index)
 
 
