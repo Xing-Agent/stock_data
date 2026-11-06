@@ -33,6 +33,16 @@ universe:
     - type: price_above_ma
       params: { ma: 200 }
       source: ★★ ②档。★ Gemini：「个股在 100 日、200 日线上方」；本条先用 200
+    - type: return_rank_percentile
+      params: { period: 90, top_pct: 0.20 }
+      source: >-
+        ★★★ **降级实现**，见 meta.known_gap：原设计是 Clenow 分数
+        （90 天对数回归斜率 × R²，原书写明按此排序），这里只有涨幅分位。
+        ★ 90 天与前 20% 来自 Clenow 原书 → runner 跑 60/90/120 天。
+        ★★★ 2026-11-06 修：这一条原来错写在 entry 里 —— engine 直接拒绝了
+        （「entry 规则 return_rank_percentile 还没法跑」，★ 而且没有悄悄忽略）。
+        ★★ 它**本来就该在选股池**：Clenow 那一套「挑前 20% 拿着」是
+        **选股**，不是**进场触发**。★ 放错格子是我的结构错。
   source: ★ Gemini 建议的「90 日均成交额 ≥ 2000 万美元」不加（同前，和摩擦分层重复）
 
 regime:
@@ -48,12 +58,16 @@ regime:
 
 entry:
   rules:
-    - type: return_rank_percentile
-      params: { period: 90, top_pct: 0.20 }
+    - type: close_above_ma
+      params: { ma: 50 }
       source: >-
-        ★★★ **降级实现**，见 meta.known_gap。★ 原设计是 Clenow 分数
-        （90 天对数回归斜率 × R²，原书写明）；这里只有涨幅分位。
-        ★★ 90 天和前 20% 来自 Clenow 原书 → runner 跑 60/90/120 天 × 10/20/30%。
+        ★★ ②档。★★★ 大波段这一类的进场**本来就不是一个「事件」** ——
+        选股池已经把「涨得最顺的前 20% 且在 200 日线上方」筛出来了，
+        进场只是「有槽位就买」。
+        ★ 这里用「收盘在 50 日线上方」当一道**温和的时点确认**，
+        避免在回调最深那天进场。★ 50 是惯例 → runner 跑 20/50/100 三点。
+        ★★ Clenow 原书本身是**定期调仓**（每周按分数重排），
+        ★★★ engine 没有「定期调仓」这个机制 —— **这是第五个缺口**，已记。
   signal_freeze: close
   fill: next_open
   source: 执行细节

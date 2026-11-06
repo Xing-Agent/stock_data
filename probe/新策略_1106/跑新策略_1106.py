@@ -35,7 +35,8 @@ OUT = os.path.join(HERE, "新策略结果_1106.json")
 SWEEP = {
     "融-1_震荡":   ("entry.rules.0.params.threshold", [5.0, 10.0, 15.0]),
     "融-2_突破":   ("entry.rules.0.params.lookback", [20, 40, 55]),
-    "融-3_大波段": ("entry.rules.0.params.period", [60, 90, 120]),
+    # ★ 1106 修:融-3 的动量分位挪到 universe 了(原来错写在 entry,engine 拒绝)
+    "融-3_大波段": ("universe.rules.1.params.period", [60, 90, 120]),
 }
 
 
