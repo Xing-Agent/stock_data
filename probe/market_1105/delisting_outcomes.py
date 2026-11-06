@@ -21,7 +21,7 @@
     · ③ 0%:按最后收盘结算 —— 收购通常是现金或换股,最后收盘已经贴着成交价
     · ② ④ 用 Shumway(1997, JF)和 Shumway & Warther(1999, JF)的做法:业绩原因退市、又查不到退市后价格的,
         纽交所 / 美交所 -30%,纳斯达克 -55%(这是**行业近似**,不是逐只核过的值,标 ②档)
-    · ⑤ 里判不了的两种留空:证据不够,不给数(用的人自己决定按最后收盘还是按 Shumway);推断出来的两种给数但标 low
+    · ⑤ 里判不了的两种(voluntary_or_other、unknown):Lin 11-06 拍板,也按 Shumway 打折(保守);全部标 low
   考卷那 23 只破产股是逐只读过 8-K 原文的(有的明确为 0),这里**不覆盖考卷**。
 
 用法:python3 delisting_outcomes.py market_ext_dir out.csv
@@ -66,8 +66,9 @@ def main(mdir, out):
         # 下面三种证据都不硬:外国公司(20-F)不交 8-K,换股收购的 S-4 是收购方交的 —— 所以再看一眼最后收盘价
         elif lc >= 5 and (vol or dn): cat, evd, ret, basis, conf = 'acquisition_likely', ev(vol + dn), 0.0, '推断:有退市 / 注销申报、最后收盘 ≥ 5 美元,多半是被收购或转板;按最后收盘', 'low'
         elif lc < 1: cat, evd = 'performance_likely', ev(vol + dn); ret = -0.55 if nasdaq else -0.30; basis = '推断:最后收盘 < 1 美元;按 Shumway 近似(②档)'; conf = 'low'
-        elif vol or dn: cat, evd, ret, basis, conf = 'voluntary_or_other', ev(vol + dn), '', '证据不够,不给数', 'low'
-        else: cat, evd, ret, basis, conf = 'unknown', '', '', '证据不够,不给数', 'low'
+        # 证据不够的两种:Lin 11-06 同意也按 Shumway 打折(保守,不高估收益)
+        elif vol or dn: cat, evd, ret, basis, conf = 'voluntary_or_other', ev(vol + dn), (-0.55 if nasdaq else -0.30), '证据不够;按 Lin 11-06 拍板,保守按 Shumway 近似打折', 'low'
+        else: cat, evd, ret, basis, conf = 'unknown', '', (-0.55 if nasdaq else -0.30), '证据不够;按 Lin 11-06 拍板,保守按 Shumway 近似打折', 'low'
         rows.append([s, cik, E, det[s]['last_close'], m['exchange'], cat, ret, basis, conf, evd])
     with open(out, 'w', newline='') as fh:
         w = csv.writer(fh)
