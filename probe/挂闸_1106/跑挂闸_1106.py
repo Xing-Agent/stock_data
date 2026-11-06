@@ -39,6 +39,33 @@ def 装覆盖层() -> dict:
             "PERF_START": data.PERF_START, "PERF_END": data.PERF_END}
 
 
+# ══════════════════════════════════════════════════════════════════════
+# ★★★ 可续跑 —— 每条臂单独落盘,已跑过的跳过。
+#   ★ 为什么要这个:长跑批活不过会话回合边界,被掐了就全白跑。
+#   ★★ 有了它,反复调用同一个脚本就能一段一段把活干完。
+# ══════════════════════════════════════════════════════════════════════
+def 臂路径(臂目录: str, label: str) -> str:
+    import hashlib
+    h = hashlib.sha256(label.encode("utf-8")).hexdigest()[:16]
+    return os.path.join(臂目录, f"arm_{h}.json")
+
+
+def 读臂(臂目录: str, label: str):
+    p = 臂路径(臂目录, label)
+    if os.path.exists(p):
+        try:
+            return json.load(io.open(p, encoding="utf-8"))
+        except Exception:
+            return None
+    return None
+
+
+def 存臂(臂目录: str, label: str, payload: dict) -> None:
+    os.makedirs(臂目录, exist_ok=True)
+    io.open(臂路径(臂目录, label), "w", encoding="utf-8").write(
+        json.dumps(payload, ensure_ascii=False, indent=1, default=str))
+
+
 def main() -> int:
     t0 = time.time()
     自证 = 装覆盖层()
@@ -56,6 +83,8 @@ def main() -> int:
     F.OUT = OUT
     os.makedirs(CFGDIR, exist_ok=True)
     os.makedirs(F.PER_CHAIN, exist_ok=True); os.makedirs(F.LEDGERS, exist_ok=True)
+    ARMS = os.path.join(HERE, "arms_1106")
+    os.makedirs(ARMS, exist_ok=True)
 
     结果, 失败 = [], []
     for 族, fn in 代表.items():
@@ -78,9 +107,16 @@ def main() -> int:
             tmp = f"_gate_{族}_{名}.yaml"
             io.open(os.path.join(CFGDIR, tmp), "w", encoding="utf-8").write(
                 yaml.safe_dump(raw, allow_unicode=True, sort_keys=False))
+            cached = 读臂(ARMS, label)
+            if cached is not None:
+                结果.append(cached)
+                print(f"   ⟳ {label}（已跑过，跳过）", flush=True)
+                continue
             try:
                 r = F.run_one(label, tmp, None, "挂闸_1106", dev, hs, {})
-                结果.append({"链": label, "族": 族, "版本": 名, "结果": r})
+                rec = {"链": label, "族": 族, "版本": 名, "结果": r}
+                存臂(ARMS, label, rec)           # ★ 立刻落盘
+                结果.append(rec)
                 print(f"   ✓ {label}", flush=True)
             except Exception as e:
                 失败.append({"链": label, "原因": f"{type(e).__name__}: {e}"})
