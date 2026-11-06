@@ -38,6 +38,20 @@ def 期末持仓(臂):
     return int(tail.sum()), int(real.sum())
 
 
+def 尾巴(臂):
+    """★★ 均值会被少数几笔拉高 —— 同时给中位数、去掉最高 1% 的均值、涨 10 倍以上的笔数
+       (★★★ 涨 10 倍以上的要逐笔核拆股:VRDN 2020 那笔 0.756 → 20.79 很可能是没修的反向拆股)。"""
+    p = os.path.join(HERE, "ledgers", f"REAL__{臂.replace('/', '／').replace(' ', '_')}.csv")
+    if not os.path.exists(p):
+        return None, None, None
+    d = pd.read_csv(p)
+    if d.empty:
+        return None, None, None
+    r = d["net_pnl"] / d["notional_in"] * 100
+    return (round(float(r.median()), 2), round(float(r[r <= r.quantile(.99)].mean()), 2),
+            int((d["exit_price"] / d["entry_price"] >= 10).sum()))
+
+
 def main():
     rows, fails = [], []
     for f in sorted(glob.glob(os.path.join(HERE, "arms", "*.json"))):
@@ -50,12 +64,14 @@ def main():
         acc = r.get("账户百分比(给用户看)") or {}
         tail, real = 期末持仓(r["臂"])
         策略, 点 = r["臂"].split("·", 1)
+        中位, 去尾, 十倍 = 尾巴(r["臂"])
         rows.append({
             "策略": 策略, "点": 点, "档": r.get("档"),
             "笔数": r.get("笔数"), "不同股票": r.get("不同股票数"),
             "比同期大盘_差pct(均值)": bm.get("★★★④差(真 减 替身)pct"),
             "t": bm.get("t值"), "判定": bm.get("★★★判定") or bm.get("★算不出") or bm.get("★跑失败"),
             "进场后20日超额pct(均值)": c.get("平均超额pct"), "20日t": c.get("t值"),
+            "每笔中位pct": 中位, "去掉最高1%后均值pct": 去尾, "涨10倍以上笔数(要核拆股)": 十倍,
             "利润因子": acc.get("⑤利润因子_按净值pct"), "胜率": acc.get("②胜率"),
             "持有交易日(中位)": r.get("持有交易日_中位"),
             "期末还拿着(被记成退市结算)": tail, "真退市": real,
@@ -83,7 +99,7 @@ def main():
         json.dumps(out, ensure_ascii=False, indent=1, default=str))
     if len(df):
         cols = ["策略", "点", "档", "笔数", "比同期大盘_差pct(均值)", "t", "进场后20日超额pct(均值)",
-                "20日t", "利润因子", "胜率", "持有交易日(中位)", "期末还拿着(被记成退市结算)", "三点同向"]
+                "20日t", "每笔中位pct", "去掉最高1%后均值pct", "涨10倍以上笔数(要核拆股)", "利润因子", "胜率", "持有交易日(中位)", "期末还拿着(被记成退市结算)", "三点同向"]
         md = df[cols].to_markdown(index=False)
         io.open(os.path.join(HERE, "成绩表_1106.md"), "w", encoding="utf-8").write(md)
         print(md)
