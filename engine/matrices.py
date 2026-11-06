@@ -602,12 +602,19 @@ def regime_mask(spec: dict, index: pd.DatetimeIndex,
                 ok &= (cnt >= need).fillna(False)
             continue
         if t == "index_above_ma":
-            sym, n = rule.get("symbol", "SPY"), int(rule.get("ma", 200))
+            # ★★★ 1106 修(Lin 15:23 拍板「修」):原来从**规则顶层**取 symbol/ma,
+            #   ★ 参数写在 params 里就**静默退回默认 200** —— 兄弟分支
+            #   index_above_ma_scaled(下方)一直是先做 p = rule.get("params", rule)。
+            #   ★★ 实测后果:挂闸 100/200/300 日三档流水**逐字节相同**。
+            p = rule.get("params", rule)
+            sym, n = p.get("symbol", "SPY"), int(p.get("ma", 200))
             b = data.load_benchmark(sym)["close"].reindex(index).ffill()
             ok &= (b > b.rolling(n, min_periods=n).mean()).fillna(False)
         elif t == "breadth_above":
-            s = data.load_breadth()[rule["field"]].reindex(index).ffill()
-            ok &= (s > float(rule["value"])).fillna(False)
+            # ★★★ 1106 修:同 index_above_ma —— 参数写在 params 里原来读不到。
+            p = rule.get("params", rule)
+            s = data.load_breadth()[p["field"]].reindex(index).ffill()
+            ok &= (s > float(p["value"])).fillna(False)
         elif t == "breadth_above_chain":
             # ★★ 改动三 + 改动一的对照(G4):本链自己范围的广度当「开关」。
             #   ★ 范围不足 min_names 只的那天,这道闸门不生效(当天按开闸处理)——
@@ -625,8 +632,10 @@ def regime_mask(spec: dict, index: pd.DatetimeIndex,
             # 不可用的那天 → True(闸门不生效),可用的那天按阈值判
             ok &= (~usable | (chain_breadth_pct > thr)).fillna(True)
         elif t == "vix_below":
+            # ★★★ 1106 修:同 index_above_ma —— 参数写在 params 里原来读不到。
+            p = rule.get("params", rule)
             s = data.load_benchmark("VIX")["close"].reindex(index).ffill()
-            ok &= (s < float(rule["value"])).fillna(False)
+            ok &= (s < float(p["value"])).fillna(False)
         elif t == "index_above_ma_scaled":
             # 大盘在 (均线 × factor) 上方 —— factor<1 表示容忍小幅跌破
             p = rule.get("params", rule)
