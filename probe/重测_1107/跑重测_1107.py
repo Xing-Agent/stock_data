@@ -49,6 +49,19 @@ HOLD = "probe/新策略_1106/holdout_newpool_1106.json"
 窗口起 = "2016-01-04"                                    # ★★★ 《96》定的
 
 
+def 可买名单(名: str) -> list:
+    """★★★ 一档：全量可买，不再留静态留出池（Lin 1107 16:58 问出来的）。
+
+    ★★ 原来这里用的是旧的「研发池 2,224 只」当可买名单 ——
+      ★★★ 而并池新进来的 1,035 只（含苹果微软）**不在那份名单里** → 一只都买不到，
+      那样跑完等于白跑：面板里有巨头，但策略碰不到它们。
+    ★ B 路拍板原文：「以后还要不要留一份历史考卷：**不留**。
+      往后跑的模拟盘就是考卷。需要样本外检验的地方，用滚动前推或 CPCV。」
+    ★★ 所以两边都改成**全量可买**，这样差异才只来自「池子大小和成分」。
+    """
+    return sorted(cache._PANEL["close"].columns)
+
+
 def 装池(名: str) -> dict:
     panel, pooltab = 池[名]
     wide = pd.read_parquet(panel)
@@ -57,10 +70,11 @@ def 装池(名: str) -> dict:
     RC._IDX_CACHE["idx"] = idx
     data.PERF_START = 窗口起                             # ★★★ 两池同窗口
     close = cache._PANEL["close"]
-    有 = [t for t in ("AAPL", "MSFT", "AMZN") if t in close.columns]
+    有 = [t for t in ("AAPL", "MSFT", "AMZN", "BRK.B", "JPM") if t in close.columns]
     return {"池": 名, "面板只数": int(close.shape[1]), "池表行数": idx.rows,
             "★★★窗口起": data.PERF_START, "PERF_END": data.PERF_END,
-            "★巨头在不在": {"AAPL/MSFT/AMZN 有几只": len(有), "明细": 有}}
+            "★★★可买名单": f"全量 {close.shape[1]} 只（★ 一档，无静态留出池）",
+            "★巨头在不在": {"查的5只里有几只": len(有), "明细": 有}}
 
 
 def 臂路径(label):
@@ -72,11 +86,10 @@ def main() -> int:
     t0 = time.time()
     OV.install()
     hold = json.load(io.open(HOLD, encoding="utf-8"))
-    dev = hold["研发池名单"]; hs = set(hold["留出池名单"])
     for d in (CFGDIR, ARMS):
         os.makedirs(d, exist_ok=True)
     import run_friction_1104 as F                                # noqa: E402
-    F.load_pools = lambda: (dev, hs, hold)
+    # ★★★ dev/hs 在每个池装好后再定（全量可买）
     F.CONFIG_DIR = CFGDIR
     F.PER_CHAIN = os.path.join(HERE, "per_chain_1107")
     F.LEDGERS = os.path.join(HERE, "ledgers_1107")
@@ -88,6 +101,8 @@ def main() -> int:
          "池自证": {}, "结果": [], "失败明细": []}
     for 池名 in 池:
         自证 = 装池(池名)
+        dev = 可买名单(池名); hs = set()        # ★★★ 一档：全量可买
+        F.load_pools = lambda d=dev, h=hs: (d, h, hold)
         报["池自证"][池名] = 自证
         print(f"★ {json.dumps(自证, ensure_ascii=False)}", flush=True)
         for 族, fn in 代表.items():
