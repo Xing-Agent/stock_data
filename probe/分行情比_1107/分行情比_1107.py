@@ -38,7 +38,20 @@ OUT = "probe/分行情比_1107"
 
 
 def 行情(idx: pd.DatetimeIndex, er_n: int = 10) -> pd.DataFrame:
-    """★ 两个轴，都用标普自己的已实现数据算（★★★ 当天收盘才知道，不看未来）。"""
+    """★★★ 两个轴，一律用**前一天收盘**算出的标签给**今天**贴（★ 1107 已修）。
+
+    ★★★ #68 修的那处偷看（Gemini 第 49 轮补问第 2 条抓到的）：
+      原来 `er[t]` 用的是 `s.diff(10)[t]` —— ★ **含今天自己的涨跌**，
+      然后拿 `开 = ER[t] >= 门槛` 去决定 **今天**的收益算不算。
+      ★★ 这就是「先知道今天涨了，再决定今天在不在场」。
+      ★★★ 而且方向反着帮我们：我们是**纯多头**，
+        今天大涨 → 分子变大 → ER 变高 → 被判「走直线」
+        → ★ 「走直线段」是**按结果挑出来的一批上涨日**
+        → ★★★ 那 +43% 的超额**可能整条都是这么造出来的**。
+
+    ★ 修法：`.shift(1)` —— 今天的标签只许用**昨天收盘为止**的数据。
+      ★★ 这是能真实执行的最早时点（昨收算完，今天开盘动手）。
+    """
     s = 核.spy().reindex(idx).ffill()
     ma = s.rolling(200, min_periods=200).mean()
     上 = s > ma * 1.01            # ★ 1% 缓冲带（11-04 拍板，继续适用）
@@ -47,7 +60,8 @@ def 行情(idx: pd.DatetimeIndex, er_n: int = 10) -> pd.DataFrame:
     方向[ma.isna()] = "算不出"
     d = s.diff()
     er = (s.diff(er_n).abs() / d.abs().rolling(er_n, min_periods=er_n).sum())
-    return pd.DataFrame({"方向": 方向, "ER": er})
+    # ★★★ 两个轴一起滞后一天 —— ★ 昨收的标签贴给今天
+    return pd.DataFrame({"方向": 方向.shift(1).fillna("算不出"), "ER": er.shift(1)})
 
 
 def 回归分段(r: pd.Series, bench: pd.Series, mask: pd.Series) -> dict:
