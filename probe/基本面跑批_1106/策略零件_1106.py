@@ -189,6 +189,9 @@ def 值面板(M, name, syms):
     raise KeyError(f"值面板 {name} 没定义 —— ★ 没有悄悄返回 NaN")
 
 
+_格雷厄姆缓存: dict = {}
+
+
 def universe_rule_mask(M, rule, syms, index):
     t = rule.get("type")
     if t not in 新规则:
@@ -217,26 +220,39 @@ def universe_rule_mask(M, rule, syms, index):
         return (值面板(M, "roc", syms).notna() & 值面板(M, "ey", syms).notna()).fillna(False)
 
     if t == "graham_defensive":
+        # ★★ 1107 晚改成「一道一道算、算完就扔」:原写法同时攥着十几张 [日×票] 面板,
+        #   并池2004 × 17 年时单这一条臂吃到 6.2GB 被 OOM 杀掉。★ 判法一字未改,只改内存用法;
+        #   同一组参数的结果记下来,离场那条(同一规则)直接复用,不再算第二遍。
+        key = (tuple(syms), tuple(sorted((k, str(v)) for k, v in p.items())), len(close.index))
+        if key in _格雷厄姆缓存:
+            return _格雷厄姆缓存[key]
         yrs = int(p.get("years", 10))
-        ok = g("rev_ttm") >= float(p.get("min_revenue", 0))
-        ok &= g("current_ratio") >= float(p.get("min_current_ratio", 2.0))
-        ok &= g("ltd_over_nwc") <= float(p.get("max_ltd_over_nwc", 1.0))
-        ok &= g("ni_pos_years") >= yrs
-        ok &= g("div_years") >= min(yrs, int(p.get("div_years_cap", 99)))
-        # ★ 增长:近三年平均 EPS 比 (years−3) 年前的三年平均高至少 min_growth
+        ok = None
+
+        def 并(x):
+            nonlocal ok
+            x = x.fillna(False).astype(bool)
+            ok = x if ok is None else (ok & x)
+            F.panel.cache_clear()
+
+        并(g("rev_ttm") >= float(p.get("min_revenue", 0)))
+        并(g("current_ratio") >= float(p.get("min_current_ratio", 2.0)))
+        并(g("ltd_over_nwc") <= float(p.get("max_ltd_over_nwc", 1.0)))
+        并(g("ni_pos_years") >= yrs)
+        并(g("div_years") >= min(yrs, int(p.get("div_years_cap", 99))))
         e3 = g("eps3_avg_ps")
-        lag_days = None
-        # ★★ 用季度序列做 shift 才对(日频 shift 会错位)→ 单独算一张季度滞后面板
-        e3_lag = F.get(f"eps3_avg_ps_lag{4 * (yrs - 3)}", syms).reindex(
-            index=close.index, columns=syms)
-        gr = e3 / e3_lag.where(e3_lag > 0) - 1.0
-        ok &= gr >= float(p.get("min_growth", 1 / 3))
-        pe3 = 值面板(M, "pe3", syms)
+        e3_lag = F.get(f"eps3_avg_ps_lag{4 * (yrs - 3)}", syms).reindex(index=close.index, columns=syms)
+        并((e3 / e3_lag.where(e3_lag > 0) - 1.0) >= float(p.get("min_growth", 1 / 3)))
+        del e3_lag
+        pe3 = close / e3.where(e3 > 0)
+        del e3
+        并(pe3 <= float(p.get("max_pe", 15.0)))
         pb = 值面板(M, "pb", syms)
-        ok &= pe3 <= float(p.get("max_pe", 15.0))
-        ok &= (pb <= float(p.get("max_pb", 1.5))) | (pe3 * pb <= float(p.get("max_product", 22.5)))
-        del lag_days
-        return ok.fillna(False).astype(bool)
+        并((pb <= float(p.get("max_pb", 1.5))) | (pe3 * pb <= float(p.get("max_product", 22.5))))
+        del pb, pe3
+        _格雷厄姆缓存.clear()
+        _格雷厄姆缓存[key] = ok
+        return ok
 
     if t == "value_momentum_top":
         w = float(p.get("value_weight", 0.5))
