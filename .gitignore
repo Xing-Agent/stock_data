@@ -74,3 +74,6 @@ probe/并池2004_1107/*.parquet
 probe/并池2004_1107/*.parquet
 probe/B路重测_1107/arms_1107/
 probe/B路重测_1107/arms_2004/
+
+# ★ 重测_1107 跑批时现生成的随机臂配置（_rt_ 前缀 = runtime 派生，可由脚本重建）—— ★ 不入库
+probe/重测_1107/configs/_rt_*.yaml
