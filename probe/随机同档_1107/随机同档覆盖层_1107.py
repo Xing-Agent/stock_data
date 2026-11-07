@@ -65,15 +65,18 @@ def _覆盖(spec, symbols, cfg=None):
         seed = prim.get("random_seed")
         tier_want = prim.get("random_cost_tier")
         if seed is not None and tier_want is not None:
-            tier_want = int(tier_want)
-            assert tier_want in (0, 1, 2), f"★ random_cost_tier 只认 0/1/2，给的是 {tier_want}"
+            # ★★★ 1107 第 10 次唤醒补：接受**档位列表**（红线② 的 tier0∪tier1 那一档）
+            要 = [int(x) for x in (tier_want if isinstance(tier_want, (list, tuple))
+                                   else [tier_want])]
+            assert 要 and all(x in (0, 1, 2) for x in 要), \
+                f"★ random_cost_tier 只认 0/1/2 或它们的列表，给的是 {tier_want!r}"
             close = M.cache.field("close", symbols)
             tiers = _档位(symbols).reindex(index=close.index, columns=close.columns)
             rng = np.random.default_rng(int(seed))
             s = pd.DataFrame(rng.random(close.shape), index=close.index,
                              columns=close.columns)
             # ★★★ 两个条件都要：有价格（和旧口径一致）+ 在目标成本档位里
-            可选 = close.notna() & (tiers == tier_want)
+            可选 = close.notna() & tiers.isin(要)
             s = s.where(可选)
             # ★ 自证：格子级证据，★★ 只在第一次调用时统计（省时间）
             if _自证["调用次数"] == 0:
@@ -85,12 +88,12 @@ def _覆盖(spec, symbols, cfg=None):
                           pd.Series(tiers.where(close.notna()).to_numpy().ravel()
                                     ).dropna().astype(int).value_counts().items()}
                 _自证["明细"].append({
-                    "★目标成本档位": tier_want,
+                    "★目标成本档位": 要,
                     "★★★档位定义来自": "engine/chain.py:_liquidity_tiers（engine 的函数本体）",
                     "★★★喂它的adv20来自": "engine/matrices.py:adv_matrix(20) —— 和 1385 行同一句",
                     "有价格的格子": 有价,
                     "★★★本臂打分的格子": 打分,
-                    "★★★打分格子里 tier==目标 的比例": 1.0 if 打分 else None,
+                    "★★★打分格子里 tier∈目标 的比例": 1.0 if 打分 else None,
                     "★★★打分格子占有价格子的比例": round(打分 / 有价, 6) if 有价 else None,
                     "★★旧口径(全池随机)会打分的格子": 有价,
                     "★★旧口径那些格子的档位分布": 旧口径分布,

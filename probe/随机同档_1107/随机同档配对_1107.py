@@ -110,12 +110,16 @@ def main():
                    for s in 种子 if (seg, fam, f"R同档随机{s}") in 新]
             旧比 = [fr(旧[(seg, fam, f"R随机{s}")]) / fr(旧[(seg, fam, "A原样")])
                    for s in 种子 if (seg, fam, f"R随机{s}") in 旧]
+            比01 = [fr(新[(seg, fam, f"R同档01随机{s}")]) / frA
+                   for s in 种子 if (seg, fam, f"R同档01随机{s}") in 新]
             摩擦.append({"格": f"{seg}·{fam}",
                 "A原样每笔摩擦R": round(frA, 6),
                 "★★★新随机比_中位": round(st.median(新比), 3),
                 "★★★新随机比_范围": [round(min(新比), 3), round(max(新比), 3)],
                 "★★旧随机比_中位": round(st.median(旧比), 3) if 旧比 else None,
                 "★★旧随机比_范围": [round(min(旧比), 3), round(max(旧比), 3)] if 旧比 else None,
+                "★查tier0∪1比_中位": round(st.median(比01), 3) if 比01 else None,
+                "★查tier0∪1比_范围": [round(min(比01), 3), round(max(比01), 3)] if 比01 else None,
                 "★★★★★落进0.85~1.20": all(0.85 <= x <= 1.20 for x in 新比)})
     报["自证"]["②每笔摩擦贴上了吗"] = {"明细": 摩擦,
         "★★★★★六格全部落进带": all(x["★★★★★落进0.85~1.20"] for x in 摩擦),
@@ -138,7 +142,8 @@ def main():
         for fam in 族文件:
             la = 标签(seg, fam, "A原样")
             格 = {"段": seg, "族": fam, "★★★问题": "ADV20 排序 vs 同档位内随机抽"}
-            for 版, ds, 臂名 in (("新_同档随机", DS_新, "R同档随机"),
+            for 版, ds, 臂名 in (("新_同档0随机", DS_新, "R同档随机"),
+                               ("查_同档01随机", DS_新, "R同档01随机"),
                                ("旧_全池随机", DS_旧, "R随机")):
                 for 列, 口 in (("净值", "净"), ("毛净值", "毛")):
                     ts, 年化 = [], []
