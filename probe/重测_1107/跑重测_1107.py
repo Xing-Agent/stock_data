@@ -121,10 +121,26 @@ def 臂路径(label):
 def main() -> int:
     t0 = time.time()
     OV.install()
+    # ★★★ 全收益口径（Gemini 第 55 轮补 · 尺子清单第 10 条）
+    #   ★ 引擎 10-29 就支持了，但 `TOTAL_RETURN_DEFAULT = False`，
+    #     而我们的配置和跑批**从来没传过它** → ★★ 所有旧结果都是价格口径。
+    #   ★★★ 实测 SPY 2015~2025：价格 **+11.55%/年** vs 全收益 **+13.46%/年**
+    #     = 差 **1.91 个百分点/年**（十一年累计约 23%）。
+    #   ★ 我们平均敞口只有 50~70% → 少收的分红约 1.1%/年
+    #     → ★★★ **价格口径让我们好看约 0.8 个百分点/年**。
+    #   ★★ `run_one` 不收这个参数 → 走 chain.py 的默认开关（它在 total_return is None 时读）。
+    旧TR = data.TOTAL_RETURN_DEFAULT
+    data.TOTAL_RETURN_DEFAULT = True
+    print(f"★★★ 全收益口径：TOTAL_RETURN_DEFAULT {旧TR} → {data.TOTAL_RETURN_DEFAULT}", flush=True)
+    assert data.TOTAL_RETURN_DEFAULT is True, "★★★ 全收益口径没打开，停"
     # ★★★ 基准也要换成 2004 版，否则日历还卡在 2014（engine 零改动）
     自证基准 = BM.install()
     print("★ 基准覆盖层:", json.dumps(自证基准, ensure_ascii=False), flush=True)
-    assert 自证基准["★★★SPY"]["起"] <= "2004-12-31", "★★★ SPY 没拉到 2004，停"
+    # ★ 覆盖层改成自动扫目录后，返回字段从 ★★★SPY 改成了 ★★★基准自证（#75）
+    _spy = 自证基准["★★★基准自证"]["SPY"]
+    assert _spy.startswith("2004-"), f"★★★ SPY 没拉到 2004（{_spy}），停"
+    for _k in ("VIX", "DTB3"):
+        print(f"   ★ {_k}: {自证基准['★★★基准自证'].get(_k)}", flush=True)
     hold = json.load(io.open(HOLD, encoding="utf-8"))
     for d in (CFGDIR, ARMS):
         os.makedirs(d, exist_ok=True)
@@ -137,7 +153,8 @@ def main() -> int:
     for d in (F.PER_CHAIN, F.LEDGERS):
         os.makedirs(d, exist_ok=True)
 
-    报 = {"★预先登记": __doc__.strip()[:1500], "★★★窗口": f"{窗口起} ~ 2025-12-31（两池同窗口）",
+    报 = {"★预先登记": __doc__.strip()[:1500], "★★★窗口": f"{窗口起} ~ {窗口止}",
+         "★★★口径": "**全收益**（两边都算分红；★ 旧结果全是价格口径，差 1.91pp/年）",
          "池自证": {}, "结果": [], "失败明细": []}
     for 池名 in 池:
         自证 = 装池(池名)
