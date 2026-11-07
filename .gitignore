@@ -72,3 +72,4 @@ probe/重测_1107/ledgers_1107/
 probe/重测_1107/per_chain_1107/
 probe/并池2004_1107/*.parquet
 probe/并池2004_1107/*.parquet
+probe/B路重测_1107/arms_1107/
