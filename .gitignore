@@ -47,3 +47,7 @@ probe/选票层_1107/ledgers_1107/
 probe/选票层_1107/per_chain_1107/
 probe/选票层_1107/ledgers_留出池_1107/
 probe/选票层_1107/per_chain_留出池_1107/
+probe/选票层_1107/ledgers_回看期_1107/
+probe/选票层_1107/per_chain_回看期_1107/
+probe/选票层_1107/ledgers_回看期动量_1107/
+probe/选票层_1107/per_chain_回看期动量_1107/
