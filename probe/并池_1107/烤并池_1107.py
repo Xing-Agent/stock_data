@@ -34,16 +34,27 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "probe", "newpool_1106"))
 os.chdir(ROOT)
 import 烤新池_1106 as B                                        # noqa: E402
+import 接新基准_1107 as BM                                      # noqa: E402
 
-OUT = os.path.join(ROOT, "probe", "并池_1107")
+_原读日线 = B.读日线
+_DIRS: dict = {}          # ★ 由 目录表两处() 填，供 读日线接起来() 查
+
+OUT = os.path.join(ROOT, "probe", "并池2004_1107")
 _原目录表 = B.目录表
 _原manifest = B.新manifest
 
 
 def 目录表两处() -> dict:
-    """★★★ 扫两个目录。★ 同一个 symbol 两边都有时，**全部记下**（原函数会取 bar 最多的那个）。"""
+    """★★★ 扫**四个**目录（1107 17:3x 数据组补完之后）。
+
+    ★★ 一个坑（★ 必须先说清）：`exam_1042/`（2016~2025）和
+      `exam_pre2016_1107/`（2004~2015）是**同一批票的两段时间** ——
+      ★★★ 原函数遇到一个 symbol 有多个目录时会「取 bar 最多的那个」，
+      ★ 那样会**只要一段、扔掉另一段**。→ 所以读的那一层也要改（见 `读日线两段`）。
+    """
+    global _DIRS
     m = {}
-    for 根 in ("market_ext_1105", "exam_1042"):
+    for 根 in ("market_ext_1105", "exam_1042", "exam_pre2016_1107", "market_extra_1107"):
         full_root = os.path.join(ROOT, 根)
         if not os.path.isdir(full_root):
             raise FileNotFoundError(f"★★★ 数据目录不在：{full_root}")
@@ -59,6 +70,10 @@ def 目录表两处() -> dict:
                     m.setdefault(sym, []).append(p)
                     break
         print(f"★ 扫完 {根}：新增 {len(m)-n0} 只，累计 {len(m)} 只", flush=True)
+    多段 = {k: v for k, v in m.items() if len(v) > 1}
+    print(f"★★★ 有多段数据要拼接的票：{len(多段)} 只"
+          f"（★ 例：{list(多段)[:5]}）", flush=True)
+    _DIRS = m
     return m
 
 
@@ -86,11 +101,44 @@ def manifest两处(exclude: set, dirs: dict) -> dict:
     return out
 
 
+def 读日线接起来(path: str, symbol: str):
+    """★★★ 把同一只票的**多段数据接起来**，而不是只取一段。
+
+    ★★ 为什么必须这么做：`exam_1042/`（2016~2025）和 `exam_pre2016_1107/`（2004~2015）
+      是**同一批票的两段时间**。★★★ 原函数在 main 里用
+      `sorted(cand, key=lambda q: -len(读日线(q, sym)))[0]` —— 只取 bar 最多的**那一段**，
+      ★ 另一段直接扔掉 → 窗口照样拉不回 2004。
+
+    ★ 做法：不管传进来的是哪一个 path，★★ 都按 symbol 去 `_DIRS` 查**全部段**，
+      逐段读、按日期排序、**重复日期保留后读到的那一段**（★★★ 新数据优先）。
+    ★ 查不到就退回原函数读这一个 path（不许返回空）。
+    """
+    import pandas as _pd
+    cands = _DIRS.get(symbol) or [path]
+    dfs = []
+    for p in cands:
+        try:
+            d = _原读日线(p, symbol)
+        except Exception:
+            continue
+        if d is not None and not d.empty:
+            dfs.append(d)
+    if not dfs:
+        return _原读日线(path, symbol)
+    out = _pd.concat(dfs).sort_index()
+    return out[~out.index.duplicated(keep="last")]
+
+
 def main() -> int:
     t0 = time.time()
-    # ★★★ 三处覆盖，都在本进程内
+    # ★★★ 四处覆盖，都在本进程内
     B.目录表 = 目录表两处
     B.新manifest = manifest两处
+    B.读日线 = 读日线接起来
+    # ★ 自证：基准已换成 2004 版
+    自证基准 = BM.install()
+    print("★ 基准覆盖层:", json.dumps(自证基准, ensure_ascii=False), flush=True)
+    assert 自证基准["★★★SPY"]["起"] <= "2004-12-31", "★★★ SPY 还没拉到 2004，停"
     B.考卷名单 = lambda: set()        # ★★★ 不排除考卷 —— 这就是「并池」
     B.OUT = OUT
     os.makedirs(OUT, exist_ok=True)
