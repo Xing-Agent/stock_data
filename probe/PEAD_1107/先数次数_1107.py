@@ -19,7 +19,7 @@
    · 8 个差值不满的公司**剔除**（★ 不用短窗口顶替）
 """
 from __future__ import annotations
-import io, json, os, sys
+import glob, io, json, os, sys
 import numpy as np, pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -32,8 +32,18 @@ from engine import fundamentals as F                             # noqa: E402
 
 HOLD = "probe/新策略_1106/holdout_newpool_1106.json"
 OUT = os.path.join(HERE, "先数次数_报告_1107.json")
+分片 = os.path.join(HERE, "分片_1107")      # ★★★ 可续跑:每 100 只落一片
 需要差值 = 8          # ★ 原著:过去 8 个同比差值
 前百分比 = 10.0       # ★ 《90》骨架:前 10%
+片大小 = 100
+清缓存每 = 100        # ★★★ 每 100 只清一次 engine.fundamentals 的 lru_cache
+
+# ★★★★★ 1107 第一次跑**被 OOM 杀了**(★ 2,224 只逐只算 SUE,到约 800 只时内存吃满,
+#   ★★ 日志里连报错都没有 —— 被 SIGKILL,所以**看起来像卡住**)。
+#   → ★ 两个修法(照《92》第四节的跑批纪律):
+#     ① **每 100 只落一片**(`分片_1107/`)→ ★★ 重启能接上,不用从头
+#     ② ★★★ **每 100 只清一次 `engine.fundamentals` 的 lru_cache** ——
+#        ★ 它为了快把每只的季表都缓存着,★★ 2,224 只全缓存就是 7GB 打满的原因。
 
 
 def 一只(sym: str) -> pd.DataFrame | None:
@@ -65,16 +75,49 @@ def main() -> int:
     assert not (set(dev) & 留出), "★ 研发/留出有交集，停"
     print(f"★ 研发池 {len(dev)} 只（★★ 只用研发池，考卷不碰）", flush=True)
 
-    行, 剔除 = [], []
-    for k, sym in enumerate(dev):
+    os.makedirs(分片, exist_ok=True)
+    # ★★★ 续跑:先把已落盘的分片读回来
+    行, 剔除, 做过 = [], [], set()
+    for f in sorted(glob.glob(os.path.join(分片, "片_*.json"))):
+        try:
+            d0 = json.load(io.open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        做过 |= set(d0["做过"])
+        剔除.extend(d0["剔除"])
+        for sym, recs in d0["数"].items():
+            行.append(pd.DataFrame({"eff": pd.to_datetime([x[0] for x in recs]),
+                                    "sue": [x[1] for x in recs], "sym": sym}))
+    待 = [s_ for s_ in dev if s_ not in 做过]
+    print(f"★ 已做过 {len(做过)} 只（分片里读回来的）· 还要做 {len(待)} 只", flush=True)
+
+    片数, 片剔, k0 = {}, [], 0
+    for k, sym in enumerate(待):
         r = 一只(sym)
         if r is None:
-            剔除.append(sym)
+            剔除.append(sym); 片剔.append(sym)
         else:
             r = r.copy(); r["sym"] = sym
             行.append(r)
-        if (k + 1) % 400 == 0:
-            print(f"   …{k+1}/{len(dev)} · 算得出 {len(行)} · 剔除 {len(剔除)}", flush=True)
+            片数[sym] = [[str(a.date()), float(b)] for a, b in zip(r["eff"], r["sue"])]
+        做过.add(sym)
+        # ★★★ 每 清缓存每 只清一次缓存 —— ★ 这是上次被 OOM 杀的直接原因
+        if (k + 1) % 清缓存每 == 0:
+            for fn in (getattr(F, "quarterly", None), getattr(F, "ttm", None),
+                       getattr(F, "quarter_frame", None), getattr(F, "panel", None),
+                       getattr(F, "metric_quarterly", None),
+                       getattr(F, "shares_quarterly", None)):
+                if fn is not None and hasattr(fn, "cache_clear"):
+                    fn.cache_clear()
+        # ★★★ 每 片大小 只落一片(可续跑)
+        if (k + 1) % 片大小 == 0 or k == len(待) - 1:
+            io.open(os.path.join(分片, f"片_{len(做过):05d}.json"), "w",
+                    encoding="utf-8").write(json.dumps(
+                        {"做过": sorted(做过), "剔除": 片剔, "数": 片数},
+                        ensure_ascii=False, default=str))
+            print(f"   …{k+1}/{len(待)} · 落片(累计做过 {len(做过)})"
+                  f" · 算得出 {len(行)} · 剔除 {len(剔除)}", flush=True)
+            片数, 片剔 = {}, []
 
     报 = {"★口径": {
         "SUE": "(本季稀释每股收益 − 去年同季) ÷ 过去 8 个同比差值的标准差",
