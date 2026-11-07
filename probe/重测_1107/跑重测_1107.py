@@ -1,0 +1,135 @@
+# -*- coding: utf-8 -*-
+"""
+★★★ 重测第一批 —— ★ 老池 vs 并池，**同窗口 2016~2025**（《98》第三节第 1 条）。
+
+★★ 为什么必须同窗口：并池带来的代价是窗口从 2015 缩到 2016（考卷那批数据只有 2016 起）。
+  ★★★ 如果老池跑 2015~2025、并池跑 2016~2025，那差异里混了「窗口变短」——
+  ★ 分不清是「巨头进来」还是「少了一年」造成的。
+
+★★★ 跑前预先登记（写死，不许事后改）：
+  · 判据只看一件：**同一条臂，并池 vs 老池，每笔净 R 差多少**
+  · ★★★ 必须同时跑**随机排序对照**（规矩㊸）——
+    差距小于随机一个标准差的，★★ 一律写「**分不出**」，不许写「并池改善了成绩」
+  · 池子/窗口两个字段必须跟着每一个数走（《96》）
+  · engine 零改动（进程内覆盖层）；可续跑
+
+★ 本批跑哪几条（★★ 照 B 路拍板的优先顺序）：
+  大波段·技-1 · 突破·技-6-原著 · 震荡·技-14-原著 · 融-2_突破
+"""
+from __future__ import annotations
+import copy, io, json, os, sys, time
+import pandas as pd, yaml
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, ROOT)
+for d in ("probe/friction_rerun_1104", "probe/v2_rerun_1030",
+          "probe/选票层_1107", "probe/newpool_1106"):
+    sys.path.insert(0, os.path.join(ROOT, d))
+os.chdir(ROOT)
+from engine import cache, data, pool_scope, pat6_ops            # noqa: E402
+import rerun_core_1030 as RC                                    # noqa: E402
+import 回看期覆盖层_1107 as OV                                   # noqa: E402
+pat6_ops.install()
+
+SRC = os.path.join(ROOT, "engine", "configs")
+CFGDIR = os.path.join(HERE, "configs")
+ARMS = os.path.join(HERE, "arms_1107")
+OUT = os.path.join(HERE, "重测结果_1107.json")
+HOLD = "probe/新策略_1106/holdout_newpool_1106.json"
+
+池 = {"老池2807": ("probe/newpool_1106/ohlcv_panel_newpool.parquet",
+                 "probe/newpool_1106/pool_NEWPOOL_ALL_1106.csv"),
+     "并池3834": ("probe/并池_1107/ohlcv_panel_newpool.parquet",
+                 "probe/newpool_1106/pool_NEWPOOL_ALL_1106.csv")}
+代表 = {"大波段": "技-1.yaml", "突破": "技-6-原著.yaml",
+       "震荡": "技-14-原著.yaml", }
+随机种子 = [424242, 20181001, 20220101, 777013, 31337,
+         90210, 10007, 31415926, 27182818, 65537]      # ★ 10 个（时间换覆盖面）
+窗口起 = "2016-01-04"                                    # ★★★ 《96》定的
+
+
+def 装池(名: str) -> dict:
+    panel, pooltab = 池[名]
+    wide = pd.read_parquet(panel)
+    cache._PANEL = {f: wide[f] for f in wide.columns.levels[0]}
+    idx = pool_scope.PoolIndex(path=pooltab)
+    RC._IDX_CACHE["idx"] = idx
+    data.PERF_START = 窗口起                             # ★★★ 两池同窗口
+    close = cache._PANEL["close"]
+    有 = [t for t in ("AAPL", "MSFT", "AMZN") if t in close.columns]
+    return {"池": 名, "面板只数": int(close.shape[1]), "池表行数": idx.rows,
+            "★★★窗口起": data.PERF_START, "PERF_END": data.PERF_END,
+            "★巨头在不在": {"AAPL/MSFT/AMZN 有几只": len(有), "明细": 有}}
+
+
+def 臂路径(label):
+    import hashlib
+    return os.path.join(ARMS, f"a_{hashlib.sha256(label.encode()).hexdigest()[:16]}.json")
+
+
+def main() -> int:
+    t0 = time.time()
+    OV.install()
+    hold = json.load(io.open(HOLD, encoding="utf-8"))
+    dev = hold["研发池名单"]; hs = set(hold["留出池名单"])
+    for d in (CFGDIR, ARMS):
+        os.makedirs(d, exist_ok=True)
+    import run_friction_1104 as F                                # noqa: E402
+    F.load_pools = lambda: (dev, hs, hold)
+    F.CONFIG_DIR = CFGDIR
+    F.PER_CHAIN = os.path.join(HERE, "per_chain_1107")
+    F.LEDGERS = os.path.join(HERE, "ledgers_1107")
+    F.OUT = OUT
+    for d in (F.PER_CHAIN, F.LEDGERS):
+        os.makedirs(d, exist_ok=True)
+
+    报 = {"★预先登记": __doc__.strip()[:1500], "★★★窗口": f"{窗口起} ~ 2025-12-31（两池同窗口）",
+         "池自证": {}, "结果": [], "失败明细": []}
+    for 池名 in 池:
+        自证 = 装池(池名)
+        报["池自证"][池名] = 自证
+        print(f"★ {json.dumps(自证, ensure_ascii=False)}", flush=True)
+        for 族, fn in 代表.items():
+            base = yaml.safe_load(io.open(os.path.join(SRC, fn), encoding="utf-8"))
+            臂 = [("A原样", None)]
+            臂 += [(f"R随机{sd}", {"primary": {"formula": "random", "order": "desc",
+                                           "random_seed": sd},
+                                "source": "★★★ 规矩㊸ 噪声对照"}) for sd in 随机种子]
+            for 名, rk in 臂:
+                raw = copy.deepcopy(base)
+                if rk is not None:
+                    raw["ranking"] = copy.deepcopy(rk)
+                label = f"{池名}·{族}·{fn[:-5]}·{名}"
+                tmp = f"_rt_{池名}_{族}_{名}.yaml"
+                io.open(os.path.join(CFGDIR, tmp), "w", encoding="utf-8").write(
+                    yaml.safe_dump(raw, allow_unicode=True, sort_keys=False))
+                p = 臂路径(label)
+                if os.path.exists(p):
+                    报["结果"].append(json.load(io.open(p, encoding="utf-8"))); continue
+                print(f"▶ {label}", flush=True)
+                try:
+                    r = F.run_one(label, tmp, None, "重测_1107", dev, hs, {})
+                except Exception as e:
+                    报["失败明细"].append({"臂": label, "错": f"{type(e).__name__}: {e}"})
+                    print(f"⚠ 失败 {label} —— {type(e).__name__}: {e}", flush=True); continue
+                rec = {"链": label, "池": 池名, "族": 族, "臂": 名,
+                       "笔数": r["笔数"], "每笔净R": r["每笔净R"], "每笔毛R": r["每笔毛R"],
+                       "净盈亏": r["★真链美元"]["净盈亏"], "摩擦": r["★真链美元"]["摩擦总额"]}
+                io.open(p, "w", encoding="utf-8").write(
+                    json.dumps(rec, ensure_ascii=False, indent=1, default=str))
+                报["结果"].append(rec)
+                print(f"   ✓ {名} 笔数 {r['笔数']} 每笔净R {r['每笔净R']:+.4f}", flush=True)
+                io.open(OUT, "w", encoding="utf-8").write(
+                    json.dumps({**报, "★进行中": True}, ensure_ascii=False, indent=1, default=str))
+
+    报["★★★失败条数"] = len(报["失败明细"])
+    报["★用时秒"] = round(time.time() - t0, 1)
+    io.open(OUT, "w", encoding="utf-8").write(
+        json.dumps(报, ensure_ascii=False, indent=1, default=str))
+    print(f"★ 写完;★★★ 失败 {len(报['失败明细'])} 条")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

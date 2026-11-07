@@ -68,3 +68,5 @@ probe/自己赛道老池_1107/__pycache__/
 probe/选票层_1107/ledgers_决定性对照_1107/
 probe/选票层_1107/per_chain_决定性对照_1107/
 probe/并池_1107/*.parquet
+probe/重测_1107/ledgers_1107/
+probe/重测_1107/per_chain_1107/
