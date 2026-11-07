@@ -1,0 +1,72 @@
+meta:
+  name: 技-1_系统化趋势跟随_海龟原始参数
+  master: Richard Dennis / Ed Seykota(海龟)
+  book: 《The Original Turtle Trading Rules》(Faith 2003)
+  handbook_ref: v11 第 219 行;附录 A 技-1
+  orig_claim: 原版规则公开且完整;XING 版是我们的改写,尚未验证
+  caveat: 原著证据来自期货 / 多空 / 跨品种分散;本次跑的是美股个股 / 只做多, 手册明文「不能搬」。本次结论只对「美股个股只做多」这个口径成立。
+universe:
+  rules: []
+  source: 原著(海龟无个股选股条件,全池照跑)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 原著(海龟无环境过滤;★ 留空是照原文,不是忘了填)
+entry:
+  rules:
+  - type: donchian_close_breakout
+    params:
+      lookback: 20
+    source: 原著(Faith 2003,System 1 入场 20 日通道;runner 另跑 55 日 System 2)
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(原著盘中突破即成交;引擎只能收盘确认次日开盘)
+initial_stop:
+  type: atr_multiple
+  params:
+    atr_period: 20
+    multiple: 2.0
+  source: 原著(海龟 2N 止损;N = 20 日 ATR。ATR 定义 Wilder 1978)
+trailing_stop:
+  type: none
+  source: 原著(海龟无移动止损;★ 留 none 是照原文)
+exit:
+  rules:
+  - type: close_below_lowest_low
+    params:
+      lookback: 10
+    source: 原著(System 1 退出 = 10 日反向通道)
+  - type: close_below_trailing_stop
+    source: 原著(初始 2N 止损照常生效)
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 原著(海龟不设止盈)
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.02
+    max_positions: 12
+    max_weight: 1.0
+  source: 原著(推导写明):海龟「1 单位 = 账户 1% / N」,止损在 2N → 单笔风险 = 2% 账户。引擎的 risk_per_trade 是「到止损为止亏多少」,
+    所以填 0.02 才等于原著的 1 单位。★ 不是我们挑的数,是换算出来的。 槽位 12 = 原著「总持仓上限 12 个单位」;单票名义上限 1.0 = 原著无名义上限,
+    实际由现金约束(期货靠保证金,股票靠现金)。
+slots: 12
+source_slots: 原著(海龟总上限 12 个单位,单单位制下 = 12 个并发持仓)
+ranking:
+  primary:
+    formula: random
+    order: desc
+    random_seed: 31337
+  source: ★★★ 规矩㊸ 噪声对照
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null
