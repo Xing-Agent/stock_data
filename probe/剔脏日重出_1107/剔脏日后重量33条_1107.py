@@ -17,7 +17,7 @@
 ★ 产出：`剔脏日后_33条_1107.json` + `ledgers_clean/`（★ 后者不入库，.gitignore）
 """
 from __future__ import annotations
-import glob, importlib.util, io, json, os, sys
+import glob, gzip, importlib.util, io, json, os, re, sys
 import numpy as np, pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -44,8 +44,40 @@ OUT = os.path.join(HERE, "剔脏日后_33条_1107.json")
 源跳门槛 = 50.0
 
 
+def 源头改名日() -> tuple[dict, dict]:
+    """
+    ★★★★★ 1107 第 4 次唤醒**新加的第三、四类** —— ★ 做 #65 元信息审计时查出来的（全文《105》）。
+       ★★ 源头 `warnings` 里除了「无事件隔夜跳」，还有两类**我们从来没读、也没人剔**的：
+         ③ **「代码 X → Y 隔夜断层 ±N%，没核过接续系数」** —— 37 条，★★★ 最大 **+13181%**
+         ④ **「代码 X → Y，隔夜 ±N%（没加接续系数）」** —— 479 条，★ 最大 ±19.9%
+       ★★★ 这两类**一个阈值都不设**：★ 源头自己说「没加/没核过接续系数」的那一天，
+         ★★ 我们一律当脏日 —— ★★★ 这样就没有「我们自己挑的门槛」这个口子（规矩④ 最保守方向）。
+    """
+    断层: dict[str, list[pd.Timestamp]] = {}
+    改名: dict[str, list[pd.Timestamp]] = {}
+    for p in sorted(glob.glob("market_ext_1105/*/daily.json.gz")):
+        try:
+            d = json.loads(gzip.open(p, "rt", encoding="utf-8").read())
+        except Exception:
+            continue
+        sym = os.path.basename(os.path.dirname(p)).split("__")[0]
+        for w in (d.get("warnings") or []):
+            w = str(w)
+            if "无事件隔夜跳" in w:
+                continue
+            md = re.search(r"(\d{4}-\d{2}-\d{2})", w)
+            if not md:
+                continue
+            if "隔夜断层" in w:
+                断层.setdefault(sym, []).append(pd.Timestamp(md.group(1)))
+            elif re.search(r"代码 \S+ → \S+,隔夜", w):
+                改名.setdefault(sym, []).append(pd.Timestamp(md.group(1)))
+    return 断层, 改名
+
+
 def 并集脏日(cl: pd.DataFrame, vol: pd.DataFrame) -> tuple[dict, dict, dict]:
-    """★★★ 现算，★ 不手抄（《92》第零节③）。★★ 和 `并两份脏日重量_1107.py` 同一段代码。"""
+    """★★★ 现算，★ 不手抄（《92》第零节③）。★★ 和 `并两份脏日重量_1107.py` 同一段代码，
+       ★★★ 外加 1107 第 4 次唤醒查出的第三、四类（见 `源头改名日()`）。"""
     def 前(x): return x.shift(1).rolling(扫.窗, min_periods=扫.窗).median()
     def 后(x): return x.iloc[::-1].rolling(扫.窗, min_periods=扫.窗).median().iloc[::-1]
     pr, vr = 后(cl) / 前(cl), 后(vol) / 前(vol)
@@ -56,10 +88,12 @@ def 并集脏日(cl: pd.DataFrame, vol: pd.DataFrame) -> tuple[dict, dict, dict]
     for i, j in zip(ii, jj):
         我们.setdefault(str(cl.columns[j]), []).append(cl.index[i])
     源 = U.源头脏日(源跳门槛)
+    断层, 改名 = 源头改名日()
     并 = {k: list(v) for k, v in 我们.items()}
-    for k, v in 源.items():
-        并.setdefault(k, []).extend(v)
-    return 我们, 源, 并
+    for 份 in (源, 断层, 改名):
+        for k, v in 份.items():
+            并.setdefault(k, []).extend(v)
+    return 我们, {"无事件隔夜跳": 源, "隔夜断层": 断层, "代码改名": 改名}, 并
 
 
 def 组合层(dd: pd.DataFrame, cl: pd.DataFrame, spy: pd.Series) -> dict:
@@ -86,16 +120,29 @@ def main() -> int:
     w = pd.read_parquet(PANEL)
     cl, vol = w["close"], w["volume"]
     del w
-    我们, 源, 并 = 并集脏日(cl, vol)
+    我们, 源各类, 并 = 并集脏日(cl, vol)
+    源 = 源各类["无事件隔夜跳"]
     del vol
     spy = data.load_benchmark("SPY")["close"]
 
     out = {"★口径": {
         "★★★这一份干什么": "★ 基本面 33 条臂**剔掉脏日之后**，三把尺子一次量齐（主判据 = 大盘替身）",
-        "脏日两份清单": {
-            "我们扫的": {"只数": len(我们), "条数": sum(len(v) for v in 我们.values())},
-            "★★★源头自己标的": {"只数": len(源), "条数": sum(len(v) for v in 源.values()),
-                         "门槛": f"隔夜跳 ≥{源跳门槛:.0f}%"},
+        "脏日四份清单": {
+            "①我们扫的": {"只数": len(我们), "条数": sum(len(v) for v in 我们.values()),
+                      "判据": f"价格跳 ≥{扫.跳变门槛} 倍 **且** 股数量反向"},
+            "★★★②源头「无事件隔夜跳」": {
+                "只数": len(源), "条数": sum(len(v) for v in 源.values()),
+                "门槛": f"隔夜跳 ≥{源跳门槛:.0f}%"},
+            "★★★★★③源头「代码改名隔夜断层·没核过接续系数」": {
+                "只数": len(源各类["隔夜断层"]),
+                "条数": sum(len(v) for v in 源各类["隔夜断层"].values()),
+                "门槛": "★★★ 不设门槛 —— 源头说没核过就算脏",
+                "★这一类是 1107 第 4 次唤醒才查出来的": "★★ 最大一条 +13181%（CJES → CJ）"},
+            "★★★④源头「代码改名·没加接续系数」": {
+                "只数": len(源各类["代码改名"]),
+                "条数": sum(len(v) for v in 源各类["代码改名"].values()),
+                "门槛": "★★★ 不设门槛 —— 同上",
+                "★幅度": "★ 中位 1.7% · p90 9.1% · 最大 19.9%"},
             "并集": {"只数": len(并), "条数": sum(len(v) for v in 并.values())}},
         "剔法": f"★ 持有区间 ±{容差日} 日内含任一份清单的脏日 → **整笔剔掉**（最保守）",
         "三把尺子": {
