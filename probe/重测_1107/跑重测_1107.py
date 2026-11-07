@@ -46,16 +46,26 @@ pat6_ops.install()
 SRC = os.path.join(ROOT, "engine", "configs")
 CFGDIR = os.path.join(HERE, "configs")
 ARMS = os.path.join(HERE, "arms_1107")
-OUT = os.path.join(HERE, "重测结果_1107.json")
+OUT = os.path.join(HERE, f"重测结果_{os.environ.get('XING_WIN_NAME','B')}_1107.json")
 HOLD = "probe/新策略_1106/holdout_newpool_1106.json"
 
 池 = {"并池2004": ("probe/并池2004_1107/ohlcv_panel_newpool.parquet",
-                 "probe/newpool_1106/pool_NEWPOOL_ALL_1106.csv")}
+                 # ★★★ 池表必须换成 22 年那张 —— ★ 老池表里考卷股是 0/1042，
+                 #   universe 掩膜会把苹果微软全排除（《24》#74）
+                 "probe/并池2004_1107/pool_MERGED2004_ALL_1107.csv")}
 代表 = {"大波段": "技-1.yaml", "突破": "技-6-原著.yaml",
        "震荡": "技-14-原著.yaml"}
 随机种子 = [424242, 20181001, 20220101, 777013, 31337,
          90210, 10007, 31415926, 27182818, 65537]      # ★ 10 个（时间换覆盖面）
-窗口起 = "2004-01-02"      # ★★★ 1107 17:3x 数据组补完，窗口从 10 年变 22 年；《96》那条作废
+# ★★★ 22 年一次跑不动（机器 7 GB，10 年 × 2,807 只峰值就 3.3 GB，
+#   22 年 × 3,858 只约需 9 GB → OOM 被杀，exit 137）。
+# ★★ 所以切成两段，★★★ 而且这正好是最简单的那种「滚动前推」：
+#   A 段挑参数 / B 段只验证 —— 本来就是规矩㊸v2 第 4 条要求的一道检验。
+窗口 = {"A_2004到2014": ("2004-01-02", "2014-12-31"),
+       "B_2015到2025": ("2015-01-01", "2025-12-31")}
+窗口起 = os.environ.get("XING_WIN_START", "2015-01-01")
+窗口止 = os.environ.get("XING_WIN_END", "2025-12-31")
+窗口名 = os.environ.get("XING_WIN_NAME", "B_2015到2025")
 
 
 def 可买名单(名: str) -> list:
@@ -72,15 +82,32 @@ def 可买名单(名: str) -> list:
 
 
 def 装池(名: str) -> dict:
+    """★★★ 按窗口切片再喂给引擎 —— ★ 否则 OOM（机器只有 7 GB）。
+
+    ★★ 真因：面板是 **5,747 天 × 3,858 只**（444 MB parquet，展开约 1 GB），
+      ★ 而一次回测只用其中十年 → ★★★ 整张加载是浪费，而且直接撑爆内存
+      （exit 137，今天栽了两次）。
+    ★ 做法：读进来之后**立刻按窗口裁掉用不到的行**，再放进 `cache._PANEL`。
+      ★★ 多留 400 个交易日的「预热期」，★★★ 因为 200 日均线这类指标要回看
+      —— 裁太紧会让窗口开头的指标全是 NaN。
+    ★★ 不改 dtype（★ 保持 float64，免得和之前的结果产生精度差异）。
+    """
     panel, pooltab = 池[名]
     wide = pd.read_parquet(panel)
+    预热 = pd.Timestamp(窗口起) - pd.Timedelta(days=640)   # ★ 约 440 个交易日
+    keep = (wide.index >= 预热) & (wide.index <= pd.Timestamp(窗口止))
+    裁前, 裁后 = len(wide), int(keep.sum())
+    wide = wide.loc[keep]
     cache._PANEL = {f: wide[f] for f in wide.columns.levels[0]}
     idx = pool_scope.PoolIndex(path=pooltab)
     RC._IDX_CACHE["idx"] = idx
-    data.PERF_START = 窗口起                             # ★★★ 两池同窗口
+    data.PERF_START = 窗口起                             # ★★★ 两段各自的窗口
+    data.PERF_END = 窗口止
     close = cache._PANEL["close"]
     有 = [t for t in ("AAPL", "MSFT", "AMZN", "BRK.B", "JPM") if t in close.columns]
-    return {"池": 名, "面板只数": int(close.shape[1]), "池表行数": idx.rows,
+    return {"池": 名, "★★★窗口": 窗口名, "面板只数": int(close.shape[1]),
+            "★★★面板裁剪": f"{裁前} 天 → {裁后} 天（含 440 个交易日预热）",
+            "★池表": os.path.basename(pooltab), "池表行数": idx.rows,
             "★★★窗口起": data.PERF_START, "PERF_END": data.PERF_END,
             "★★★可买名单": f"全量 {close.shape[1]} 只（★ 一档，无静态留出池）",
             "★巨头在不在": {"查的5只里有几只": len(有), "明细": 有}}
@@ -129,7 +156,7 @@ def main() -> int:
                 raw = copy.deepcopy(base)
                 if rk is not None:
                     raw["ranking"] = copy.deepcopy(rk)
-                label = f"{池名}·{族}·{fn[:-5]}·{名}"
+                label = f"{窗口名}·{池名}·{族}·{fn[:-5]}·{名}"
                 tmp = f"_rt_{池名}_{族}_{名}.yaml"
                 io.open(os.path.join(CFGDIR, tmp), "w", encoding="utf-8").write(
                     yaml.safe_dump(raw, allow_unicode=True, sort_keys=False))
