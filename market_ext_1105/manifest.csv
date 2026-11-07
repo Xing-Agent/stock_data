@@ -1,5 +1,5 @@
 symbol,name,exchange,size_group,market_cap_usd,market_cap_date,sector,sector_basis,delisted,delisting_date,size_group_at_start,market_cap_at_start_usd,market_cap_at_start_date
-AA,Alcoa Corp,NYSE,large,10424170324,2026-11-04,Manufacturing,SEC SIC 3334 division,false,,mid,5281265240,2016-12-01
+AA,Alcoa Corp,NYSE,large,10424170324,2026-11-04,Manufacturing,SEC SIC 3334 division,false,,mid,4255527367,2016-11-01
 AAL,American Airlines Group Inc.,NASDAQ,mid,8494768324,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4512 division,false,,mid,8255714023,2013-12-09
 AAN__1821393,"Aaron's Company, Inc.",NYSE,small,318347239,2024-10-03,Services,SEC SIC 7359 division,true,2024-10-03,small,1645314488,2020-10-30
 AAN__706688,AARON'S INC,NYSE,mid,3676617011,2020-10-29,Services,SEC SIC 7359 division,true,2020-10-29,unknown,,2004-01-02
@@ -23,7 +23,7 @@ ABT,ABBOTT LABORATORIES,NYSE,large,189303932582,2026-11-04,Manufacturing,SEC SIC
 ABTC,American Bitcoin Corp.,NASDAQ,small,481338303,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,small,665731344,2025-09-03
 ABTX,"Allegiance Bancshares, Inc.",NASDAQ,small,830941253,2022-09-30,"Finance, Insurance & Real Estate",SEC SIC 6022 division,true,2022-09-30,small,297685259,2015-10-08
 ABUS,Arbutus Biopharma Corp,NASDAQ,small,768650283,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2010-11-15
-ABVX,Abivax S.A.,NASDAQ,mid,7765805134,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2023-12-26
+ABVX,Abivax S.A.,NASDAQ,mid,7765805134,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2023-10-20
 ACA,"Arcosa, Inc.",NYSE,mid,7324280562,2026-10-22,Manufacturing,SEC SIC 3440 division,true,2026-10-22,small,1330729785,2018-11-01
 ACB,AURORA CANNABIS INC,NASDAQ,small,326679915,2026-11-04,Manufacturing,SEC SIC 2833 division,false,,mid,7834278329,2018-10-23
 ACCD,"Accolade, Inc.",NASDAQ,small,575591281,2025-04-07,Services,SEC SIC 7389 division,true,2025-04-07,small,1742521958,2020-07-02
@@ -65,7 +65,7 @@ AEL,American National Group Inc.,NYSE,mid,4493440553,2024-05-02,"Finance, Insura
 AEM,AGNICO EAGLE MINES LTD,NYSE,large,84567815342,2026-11-04,Mining,SEC SIC 1040 division,false,,unknown,,2004-01-02
 AER,AerCap Holdings N.V.,NYSE,large,24664167276,2026-11-04,Services,SEC SIC 7359 division,false,,unknown,,2006-11-21
 AERI,AERIE PHARMACEUTICALS INC,NASDAQ,small,753615457,2022-11-18,Manufacturing,SEC SIC 2836 division,true,2022-11-18,small,253472836,2013-10-25
-AESI,Atlas Energy Solutions Inc.,NYSE,small,1017528091,2026-11-04,Mining,SEC SIC 1311 division,false,,small,1887231521,2023-07-03
+AESI,Atlas Energy Solutions Inc.,NYSE,small,1017528091,2026-11-04,Mining,SEC SIC 1311 division,false,,small,1695433649,2023-03-09
 AEVA,"Aeva Technologies, Inc.",NASDAQ,small,623169477,2026-11-04,Manufacturing,SEC SIC 3714 division,false,,small,305896675,2020-02-27
 AEZS,COSCIENS Biopharma Inc.,NASDAQ,small,17512855,2024-08-08,Manufacturing,SEC SIC 2844 division,true,2024-08-08,unknown,,2004-01-02
 AF,ASTORIA FINANCIAL CORP,NYSE,mid,2186934098,2017-09-29,"Finance, Insurance & Real Estate",SEC SIC 6035 division,true,2017-09-29,unknown,,2004-01-02
@@ -90,7 +90,7 @@ AIG,"AMERICAN INTERNATIONAL GROUP, INC.",NYSE,large,42108586900,2026-11-04,"Fina
 AIMC,Altra Industrial Motion Corp.,NASDAQ,mid,4050847189,2023-03-24,Manufacturing,SEC SIC 3569 division,true,2023-03-24,unknown,,2006-12-15
 AIMT,"Aimmune Therapeutics, Inc.",NASDAQ,mid,2257375398,2020-10-12,Manufacturing,SEC SIC 2834 division,true,2020-10-12,small,1018162340,2015-08-06
 AIN,ALBANY INTERNATIONAL CORP /DE/,NYSE,mid,2091163174,2026-11-04,Manufacturing,SEC SIC 2221 division,false,,unknown,,2004-01-02
-AINV,MidCap Financial Investment Corp,NASDAQ,small,848438068,2026-11-04,,,false,,unknown,,2004-07-12
+AINV,MidCap Financial Investment Corp,NASDAQ,small,848438068,2026-11-04,,,false,,unknown,,2004-04-06
 AIR,AAR CORP,NYSE,mid,4365895199,2026-11-04,Manufacturing,SEC SIC 3720 division,false,,unknown,,2004-01-02
 AIRC,Apartment Income REIT Corp.,NYSE,mid,5670672957,2024-06-27,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2024-06-27,mid,5957596765,2020-12-15
 AIRE,reAlpha Tech Corp.,NASDAQ,small,2342583,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6500 division,false,,unknown,,2021-08-30
@@ -163,7 +163,7 @@ APAM,Artisan Partners Asset Management Inc.,NYSE,mid,2744888447,2026-11-04,"Fina
 APA__1841666,APA Corp,NASDAQ,large,16736291633,2026-11-04,Mining,SEC SIC 1311 division,false,,mid,8160433508,2021-05-07
 APG,APi Group Corp,NYSE,large,19719234466,2026-11-04,Services,SEC SIC 7340 division,false,,mid,2086782027,2020-04-29
 APGE,"Apogee Therapeutics, Inc.",NASDAQ,large,10223142366,2026-09-02,Manufacturing,SEC SIC 2836 division,true,2026-09-02,small,1196688436,2023-07-14
-API,"Agora, Inc.",NASDAQ,small,351727110,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2020-07-20
+API,"Agora, Inc.",NASDAQ,small,351727110,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2020-07-01
 APL,Targa Pipeline Partners LP,NYSE,mid,2662476907,2015-02-27,"Transportation, Communications & Utilities",SEC SIC 4922 division,true,2015-02-27,unknown,,2004-01-02
 APLD,Applied Digital Corp.,NASDAQ,mid,5385514963,2026-11-04,Services,SEC SIC 7374 division,false,,small,460272416,2022-04-13
 APLE,"Apple Hospitality REIT, Inc.",NYSE,mid,4402942318,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,mid,6699557358,2015-05-18
@@ -185,7 +185,7 @@ AQUA,Evoqua Water Technologies Corp.,NYSE,mid,6103836949,2023-05-23,Manufacturin
 AR,ANTERO RESOURCES Corp,NYSE,large,12263940480,2026-11-04,Mining,SEC SIC 1311 division,false,,large,13629202765,2013-10-10
 ARCB,ARCBEST CORP /TX/,NASDAQ,mid,3005810086,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4213 division,false,,unknown,,2004-01-02
 ARCC,ARES CAPITAL CORP,NASDAQ,large,13728926437,2026-11-04,,,false,,unknown,,2004-10-05
-ARCE,Arco Platform Ltd.,NASDAQ,small,927434626,2023-12-06,Services,SEC SIC 8200 division,true,2023-12-06,small,1076591198,2018-10-29
+ARCE,Arco Platform Ltd.,NASDAQ,small,927434626,2023-12-06,Services,SEC SIC 8200 division,true,2023-12-06,small,1181134134,2018-09-26
 ARCH,"ARCH RESOURCES, INC.",NYSE,mid,2441618403,2025-01-13,Mining,SEC SIC 1221 division,true,2025-01-13,small,1341464670,2016-10-05
 ARCT,Arcturus Therapeutics Holdings Inc.,NASDAQ,small,271156078,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,73206418,2019-02-19
 ARDX,"ARDELYX, INC.",NASDAQ,small,782308343,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,263177392,2014-06-19
@@ -197,7 +197,7 @@ ARI,"Apollo Commercial Real Estate Finance, Inc.",NYSE,small,309791891,2026-11-0
 ARIA,ARIAD PHARMACEUTICALS INC,NASDAQ,mid,4658878679,2017-02-15,Manufacturing,SEC SIC 2836 division,true,2017-02-15,unknown,,2004-01-02
 ARII,"American Railcar Industries, Inc.",NASDAQ,small,1335298944,2018-12-04,Manufacturing,SEC SIC 3743 division,true,2018-12-04,unknown,,2006-01-20
 ARLP,ALLIANCE RESOURCE PARTNERS LP,NASDAQ,mid,3361854470,2026-11-04,Mining,SEC SIC 1221 division,false,,unknown,,2004-01-02
-ARM,ARM HOLDINGS PLC /UK,NASDAQ,large,216259030237,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2023-10-09
+ARM,ARM HOLDINGS PLC /UK,NASDAQ,large,216259030237,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2023-09-18
 ARNA,ARENA PHARMACEUTICALS INC,NASDAQ,mid,6165321906,2022-03-10,Manufacturing,SEC SIC 2834 division,true,2022-03-10,unknown,,2004-01-02
 ARNC,Arconic Corp,NYSE,mid,3009390455,2023-08-17,Manufacturing,SEC SIC 3350 division,true,2023-08-17,small,1803880870,2020-03-30
 AROC,"Archrock, Inc.",NYSE,mid,5514385918,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4922 division,false,,small,874948322,2015-11-04
@@ -232,12 +232,12 @@ ASTE,ASTEC INDUSTRIES INC,NASDAQ,small,922396202,2026-11-04,Manufacturing,SEC SI
 ASTR,"Astra Space, Inc.",NASDAQ,small,12241247,2024-07-17,"Transportation, Communications & Utilities",SEC SIC 4700 division,true,2024-07-17,unknown,,2020-10-06
 ASTS,"AST SpaceMobile, Inc.",NASDAQ,large,11137172681,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4899 division,false,,unknown,,2019-11-01
 ASX,"ASE Technology Holding Co., Ltd.",NYSE,large,86205759584,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
-ATAT,Atour Lifestyle Holdings Ltd,NASDAQ,mid,4546563610,2026-11-04,Services,SEC SIC 7011 division,false,,unknown,,2022-11-16
+ATAT,Atour Lifestyle Holdings Ltd,NASDAQ,mid,4546563610,2026-11-04,Services,SEC SIC 7011 division,false,,unknown,,2022-11-11
 ATEC,"Alphatec Holdings, Inc.",NASDAQ,small,1145388725,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,unknown,,2006-06-02
 ATEN,"A10 Networks, Inc.",NYSE,small,1764399210,2026-11-04,Manufacturing,SEC SIC 3576 division,false,,small,997633298,2014-03-21
 ATER,"Aterian, Inc.",NASDAQ,small,14652015,2026-11-04,Manufacturing,SEC SIC 3634 division,false,,small,177639940,2019-06-12
 ATH,Athene Holding Ltd.,NYSE,large,16011154278,2021-12-31,"Finance, Insurance & Real Estate",SEC SIC 6311 division,true,2021-12-31,unknown,,2016-12-09
-ATHM,Autohome Inc.,NYSE,mid,2298811384,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2014-01-27
+ATHM,Autohome Inc.,NYSE,mid,2298811384,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2013-12-24
 ATI,ATI INC,NYSE,large,24492906950,2026-11-04,Manufacturing,SEC SIC 3317 division,false,,unknown,,2004-01-02
 ATKR,Atkore Inc.,NYSE,mid,3207089968,2026-10-16,Manufacturing,SEC SIC 3690 division,true,2026-10-16,small,1014826496,2016-06-10
 ATMU,Atmus Filtration Technologies Inc.,NYSE,mid,3902714056,2026-11-04,Manufacturing,SEC SIC 3714 division,false,,small,1804655884,2023-05-26
@@ -266,7 +266,7 @@ AVCT,"American Virtual Cloud Technologies, Inc.",NASDAQ,small,19417064,2023-01-1
 AVDL,AVADEL PHARMACEUTICALS PLC,NASDAQ,mid,2123997832,2026-02-11,Manufacturing,SEC SIC 2834 division,true,2026-02-11,unknown,,2004-01-02
 AVDX,"AvidXchange Holdings, Inc.",NASDAQ,mid,2076987530,2025-10-14,Services,SEC SIC 7372 division,true,2025-10-14,mid,4940597714,2021-10-13
 AVEO,"AVEO PHARMACEUTICALS, INC.",NASDAQ,small,521446905,2023-01-19,Manufacturing,SEC SIC 2834 division,true,2023-01-19,unknown,,2010-03-12
-AVG,AVG Technologies N.V.,NYSE,small,1293284005,2016-11-07,Services,SEC SIC 7372 division,true,2016-11-07,unknown,,2012-02-06
+AVG,AVG Technologies N.V.,NYSE,small,1293284005,2016-11-07,Services,SEC SIC 7372 division,true,2016-11-07,unknown,,2012-02-02
 AVGO__1649338,Broadcom Pte. Ltd.,NASDAQ,large,101955097658,2018-04-13,Manufacturing,SEC SIC 3674 division,true,2018-04-13,large,47347529332,2016-02-09
 AVGO__1730168,Broadcom Inc.,NASDAQ,large,1585465687062,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,large,98712032234,2018-04-16
 AVIR,"Atea Pharmaceuticals, Inc.",NASDAQ,small,334453595,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,mid,2511452269,2020-10-30
@@ -290,10 +290,10 @@ AXIA,AXIA Energia S.A.,NYSE,large,23290666092,2026-08-06,"Transportation, Commun
 AXL,Dauch Corp,NYSE,small,1076348847,2026-11-04,Manufacturing,SEC SIC 3714 division,false,,unknown,,2004-01-02
 AXLL,AXIALL CORP/DE/,NYSE,mid,2334222891,2016-08-30,Manufacturing,SEC SIC 2821 division,true,2016-08-30,unknown,,2004-01-02
 AXNX,"Axonics, Inc.",NASDAQ,mid,3627727751,2024-11-14,Manufacturing,SEC SIC 3841 division,true,2024-11-14,small,427301669,2018-10-31
-AXON,"AXON ENTERPRISE, INC.",NASDAQ,large,33841069967,2026-11-04,Manufacturing,SEC SIC 3480 division,false,,unknown,,2004-02-03
+AXON,"AXON ENTERPRISE, INC.",NASDAQ,large,33841069967,2026-11-04,Manufacturing,SEC SIC 3480 division,false,,unknown,,2004-01-14
 AXSM,"Axsome Therapeutics, Inc.",NASDAQ,mid,7312886001,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,167400865,2015-11-19
 AXTI,AXT INC,NASDAQ,mid,3365872972,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
-AY,Atlantica Sustainable Infrastructure plc,NASDAQ,mid,2554584545,2024-12-11,"Transportation, Communications & Utilities",SEC SIC 4911 division,true,2024-12-11,unknown,,2014-07-14
+AY,Atlantica Sustainable Infrastructure plc,NASDAQ,mid,2554584545,2024-12-11,"Transportation, Communications & Utilities",SEC SIC 4911 division,true,2024-12-11,unknown,,2014-06-17
 AYR,Aircastle LTD,NYSE,mid,2404239826,2020-03-27,Services,SEC SIC 7359 division,true,2020-03-27,unknown,,2006-08-08
 AYRO,"Fabric.AI, Inc.",NASDAQ,small,4470227,2025-08-22,"Transportation, Communications & Utilities",SEC SIC 4899 division,true,2025-08-22,small,19064885,2020-05-29
 AYX,"Alteryx, Inc.",NYSE,mid,3527895715,2024-03-18,Services,SEC SIC 7372 division,true,2024-03-18,small,916701000,2017-03-24
@@ -304,11 +304,11 @@ AZTA,"Azenta, Inc.",NASDAQ,small,1627043716,2026-11-04,Manufacturing,SEC SIC 355
 AZUL,AZUL SA,NYSE,small,141581535,2025-05-27,"Transportation, Communications & Utilities",SEC SIC 4512 division,true,2025-05-27,unknown,,2017-04-11
 AZZ,AZZ INC,NYSE,mid,4135627286,2026-11-04,Manufacturing,SEC SIC 3470 division,false,,unknown,,2004-01-02
 BA,BOEING CO,NYSE,large,137339499101,2026-11-04,Manufacturing,SEC SIC 3721 division,false,,unknown,,2004-01-02
-BABA,Alibaba Group Holding Ltd,NYSE,large,249670082078,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2014-10-06
+BABA,Alibaba Group Holding Ltd,NYSE,large,249670082078,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2014-09-19
 BABY,NATUS MEDICAL INC,NASDAQ,small,909654615,2019-07-25,Manufacturing,SEC SIC 3845 division,true,2019-07-25,unknown,,2004-01-02
 BAK,BRASKEM SA,NYSE,mid,7845233111,2019-05-13,Manufacturing,SEC SIC 2860 division,true,2019-05-13,unknown,,2004-01-02
 BALY,Bally's Corp,NYSE,small,656103786,2026-11-04,Services,SEC SIC 7011 division,false,,small,945533929,2019-03-29
-BAM,Brookfield Asset Management Ltd.,NYSE,large,81379970701,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,,large,11159166000,2023-01-03
+BAM,Brookfield Asset Management Ltd.,NYSE,large,81379970701,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,,large,11566950000,2022-12-14
 BANC,"BANC OF CALIFORNIA, INC.",NYSE,mid,2910903495,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6021 division,false,,unknown,,2004-01-02
 BAND,Bandwidth Inc.,NASDAQ,small,1405116203,2026-11-04,Services,SEC SIC 7372 division,false,,small,404139833,2017-11-10
 BANR,BANNER CORP,NASDAQ,mid,2591876249,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6022 division,false,,unknown,,2004-01-02
@@ -344,13 +344,13 @@ BEAM,Beam Therapeutics Inc.,NASDAQ,mid,2719564219,2026-11-04,Manufacturing,SEC S
 BEAT,"HeartBeam, Inc.",NASDAQ,small,24235778,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,small,37541668,2021-11-11
 BEE,"STRATEGIC HOTELS & RESORTS, INC",NYSE,mid,4011322018,2015-12-11,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2015-12-11,unknown,,2006-03-15
 BEEM,Beam Global,NASDAQ,small,18038752,2026-11-04,Manufacturing,SEC SIC 3690 division,false,,small,94297895,2020-09-15
-BEKE,KE Holdings Inc.,NYSE,large,19301509938,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6531 division,false,,unknown,,2020-10-19
+BEKE,KE Holdings Inc.,NYSE,large,19301509938,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6531 division,false,,unknown,,2020-09-14
 BEL,Belmond Ltd.,NYSE,mid,2568472200,2019-04-16,Services,SEC SIC 7011 division,true,2019-04-16,unknown,,2004-01-02
 BELFB,BEL FUSE INC /NJ,NASDAQ,mid,3443086852,2026-11-04,Manufacturing,SEC SIC 3677 division,false,,unknown,,2004-01-02
 BENE,Benessere Capital Acquisition Corp.,NASDAQ,small,143270615,2022-10-31,"Finance, Insurance & Real Estate",SEC SIC 6770 division,true,2022-10-31,small,103642303,2021-01-28
 BEP,Brookfield Renewable Partners L.P.,NYSE,mid,9093382268,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4911 division,false,,unknown,,2013-06-11
 BEPC,Brookfield Renewable Corp,NYSE,mid,5708519821,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4911 division,false,,mid,4674124387,2020-07-30
-BEST,BEST Inc.,NYSE,small,55864100,2025-03-07,"Transportation, Communications & Utilities",SEC SIC 4210 division,true,2025-03-07,unknown,,2017-10-18
+BEST,BEST Inc.,NYSE,small,55864100,2025-03-07,"Transportation, Communications & Utilities",SEC SIC 4210 division,true,2025-03-07,unknown,,2017-09-20
 BETA,"BETA Technologies, Inc.",NYSE,mid,5530366658,2026-11-04,Manufacturing,SEC SIC 3721 division,false,,unknown,,2025-11-04
 BETR__1640313,"Amplify Snack Brands, INC",NYSE,small,920951376,2018-01-30,Manufacturing,SEC SIC 2000 division,true,2018-01-30,small,1207243464,2015-08-05
 BETR__1835856,Better Home & Finance Holding Co,NASDAQ,small,361865058,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6163 division,false,,small,27945330,2023-08-24
@@ -371,13 +371,13 @@ BIDU,"Baidu, Inc.",NASDAQ,large,26208046855,2026-11-04,Services,SEC SIC 7370 div
 BIG,FORMER BL STORES INC,NYSE,small,14746004,2024-09-06,Retail Trade,SEC SIC 5331 division,true,2024-09-06,unknown,,2004-01-02
 BIGC,"Commerce.com, Inc.",NASDAQ,small,273434670,2026-11-04,Services,SEC SIC 7372 division,false,,mid,4952585482,2020-08-05
 BIIB,BIOGEN INC.,NASDAQ,large,36796888111,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,unknown,,2004-01-02
-BILI,Bilibili Inc.,NASDAQ,mid,5451944127,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2018-04-24
+BILI,Bilibili Inc.,NASDAQ,mid,5451944127,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2018-03-28
 BILL,"BILL Holdings, Inc.",NYSE,mid,4278041557,2026-11-04,Services,SEC SIC 7372 division,false,,mid,2881346424,2019-12-12
 BIP,Brookfield Infrastructure Partners L.P.,NYSE,large,17235912695,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4400 division,false,,unknown,,2008-01-31
 BIPC,Brookfield Infrastructure Corp,NYSE,mid,4626616603,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4923 division,false,,small,1463013010,2020-03-31
 BIRD,"Smartbird, Inc.",NASDAQ,small,18776617,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2021-11-03
 BIRK,Birkenstock Holding plc,NYSE,mid,5866934028,2026-11-04,Manufacturing,SEC SIC 3140 division,false,,unknown,,2023-10-11
-BITA,BITAUTO HOLDINGS LTD,NYSE,unknown,,2020-11-04,Services,SEC SIC 7374 division,true,2020-11-04,unknown,,2011-02-02
+BITA,BITAUTO HOLDINGS LTD,NYSE,unknown,,2020-11-04,Services,SEC SIC 7374 division,true,2020-11-04,unknown,,2010-11-17
 BITF,Keel Infrastructure Corp.,NASDAQ,small,1193645251,2026-04-02,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2026-04-02,small,771431336,2021-06-21
 BIVI,BIOVIE INC.,NASDAQ,small,15021088,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,51991876,2020-09-18
 BIVV,Bioverativ Inc.,NASDAQ,large,11361318147,2018-03-08,Manufacturing,SEC SIC 2834 division,true,2018-03-08,mid,4866829703,2017-02-02
@@ -419,7 +419,7 @@ BNFT,"Benefitfocus, Inc.",NASDAQ,small,362024618,2023-01-23,Services,SEC SIC 737
 BNGO,"Bionano Genomics, Inc.",NASDAQ,small,16772348,2026-11-04,Manufacturing,SEC SIC 3826 division,false,,small,76173679,2018-09-21
 BNL,"Broadstone Net Lease, Inc.",NYSE,mid,3451874819,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,small,437790984,2020-09-17
 BNS,BANK OF NOVA SCOTIA,NYSE,large,113966103346,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6022 division,false,,unknown,,2004-01-02
-BNTX,BioNTech SE,NASDAQ,large,21834683493,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,unknown,,2019-10-15
+BNTX,BioNTech SE,NASDAQ,large,21834683493,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,unknown,,2019-10-10
 BOBE,BOB EVANS FARMS INC,NASDAQ,small,1544039950,2018-01-11,Retail Trade,SEC SIC 5812 division,true,2018-01-11,unknown,,2004-01-02
 BOLD,"Audentes Therapeutics, Inc.",NASDAQ,mid,2745622402,2020-01-14,Manufacturing,SEC SIC 2836 division,true,2020-01-14,small,419503670,2016-07-20
 BOOM,DMC Global Inc.,NASDAQ,small,181992808,2026-11-04,Manufacturing,SEC SIC 3390 division,false,,unknown,,2004-01-02
@@ -444,7 +444,7 @@ BRZE,"Braze, Inc.",NASDAQ,mid,5201483134,2026-11-04,Services,SEC SIC 7372 divisi
 BSAC,BANCO SANTANDER CHILE,NYSE,large,15005022846,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6029 division,false,,unknown,,2012-04-12
 BSBR,Banco Santander (Brasil) S.A.,NYSE,large,33469985774,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6029 division,false,,unknown,,2009-10-07
 BSFT,"BROADSOFT, INC.",NASDAQ,small,1737551291,2018-02-01,Services,SEC SIC 7372 division,true,2018-02-01,unknown,,2010-06-16
-BSIG,Acadian Asset Management Inc.,NYSE,small,982954487,2024-12-31,"Finance, Insurance & Real Estate",SEC SIC 6282 division,true,2024-12-31,small,1168482846,2019-02-11
+BSIG,Acadian Asset Management Inc.,NYSE,small,982954487,2024-12-31,"Finance, Insurance & Real Estate",SEC SIC 6282 division,true,2024-12-31,unknown,,2018-03-26
 BSM,"Black Stone Minerals, L.P.",NYSE,mid,3167260402,2026-11-04,Mining,SEC SIC 1311 division,false,,unknown,,2015-05-01
 BSMX,"Banco Santander Mexico S.A., Institucion de Banca Multiple, Grupo Financiero Santander Mexico",NYSE,mid,7405204607,2023-05-04,"Finance, Insurance & Real Estate",SEC SIC 6029 division,true,2023-05-04,unknown,,2018-01-02
 BSOL,Bitwise Solana Staking ETF,NYSE Arca,small,774211200,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6221 division,false,,small,1507705500,2025-10-28
@@ -455,10 +455,10 @@ BTCT,BTC Digital Ltd.,NASDAQ,small,8507029,2026-11-04,"Finance, Insurance & Real
 BTDR,Bitdeer Technologies Group,NASDAQ,small,1880733135,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,small,787123075,2023-04-14
 BTE,BAYTEX ENERGY CORP.,NYSE,mid,3342176000,2026-11-04,Mining,SEC SIC 1381 division,false,,unknown,,2006-03-27
 BTG,B2GOLD CORP,NYSE American,mid,6209032581,2026-11-04,Mining,SEC SIC 1040 division,false,,unknown,,2013-06-06
-BTI,British American Tobacco p.l.c.,NYSE,large,130883643456,2026-11-04,Manufacturing,SEC SIC 2111 division,false,,unknown,,2017-05-15
+BTI,British American Tobacco p.l.c.,NYSE,large,130883643456,2026-11-04,Manufacturing,SEC SIC 2111 division,false,,unknown,,2004-01-02
 BTSG,"BrightSpring Health Services, Inc.",NASDAQ,large,13897085302,2026-11-04,Services,SEC SIC 8082 division,false,,small,1915390697,2024-01-26
 BTTX,"Better Therapeutics, Inc.",NASDAQ,small,2431394,2024-03-15,Services,SEC SIC 8000 division,true,2024-03-15,small,235997180,2021-03-17
-BUD,Anheuser-Busch InBev SA/NV,NYSE,large,159794806664,2026-11-04,Manufacturing,SEC SIC 2082 division,false,,unknown,,2016-09-06
+BUD,Anheuser-Busch InBev SA/NV,NYSE,large,159794806664,2026-11-04,Manufacturing,SEC SIC 2082 division,false,,unknown,,2009-09-18
 BUFF,"Blue Buffalo Pet Products, Inc.",NASDAQ,mid,7823399920,2018-04-24,Manufacturing,SEC SIC 2000 division,true,2018-04-24,mid,5337682195,2015-07-22
 BULL,Webull Corp,NASDAQ,mid,2806394292,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6211 division,false,,mid,5260245747,2025-04-11
 BUR,Burford Capital Ltd,NYSE,small,832267328,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,mid,2245261239,2020-10-19
@@ -475,10 +475,10 @@ BYND,"BEYOND MEAT, INC.",NASDAQ,small,125000126,2026-11-04,Manufacturing,SEC SIC
 BYON,"NEIGHBORHOOD INTELLIGENCE, INC.",NYSE,small,541912413,2025-08-28,Retail Trade,SEC SIC 5961 division,true,2025-08-28,unknown,,2004-01-02
 BZ,Kanzhun Ltd,NASDAQ,mid,7495209274,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2021-06-11
 BZH,BEAZER HOMES USA INC,NYSE,small,893233778,2026-10-19,Construction,SEC SIC 1531 division,true,2026-10-19,unknown,,2004-01-02
-BZUN,Baozun Inc.,NASDAQ,small,186908307,2026-11-04,Retail Trade,SEC SIC 5961 division,false,,unknown,,2015-07-21
+BZUN,Baozun Inc.,NASDAQ,small,186908307,2026-11-04,Retail Trade,SEC SIC 5961 division,false,,unknown,,2015-05-21
 B__756894,BARRICK MINING CORP,NYSE,large,60980017724,2026-11-04,Mining,SEC SIC 1040 division,false,,unknown,,2004-01-02
 B__9984,BARNES GROUP INC,NYSE,mid,2420453815,2025-01-24,Manufacturing,SEC SIC 3490 division,true,2025-01-24,unknown,,2004-01-02
-CAAS,CHINA AUTOMOTIVE SYSTEMS INC/2,NASDAQ,small,147836440,2025-09-26,Manufacturing,SEC SIC 3714 division,true,2025-09-26,unknown,,2004-09-29
+CAAS,CHINA AUTOMOTIVE SYSTEMS INC/2,NASDAQ,small,147836440,2025-09-26,Manufacturing,SEC SIC 3714 division,true,2025-09-26,unknown,,2004-08-24
 CABA,"Cabaletta Bio, Inc.",NASDAQ,small,240754532,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,240395940,2019-10-25
 CABO,"Cable One, Inc.",NYSE,small,27632015,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4841 division,false,,mid,2290590372,2015-07-01
 CADE,Cadence Bancorporation,NYSE,mid,6011293113,2021-11-08,"Finance, Insurance & Real Estate",SEC SIC 6021 division,true,2021-11-08,small,1802118750,2017-04-13
@@ -492,7 +492,7 @@ CAL,CALERES INC,NYSE,small,454430547,2026-11-04,Manufacturing,SEC SIC 3140 divis
 CALX,"CALIX, INC",NYSE,mid,2093552634,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4899 division,false,,unknown,,2010-03-24
 CAMP,CalAmp Corp.,NASDAQ,small,660337,2024-06-11,Manufacturing,SEC SIC 3663 division,true,2024-06-11,unknown,,2004-01-02
 CAMT,CAMTEK LTD,NASDAQ,mid,5244103049,2026-11-04,Manufacturing,SEC SIC 3827 division,false,,unknown,,2004-01-02
-CAN,Canaan Inc.,NASDAQ,small,146820019,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2020-03-10
+CAN,Canaan Inc.,NASDAQ,small,146820019,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2020-03-09
 CANO,"Cano Health, Inc.",NYSE,small,6641498,2024-02-02,Services,SEC SIC 8011 division,true,2024-02-02,unknown,,2020-07-06
 CAPR,"CAPRICOR THERAPEUTICS, INC.",NASDAQ,small,479065269,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,90131888,2015-03-09
 CARA,"Tvardi Therapeutics, Inc.",NASDAQ,small,8461017,2025-04-15,Manufacturing,SEC SIC 2834 division,true,2025-04-15,small,294071687,2014-01-31
@@ -506,7 +506,7 @@ CASY,CASEYS GENERAL STORES INC,NASDAQ,large,24592925520,2026-11-04,Retail Trade,
 CAT,CATERPILLAR INC,NYSE,large,286809550243,2026-11-04,Manufacturing,SEC SIC 3531 division,false,,unknown,,2004-01-02
 CATM__1277856,CARDTRONICS PLC,,small,1972057457,2016-07-22,Services,SEC SIC 7389 division,true,2016-07-22,unknown,,2007-12-11
 CATM__1671013,Cardtronics plc,NASDAQ,small,1765815035,2021-06-18,Services,SEC SIC 7389 division,true,2021-06-18,small,1986596806,2016-07-25
-CAVA,"CAVA GROUP, INC.",NYSE,mid,7044581801,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,mid,3592646516,2023-10-27
+CAVA,"CAVA GROUP, INC.",NYSE,mid,7044581801,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,mid,4992156041,2023-06-15
 CBAT,"CBAK Energy Technology, Inc.",NASDAQ,small,97510420,2026-11-04,Manufacturing,SEC SIC 3690 division,false,,small,15189062,2018-11-30
 CBAY,"CymaBay Therapeutics, Inc.",NASDAQ,mid,3728216832,2024-03-21,Manufacturing,SEC SIC 2834 division,true,2024-03-21,small,64314238,2014-06-20
 CBD,BRAZILIAN DISTRIBUTION CO COMPANHIA BRASILEIRA DE DISTR CBD,NYSE,small,218056751,2024-04-18,Retail Trade,SEC SIC 5411 division,true,2024-04-18,unknown,,2004-01-02
@@ -553,7 +553,7 @@ CERN,CERNER Corp,NASDAQ,large,27915791082,2022-06-07,Services,SEC SIC 7373 divis
 CERO,"CERO THERAPEUTICS HOLDINGS, INC.",NASDAQ,small,177375,2025-10-30,Manufacturing,SEC SIC 2836 division,true,2025-10-30,unknown,,2021-11-30
 CERT,"Certara, Inc.",NASDAQ,small,1658096539,2026-11-04,Services,SEC SIC 7372 division,false,,mid,6080594789,2020-12-11
 CETX,CEMTREX INC,NASDAQ,small,1962101,2026-11-04,Construction,SEC SIC 1700 division,false,,small,26438915,2015-06-25
-CFFN,"Capitol Federal Financial, Inc.",NASDAQ,small,1057649950,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6035 division,false,,unknown,,2010-04-06
+CFFN,"Capitol Federal Financial, Inc.",NASDAQ,small,1057649950,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6035 division,false,,unknown,,2004-01-02
 CFII,"View, Inc.",NASDAQ,small,1342122,2024-04-04,Manufacturing,SEC SIC 3211 division,true,2024-04-04,mid,2105644106,2020-10-19
 CFLT,"Confluent, Inc.",NASDAQ,large,11133730691,2026-03-16,Services,SEC SIC 7372 division,true,2026-03-16,unknown,,2021-06-24
 CFN,CAREFUSION Corp,NYSE,large,12233620143,2015-03-16,Manufacturing,SEC SIC 3841 division,true,2015-03-16,unknown,,2009-09-01
@@ -615,7 +615,7 @@ CMCM,Cheetah Mobile Inc.,NYSE,small,75113477,2026-11-04,Services,SEC SIC 7372 di
 CME,CME GROUP INC.,NASDAQ,large,108833376769,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6200 division,false,,unknown,,2004-01-02
 CMO,CAPSTEAD MORTGAGE CORP,NYSE,small,629691140,2021-10-18,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2021-10-18,unknown,,2004-01-02
 CMP,COMPASS MINERALS INTERNATIONAL INC,NYSE,small,960942206,2026-11-04,Mining,SEC SIC 1400 division,false,,unknown,,2004-01-02
-CMPS,COMPASS Pathways plc,NASDAQ,small,1189515901,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2020-10-13
+CMPS,COMPASS Pathways plc,NASDAQ,small,1189515901,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2020-09-23
 CMRX,CHIMERIX INC,NASDAQ,small,801084845,2025-04-17,Manufacturing,SEC SIC 2834 division,true,2025-04-17,small,502875530,2013-04-11
 CNC,CENTENE CORP,NYSE,large,33407188640,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6324 division,false,,unknown,,2004-01-02
 CNDT,CONDUENT Inc,NASDAQ,small,231725992,2026-11-04,Services,SEC SIC 7389 division,false,,small,13720,2017-01-03
@@ -709,7 +709,7 @@ CSGP,"COSTAR GROUP, INC.",NASDAQ,large,12601205113,2026-11-04,Services,SEC SIC 7
 CSGS,CSG SYSTEMS INTERNATIONAL INC,NASDAQ,mid,2300464154,2026-05-13,Services,SEC SIC 7374 division,true,2026-05-13,unknown,,2004-01-02
 CSH,CASH AMERICA INTERNATIONAL INC,NYSE,small,1013863271,2016-09-01,Retail Trade,SEC SIC 5900 division,true,2016-09-01,unknown,,2004-01-02
 CSII,Cardiovascular Systems Inc,NASDAQ,small,843960960,2023-04-27,Manufacturing,SEC SIC 3841 division,true,2023-04-27,unknown,,2009-02-26
-CSIQ,Canadian Solar Inc.,NASDAQ,small,685757165,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2006-11-13
+CSIQ,Canadian Solar Inc.,NASDAQ,small,685757165,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2006-11-09
 CSOD,Cornerstone OnDemand Inc,NASDAQ,mid,3837692002,2021-10-14,Services,SEC SIC 7372 division,true,2021-10-14,small,942240080,2011-03-17
 CSRA,CSRA Inc.,NYSE,mid,6758570069,2018-04-03,Services,SEC SIC 7373 division,true,2018-04-03,mid,5149558617,2015-11-30
 CSTE,Caesarstone Ltd.,NASDAQ,small,59126798,2026-11-04,Manufacturing,SEC SIC 3281 division,false,,unknown,,2012-03-22
@@ -753,7 +753,7 @@ CWT,CALIFORNIA WATER SERVICE GROUP,NYSE,mid,3087887260,2026-11-04,"Transportatio
 CX,CEMEX SAB DE CV,NYSE,large,15280866477,2026-11-04,Manufacturing,SEC SIC 3241 division,false,,unknown,,2004-01-02
 CXM,"Sprinklr, Inc.",NYSE,small,1557869691,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2021-06-23
 CXRX,ADVANZ PHARMA Corp.,NASDAQ,small,9743751,2018-06-07,Manufacturing,SEC SIC 2834 division,true,2018-06-07,unknown,,2015-06-29
-CYBR,CyberArk Software Ltd.,NASDAQ,large,20637501825,2026-02-10,Services,SEC SIC 7372 division,true,2026-02-10,small,902840019,2014-10-14
+CYBR,CyberArk Software Ltd.,NASDAQ,large,20637501825,2026-02-10,Services,SEC SIC 7372 division,true,2026-02-10,small,912905465,2014-09-24
 CYBX,CYBERONICS INC,,mid,3488931263,2015-10-29,Manufacturing,SEC SIC 3845 division,true,2015-10-29,unknown,,2004-01-02
 CYCN,"Korsana Biosciences, Inc.",NASDAQ,small,2247047,2026-09-08,Manufacturing,SEC SIC 2834 division,true,2026-09-08,small,402168414,2019-04-02
 CYH,COMMUNITY HEALTH SYSTEMS INC,NYSE,small,289104645,2026-11-04,Services,SEC SIC 8062 division,false,,unknown,,2004-01-02
@@ -766,14 +766,14 @@ CYTK,CYTOKINETICS INC,NASDAQ,mid,8662549176,2026-11-04,Manufacturing,SEC SIC 283
 CZR__1590895,"Caesars Entertainment, Inc.",NASDAQ,mid,5922634558,2026-11-04,Services,SEC SIC 7011 division,false,,small,202347271,2014-09-22
 CZR__858339,"CAESARS HOLDINGS, INC.",NASDAQ,mid,7133640115,2020-07-30,Services,SEC SIC 7011 division,true,2020-07-30,small,1104613864,2012-02-08
 CZZ,Cosan Ltd.,NYSE,unknown,,2021-03-05,Manufacturing,SEC SIC 2060 division,true,2021-03-05,unknown,,2007-08-16
-DAC,Danaos Corp,NYSE,mid,2787694250,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2006-10-16
+DAC,Danaos Corp,NYSE,mid,2787694250,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2006-10-06
 DADA,Dada Nexus Ltd,NASDAQ,small,508744921,2025-06-16,Services,SEC SIC 7370 division,true,2025-06-16,unknown,,2020-06-05
-DANG,E-COMMERCE CHINA DANGDANG INC.,NYSE,unknown,,2016-09-20,Retail Trade,SEC SIC 5990 division,true,2016-09-20,unknown,,2011-02-09
+DANG,E-COMMERCE CHINA DANGDANG INC.,NYSE,unknown,,2016-09-20,Retail Trade,SEC SIC 5990 division,true,2016-09-20,unknown,,2010-12-08
 DAO,"Youdao, Inc.",NYSE,mid,2380121270,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2019-10-25
 DAR,DARLING INGREDIENTS INC.,NYSE,mid,8461392356,2026-11-04,Manufacturing,SEC SIC 2070 division,false,,unknown,,2004-01-02
 DASH,"DoorDash, Inc.",NASDAQ,large,79923180999,2026-11-04,Services,SEC SIC 7389 division,false,,large,64465427190,2020-12-09
 DATS,"Myseum.AI, Inc.",NASDAQ,small,13344757,2025-08-08,"Transportation, Communications & Utilities",SEC SIC 4822 division,true,2025-08-08,small,67023173,2021-08-13
-DAVA,Endava plc,NYSE,small,87190483,2026-11-04,Services,SEC SIC 7371 division,false,,unknown,,2018-09-11
+DAVA,Endava plc,NYSE,small,87190483,2026-11-04,Services,SEC SIC 7371 division,false,,unknown,,2018-07-27
 DAVE,Dave Inc./DE,NASDAQ,mid,4014413163,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,mid,3194548676,2022-01-06
 DAWN,"Day One Biopharmaceuticals, Inc.",NASDAQ,mid,2224784659,2026-04-22,Manufacturing,SEC SIC 2834 division,true,2026-04-22,small,1602899842,2021-05-27
 DAY,"Dayforce, Inc.",NYSE,large,11180042515,2026-02-03,Services,SEC SIC 7372 division,true,2026-02-03,mid,4385469686,2018-04-26
@@ -799,7 +799,7 @@ DENN,DENNY'S Corp,NASDAQ,small,321868712,2026-01-16,Retail Trade,SEC SIC 5812 di
 DEO,DIAGEO PLC,NYSE,large,52305443645,2026-11-04,Manufacturing,SEC SIC 2080 division,false,,unknown,,2004-01-02
 DEPO,"Assertio Therapeutics, Inc",NASDAQ,small,44035988,2020-05-29,Manufacturing,SEC SIC 2834 division,true,2020-05-29,unknown,,2004-01-02
 DERM,"Dermira, Inc.",NASDAQ,small,1022272125,2020-02-19,Manufacturing,SEC SIC 2834 division,true,2020-02-19,small,384702211,2014-10-03
-DESP,"Despegar.com, Corp.",NYSE,small,1626288546,2025-05-14,"Transportation, Communications & Utilities",SEC SIC 4700 division,true,2025-05-14,mid,2230470851,2017-10-18
+DESP,"Despegar.com, Corp.",NYSE,small,1626288546,2025-05-14,"Transportation, Communications & Utilities",SEC SIC 4700 division,true,2025-05-14,mid,2195922046,2017-09-20
 DF,DEAN FOODS CO,NYSE,small,73514891,2019-11-11,Manufacturing,SEC SIC 2020 division,true,2019-11-11,unknown,,2004-01-02
 DFH,"Dream Finders Homes, Inc.",NYSE,small,914404692,2026-11-04,Construction,SEC SIC 1531 division,false,,small,1938325048,2021-01-21
 DFIN,"Donnelley Financial Solutions, Inc.",NYSE,small,1659428070,2026-11-04,Services,SEC SIC 7380 division,false,,small,774089000,2016-10-03
@@ -810,13 +810,13 @@ DGII,DIGI INTERNATIONAL INC,NASDAQ,mid,2733403300,2026-11-04,Manufacturing,SEC S
 DGLY,"KUSTOM ENTERTAINMENT, INC.",NASDAQ,small,1655057,2026-01-07,Manufacturing,SEC SIC 3663 division,true,2026-01-07,unknown,,2008-01-02
 DGXX,Digi Power X Inc.,NASDAQ,small,230170482,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,small,188089624,2021-11-15
 DHR,DANAHER CORP /DE/,NYSE,large,161764120886,2026-11-04,Manufacturing,SEC SIC 3823 division,false,,unknown,,2004-01-02
-DHT,"DHT Holdings, Inc.",NYSE,mid,3856754906,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2006-01-30
+DHT,"DHT Holdings, Inc.",NYSE,mid,3856754906,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2005-10-13
 DICE,"DICE Therapeutics, Inc.",NASDAQ,mid,2270794234,2023-08-08,Manufacturing,SEC SIC 2834 division,true,2023-08-08,small,1409597371,2021-09-15
 DIDI,DiDi Global Inc.,NYSE,large,11115746736,2022-06-10,Services,SEC SIC 7389 division,true,2022-06-10,unknown,,2021-06-30
 DIN,"Dine Brands Global, Inc.",NYSE,small,446994586,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,unknown,,2004-01-02
 DINO,HF Sinclair Corp,NYSE,large,19426635151,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4610 division,false,,mid,6948924449,2022-03-15
 DIOD,DIODES INC /DEL/,NASDAQ,mid,3879395629,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
-DIS,Walt Disney Co,NYSE,large,197153110470,2026-11-04,Services,SEC SIC 7990 division,false,,large,179411985534,2018-05-29
+DIS,Walt Disney Co,NYSE,large,197153110470,2026-11-04,Services,SEC SIC 7990 division,false,,unknown,,2004-01-02
 DISH,DISH Network CORP,NASDAQ,mid,3083432135,2023-12-29,"Transportation, Communications & Utilities",SEC SIC 4841 division,true,2023-12-29,unknown,,2004-01-02
 DJCO,DAILY JOURNAL CORP,NASDAQ,small,867282989,2026-11-04,Manufacturing,SEC SIC 2711 division,false,,unknown,,2004-01-06
 DJT,Trump Media & Technology Group Corp.,NASDAQ,small,1653750562,2026-11-04,Services,SEC SIC 7370 division,false,,large,12761590516,2024-03-26
@@ -849,7 +849,7 @@ DOW__1751788,DOW INC.,NYSE,large,24459969638,2026-11-04,Manufacturing,SEC SIC 28
 DOX,AMDOCS LTD,NASDAQ,mid,6518628450,2026-11-04,Services,SEC SIC 7371 division,false,,unknown,,2004-01-02
 DOYU,DouYu International Holdings Ltd,NASDAQ,small,110454624,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2019-07-17
 DPRO,Draganfly Inc.,NASDAQ,small,129562522,2026-11-04,Manufacturing,SEC SIC 3721 division,false,,small,126152339,2021-07-30
-DQ,DAQO NEW ENERGY CORP.,NYSE,small,740267539,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2010-10-18
+DQ,DAQO NEW ENERGY CORP.,NYSE,small,740267539,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2010-10-13
 DRH,DiamondRock Hospitality Co,NASDAQ,mid,2970874488,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,unknown,,2005-05-26
 DRII,"Diamond Resorts International, Inc.",NYSE,mid,2108358680,2016-09-01,Services,SEC SIC 7011 division,true,2016-09-01,small,1218943892,2013-07-19
 DRIV,DIGITAL RIVER INC /DE,NASDAQ,small,828769666,2015-02-12,Wholesale Trade,SEC SIC 5045 division,true,2015-02-12,unknown,,2004-01-02
@@ -878,12 +878,12 @@ DYN__1818794,"Dyne Therapeutics, Inc.",NASDAQ,mid,3370773080,2026-11-04,Manufact
 E,ENI SPA,NYSE,large,83182184561,2026-11-04,Mining,SEC SIC 1311 division,false,,unknown,,2004-01-02
 EAF,GRAFTECH INTERNATIONAL LTD,NYSE,small,313624535,2026-11-04,Manufacturing,SEC SIC 3620 division,false,,small,1445,2018-04-19
 EAR,"Eargo, Inc.",NASDAQ,small,53359340,2024-02-15,Manufacturing,SEC SIC 3842 division,true,2024-02-15,small,1318921834,2020-10-16
-EARS,Altamira Therapeutics Ltd.,NASDAQ,small,39187892,2021-07-23,Manufacturing,SEC SIC 2834 division,true,2021-07-23,unknown,,2014-08-18
+EARS,Altamira Therapeutics Ltd.,NASDAQ,small,39187892,2021-07-23,Manufacturing,SEC SIC 2834 division,true,2021-07-23,unknown,,2014-08-06
 EAT,"BRINKER INTERNATIONAL, INC",NYSE,mid,8616371614,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,unknown,,2004-01-02
 EB,"Eventbrite, Inc.",NYSE,small,452958147,2026-03-09,Services,SEC SIC 7370 division,true,2026-03-09,mid,3009408648,2018-09-20
 EBC,"Eastern Bankshares, Inc.",NASDAQ,mid,5187212230,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6035 division,false,,mid,2269111571,2020-10-15
 EBIX,EBIX INC,NASDAQ,small,35845670,2023-12-27,Services,SEC SIC 7373 division,true,2023-12-27,unknown,,2004-01-02
-EBON,Ebang International Holdings Inc.,NASDAQ,small,9420924,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6200 division,false,,unknown,,2020-07-15
+EBON,Ebang International Holdings Inc.,NASDAQ,small,9420924,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6200 division,false,,unknown,,2020-06-26
 EBS,Emergent BioSolutions Inc.,NYSE,small,320458350,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2006-11-15
 EC,ECOPETROL S.A.,NYSE,large,34003506517,2026-11-04,Mining,SEC SIC 1311 division,false,,unknown,,2008-09-18
 ECA,ENCANA CORP,NYSE,mid,4923635374,2020-01-24,Mining,SEC SIC 1311 division,true,2020-01-24,unknown,,2004-01-02
@@ -898,7 +898,7 @@ ED,CONSOLIDATED EDISON INC,NYSE,large,43199682621,2026-11-04,"Transportation, Co
 EDIT,"Editas Medicine, Inc.",NASDAQ,small,399308091,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,667138035,2016-02-03
 EDR__1302343,"Education Realty Trust, Inc.",NYSE,mid,3344285601,2018-09-19,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2018-09-19,unknown,,2005-01-26
 EDR__1766363,"Endeavor Group Holdings, Inc.",NYSE,mid,9522162205,2025-03-21,Services,SEC SIC 7900 division,true,2025-03-21,mid,6605422236,2021-04-29
-EDU,New Oriental Education & Technology Group Inc.,NYSE,mid,7802638761,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2006-09-18
+EDU,New Oriental Education & Technology Group Inc.,NYSE,mid,7802638761,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2006-09-14
 EE,EL PASO ELECTRIC CO /TX/,NYSE,mid,2789873687,2020-07-29,"Transportation, Communications & Utilities",SEC SIC 4911 division,true,2020-07-29,unknown,,2004-01-02
 EFC,Ellington Financial Inc.,NYSE,small,1461582957,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6500 division,false,,small,359035537,2010-10-08
 EFOI,"ENERGY FOCUS, INC/DE",NASDAQ,small,25604272,2026-11-04,Manufacturing,SEC SIC 3640 division,false,,small,332155902,2014-08-07
@@ -910,7 +910,7 @@ EGOV,NIC INC,,mid,5585646374,2021-04-30,Services,SEC SIC 7389 division,true,2021
 EGP,EASTGROUP PROPERTIES INC,NYSE,large,10766510749,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,unknown,,2004-01-02
 EGRX,"EAGLE PHARMACEUTICALS, INC.",NASDAQ,small,27730606,2024-10-02,Manufacturing,SEC SIC 2834 division,true,2024-10-02,small,180032703,2014-02-12
 EGY,VAALCO ENERGY INC /DE/,NYSE,small,590125875,2026-11-04,Mining,SEC SIC 1311 division,false,,unknown,,2004-07-21
-EH,EHang Holdings Ltd,NASDAQ,small,289729283,2026-11-04,Manufacturing,SEC SIC 3728 division,false,,unknown,,2020-02-24
+EH,EHang Holdings Ltd,NASDAQ,small,289729283,2026-11-04,Manufacturing,SEC SIC 3728 division,false,,unknown,,2020-01-06
 EHTH,"eHealth, Inc.",NASDAQ,small,18588549,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6411 division,false,,unknown,,2006-10-13
 EIDX,"Eidos Therapeutics, Inc.",NASDAQ,mid,4725027839,2021-01-25,Manufacturing,SEC SIC 2834 division,true,2021-01-25,small,851452933,2018-06-20
 EIGI,"Endurance International Group Holdings, Inc.",NASDAQ,small,1344295302,2021-02-10,Services,SEC SIC 7372 division,true,2021-02-10,small,1453515896,2013-10-25
@@ -923,7 +923,7 @@ ELGX,ENDOLOGIX INC /DE/,NASDAQ,small,4217763,2020-07-15,Manufacturing,SEC SIC 38
 ELLI,ELLIE MAE INC,NYSE,mid,3445094723,2019-04-16,Services,SEC SIC 7372 division,true,2019-04-16,small,145637872,2011-04-15
 ELME,Elme Communities,NYSE,small,157278453,2026-10-22,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2026-10-22,unknown,,2004-01-02
 EMBC,Embecta Corp.,NASDAQ,small,344490362,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,small,30500,2022-04-01
-EMBJ,EMBRAER S.A.,NYSE,large,13437630100,2026-11-04,Manufacturing,SEC SIC 3721 division,false,,unknown,,2006-03-06
+EMBJ,EMBRAER S.A.,NYSE,large,13437630100,2026-11-04,Manufacturing,SEC SIC 3721 division,false,,unknown,,2004-01-02
 EME,"EMCOR Group, Inc.",NYSE,large,30972703090,2026-11-04,Construction,SEC SIC 1731 division,false,,unknown,,2004-01-02
 EMES,Emerge Energy Services LP,NYSE,small,6514478,2019-05-31,Mining,SEC SIC 1400 division,true,2019-05-31,small,391046842,2013-05-09
 ENB,ENBRIDGE INC,NYSE,large,109079607693,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4610 division,false,,unknown,,2004-01-02
@@ -957,7 +957,7 @@ ERF,ENERPLUS Corp,NYSE,mid,4103302642,2024-05-30,Mining,SEC SIC 1311 division,tr
 ERIC,ERICSSON LM TELEPHONE CO,NASDAQ,large,35293791308,2026-11-04,Manufacturing,SEC SIC 3663 division,false,,unknown,,2004-01-02
 ERIE,ERIE INDEMNITY CO,NASDAQ,large,14101008704,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6411 division,false,,unknown,,2004-01-02
 ERII,"Energy Recovery, Inc.",NASDAQ,small,365991754,2026-11-04,Manufacturing,SEC SIC 3559 division,false,,unknown,,2008-07-02
-EROS,Eros Media World PLC,NYSE,small,57468450,2022-06-03,Services,SEC SIC 7822 division,true,2022-06-03,unknown,,2014-01-14
+EROS,Eros Media World PLC,NYSE,small,57468450,2022-06-03,Services,SEC SIC 7822 division,true,2022-06-03,unknown,,2013-11-13
 ESAB,ESAB Corp,NYSE,mid,4727861950,2026-11-04,Manufacturing,SEC SIC 3569 division,false,,mid,2701533693,2022-04-05
 ESE,ESCO TECHNOLOGIES INC,NYSE,mid,6492177215,2026-11-04,Manufacturing,SEC SIC 3669 division,false,,unknown,,2004-01-02
 ESIO,ELECTRO SCIENTIFIC INDUSTRIES INC,NASDAQ,small,1032326606,2019-02-01,Manufacturing,SEC SIC 3690 division,true,2019-02-01,unknown,,2004-01-02
@@ -1048,7 +1048,7 @@ FLGT,"Fulgent Genetics, Inc.",NASDAQ,small,532971225,2026-11-04,Services,SEC SIC
 FLNC,"Fluence Energy, Inc.",NASDAQ,small,787399734,2026-11-04,Manufacturing,SEC SIC 3690 division,false,,small,1946894810,2021-10-28
 FLNG,Flex LNG Ltd.,NYSE,small,1477803712,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4400 division,false,,small,606579647,2019-06-17
 FLOW,"SPX FLOW, Inc.",NYSE,mid,3637603772,2022-04-04,Manufacturing,SEC SIC 3540 division,true,2022-04-04,small,1421328180,2015-09-28
-FLTX,Fleetmatics Group Ltd,NYSE,mid,2350017420,2016-11-04,Services,SEC SIC 7372 division,true,2016-11-04,small,757408609,2012-10-09
+FLTX,Fleetmatics Group Ltd,NYSE,mid,2350017420,2016-11-04,Services,SEC SIC 7372 division,true,2016-11-04,small,771242556,2012-10-05
 FLUT,Flutter Entertainment plc,NYSE,large,14532164401,2026-11-04,Services,SEC SIC 7370 division,false,,large,30403288107,2024-01-29
 FLWS,1 800 FLOWERS COM INC,NASDAQ,small,173299759,2026-11-04,Retail Trade,SEC SIC 5990 division,false,,unknown,,2004-01-02
 FLXN,Flexion Therapeutics Inc,NASDAQ,small,458930858,2021-11-18,Manufacturing,SEC SIC 2834 division,true,2021-11-18,small,229877406,2014-02-12
@@ -1057,7 +1057,7 @@ FLYW,Flywire Corp,NASDAQ,mid,2365810035,2026-11-04,Services,SEC SIC 7389 divisio
 FMBI,FIRST MIDWEST BANCORP INC,NASDAQ,mid,2454893280,2022-02-15,"Finance, Insurance & Real Estate",SEC SIC 6021 division,true,2022-02-15,unknown,,2004-01-02
 FMC,FMC CORP,NYSE,small,947350650,2026-11-04,Manufacturing,SEC SIC 2800 division,false,,unknown,,2004-01-02
 FMI,"Foundation Medicine, Inc.",NASDAQ,mid,5074172298,2018-07-30,Services,SEC SIC 8071 division,true,2018-07-30,small,999017619,2013-09-25
-FMS,Fresenius Medical Care AG,NYSE,large,11565126910,2026-11-04,Services,SEC SIC 8090 division,false,,unknown,,2006-01-17
+FMS,Fresenius Medical Care AG,NYSE,large,11565126910,2026-11-04,Services,SEC SIC 8090 division,false,,unknown,,2004-01-02
 FMSA,"Bison Merger Sub I, LLC",NYSE,small,1267410416,2018-05-31,Mining,SEC SIC 1400 division,true,2018-05-31,mid,2582768768,2014-10-03
 FMTX,"Forma Therapeutics Holdings, Inc.",NASDAQ,small,957686584,2022-10-13,Manufacturing,SEC SIC 2836 division,true,2022-10-13,small,1847533662,2020-06-19
 FMX,MEXICAN ECONOMIC DEVELOPMENT INC,NYSE,large,43276766880,2026-11-04,Manufacturing,SEC SIC 2086 division,false,,unknown,,2004-01-02
@@ -1076,7 +1076,7 @@ FOSL,"Fossil Group, Inc.",NASDAQ,small,395633568,2026-11-04,Manufacturing,SEC SI
 FOUR,"Shift4 Payments, Inc.",NYSE,mid,3276055379,2026-11-04,Services,SEC SIC 7389 division,false,,mid,2714200653,2020-06-05
 FOXF,FOX FACTORY HOLDING CORP,NASDAQ,small,679641286,2026-11-04,Manufacturing,SEC SIC 3751 division,false,,small,686285697,2013-08-08
 FOXO,FOXO TECHNOLOGIES INC.,NYSE American,small,2687296,2025-04-17,Services,SEC SIC 8731 division,true,2025-04-17,unknown,,2021-01-29
-FOX__1754301,Fox Corp,NASDAQ,large,28294300036,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4833 division,false,,small,37,2019-04-01
+FOX__1754301,Fox Corp,NASDAQ,large,28294300036,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4833 division,false,,small,40,2019-03-21
 FPRX,"FIVE PRIME THERAPEUTICS, INC.",NASDAQ,small,1769737102,2021-04-15,Manufacturing,SEC SIC 2834 division,true,2021-04-15,small,281488846,2013-09-18
 FRAN,FHC Holdings Corp,NASDAQ,small,6732903,2020-12-14,Retail Trade,SEC SIC 5600 division,true,2020-12-14,small,1206897394,2011-07-22
 FRED,FREDS INC,NASDAQ,small,4457749,2019-09-17,Retail Trade,SEC SIC 5331 division,true,2019-09-17,unknown,,2004-01-02
@@ -1100,7 +1100,7 @@ FSR,Fisker Inc./DE,NYSE,small,52815885,2024-03-25,Manufacturing,SEC SIC 3711 div
 FSS,FEDERAL SIGNAL CORP /DE/,NYSE,mid,7147468007,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2004-01-02
 FSV,FirstService Corp,NASDAQ,mid,6240522140,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6500 division,false,,small,1006292308,2015-06-02
 FTAI,FTAI Aviation Ltd.,NASDAQ,large,20565564885,2026-11-04,Services,SEC SIC 7350 division,false,,small,1253334231,2015-05-15
-FTCH,Farfetch Ltd,NYSE,small,254205567,2023-12-15,Services,SEC SIC 7389 division,true,2023-12-15,unknown,,2018-10-09
+FTCH,Farfetch Ltd,NYSE,small,254205567,2023-12-15,Services,SEC SIC 7389 division,true,2023-12-15,unknown,,2018-09-21
 FTDR,"Frontdoor, Inc.",NASDAQ,mid,6104636731,2026-11-04,Services,SEC SIC 7340 division,false,,mid,3555257454,2018-10-01
 FTEK,"FUEL TECH, INC.",NASDAQ,small,44327840,2026-11-04,Manufacturing,SEC SIC 3564 division,false,,unknown,,2004-01-02
 FTI__1681459,TechnipFMC plc,NYSE,large,25950737512,2026-11-04,Manufacturing,SEC SIC 3533 division,false,,small,33,2017-01-30
@@ -1115,7 +1115,7 @@ FUL,FULLER H B CO,NYSE,mid,2701683483,2026-11-04,Manufacturing,SEC SIC 2891 divi
 FUN__1999001,Six Flags Entertainment Corporation/NEW,NYSE,small,763279688,2026-11-04,Services,SEC SIC 7900 division,false,,mid,5326013060,2024-07-15
 FUTU,Futu Holdings Ltd,NASDAQ,large,14385356414,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6211 division,false,,unknown,,2019-10-17
 FUV,Arcimoto Inc,NASDAQ,small,4242580,2024-04-30,Manufacturing,SEC SIC 3751 division,true,2024-04-30,small,91964660,2017-09-21
-FVRR,Fiverr International Ltd.,NYSE,small,296593506,2026-11-04,Services,SEC SIC 7389 division,false,,small,839324648,2019-07-09
+FVRR,Fiverr International Ltd.,NYSE,small,296593506,2026-11-04,Services,SEC SIC 7389 division,false,,small,1274317103,2019-06-13
 FWONK,Liberty Media Corp,NASDAQ,large,23957702827,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4833 division,false,,large,25342750000,2024-09-10
 FWRD,FORWARD AIR CORP,NASDAQ,small,621567861,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4731 division,false,,unknown,,2004-01-02
 GAN,GAN Ltd,NASDAQ,small,87345595,2025-05-23,Services,SEC SIC 7370 division,true,2025-05-23,unknown,,2020-05-05
@@ -1132,7 +1132,7 @@ GCT,GigaCloud Technology Inc,NASDAQ,small,1954064169,2026-11-04,Retail Trade,SEC
 GDDY,GoDaddy Inc.,NYSE,large,13758614828,2026-11-04,Services,SEC SIC 7373 division,false,,mid,4118128150,2015-04-01
 GDOT,GREEN DOT CORP,NYSE,small,709465479,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2010-07-22
 GDRX,"GoodRx Holdings, Inc.",NASDAQ,small,1190597404,2026-11-04,Services,SEC SIC 7374 division,false,,large,20622331500,2020-09-23
-GDS,GDS Holdings Ltd,NASDAQ,mid,4380254620,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2016-11-07
+GDS,GDS Holdings Ltd,NASDAQ,mid,4380254620,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2016-11-02
 GDYN,"GRID DYNAMICS HOLDINGS, INC.",NASDAQ,small,1074548665,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2018-10-30
 GEF,"GREIF, INC",NYSE,mid,4618913000,2026-11-04,Manufacturing,SEC SIC 3412 division,false,,unknown,,2004-01-02
 GEHC,GE HealthCare Technologies Inc.,NASDAQ,large,36469437448,2026-11-04,Manufacturing,SEC SIC 3844 division,false,,large,27537647497,2023-01-04
@@ -1148,7 +1148,7 @@ GEVO,"Gevo, Inc.",NASDAQ,small,294212154,2026-11-04,Manufacturing,SEC SIC 2860 d
 GFF,GRIFFON CORP,NYSE,mid,4629119975,2026-11-04,Manufacturing,SEC SIC 3442 division,false,,unknown,,2004-01-02
 GFI,GOLD FIELDS LTD,NYSE,large,30789384215,2026-11-04,Mining,SEC SIC 1040 division,false,,unknown,,2004-01-02
 GFL,GFL Environmental Inc.,NYSE,large,19925960082,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4953 division,false,,unknown,,2020-03-03
-GFS,GLOBALFOUNDRIES Inc.,NASDAQ,large,23907683883,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,large,28650530229,2021-11-01
+GFS,GLOBALFOUNDRIES Inc.,NASDAQ,large,23907683883,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,large,24677642522,2021-10-28
 GG,GOLDCORP INC,NYSE,mid,9707666396,2019-04-17,Mining,SEC SIC 1040 division,true,2019-04-17,unknown,,2004-01-02
 GGAL,GRUPO FINANCIERO GALICIA SA,NASDAQ,mid,5056486742,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6029 division,false,,unknown,,2004-01-02
 GGB,GERDAU S.A.,NYSE,mid,9140403782,2026-11-04,Manufacturing,SEC SIC 3310 division,false,,unknown,,2004-01-02
@@ -1167,7 +1167,7 @@ GLBE,Global-E Online Ltd.,NASDAQ,mid,6984084118,2026-11-04,Services,SEC SIC 7372
 GLF,GULFMARK OFFSHORE INC,NYSE American,small,9113251,2017-04-10,Manufacturing,SEC SIC 3533 division,true,2017-04-10,unknown,,2004-01-02
 GLNG,GOLAR LNG LTD,NASDAQ,mid,4658686110,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4400 division,false,,unknown,,2004-01-02
 GLOB,Globant S.A.,NYSE,small,1976328278,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2014-07-18
-GLOG,GasLog Ltd.,NYSE,small,551071605,2021-06-08,"Transportation, Communications & Utilities",SEC SIC 4400 division,true,2021-06-08,unknown,,2012-04-17
+GLOG,GasLog Ltd.,NYSE,small,551071605,2021-06-08,"Transportation, Communications & Utilities",SEC SIC 4400 division,true,2021-06-08,unknown,,2012-03-30
 GLPG,Lakefront Biotherapeutics NV,NASDAQ,small,1827325779,2026-05-07,Manufacturing,SEC SIC 2834 division,true,2026-05-07,unknown,,2015-05-14
 GLSI,"Greenwich LifeSciences, Inc.",NASDAQ,small,233677071,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,64845785,2020-09-25
 GLTO,"Damora Therapeutics, Inc.",NASDAQ,small,1363120260,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,378927480,2020-10-29
@@ -1189,10 +1189,10 @@ GOEV,Canoo Inc.,NASDAQ,small,5359834,2025-01-28,Manufacturing,SEC SIC 3714 divis
 GOGL,Golden Ocean Group Ltd,NASDAQ,small,1591238278,2025-08-19,"Transportation, Communications & Utilities",SEC SIC 4400 division,true,2025-08-19,unknown,,2004-01-02
 GOGO,Gogo Inc.,NASDAQ,small,325218869,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4899 division,false,,small,1360735152,2013-06-21
 GOLF,Acushnet Holdings Corp.,NYSE,mid,5105184896,2026-11-04,Manufacturing,SEC SIC 3949 division,false,,small,1336412987,2016-10-28
-GOOG,Alphabet Inc.,NASDAQ,large,3421051380000,2026-11-04,Services,SEC SIC 7370 division,false,,large,427649792820,2015-09-22
-GOOS,Canada Goose Holdings Inc.,NYSE,small,807653236,2026-11-04,Manufacturing,SEC SIC 2300 division,false,,unknown,,2017-04-17
+GOOG,Alphabet Inc.,NASDAQ,large,3421051380000,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2004-10-26
+GOOS,Canada Goose Holdings Inc.,NYSE,small,807653236,2026-11-04,Manufacturing,SEC SIC 2300 division,false,,unknown,,2017-03-16
 GOSS,"Gossamer Bio, Inc.",NASDAQ,small,56760108,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,1184723909,2019-02-08
-GOTU,Gaotu Techedu Inc.,NYSE,small,535927265,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2019-07-24
+GOTU,Gaotu Techedu Inc.,NYSE,small,535927265,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2019-06-10
 GOV,OFFICE PROPERTIES INCOME TRUST,NASDAQ,small,681539717,2018-12-31,"Finance, Insurance & Real Estate",SEC SIC 6500 division,true,2018-12-31,unknown,,2009-06-03
 GP,GREENPOWER MOTOR Co INC.,NASDAQ,small,1789805,2026-11-04,Manufacturing,SEC SIC 3713 division,false,,mid,2276552271,2020-08-28
 GPCR,Structure Therapeutics Inc.,NASDAQ,small,1451155590,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2023-02-03
@@ -1211,7 +1211,7 @@ GRND,Grindr Inc.,NYSE,mid,2271835595,2026-11-04,Services,SEC SIC 7370 division,f
 GRPN,"Groupon, Inc.",NASDAQ,small,630312088,2026-11-04,Services,SEC SIC 7311 division,false,,large,16897074411,2011-11-04
 GRRR,Gorilla Technology Group Inc.,NASDAQ,small,219250946,2026-11-04,Services,SEC SIC 7372 division,false,,mid,2291387208,2022-07-14
 GRTX,"Galera Therapeutics, Inc.",NASDAQ,small,7886865,2024-06-03,Manufacturing,SEC SIC 2834 division,true,2024-06-03,small,298585164,2019-11-07
-GRUB__1792627,Just Eat Takeaway.com N.V.,NASDAQ,mid,7222859582,2022-03-11,Services,SEC SIC 7389 division,true,2022-03-11,unknown,,2021-06-28
+GRUB__1792627,Just Eat Takeaway.com N.V.,NASDAQ,mid,7222859582,2022-03-11,Services,SEC SIC 7389 division,true,2022-03-11,unknown,,2021-06-17
 GRVI,"UPEXI, INC.",NASDAQ,small,83258218,2022-08-18,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2022-08-18,small,93988334,2021-06-24
 GRWG,GrowGeneration Corp.,NASDAQ,small,88380674,2026-11-04,Retail Trade,SEC SIC 5200 division,false,,small,159575309,2019-12-02
 GSAT,"Globalstar, Inc.",NASDAQ,large,10853525180,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4899 division,false,,mid,2081219610,2014-04-21
@@ -1255,7 +1255,7 @@ HEES,"H&E Equipment Services, Inc.",NASDAQ,mid,3500192109,2025-05-30,Services,SE
 HEI.A,HEICO CORP,NYSE,large,47198870817,2026-11-04,Manufacturing,SEC SIC 3724 division,false,,unknown,,2004-01-02
 HELE,HELEN OF TROY LTD,NASDAQ,small,690959358,2026-11-04,Manufacturing,SEC SIC 3634 division,false,,unknown,,2004-01-02
 HES,HESS CORP,NYSE,large,47386509208,2025-07-17,Manufacturing,SEC SIC 2911 division,true,2025-07-17,unknown,,2006-05-09
-HESM,Hess Midstream LP,NYSE,mid,4197073809,2026-11-04,Mining,SEC SIC 1311 division,false,,small,351191440,2019-09-04
+HESM,Hess Midstream LP,NYSE,mid,4197073809,2026-11-04,Mining,SEC SIC 1311 division,false,,unknown,,2017-04-05
 HEXO,HEXO Corp.,NASDAQ,small,31237412,2023-06-22,Manufacturing,SEC SIC 2833 division,true,2023-06-22,small,1351724021,2019-01-23
 HGV,Hilton Grand Vacations Inc.,NYSE,mid,3166357163,2026-11-04,Services,SEC SIC 7000 division,false,,mid,2561449952,2017-01-04
 HHC,Howard Hughes Corp,,mid,4556594951,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,small,1400063748,2010-11-10
@@ -1265,7 +1265,7 @@ HIFR,"InfraREIT, Inc.",NYSE,small,928953361,2019-05-16,"Finance, Insurance & Rea
 HII,"HUNTINGTON INGALLS INDUSTRIES, INC.",NYSE,large,12488962596,2026-11-04,Manufacturing,SEC SIC 3730 division,false,,mid,2049932008,2011-03-31
 HIIQ,"Benefytt Technologies, Inc.",NASDAQ,small,382952920,2020-08-20,"Finance, Insurance & Real Estate",SEC SIC 6411 division,true,2020-08-20,small,65701583,2013-02-08
 HIMS,"Hims & Hers Health, Inc.",NYSE,mid,5996154714,2026-11-04,Services,SEC SIC 8011 division,false,,unknown,,2019-06-20
-HIMX,"Himax Technologies, Inc.",NASDAQ,small,1866357280,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2006-04-03
+HIMX,"Himax Technologies, Inc.",NASDAQ,small,1866357280,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2006-03-31
 HIVE,HIVE Digital Technologies Ltd.,NASDAQ,small,496441982,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2021-07-01
 HK,BATTALION OIL CORP,NYSE,small,26207376,2019-07-22,Mining,SEC SIC 1311 division,true,2019-07-22,unknown,,2006-05-09
 HKD,AMTD Digital Inc.,NYSE,small,505989754,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2022-07-15
@@ -1297,19 +1297,19 @@ HQY,"HEALTHEQUITY, INC.",NASDAQ,mid,8439441651,2026-11-04,Services,SEC SIC 7389 
 HRMY,"Harmony Biosciences Holdings, Inc.",NASDAQ,mid,2155911269,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,mid,2109883623,2020-08-19
 HROW,"HARROW, INC.",NASDAQ,small,1069903239,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,167605154,2013-02-08
 HRTX,"HERON THERAPEUTICS, INC. /DE/",NASDAQ,small,54050952,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,mid,3982927886,2014-01-23
-HSAI,Hesai Group,NASDAQ,small,1896706487,2026-11-04,Manufacturing,SEC SIC 3569 division,false,,unknown,,2023-02-14
+HSAI,Hesai Group,NASDAQ,small,1896706487,2026-11-04,Manufacturing,SEC SIC 3569 division,false,,unknown,,2023-02-09
 HSBC,HSBC HOLDINGS PLC,NYSE,large,288944464061,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6035 division,false,,unknown,,2013-11-15
 HSIC,HENRY SCHEIN INC,NASDAQ,mid,9194339715,2026-11-04,Wholesale Trade,SEC SIC 5047 division,false,,unknown,,2004-01-02
 HSP,HOSPIRA INC,NYSE,large,15555445772,2015-09-02,Manufacturing,SEC SIC 2834 division,true,2015-09-02,unknown,,2004-05-03
 HST,"HOST HOTELS & RESORTS, INC.",NASDAQ,large,17662507006,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,unknown,,2004-01-02
 HT,HERSHA HOSPITALITY TRUST,NYSE,small,402558698,2023-11-27,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2023-11-27,unknown,,2004-01-02
-HTGC,"Hercules Capital, Inc.",NYSE,mid,3110495742,2026-11-04,,,false,,unknown,,2005-07-05
+HTGC,"Hercules Capital, Inc.",NYSE,mid,3110495742,2026-11-04,,,false,,unknown,,2005-06-09
 HTH,Hilltop Holdings Inc.,NYSE,mid,2111415541,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6022 division,false,,unknown,,2007-08-01
-HTHT,H World Group Ltd,NASDAQ,large,15426506824,2026-11-04,Services,SEC SIC 7011 division,false,,unknown,,2010-04-12
+HTHT,H World Group Ltd,NASDAQ,large,15426506824,2026-11-04,Services,SEC SIC 7011 division,false,,unknown,,2010-03-26
 HTLD,HEARTLAND EXPRESS INC,NASDAQ,small,813539068,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4213 division,false,,unknown,,2004-01-02
 HTS,Hatteras Financial Corp,NYSE,small,1539880766,2016-07-11,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2016-07-11,unknown,,2008-04-25
 HTWR,"HeartWare International, Inc.",NASDAQ,small,1018216234,2016-08-22,Manufacturing,SEC SIC 3841 division,true,2016-08-22,unknown,,2009-02-25
-HTZ,"HERTZ GLOBAL HOLDINGS, INC",NASDAQ,small,737854384,2026-11-04,Services,SEC SIC 7510 division,false,,mid,4020660409,2016-08-08
+HTZ,"HERTZ GLOBAL HOLDINGS, INC",NASDAQ,small,737854384,2026-11-04,Services,SEC SIC 7510 division,false,,mid,3643137884,2016-07-06
 HUBB,HUBBELL INC,NYSE,large,23737196174,2026-11-04,Manufacturing,SEC SIC 3670 division,false,,unknown,,2004-01-02
 HUBG,"Hub Group, Inc.",NASDAQ,small,1641971744,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4731 division,false,,unknown,,2004-01-02
 HUBS,HUBSPOT INC,NYSE,large,11278238680,2026-11-04,Services,SEC SIC 7372 division,false,,small,1016019390,2014-10-09
@@ -1345,7 +1345,7 @@ IDEX,"IDEANOMICS, INC.",NASDAQ,small,17660223,2024-07-10,Manufacturing,SEC SIC 3
 IDR,"Idaho Strategic Resources, Inc.",NYSE American,small,300697230,2026-11-04,Mining,SEC SIC 1040 division,false,,small,1802434392,2022-03-11
 IDYA,"IDEAYA Biosciences, Inc.",NASDAQ,mid,3023015534,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,228270293,2019-05-23
 IE,Ivanhoe Electric Inc.,NYSE American,small,1228844994,2026-11-04,Mining,SEC SIC 1000 division,false,,small,1004175328,2022-06-28
-IESC,"IES Holdings, Inc.",NASDAQ,mid,8624289444,2026-11-04,Construction,SEC SIC 1731 division,false,,small,66783366,2013-01-03
+IESC,"IES Holdings, Inc.",NASDAQ,mid,8624289444,2026-11-04,Construction,SEC SIC 1731 division,false,,small,66783366,2012-12-31
 IFF,INTERNATIONAL FLAVORS & FRAGRANCES INC,NYSE,large,23519723589,2026-11-04,Manufacturing,SEC SIC 2860 division,false,,unknown,,2004-01-02
 IGMS,"IGM Biosciences, Inc.",NASDAQ,small,76571712,2025-08-13,Manufacturing,SEC SIC 2834 division,true,2025-08-13,small,587157887,2019-09-18
 IHG,INTERCONTINENTAL HOTELS GROUP PLC /NEW/,NYSE,large,24822703264,2026-11-04,Services,SEC SIC 7011 division,false,,unknown,,2004-01-02
@@ -1356,7 +1356,7 @@ IIPR,INNOVATIVE INDUSTRIAL PROPERTIES INC,NYSE,small,1516397355,2026-11-04,"Fina
 ILMN,"ILLUMINA, INC.",NASDAQ,large,36017352000,2026-11-04,Manufacturing,SEC SIC 3826 division,false,,unknown,,2004-01-02
 ILPT,Industrial Logistics Properties Trust,NASDAQ,small,431369425,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,small,1519431924,2018-01-12
 IMAB,NovaBridge Biosciences,NASDAQ,small,533681825,2025-10-29,Manufacturing,SEC SIC 2834 division,true,2025-10-29,unknown,,2020-01-17
-IMCR,Immunocore Holdings plc,NASDAQ,small,1546503469,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,unknown,,2021-02-23
+IMCR,Immunocore Holdings plc,NASDAQ,small,1546503469,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,unknown,,2021-02-05
 IMGN,"ImmunoGen, Inc.",NASDAQ,mid,8724225920,2024-02-09,Manufacturing,SEC SIC 2834 division,true,2024-02-09,unknown,,2004-01-02
 IMGO,"Imago BioSciences, Inc.",NASDAQ,small,1218622656,2023-01-10,Manufacturing,SEC SIC 2834 division,true,2023-01-10,small,549556573,2021-07-16
 IMMP,IMMUTEP Ltd,NASDAQ,small,406250014,2026-03-05,Manufacturing,SEC SIC 2834 division,true,2026-03-05,unknown,,2012-04-17
@@ -1374,7 +1374,7 @@ INDV,"Indivior Pharmaceuticals, Inc.",NASDAQ,mid,4282319668,2026-11-02,Manufactu
 INFA__1080099,INFORMATICA LLC,NASDAQ,mid,5088776440,2015-08-06,Services,SEC SIC 7372 division,true,2015-08-06,unknown,,2004-01-02
 INFA__1868778,Informatica Inc.,NYSE,mid,7644313515,2025-11-17,Services,SEC SIC 7372 division,true,2025-11-17,mid,8132093000,2021-10-27
 INFI,"INFINITY PHARMACEUTICALS, INC.",NASDAQ,small,4057020,2023-09-13,Manufacturing,SEC SIC 2834 division,true,2023-09-13,unknown,,2006-09-13
-INFO,IHS Markit Ltd.,,large,43344118986,2022-02-25,Services,SEC SIC 7370 division,true,2022-02-25,unknown,,2014-07-14
+INFO,IHS Markit Ltd.,,large,43344118986,2022-02-25,Services,SEC SIC 7370 division,true,2022-02-25,unknown,,2014-06-19
 INFY,Infosys Ltd,NYSE,large,48320992373,2026-11-04,Services,SEC SIC 7371 division,false,,unknown,,2004-01-02
 ING,ING GROEP NV,NYSE,large,87787341777,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6029 division,false,,unknown,,2004-01-02
 INGN,Inogen Inc,NASDAQ,small,186299126,2026-11-04,Manufacturing,SEC SIC 3842 division,false,,small,282227835,2014-02-14
@@ -1396,7 +1396,7 @@ INTZ,INTRUSION INC,NASDAQ,small,13968963,2026-11-04,Manufacturing,SEC SIC 3576 d
 INVA,"Innoviva, Inc.",NASDAQ,small,1512098001,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2004-10-05
 INVH,Invitation Homes Inc.,NYSE,large,15325711190,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6510 division,false,,mid,6227085800,2017-02-01
 INVN,InvenSense Inc,NYSE,small,1228610957,2017-05-17,Manufacturing,SEC SIC 3674 division,true,2017-05-17,small,739383360,2011-11-16
-INXN,InterXion Holding N.V.,NYSE,mid,5550903972,2020-03-12,Services,SEC SIC 7370 division,true,2020-03-12,unknown,,2011-02-22
+INXN,InterXion Holding N.V.,NYSE,mid,5550903972,2020-03-12,Services,SEC SIC 7370 division,true,2020-03-12,unknown,,2011-01-28
 IONQ,"IonQ, Inc.",NYSE,large,12877936263,2026-11-04,Services,SEC SIC 7373 division,false,,mid,2078860723,2021-01-04
 IONS,IONIS PHARMACEUTICALS INC,NASDAQ,mid,6717170295,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2004-01-02
 IOSP,INNOSPEC INC.,NASDAQ,mid,2444138794,2026-11-04,Manufacturing,SEC SIC 2800 division,false,,unknown,,2004-01-02
@@ -1434,13 +1434,13 @@ JAG,Jagged Peak Energy Inc.,NYSE,small,1756392117,2020-01-09,Mining,SEC SIC 1311
 JAGX,"Jaguar Health, Inc.",NASDAQ,small,1295280,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,68766279,2015-05-13
 JAMF,Jamf Holding Corp.,NASDAQ,small,1749694593,2026-01-29,Services,SEC SIC 7372 division,true,2026-01-29,mid,4614825174,2020-07-22
 JANX,"Janux Therapeutics, Inc.",NASDAQ,small,1089457295,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,1046978580,2021-06-11
-JASO,"JA Solar Holdings Co., Ltd.",NASDAQ,unknown,,2018-07-16,Manufacturing,SEC SIC 3674 division,true,2018-07-16,unknown,,2007-02-26
+JASO,"JA Solar Holdings Co., Ltd.",NASDAQ,unknown,,2018-07-16,Manufacturing,SEC SIC 3674 division,true,2018-07-16,unknown,,2007-02-07
 JBGS,JBG SMITH Properties,NYSE,small,686506864,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,mid,4392639619,2017-07-18
 JBI,"Janus International Group, Inc.",NYSE,small,638519497,2026-11-04,Manufacturing,SEC SIC 3442 division,false,,mid,2035742249,2021-06-08
 JBLU,JETBLUE AIRWAYS CORP,NASDAQ,small,1199978896,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4512 division,false,,unknown,,2004-01-02
 JBS,JBS N.V.,NYSE,large,40137534546,2026-11-04,Manufacturing,SEC SIC 2011 division,false,,unknown,,2025-06-13
 JBTM,JBT MAREL Corp,NYSE,mid,6124577015,2026-11-04,Manufacturing,SEC SIC 3550 division,false,,unknown,,2008-08-01
-JD,"JD.com, Inc.",NASDAQ,large,36341955000,2026-11-04,Retail Trade,SEC SIC 5990 division,false,,unknown,,2014-07-21
+JD,"JD.com, Inc.",NASDAQ,large,36341955000,2026-11-04,Retail Trade,SEC SIC 5990 division,false,,unknown,,2014-05-22
 JE,Just Energy Group Inc.,NYSE,small,8017177,2021-03-22,"Transportation, Communications & Utilities",SEC SIC 4924 division,true,2021-03-22,unknown,,2012-01-30
 JELD,"JELD-WEN Holding, Inc.",NYSE,small,104116058,2026-11-04,Manufacturing,SEC SIC 2430 division,false,,mid,2753417415,2017-01-27
 JHG,Janus Henderson Group Ltd.,NYSE,mid,8004227836,2026-06-30,"Finance, Insurance & Real Estate",SEC SIC 6282 division,true,2026-06-30,mid,6132427823,2017-05-30
@@ -1449,11 +1449,11 @@ JKS,Jinko Holdings Ltd,NYSE,small,532081110,2026-11-04,Manufacturing,SEC SIC 367
 JLL,JONES LANG LASALLE INC,NYSE,large,17105992503,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6531 division,false,,unknown,,2004-01-02
 JMIA,Jumia Technologies AG,NYSE,small,689509340,2026-11-04,Retail Trade,SEC SIC 5961 division,false,,unknown,,2019-04-12
 JNPR,JUNIPER NETWORKS INC,NYSE,large,12221683993,2025-07-01,Manufacturing,SEC SIC 3576 division,true,2025-07-01,unknown,,2004-01-02
-JOBS,"51JOB, INC.",NASDAQ,mid,4106926028,2022-05-06,Services,SEC SIC 7361 division,true,2022-05-06,unknown,,2004-10-06
+JOBS,"51JOB, INC.",NASDAQ,mid,4106926028,2022-05-06,Services,SEC SIC 7361 division,true,2022-05-06,unknown,,2004-10-04
 JOBY,"Joby Aviation, Inc.",NYSE,mid,4832027093,2026-11-04,Manufacturing,SEC SIC 3721 division,false,,mid,6340823412,2020-11-09
 JOE,ST JOE Co,NYSE,mid,3791121757,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6552 division,false,,unknown,,2004-01-02
 JOY,JOY GLOBAL INC,NYSE,mid,2819256046,2017-04-05,Manufacturing,SEC SIC 3532 division,true,2017-04-05,unknown,,2004-01-02
-JP,Jupai Holdings Ltd,NYSE,small,12100012,2022-06-24,"Finance, Insurance & Real Estate",SEC SIC 6282 division,true,2022-06-24,unknown,,2015-07-29
+JP,Jupai Holdings Ltd,NYSE,small,12100012,2022-06-24,"Finance, Insurance & Real Estate",SEC SIC 6282 division,true,2022-06-24,unknown,,2015-07-20
 JRJC,China Finance Online Co. LTD,NASDAQ,small,9743420,2022-01-20,"Finance, Insurance & Real Estate",SEC SIC 6211 division,true,2022-01-20,unknown,,2004-10-15
 JRVR,"James River Group Holdings, Inc.",NASDAQ,small,178521287,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6331 division,false,,small,611351599,2014-12-12
 JSPR,"Jasper Therapeutics, Inc.",NASDAQ,small,15971789,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,7229612,2020-01-10
@@ -1462,7 +1462,7 @@ KAI,KADANT INC,NYSE,mid,3339500196,2026-11-04,Manufacturing,SEC SIC 3550 divisio
 KALA,"KALA BIO, Inc.",NASDAQ,small,3345783,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,454158776,2017-07-20
 KALU,KAISER ALUMINUM CORP,NASDAQ,small,1930827765,2026-11-04,Manufacturing,SEC SIC 3350 division,false,,unknown,,2006-07-07
 KAMN,KAMAN Corp,NYSE,small,1303084431,2024-04-18,Manufacturing,SEC SIC 3760 division,true,2024-04-18,unknown,,2004-01-02
-KANG,"iKang Healthcare Group, Inc.",NASDAQ,unknown,,2019-01-18,Services,SEC SIC 8011 division,true,2019-01-18,unknown,,2014-05-12
+KANG,"iKang Healthcare Group, Inc.",NASDAQ,unknown,,2019-01-18,Services,SEC SIC 8011 division,true,2019-01-18,unknown,,2014-04-09
 KBH,KB HOME,NYSE,mid,2973120672,2026-11-04,Construction,SEC SIC 1531 division,false,,unknown,,2004-01-02
 KC,Kingsoft Cloud Holdings Ltd,NASDAQ,mid,2278203151,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2020-05-08
 KD,"Kyndryl Holdings, Inc.",NYSE,mid,2818568323,2026-11-04,Services,SEC SIC 7373 division,false,,mid,5982721862,2021-11-04
@@ -1482,7 +1482,7 @@ KIRK,"BRAND HOUSE COLLECTIVE, INC.",NASDAQ,small,37285896,2025-07-28,Retail Trad
 KKD,KRISPY KREME DOUGHNUTS INC,NYSE,small,1280858796,2016-07-27,Retail Trade,SEC SIC 5400 division,true,2016-07-27,unknown,,2004-01-02
 KKR,KKR & Co. Inc.,NYSE,large,86164041340,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,,unknown,,2010-07-15
 KL,Kirkland Lake Gold Ltd.,NYSE,large,10263078288,2022-02-08,Mining,SEC SIC 1040 division,true,2022-02-08,mid,2404771678,2017-08-16
-KLAR,Klarna Group plc,NYSE,mid,5012496073,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,large,13994218224,2025-10-20
+KLAR,Klarna Group plc,NYSE,mid,5012496073,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,large,17297412436,2025-09-10
 KLC,"KinderCare Learning Companies, Inc.",NYSE,small,244145088,2026-11-04,Services,SEC SIC 8351 division,false,,mid,3086556577,2024-10-09
 KLG,WK Kellogg Co,NYSE,small,1987577062,2025-09-25,Manufacturing,SEC SIC 2040 division,true,2025-09-25,small,1146784211,2023-10-02
 KLIC,KULICKE & SOFFA INDUSTRIES INC,NASDAQ,mid,3790721091,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
@@ -1511,12 +1511,12 @@ KRA,Kraton Corp,NYSE,small,1498389157,2022-03-14,Manufacturing,SEC SIC 2821 divi
 KREF,KKR Real Estate Finance Trust Inc.,NYSE,small,298565536,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,small,1177064404,2017-05-05
 KRFT,"Kraft Foods Group, Inc.",NASDAQ,large,52203188776,2015-07-02,Manufacturing,SEC SIC 2000 division,true,2015-07-02,large,27050410597,2012-10-02
 KRMN,Karman Holdings Inc.,NYSE,mid,5236406803,2026-11-04,Manufacturing,SEC SIC 3728 division,false,,mid,3976289172,2025-02-13
-KRNT,Kornit Digital Ltd.,NASDAQ,small,725275094,2026-11-04,Manufacturing,SEC SIC 3555 division,false,,unknown,,2015-04-06
+KRNT,Kornit Digital Ltd.,NASDAQ,small,725275094,2026-11-04,Manufacturing,SEC SIC 3555 division,false,,unknown,,2015-04-02
 KRO,KRONOS WORLDWIDE INC,NYSE,small,864382345,2026-11-04,Manufacturing,SEC SIC 2810 division,false,,unknown,,2004-01-02
 KROS,"Keros Therapeutics, Inc.",NASDAQ,small,214728446,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,467275997,2020-04-08
 KRTX,"Karuna Therapeutics, Inc.",NASDAQ,large,12599265884,2024-03-15,Manufacturing,SEC SIC 2834 division,true,2024-03-15,small,523125002,2019-06-28
 KRYS,"Krystal Biotech, Inc.",NASDAQ,mid,9028532945,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,110165666,2017-09-20
-KSPI,Joint Stock Co Kaspi.kz,NASDAQ,large,17518613653,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2024-01-29
+KSPI,Joint Stock Co Kaspi.kz,NASDAQ,large,17518613653,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2024-01-19
 KSU,KANSAS CITY SOUTHERN,NYSE,large,26710947380,2021-12-13,"Transportation, Communications & Utilities",SEC SIC 4011 division,true,2021-12-13,unknown,,2004-01-02
 KT,KT CORP,NYSE,mid,8375353886,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4813 division,false,,unknown,,2010-01-04
 KTB,"Kontoor Brands, Inc.",NYSE,mid,4203956450,2026-11-04,Manufacturing,SEC SIC 2320 division,false,,mid,2204248638,2019-05-23
@@ -1531,7 +1531,7 @@ KXIN,Kaixin Holdings,NASDAQ,small,101876742,2026-11-04,Retail Trade,SEC SIC 5500
 KYMR,"Kymera Therapeutics, Inc.",NASDAQ,large,10849850845,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,1697584313,2020-08-21
 KZR,"Kezar Life Sciences, Inc.",NASDAQ,small,53856340,2026-05-08,Manufacturing,SEC SIC 2834 division,true,2026-05-08,small,339369723,2018-06-21
 LAC__1440972,Lithium Argentina AG,NYSE,mid,2591171793,2023-10-03,Mining,SEC SIC 1000 division,true,2023-10-03,unknown,,2018-01-25
-LAC__1966983,LITHIUM AMERICAS CORP.,NYSE,small,682520733,2026-11-04,Mining,SEC SIC 1000 division,false,,unknown,,2024-01-02
+LAC__1966983,LITHIUM AMERICAS CORP.,NYSE,small,682520733,2026-11-04,Mining,SEC SIC 1000 division,false,,small,1320110716,2023-10-18
 LADR,Ladder Capital Corp,NYSE,small,1147787147,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,small,839210839,2014-02-06
 LAES,SEALSQ Corp,NASDAQ,small,308154873,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,small,339366350,2023-05-24
 LAKE,LAKELAND INDUSTRIES INC,NASDAQ,small,88786233,2026-11-04,Manufacturing,SEC SIC 3842 division,false,,unknown,,2004-01-02
@@ -1549,7 +1549,7 @@ LDOS,"Leidos Holdings, Inc.",NYSE,large,16906310396,2026-11-04,Services,SEC SIC 
 LDRH,LDR HOLDING CORP,NASDAQ,small,1081031126,2016-07-12,Manufacturing,SEC SIC 3841 division,true,2016-07-12,small,502450459,2013-10-09
 LE,"LANDS' END, INC.",NASDAQ,small,281851229,2026-11-04,Retail Trade,SEC SIC 5651 division,false,,small,944315196,2014-04-07
 LEA,LEAR CORP,NYSE,mid,5627384394,2026-11-04,Manufacturing,SEC SIC 3714 division,false,,unknown,,2009-11-20
-LEGN,Legend Biotech Corp,NASDAQ,mid,4177611111,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2020-06-16
+LEGN,Legend Biotech Corp,NASDAQ,mid,4177611111,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2020-06-05
 LENZ,"LENZ Therapeutics, Inc.",NASDAQ,small,109971200,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,943438201,2024-03-22
 LESL,"Leslie's, Inc.",NASDAQ,small,955278,2026-10-05,Retail Trade,SEC SIC 5990 division,true,2026-10-05,mid,4108311444,2020-10-29
 LEU,CENTRUS ENERGY CORP,NYSE,small,1956748842,2026-11-04,Mining,SEC SIC 1400 division,false,,small,50389035,2014-09-30
@@ -1561,7 +1561,7 @@ LGIH,"LGI Homes, Inc.",NASDAQ,small,1011532315,2026-11-04,Construction,SEC SIC 1
 LGN,Legence Corp.,NASDAQ,mid,3011574189,2026-11-04,Construction,SEC SIC 1700 division,false,,mid,2318976000,2025-09-12
 LGVN,Longeveron Inc.,NASDAQ,small,5674992,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2021-02-12
 LHCG,"LHC Group, Inc",NASDAQ,mid,5269714070,2023-02-21,Services,SEC SIC 8082 division,true,2023-02-21,unknown,,2005-06-09
-LI,Li Auto Inc.,NASDAQ,large,10945474098,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2020-08-03
+LI,Li Auto Inc.,NASDAQ,large,10945474098,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2020-07-31
 LICY,Li-Cycle Holdings Corp.,NYSE,small,29876260,2025-02-26,"Transportation, Communications & Utilities",SEC SIC 4955 division,true,2025-02-26,small,1708490988,2021-08-11
 LIF,"Life360, Inc.",NASDAQ,mid,3672320231,2026-11-04,Services,SEC SIC 7374 division,false,,small,1879895385,2024-06-06
 LIFW,"MSP Recovery, Inc.",NASDAQ,small,6156000,2024-12-06,Services,SEC SIC 7374 division,true,2024-12-06,small,63834271,2022-05-24
@@ -1573,7 +1573,7 @@ LINE__1868159,"Lineage, Inc.",NASDAQ,mid,8277258936,2026-11-04,"Finance, Insuran
 LITE,Lumentum Holdings Inc.,NASDAQ,large,61610835337,2026-11-04,Manufacturing,SEC SIC 3669 division,false,,small,1253779762,2015-08-04
 LITM,Frontier Nuclear & Minerals Inc.,NASDAQ,small,62900818,2026-03-13,Mining,SEC SIC 1090 division,true,2026-03-13,small,233021854,2021-11-19
 LIVN,LivaNova PLC,NASDAQ,mid,4401971209,2026-11-04,Manufacturing,SEC SIC 3845 division,false,,mid,3252601655,2015-10-30
-LIZI,Sound Group Inc.,NASDAQ,small,14816978,2024-01-24,Services,SEC SIC 7370 division,true,2024-01-24,unknown,,2020-02-11
+LIZI,Sound Group Inc.,NASDAQ,small,14816978,2024-01-24,Services,SEC SIC 7370 division,true,2024-01-24,unknown,,2020-01-17
 LJPC,LA JOLLA PHARMACEUTICAL CO,NASDAQ,small,155107412,2022-08-19,Manufacturing,SEC SIC 2836 division,true,2022-08-19,small,1783784981,2014-01-29
 LKSD,"LSC Communications, Inc.",NYSE,small,12311807,2019-12-27,Manufacturing,SEC SIC 2750 division,true,2019-12-27,small,998239349,2016-10-03
 LL,"LL Flooring Holdings, Inc.",NYSE,small,25867365,2024-08-09,Retail Trade,SEC SIC 5211 division,true,2024-08-09,unknown,,2007-11-09
@@ -1603,7 +1603,7 @@ LPL,"LG Display Co., Ltd.",NYSE,mid,2600000000,2026-11-04,Manufacturing,SEC SIC 
 LPRO,Open Lending Corp,NASDAQ,small,371532612,2026-07-29,"Finance, Insurance & Real Estate",SEC SIC 6141 division,true,2026-07-29,small,1627855528,2020-06-11
 LPSN,LIVEPERSON INC,NASDAQ,small,38245621,2026-09-03,Services,SEC SIC 7372 division,true,2026-09-03,unknown,,2004-01-02
 LQ,La Quinta Holdings Inc.,NYSE,mid,2534860617,2018-05-30,Services,SEC SIC 7011 division,true,2018-05-30,mid,2240312277,2014-04-09
-LQDA,Liquidia Corp,NASDAQ,mid,3777275200,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,409546933,2020-07-06
+LQDA,Liquidia Corp,NASDAQ,mid,3777275200,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,404869366,2020-07-02
 LRN,"Stride, Inc.",NYSE,mid,3155766418,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2007-12-13
 LSCC,LATTICE SEMICONDUCTOR CORP,NASDAQ,large,15043846410,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
 LSPD,Lightspeed Commerce Inc.,NYSE,small,1419709520,2026-11-04,Services,SEC SIC 7372 division,false,,mid,3887987579,2020-09-11
@@ -1614,13 +1614,13 @@ LTHM,Livent Corp.,NYSE,mid,2970489123,2024-01-03,Manufacturing,SEC SIC 2800 divi
 LTM__1047716,LATAM AIRLINES GROUP S.A.,NYSE,large,12658591367,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4512 division,false,,unknown,,2024-07-25
 LTM__1076195,"LIFE TIME FITNESS, INC.",NYSE,mid,2813893080,2015-06-10,Services,SEC SIC 7997 division,true,2015-06-10,unknown,,2004-06-30
 LTXB,"LegacyTexas Financial Group, Inc.",NASDAQ,mid,2077493565,2019-10-31,"Finance, Insurance & Real Estate",SEC SIC 6035 division,true,2019-10-31,unknown,,2010-02-16
-LU,Lufax Holding Ltd,NYSE,small,707218134,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2020-11-02
+LU,Lufax Holding Ltd,NYSE,small,707218134,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2020-10-30
 LUNR,"Intuitive Machines, Inc.",NASDAQ,small,1691607800,2026-11-04,Manufacturing,SEC SIC 3812 division,false,,small,318208750,2021-11-17
 LUV,SOUTHWEST AIRLINES CO,NYSE,large,21267748103,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4512 division,false,,unknown,,2004-01-02
 LVGO,"Livongo Health, Inc.",NASDAQ,large,14020049160,2020-10-29,Services,SEC SIC 7370 division,true,2020-10-29,mid,3726827700,2019-07-25
 LW,"Lamb Weston Holdings, Inc.",NYSE,mid,7566902149,2026-11-04,Manufacturing,SEC SIC 2030 division,false,,mid,4434153736,2016-11-10
-LX,LexinFintech Holdings Ltd.,NASDAQ,small,112500955,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2018-02-20
-LXFT,"Luxoft Holding, Inc",NYSE,mid,2009434239,2019-06-13,Services,SEC SIC 7371 division,true,2019-06-13,unknown,,2013-07-15
+LX,LexinFintech Holdings Ltd.,NASDAQ,small,112500955,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2017-12-22
+LXFT,"Luxoft Holding, Inc",NYSE,mid,2009434239,2019-06-13,Services,SEC SIC 7371 division,true,2019-06-13,unknown,,2013-06-26
 LXP,LXP Industrial Trust,NYSE,mid,3607254108,2026-10-30,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2026-10-30,unknown,,2004-01-02
 LXRX,"LEXICON PHARMACEUTICALS, INC.",NASDAQ,small,649635664,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2004-01-02
 LXU,"LSB INDUSTRIES, INC.",NYSE,small,797789584,2026-11-04,Manufacturing,SEC SIC 2810 division,false,,unknown,,2004-01-02
@@ -1632,9 +1632,9 @@ LZB,LA-Z-BOY INC,NYSE,small,1248044344,2026-11-04,Manufacturing,SEC SIC 2510 div
 M,"Macy's, Inc.",NYSE,mid,6236898306,2026-11-04,Retail Trade,SEC SIC 5311 division,false,,unknown,,2007-06-01
 MACK,MERRIMACK PHARMACEUTICALS INC,NASDAQ,small,223748023,2024-05-17,Manufacturing,SEC SIC 2834 division,true,2024-05-17,small,579242191,2012-03-29
 MAGN,Magnera Corp,NYSE,small,422928000,2026-11-04,Manufacturing,SEC SIC 2621 division,false,,unknown,,2004-01-02
-MAIN,Main Street Capital CORP,NYSE,mid,5267331608,2026-11-04,,,false,,unknown,,2007-10-15
+MAIN,Main Street Capital CORP,NYSE,mid,5267331608,2026-11-04,,,false,,unknown,,2007-10-09
 MANT,MANTECH INTERNATIONAL CORP,NASDAQ,mid,3932194254,2022-09-13,Services,SEC SIC 8741 division,true,2022-09-13,unknown,,2004-01-02
-MANU,Manchester United plc,NYSE,mid,3710289863,2026-11-04,Services,SEC SIC 7900 division,false,,unknown,,2012-08-13
+MANU,Manchester United plc,NYSE,mid,3710289863,2026-11-04,Services,SEC SIC 7900 division,false,,unknown,,2012-08-10
 MARA,"MARA Holdings, Inc.",NASDAQ,mid,2765902967,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,small,66689772,2014-07-28
 MARK,"REMARK HOLDINGS, INC.",NASDAQ,small,15602615,2024-02-13,"Transportation, Communications & Utilities",SEC SIC 4899 division,true,2024-02-13,unknown,,2007-10-03
 MATW,MATTHEWS INTERNATIONAL CORP,NASDAQ,small,613338849,2026-11-04,Manufacturing,SEC SIC 3360 division,false,,unknown,,2004-01-02
@@ -1665,7 +1665,7 @@ MDLA,"Medallia, Inc.",NYSE,mid,5470921292,2021-10-28,Services,SEC SIC 7370 divis
 MDR,MCDERMOTT INTERNATIONAL INC,NYSE,small,127858699,2020-01-17,Manufacturing,SEC SIC 3443 division,true,2020-01-17,unknown,,2004-01-02
 MDXG,"MIMEDX GROUP, INC.",NASDAQ,small,410448665,2018-11-07,Manufacturing,SEC SIC 3841 division,true,2018-11-07,small,568116298,2013-04-25
 ME,Chrome Holding Co.,NASDAQ,small,16265142,2025-03-28,Manufacturing,SEC SIC 2834 division,true,2025-03-28,unknown,,2020-11-23
-MED,MEDIFAST INC,NYSE,small,140788896,2026-11-04,Manufacturing,SEC SIC 2090 division,false,,unknown,,2005-04-11
+MED,MEDIFAST INC,NYSE,small,140788896,2026-11-04,Manufacturing,SEC SIC 2090 division,false,,unknown,,2004-09-16
 MEDP,"Medpace Holdings, Inc.",NASDAQ,large,18558933944,2026-11-04,Services,SEC SIC 8731 division,false,,small,1097339506,2016-08-11
 MEI,METHODE ELECTRONICS INC,NYSE,small,535745147,2026-11-04,Manufacturing,SEC SIC 3678 division,false,,unknown,,2004-01-09
 MEOH,METHANEX CORP,NASDAQ,mid,5406988341,2026-11-04,Manufacturing,SEC SIC 2860 division,false,,unknown,,2004-01-02
@@ -1688,7 +1688,7 @@ MGY,Magnolia Oil & Gas Corp,NYSE,mid,6637771459,2026-11-04,Mining,SEC SIC 1311 d
 MHO,"M/I HOMES, INC.",NYSE,mid,3257465714,2026-11-04,Construction,SEC SIC 1531 division,false,,unknown,,2004-01-02
 MIAX,"MIAMI INTERNATIONAL HOLDINGS, INC.",NYSE,mid,3384150499,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6211 division,false,,mid,3050357805,2025-08-14
 MIC__1845290,"AMF Hawaii Investments, LLC",NYSE,small,363950090,2022-07-20,Wholesale Trade,SEC SIC 5172 division,true,2022-07-20,mid,2527777952,2021-01-19
-MIME,Mimecast Ltd,NASDAQ,mid,5346548020,2022-05-18,Services,SEC SIC 7372 division,true,2022-05-18,small,467890449,2016-01-11
+MIME,Mimecast Ltd,NASDAQ,mid,5346548020,2022-05-18,Services,SEC SIC 7372 division,true,2022-05-18,small,547589054,2015-11-19
 MINI,MOBILE MINI INC,NASDAQ,small,1308617463,2020-06-30,Manufacturing,SEC SIC 3443 division,true,2020-06-30,unknown,,2004-01-02
 MIR,"Mirion Technologies, Inc.",NYSE,mid,4676625019,2026-11-04,Manufacturing,SEC SIC 3829 division,false,,unknown,,2020-08-20
 MIRM,"Mirum Pharmaceuticals, Inc.",NASDAQ,mid,5651049627,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,335401728,2019-07-18
@@ -1696,7 +1696,7 @@ MKC,MCCORMICK & CO INC,NYSE,large,12882807255,2026-11-04,Manufacturing,SEC SIC 2
 MKSI,MKS INC,NASDAQ,large,13873770550,2026-11-04,Manufacturing,SEC SIC 3823 division,false,,unknown,,2004-01-02
 MKTO,"Marketo, Inc.",NASDAQ,small,1590656109,2016-08-16,Services,SEC SIC 7372 division,true,2016-08-16,small,935330434,2013-05-17
 ML,MONEYLION INC.,NYSE,small,965038014,2025-04-16,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2025-04-16,small,16561481,2020-08-14
-MLAB,MESA LABORATORIES INC /CO/,NASDAQ,small,702169642,2026-11-04,Manufacturing,SEC SIC 3823 division,false,,unknown,,2005-01-03
+MLAB,MESA LABORATORIES INC /CO/,NASDAQ,small,702169642,2026-11-04,Manufacturing,SEC SIC 3823 division,false,,unknown,,2004-01-02
 MLCO,Melco Resorts & Entertainment LTD,NASDAQ,small,1597025065,2026-11-04,Services,SEC SIC 7011 division,false,,unknown,,2006-12-19
 MLGO,MicroAlgo Inc.,NASDAQ,small,27900873,2026-11-04,Services,SEC SIC 7371 division,false,,small,24805000,2022-12-13
 MLI,MUELLER INDUSTRIES INC,NYSE,large,12108476865,2026-11-04,Manufacturing,SEC SIC 3350 division,false,,unknown,,2004-01-02
@@ -1714,7 +1714,7 @@ MNDY,monday.com Ltd.,NASDAQ,mid,3956434797,2026-11-04,Services,SEC SIC 7372 divi
 MNKD,MANNKIND CORP,NASDAQ,small,1199360925,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2004-07-28
 MNMD,"Definium Therapeutics, Inc.",NASDAQ,small,1479609371,2026-01-14,Manufacturing,SEC SIC 2833 division,true,2026-01-14,small,1695977041,2021-04-27
 MNR,MONMOUTH REAL ESTATE INVESTMENT CORP,NYSE,mid,2066244294,2022-02-25,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2022-02-25,unknown,,2004-01-02
-MNSO,MINISO Group Holding Ltd,NYSE,mid,2979835813,2026-11-04,Retail Trade,SEC SIC 5331 division,false,,unknown,,2020-11-11
+MNSO,MINISO Group Holding Ltd,NYSE,mid,2979835813,2026-11-04,Retail Trade,SEC SIC 5331 division,false,,unknown,,2020-10-15
 MNST,Monster Beverage Corp,NASDAQ,large,92428062226,2026-11-04,Manufacturing,SEC SIC 2086 division,false,,mid,8352023647,2012-01-09
 MNTA,MOMENTA PHARMACEUTICALS INC,NASDAQ,mid,6237145507,2020-09-30,Manufacturing,SEC SIC 2836 division,true,2020-09-30,unknown,,2004-06-22
 MNTV,MOMENTIVE GLOBAL INC.,NASDAQ,small,1424019999,2023-05-31,Services,SEC SIC 7370 division,true,2023-05-31,mid,2294247187,2018-09-26
@@ -1722,7 +1722,7 @@ MO,"ALTRIA GROUP, INC.",NYSE,large,127984836240,2026-11-04,Manufacturing,SEC SIC
 MOD,MODINE MANUFACTURING CO,NYSE,mid,6673553363,2026-11-04,Manufacturing,SEC SIC 3714 division,false,,unknown,,2004-01-02
 MODG,Callaway Golf Co,NYSE,mid,2699411791,2026-01-15,Manufacturing,SEC SIC 3949 division,true,2026-01-15,unknown,,2004-01-02
 MODN,"MODEL N, INC.",NYSE,small,1182689910,2024-06-26,Services,SEC SIC 7370 division,true,2024-06-26,small,484366868,2013-03-20
-MOMO,Hello Group Inc.,NASDAQ,small,630560653,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2015-02-03
+MOMO,Hello Group Inc.,NASDAQ,small,630560653,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2014-12-11
 MORE,"Monogram Residential Trust, Inc.",NYSE,mid,2002650013,2017-09-19,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2017-09-19,small,1562125866,2014-11-21
 MORF,"Morphic Holding, Inc.",NASDAQ,mid,2862305596,2024-08-15,Manufacturing,SEC SIC 2834 division,true,2024-08-15,small,550851534,2019-06-27
 MORN,"Morningstar, Inc.",NASDAQ,mid,8782961457,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,,unknown,,2005-05-03
@@ -1746,11 +1746,11 @@ MRVI,"MARAVAI LIFESCIENCES HOLDINGS, INC.",NASDAQ,small,1109972110,2026-11-04,Ma
 MRVL__1835632,"Marvell Technology, Inc.",NASDAQ,large,154550232298,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,large,37566018000,2021-05-03
 MRX,Marex Group Ltd,NASDAQ,mid,4918632891,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6200 division,false,,small,1371492799,2024-04-25
 MSA,MSA Safety Inc,NYSE,mid,6714936983,2026-11-04,Manufacturing,SEC SIC 3842 division,false,,unknown,,2004-01-02
-MSGE,Madison Square Garden Entertainment Corp.,NYSE,mid,3760766103,2026-11-04,Services,SEC SIC 7990 division,false,,small,1721821110,2023-05-18
+MSGE,Madison Square Garden Entertainment Corp.,NYSE,mid,3760766103,2026-11-04,Services,SEC SIC 7990 division,false,,small,1514354370,2023-04-25
 MSGN,MSG NETWORKS INC.,NYSE,small,814845850,2021-07-08,"Transportation, Communications & Utilities",SEC SIC 4841 division,true,2021-07-08,small,1446337500,2015-10-01
 MSGS,MSG Knickerbockers Corp.,NYSE,mid,9256088521,2026-10-26,Services,SEC SIC 7990 division,true,2026-10-26,mid,4547864320,2020-04-20
 MSP,DATTO HOLDING CORP.,NYSE,mid,5821571800,2022-06-22,Services,SEC SIC 7372 division,true,2022-06-22,mid,4397706375,2020-10-21
-MT,ArcelorMittal,NYSE,large,45431913183,2026-11-04,Manufacturing,SEC SIC 3312 division,false,,unknown,,2007-10-15
+MT,ArcelorMittal,NYSE,large,45431913183,2026-11-04,Manufacturing,SEC SIC 3312 division,false,,unknown,,2004-12-20
 MTCH,"Match Group Holdings II, LLC",NASDAQ,large,28418934472,2020-07-10,Services,SEC SIC 7370 division,true,2020-07-10,mid,3731814240,2015-11-19
 MTDR,Matador Resources Co,NYSE,mid,6721091471,2026-11-04,Mining,SEC SIC 1311 division,false,,small,652943587,2012-02-02
 MTG,MGIC INVESTMENT CORP,NYSE,mid,5874775418,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6351 division,false,,unknown,,2004-01-02
@@ -1801,7 +1801,7 @@ NET,"Cloudflare, Inc.",NYSE,large,97430531618,2026-11-04,Services,SEC SIC 7372 d
 NEU,NEWMARKET CORP,NYSE,mid,6895107365,2026-11-04,Manufacturing,SEC SIC 2860 division,false,,unknown,,2004-06-21
 NEWR,"NEW RELIC, INC.",NYSE,mid,6178348270,2023-11-07,Services,SEC SIC 7372 division,true,2023-11-07,small,1654942339,2014-12-12
 NEX,NEXTIER OILFIELD SOLUTIONS INC.,NYSE,mid,2424944837,2023-08-31,Mining,SEC SIC 1389 division,true,2023-08-31,mid,2421144960,2017-01-20
-NE__1895262,Noble Corp plc,NYSE,mid,7020330006,2026-11-04,Mining,SEC SIC 1381 division,false,,mid,3348214537,2021-11-22
+NE__1895262,Noble Corp plc,NYSE,mid,7020330006,2026-11-04,Mining,SEC SIC 1381 division,false,,unknown,,2021-06-11
 NFE,New Fortress Energy Inc.,NASDAQ,small,23936184,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4924 division,false,,unknown,,2019-01-31
 NFG,NATIONAL FUEL GAS CO,NYSE,mid,7473396134,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4924 division,false,,unknown,,2004-01-02
 NG,NOVAGOLD RESOURCES INC,NYSE American,mid,2523191966,2026-11-04,Mining,SEC SIC 1040 division,false,,unknown,,2004-01-02
@@ -1814,13 +1814,13 @@ NI,NISOURCE INC.,NYSE,large,21402814806,2026-11-04,"Transportation, Communicatio
 NICE,NICE Ltd.,NASDAQ,mid,6095669410,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2004-01-02
 NIHD,NII HOLDINGS INC,NASDAQ,small,223153790,2019-12-31,"Transportation, Communications & Utilities",SEC SIC 4812 division,true,2019-12-31,mid,2757812144,2015-07-09
 NINE,"Nine Energy Service, Inc.",NYSE,small,25422753,2026-01-30,Mining,SEC SIC 1389 division,true,2026-01-30,small,787416538,2018-01-19
-NIO,NIO Inc.,NYSE,mid,7993077800,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2018-09-17
-NIU,Niu Technologies,NASDAQ,small,138047515,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2018-10-22
+NIO,NIO Inc.,NYSE,mid,7993077800,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2018-09-14
+NIU,Niu Technologies,NASDAQ,small,138047515,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2018-10-19
 NKLA,Nikola Corp,NASDAQ,small,15457598,2025-02-25,Manufacturing,SEC SIC 3711 division,true,2025-02-25,small,283951200,2018-06-11
 NLNK,"LUMOS PHARMA, INC.",NASDAQ,small,33222298,2020-03-18,Manufacturing,SEC SIC 2834 division,true,2020-03-18,small,148080586,2011-11-11
 NLS,BOWFLEX INC.,NYSE,small,29608218,2023-10-31,Manufacturing,SEC SIC 3949 division,true,2023-10-31,unknown,,2004-01-02
 NMBL,Nimble Storage Inc,NYSE,small,1147831000,2017-04-13,Manufacturing,SEC SIC 3572 division,true,2017-04-13,mid,2534571000,2013-12-13
-NMFC,New Mountain Finance Corp,NASDAQ,small,662111254,2026-11-04,,,false,,unknown,,2011-07-12
+NMFC,New Mountain Finance Corp,NASDAQ,small,662111254,2026-11-04,,,false,,unknown,,2011-05-20
 NMIH,"NMI Holdings, Inc.",NASDAQ,mid,3257685127,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6351 division,false,,small,817086676,2013-11-08
 NMM,Navios Maritime Partners L.P.,NYSE,mid,2517701980,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2007-11-13
 NMR,NOMURA HOLDINGS INC,NYSE,large,27673356011,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6211 division,false,,unknown,,2004-01-02
@@ -1829,7 +1829,7 @@ NN,NEXTNAV INC.,NASDAQ,small,1662777614,2026-11-04,Manufacturing,SEC SIC 3812 di
 NNDM,Nano Dimension Ltd.,NASDAQ,small,286741055,2026-11-04,Manufacturing,SEC SIC 3672 division,false,,unknown,,2016-03-07
 NNE,Nano Nuclear Energy Inc.,NASDAQ,small,613769809,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4911 division,false,,small,192391515,2024-05-08
 NNOX,Nano-X Imaging Ltd.,NASDAQ,small,24049336,2026-11-04,Manufacturing,SEC SIC 3844 division,false,,small,1000373754,2020-08-21
-NOAH,NOAH HOLDINGS LTD,NYSE,small,464731816,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,,unknown,,2010-11-16
+NOAH,NOAH HOLDINGS LTD,NYSE,small,464731816,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6282 division,false,,unknown,,2010-11-10
 NOG,"NORTHERN OIL & GAS, INC.",NYSE,mid,2661597217,2026-11-04,Mining,SEC SIC 1311 division,false,,unknown,,2008-03-26
 NOK,NOKIA CORP,NYSE,large,47476506191,2026-11-04,Manufacturing,SEC SIC 3663 division,false,,unknown,,2004-01-02
 NOMD,Nomad Foods Ltd,NYSE,small,1712441820,2026-11-04,Manufacturing,SEC SIC 2000 division,false,,unknown,,2016-01-12
@@ -1877,7 +1877,7 @@ NVCR,NovoCure Ltd,NASDAQ,small,1570181329,2026-11-04,Manufacturing,SEC SIC 3841 
 NVDA,NVIDIA CORP,NASDAQ,large,4990943430000,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
 NVEE,"NV5 Global, Inc.",NASDAQ,small,1512220398,2025-08-01,Services,SEC SIC 7380 division,true,2025-08-01,small,32956393,2013-09-30
 NVEI,Nuvei Corp,NASDAQ,mid,4816986662,2024-11-15,Services,SEC SIC 7389 division,true,2024-11-15,unknown,,2021-10-06
-NVGS,Navigator Holdings Ltd.,NYSE,small,1230628123,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2014-02-18
+NVGS,Navigator Holdings Ltd.,NYSE,small,1230628123,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,small,1106535300,2013-11-21
 NVMI,NOVA LTD.,NASDAQ,mid,9628042996,2026-11-04,Manufacturing,SEC SIC 3827 division,false,,unknown,,2004-01-02
 NVO,NOVO NORDISK A S,NYSE,large,177265435134,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2004-01-02
 NVRI,ENVIRI LLC,NYSE,small,536457965,2026-11-04,Services,SEC SIC 8900 division,false,,unknown,,2004-01-02
@@ -1890,7 +1890,7 @@ NVTS,Navitas Semiconductor Corp,NASDAQ,mid,2247474875,2026-11-04,Manufacturing,S
 NWBI,"Northwest Bancshares, Inc.",NASDAQ,mid,2274602276,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6021 division,false,,unknown,,2009-12-18
 NWE__1993004,"NorthWestern Energy Group, Inc.",NASDAQ,mid,4918352108,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4931 division,false,,mid,3097632398,2023-12-18
 NWG,NatWest Group plc,NYSE,large,61156343690,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6029 division,false,,unknown,,2007-10-18
-NWLI,"National Western Life Group, Inc.",NASDAQ,small,1817937280,2024-07-08,"Finance, Insurance & Real Estate",SEC SIC 6311 division,true,2024-07-08,unknown,,2015-03-09
+NWLI,"National Western Life Group, Inc.",NASDAQ,small,1817937280,2024-07-08,"Finance, Insurance & Real Estate",SEC SIC 6311 division,true,2024-07-08,unknown,,2009-03-17
 NXE,NexGen Energy Ltd.,NYSE,mid,5337228564,2026-11-04,Mining,SEC SIC 1090 division,false,,small,783873912,2017-05-17
 NXGN,"NEXTGEN HEALTHCARE, INC.",NASDAQ,small,1606299642,2023-11-08,Services,SEC SIC 7373 division,true,2023-11-08,unknown,,2004-01-02
 NXPI,NXP Semiconductors N.V.,NASDAQ,large,66237004717,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2010-08-06
@@ -1905,11 +1905,11 @@ NYRT,New York REIT Liquidating LLC,NYSE,small,238107284,2018-11-02,"Finance, Ins
 OA,"Northrop Grumman Innovation Systems, Inc.",NYSE,mid,7777778844,2018-06-06,Manufacturing,SEC SIC 3760 division,true,2018-06-06,small,1974099400,2015-02-10
 OBDC,Blue Owl Capital Corp,NYSE,mid,5177996974,2026-11-04,,,false,,unknown,,2019-07-18
 OCDX,Ortho Clinical Diagnostics Holdings plc,NASDAQ,mid,4191265882,2022-05-26,Manufacturing,SEC SIC 2835 division,true,2022-05-26,mid,3813920467,2021-01-28
-OCG,Oriental Culture Holding LTD,NASDAQ,small,3101299,2026-11-04,Services,SEC SIC 7380 division,false,,unknown,,2021-01-04
+OCG,Oriental Culture Holding LTD,NASDAQ,small,3101299,2026-11-04,Services,SEC SIC 7380 division,false,,small,122668272,2020-12-15
 OCGN,"Ocugen, Inc.",NASDAQ,small,252705071,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,269608863,2019-09-30
 OCLR,"OCLARO, INC.",NASDAQ,small,1417491059,2018-12-07,Manufacturing,SEC SIC 3674 division,true,2018-12-07,unknown,,2009-04-28
 OCN,ONITY GROUP INC.,NYSE,small,195865219,2024-06-07,"Finance, Insurance & Real Estate",SEC SIC 6162 division,true,2024-06-07,unknown,,2004-01-02
-OCSL,Oaktree Specialty Lending Corp,NASDAQ,small,1074643381,2026-11-04,,,false,,unknown,,2008-07-08
+OCSL,Oaktree Specialty Lending Corp,NASDAQ,small,1074643381,2026-11-04,,,false,,unknown,,2008-06-12
 OCUL,"OCULAR THERAPEUTIX, INC",NASDAQ,small,1497780220,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,281926900,2014-07-25
 ODD,Oddity Tech Ltd,NASDAQ,small,925258553,2026-11-04,Manufacturing,SEC SIC 2844 division,false,,unknown,,2023-07-19
 ODP,ODP Corp,NASDAQ,small,843299968,2025-12-09,Retail Trade,SEC SIC 5940 division,true,2025-12-09,unknown,,2004-01-02
@@ -1922,7 +1922,7 @@ OKLO,Oklo Inc.,NYSE,mid,4369554598,2026-11-04,"Transportation, Communications & 
 OKS,ONEOK Partners LP,NYSE,mid,9234833511,2017-06-30,"Transportation, Communications & Utilities",SEC SIC 4922 division,true,2017-06-30,unknown,,2004-01-02
 OKTA,"Okta, Inc.",NASDAQ,large,33160033623,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2017-04-07
 OLB,"OLB GROUP, INC.",NASDAQ,small,4234781,2026-11-04,Services,SEC SIC 7389 division,false,,small,31389049,2020-08-07
-OLK,Olink Holding AB (publ),NASDAQ,mid,3242858007,2024-07-09,Manufacturing,SEC SIC 3826 division,true,2024-07-09,unknown,,2021-04-20
+OLK,Olink Holding AB (publ),NASDAQ,mid,3242858007,2024-07-09,Manufacturing,SEC SIC 3826 division,true,2024-07-09,unknown,,2021-03-25
 OLLI,"Ollie's Bargain Outlet Holdings, Inc.",NASDAQ,mid,5285625819,2026-11-04,Retail Trade,SEC SIC 5331 division,false,,small,1269044944,2015-07-16
 OLMA,"Olema Pharmaceuticals, Inc.",NASDAQ,small,643107411,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,1974094409,2020-11-19
 OLPX,"OLAPLEX HOLDINGS, INC.",NASDAQ,small,1391282165,2026-07-06,Manufacturing,SEC SIC 2844 division,true,2026-07-06,large,15902651664,2021-09-30
@@ -1960,9 +1960,9 @@ OSH,"Oak Street Health, Inc.",NYSE,mid,9517104597,2023-05-01,Services,SEC SIC 80
 OSIS,OSI SYSTEMS INC,NASDAQ,mid,3160572948,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
 OSUR,ORASURE TECHNOLOGIES INC,NASDAQ,small,243459253,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,unknown,,2004-01-02
 OTIS,Otis Worldwide Corp,NYSE,large,29246181609,2026-11-04,Manufacturing,SEC SIC 3600 division,false,,large,20521311957,2020-04-03
-OTLY,Oatly Group AB,NASDAQ,small,253066728,2026-11-04,Manufacturing,SEC SIC 2000 division,false,,unknown,,2021-07-19
+OTLY,Oatly Group AB,NASDAQ,small,253066728,2026-11-04,Manufacturing,SEC SIC 2000 division,false,,unknown,,2021-05-20
 OTRK,"Ontrak, Inc.",NASDAQ,small,2337189,2025-08-15,Services,SEC SIC 8090 division,true,2025-08-15,small,464887442,2020-07-07
-OTTR,Otter Tail Corp,NASDAQ,mid,3502017228,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4911 division,false,,unknown,,2009-07-06
+OTTR,Otter Tail Corp,NASDAQ,mid,3502017228,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4911 division,false,,unknown,,2008-10-07
 OUST,"Ouster, Inc.",NASDAQ,mid,2089815410,2026-11-04,Manufacturing,SEC SIC 3569 division,false,,small,1565029855,2020-10-09
 OUTR,OUTERWALL INC,NASDAQ,small,895211200,2016-09-26,Services,SEC SIC 7200 division,true,2016-09-26,small,1722051953,2013-07-02
 OVTI,OMNIVISION TECHNOLOGIES INC,NASDAQ,small,1761139442,2016-01-27,Manufacturing,SEC SIC 3674 division,true,2016-01-27,unknown,,2004-01-02
@@ -1974,7 +1974,7 @@ OZM,"Sculptor Capital Management, Inc.",NYSE,small,373359742,2023-11-16,"Finance
 OZON,Ozon Holdings PLC,NASDAQ,mid,2509221033,2022-02-25,Retail Trade,SEC SIC 5961 division,true,2022-02-25,unknown,,2020-11-24
 PAA,PLAINS ALL AMERICAN PIPELINE LP,NASDAQ,large,18238892991,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4610 division,false,,unknown,,2004-01-02
 PAAS,PAN AMERICAN SILVER CORP,NYSE,large,15875723220,2026-11-04,Mining,SEC SIC 1040 division,false,,unknown,,2004-01-02
-PAC,Pacific Airport Group,NYSE,large,14167978360,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4581 division,false,,unknown,,2006-02-27
+PAC,Pacific Airport Group,NYSE,large,14167978360,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4581 division,false,,unknown,,2006-02-24
 PACB,"PACIFIC BIOSCIENCES OF CALIFORNIA, INC.",NASDAQ,small,758427052,2026-11-04,Manufacturing,SEC SIC 3826 division,false,,small,887979671,2010-10-27
 PACS,"PACS Group, Inc.",NYSE,mid,7391106368,2026-11-04,Services,SEC SIC 8051 division,false,,mid,3505193859,2024-04-11
 PAGS,PagSeguro Digital Ltd.,NYSE,mid,2108692068,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2018-01-24
@@ -1996,7 +1996,7 @@ PCOR,"PROCORE TECHNOLOGIES, INC.",NYSE,mid,9599018701,2026-11-04,Services,SEC SI
 PCT,"PureCycle Technologies, Inc.",NASDAQ,small,626823007,2026-11-04,Manufacturing,SEC SIC 2821 division,false,,mid,4087073919,2021-03-18
 PCVX,"Vaxcyte, Inc.",NASDAQ,mid,9570864799,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,1343553790,2020-06-12
 PD,"PagerDuty, Inc.",NYSE,small,1306374391,2026-11-04,Services,SEC SIC 7372 division,false,,mid,2976668588,2019-04-11
-PDD,PDD Holdings Inc.,NASDAQ,large,114113694359,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2018-08-01
+PDD,PDD Holdings Inc.,NASDAQ,large,114113694359,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2018-07-30
 PDLI,"PDL BIOPHARMA, INC.",NASDAQ,small,282139618,2020-12-30,Manufacturing,SEC SIC 2836 division,true,2020-12-30,unknown,,2004-01-02
 PDS,PRECISION DRILLING Corp,NYSE,small,1214137463,2026-11-04,Mining,SEC SIC 1381 division,false,,unknown,,2004-01-02
 PDYN,Palladyne AI Corp.,NASDAQ,small,158870002,2026-11-04,Services,SEC SIC 7372 division,false,,small,1389918629,2021-03-08
@@ -2014,10 +2014,10 @@ PERI,Perion Network Ltd.,NASDAQ,small,449152243,2026-11-04,Services,SEC SIC 7371
 PES,PIONEER ENERGY SERVICES LLC,NYSE,small,12585232,2019-08-14,Mining,SEC SIC 1381 division,true,2019-08-14,unknown,,2004-01-05
 PETQ,"PetIQ, Inc.",NASDAQ,small,919170125,2024-10-24,Wholesale Trade,SEC SIC 5122 division,true,2024-10-24,small,376199243,2017-07-21
 PETS,PETMED EXPRESS INC,NASDAQ,small,26014697,2026-11-04,Retail Trade,SEC SIC 5912 division,false,,unknown,,2004-01-23
-PETZ,"TDH Holdings, Inc.",NASDAQ,small,12367275,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6531 division,false,,small,87452400,2017-11-22
+PETZ,"TDH Holdings, Inc.",NASDAQ,small,12367275,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6531 division,false,,small,86886975,2017-11-21
 PFGC,Performance Food Group Co,NYSE,large,15159063018,2026-11-04,Wholesale Trade,SEC SIC 5141 division,false,,small,1983462067,2015-10-01
 PFPT,PROOFPOINT INC,NASDAQ,large,10159616193,2021-08-30,Services,SEC SIC 7374 division,true,2021-08-30,small,465254803,2012-04-20
-PFSI,"PennyMac Financial Services, Inc.",NYSE,mid,3319705451,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6162 division,false,,small,1539263827,2018-07-03
+PFSI,"PennyMac Financial Services, Inc.",NYSE,mid,3319705451,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6162 division,false,,unknown,,2013-05-09
 PGH,PENGROWTH ENERGY Corp,NYSE,small,405072517,2018-06-01,Mining,SEC SIC 1311 division,true,2018-06-01,unknown,,2004-01-02
 PGN,PARAGON OFFSHORE PLC,NYSE,large,12542626813,2015-12-17,Mining,SEC SIC 1381 division,true,2015-12-17,small,937839804,2014-08-04
 PGNX,PROGENICS PHARMACEUTICALS INC,NASDAQ,small,355046195,2020-06-19,Manufacturing,SEC SIC 2834 division,true,2020-06-19,unknown,,2004-01-02
@@ -2029,7 +2029,7 @@ PHG,KONINKLIJKE PHILIPS NV,NYSE,large,27817585853,2026-11-04,Manufacturing,SEC S
 PHIN,PHINIA INC.,NYSE,mid,2478341283,2026-11-04,Manufacturing,SEC SIC 3714 division,false,,small,1678849662,2023-07-05
 PHR,"Phreesia, Inc.",NYSE,small,759127645,2026-11-04,Services,SEC SIC 7389 division,false,,small,944943449,2019-07-18
 PHUN,"Phunware, Inc.",NASDAQ,small,36218935,2026-11-04,Services,SEC SIC 7374 division,false,,small,42940351,2018-12-28
-PHVS,Pharvaris N.V.,NASDAQ,mid,2441712719,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,861617387,2021-03-30
+PHVS,Pharvaris N.V.,NASDAQ,mid,2441712719,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2021-03-05
 PI,IMPINJ INC,NASDAQ,mid,5692358311,2026-11-04,Manufacturing,SEC SIC 3679 division,false,,small,370818336,2016-07-21
 PINC,"Premier, Inc.",NASDAQ,mid,2336662161,2025-11-24,Services,SEC SIC 8741 division,true,2025-11-24,unknown,,2013-09-26
 PING,Ping Identity Holding Corp.,NYSE,mid,2458704519,2022-10-17,Services,SEC SIC 7372 division,true,2022-10-17,small,1621599010,2019-09-19
@@ -2067,14 +2067,14 @@ PMT,PennyMac Mortgage Investment Trust,NYSE,small,688026636,2026-11-04,"Finance,
 PNC,"PNC FINANCIAL SERVICES GROUP, INC.",NYSE,large,91521666646,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6021 division,false,,unknown,,2004-01-02
 PODD,INSULET CORP,NASDAQ,large,10740191257,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,unknown,,2007-05-15
 POET,POET TECHNOLOGIES INC.,NASDAQ,small,880865668,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,mid,2552017444,2022-03-14
-PONY,Pony AI Inc.,NASDAQ,small,1980087928,2026-11-04,Services,SEC SIC 7373 division,false,,unknown,,2024-12-16
+PONY,Pony AI Inc.,NASDAQ,small,1980087928,2026-11-04,Services,SEC SIC 7373 division,false,,unknown,,2024-11-27
 POR,PORTLAND GENERAL ELECTRIC CO /OR/,NYSE,mid,5366740446,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4911 division,false,,unknown,,2006-04-10
 POSH,"Poshmark, Inc.",NASDAQ,small,1418010327,2023-01-04,Retail Trade,SEC SIC 5961 division,true,2023-01-04,unknown,,2021-01-14
 POWI,POWER INTEGRATIONS INC,NASDAQ,mid,2625486273,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2007-08-13
 POWL,POWELL INDUSTRIES INC,NASDAQ,mid,5950895004,2026-11-04,Manufacturing,SEC SIC 3613 division,false,,unknown,,2004-01-02
 PPBI,PACIFIC PREMIER BANCORP INC,NASDAQ,mid,2375320366,2025-08-29,"Finance, Insurance & Real Estate",SEC SIC 6022 division,true,2025-08-29,unknown,,2004-01-02
 PPD,"PPD, Inc.",NASDAQ,large,16613934182,2021-12-07,Services,SEC SIC 8731 division,true,2021-12-07,large,10489633470,2020-02-06
-PPDF,FinVolution Group,NYSE,small,684672606,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6163 division,false,,unknown,,2017-11-13
+PPDF,FinVolution Group,NYSE,small,684672606,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6163 division,false,,unknown,,2017-11-10
 PPG,PPG INDUSTRIES INC,NYSE,large,26781916000,2026-11-04,Manufacturing,SEC SIC 2851 division,false,,unknown,,2004-01-02
 PPO,"Polypore International, Inc.",NYSE,mid,2722094182,2015-08-25,Manufacturing,SEC SIC 2890 division,true,2015-08-25,unknown,,2007-06-28
 PPSI,"PIONEER POWER SOLUTIONS, INC.",NASDAQ,small,27304194,2026-11-04,Manufacturing,SEC SIC 3690 division,false,,small,41823365,2013-09-19
@@ -2105,7 +2105,7 @@ PRVA,"Privia Health Group, Inc.",NASDAQ,mid,2742453424,2026-11-04,Services,SEC S
 PRVB,"Provention Bio, Inc.",NASDAQ,mid,2367626233,2023-04-26,Manufacturing,SEC SIC 2834 division,true,2023-04-26,small,179709113,2018-07-24
 PRZO,ParaZero Technologies Ltd.,NASDAQ,small,14581238,2026-11-04,Manufacturing,SEC SIC 3728 division,false,,small,36266242,2023-07-27
 PS,"Pluralsight, Inc.",NASDAQ,unknown,,2021-04-05,Services,SEC SIC 7370 division,true,2021-04-05,unknown,,2018-05-17
-PSEC,PROSPECT CAPITAL CORP,NASDAQ,small,827416116,2026-11-04,,,false,,unknown,,2004-10-13
+PSEC,PROSPECT CAPITAL CORP,NASDAQ,small,827416116,2026-11-04,,,false,,unknown,,2004-07-27
 PSFE,Paysafe Ltd,NYSE,small,312770677,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2021-03-02
 PSIX,"POWER SOLUTIONS INTERNATIONAL, INC.",NASDAQ,small,1140125194,2026-11-04,Manufacturing,SEC SIC 3510 division,false,,small,678258676,2024-12-26
 PSKY,Skydance Corp,NASDAQ,large,10992191221,2026-10-05,"Transportation, Communications & Utilities",SEC SIC 4833 division,true,2026-10-05,small,11740,2025-08-07
@@ -2136,7 +2136,7 @@ PVH,PVH CORP. /DE/,NYSE,mid,4203156586,2026-11-04,Manufacturing,SEC SIC 2320 div
 PVLA,"PALVELLA THERAPEUTICS, INC.",NASDAQ,mid,2203416511,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,80931186,2015-06-30
 PVTL,"Pivotal Software, Inc.",NYSE,mid,3984577950,2019-12-27,Services,SEC SIC 7372 division,true,2019-12-27,mid,4178494077,2018-04-20
 PWE,OBSIDIAN ENERGY LTD.,NYSE American,small,11900873,2020-04-01,Mining,SEC SIC 1311 division,true,2020-04-01,unknown,,2006-06-22
-PWSC,"POWERSCHOOL HOLDINGS, INC.",NYSE,mid,3801736268,2024-09-30,Services,SEC SIC 7372 division,true,2024-09-30,mid,6934561856,2021-08-30
+PWSC,"POWERSCHOOL HOLDINGS, INC.",NYSE,mid,3801736268,2024-09-30,Services,SEC SIC 7372 division,true,2024-09-30,mid,6037731538,2021-08-24
 PYCR,"PAYCOR HCM, INC.",NASDAQ,mid,4088051111,2025-04-11,Services,SEC SIC 7372 division,true,2025-04-11,mid,4556393491,2021-07-21
 PYPL,"PayPal Holdings, Inc.",NASDAQ,large,48352619527,2026-11-04,Services,SEC SIC 7389 division,false,,large,49050719052,2015-07-20
 PYX,"PYXUS INTERNATIONAL, INC.",NYSE,small,26705850,2020-06-12,Wholesale Trade,SEC SIC 5150 division,true,2020-06-12,small,198065878,2018-09-12
@@ -2148,9 +2148,9 @@ QCP,"QUALITY CARE PROPERTIES, INC.",NYSE,small,1953630889,2018-07-26,"Finance, I
 QD,High Templar Tech Ltd,NYSE,small,276404637,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2017-10-18
 QDEL__1906324,QuidelOrtho Corp,NASDAQ,small,966227766,2026-11-04,Manufacturing,SEC SIC 2835 division,false,,mid,6632695902,2022-06-07
 QDEL__353569,QUIDEL CORP /DE/,NASDAQ,mid,6250525926,2022-06-06,Manufacturing,SEC SIC 2835 division,true,2022-06-06,unknown,,2004-01-02
-QFIN,"Qfin Holdings, Inc.",NASDAQ,small,640741577,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2018-12-17
+QFIN,"Qfin Holdings, Inc.",NASDAQ,small,640741577,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2018-12-14
 QGEN,QIAGEN N.V.,NYSE,large,10403294728,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,unknown,,2005-02-15
-QIHU,Qihoo 360 Technology Co Ltd,NYSE,large,14296307740,2016-07-15,Services,SEC SIC 7371 division,true,2016-07-15,unknown,,2011-05-02
+QIHU,Qihoo 360 Technology Co Ltd,NYSE,large,14296307740,2016-07-15,Services,SEC SIC 7371 division,true,2016-07-15,unknown,,2011-04-18
 QIWI,QIWI,NASDAQ,small,353982829,2022-02-25,Services,SEC SIC 7389 division,true,2022-02-25,unknown,,2013-05-03
 QLGC,QLOGIC CORP,NASDAQ,small,1359923750,2016-08-15,Manufacturing,SEC SIC 3576 division,true,2016-08-15,unknown,,2004-01-02
 QLYS,"QUALYS, INC.",NASDAQ,mid,7284669361,2026-11-04,Services,SEC SIC 7372 division,false,,small,453117239,2012-09-28
@@ -2164,7 +2164,7 @@ QTS,"QTS Realty Trust, Inc.",NYSE,mid,6006820377,2021-08-31,"Finance, Insurance 
 QTWO,"Q2 Holdings, Inc.",NYSE,mid,4400699237,2026-11-04,Services,SEC SIC 7372 division,false,,small,529996232,2014-03-20
 QUBT,Quantum Computing Inc.,NASDAQ,small,1455410316,2026-11-04,Services,SEC SIC 7372 division,false,,small,198527230,2021-07-15
 QUNR,Qunar Cayman Islands Ltd.,NASDAQ,unknown,,2017-02-28,Services,SEC SIC 7370 division,true,2017-02-28,unknown,,2013-11-01
-QURE,uniQure N.V.,NASDAQ,small,1655776254,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2014-02-24
+QURE,uniQure N.V.,NASDAQ,small,1655776254,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2014-02-05
 QXO,"QXO, Inc.",NYSE,large,12149016202,2026-11-04,Wholesale Trade,SEC SIC 5030 division,false,,small,1169427820,2024-06-06
 RACE,Ferrari N.V.,NYSE,large,72696324789,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2015-10-21
 RAL,Ralliant Corp,NYSE,mid,7889738970,2026-11-04,Manufacturing,SEC SIC 3823 division,false,,mid,5427638347,2025-06-30
@@ -2192,7 +2192,7 @@ RDNT,"RadNet, Inc.",NASDAQ,mid,5759101857,2026-11-04,Services,SEC SIC 8071 divis
 RDW,Redwire Corp,NYSE,mid,2029939985,2026-11-04,Manufacturing,SEC SIC 3760 division,false,,unknown,,2021-01-14
 RDY,DR REDDYS LABORATORIES LTD,NYSE,large,11912941755,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2004-01-02
 REAL,"TheRealReal, Inc.",NASDAQ,small,1583855494,2026-11-04,Retail Trade,SEC SIC 5900 division,false,,mid,2511251368,2019-06-28
-REDU,NaaS Technology Inc.,NASDAQ,small,202042210,2022-06-10,Retail Trade,SEC SIC 5990 division,true,2022-06-10,unknown,,2017-10-30
+REDU,NaaS Technology Inc.,NASDAQ,small,202042210,2022-06-10,Retail Trade,SEC SIC 5990 division,true,2022-06-10,unknown,,2017-10-20
 REGI,"Renewable Energy Group, Inc.",NASDAQ,mid,3106198335,2022-06-10,Manufacturing,SEC SIC 2860 division,true,2022-06-10,small,351827137,2012-01-19
 RELI,"Reliance Global Group, Inc.",NASDAQ,small,4092251,2026-01-23,"Finance, Insurance & Real Estate",SEC SIC 6411 division,true,2026-01-23,small,63764554,2021-02-09
 RELX,RELX PLC,NYSE,large,68383970538,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2004-01-02
@@ -2227,7 +2227,7 @@ RKLB,Rocket Lab Corp,NASDAQ,large,34803140131,2026-11-04,Manufacturing,SEC SIC 3
 RKT,"Rocket Companies, Inc.",NYSE,large,39191351563,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6162 division,false,,mid,2488137501,2020-08-06
 RKUS,RUCKUS WIRELESS INC,NYSE,small,1165290739,2016-05-26,Manufacturing,SEC SIC 3577 division,true,2016-05-26,small,967402504,2012-11-16
 RLAY,"Relay Therapeutics, Inc.",NASDAQ,mid,3821830045,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,mid,3238001718,2020-07-16
-RLX,RLX Technology Inc.,NYSE,small,1992274939,2026-11-04,Manufacturing,SEC SIC 2111 division,false,,unknown,,2021-02-02
+RLX,RLX Technology Inc.,NYSE,small,1992274939,2026-11-04,Manufacturing,SEC SIC 2111 division,false,,unknown,,2021-01-22
 RLYP,Relypsa Inc,NASDAQ,small,1435794278,2016-08-31,Manufacturing,SEC SIC 2834 division,true,2016-08-31,small,412888496,2013-11-15
 RMBS,RAMBUS INC,NASDAQ,mid,9443723957,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
 RMO,"Romeo Power, Inc.",NYSE,small,65068023,2022-10-14,Manufacturing,SEC SIC 3714 division,true,2022-10-14,unknown,,2019-04-01
@@ -2279,7 +2279,7 @@ RY,ROYAL BANK OF CANADA,NYSE,large,281883751374,2026-11-04,"Finance, Insurance &
 RYAAY,RYANAIR HOLDINGS PLC,NASDAQ,large,28278645814,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4512 division,false,,unknown,,2004-01-02
 RYAM,RAYONIER ADVANCED MATERIALS INC.,NYSE,small,467421477,2026-11-04,Manufacturing,SEC SIC 2611 division,false,,small,1659960526,2014-06-30
 RYAN,"RYAN SPECIALTY HOLDINGS, INC.",NYSE,mid,5473611879,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6411 division,false,,mid,3022356342,2021-07-22
-RYB,"Mynd.ai, Inc.",NYSE,small,19404364,2022-05-23,Manufacturing,SEC SIC 3577 division,true,2022-05-23,unknown,,2017-10-30
+RYB,"Mynd.ai, Inc.",NYSE,small,19404364,2022-05-23,Manufacturing,SEC SIC 3577 division,true,2022-05-23,unknown,,2017-09-27
 RYTM,"RHYTHM PHARMACEUTICALS, INC.",NASDAQ,mid,5951573968,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,1025254110,2017-10-05
 RYZB,"RayzeBio, Inc.",NASDAQ,mid,3750423649,2024-02-23,Manufacturing,SEC SIC 2834 division,true,2024-02-23,small,1438068048,2023-09-15
 RZLV,REZOLVE AI PLC,NASDAQ,small,621134652,2026-11-04,Services,SEC SIC 7370 division,false,,mid,2122177083,2024-08-16
@@ -2325,7 +2325,7 @@ SD,SANDRIDGE ENERGY INC,NYSE,small,496067460,2026-11-04,Mining,SEC SIC 1311 divi
 SDC,"SmileDirectClub, Inc.",NASDAQ,small,10048812,2023-10-03,Manufacturing,SEC SIC 3843 division,true,2023-10-03,small,1817837011,2019-09-12
 SDGR,"Schrodinger, Inc.",NASDAQ,mid,2033216969,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,1612380906,2020-02-06
 SDIG,"Stronghold Digital Mining, Inc.",NASDAQ,small,42030235,2025-03-14,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2025-03-14,small,579007888,2021-10-20
-SDLP,Seadrill Partners LLC,NYSE,small,11442294,2019-09-04,Mining,SEC SIC 1381 division,true,2019-09-04,unknown,,2013-04-01
+SDLP,Seadrill Partners LLC,NYSE,small,11442294,2019-09-04,Mining,SEC SIC 1381 division,true,2019-09-04,unknown,,2012-10-19
 SDRL__1351413,Seadrill Ltd/Old/,NYSE,small,41092788,2018-07-12,Mining,SEC SIC 1381 division,true,2018-07-12,unknown,,2010-04-15
 SDRL__1737706,SEADRILL Ltd,NYSE,mid,2896919640,2026-11-04,Mining,SEC SIC 1381 division,false,,mid,2660187528,2022-10-14
 SEAC,SEACHANGE INTERNATIONAL INC,NASDAQ,small,12611350,2023-08-25,Services,SEC SIC 7372 division,true,2023-08-25,unknown,,2004-01-02
@@ -2341,9 +2341,9 @@ SENS,"Senseonics Holdings, Inc.",NASDAQ,small,468464110,2026-11-04,Manufacturing
 SERV,Serve Robotics Inc. /DE/,NASDAQ,small,226306593,2026-11-04,Manufacturing,SEC SIC 3569 division,false,,small,77230052,2024-04-18
 SES__1375063,SYNTHESIS ENERGY SYSTEMS INC,NASDAQ,small,4366905,2020-05-15,Manufacturing,SEC SIC 2990 division,true,2020-05-15,small,260876322,2017-12-04
 SES__1819142,SES AI Corp,NYSE,small,282958128,2026-11-04,Manufacturing,SEC SIC 3690 division,false,,unknown,,2021-03-01
-SEV,Sono Group N.V.,NASDAQ,small,19365702,2023-07-20,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2023-07-20,small,667664484,2021-12-29
+SEV,Sono Group N.V.,NASDAQ,small,19365702,2023-07-20,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2023-07-20,small,1168765735,2021-11-29
 SEZL,Sezzle Inc.,NASDAQ,mid,4136101907,2026-11-04,Services,SEC SIC 7389 division,false,,small,460431104,2023-08-17
-SE__1703399,Sea Ltd,NYSE,large,47020436754,2026-11-04,Services,SEC SIC 7380 division,false,,unknown,,2017-10-23
+SE__1703399,Sea Ltd,NYSE,large,47020436754,2026-11-04,Services,SEC SIC 7380 division,false,,unknown,,2017-10-20
 SFBS,"ServisFirst Bancshares, Inc.",NYSE,mid,4466661550,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6022 division,false,,small,643009020,2014-05-14
 SFIX,"Stitch Fix, Inc.",NASDAQ,small,366074102,2026-11-04,Retail Trade,SEC SIC 5961 division,false,,unknown,,2017-11-17
 SFL,SFL Corp Ltd.,NYSE,small,1709804577,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2004-06-17
@@ -2351,7 +2351,7 @@ SFLY,SHUTTERFLY INC,NASDAQ,small,1753147453,2019-09-24,Services,SEC SIC 7384 div
 SFNC,SIMMONS FIRST NATIONAL CORP,NASDAQ,mid,3397519179,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6021 division,false,,unknown,,2004-01-02
 SFR,Invitation Homes,NYSE,mid,4765822450,2017-11-15,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2017-11-15,small,1133293230,2014-02-03
 SFT,"SHIFT TECHNOLOGIES, INC.",NASDAQ,small,2894933,2023-10-18,Retail Trade,SEC SIC 5500 division,true,2023-10-18,unknown,,2019-06-04
-SFUN,Fang Holdings Ltd,NYSE,small,25299982,2022-05-17,Services,SEC SIC 7374 division,true,2022-05-17,unknown,,2010-11-23
+SFUN,Fang Holdings Ltd,NYSE,small,25299982,2022-05-17,Services,SEC SIC 7374 division,true,2022-05-17,unknown,,2010-09-21
 SG,"Sweetgreen, Inc.",NYSE,small,1358261404,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,mid,4755795710,2021-11-18
 SGBX,OLENOX INDUSTRIES INC.,NASDAQ,small,9272642,2026-01-21,Wholesale Trade,SEC SIC 5030 division,true,2026-01-21,small,806393,2017-06-22
 SGFY,"Signify Health, Inc.",NYSE,mid,7211226854,2023-03-28,Services,SEC SIC 8082 division,true,2023-03-28,mid,5378472116,2021-02-11
@@ -2378,7 +2378,7 @@ SID,NATIONAL STEEL CO,NYSE,small,946565859,2026-11-04,Manufacturing,SEC SIC 3310
 SIDU,Sidus Space Inc.,NASDAQ,small,106286592,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4812 division,false,,small,219334085,2021-12-14
 SIGI,SELECTIVE INSURANCE GROUP INC,NASDAQ,mid,5990866298,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6331 division,false,,unknown,,2004-01-02
 SILK,Silk Road Medical Inc,NASDAQ,small,1116977611,2024-09-16,Manufacturing,SEC SIC 3841 division,true,2024-09-16,small,1134384319,2019-04-04
-SIMO,Silicon Motion Technology CORP,NASDAQ,mid,6846072646,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2005-07-05
+SIMO,Silicon Motion Technology CORP,NASDAQ,mid,6846072646,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2005-06-30
 SINA,SINA CORP,NASDAQ,mid,2961155090,2021-03-22,Services,SEC SIC 7372 division,true,2021-03-22,unknown,,2004-01-02
 SINO,Singularity Future Technology Ltd.,NASDAQ,small,2864008,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4731 division,false,,unknown,,2008-05-21
 SIR,SELECT INCOME REIT,NASDAQ,small,659091886,2018-12-31,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2018-12-31,small,854396376,2012-03-07
@@ -2424,7 +2424,7 @@ SNDK__2023554,Sandisk Corp,NASDAQ,large,160291815460,2026-11-04,Manufacturing,SE
 SNDL,SNDL Inc.,NASDAQ,small,330448604,2026-11-04,Manufacturing,SEC SIC 2833 division,false,,small,908889987,2019-08-01
 SNDR,"Schneider National, Inc.",NYSE,mid,5182298538,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4213 division,false,,mid,3250900000,2017-04-06
 SNDX,Syndax Pharmaceuticals Inc,NASDAQ,small,1276055359,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,218502254,2016-03-03
-SNEX,StoneX Group Inc.,NASDAQ,mid,6790722180,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6200 division,false,,unknown,,2004-11-30
+SNEX,StoneX Group Inc.,NASDAQ,mid,6790722180,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6200 division,false,,unknown,,2004-03-11
 SNH,DIVERSIFIED HEALTHCARE TRUST,NASDAQ,mid,2007867872,2019-12-31,"Finance, Insurance & Real Estate",SEC SIC 6798 division,true,2019-12-31,unknown,,2004-01-02
 SNN,SMITH & NEPHEW PLC,NYSE,large,12626635806,2026-11-04,Manufacturing,SEC SIC 3842 division,false,,unknown,,2004-01-02
 SNOA,"Sonoma Pharmaceuticals, Inc.",NASDAQ,small,5458804,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,unknown,,2007-01-25
@@ -2442,7 +2442,7 @@ SODA,SodaStream International Ltd.,NASDAQ,mid,3178623301,2018-12-04,Manufacturin
 SOFI,"SoFi Technologies, Inc.",NASDAQ,large,21744272540,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,mid,8456486041,2020-11-30
 SOGO,SOGOU INC.,NYSE,unknown,,2021-09-23,Services,SEC SIC 7371 division,true,2021-09-23,unknown,,2017-11-09
 SOHU__1734107,Sohu.com Ltd,NASDAQ,small,337072454,2026-11-04,Services,SEC SIC 7374 division,false,,small,1391436243,2018-07-02
-SOL,Emeren Group Ltd,NYSE,small,99563947,2025-12-12,"Transportation, Communications & Utilities",SEC SIC 4931 division,true,2025-12-12,unknown,,2008-02-19
+SOL,Emeren Group Ltd,NYSE,small,99563947,2025-12-12,"Transportation, Communications & Utilities",SEC SIC 4931 division,true,2025-12-12,unknown,,2008-01-31
 SOLO,ELECTRAMECCANICA VEHICLES CORP.,NASDAQ,small,25356938,2024-03-25,Manufacturing,SEC SIC 3711 division,true,2024-03-25,small,77597623,2018-08-09
 SOLS,Solstice Advanced Materials Inc.,NASDAQ,mid,9807236562,2026-11-04,Manufacturing,SEC SIC 2800 division,false,,mid,7742220765,2025-10-30
 SOLV,Solventum Corp,NYSE,large,14428163270,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,large,11953642859,2024-04-01
@@ -2473,7 +2473,7 @@ SQM,CHEMICAL & MINING CO OF CHILE INC,NYSE,large,15341606668,2026-11-04,Mining,S
 SQSP,"Squarespace, Inc.",NYSE,mid,6470029896,2024-10-16,Services,SEC SIC 7372 division,true,2024-10-16,mid,6085823902,2021-05-19
 SR,SPIRE INC,NYSE,mid,5202518144,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4924 division,false,,mid,2937977628,2017-01-03
 SRAC,Momentus Inc.,NASDAQ,small,40851926,2026-11-04,Manufacturing,SEC SIC 3760 division,false,,unknown,,2020-01-02
-SRAD,Sportradar Group AG,NASDAQ,mid,4200608812,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2021-10-18
+SRAD,Sportradar Group AG,NASDAQ,mid,4200608812,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2021-09-14
 SRCI,SRC Energy Inc.,NYSE American,small,974253120,2020-01-14,Mining,SEC SIC 1311 division,true,2020-01-14,small,184559531,2011-07-27
 SRG,Seritage Growth Properties,NYSE,small,95188586,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6500 division,false,,unknown,,2015-07-06
 SRNE,"Sorrento Therapeutics, Inc.",NASDAQ,small,168363606,2023-02-22,Manufacturing,SEC SIC 2836 division,true,2023-02-22,small,142248843,2013-10-25
@@ -2499,7 +2499,7 @@ STE__1757898,STERIS plc,NYSE,large,22556650448,2026-11-04,Manufacturing,SEC SIC 
 STI__1881551,Solidion Technology Inc.,NASDAQ,small,42843630,2026-11-04,Manufacturing,SEC SIC 3690 division,false,,small,9355125,2024-02-05
 STLA,Stellantis N.V.,NYSE,large,13012592078,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2014-10-13
 STM,STMicroelectronics N.V.,NYSE,large,43414897935,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
-STNE,StoneCo Ltd.,NASDAQ,small,1704101720,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2018-10-29
+STNE,StoneCo Ltd.,NASDAQ,small,1704101720,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2018-10-25
 STNG,Scorpio Tankers Inc.,NYSE,mid,4461226846,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2010-03-31
 STOK,"Stoke Therapeutics, Inc.",NASDAQ,small,1741563272,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,843117718,2019-06-19
 STRA,"Strategic Education, Inc.",NASDAQ,small,1644247668,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2004-01-02
@@ -2549,26 +2549,26 @@ TAHO,TAHOE RESOURCES INC.,NYSE,small,1138503770,2019-02-21,Mining,SEC SIC 1040 d
 TAK,TAKEDA PHARMACEUTICAL CO LTD,NYSE,large,66294129226,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2018-12-24
 TALO,TALOS ENERGY INC.,NYSE,mid,2688144035,2026-11-04,Mining,SEC SIC 1311 division,false,,small,1820718164,2018-05-21
 TAL__1331745,"TAL International Group, Inc.",,small,1153810863,2016-07-22,Services,SEC SIC 7359 division,true,2016-07-22,unknown,,2005-10-12
-TAL__1499620,TAL Education Group,NYSE,mid,5535918515,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2010-12-27
+TAL__1499620,TAL Education Group,NYSE,mid,5535918515,2026-11-04,Services,SEC SIC 8200 division,false,,unknown,,2010-10-20
 TAP,MOLSON COORS BEVERAGE CO,NYSE,mid,7806826175,2026-11-04,Manufacturing,SEC SIC 2082 division,false,,unknown,,2004-01-02
 TARA,"Protara Therapeutics, Inc.",NASDAQ,small,142420126,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,587561820,2020-01-10
 TARO,TARO PHARMACEUTICAL INDUSTRIES LTD,NYSE,small,1615011594,2024-06-21,Manufacturing,SEC SIC 2834 division,true,2024-06-21,small,1756823014,2012-03-22
 TARS,"Tarsus Pharmaceuticals, Inc.",NASDAQ,mid,3398948216,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,423415060,2020-10-16
 TASK,"TaskUs, Inc.",NASDAQ,small,762836015,2026-11-04,Services,SEC SIC 7374 division,false,,mid,3030697099,2021-06-11
 TBBB,BBB FOODS INC,NYSE,mid,7591837942,2026-11-04,Retail Trade,SEC SIC 5411 division,false,,unknown,,2024-02-09
-TBBK,"Bancorp, Inc.",NASDAQ,small,1902704640,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6021 division,false,,unknown,,2004-06-15
+TBBK,"Bancorp, Inc.",NASDAQ,small,1902704640,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6021 division,false,,unknown,,2004-02-03
 TBK,"Triumph Financial, Inc.",NASDAQ,small,1437854637,2022-12-01,"Finance, Insurance & Real Estate",SEC SIC 6022 division,true,2022-12-01,small,230010918,2014-11-07
 TBPH,"Theravance Biopharma, Inc.",NASDAQ,small,884176381,2026-09-23,Manufacturing,SEC SIC 2834 division,true,2026-09-23,small,794678602,2014-06-03
 TCDA,"Tricida, Inc.",NASDAQ,small,6267051,2023-01-23,Manufacturing,SEC SIC 2834 division,true,2023-01-23,small,1277646682,2018-06-28
 TCMD,TACTILE SYSTEMS TECHNOLOGY INC,NASDAQ,small,561323647,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,small,187696751,2016-07-28
 TCN,Tricon Residential Inc.,NYSE,mid,3067175509,2024-05-01,"Finance, Insurance & Real Estate",SEC SIC 6510 division,true,2024-05-01,mid,3559690586,2021-10-07
-TCOM,Trip.com Group Ltd,NASDAQ,large,26057202086,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2004-01-26
+TCOM,Trip.com Group Ltd,NASDAQ,large,26057202086,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2004-01-02
 TCS,"Container Store Group, Inc.",NYSE,small,9145812,2024-12-09,Retail Trade,SEC SIC 5700 division,true,2024-12-09,small,1736850551,2013-11-01
 TD,TORONTO DOMINION BANK,NYSE,large,203702506401,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6029 division,false,,unknown,,2004-01-02
 TDOC,"Teladoc Health, Inc.",NYSE,small,1620590771,2026-11-04,Services,SEC SIC 8011 division,false,,small,1103266122,2015-07-01
 TDUP,ThredUp Inc.,NASDAQ,small,262667300,2026-11-04,Retail Trade,SEC SIC 5961 division,false,,small,1968700000,2021-03-26
 TDW,TIDEWATER INC,NYSE,mid,3853122529,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4400 division,false,,unknown,,2004-01-02
-TEAM,Atlassian Corp,NASDAQ,large,48362170606,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2016-01-05
+TEAM,Atlassian Corp,NASDAQ,large,48362170606,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2015-12-14
 TECK,TECK RESOURCES LTD,NYSE,large,30348681073,2026-11-04,Mining,SEC SIC 1400 division,false,,unknown,,2006-06-29
 TEF,TELEFONICA S A,NYSE,large,21480468914,2026-01-16,"Transportation, Communications & Utilities",SEC SIC 4813 division,true,2026-01-16,unknown,,2004-01-02
 TEG,"INTEGRYS HOLDING, INC.",NYSE,mid,5570228919,2015-06-29,"Transportation, Communications & Utilities",SEC SIC 4931 division,true,2015-06-29,unknown,,2007-02-22
@@ -2588,7 +2588,7 @@ TGE,"Tallgrass Energy, LP",NYSE,mid,3914130240,2020-04-16,"Transportation, Commu
 TGI,TRIUMPH GROUP INC,NYSE,mid,2023236203,2025-07-24,Manufacturing,SEC SIC 3720 division,true,2025-07-24,unknown,,2004-01-02
 TGLS,Tecnoglass Holdings Inc.,NYSE,small,1757726086,2026-11-04,Manufacturing,SEC SIC 3211 division,false,,small,49507500,2013-12-23
 TGNA,TEGNA INC,NYSE,mid,3243011431,2026-03-19,"Transportation, Communications & Utilities",SEC SIC 4833 division,true,2026-03-19,mid,7175470652,2015-06-29
-TGP,Seapeak LLC,NYSE,small,1477357244,2022-01-12,"Transportation, Communications & Utilities",SEC SIC 4400 division,true,2022-01-12,unknown,,2005-05-11
+TGP,Seapeak LLC,NYSE,small,1477357244,2022-01-12,"Transportation, Communications & Utilities",SEC SIC 4400 division,true,2022-01-12,unknown,,2005-05-05
 TGTX,"TG THERAPEUTICS, INC.",NASDAQ,mid,9298944970,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,164516694,2013-05-30
 THBR,"Thunder Bridge Acquisition II, LTD",NASDAQ,unknown,,2021-06-10,"Finance, Insurance & Real Estate",SEC SIC 6770 division,true,2021-06-10,unknown,,2019-10-04
 THOR__1609727,"Synthorx, Inc.",NASDAQ,mid,2198645390,2020-01-22,Manufacturing,SEC SIC 2834 division,true,2020-01-22,small,407779355,2018-12-07
@@ -2612,7 +2612,7 @@ TLRY,"Tilray Brands, Inc.",NASDAQ,small,391636936,2026-11-04,Manufacturing,SEC S
 TM,TOYOTA MOTOR CORP/,NYSE,large,227316664343,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2004-01-02
 TMC,TMC the metals Co Inc.,NASDAQ,small,1019022963,2026-11-04,Mining,SEC SIC 1000 division,false,,unknown,,2020-06-26
 TMDX,"TransMedics Group, Inc.",NASDAQ,mid,2335024264,2026-11-04,Manufacturing,SEC SIC 3845 division,false,,small,474380950,2019-05-02
-TME,Tencent Music Entertainment Group,NYSE,large,14733076441,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4832 division,false,,unknown,,2019-01-22
+TME,Tencent Music Entertainment Group,NYSE,large,14733076441,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4832 division,false,,unknown,,2018-12-12
 TMHC,Taylor Morrison Home Corp,NYSE,mid,6665396812,2026-07-23,Construction,SEC SIC 1531 division,true,2026-07-23,unknown,,2013-04-10
 TMQ,Trilogy Metals Inc.,NYSE American,small,397181048,2026-11-04,Mining,SEC SIC 1040 division,false,,unknown,,2012-05-01
 TMST,Metallus Inc.,NYSE,small,880358246,2024-02-26,Manufacturing,SEC SIC 3312 division,true,2024-02-26,small,1808876184,2014-07-01
@@ -2621,7 +2621,7 @@ TNET,"TRINET GROUP, INC.",NYSE,mid,2935513771,2026-11-04,Services,SEC SIC 7389 d
 TNGX,"Tango Therapeutics, Inc.",NASDAQ,mid,3906702203,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,218689268,2020-09-03
 TNK,TEEKAY TANKERS LTD.,NYSE,mid,3314725105,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4400 division,false,,unknown,,2007-12-13
 TNXP,Tonix Pharmaceuticals Holding Corp.,NASDAQ,small,89013815,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,8438362,2013-08-09
-TOPS,TOP SHIPS INC.,NYSE American,small,2441646,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2004-10-11
+TOPS,TOP SHIPS INC.,NYSE American,small,2441646,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2004-07-23
 TOST,"Toast, Inc.",NYSE,large,19380340000,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2021-09-22
 TPB,"Turning Point Brands, Inc.",NYSE,small,1349091961,2026-11-04,Manufacturing,SEC SIC 2100 division,false,,small,189592057,2016-05-11
 TPC,TUTOR PERINI CORP,NYSE,mid,4355351343,2026-11-04,Construction,SEC SIC 1540 division,false,,unknown,,2004-01-02
@@ -2638,8 +2638,8 @@ TREX,TREX CO INC,NYSE,mid,5093259500,2026-11-04,Manufacturing,SEC SIC 2400 divis
 TRGP,Targa Resources Corp.,NYSE,large,64020525630,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4922 division,false,,small,1047300205,2010-12-07
 TRHC,"Tabula Rasa HealthCare, Inc.",NASDAQ,small,284033704,2023-11-02,Services,SEC SIC 7389 division,true,2023-11-02,small,258319806,2016-09-29
 TRI,THOMSON REUTERS CORP /CAN/,NASDAQ,large,47735637269,2026-11-04,Manufacturing,SEC SIC 2741 division,false,,unknown,,2008-04-17
-TRIL,Trillium Therapeutics Inc.,NASDAQ,small,1936110105,2021-11-16,Manufacturing,SEC SIC 2834 division,true,2021-11-16,unknown,,2015-02-23
-TRIT,"Triterras, Inc.",NASDAQ,small,136441225,2022-02-02,Services,SEC SIC 7374 division,true,2022-02-02,unknown,,2020-10-19
+TRIL,Trillium Therapeutics Inc.,NASDAQ,small,1936110105,2021-11-16,Manufacturing,SEC SIC 2834 division,true,2021-11-16,unknown,,2015-01-09
+TRIT,"Triterras, Inc.",NASDAQ,small,136441225,2022-02-02,Services,SEC SIC 7374 division,true,2022-02-02,unknown,,2019-07-31
 TRLA,"TRULIA, INC.",NYSE,small,1828283555,2015-02-17,Services,SEC SIC 7374 division,true,2015-02-17,small,780752808,2012-09-20
 TRMD,TORM plc,NASDAQ,mid,4135180369,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2018-02-23
 TRMK,TRUSTMARK CORP,NASDAQ,mid,2601778340,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6021 division,false,,unknown,,2004-01-02
@@ -2651,14 +2651,14 @@ TRQ,TURQUOISE HILL RESOURCES LTD.,NYSE,mid,6320679719,2022-12-15,Mining,SEC SIC 
 TRU,TransUnion,NYSE,large,14979485000,2026-11-04,Services,SEC SIC 7320 division,false,,mid,2823669613,2015-06-25
 TRUE,"TrueCar, Inc.",NASDAQ,small,225907727,2026-01-21,Services,SEC SIC 7370 division,true,2026-01-21,small,824337244,2014-05-16
 TRUP,"TRUPANION, INC.",NASDAQ,small,1365315654,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6324 division,false,,small,320215979,2014-07-18
-TRVG,trivago N.V.,NASDAQ,small,248365758,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2017-01-03
+TRVG,trivago N.V.,NASDAQ,small,248365758,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2016-12-16
 TRVI,"Trevi Therapeutics, Inc.",NASDAQ,small,1974715156,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,140714757,2019-05-07
 TRW,ZF TRW AUTOMOTIVE HOLDINGS CORP,NYSE,large,12225428775,2015-05-14,Manufacturing,SEC SIC 3714 division,true,2015-05-14,unknown,,2004-02-03
 TRXC,"ASENSUS SURGICAL, INC.",NYSE American,small,407633938,2021-03-04,Manufacturing,SEC SIC 3841 division,true,2021-03-04,small,977090912,2014-04-15
 TS,TENARIS SA,NYSE,large,29067528575,2026-11-04,Manufacturing,SEC SIC 3312 division,false,,unknown,,2004-01-02
 TSE,Trinseo PLC,NYSE,small,8278525,2026-02-27,Manufacturing,SEC SIC 2821 division,true,2026-02-27,small,987583732,2014-06-12
 TSEM,TOWER SEMICONDUCTOR LTD,NASDAQ,large,18510190618,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
-TSL,Trina Solar LTD,NYSE,unknown,,2017-03-13,Manufacturing,SEC SIC 3674 division,true,2017-03-13,unknown,,2007-01-17
+TSL,Trina Solar LTD,NYSE,unknown,,2017-03-13,Manufacturing,SEC SIC 3674 division,true,2017-03-13,unknown,,2006-12-19
 TSLA,"Tesla, Inc.",NASDAQ,large,1575162965970,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2010-06-29
 TSM,TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD,NYSE,large,2099484680462,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-01-02
 TSRA,TESSERA TECHNOLOGIES INC,,mid,2084247851,2016-12-09,Manufacturing,SEC SIC 3674 division,true,2016-12-09,unknown,,2004-01-02
@@ -2678,7 +2678,7 @@ TU,TELUS CORP,NYSE,large,14017500000,2026-11-04,"Transportation, Communications 
 TUES,TUESDAY MORNING CORP/DE,NASDAQ,small,13533169,2020-06-05,Retail Trade,SEC SIC 5331 division,true,2020-06-05,unknown,,2004-01-02
 TUMI,"Tumi Holdings, Inc.",NYSE,small,1809264820,2016-08-01,Manufacturing,SEC SIC 3100 division,true,2016-08-01,small,1798466676,2012-04-19
 TUP,TUPPERWARE BRANDS CORP,NYSE,small,23725960,2024-09-16,Manufacturing,SEC SIC 3089 division,true,2024-09-16,unknown,,2004-01-02
-TUYA,Tuya Inc.,NYSE,small,981029125,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2021-04-14
+TUYA,Tuya Inc.,NYSE,small,981029125,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2021-03-18
 TV,"GRUPO TELEVISA, S.A.B.",NYSE,mid,2297769969,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4833 division,false,,unknown,,2004-01-02
 TVGN,Tevogen Inc.,NASDAQ,small,93160317,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,102549626,2022-01-05
 TVPT,Travelport Worldwide LTD,NYSE,small,1992737801,2019-05-30,"Transportation, Communications & Utilities",SEC SIC 4700 division,true,2019-05-30,mid,2008883166,2014-09-25
@@ -2707,7 +2707,7 @@ UCB,UNITED COMMUNITY BANKS INC,NYSE,mid,4466116631,2026-11-04,"Finance, Insuranc
 UCTT,"Ultra Clean Holdings, Inc.",NASDAQ,mid,2303046835,2026-11-04,Manufacturing,SEC SIC 3674 division,false,,unknown,,2004-03-25
 UDMY,"Udemy, Inc.",NASDAQ,small,675681481,2026-05-08,Services,SEC SIC 8200 division,true,2026-05-08,mid,3871901275,2021-10-29
 UE,Urban Edge Properties,NYSE,mid,2604738746,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6500 division,false,,mid,2381002041,2015-01-16
-UEC,URANIUM ENERGY CORP,NYSE American,mid,3746620067,2026-11-04,Mining,SEC SIC 1090 division,false,,unknown,,2008-01-14
+UEC,URANIUM ENERGY CORP,NYSE American,mid,3746620067,2026-11-04,Mining,SEC SIC 1090 division,false,,unknown,,2007-09-28
 UFPI,UFP INDUSTRIES INC,NASDAQ,mid,4476906610,2026-11-04,Manufacturing,SEC SIC 2421 division,false,,unknown,,2004-01-02
 UFPT,UFP TECHNOLOGIES INC,NASDAQ,mid,2171299853,2026-11-04,Manufacturing,SEC SIC 3841 division,false,,unknown,,2004-01-02
 UGP,ULTRAPAR HOLDINGS INC,NYSE,mid,6010096947,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4924 division,false,,unknown,,2004-01-02
@@ -2744,7 +2744,7 @@ UUUU,ENERGY FUELS INC,NYSE American,small,1917354271,2026-11-04,Mining,SEC SIC 1
 UVE,"UNIVERSAL INSURANCE HOLDINGS, INC.",NYSE,small,1352519669,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6331 division,false,,unknown,,2007-04-30
 UVV,UNIVERSAL CORP /VA/,NYSE,small,982773674,2026-11-04,Wholesale Trade,SEC SIC 5150 division,false,,unknown,,2004-01-02
 UWMC,UWM Holdings Corp,NYSE,small,548707216,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6162 division,false,,small,958869107,2020-03-24
-UXIN,Uxin Ltd,NASDAQ,small,194682531,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2018-07-24
+UXIN,Uxin Ltd,NASDAQ,small,194682531,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2018-06-27
 VA,Virgin America Inc.,NASDAQ,mid,2549140467,2016-12-13,"Transportation, Communications & Utilities",SEC SIC 4512 division,true,2016-12-13,small,1317242850,2014-11-14
 VAC,MARRIOTT VACATIONS WORLDWIDE Corp,NYSE,mid,4078940999,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6531 division,false,,small,624434925,2011-11-22
 VALE,Vale S.A.,NYSE,large,46728275489,2026-11-04,Mining,SEC SIC 1000 division,false,,unknown,,2009-05-04
@@ -2774,7 +2774,7 @@ VIAV,VIAVI SOLUTIONS INC.,NASDAQ,mid,7389959766,2026-11-04,Manufacturing,SEC SIC
 VICI,VICI PROPERTIES INC.,NYSE,large,26888509961,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6798 division,false,,mid,5143637869,2018-02-01
 VICR,VICOR CORP,NASDAQ,mid,8261060886,2026-11-04,Manufacturing,SEC SIC 3679 division,false,,unknown,,2004-01-02
 VIK,Viking Holdings Ltd,NYSE,large,38339416564,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4400 division,false,,unknown,,2024-05-01
-VIPS,Vipshop Holdings Ltd,NYSE,mid,6200520000,2026-11-04,Retail Trade,SEC SIC 5961 division,false,,unknown,,2012-04-16
+VIPS,Vipshop Holdings Ltd,NYSE,mid,6200520000,2026-11-04,Retail Trade,SEC SIC 5961 division,false,,unknown,,2012-03-23
 VIR,"Vir Biotechnology, Inc.",NASDAQ,small,1898603049,2026-11-04,Manufacturing,SEC SIC 2836 division,false,,small,1781303571,2019-10-11
 VIRT,"Virtu Financial, Inc.",NYSE,mid,4700245090,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6211 division,false,,small,775508440,2015-04-16
 VIST,"Vista Energy, S.A.B. de C.V.",NYSE,mid,7513134080,2026-11-04,Mining,SEC SIC 1311 division,false,,unknown,,2019-07-26
@@ -2786,11 +2786,11 @@ VLDR,"Velodyne Lidar, Inc.",NASDAQ,small,300235152,2023-02-10,Manufacturing,SEC 
 VLP,VALERO ENERGY PARTNERS LP,NYSE,unknown,,2019-01-09,"Transportation, Communications & Utilities",SEC SIC 4610 division,true,2019-01-09,unknown,,2013-12-11
 VLTA,Volta Inc.,NYSE,small,150302490,2023-03-30,Manufacturing,SEC SIC 3790 division,true,2023-03-30,small,1499023563,2021-08-27
 VLTO,Veralto Corp,NYSE,large,28282256968,2026-11-04,Manufacturing,SEC SIC 3825 division,false,,large,21033696768,2023-10-02
-VMC,Vulcan Materials CO,NYSE,large,36526822501,2026-11-04,Mining,SEC SIC 1400 division,false,,unknown,,2007-03-13
+VMC,Vulcan Materials CO,NYSE,large,36526822501,2026-11-04,Mining,SEC SIC 1400 division,false,,unknown,,2004-01-02
 VMEO,"Vimeo, Inc.",NASDAQ,small,1313694391,2025-11-21,Services,SEC SIC 7370 division,true,2025-11-21,mid,7321951680,2021-05-25
 VNCE,VINCE HOLDING CORP.,NASDAQ,small,169705659,2026-11-04,Retail Trade,SEC SIC 5600 division,false,,small,1052652252,2013-11-22
 VNDA,Vanda Pharmaceuticals Inc.,NASDAQ,small,226761326,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2006-04-12
-VNET,"VNET Group, Inc.",NASDAQ,small,849995168,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2011-05-03
+VNET,"VNET Group, Inc.",NASDAQ,small,849995168,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2011-04-21
 VNOM__1602065,"VNOM Sub, Inc.",NASDAQ,mid,6287522647,2025-10-24,Mining,SEC SIC 1311 division,true,2025-10-24,mid,2578582527,2014-06-18
 VNOM__2074176,"Viper Energy, Inc.",NASDAQ,mid,8586871014,2026-11-04,Mining,SEC SIC 1311 division,false,,mid,7202992940,2025-10-27
 VNR,"Grizzly Energy, LLC",NASDAQ,small,26204842,2017-02-10,Mining,SEC SIC 1311 division,true,2017-02-10,unknown,,2007-10-24
@@ -2834,8 +2834,8 @@ W,Wayfair Inc.,NYSE,large,15247285552,2026-11-04,Retail Trade,SEC SIC 5961 divis
 WAC,DITECH HOLDING Corp,NYSE,small,22424131,2018-02-09,"Finance, Insurance & Real Estate",SEC SIC 6162 division,true,2018-02-09,unknown,,2009-04-20
 WATT,Energous Corp,NASDAQ,small,47311728,2026-11-04,Manufacturing,SEC SIC 3663 division,false,,small,100408802,2014-03-28
 WAY,Waystar Holding Corp.,NASDAQ,mid,5302802444,2026-11-04,Services,SEC SIC 7373 division,false,,mid,3581493279,2024-06-07
-WB,WEIBO Corp,NASDAQ,small,1547737204,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2014-04-23
-WBAI,SOLAI Ltd,NYSE,unknown,,2021-04-19,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2021-04-19,unknown,,2014-01-22
+WB,WEIBO Corp,NASDAQ,small,1547737204,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2014-04-22
+WBAI,SOLAI Ltd,NYSE,unknown,,2021-04-19,"Finance, Insurance & Real Estate",SEC SIC 6199 division,true,2021-04-19,unknown,,2013-12-10
 WBMD,WebMD Health Corp.,NASDAQ,mid,2524978077,2017-09-15,Services,SEC SIC 7389 division,true,2017-09-15,unknown,,2005-09-29
 WBT,"Welbilt, Inc.",NYSE,mid,3437755786,2022-07-28,Manufacturing,SEC SIC 3580 division,true,2022-07-28,small,1913530825,2016-03-04
 WBX,Wallbox N.V.,NYSE,small,63790450,2026-11-04,Manufacturing,SEC SIC 3690 division,false,,unknown,,2021-10-04
@@ -2861,7 +2861,7 @@ WINA,WINMARK CORP,NASDAQ,small,955857409,2026-11-04,Retail Trade,SEC SIC 5900 di
 WING,Wingstop Inc.,NASDAQ,mid,4370974699,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,small,875948871,2015-06-12
 WIRE,ENCORE WIRE CORP,NASDAQ,mid,4578655521,2024-07-01,Manufacturing,SEC SIC 3350 division,true,2024-07-01,unknown,,2004-01-02
 WIT,WIPRO LTD,NYSE,large,21270890315,2026-11-04,Services,SEC SIC 7371 division,false,,unknown,,2004-01-02
-WIX,Wix.com Ltd.,NASDAQ,mid,3126158472,2026-11-04,Services,SEC SIC 7370 division,false,,small,860094398,2013-12-02
+WIX,Wix.com Ltd.,NASDAQ,mid,3126158472,2026-11-04,Services,SEC SIC 7370 division,false,,small,611514369,2013-11-06
 WK,WORKIVA INC,NYSE,mid,4564455013,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2014-12-12
 WKC,WORLD KINECT CORP,NYSE,small,1943250044,2026-11-04,Wholesale Trade,SEC SIC 5172 division,false,,unknown,,2004-01-02
 WKHS,Workhorse Group Inc.,NASDAQ,small,34425043,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,small,1222602970,2016-01-07
@@ -2884,7 +2884,7 @@ WPP__105076,WAUSAU PAPER CORP.,NYSE,mid,2363329731,2016-01-20,Manufacturing,SEC 
 WPP__806968,WPP plc,NYSE,mid,5923261552,2026-11-04,Services,SEC SIC 7311 division,false,,unknown,,2004-01-02
 WPX,"WPX ENERGY, INC.",NYSE,mid,5290612717,2021-01-06,Mining,SEC SIC 1311 division,true,2021-01-06,mid,3605337081,2012-01-03
 WRBY,Warby Parker Inc.,NYSE,mid,2711960705,2026-11-04,Manufacturing,SEC SIC 3851 division,false,,mid,6167340308,2021-09-29
-WRD,WeRide Inc.,NASDAQ,small,1417800886,2026-11-04,Services,SEC SIC 7373 division,false,,unknown,,2024-10-30
+WRD,WeRide Inc.,NASDAQ,small,1417800886,2026-11-04,Services,SEC SIC 7373 division,false,,unknown,,2024-10-25
 WRK__1732845,WestRock Co,NYSE,large,13303649750,2024-07-05,Manufacturing,SEC SIC 2650 division,true,2024-07-05,large,17194247863,2018-02-26
 WRLD,WORLD ACCEPTANCE CORP,NASDAQ,small,772044018,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6141 division,false,,unknown,,2004-01-02
 WSC,WillScot Holdings Corp,NASDAQ,mid,3549530867,2026-11-04,Services,SEC SIC 7350 division,false,,unknown,,2015-11-05
@@ -2894,7 +2894,7 @@ WTI,W&T OFFSHORE INC,NYSE,small,548329376,2026-11-04,Mining,SEC SIC 1311 divisio
 WTRH,Waitr Holdings Inc.,NASDAQ,small,967394,2022-11-21,Services,SEC SIC 7389 division,true,2022-11-21,small,72750272,2016-08-18
 WTS,WATTS WATER TECHNOLOGIES INC,NYSE,large,12028914406,2026-11-04,Manufacturing,SEC SIC 3490 division,false,,unknown,,2004-01-02
 WUBA,58.com Inc.,NYSE,unknown,,2020-09-17,Services,SEC SIC 7370 division,true,2020-09-17,unknown,,2013-10-31
-WULF,TERAWULF INC.,NASDAQ,mid,6252077523,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2004-09-27
+WULF,TERAWULF INC.,NASDAQ,mid,6252077523,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2004-05-18
 WVE,"Wave Life Sciences, Inc.",NASDAQ,small,706079705,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,375607504,2015-11-11
 WW,"WW INTERNATIONAL, INC.",NASDAQ,small,29703714,2025-05-15,Services,SEC SIC 7200 division,true,2025-05-15,unknown,,2004-01-02
 WWE,"WORLD WRESTLING ENTERTAINMENT, LLC",,mid,6968181350,2023-09-22,Services,SEC SIC 7812 division,true,2023-09-22,unknown,,2004-01-02
@@ -2925,42 +2925,42 @@ XP,XP Inc.,NASDAQ,mid,7388369774,2026-11-04,"Finance, Insurance & Real Estate",S
 XPEL,"XPEL, Inc.",NASDAQ,small,1171481083,2026-11-04,Manufacturing,SEC SIC 3470 division,false,,small,165951708,2019-07-19
 XPER__1690666,Xperi Corp,NASDAQ,small,1265339790,2020-06-11,Manufacturing,SEC SIC 3674 division,true,2020-06-11,mid,2099557685,2016-12-12
 XPER__1803696,Adeia Inc.,NASDAQ,small,262880121,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4841 division,false,,small,1302940854,2020-06-12
-XPEV,XPENG INC.,NYSE,mid,9263634979,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2020-08-31
+XPEV,XPENG INC.,NYSE,mid,9263634979,2026-11-04,Manufacturing,SEC SIC 3711 division,false,,unknown,,2020-08-27
 XPRO,EXPRO GROUP HOLDINGS N.V.,NYSE,small,1498737648,2026-11-04,Mining,SEC SIC 1389 division,false,,mid,4757515676,2021-10-04
 XRX__1770450,Xerox Holdings Corp,NASDAQ,small,161886680,2026-11-04,Manufacturing,SEC SIC 3577 division,false,,mid,6239168344,2019-08-06
 XYZ,"Block, Inc.",NYSE,large,45660420000,2026-11-04,Services,SEC SIC 7372 division,false,,mid,4494681510,2015-11-19
-YALA,Yalla Group Ltd,NYSE,small,841132588,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2020-10-12
+YALA,Yalla Group Ltd,NYSE,small,841132588,2026-11-04,Services,SEC SIC 7370 division,false,,unknown,,2020-09-30
 YELP,YELP INC,NYSE,small,1076047604,2026-11-04,Services,SEC SIC 7200 division,false,,small,1560959512,2012-03-02
 YETI,"YETI Holdings, Inc.",NYSE,mid,3273547501,2026-11-04,Manufacturing,SEC SIC 3949 division,false,,small,1443005441,2018-10-25
 YEXT,"Yext, Inc.",NYSE,small,742340280,2026-11-04,Services,SEC SIC 7374 division,false,,small,1262874775,2017-04-13
-YJ,Yunji Inc.,NASDAQ,small,5935276,2026-11-04,Retail Trade,SEC SIC 5990 division,false,,unknown,,2019-05-06
+YJ,Yunji Inc.,NASDAQ,small,5935276,2026-11-04,Retail Trade,SEC SIC 5990 division,false,,unknown,,2019-05-03
 YMM,Full Truck Alliance Co. Ltd.,NYSE,mid,9026635662,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2021-06-22
-YOKU,YOUKU TUDOU INC.,NYSE,large,54885113603,2016-04-05,Manufacturing,SEC SIC 3663 division,true,2016-04-05,unknown,,2011-01-31
+YOKU,YOUKU TUDOU INC.,NYSE,large,54885113603,2016-04-05,Manufacturing,SEC SIC 3663 division,true,2016-04-05,unknown,,2010-12-08
 YOU,"Clear Secure, Inc.",NYSE,mid,4915031700,2026-11-04,Services,SEC SIC 7372 division,false,,unknown,,2021-06-30
 YPF,YPF SOCIEDAD ANONIMA,NYSE,large,17568883259,2026-11-04,Manufacturing,SEC SIC 2911 division,false,,unknown,,2004-01-02
-YRD,Yiren Digital Ltd.,NYSE,small,33053141,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2016-02-09
+YRD,Yiren Digital Ltd.,NYSE,small,33053141,2026-11-04,"Finance, Insurance & Real Estate",SEC SIC 6199 division,false,,unknown,,2016-02-04
 YUM,YUM BRANDS INC,NYSE,large,42848199356,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,unknown,,2004-01-02
 YUMC,"Yum China Holdings, Inc.",NYSE,large,16099181116,2026-11-04,Retail Trade,SEC SIC 5812 division,false,,large,10064172674,2016-11-01
-YY,JOYY Inc.,NASDAQ,mid,3883109053,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2013-02-11
+YY,JOYY Inc.,NASDAQ,mid,3883109053,2026-11-04,Services,SEC SIC 7374 division,false,,unknown,,2012-11-29
 YYAI,AIRWA INC.,NASDAQ,small,3707687,2026-11-04,Services,SEC SIC 7370 division,false,,small,93235293,2022-06-15
 ZAGG,ZAGG Inc,,small,50125383,2021-03-04,Retail Trade,SEC SIC 5900 division,true,2021-03-04,unknown,,2009-11-10
 ZBH,"ZIMMER BIOMET HOLDINGS, INC.",NYSE,large,18513000094,2026-11-04,Manufacturing,SEC SIC 3842 division,false,,large,18623249662,2015-06-29
 ZENA,"ZenaTech, Inc.",NASDAQ,small,149862623,2026-11-04,Services,SEC SIC 7372 division,false,,small,198009891,2024-10-01
 ZETA,Zeta Global Holdings Corp.,NYSE,mid,7773891347,2026-11-04,Services,SEC SIC 7372 division,false,,small,1192013010,2021-06-10
 ZFGN,"Larimar Therapeutics, Inc.",NASDAQ,small,37094900,2020-05-28,Manufacturing,SEC SIC 2834 division,true,2020-05-28,small,531159601,2014-06-19
-ZG,"ZILLOW GROUP, INC.",NASDAQ,mid,6966626075,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2014-08-13
+ZG,"ZILLOW GROUP, INC.",NASDAQ,mid,6966626075,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2012-11-08
 ZGNX,"ZOGENIX, INC.",NASDAQ,small,1500148126,2022-03-04,Manufacturing,SEC SIC 2834 division,true,2022-03-04,small,259435679,2010-11-23
-ZH,Zhihu Inc.,NYSE,small,212772026,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2021-04-19
+ZH,Zhihu Inc.,NYSE,small,212772026,2026-11-04,Services,SEC SIC 7389 division,false,,unknown,,2021-03-26
 ZIM,ZIM Integrated Shipping Services Ltd.,NYSE,mid,3531226214,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4412 division,false,,unknown,,2021-01-28
 ZIOP,"Alaunos Therapeutics, Inc.",NASDAQ,small,4725293,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2006-09-22
 ZIP,"ZIPRECRUITER, INC.",NYSE,small,345349885,2026-11-04,Services,SEC SIC 7370 division,false,,mid,2506806600,2021-05-26
-ZLAB,Zai Lab Ltd,NASDAQ,mid,2726226638,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2017-11-20
+ZLAB,Zai Lab Ltd,NASDAQ,mid,2726226638,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,unknown,,2017-09-20
 ZLTQ,Zeltiq Aesthetics Inc,NASDAQ,mid,2279347433,2017-04-27,Manufacturing,SEC SIC 3845 division,true,2017-04-27,small,536138583,2011-10-19
 ZM,"Zoom Communications, Inc.",NASDAQ,large,26797416018,2026-11-04,Services,SEC SIC 7370 division,false,,large,14485762832,2019-04-18
 ZNTL,"Zentalis Pharmaceuticals, Inc.",NASDAQ,small,168516007,2026-11-04,Manufacturing,SEC SIC 2834 division,false,,small,952134635,2020-04-03
 ZOES,"Zoe's Kitchen, Inc.",NYSE,small,250169459,2018-11-20,Retail Trade,SEC SIC 5812 division,true,2018-11-20,small,476904321,2014-04-11
 ZS,"Zscaler, Inc.",NASDAQ,large,36701981973,2026-11-04,Services,SEC SIC 7371 division,false,,mid,4096854201,2018-03-16
-ZTO,ZTO Express (Cayman) Inc.,NYSE,large,15114802183,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4210 division,false,,unknown,,2016-10-31
+ZTO,ZTO Express (Cayman) Inc.,NYSE,large,15114802183,2026-11-04,"Transportation, Communications & Utilities",SEC SIC 4210 division,false,,unknown,,2016-10-27
 ZU,"zulily, inc.",NASDAQ,mid,2151534760,2015-09-30,Retail Trade,SEC SIC 5961 division,true,2015-09-30,mid,4711918063,2013-11-15
 ZUMZ,Zumiez Inc,NASDAQ,small,219074460,2026-11-04,Retail Trade,SEC SIC 5600 division,false,,unknown,,2005-05-06
 ZUO,ZUORA INC,NYSE,small,1540242276,2025-02-13,Services,SEC SIC 7372 division,true,2025-02-13,unknown,,2018-04-12

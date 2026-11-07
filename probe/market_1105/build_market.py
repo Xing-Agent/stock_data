@@ -37,7 +37,7 @@ def main(plan_path, px_path, out_dir, only_n=None):
     # 拆股:2004 起全期对齐表(align_splits.py 产出,和 11-01 那张在 2015 年以后逐条一致),只用「确认」的
     AL = pl.read_csv(os.environ.get('SPLITS_CSV') or f'{ROOT}/probe/market_1105/polygon_splits_aligned_1105.csv', infer_schema_length=0).filter(pl.col('check').str.starts_with('确认'))
     # 同一天同一只有两条(Polygon 重复 / 修订版,共 6 处,都是小比例送股)→ 只留和价格跳得最吻合的那条
-    AL = AL.with_columns(pl.col('err').cast(pl.Float64)).sort('err').unique(['ticker', 'aligned_date'], keep='first')
+    AL = AL.with_columns(pl.col('err').cast(pl.Float64, strict=False).fill_null(0.0)).sort('err').unique(['ticker', 'aligned_date'], keep='first')
     split_on = {(t, d): float(r) for t, d, r in AL.select('ticker', 'aligned_date', 'ratio').iter_rows()}
     # 分红(美元现金)
     D = json.load(gzip.open(f'{ROOT}/probe/splits_1101/polygon_dividends_1101.json.gz'))
@@ -82,8 +82,9 @@ def main(plan_path, px_path, out_dir, only_n=None):
         # 只留最后一次断层之后的那段,前面那段列进「取不到的清单」(部分)
         cut_at = None
         for a_, b_ in zip(rows, rows[1:]):
-            if a_['source_ticker'] != b_['source_ticker'] and a_['close'] and b_['open'] and abs(b_['open'] / a_['close'] - 1) > 0.20:
-                cut_at = (b_['date'], a_['source_ticker'], b_['source_ticker'], b_['open'] / a_['close'] - 1, rows[0]['date'], a_['date'])
+            # 1107:按拆股折算后再比(GOOG→GOOGL 2014-04-03 那天正好 1 拆 2)
+            if a_['source_ticker'] != b_['source_ticker'] and a_['close'] and b_['open'] and abs(b_['open'] * (b_['split_coefficient'] or 1) / a_['close'] - 1) > 0.20:
+                cut_at = (b_['date'], a_['source_ticker'], b_['source_ticker'], b_['open'] * (b_['split_coefficient'] or 1) / a_['close'] - 1, rows[0]['date'], a_['date'])
         if cut_at:
             d0, t0, t1, jp, s0, e0 = cut_at
             rows = [x for x in rows if x['date'] >= d0]
