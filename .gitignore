@@ -42,3 +42,8 @@ probe/测仓位_1107/configs/_sz_*.yaml
 
 # ★ #72 影子面板 —— ★★ 只是为了量「修了会变多少」，不是现用面板（《107》）
 probe/池子缺票_1107/ohlcv_panel_影子_1107.parquet
+# ★ 选票层 1107 的流水 —— ★★ 流水不入库(《35》口径④);CTRL 对照流水单条 175MB
+probe/选票层_1107/ledgers_1107/
+probe/选票层_1107/per_chain_1107/
+probe/选票层_1107/ledgers_留出池_1107/
+probe/选票层_1107/per_chain_留出池_1107/
