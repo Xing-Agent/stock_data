@@ -32,6 +32,14 @@ LED = os.path.join(HERE, "ledgers_1107")
 END = "2025-12-31"
 
 
+def 资金年化(led):
+    """★★ 每投入 1 块钱、每在场一年,扣摩擦后赚多少(%)= Σ净盈亏 ÷ Σ(名义金额×持有交易日) × 252。
+       ★★★ 为什么要它:「每笔净R」会被**持有长短**带偏 —— 拿 600 天的一笔天然比拿 10 天的一笔赚得多。
+       ★ 和随机对照比,必须用这个(★ 随机挑的票离场规则相同,但持有长短可能差很多)。"""
+    cd = float(led["capital_days"].sum()) if len(led) else 0.0
+    return round(float(led["net_pnl"].sum()) / cd * 252 * 100, 3) if cd > 0 else None
+
+
 def 事实(led, 脏: dict) -> dict:
     import numpy as np, pandas as pd
     if not len(led):
@@ -58,6 +66,7 @@ def 事实(led, 脏: dict) -> dict:
     return {
         "笔数": int(len(led)), "不同股票数": int(led["symbol"].nunique()),
         "每笔净R(均值)": round(float(rn.mean()), 5), "每笔净R(中位)": round(float(rn.median()), 5),
+        "★资金年化pct(扣摩擦)": 资金年化(led),
         "每笔毛R(均值)": round(float(led["r_multiple"].astype(float).mean()), 5),
         "净盈亏美元": round(float(led["net_pnl"].sum()), 0),
         "摩擦美元": round(float(led["friction_cost"].sum()), 0),
@@ -109,18 +118,24 @@ def 跑一条(arm: dict) -> dict:
         rng = np.random.default_rng(sd)
         m.rank_score = rng.random(keep.shape)
         r2 = chain.run_chain(cfg, syms, data.PERF_START, data.PERF_END, m=m).ledger
-        rs.append({"种子": sd, "笔数": int(len(r2)),
+        rs.append({"种子": sd, "笔数": int(len(r2)), "资金年化pct": 资金年化(r2),
+                   "持有交易日(中位)": float(r2["holding_days"].median()) if len(r2) else None,
                    "每笔净R(均值)": (round(float(r2["r_multiple_net"].astype(float).mean()), 5)
                                  if len(r2) else None)})
     m.rank_score = keep
     v = [x["每笔净R(均值)"] for x in rs if x["每笔净R(均值)"] is not None]
+    va = [x["资金年化pct"] for x in rs if x["资金年化pct"] is not None]
     rec["★随机先买谁·10种子"] = {
         "逐个": rs,
         "每笔净R均值": round(float(np.mean(v)), 5) if v else None,
         "每笔净R标准差": round(float(np.std(v, ddof=1)), 5) if len(v) > 1 else None,
         "★★本臂减随机均值": (round(rec["事实"].get("每笔净R(均值)", np.nan) - float(np.mean(v)), 5)
                          if v and rec["事实"].get("笔数") else None),
-        "★读法": "差距小于一个标准差 → 「分不出」(规矩㊸);★ 本轮不下结论,只报这个数",
+        "★★资金年化pct·均值": round(float(np.mean(va)), 3) if va else None,
+        "★★资金年化pct·标准差": round(float(np.std(va, ddof=1)), 3) if len(va) > 1 else None,
+        "★★★本臂减随机(资金年化)": (round(rec["事实"].get("★资金年化pct(扣摩擦)") - float(np.mean(va)), 3)
+                               if va and rec["事实"].get("★资金年化pct(扣摩擦)") is not None else None),
+        "★读法": "★★ 主比较用资金年化(每笔净R 会被持有长短带偏);差距小于一个标准差 → 「分不出」(规矩㊸);★ 本轮不下结论,只报这个数",
     }
     return rec
 
@@ -148,6 +163,9 @@ def main(argv) -> int:
         k, n = (map(int, argv[argv.index("--part") + 1].split("/")) if "--part" in argv else (0, 1))
         for i, a in enumerate(R0.臂表()):
             if i % n != k:
+                continue
+            # ★ --skip 前缀:格雷厄姆那条峰值约 3.8GB,不能和别的臂同时跑 → 两工人时先跳过,最后单独跑
+            if "--skip" in argv and a["臂"].startswith(argv[argv.index("--skip") + 1]):
                 continue
             if os.path.exists(臂文件(a["臂"])):
                 continue

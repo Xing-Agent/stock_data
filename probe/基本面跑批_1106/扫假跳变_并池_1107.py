@@ -11,9 +11,10 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(ROOT, "probe", "假跳变_1107"))
 os.chdir(ROOT)
 扫 = importlib.import_module("扫假跳变_1107")
-PANEL = "probe/并池_1107/ohlcv_panel_newpool.parquet"
+PANEL = sys.argv[1] if len(sys.argv) > 1 else "probe/并池_1107/ohlcv_panel_newpool.parquet"
+OUTNAME = sys.argv[2] if len(sys.argv) > 2 else "假跳变_并池_1107.json"
 w = pd.read_parquet(PANEL)
-cl, vol = w["close"], w["volume"]
+cl, vol = w["close"].copy(), w["volume"].copy()
 del w
 窗 = 扫.窗
 前 = lambda x: x.shift(1).rolling(窗, min_periods=窗).median()                      # noqa: E731
@@ -26,6 +27,6 @@ for i, j in zip(*np.where(疑.to_numpy())):
     脏.setdefault(str(cl.columns[j]), []).append(str(cl.index[i].date()))
 out = {"★口径": f"复用 扫假跳变_1107 的判据(窗={窗}, 门槛={扫.跳变门槛}, 量反向={扫.量反向容差});面板 {PANEL}",
        "只数": len(脏), "疑似日数": sum(len(v) for v in 脏.values()), "脏日": 脏}
-io.open(os.path.join(HERE, "假跳变_并池_1107.json"), "w", encoding="utf-8").write(
+io.open(os.path.join(HERE, OUTNAME), "w", encoding="utf-8").write(
     json.dumps(out, ensure_ascii=False))
 print(out["★口径"], "只数", out["只数"], "疑似日数", out["疑似日数"])

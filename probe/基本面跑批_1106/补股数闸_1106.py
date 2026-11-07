@@ -25,7 +25,7 @@ import gzip, json, os
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 EXT = os.path.join(ROOT, "market_ext_1105")
 # ★★ 1107 并池补:考卷那批的行情在 exam_1042/(★ 和 烤并池_1107 扫同样两个目录)
-根们 = (os.path.join(ROOT, "market_ext_1105"), os.path.join(ROOT, "exam_1042"))
+根们 = tuple(os.path.join(ROOT, d) for d in ("market_ext_1105", "exam_1042", "exam_pre2016_1107", "market_extra_1107"))  # ★ 1107 晚:并池2004 的四个目录
 _装过 = False
 _目录 = None
 
@@ -74,7 +74,12 @@ def install() -> dict:
                 rows_all.append(_读行(p))
             except (OSError, ValueError):
                 rows_all.append([])
-        rows = max(rows_all, key=len)             # ★ 多主体取 bar 最多的那个(同烤新池)
+        # ★ 1107 晚:并池2004 是多段拼接(同一只票 2004~2015 一段、2016 起一段)→ 合并,重复日期保留后读到的
+        _m = {}
+        for rs in rows_all:
+            for r in rs:
+                _m[str(r.get("date"))[:10]] = r
+        rows = [_m[k] for k in sorted(_m)]
         out = []
         for r in rows:
             v = r.get("split_coefficient")
