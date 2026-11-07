@@ -25,9 +25,17 @@ os.chdir(ROOT)
 from engine import cache, data, pool_scope, matrices, chain, config_adapter, pat6_ops   # noqa: E402
 import rerun_core_1030 as RC                                                           # noqa: E402
 
-PANEL = "probe/并池_1107/ohlcv_panel_newpool.parquet"
-POOL = "probe/B路重测_1107/pool_并池3834_1107.csv"
-START = "2016-01-04"
+# ★ 窗口由环境变量 B窗 选:2004(默认,22 年面板,《96》2016 那条已作废)或 2016(第一版,留作对照)
+窗 = os.environ.get("B窗", "2004")
+if 窗 == "2016":
+    PANEL = "probe/并池_1107/ohlcv_panel_newpool.parquet"
+    POOL = "probe/B路重测_1107/pool_并池3834_1107.csv"
+    START = "2016-01-04"
+else:
+    PANEL = "probe/并池2004_1107/ohlcv_panel_newpool.parquet"
+    POOL = "probe/B路重测_1107/pool_并池2004_1107.csv"
+    START = "2004-01-02"
+END = "2025-12-31"
 SCOPE = "large_mid"
 巨头 = ["AAPL", "MSFT", "AMZN", "JPM", "BRK.B", "NVDA"]
 _env = {}
@@ -39,13 +47,17 @@ def 装池() -> dict:
         return _env
     pat6_ops.install()
     装环境覆盖层()
+    sys.path.insert(0, os.path.join(ROOT, "probe", "并池_1107"))
+    import 接新基准_1107 as BM                      # ★ 主路的覆盖层:SPY 等基准读到 2004 起
+    _env["★基准覆盖层"] = BM.install()
     wide = pd.read_parquet(PANEL)
     cache._PANEL = {f: wide[f] for f in wide.columns.levels[0]}
     del wide
     RC._IDX_CACHE["idx"] = pool_scope.PoolIndex(path=POOL)
     data.PERF_START = START
+    data.PERF_END = END
     syms = sorted(cache._PANEL["close"].columns)
-    _env.update({"面板只数": len(syms), "★可买名单只数": len(syms), "池表": POOL,
+    _env.update({"窗": 窗, "面板只数": len(syms), "★可买名单只数": len(syms), "池表": POOL,
                  "窗口": f"{data.PERF_START} ~ {data.PERF_END}", "口径": SCOPE,
                  "_syms": syms})
     return _env

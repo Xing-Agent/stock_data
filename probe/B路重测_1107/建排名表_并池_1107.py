@@ -10,20 +10,24 @@
   1–500 大 · 501–2000 中 · 2001+ 小。
 
 ★★★ 只有一处不同（③ 我们定的，代价写明）：
-  **2016 年**的基准日是 2016-01-04，而考卷那批数据正好从这一天才开始 → 往前没有 60 天可回看。
+  **面板第一年**(2016 版 = 2016;2004 版 = 2004)的基准日之前没有 60 天可回看。
+  2016 版:基准日是 2016-01-04，而考卷那批数据正好从这一天才开始 → 往前没有 60 天可回看。
   → 2016 年里**往前回看不够**的票，改用 **2016 年头 60 个交易日**的日均成交额来排。
   ★ 代价：这些票在 2016 年的「成交额排名」上提前看了约一个季度。
     排名只决定「能不能进大中盘这个池子」，不碰价格信号；巨头的成交额排名一个季度内不会变档，
     但小票可能会。所以在 fallback 列里逐行标了出来，不冒充原规则。
 """
 from __future__ import annotations
-import csv, io, json, os
+import csv, io, json, os, sys
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-PANEL = os.path.join(ROOT, "probe", "并池_1107", "ohlcv_panel_newpool.parquet")
-OUTCSV = os.path.join(HERE, "pool_并池3834_1107.csv")
+# ★ 用法:python3 建排名表_并池_1107.py [2016|2004]   (默认 2016 = 第一版;2004 = 22 年面板)
+窗 = (sys.argv[1] if len(sys.argv) > 1 else "2016")
+PANEL = os.path.join(ROOT, "probe", "并池_1107" if 窗 == "2016" else "并池2004_1107", "ohlcv_panel_newpool.parquet")
+OUTCSV = os.path.join(HERE, "pool_并池3834_1107.csv" if 窗 == "2016" else "pool_并池2004_1107.csv")
+首年 = 2016 if 窗 == "2016" else 2004
 LOOKBACK = 60
 
 
@@ -47,7 +51,7 @@ def main() -> int:
         else:
             adv = pd.Series(dtype=float); ok = pd.Series(dtype=bool)
         fb = set()
-        if year == 2016:
+        if year == 首年:
             fwd = ys[:LOOKBACK]
             adv_f = dv.loc[fwd].mean(skipna=True)
             ok_f = dv.loc[fwd].notna().sum() >= LOOKBACK // 2
@@ -75,11 +79,11 @@ def main() -> int:
     巨头 = {s: p[(p.symbol == s)].set_index("year")["rank"].to_dict() for s in big}
     rep = {"★口径": __doc__.strip(), "行数": len(rows), "逐年": 年,
            "★巨头逐年排名（自证）": 巨头,
-           "★巨头2016-2025每年都在大盘(≤500)": {s: all(v <= 500 for y, v in d.items() if y >= 2016) and len([y for y in d if y >= 2016]) == 10
+           "★巨头每年都在大盘(≤500)": {s: {"不在大盘的年份": [y for y, v in d.items() if v > 500], "有排名的年数": len(d)}
                                        for s, d in 巨头.items()}}
-    io.open(os.path.join(HERE, "建排名表_并池_报告_1107.json"), "w", encoding="utf-8").write(
+    io.open(os.path.join(HERE, f"建排名表_并池_报告_{窗}_1107.json"), "w", encoding="utf-8").write(
         json.dumps(rep, ensure_ascii=False, indent=1, default=str))
-    print(json.dumps({"行数": len(rows), "逐年": 年, "巨头在大盘": rep["★巨头2016-2025每年都在大盘(≤500)"]}, ensure_ascii=False))
+    print(json.dumps({"行数": len(rows), "逐年": 年, "巨头": rep["★巨头每年都在大盘(≤500)"]}, ensure_ascii=False))
     return 0
 
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""★ 《100》3.5 第 1 件:4 档环境在 2016-01-04~2025-12-31 的各档天数和占比 —— 先看有没有哪格样本太少。
+"""★ 《100》3.5 第 1 件:4 档环境在窗口内(默认 22 年 2004-01-02~2025-12-31;env B窗=2016 跑第一版) 的各档天数和占比 —— 先看有没有哪格样本太少。
 门槛相邻三点:均线 100/200/300 × 实际波动回看 10/20/40 × 中位数回看 126/252/504(全组合 27 个)。
 ★ 档位按「昨收」口径(即环境闸当天生效时看到的那一档)。"""
 import io, json, os, sys, itertools
@@ -7,8 +7,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np, pandas as pd
 import 台_1107 as T
 T.data.PERF_START = T.START
+sys.path.insert(0, os.path.join(T.ROOT, "probe", "并池_1107"))
+import 接新基准_1107 as BM; BM.install()      # ★ SPY 读到 2004 起
 s = T.data.load_benchmark("SPY")["close"].dropna()
-idx = s.index[(s.index >= T.START) & (s.index <= T.data.PERF_END)]
+idx = s.index[(s.index >= T.START) & (s.index <= T.END)]
 out = {"窗口": f"{idx[0].date()} ~ {idx[-1].date()}", "交易日": len(idx), "组合": {}}
 档序 = ["顺风", "震荡放大", "阴跌", "暴跌", "未定"]
 for ma, vl, ml in itertools.product((100, 200, 300), (10, 20, 40), (126, 252, 504)):
@@ -33,7 +35,7 @@ out["★相邻三点(其余两个旋钮固定在中心)"] = {g: {k: out["组合"
 最少 = min(((k, a, v["天数"][a]) for k, v in out["组合"].items() for a in 档序[:4]), key=lambda x: x[2])
 out["★27 个组合里最少的一格"] = {"组合": 最少[0], "档": 最少[1], "天数": 最少[2]}
 out["★暴跌档天数 · 27 组合范围"] = [min(v["天数"]["暴跌"] for v in out["组合"].values()), max(v["天数"]["暴跌"] for v in out["组合"].values())]
-io.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "档位占比_1107.json"), "w", encoding="utf-8").write(json.dumps(out, ensure_ascii=False, indent=1))
+io.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), f"档位占比_{'2016窗口' if T.窗 == '2016' else '22年'}_1107.json"), "w", encoding="utf-8").write(json.dumps(out, ensure_ascii=False, indent=1))
 for g, ks in 相邻.items():
     for k in ks:
         v = out["组合"][k]; print(k, v["天数"], v["段数"], v["平均段长(天)"])
