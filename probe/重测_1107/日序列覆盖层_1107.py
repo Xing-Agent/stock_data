@@ -33,7 +33,11 @@ import io, json, os
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUTDIR = os.path.join(HERE, "日序列_1107")
+# ★★★ 1107 夜（《114》）：输出目录可用 XING_DS_DIR 覆盖。
+#   ★ 为什么要这个：毛口径那一档要**原样重跑**同一批臂，而 `跑重测` 的续跑判据是
+#     「臂文件和日序列两个都在就跳过」→ ★★ 不换目录的话一条都跑不动。
+#   ★★★ 默认值一个字没改 —— 旧的调用方行为完全不变（规矩㊼：改了就要 grep 谁在用）。
+OUTDIR = os.path.join(HERE, os.environ.get("XING_DS_DIR", "日序列_1107"))
 _当前臂: str | None = None
 _本臂第几次调用 = 0
 _原run_chain = None
@@ -77,8 +81,17 @@ def install() -> dict:
             if _当前臂 is not None and _本臂第几次调用 == 1:
                 eq = getattr(res, "equity", None)
                 ex = getattr(res, "exposure", None)
+                # ★★★ 1107 夜（《114》）补第三列 **毛净值**（不扣摩擦）。
+                #   ★ 原来这一层只取 equity / exposure，把 `equity_gross` 扔了 ——
+                #     而 `engine/chain.py:136` 声明、`:813` 填了它，**引擎一直有**。
+                #   ★★★ 没有它，「ADV20 对随机排序的优势里有多少是成本档位给的」算不出来
+                #     （成本档位 `_liquidity_tiers()` 就是按 ADV20 分的 → 和排序变量同源）。
+                #   ★★ 加一列的代价接近零；★★★ 省掉的是「要重跑 66 条臂」。
+                eg = getattr(res, "equity_gross", None)
                 if eq is not None and len(eq):
                     df = pd.DataFrame({"净值": pd.Series(eq).astype(float)})
+                    if eg is not None and len(eg):
+                        df["毛净值"] = pd.Series(eg).reindex(df.index).astype(float)
                     if ex is not None and len(ex):
                         df["敞口"] = pd.Series(ex).reindex(df.index).astype(float)
                     df.index.name = "日期"

@@ -1,0 +1,41 @@
+{
+ "★这一份在核什么": "#70「环境闸偷看一天」—— ★ 它说入包时没有 shift",
+ "★基准自证": "2004-01-02 → 2026-11-04 · 5747 根",
+ "★代码事实": {
+  "engine/matrices.py:666 (regime_mask 的 return)": "return ok.shift(1, fill_value=False).fillna(False).astype(bool)",
+  "engine/matrices.py:1379 (入包)": "regime=regime_mask(...).to_numpy(dtype=bool)  ← ★ 这里确实没有 shift",
+  "engine/chain.py:759": "regime_next = bool(m.regime[i + 1])",
+  "★★★ 合起来": "shift 在函数里面 → m.regime[i+1] = 第 i 天收盘算的状态"
+ },
+ "逐档": {
+  "MA100": {
+   "天数": 2869,
+   "开闸天占比_regime": 0.7334,
+   "开闸天占比_raw": 0.7337,
+   "★★★ regime[k] == raw[k−1] 吗": true,
+   "★ regime[k] == raw[k] 吗（这个为真才是偷看）": false,
+   "★首个不等的位置": null,
+   "★判": "✅ 滞后一天，**不偷看**"
+  },
+  "MA200": {
+   "天数": 2869,
+   "开闸天占比_regime": 0.7466,
+   "开闸天占比_raw": 0.747,
+   "★★★ regime[k] == raw[k−1] 吗": true,
+   "★ regime[k] == raw[k] 吗（这个为真才是偷看）": false,
+   "★首个不等的位置": null,
+   "★判": "✅ 滞后一天，**不偷看**"
+  },
+  "MA300": {
+   "天数": 2869,
+   "开闸天占比_regime": 0.7504,
+   "开闸天占比_raw": 0.7508,
+   "★★★ regime[k] == raw[k−1] 吗": true,
+   "★ regime[k] == raw[k] 吗（这个为真才是偷看）": false,
+   "★首个不等的位置": null,
+   "★判": "✅ 滞后一天，**不偷看**"
+  }
+ },
+ "★★★结论": "✅ #70 是**误判**：`regime_mask` 自己的最后一行就 `shift(1)`，《104》只读了入包那一行（matrices.py:1379），没读函数的 return（:666）。★★★ chain.py:759 的 `[i+1]` 正好被这个 shift 抵消 → 「今天收盘（已知）决定明天开盘买不买」，**口径是对的**。",
+ "★★★ 这件要连着说的": "★ 《104》那组 A/B（B = 再往后挪一天）量出来的差很大（融-2 甚至变号）—— ★★ 那个差是**真的**，但它证明的是「结果对这一格很敏感」，★★★ 不是「A 错了」。★ 既然 A 已经是正确口径，B 就是**多滞后了一天**。"
+}

@@ -50,7 +50,10 @@ pat6_ops.install()
 
 SRC = os.path.join(ROOT, "engine", "configs")
 CFGDIR = os.path.join(HERE, "configs")
-ARMS = os.path.join(HERE, "arms_1107")
+# ★★★ 1107 夜（《114》）：臂目录可用 XING_ARMS_DIR 覆盖（★ 默认值不变）。
+#   ★ 毛口径那一档要原样重跑同一批臂拿 equity_gross，续跑判据会把它们全跳过 →
+#     ★★ 换一个臂目录 + 换一个日序列目录（XING_DS_DIR），两边互不干扰。
+ARMS = os.path.join(HERE, os.environ.get("XING_ARMS_DIR", "arms_1107"))
 OUT = os.path.join(HERE, f"重测结果_{os.environ.get('XING_WIN_NAME','B')}_1107.json")
 HOLD = "probe/新策略_1106/holdout_newpool_1106.json"
 
