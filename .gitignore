@@ -39,3 +39,6 @@ probe/测仓位_1107/ledgers_1107/
 probe/测仓位_1107/per_chain_1107/
 probe/测仓位_1107/_log_1107.txt
 probe/测仓位_1107/configs/_sz_*.yaml
+
+# ★ #72 影子面板 —— ★★ 只是为了量「修了会变多少」，不是现用面板（《107》）
+probe/池子缺票_1107/ohlcv_panel_影子_1107.parquet
