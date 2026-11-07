@@ -41,6 +41,7 @@ from engine import cache, data, pool_scope, pat6_ops            # noqa: E402
 import rerun_core_1030 as RC                                    # noqa: E402
 import 回看期覆盖层_1107 as OV                                   # noqa: E402
 import 接新基准_1107 as BM                                      # noqa: E402
+import 分红覆盖层_1107 as DV                                     # noqa: E402
 pat6_ops.install()
 
 SRC = os.path.join(ROOT, "engine", "configs")
@@ -159,10 +160,22 @@ def main() -> int:
     for 池名 in 池:
         自证 = 装池(池名)
         dev = 可买名单(池名); hs = set()        # ★★★ 一档：全量可买
+        # ★★★ #80：开关打开 ≠ 它起作用。分红必须覆盖整个池子，★ 覆盖不到直接抛。
+        自证分红 = DV.install(需覆盖=dev)
+        print(f"★★★ 分红覆盖层: {json.dumps(自证分红, ensure_ascii=False)}", flush=True)
+        报["分红自证"] = 自证分红
+        自证["★★★分红覆盖"] = 自证分红["★★★查得到文件的比例"]
+        自证["★★★基准侧SPY分红"] = 自证分红["★★★基准侧分红"]["SPY"]
         F.load_pools = lambda d=dev, h=hs: (d, h, hold)
         报["池自证"][池名] = 自证
         print(f"★ {json.dumps(自证, ensure_ascii=False)}", flush=True)
+        # ★★★ 一族一个进程：22 年 × 3,858 只整批跑会 OOM（exit 137，今天栽了三次）。
+        #   ★ 用 XING_FAM 指定只跑一族，★★ 跑完进程退出 → 内存彻底还给系统。
+        #   ★★★ 不设这个变量就跑全部（本地小池子调试用）。
+        只跑 = os.environ.get("XING_FAM") or ""
         for 族, fn in 代表.items():
+            if 只跑 and 族 != 只跑:
+                continue
             base = yaml.safe_load(io.open(os.path.join(SRC, fn), encoding="utf-8"))
             臂 = [("A原样", None)]
             臂 += [(f"R随机{sd}", {"primary": {"formula": "random", "order": "desc",
