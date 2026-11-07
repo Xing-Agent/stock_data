@@ -42,6 +42,9 @@ import rerun_core_1030 as RC                                    # noqa: E402
 import 回看期覆盖层_1107 as OV                                   # noqa: E402
 import 接新基准_1107 as BM                                      # noqa: E402
 import 分红覆盖层_1107 as DV                                     # noqa: E402
+sys.path.insert(0, HERE)
+import 日序列覆盖层_1107 as DS                                    # noqa: E402
+import 跳过基准一_1107 as SK                                      # noqa: E402
 pat6_ops.install()
 
 SRC = os.path.join(ROOT, "engine", "configs")
@@ -146,6 +149,18 @@ def main() -> int:
     for d in (CFGDIR, ARMS):
         os.makedirs(d, exist_ok=True)
     import run_friction_1104 as F                                # noqa: E402
+    # ★★★ 1107 夜补：存每日净值/敞口 —— ★ 没有它，本脚本**自己写死的主判据**
+    #   「条件 alpha 交互项回归」和规矩㊸v2 第①道「配对检验」都算不出来
+    #   （run_one 只存逐笔流水，res.equity / res.exposure 拿到就扔）。全文见 日序列覆盖层_1107.py。
+    自证日序列 = DS.install()
+    print(f"★★★ 日序列覆盖层: {json.dumps(自证日序列, ensure_ascii=False)}", flush=True)
+    assert 自证日序列["★真的换掉了"], "★★★ 日序列覆盖层没装上，停"
+    报_日序列 = 自证日序列
+    # ★★★ 1107 夜：跳过基准一（同环境随机进场）—— ★ 不跳这一批 11 天跑不完，
+    #   而本批臂文件一个字都不记它。实测的账和「为什么跳不动结论」见 跳过基准一_1107.py。
+    自证跳过 = SK.install()
+    print(f"★★★ 跳过基准一: {json.dumps(自证跳过, ensure_ascii=False)}", flush=True)
+    assert 自证跳过["★真的换掉了"] and 自证跳过["★bootstrap真的换掉了"], "★★★ 跳过桩没装上，停" 
     # ★★★ dev/hs 在每个池装好后再定（全量可买）
     F.CONFIG_DIR = CFGDIR
     F.PER_CHAIN = os.path.join(HERE, "per_chain_1107")
@@ -251,8 +266,12 @@ def main() -> int:
                 io.open(os.path.join(CFGDIR, tmp), "w", encoding="utf-8").write(
                     yaml.safe_dump(raw, allow_unicode=True, sort_keys=False))
                 p = 臂路径(label)
-                if os.path.exists(p):
+                # ★★★ 续跑判据：臂文件**和**日序列两个都在才算这条跑过了。
+                #   ★ 只看臂文件会把「旧批跑出来但没存日序列」的臂当成跑过 →
+                #     配对检验那一步再发现缺，就要整批重跑（1107 夜踩过的那件）。
+                if os.path.exists(p) and DS.已有(label):
                     报["结果"].append(json.load(io.open(p, encoding="utf-8"))); continue
+                DS.开始新臂(label)          # ★ 显式重置「本臂第几次调用」，不靠猜
                 print(f"▶ {label}", flush=True)
                 _当前臂["名"] = 名
                 _当前臂["label"] = label
@@ -272,6 +291,9 @@ def main() -> int:
                 io.open(OUT, "w", encoding="utf-8").write(
                     json.dumps({**报, "★进行中": True}, ensure_ascii=False, indent=1, default=str))
 
+    报["★日序列覆盖层自证"] = 报_日序列
+    报["★★★本批没算基准一"] = {**自证跳过, "★实际调用次数": SK.调用次数()}
+    报["★★★日序列已存"] = DS.已存清单()
     报["★★★失败条数"] = len(报["失败明细"])
     报["★用时秒"] = round(time.time() - t0, 1)
     io.open(OUT, "w", encoding="utf-8").write(

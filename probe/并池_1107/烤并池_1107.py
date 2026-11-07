@@ -138,7 +138,11 @@ def main() -> int:
     # ★ 自证：基准已换成 2004 版
     自证基准 = BM.install()
     print("★ 基准覆盖层:", json.dumps(自证基准, ensure_ascii=False), flush=True)
-    assert 自证基准["★★★SPY"]["起"] <= "2004-12-31", "★★★ SPY 还没拉到 2004，停"
+    # ★★★ 1107 夜 修：#75 把覆盖层的返回字段从 ★★★SPY 改成了 ★★★基准自证，
+    #   ★ 这一行没跟着改 → KeyError，烤盘脚本当场炸（规矩㊼ 末句：改返回字段名必须 grep 谁在用）。
+    #   ★★ 自证现在是一行字符串 "2004-01-02 → 2026-11-04 · 5747 根"，取开头那个日期。
+    _spy = 自证基准["★★★基准自证"]["SPY"]
+    assert _spy.startswith("2004-"), f"★★★ SPY 还没拉到 2004（{_spy}），停"
     B.考卷名单 = lambda: set()        # ★★★ 不排除考卷 —— 这就是「并池」
     B.OUT = OUT
     os.makedirs(OUT, exist_ok=True)

@@ -9,8 +9,16 @@
 #   1. B 段 2015~2025 四族
 #   2. A 段 2004~2014 四族   ← ★★ 两段齐了才能做滚动前推（A 段挑 / B 段验）
 set -u
-cd /home/claude/xing-agent-stock_data || exit 1
-LOG=/tmp/claude-0/-home-claude/e6b5eede-2545-5921-9bbc-5820cecf2c9c/scratchpad/串跑_1107.log
+# ★★★ 1107 夜 修（规矩㊻：靠我记得的就会失效 → 改结构）：
+#   ★ 原来这两行是**写死**的 —— `cd /home/claude/xing-agent-stock_data` 和一个上一个会话的
+#     scratchpad 路径。★★ 容器是一次性的，两个路径在新容器里**都不存在** →
+#     `cd` 失败直接 exit 1，整个串跑一步都不跑，而且日志写不出来、看不见为什么。
+#   ★★★ 改成：仓库根**从脚本自己的位置推**（probe/重测_1107/ 往上两级），
+#     日志路径可用 XING_LOG 覆盖，默认落在仓库外的本会话临时目录。
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+cd "$ROOT" || exit 1
+LOG="${XING_LOG:-${TMPDIR:-/tmp}/串跑_1107.log}"
+mkdir -p "$(dirname "$LOG")"
 
 say() { echo "[$(date '+%m-%d %H:%M:%S')] $*" | tee -a "$LOG"; }
 
