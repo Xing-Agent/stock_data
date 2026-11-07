@@ -31,6 +31,28 @@ def _覆盖(spec, symbols, cfg=None):
     """
     if isinstance(spec, dict):
         prim = (spec.get("primary") or {})
+        # ★★★ 随机排序（Gemini 第 50 轮点的决定性对照）——
+        #   ★ 用来看「买入触发本身有没有用」还是「全靠排序在撑」。
+        #   ★★ 每个 (日期 × 票) 格子一个固定随机数（按种子可复现），engine 零改动。
+        seed = prim.get("random_seed")
+        if seed is not None:
+            import numpy as _np
+            close = M.cache.field("close", symbols)
+            rng = _np.random.default_rng(int(seed))
+            s = pd.DataFrame(rng.random(close.shape), index=close.index,
+                             columns=close.columns)
+            # ★ 只在有价格的格子上给分数，缺价的留 NaN（和其他挑法一致）
+            return s.where(close.notna())
+        # ★★ 波动率倒数（Gemini 第 50 轮：学术上有依据 Frazzini & Pedersen 2014）
+        ivw = prim.get("inv_vol_window")
+        if ivw is not None:
+            n = int(ivw)
+            assert 5 <= n <= 500, f"★ inv_vol_window 不合理：{n}"
+            close = M.cache.field("close", symbols)
+            vol = close.pct_change().rolling(n, min_periods=n).std()
+            s = 1.0 / vol.replace(0.0, float("nan"))
+            order = str(prim.get("order", "desc")).lower()
+            return -s if order == "asc" else s
         mlb = prim.get("mom_lookback")
         if mlb is not None:
             n = int(mlb)
