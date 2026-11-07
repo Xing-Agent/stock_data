@@ -62,3 +62,6 @@ probe/自己赛道技融_1107/ledgers_raw/
 probe/自己赛道技融_1107/ledgers_clean/
 probe/自己赛道技融_1107/__pycache__/
 probe/自己赛道技融_1107/_脏格缓存.npz
+probe/自己赛道老池_1107/ledgers_clean/
+probe/自己赛道老池_1107/_脏格缓存老池.npz
+probe/自己赛道老池_1107/__pycache__/
