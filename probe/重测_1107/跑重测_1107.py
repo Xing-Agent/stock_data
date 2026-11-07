@@ -6,11 +6,20 @@
   ★★★ 如果老池跑 2015~2025、并池跑 2016~2025，那差异里混了「窗口变短」——
   ★ 分不清是「巨头进来」还是「少了一年」造成的。
 
-★★★ 跑前预先登记（写死，不许事后改）：
-  · 判据只看一件：**同一条臂，并池 vs 老池，每笔净 R 差多少**
-  · ★★★ 必须同时跑**随机排序对照**（规矩㊸）——
-    差距小于随机一个标准差的，★★ 一律写「**分不出**」，不许写「并池改善了成绩」
-  · 池子/窗口两个字段必须跟着每一个数走（《96》）
+★★★ 跑前预先登记（写死，不许事后改；★ 按规矩㊸ v2 改过）：
+  · **主判据 = 条件 alpha（交互项回归）**：策略日收益 ~ 指数日收益 + 环境×指数日收益，
+    ★ 看**交互项**的 Newey-West t，门槛 **|t| > 2.5**（Gemini 第 50 轮给的）。
+    ★★ 这一道只产生**一个 t 值** → 多重检验的问题消失，也不用挑「哪一段」。
+  · ★★★ **「A 比 B 好」一律先做配对检验**（同一天同一批信号逐日相减），
+    ★ 配对没做之前，一律写「**待配对检验**」—— 不许写「更好」，也不许写「分不出」。
+  · ★★ 随机对照（本批 10 个种子）回答的是**另一个**问题：「这个旋钮本身有没有用」；
+    ★★★ 比的时候用**随机单次的标准差**，不是均值的标准误（★ #73 我在这里用错过）。
+  · ★ 池子/窗口两个字段必须跟着每一个数走。
+  · ★★★ 预先写下两种结果各对应什么话（Lin 1107 17:26 的核心判断）：
+    · 趋势/突破类交互项 **t > 2.5 且为正**、震荡类**符号相反**
+      → ★★ 「**不同环境配不同策略**」这个判断**有实测支持**
+    · 两类交互项**都测不出** → ★★★ **不是环境不重要，是「我们这批实现」对环境不敏感**
+      → ★ 那时候该改的是**策略的实现**，不是继续修测法
   · engine 零改动（进程内覆盖层）；可续跑
 
 ★ 本批跑哪几条（★★ 照 B 路拍板的优先顺序）：
@@ -26,10 +35,12 @@ sys.path.insert(0, ROOT)
 for d in ("probe/friction_rerun_1104", "probe/v2_rerun_1030",
           "probe/选票层_1107", "probe/newpool_1106"):
     sys.path.insert(0, os.path.join(ROOT, d))
+sys.path.insert(0, os.path.join(ROOT, "probe", "并池_1107"))
 os.chdir(ROOT)
 from engine import cache, data, pool_scope, pat6_ops            # noqa: E402
 import rerun_core_1030 as RC                                    # noqa: E402
 import 回看期覆盖层_1107 as OV                                   # noqa: E402
+import 接新基准_1107 as BM                                      # noqa: E402
 pat6_ops.install()
 
 SRC = os.path.join(ROOT, "engine", "configs")
@@ -38,15 +49,13 @@ ARMS = os.path.join(HERE, "arms_1107")
 OUT = os.path.join(HERE, "重测结果_1107.json")
 HOLD = "probe/新策略_1106/holdout_newpool_1106.json"
 
-池 = {"老池2807": ("probe/newpool_1106/ohlcv_panel_newpool.parquet",
-                 "probe/newpool_1106/pool_NEWPOOL_ALL_1106.csv"),
-     "并池3834": ("probe/并池_1107/ohlcv_panel_newpool.parquet",
+池 = {"并池2004": ("probe/并池2004_1107/ohlcv_panel_newpool.parquet",
                  "probe/newpool_1106/pool_NEWPOOL_ALL_1106.csv")}
 代表 = {"大波段": "技-1.yaml", "突破": "技-6-原著.yaml",
-       "震荡": "技-14-原著.yaml", }
+       "震荡": "技-14-原著.yaml"}
 随机种子 = [424242, 20181001, 20220101, 777013, 31337,
          90210, 10007, 31415926, 27182818, 65537]      # ★ 10 个（时间换覆盖面）
-窗口起 = "2016-01-04"                                    # ★★★ 《96》定的
+窗口起 = "2004-01-02"      # ★★★ 1107 17:3x 数据组补完，窗口从 10 年变 22 年；《96》那条作废
 
 
 def 可买名单(名: str) -> list:
@@ -85,6 +94,10 @@ def 臂路径(label):
 def main() -> int:
     t0 = time.time()
     OV.install()
+    # ★★★ 基准也要换成 2004 版，否则日历还卡在 2014（engine 零改动）
+    自证基准 = BM.install()
+    print("★ 基准覆盖层:", json.dumps(自证基准, ensure_ascii=False), flush=True)
+    assert 自证基准["★★★SPY"]["起"] <= "2004-12-31", "★★★ SPY 没拉到 2004，停"
     hold = json.load(io.open(HOLD, encoding="utf-8"))
     for d in (CFGDIR, ARMS):
         os.makedirs(d, exist_ok=True)
@@ -110,7 +123,8 @@ def main() -> int:
             臂 = [("A原样", None)]
             臂 += [(f"R随机{sd}", {"primary": {"formula": "random", "order": "desc",
                                            "random_seed": sd},
-                                "source": "★★★ 规矩㊸ 噪声对照"}) for sd in 随机种子]
+                                "source": "★★★ 规矩㊸v2 随机对照（回答「这旋钮本身有没有用」）"})
+                  for sd in 随机种子]
             for 名, rk in 臂:
                 raw = copy.deepcopy(base)
                 if rk is not None:
