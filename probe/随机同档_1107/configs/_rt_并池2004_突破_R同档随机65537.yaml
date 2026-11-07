@@ -1,0 +1,70 @@
+meta:
+  name: 技-6_原著版_3日规则
+  master: Nicolas Darvas
+  book: How I Made $2,000,000 in the Stock Market (1960) Ch.4
+  三版归属: 原著版
+  caveat: 原著是 1950 年代的美股、靠电报下单、只做少数几只票。本次跑的是 300 只美股的全池扫描,★ 原著证据不能搬过来。
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(三版可比性要求;★ 不是原著无此条)
+entry:
+  rules:
+  - type: pat6_darvas_breakout
+    params:
+      confirm_days: 3
+      max_amplitude: null
+      min_box_bars: 0
+    source: "原著(连续 3 天 —— 唯一写死的数)【待核实】。 ★ max_amplitude / min_box_bars 显式写 null /\
+      \ 0:\n  **原著没有振幅上限、没有存活天数下限**,★ 这里不是忘了填。"
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节(原著用止损单盘中成交;引擎只能收盘确认、次日开盘)
+initial_stop:
+  type: lowest_low
+  params:
+    lookback: 20
+  source: 执行细节(原著「止损挂在箱底下面一点」;引擎的止损价是进场时一次定死的, 取前 20 日最低价当箱底近似。★ 这是近似,不是原著的数)
+trailing_stop:
+  type: none
+  source: 执行细节(三版统一)
+exit:
+  rules:
+  - type: pat6_close_below_darvas_bottom
+    params:
+      confirm_days: 3
+    source: 原著(跌破箱底就走;箱底由 3 日规则认定)【待核实】
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 原著(达瓦斯不设固定止盈,靠一个箱体接一个箱体往上抬)
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.1
+  source: 行业惯例(三版统一口径,★ 不是哪一版原著给的数)
+slots: 10
+source_slots: 行业惯例(三版统一,为了让三版之间只差形态参数)
+ranking:
+  primary:
+    formula: random
+    order: desc
+    random_seed: 65537
+    random_cost_tier: 0
+  source: '★★★ 规矩㊸v2 随机对照 · **同成本档位内抽**（★ 修掉 #86 那层白送）'
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+benchmark:
+  family: trend
+  component_match: large
+  risk_free_annual: null

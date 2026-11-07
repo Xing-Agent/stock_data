@@ -65,6 +65,8 @@ import rerun_core_1030 as RC                                    # noqa: E402
 import 回看期覆盖层_1107 as OV                                   # noqa: E402
 import 接新基准_1107 as BM                                      # noqa: E402
 import 分红覆盖层_1107 as DV                                     # noqa: E402
+# ★★★ 本档的三个共用覆盖层仍住在 probe/重测_1107/（★ 不复制，直接 import 原件）
+sys.path.insert(0, os.path.join(ROOT, "probe", "重测_1107"))
 sys.path.insert(0, HERE)
 import 日序列覆盖层_1107 as DS                                    # noqa: E402
 import 跳过基准一_1107 as SK                                      # noqa: E402
@@ -342,6 +344,8 @@ def main() -> int:
                     json.dumps({**报, "★进行中": True}, ensure_ascii=False, indent=1, default=str))
 
     报["★日序列覆盖层自证"] = 报_日序列
+    # ★★★ 自证①（格子级）：打分格子里 tier==0 的比例必须 = 1.0（《118》3.5①）
+    报["★★★随机同档自证"] = TQ.自证()
     报["★★★本批没算基准一"] = {**自证跳过, "★实际调用次数": SK.调用次数()}
     报["★★★日序列已存"] = DS.已存清单()
     报["★★★失败条数"] = len(报["失败明细"])

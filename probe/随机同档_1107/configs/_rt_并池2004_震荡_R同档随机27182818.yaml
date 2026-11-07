@@ -1,0 +1,75 @@
+meta:
+  name: 技-14_原著版_MethodIII近似
+  master: John Bollinger
+  book: Bollinger on Bollinger Bands (2001) Ch.12
+  三版归属: 原著版
+  原著性质: ★★ 原著**反对**「碰轨就买」。本版跑的是作者自己认可的 Method III(Reversals)的近似。
+universe:
+  rules: []
+  source: 执行细节(全池照跑,★ 不加任何我们发明的闸门)
+regime:
+  rules: []
+  flatten_when_off: false
+  source: 执行细节(三版可比性要求;★ 不是原著无此条)
+entry:
+  rules:
+  - type: pat6_w_bottom_divergence
+    params:
+      fractal_half_width: 2
+      min_gap_bars: 5
+      max_gap_bars: 60
+      period: 20
+      k: 2.0
+      mfi_period: 14
+    source: 原著 Method III 的结构要求(W 底 + 一个无相关性指标底背离、 MFI 是作者自己点名的指标)= 原著【待核实】; ★ 分型半宽
+      2、上一个波谷回看 5~60 根 = **我们的读法** (原著靠人眼认 W 底,没给回看窗口)。
+  signal_freeze: close
+  fill: next_open
+  source: 执行细节
+initial_stop:
+  type: day_low_minus_atr
+  params:
+    atr_period: 14
+    atr_multiple: 0.3
+  source: 行业惯例(止损挂下刺波谷最低价下方 0.3×ATR14 —— 专家给的行业版写法)
+trailing_stop:
+  type: none
+  source: 执行细节(三版统一)
+exit:
+  rules:
+  - type: pat6_close_above_bb_mid
+    params:
+      period: 20
+      k: 2.0
+    source: 行业惯例(触中轨离场)。★ 原文是「触中轨平 50%、触上轨清仓」, 引擎不支持分批 → 本次按触中轨**全平**跑,★ 这是保守端。
+  params:
+    profit_target_r: null
+    time_stop_days: null
+  fill: next_open
+  source: 行业惯例
+sizing:
+  type: risk_fraction
+  params:
+    risk_per_trade: 0.01
+    max_positions: 10
+    max_weight: 0.1
+  source: 行业惯例(三版统一口径,★ 不是哪一版原著给的数)
+slots: 10
+source_slots: 行业惯例(三版统一,为了让三版之间只差形态参数)
+ranking:
+  primary:
+    formula: random
+    order: desc
+    random_seed: 27182818
+    random_cost_tier: 0
+  source: '★★★ 规矩㊸v2 随机对照 · **同成本档位内抽**（★ 修掉 #86 那层白送）'
+costs:
+  friction_tiers:
+    high_liquidity_bps: 5.0
+    mid_liquidity_bps: 15.0
+    low_liquidity_bps: 30.0
+  source: 行业惯例(SEC Rule 206(4)-1(d);GIPS 2020 Section 2.A)
+benchmark:
+  family: meanrev
+  component_match: large
+  risk_free_annual: null
