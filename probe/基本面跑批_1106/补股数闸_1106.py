@@ -24,6 +24,8 @@ import gzip, json, os
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 EXT = os.path.join(ROOT, "market_ext_1105")
+# ★★ 1107 并池补:考卷那批的行情在 exam_1042/(★ 和 烤并池_1107 扫同样两个目录)
+根们 = (os.path.join(ROOT, "market_ext_1105"), os.path.join(ROOT, "exam_1042"))
 _装过 = False
 _目录 = None
 
@@ -33,8 +35,8 @@ def _目录表() -> dict:
     global _目录
     if _目录 is None:
         m = {}
-        for d in sorted(os.listdir(EXT)):
-            full = os.path.join(EXT, d)
+        for 根, d in ((r, d) for r in 根们 if os.path.isdir(r) for d in sorted(os.listdir(r))):
+            full = os.path.join(根, d)
             if not os.path.isdir(full):
                 continue
             for fn in ("daily.json.gz", "daily.json"):

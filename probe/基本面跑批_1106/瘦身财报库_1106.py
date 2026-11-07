@@ -37,6 +37,34 @@ def _slim_one(sym: str) -> dict | None:
             for m, rs in fv.items()}
 
 
+def _slim_multi(sym: str) -> dict | None:
+    """★★ 1107 并池补:财报库里只有 SYM__CIK 多主体目录、没有 SYM 本名的票(并池里 44 只)。
+       ★ 读法(③我们的,写明):各主体按「最早一期 period_end」排序,
+       ★★ 每个主体只取到「下一个主体最早一期」之前 —— 按时间接力,不让两家公司的同一期混在一起。"""
+    ds = sorted(d for d in os.listdir(EXT) if d.split("__")[0] == sym and "__" in d)
+    parts = []
+    for d in ds:
+        p = os.path.join(EXT, d, "fundamentals.json.gz")
+        if not os.path.exists(p):
+            continue
+        with gzip.open(p, "rt", encoding="utf-8") as fh:
+            fv = json.load(fh).get("financial_versions") or {}
+        pes = [r.get("period_end") for rs in fv.values() for r in (rs or []) if r.get("period_end")]
+        if pes:
+            parts.append((min(pes), fv))
+    if not parts:
+        return None
+    parts.sort(key=lambda x: x[0])
+    out: dict = {}
+    for k, (start, fv) in enumerate(parts):
+        stop = parts[k + 1][0] if k + 1 < len(parts) else "9999-12-31"
+        for m, rs in fv.items():
+            out.setdefault(m, []).extend(
+                tuple(r.get(x) for x in KEEP) for r in (rs or [])
+                if (r.get("period_end") or "") < stop)
+    return out
+
+
 def 建(symbols: list[str]) -> dict:
     os.makedirs(SLIM, exist_ok=True)
     t0, n, miss = time.time(), 0, []
@@ -45,6 +73,8 @@ def 建(symbols: list[str]) -> dict:
         if os.path.exists(out):
             n += 1; continue
         r = _slim_one(s)
+        if r is None:
+            r = _slim_multi(s)
         if r is None:
             miss.append(s); continue
         with open(out, "wb") as fh:
@@ -113,8 +143,12 @@ def 自检(syms: list[str]) -> dict:
 
 if __name__ == "__main__":
     sys.path.insert(0, ROOT); os.chdir(ROOT)
-    h = json.load(open("probe/新策略_1106/holdout_newpool_1106.json", encoding="utf-8"))
-    dev = h["研发池名单"]
+    if "--并池" in sys.argv:
+        import pandas as pd
+        dev = list(pd.read_parquet("probe/并池_1107/panel_meta_newpool.parquet").index)
+    else:
+        h = json.load(open("probe/新策略_1106/holdout_newpool_1106.json", encoding="utf-8"))
+        dev = h["研发池名单"]
     print(json.dumps(建(dev), ensure_ascii=False))
     import hashlib
     samp = sorted(dev, key=lambda s: hashlib.sha256(s.encode()).hexdigest())[:20]
