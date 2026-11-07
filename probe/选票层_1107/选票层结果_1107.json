@@ -1,0 +1,50 @@
+{
+ "★这一轮做什么": "★★★ 选票层 —— ★ 「30 只票符合条件、只有 5 个仓位 → 买哪 5 只」换三个挑法。\n\n★★ 来历：Lin 1107 13:05~13:10。他的原话：\n  「一个是在什么环境做什么样的策略，然后这个环境中我挑什么样的票，\n    这也是很重要的一关。那这两个结合起来，你的止盈止损、进出，\n    在这一层再做好了，那基本上就 OK 了。」\n  「你的各方面测试，这个策略拿出来就是没有在上面添加任何主观判断，\n    直接去调用这个策略，那不一定会比指数收益好。因为这里面假设点就是**平均逻辑** ——\n    你做突破，所有符合条件你都做突破。但实际中肯定会挑的。」\n\n★★★ 他说的那一层在引擎里叫 `ranking`。★ 今天查出来：\n  **全部 45 条链都设成同一个值 `ADV20 降序`（成交额最大的先买）**，\n  配置里我们自己写的理由：「槽位满时必须有个决胜规则，**选了最不含观点的那个**」，\n  引擎注释里我们自己写的：「**结论对它敏感** —— 已列为待拍板项」。\n  ★★★ **而从没测过别的。**\n\n★ 三个挑法（★★ 都用现成实现，engine 零改动；★★★ 三个都不看未来）：\n  ① ADV20 降序                      —— 现状，当**对照**\n  ② (Close_t/Close_{t−60}−1)/ATR%20 —— **波动调整后的 60 日动量**\n  ③ rs_rank（126 日相对强度排名）     —— 配置填字符串即走这一支\n\n★★★ 预先登记（跑前写死，不许事后改）：\n  · 判据 = 对**自己赛道买入持有**（《93》主基准）的超额 + Newey-West t\n  · ★★ 三个挑法里只要有一个明显好，必须同时报「三个挑法是否同向」\n  · ★★★ 若②③都不如①，结论是「**选票层换法没用**」—— 照报，不许再换第四个挑法去凑\n  · ★ 本轮只跑**不挂闸**版（和现有不挂闸流水可比），挂闸版等比法定下来再跑",
+ "★覆盖层自证": {
+  "面板只数": 2807,
+  "池表行数": 20651,
+  "PERF_START": "2015-01-01",
+  "PERF_END": "2025-12-31"
+ },
+ "★★★失败条数": 9,
+ "失败明细": [
+  {
+   "臂": "震荡·技-14-原著·①成交额最大先买_对照",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "震荡·技-14-原著·②波动调整动量",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "震荡·技-14-原著·③相对强度126日",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "突破·技-6-原著·①成交额最大先买_对照",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "突破·技-6-原著·②波动调整动量",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "突破·技-6-原著·③相对强度126日",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "大波段·技-1·①成交额最大先买_对照",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "大波段·技-1·②波动调整动量",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  },
+  {
+   "臂": "大波段·技-1·③相对强度126日",
+   "错": "TypeError(\"run_one() missing 5 required positional arguments: 'ov', 'group', 'dev', 'hold', and 'old'\")"
+  }
+ ],
+ "结果": [],
+ "★用时秒": 1.8
+}
