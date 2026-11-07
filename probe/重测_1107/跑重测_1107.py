@@ -154,6 +154,51 @@ def main() -> int:
     for d in (F.PER_CHAIN, F.LEDGERS):
         os.makedirs(d, exist_ok=True)
 
+    # ★★★ 提速（1107 23:0x 实测定位）—— ★ 不改任何进结论的数字。
+    #   ★★ `run_one` 每条臂内部还要跑 **N_SEEDS = 50** 次「随机进场基准」→ 一条臂 = 51 次回测。
+    #   ★★★ 但对 **R随机** 那 10 条臂来说，这个基准是「随机挑股 vs 随机进场」——
+    #     ★ 它不进任何结论句，纯属白烧 50 倍算力。
+    #   → ★★ 只对随机对照臂跳过；★★★ A原样 那条**照跑**（它的「基准一_同环境随机进场」要用）。
+    #   ★ 跳过走的是 run_one 本来就有的 `BenchmarkPremiseBroken` 分支，不是新加的口子。
+    # ★★★★★ 逐日净值必须落盘（1107 23:1x 补）—— ★ 不补的话这批**跑完也配不了对**。
+    #   ★★ 《102》第四节的主做法是「两条臂的**每日组合收益序列**逐日相减」，
+    #     ★ 可流水里只有**逐笔**（entry/exit/net_pnl），没有逐日净值。
+    #   ★★★ 引擎其实一直有 —— `ChainResult.equity / equity_gross / exposure` 都是日频序列，
+    #     ★ 只是 run_one 只存了 ledger，**没人存它**。
+    #   → ★★ 这里把真链那一次的日净值存下来；★★★ engine 零改动（只换 run_one 用的函数指针）。
+    #   ★ 只存**真链第一次调用**：后面 50 次是随机进场基准，不是这条臂。
+    曲线目录 = os.path.join(HERE, "日净值_1107")
+    os.makedirs(曲线目录, exist_ok=True)
+    _原跑链 = F._ORIG_RUN_CHAIN
+
+    def _跑链(*a, **kw):
+        r = _原跑链(*a, **kw)
+        if _当前臂.get("label") and not _当前臂.get("已存"):
+            _当前臂["已存"] = True
+            try:
+                df = pd.DataFrame({"equity": r.equity,
+                                   "equity_gross": r.equity_gross,
+                                   "exposure": r.exposure})
+                df.index.name = "date"
+                df.to_csv(os.path.join(曲线目录,
+                                       f"{F.safe_name(_当前臂['label'])}.csv"))
+            except Exception as e:                       # ★ 存不下来要喊出来，不许静默
+                print(f"⚠⚠ 日净值没存下来 {_当前臂['label']} —— "
+                      f"{type(e).__name__}: {e}", flush=True)
+        return r
+    F._ORIG_RUN_CHAIN = _跑链
+
+    _当前臂 = {"名": ""}
+    _原随机进场 = F.analyze.random_entry_benchmark
+
+    def _随机进场(*a, **k):
+        if _当前臂["名"].startswith(("R随机", "B挂开关")):
+            raise F.analyze.BenchmarkPremiseBroken(
+                "★ 本批主动跳过：随机对照臂的内部随机进场基准不进任何结论；"
+                "★★ 跳过只省时间，**不改这条臂的每笔R / 笔数 / 美元数**。")
+        return _原随机进场(*a, **k)
+    F.analyze.random_entry_benchmark = _随机进场
+
     报 = {"★预先登记": __doc__.strip()[:1500], "★★★窗口": f"{窗口起} ~ {窗口止}",
          "★★★口径": "**全收益**（两边都算分红；★ 旧结果全是价格口径，差 1.91pp/年）",
          "池自证": {}, "结果": [], "失败明细": []}
@@ -177,15 +222,30 @@ def main() -> int:
             if 只跑 and 族 != 只跑:
                 continue
             base = yaml.safe_load(io.open(os.path.join(SRC, fn), encoding="utf-8"))
+            # ★ 臂 = (名字, 要往配置里打的补丁)。★★ 补丁是**顶层键**，None 表示原样。
             臂 = [("A原样", None)]
-            臂 += [(f"R随机{sd}", {"primary": {"formula": "random", "order": "desc",
-                                           "random_seed": sd},
-                                "source": "★★★ 规矩㊸v2 随机对照（回答「这旋钮本身有没有用」）"})
-                  for sd in 随机种子]
-            for 名, rk in 臂:
+            臂 += [(f"R随机{sd}",
+                    {"ranking": {"primary": {"formula": "random", "order": "desc",
+                                             "random_seed": sd},
+                                 "source": "★★★ 规矩㊸v2 随机对照"
+                                           "（回答「这旋钮本身有没有用」）"}})
+                   for sd in 随机种子]
+            # ★★★★★ 《102》第四档：挂环境开关。★ 这是 Lin 1107 一整天在讲的那条判断。
+            #   ★★ 参数**跑前写死**：SPY / flatten_when_off: false（《102》3.1）。
+            #   ★★★ 红线②：200 日虽有出处（Brock/Lakonishok/LeBaron 1992），
+            #     仍要跑相邻三点 100/200/300，★ 报三点是否同向。
+            #   ★★ 1106 的坑：params 写在 rule 顶层会**静默退回默认 200** ——
+            #     ★★★ 所以必须写在 `params:` 里，并在出数时**逐字节比流水哈希**确认三条真的不同。
+            臂 += [(f"B挂开关MA{ma}",
+                    {"regime": {"rules": [{"type": "index_above_ma",
+                                           "params": {"symbol": "SPY", "ma": ma}}],
+                                "flatten_when_off": False}})
+                   for ma in (100, 200, 300)]
+            for 名, 补丁 in 臂:
                 raw = copy.deepcopy(base)
-                if rk is not None:
-                    raw["ranking"] = copy.deepcopy(rk)
+                if 补丁 is not None:
+                    for k, v in 补丁.items():
+                        raw[k] = copy.deepcopy(v)
                 label = f"{窗口名}·{池名}·{族}·{fn[:-5]}·{名}"
                 tmp = f"_rt_{池名}_{族}_{名}.yaml"
                 io.open(os.path.join(CFGDIR, tmp), "w", encoding="utf-8").write(
@@ -194,6 +254,9 @@ def main() -> int:
                 if os.path.exists(p):
                     报["结果"].append(json.load(io.open(p, encoding="utf-8"))); continue
                 print(f"▶ {label}", flush=True)
+                _当前臂["名"] = 名
+                _当前臂["label"] = label
+                _当前臂["已存"] = False
                 try:
                     r = F.run_one(label, tmp, None, "重测_1107", dev, hs, {})
                 except Exception as e:

@@ -36,6 +36,15 @@ _基准目录 = ("market_macro_1105", "market_extra_1107", "market_ext_1105",
 
 _原dividends = None
 _路径表: dict[str, list[str]] = {}
+_缓存: dict[str, pd.Series] = {}        # ★★★ 进程内缓存（见下方说明）
+_缓存命中 = [0, 0]                      # ★ [命中, 落盘读]
+
+# ★★★ 为什么必须缓存（1107 22:5x 实测）：
+#   ★ `chain.py:493` 每跑一条臂就把 3858 只的分红**全扫一遍**建 div_mat，
+#     ★★ 而 `_分红()` 每次调用都重新 gunzip + json.loads 整个日线文件
+#     → ★★★ profile 实测 install() 一次就 34 秒，其中 json.raw_decode 占 21 秒。
+#   ★ 一条臂多花 ~40 秒、11 条臂多花 ~8 分钟，纯属白烧。
+# ★★ 缓存只省重复解码，**不改任何数字** —— 同一只票返回的 Series 完全一致。
 
 
 def _扫(dirs) -> dict[str, list[str]]:
@@ -67,7 +76,21 @@ def _读行(f: str) -> list:
 
 
 def _分红(票: str) -> pd.Series:
-    """★★ 读出某只票的每股分红序列，★★★ 并按拆股系数折算到和价格同口径。"""
+    """★★ 读出某只票的每股分红序列，★★★ 并按拆股系数折算到和价格同口径。
+
+    ★ 带进程内缓存：★★ 同一只票只解码一次（★★★ 返回的内容和没缓存时逐字节相同）。
+    """
+    s = _缓存.get(票)
+    if s is not None:
+        _缓存命中[0] += 1
+        return s
+    _缓存命中[1] += 1
+    s = _算分红(票)
+    _缓存[票] = s
+    return s
+
+
+def _算分红(票: str) -> pd.Series:
     recs: dict[pd.Timestamp, float] = {}
     rows_all: list = []
     for f in _路径表.get(票, []):
@@ -105,6 +128,8 @@ def install(需覆盖: list[str] | None = None, 最低覆盖率: float = 0.90) -
         _原dividends = data.dividends
     _路径表 = _扫(_股票目录)
     _路径表.update(_扫(_基准目录))                     # ★ 基准也要能取到分红
+    _缓存.clear()                                      # ★★ 路径表换了，缓存必须跟着清（否则读旧交付）
+    _缓存命中[0] = _缓存命中[1] = 0
 
     def dividends(票: str) -> pd.Series:
         s = _分红(票)
@@ -132,6 +157,20 @@ def install(需覆盖: list[str] | None = None, 最低覆盖率: float = 0.90) -
            "★★★基准侧分红": 基准自证,
            "★★★engine改动": "零（进程内替换函数指针）",
            "★没命中怎么办": "原样退回原函数，不悄悄返回空"}
+
+    # ---- ★★★ 缓存自证：证明「缓存没改数字」，★ 不是「我加了缓存」（#80 的教训）
+    抽样 = [t for t in sorted(_路径表)[:40]] + [b for b in ("SPY", "QQQ", "IWD")
+                                               if b in _路径表]
+    不一致 = []
+    for t in 抽样:
+        甲 = _分红(t)                                  # ★ 走缓存
+        乙 = _算分红(t)                                # ★★ 绕过缓存重算
+        if not (len(甲) == len(乙) and 甲.equals(乙)):
+            不一致.append(t)
+    自证["★★★缓存逐只对账"] = (f"抽 {len(抽样)} 只，缓存与重算"
+                           + ("**完全一致**" if not 不一致 else f"★★★不一致 {不一致}"))
+    if 不一致:
+        raise AssertionError(f"★★★ 缓存改变了数字：{不一致} —— 停跑")
 
     if 需覆盖:
         有 = [t for t in 需覆盖 if len(dividends(t))]
