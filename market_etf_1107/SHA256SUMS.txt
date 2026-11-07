@@ -1,0 +1,4 @@
+30543394ee0c2dc7ca7880cc0877afa1d6d63ca08effe384348361d4ad8d6ba5  IVE/daily.json.gz
+4cb7d28f1fb3d752e3c9858ef6cc258e8632702bcf9b94dd396de0007de013b3  IVW/daily.json.gz
+c52f8c092657c34d8ca39aef05d5d261ff352e274be13ba4bca5b49df489521b  IWD/daily.json.gz
+fc6204be4d6967d6cc4620409ff3f3f3bd9591e9a490b7c7c34ef987867d88b9  IWF/daily.json.gz
