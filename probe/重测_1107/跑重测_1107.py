@@ -45,6 +45,7 @@ import 分红覆盖层_1107 as DV                                     # noqa: E4
 sys.path.insert(0, HERE)
 import 日序列覆盖层_1107 as DS                                    # noqa: E402
 import 跳过基准一_1107 as SK                                      # noqa: E402
+import 面板元信息覆盖层_1107 as MT                                 # noqa: E402
 pat6_ops.install()
 
 SRC = os.path.join(ROOT, "engine", "configs")
@@ -108,12 +109,21 @@ def 装池(名: str) -> dict:
     data.PERF_START = 窗口起                             # ★★★ 两段各自的窗口
     data.PERF_END = 窗口止
     close = cache._PANEL["close"]
+    # ★★★ 1107 夜补：第五个登记点 —— panel_meta。
+    #   ★ 不补的话 `cache.panel_meta()` 读的是老的 300 只那份，而且 A 段会在
+    #     `matrices.py:1296 idx.get_loc(zero_bar)` 上 KeyError → **整段 33 条臂全废**。
+    #   ★★ 全文（含「为什么置空是对的」「为什么动不到数」）见 面板元信息覆盖层_1107.py。
+    自证meta = MT.install(os.path.join(ROOT, "probe", "并池2004_1107",
+                                     "panel_meta_newpool.parquet"))
+    print(f"★★★ 面板元信息覆盖层: {json.dumps(自证meta, ensure_ascii=False)}", flush=True)
+    assert 自证meta["★真的换掉了"], "★★★ panel_meta 覆盖层没装上，停"
     有 = [t for t in ("AAPL", "MSFT", "AMZN", "BRK.B", "JPM") if t in close.columns]
     return {"池": 名, "★★★窗口": 窗口名, "面板只数": int(close.shape[1]),
             "★★★面板裁剪": f"{裁前} 天 → {裁后} 天（含 440 个交易日预热）",
             "★池表": os.path.basename(pooltab), "池表行数": idx.rows,
             "★★★窗口起": data.PERF_START, "PERF_END": data.PERF_END,
             "★★★可买名单": f"全量 {close.shape[1]} 只（★ 一档，无静态留出池）",
+            "★★★面板元信息(第五个登记点)": 自证meta,
             "★巨头在不在": {"查的5只里有几只": len(有), "明细": 有}}
 
 
