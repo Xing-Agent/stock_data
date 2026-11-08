@@ -230,23 +230,17 @@ def 每笔(led) -> dict:
 
 
 def 噪声判(真, 随机: list) -> dict:
-    """★★★ 规矩㊸:差距 < 随机一个标准差 → 「分不出」。"""
-    a = np.array([x for x in 随机 if x is not None and np.isfinite(x)], float)
-    if len(a) < 5 or 真 is None:
-        return {"★判": "★算不出(随机对照不足 5 次)", "随机次数": int(len(a))}
-    mu, sd = float(a.mean()), float(a.std(ddof=1))
-    z = (真 - mu) / sd if sd > 0 else np.nan
-    if not np.isfinite(z):
-        j = "★算不出"
-    elif abs(z) < 1:
-        j = "分不出(差距小于随机一个标准差)"
-    elif abs(z) < 2:
-        j = "🟡 超过 1 个标准差、不到 2 个 —— 只能当方向"
-    else:
-        j = ("★ 超过随机 2 个标准差(偏好)" if z > 0 else "超过随机 2 个标准差(偏差)")
-    return {"真": round(float(真), 4), "随机均值": round(mu, 4), "随机标准差": round(sd, 4),
-            "随机次数": int(len(a)), "距随机几个标准差": round(float(z), 2) if np.isfinite(z) else None,
-            "★判": j}
+    """★★★ 规矩㊸ v2 + ㊾(1108 换):不再用「均值 ± 标准差」—— 随机分布是偏的。
+    ★ 直接调主路的 probe/尺子v2_1107/尺子v2_1107.py 随机对照_分位数()(不另写一套):
+      经验分位数 95% 范围 + 经验 p + 偏度;旧的「按标准差」判法也并排留着,打架时以分位数为准。
+    ★★ 「★判」字段 = 分位数判法;随机次数 < 100 → 算不出(规矩㊸ v2)。"""
+    sys.path.insert(0, os.path.join(ROOT, "probe", "尺子v2_1107"))
+    import 尺子v2_1107 as R2
+    r = R2.随机对照_分位数(真, 随机)
+    r["★判"] = r.get("★★★②新判法_按分位数") or r.get("★★★判") or r.get("★算不出")
+    # ★ 旧字段名保留(汇总脚本在用)
+    r["真"] = r.get("实测"); r["距随机几个标准差"] = r.get("距随机几个标准差")
+    return r
 
 
 def 臂文件(目录, label):
