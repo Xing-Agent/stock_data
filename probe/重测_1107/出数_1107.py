@@ -33,14 +33,34 @@ CURV = os.path.join(HERE, "日净值_1107")
 
 
 # ============================================================ 读
-def 读臂() -> pd.DataFrame:
+def 读臂(窗口名: str | None = None) -> pd.DataFrame:
+    """★★★ 1108 修（错号 #95）：**必须按窗口过滤**。
+
+    ★ 原来这里把 `arms_1107/` 里的臂**全读进来**，main 里只按「族」分组 ——
+      ★★ 而 A 段（2004~2014）和 B 段（2015~2025）的臂**同在一个目录**，
+      ★★★ 于是 `g["链"].iloc[0]` 很可能抓到**另一个窗口**那条 A原样：
+        · 出 B 段报告时，大波段 / 震荡 抓到的是 A 段那条 →
+          尺子②「重叠交易日只有 0 天」（2004~2014 的曲线对 2015~2025 的日期）、
+          持仓画像里出现 YHOO / COP、最大回撤 −72.45%（那是 2008 年那一段）。
+        · 尺子③ 的「随机臂条数 20」也是两段混在一起（每段 10 条）。
+    ★★★ 为什么必须喊出来：它**不报错**，只是悄悄换了一段数据 ——
+      而「0 天重叠」那行看起来像缺数据，不像拿错窗口（#80 的同一类）。
+    """
     rs = []
     for f in sorted(glob.glob(os.path.join(ARMS, "*.json"))):
         try:
             rs.append(json.load(open(f, encoding="utf-8")))
         except Exception:
             continue
-    return pd.DataFrame(rs)
+    df = pd.DataFrame(rs)
+    if 窗口名 and not df.empty:
+        前 = len(df)
+        df = df[df["链"].astype(str).str.startswith(f"{窗口名}·")].reset_index(drop=True)
+        print(f"★★★ 按窗口过滤臂：{前} 条 → {len(df)} 条（窗口 {窗口名}）", flush=True)
+        assert not df.empty, f"★★★ 这个窗口一条臂都没有：{窗口名}"
+        坏 = [c for c in df["链"].astype(str) if not c.startswith(f"{窗口名}·")]
+        assert not 坏, f"★★★ 过滤没干净：{坏[:3]}"
+    return df
 
 
 def 读日净值(label: str) -> pd.Series | None:
@@ -130,13 +150,19 @@ def 尺子二(label: str, 窗口起: str, 窗口止: str) -> dict:
 
 
 # ============================================================ 配对检验（规矩㊸v2）
-def 配对t(差: pd.Series, lag: int | None = None) -> dict:
+def 配对t(差: pd.Series, lag: int | None = None, 门槛: float | None = None) -> dict:
     """★★★ 逐日差值的 Newey-West 修正 t 检验。★ 滞后期按持仓期定，默认 8。"""
     x = pd.Series(差).dropna().astype(float).to_numpy()
     n = len(x)
     if n < 60:
         return {"★算不出来": f"只有 {n} 天，不够"}
     L = int(lag if lag is not None else 8)
+    # ★★★ 1108 修（错号 #96）：门槛要能传进来。★ 原来**写死** 门槛_配对=2.5，
+    #   ★★ 于是第四档那 9 次检验（《102》第六节门槛 |t|>3）印出来的是「门槛 |t|>2.5」——
+    #   ★★★ 口径行写 3.0、判决行写 2.5，两行自相矛盾。本轮三族 9 个 t 最大 1.47，
+    #     两个门槛下都是「没过」，★ 所以**结论没被改**；但 t 落在 2.5~3.0 之间时会判反。
+    门 = float(门槛 if 门槛 is not None else 门槛_配对)
+    说 = "9 次检验，HLZ 2016" if 门 == 门槛_第四档 else "单次配对"
     m = x.mean()
     e = x - m
     g0 = float((e * e).sum() / n)
@@ -150,8 +176,8 @@ def 配对t(差: pd.Series, lag: int | None = None) -> dict:
     return {"逐日差均值": f"{m*1e4:+.3f} 个基点/天",
             "★★★NW修正t": round(float(t), 2),
             "★滞后期": L, "★天数": n,
-            "★★★过没过门槛": (f"门槛 |t|>{门槛_配对}（单次配对）→ "
-                         + ("**过了**" if abs(t) > 门槛_配对 else "**没过**")),
+            "★★★过没过门槛": (f"门槛 |t|>{门}（{说}）→ "
+                         + ("**过了**" if abs(t) > 门 else "**没过**")),
             "★★注意": "★ 这是跑前写死的门槛（《102》第六节），★★★ 出数时不许放宽"}
 
 
@@ -180,7 +206,8 @@ def 第四档(族标签前缀: str, 窗口起: str, 窗口止: str) -> dict:
             出[f"MA{ma}"] = {"★算不出来": f"重叠只有 {len(共)} 天"}
             continue
         关 = 关闸占比(ma, 窗口起, 窗口止)
-        块 = {"★关闸天数占比": f"{关*100:.1f}%", **配对t(b.reindex(共) - a.reindex(共))}
+        块 = {"★关闸天数占比": f"{关*100:.1f}%",
+             **配对t(b.reindex(共) - a.reindex(共), 门槛=门槛_第四档)}
         # ★★★ 《102》情形三：闸太松等于没挂，太紧等于换了另一个策略 —— 两头都不是在测这件事
         if 关 < 0.05 or 关 > 0.50:
             块 = {"★★★这一档作废": f"关闸占比 {关*100:.1f}% 落在作废区间"
@@ -338,11 +365,43 @@ def 最长连亏(label: str) -> dict:
 
 
 # ============================================================ 主
+def 装基准覆盖层() -> dict:
+    """★★★ 1108 修（错号 #97）：出数脚本**没装基准覆盖层**，读到的是引擎自带那份 SPY。
+
+    ★ 引擎的 `data.load_benchmark("SPY")` 只扫 `pilot_300/benchmarks` 等老目录，
+      ★★ 那份 **2014 年才开始**（这是 1106 就记下来的已知边界）。
+    ★★★ 跑批侧装了 `接新基准_1107`（SPY 2004-01-02 起，5747 根），出数侧**没装** →
+      A 段（2004~2014）这三样全是错的，而且**错得像缺数据，不像拿错数据**：
+        · 尺子②「重叠交易日 251 天」—— ★ 那是 2014 一年，却按「A 段年化」印出来
+        · 条件 alpha「线上天数占比 19.5%」—— ★ 同样只覆盖 2014
+        · 关闸占比 MA200 = 80.5% / MA300 = 100% —— ★★ 均线算不出来时整段被当成「闸上」
+          → ★★★ 反过来把这两档推进了《102》情形三的作废区间（>50%），
+            看起来像「闸太紧」，其实是**基准没数据**。
+    ★ B 段（2015~2025）不受影响（2014 起的 SPY 够它用），★★ 但 MA300 需要 300 天预热，
+      ★★★ 装了覆盖层之后 2015 年初那段才算得出来 —— 所以 B 段也要重出一遍。
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "BM出数", os.path.join(ROOT, "probe/并池_1107/接新基准_1107.py"))
+    BM = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(BM)
+    证 = BM.install()
+    from engine import data as _d
+    px = _d.load_benchmark("SPY")["close"].dropna()
+    证["★★★装完SPY覆盖到"] = f"{px.index.min().date()} → {px.index.max().date()} · {len(px)} 根"
+    assert 证["★真的换掉了"], "★★★ 基准覆盖层没装上，停"
+    assert str(px.index.min().date()) <= "2004-12-31", \
+        f"★★★ SPY 还没拉到 2004：{px.index.min().date()}"
+    print(f"★★★ 基准覆盖层（出数侧）: {json.dumps(证, ensure_ascii=False)}", flush=True)
+    return 证
+
+
 def main() -> int:
     窗口起 = os.environ.get("XING_WIN_START", "2015-01-01")
     窗口止 = os.environ.get("XING_WIN_END", "2025-12-31")
     窗口名 = os.environ.get("XING_WIN_NAME", "B_2015到2025")
-    df = 读臂()
+    证_基准 = 装基准覆盖层()          # ★★★ 规矩 62：自证要落盘，只打印不算做过
+    df = 读臂(窗口名)
     if df.empty:
         print("★ 还没有任何臂落盘。")
         return 0
@@ -352,6 +411,7 @@ def main() -> int:
         "【本次口径】": (f"全收益（分红再投，两侧同口径）· 摩擦档 三档friction_tiers · "
                    f"窗口 {窗口起}~{窗口止} · 池 并池2004(3858,一档) · 标签滞后 1 天"),
         "★★★臂数": 齐,
+        "★★★基准覆盖层自证(出数侧)": 证_基准,
         "★★★跑批跑完了吗": ("**没跑完**（★ 规矩：还在跑的跑批，任何计数不许进结论句）"
                       if min(齐.values()) < 11 else "★ 本段这些族已齐（11 条/族）"),
         "逐族": {},
