@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
-CARDS = os.path.join(ROOT, "手册/V1原始skill归档")
+CARDS = os.path.join(ROOT, os.environ.get('XING_CARDS', '手册/V1原始skill归档'))
 
 # ★★★ 能力标签：组 / 面 / 具体能力（★ 组和面用 Lin 定的分法：研究组=基本面/技术面/宏观；行动组=策略/风控）
 能力表 = {
@@ -40,6 +40,7 @@ CARDS = os.path.join(ROOT, "手册/V1原始skill归档")
     "schilit-financial-red-flags":    ("研究组", "基本面", "财务红旗"),
     "soros-reflexivity":              ("研究组", "宏观", "反身性与反馈循环"),
     "supply-chain-transmission":      ("研究组", "基本面", "供应链传导"),
+    "damodaran-valuation":            ("研究组", "基本面", "现金流估值"),
     "weinstein-stage-analysis":       ("研究组", "技术面", "阶段分析"),
     "wyckoff-price-volume":           ("研究组", "技术面", "量价结构"),
     "zweig-market-breadth":           ("研究组", "技术面", "市场宽度"),
