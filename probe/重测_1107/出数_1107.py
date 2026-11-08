@@ -155,6 +155,69 @@ def 配对t(差: pd.Series, lag: int | None = None) -> dict:
             "★★注意": "★ 这是跑前写死的门槛（《102》第六节），★★★ 出数时不许放宽"}
 
 
+# ============================================================ 第四档：A/B 配对
+def 第四档(族标签前缀: str, 窗口起: str, 窗口止: str) -> dict:
+    """★★★ 《102》第四档：A原样 vs B挂开关，**逐日相减** + Newey-West。
+
+    ★★ 这是 Lin 一整天在讲的那条判断的**真正判据** ——
+      ★ 条件 alpha 只说明「现象存在」，这一档说明「我们能不能吃到」。
+    """
+    出 = {"★★★口径": "逐日相减 · Newey-West 滞后 8 · 门槛 |t|>3（跑前写死，9 次检验）"}
+    a = 读日净值(f"{族标签前缀}·A原样")
+    if a is None:
+        return {"★算不出来": "A原样 还没有日净值"}
+    # ★★★ 红线②：三点都要报，★ 不许只报 200
+    哈希 = {}
+    for ma in (100, 200, 300):
+        名 = f"B挂开关MA{ma}"
+        b = 读日净值(f"{族标签前缀}·{名}")
+        哈希[名] = 流水哈希(f"{族标签前缀}·{名}")
+        if b is None:
+            出[f"MA{ma}"] = "★★★ **待配对检验** —— 这条臂还没跑完"
+            continue
+        共 = a.index.intersection(b.index)
+        if len(共) < 250:
+            出[f"MA{ma}"] = {"★算不出来": f"重叠只有 {len(共)} 天"}
+            continue
+        关 = 关闸占比(ma, 窗口起, 窗口止)
+        块 = {"★关闸天数占比": f"{关*100:.1f}%", **配对t(b.reindex(共) - a.reindex(共))}
+        # ★★★ 《102》情形三：闸太松等于没挂，太紧等于换了另一个策略 —— 两头都不是在测这件事
+        if 关 < 0.05 or 关 > 0.50:
+            块 = {"★★★这一档作废": f"关闸占比 {关*100:.1f}% 落在作废区间"
+                            f"（<5% 或 >50%，《102》情形三）—— **不报 t 值**",
+                 "★关闸天数占比": f"{关*100:.1f}%"}
+        出[f"MA{ma}"] = 块
+    # ★★★ 1106 的坑：params 写在 rule 顶层会**静默退回默认 200** → 逐字节比流水哈希
+    有 = {k: v for k, v in 哈希.items() if v}
+    出["★★★三条臂流水哈希"] = 哈希
+    出["★★★三条真的不一样吗"] = (
+        "★ 还不够三条，等跑完" if len(有) < 2 else
+        ("**是**，三条流水逐字节不同" if len(set(有.values())) == len(有)
+         else f"★★★ **不是！有重复** → 参数静默退回了，这一档作废：{有}"))
+    return 出
+
+
+def 流水哈希(label: str) -> str | None:
+    import hashlib
+    p = os.path.join(LEDG, f"REAL__{安全名(label)}.csv")
+    if not os.path.exists(p):
+        return None
+    h = hashlib.sha256()
+    with open(p, "rb") as fh:
+        for blk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(blk)
+    return h.hexdigest()[:16]
+
+
+def 关闸占比(ma: int, 窗口起: str, 窗口止: str) -> float:
+    """★ 这十年里有几成的天被闸掉了（闸 = 标普在均线下方）。"""
+    from engine import data
+    px = data.load_benchmark("SPY")["close"].dropna()
+    上 = (px > px.rolling(ma).mean()).shift(1)
+    上 = 上[(上.index >= pd.Timestamp(窗口起)) & (上.index <= pd.Timestamp(窗口止))].dropna()
+    return float(1.0 - 上.mean()) if len(上) else float("nan")
+
+
 # ============================================================ 条件 alpha 交互项
 def 条件alpha(label: str, 窗口起: str, 窗口止: str, ma: int = 200) -> dict:
     """★★★ Lin 的核心判断能不能测出来，就看这个交互项。
@@ -304,8 +367,8 @@ def main() -> int:
             块["★★★条件alpha_交互项"] = 条件alpha(label, 窗口起, 窗口止)
             块["★★持仓画像"] = 持仓画像(label)
             块["★★最长连亏"] = 最长连亏(label)
-            块["★第四档_挂开关"] = ("★★★ **待配对检验** —— 挂开关那条臂还没跑"
-                              "（《102》第七节第 2 步）")
+            前缀 = label.rsplit("·", 1)[0]      # ★ 去掉臂名，留到 技-1 那一层
+            块["★★★第四档_挂开关"] = 第四档(前缀, 窗口起, 窗口止)
         报["逐族"][族] = 块
     out = os.path.join(HERE, f"出数_{窗口名}_1107.json")
     open(out, "w", encoding="utf-8").write(
