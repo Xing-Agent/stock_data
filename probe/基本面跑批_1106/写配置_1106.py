@@ -131,8 +131,10 @@ G1 = {"years": 7, "min_revenue": 6.0e8, "min_current_ratio": 2.0, "max_ltd_over_
         {"type": "fund_metric_threshold", "params": {"metric": "liab_to_eq", "op": "le", "value": 1.0},
          "source": "★ ①档 卡原文「公司没有高负债」;★★★ 阈值是 ③档我们的(原著没给)→ 跑三点"}]},
     "exit": {"rules": [{"type": "fund_rule_fails", "params": {
-        "rule": {"type": "pb_below", "params": {"max_pb": 1.0}}, "check": "daily"},
-        "source": "★ ①档 卡原文「价格回到账面价值附近就卖,不等它涨成明星股」→ 市净率回到 ≥ 1 的收盘就卖"}],
+        "rule": {"type": "pb_below", "params": {"max_pb": 1.0}}, "check": "quarterly"},
+        "source": "★ ①档 卡原文「价格回到账面价值附近就卖,不等它涨成明星股」→ 市净率回到 ≥ 1 就卖;"
+                  "★★★ ④档 Lin 1108 21:36 拍板:**每季第一个交易日检查一次**(原来每天查 → 买卖同一条线,"
+                  "在 1 附近反复进出,持有中位 4~8 天、卖出后 10 天内买回同一只的占 48.5%)"}],
         "params": {"profit_target_r": None, "time_stop_days": None}, "fill": "next_open",
         "source": EXIT_NOTE_HOLD},
     "sizing": sizing(60, "FUND:pb", "★ ③档 我们的:名额不够时按市净率从低到高(★ 原著没说先买谁)",
