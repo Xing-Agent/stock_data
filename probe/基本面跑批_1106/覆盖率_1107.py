@@ -54,21 +54,22 @@ def 科目():
 
 def 策略():
     sys.path.insert(0, HERE)
-    import 跑基本面_1107 as R            # noqa: F401  (★ 只为让面板/池表/窗口用 1107 口径)
-    RC, _ = R.R0.装层()
+    import 跑基本面_2009 as R2           # ★ 《103》口径:并池2004 × 2009~2025
+    import 跑基本面_1106 as R0
+    RC, _ = R2.装层()
     import numpy as np
     from engine import fundamentals as F, cache, matrices as M
     import 策略零件_1106 as MINE
     syms = list(cache._PANEL["close"].columns)
     close = cache.field("close", syms)
-    mask, _ = RC.scope_mask(syms, close.index, R.R0.SCOPE)
-    在 = (mask & close.notna()).loc[R.R0.PERF_START:]
+    mask, _ = RC.scope_mask(syms, close.index, R0.SCOPE)
+    在 = (mask & close.notna()).loc[R2.PERF_START:]
     分母 = int(在.to_numpy().sum())
     单 = {}
     need = sorted({z for v in 零件.values() for z in v})
     for z in need:
         t = time.time()
-        p = F.get(z, syms).reindex(index=close.index, columns=syms).loc[R.R0.PERF_START:]
+        p = F.get(z, syms).reindex(index=close.index, columns=syms).loc[R2.PERF_START:]
         ok = p.notna() & 在
         单[z] = {"算得出pct": round(float(ok.to_numpy().sum()) / 分母 * 100, 1),
                 "秒": round(time.time() - t, 1)}
@@ -78,7 +79,7 @@ def 策略():
     for s, zs in 零件.items():
         全 = None
         for z in zs:
-            p = F.get(z, syms).reindex(index=close.index, columns=syms).loc[R.R0.PERF_START:]
+            p = F.get(z, syms).reindex(index=close.index, columns=syms).loc[R2.PERF_START:]
             ok = p.notna()
             全 = ok if 全 is None else (全 & ok)
             F.panel.cache_clear()
@@ -97,7 +98,9 @@ if __name__ == "__main__":
     path = os.path.join(HERE, "覆盖率_1107.json")
     if os.path.exists(path):
         rep = json.load(io.open(path, encoding="utf-8"))
-    rep["★★★池子"], rep["★★★窗口"] = "并池3834", "2016-01-04~2025-12-31"
+    rep["★本次口径"] = ("【本次口径】全收益 · 摩擦档 三档 5/15/30bp 单边 · 窗口 2009-01-01~2025-12-31 · "
+                    "池 并池2004(3858,一档) · 标签滞后 1 天")
+    rep["★★★池子"], rep["★★★窗口"] = "并池2004(3858,一档)", "2009-01-01~2025-12-31"
     if "--科目" in sys.argv:
         rep["科目覆盖率"] = 科目()
     if "--策略" in sys.argv:

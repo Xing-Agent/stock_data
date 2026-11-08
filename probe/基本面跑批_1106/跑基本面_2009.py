@@ -23,12 +23,13 @@ sys.path.insert(0, HERE)
 import 跑基本面_1106 as R0                                       # noqa: E402
 import 跑基本面_1107 as R1                                       # noqa: E402
 
-PANEL = "probe/并池2004_1107/ohlcv_panel_newpool.parquet"
+# ★★★ 1108:换成本路修过接缝的面板(主路那张在 2016-01-04 有 100 只假跳变,见 烤并池2004修接缝_A路_1108.py)
+PANEL = "probe/基本面跑批_1106/并池2004修接缝_1108/ohlcv_panel_newpool.parquet"
 POOL = "probe/并池2004_1107/pool_MERGED2004_ALL_1107.csv"
 PERF_START, PERF_END = "2009-01-01", "2025-12-31"
 预热 = 440
-ARMS = os.path.join(HERE, "arms_2009")
-LED = os.path.join(HERE, "ledgers_2009")
+ARMS = os.path.join(HERE, "arms_2009修接缝")
+LED = os.path.join(HERE, "ledgers_2009修接缝")
 口径行 = ("【本次口径】全收益 · 摩擦档 三档 5/15/30bp 单边 · 窗口 2009-01-01~2025-12-31 · "
          "池 并池2004(3858,一档) · 标签滞后 1 天")
 N随机 = 100
@@ -88,7 +89,7 @@ def 跑一条(arm: dict) -> dict:
     raw = copy.deepcopy(raw)
     for k, v in arm["覆盖"].items():
         R0._设(raw, k, v)
-    脏 = json.load(io.open(os.path.join(HERE, "假跳变_并池2004_1107.json"), encoding="utf-8"))["脏日"]
+    脏 = json.load(io.open(os.path.join(HERE, "假跳变_并池2004修接缝_1108.json"), encoding="utf-8"))["脏日"]
     t0 = time.time()
     cfg = chain.ChainConfig.from_dict(raw)
     m = matrices.build(cfg.raw, syms)
@@ -124,9 +125,17 @@ def 跑一条(arm: dict) -> dict:
         r2 = rr.ledger
         rs.append({"种子": sd, "笔数": int(len(r2)), "资金年化pct": R1.资金年化(r2),
                    "净值年化pct": 净值年化(rr, n_days),
+                   "流水同本臂": bool(len(r2) == len(led) and len(led) and
+                                 (r2[["symbol", "entry_date"]].astype(str).values ==
+                                  led[["symbol", "entry_date"]].astype(str).values).all()),
                    "每笔净R(均值)": (round(float(r2["r_multiple_net"].astype(float).mean()), 5)
                                  if len(r2) else None)})
+        # ★ 前 3 个种子的流水都和本臂一模一样 → 候选从没多过槽位,「先买谁」不起作用,随机对照无区分 → 停
+        if k == 2 and all(x["流水同本臂"] for x in rs):
+            break
     m.rank_score = keep
+    rec["★随机无区分(候选从没多过槽位)"] = bool(len(rs) == 3 and all(x["流水同本臂"] for x in rs))
+
     def 分位(key, me):
         va = np.array([x[key] for x in rs if x[key] is not None], dtype=float)
         if not len(va):

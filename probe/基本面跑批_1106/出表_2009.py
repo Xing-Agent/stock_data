@@ -15,7 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def 哈希(臂):
-    p = os.path.join(HERE, "ledgers_2009", f"REAL__{臂.replace('/', '／').replace(' ', '_')}.csv")
+    p = os.path.join(HERE, "ledgers_2009修接缝", f"REAL__{臂.replace('/', '／').replace(' ', '_')}.csv")
     if not os.path.exists(p):
         return None
     d = pd.read_csv(p)
@@ -27,7 +27,7 @@ def 哈希(臂):
 
 def main():
     rows, fails, full = [], [], []
-    for f in sorted(glob.glob(os.path.join(HERE, "arms_2009", "*.json"))):
+    for f in sorted(glob.glob(os.path.join(HERE, "arms_2009修接缝", "*.json"))):
         r = json.load(io.open(f, encoding="utf-8"))
         full.append({k: v for k, v in r.items() if k != "traceback"})
         if r.get("★本次口径") != 口径行:
