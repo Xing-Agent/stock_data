@@ -1,6 +1,10 @@
 ---
 name: xing-master-soros-reflexivity
-description: 判断市场认知和价格是否会通过融资、并购、客户信心等渠道反过来改变公司基本面，形成反馈循环。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 判断市场认知和价格是否会通过融资、并购、客户信心等渠道反过来改变公司基本面，形成反馈循环。 当用户问到这类问题时使用：股价上涨会不会反过来强化公司基本面；市场叙事是不是正在形成自我强化；这个反馈循环可能在哪里反转。 用户点名「soros」或该方法时也用。
+capability_group: 研究组
+capability_face: 宏观
+capability: 反身性与反馈循环
+master: soros
 ---
 
 # Soros 大师｜反身性分析

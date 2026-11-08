@@ -1,6 +1,10 @@
 ---
 name: xing-master-schilit-financial-red-flags
-description: 检查利润、现金流、应收、库存、资本化和披露变化，快速发现需要进一步解释的财务异常信号。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 检查利润、现金流、应收、库存、资本化和披露变化，快速发现需要进一步解释的财务异常信号。 当用户问到这类问题时使用：公司利润很好，但现金流为什么很差；应收、库存、资本化是否存在异常；财务数据里有没有值得继续深挖的风险信号。 用户点名「schilit」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 财务红旗
+master: schilit
 ---
 
 # Schilit 大师｜财务排雷

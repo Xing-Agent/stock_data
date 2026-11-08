@@ -1,6 +1,10 @@
 ---
 name: xing-master-mauboussin-implied-expectations
-description: 从当前价格反推市场已经押注了多高的增长、利润率和竞争优势，再判断这些预期到底难不难实现。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 从当前价格反推市场已经押注了多高的增长、利润率和竞争优势，再判断这些预期到底难不难实现。 当用户问到这类问题时使用：现在这个价格到底贵在哪里；市场已经在股价里计入了什么预期；公司要做到什么增长和利润率才能支撑现在估值。 用户点名「mauboussin」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 隐含预期估值
+master: mauboussin
 ---
 
 # Mauboussin 大师｜隐含预期与估值

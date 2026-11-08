@@ -1,6 +1,10 @@
 ---
 name: xing-master-piotroski-f-score
-description: 用 Piotroski F-Score 的 9 项指标检查盈利、现金流、杠杆、流动性和经营效率，快速做财务健康体检。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 用 Piotroski F-Score 的 9 项指标检查盈利、现金流、杠杆、流动性和经营效率，快速做财务健康体检。 当用户问到这类问题时使用：这家公司财务基本面健康吗；帮我做 F-Score 九项检查；盈利质量、杠杆和效率是在改善还是恶化。 用户点名「piotroski」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 财务健康度
+master: piotroski
 ---
 
 # Piotroski 大师｜财务九项体检

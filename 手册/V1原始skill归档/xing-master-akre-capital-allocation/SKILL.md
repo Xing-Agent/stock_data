@@ -1,6 +1,10 @@
 ---
 name: xing-master-akre-capital-allocation
-description: 判断公司能不能持续把赚到的钱以高回报再投入，并评估并购、回购、分红和降债是否真的创造价值。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 判断公司能不能持续把赚到的钱以高回报再投入，并评估并购、回购、分红和降债是否真的创造价值。 当用户问到这类问题时使用：管理层会不会分配资本；公司的增长是高质量复利，还是烧钱换增长；回购、并购和再投资做得好不好。 用户点名「akre」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 资本配置质量
+master: akre
 ---
 
 # Akre 大师｜资本配置与复利能力

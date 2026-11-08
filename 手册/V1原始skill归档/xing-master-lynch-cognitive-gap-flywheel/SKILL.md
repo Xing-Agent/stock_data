@@ -1,6 +1,10 @@
 ---
 name: xing-master-lynch-cognitive-gap-flywheel
-description: 寻找业务容易理解、市场可能低估且能持续验证的成长故事，并拆解产品、渠道、客户或规模形成的增长飞轮。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 寻找业务容易理解、市场可能低估且能持续验证的成长故事，并拆解产品、渠道、客户或规模形成的增长飞轮。 当用户问到这类问题时使用：市场是不是忽视了这家公司的成长点；这个产品为什么可能形成飞轮；成长故事有哪些可以持续验证的数据。 用户点名「lynch」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 成长与认知差
+master: lynch
 ---
 
 # Lynch 大师｜认知差与成长飞轮

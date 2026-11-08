@@ -1,6 +1,10 @@
 ---
 name: xing-master-fisher-scuttlebutt
-description: 从客户、供应商、渠道、竞争者、员工和行业专家等多方信息交叉验证公司的产品、组织和长期竞争力。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 从客户、供应商、渠道、竞争者、员工和行业专家等多方信息交叉验证公司的产品、组织和长期竞争力。 当用户问到这类问题时使用：公司自己说得很好，外部证据能验证吗；客户和供应商怎么看这家公司；帮我设计一套一手调研问题。 用户点名「fisher」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 一手交叉验证
+master: fisher
 ---
 
 # Fisher 大师｜一手信息交叉验证

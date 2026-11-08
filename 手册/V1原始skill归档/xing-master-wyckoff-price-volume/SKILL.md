@@ -1,6 +1,10 @@
 ---
 name: xing-master-wyckoff-price-volume
-description: 通过价格区间、成交量和供需反应分析市场结构，判断突破、测试、吸筹或派发等可能性。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 通过价格区间、成交量和供需反应分析市场结构，判断突破、测试、吸筹或派发等可能性。 当用户问到这类问题时使用：最近的量价关系说明什么；这个突破是真突破还是可能失败；市场更像吸筹还是派发。 用户点名「wyckoff」或该方法时也用。
+capability_group: 研究组
+capability_face: 技术面
+capability: 量价结构
+master: wyckoff
 ---
 
 # Wyckoff 大师｜量价结构判断

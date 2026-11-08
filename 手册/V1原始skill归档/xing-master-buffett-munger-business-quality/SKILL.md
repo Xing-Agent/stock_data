@@ -1,6 +1,10 @@
 ---
 name: xing-master-buffett-munger-business-quality
-description: 从商业模式、护城河、管理层、资本回报和长期现金创造能力判断一家公司是不是高质量企业。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 从商业模式、护城河、管理层、资本回报和长期现金创造能力判断一家公司是不是高质量企业。 当用户问到这类问题时使用：这家公司有没有真正的护城河；它适不适合长期复利；管理层和商业模式质量怎么样。 用户点名「buffett」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 企业质量与护城河
+master: buffett
 ---
 
 # Buffett & Munger 大师｜企业质量与护城河

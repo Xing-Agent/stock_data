@@ -1,6 +1,10 @@
 ---
 name: xing-master-feynman-plain-language
-description: 把复杂公司、财务和投资研究结论翻成普通人能听懂、能复述的人话，同时保留关键数字和风险条件。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 把复杂公司、财务和投资研究结论翻成普通人能听懂、能复述的人话，同时保留关键数字和风险条件。 当用户问到这类问题时使用：这段研报太专业，帮我讲人话；用非金融专业的人也能懂的方式解释公司；把复杂逻辑拆成简单因果链。 用户点名「feynman」或该方法时也用。
+capability_group: 通用件
+capability_face: 表达
+capability: 通俗化表达
+master: feynman
 ---
 
 # Feynman 大师｜复杂金融讲人话

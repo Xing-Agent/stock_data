@@ -1,6 +1,10 @@
 ---
 name: xing-master-dalio-macro-machine
-description: 从增长、通胀、利率、信用、流动性和政策出发，分析宏观环境会怎样传导到行业和公司。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 从增长、通胀、利率、信用、流动性和政策出发，分析宏观环境会怎样传导到行业和公司。 当用户问到这类问题时使用：降息对这家公司到底有什么影响；通胀、美元、流动性会如何传导到公司业绩；当前宏观环境对行业是顺风还是逆风。 用户点名「dalio」或该方法时也用。
+capability_group: 研究组
+capability_face: 宏观
+capability: 宏观传导
+master: dalio
 ---
 
 # Dalio 大师｜宏观周期传导

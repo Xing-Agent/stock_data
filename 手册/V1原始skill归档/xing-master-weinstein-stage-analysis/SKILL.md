@@ -1,6 +1,10 @@
 ---
 name: xing-master-weinstein-stage-analysis
-description: 通过周线、长期均线、相对强弱和成交量，判断标的处于筑底、上升、筑顶还是下降阶段。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 通过周线、长期均线、相对强弱和成交量，判断标的处于筑底、上升、筑顶还是下降阶段。 当用户问到这类问题时使用：这只股票现在处于什么趋势阶段；是刚开始上升，还是已经接近筑顶；中长期趋势是否得到确认。 用户点名「weinstein」或该方法时也用。
+capability_group: 研究组
+capability_face: 技术面
+capability: 阶段分析
+master: weinstein
 ---
 
 # Weinstein 大师｜趋势阶段判断

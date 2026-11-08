@@ -1,6 +1,10 @@
 ---
 name: xing-master-greenblatt-special-situations
-description: 专门分析分拆、剥离、重组、并购等特殊事件，寻找结构变化、被迫交易和价值重新定价带来的研究机会。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 专门分析分拆、剥离、重组、并购等特殊事件，寻找结构变化、被迫交易和价值重新定价带来的研究机会。 当用户问到这类问题时使用：公司分拆后两部分分别值什么；这次重组真正影响哪些资产和证券；特殊事件里谁可能被迫买卖，价值释放条件是什么。 用户点名「greenblatt」或该方法时也用。
+capability_group: 研究组
+capability_face: 基本面
+capability: 特殊事件
+master: greenblatt
 ---
 
 # Greenblatt 大师｜分拆与特殊机会

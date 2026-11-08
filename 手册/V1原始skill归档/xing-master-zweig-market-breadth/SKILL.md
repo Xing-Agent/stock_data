@@ -1,6 +1,10 @@
 ---
 name: xing-master-zweig-market-breadth
-description: 判断指数涨跌是多数股票共同参与，还是只靠少数权重股推动，用来观察市场内部健康度。 当用户明确点名该大师/方法，或提出与该方法对应的专项研究问题时使用。
+description: 判断指数涨跌是多数股票共同参与，还是只靠少数权重股推动，用来观察市场内部健康度。 当用户问到这类问题时使用：这波上涨健康吗；指数创新高，但多数股票有没有跟上；市场有没有出现广度背离。 用户点名「zweig」或该方法时也用。
+capability_group: 研究组
+capability_face: 技术面
+capability: 市场宽度
+master: zweig
 ---
 
 # Zweig 大师｜市场广度判断
