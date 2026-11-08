@@ -23,8 +23,9 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, ROOT)
 from engine.stats_gate import circular_block_sampler              # noqa: E402
 
-CURV = os.path.join(HERE, "日净值_1107")
-ARMS = os.path.join(HERE, "arms_1107")
+# ★ 1108 主路：目录可配置（和跑批/出数一致），默认值不变
+CURV = os.path.join(HERE, os.environ.get("XING_NAV_DIR", "日净值_1107"))
+ARMS = os.path.join(HERE, os.environ.get("XING_ARMS_DIR", "arms_1107"))
 B_BOOT = 2000
 LAG = 8
 门槛_第四档 = 3.0

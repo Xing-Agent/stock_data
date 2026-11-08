@@ -195,7 +195,10 @@ def main() -> int:
     #     ★ 只是 run_one 只存了 ledger，**没人存它**。
     #   → ★★ 这里把真链那一次的日净值存下来；★★★ engine 零改动（只换 run_one 用的函数指针）。
     #   ★ 只存**真链第一次调用**：后面 50 次是随机进场基准，不是这条臂。
-    曲线目录 = os.path.join(HERE, "日净值_1107")
+    # ★★★ 1108 主路：这个目录原来写死 —— ★ 而 XING_ARMS_DIR / XING_DS_DIR 都能换，
+    #   ★★ 只有它不能 → 重跑一族会把**别的族的旧曲线留在原地**，整个目录变成新旧混的
+    #   → ★★★ 这正是 #80/#96 那一类「标签说谎」。所以也给它一个环境变量（★ 默认值不变）。
+    曲线目录 = os.path.join(HERE, os.environ.get("XING_NAV_DIR", "日净值_1107"))
     os.makedirs(曲线目录, exist_ok=True)
     _原跑链 = F._ORIG_RUN_CHAIN
 

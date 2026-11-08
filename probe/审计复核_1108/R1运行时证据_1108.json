@@ -1,0 +1,13 @@
+{
+  "①签名": "(symbol: 'str', rows: 'list[dict]') -> 'list[SplitEvent]'",
+  "②少传一个参数": "TypeError: ratio_events_from_rows() missing 1 required positional argument: 'rows'",
+  "③正确调法两个参数": [
+    "date=2020-08-31 ratio=0.25 coef=4.0"
+  ],
+  "④覆盖层写的 ev[0]": "TypeError: 'SplitEvent' object is not subscriptable → ★★★ 就算补上参数，这一行还是会抛，所以折算从来没执行过",
+  "⑤方向": {
+    "engine/data.py:280": "s.loc[除息日之前] = s.loc[...] * ev.ratio  （乘）",
+    "分红覆盖层_1107.py:118": "s.loc[s.index < 日] /= 比               （除）",
+    "拿 0.82 美元分红试算": "ratio=0.25 → engine 口径 0.2050，覆盖层口径 3.2800，相差 16 倍"
+  }
+}

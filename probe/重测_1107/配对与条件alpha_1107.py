@@ -22,7 +22,8 @@ import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-DS = os.path.join(HERE, "日序列_1107")
+# ★ 1108 主路：日序列目录可配置（和跑批一致），默认值不变
+DS = os.path.join(HERE, os.environ.get("XING_DS_DIR", "日序列_1107"))
 ARMS = os.path.join(HERE, "arms_1107")
 NW_LAG = 8          # ★ 《93》第六节第 7 条：Newey-West 滞后阶数按公式取 8（原来用 5）
 

@@ -22,9 +22,12 @@ import pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, ROOT)
-ARMS = os.path.join(HERE, "arms_1107")
-LEDG = os.path.join(HERE, "ledgers_1107")
-CURV = os.path.join(HERE, "日净值_1107")
+# ★★★ 1108 主路：这三个目录原来写死 —— ★ 跑批侧早就能用 XING_ARMS_DIR / XING_DS_DIR
+#   换目录，★★ 出数侧换不了 → 只能靠改名字去凑，★★★ 而改名字就是 #96 那一类
+#   「同一个目录里新旧混着」。所以也给环境变量（默认值不变）。
+ARMS = os.path.join(HERE, os.environ.get("XING_ARMS_DIR", "arms_1107"))
+LEDG = os.path.join(HERE, os.environ.get("XING_LEDG_DIR", "ledgers_1107"))
+CURV = os.path.join(HERE, os.environ.get("XING_NAV_DIR", "日净值_1107"))
 池表 = os.path.join(ROOT, "probe/并池2004_1107/pool_MERGED2004_ALL_1107.csv")
 
 # ★★★ 预先登记的门槛（《102》第六节）—— ★ 出数的时候不许改
@@ -430,7 +433,8 @@ def main() -> int:
             前缀 = label.rsplit("·", 1)[0]      # ★ 去掉臂名，留到 技-1 那一层
             块["★★★第四档_挂开关"] = 第四档(前缀, 窗口起, 窗口止)
         报["逐族"][族] = 块
-    out = os.path.join(HERE, f"出数_{窗口名}_1107.json")
+    # ★ 1108：加个后缀，免得两批同名互相盖（默认值不变）
+    out = os.path.join(HERE, f"出数_{窗口名}{os.environ.get('XING_OUT_TAG', '_1107')}.json")
     open(out, "w", encoding="utf-8").write(
         json.dumps(报, ensure_ascii=False, indent=1, default=str))
     print(json.dumps(报, ensure_ascii=False, indent=1, default=str))
