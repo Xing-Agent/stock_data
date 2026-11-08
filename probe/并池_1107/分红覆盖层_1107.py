@@ -37,6 +37,10 @@ _基准目录 = ("market_macro_1105", "market_extra_1107", "market_ext_1105",
 _原dividends = None
 _路径表: dict[str, list[str]] = {}
 _缓存: dict[str, pd.Series] = {}        # ★★★ 进程内缓存（见下方说明）
+# ★★★★★ 1108：拆股折算的**效果**必须能被自证看到（账本 #97）——
+#   ★ 之前那版把异常吞了、自证也没报，于是「折算一次没跑过」藏了一整天。
+_折算生效: dict[str, int] = {}          # ★ 票 → 这只票被折算了几个拆股事件
+_折算失败: dict[str, str] = {}          # ★★ 票 → 失败原因（★★★ 自证里必须报出来）
 _缓存命中 = [0, 0]                      # ★ [命中, 落盘读]
 
 # ★★★ 为什么必须缓存（1107 22:5x 实测）：
@@ -110,14 +114,31 @@ def _算分红(票: str) -> pd.Series:
     if not recs:
         return pd.Series(dtype=float)
     s = pd.Series(recs).sort_index()
-    # ★★★ 和 engine/data.dividends 同一套折算：除息日之前的分红按同批拆股系数缩放
+    # ★★★★★ 1108 修（审计线第 1 次 · R1）—— ★ 这一段之前**一次都没执行过**。
+    #   ★★ 两处错叠在一起：
+    #     ① `ratio_events_from_rows` 要 **2 个参数**(symbol, rows)，我只传了 1 个
+    #        → 每次 TypeError → ★★★ 被 `except Exception: pass` **吃掉**。
+    #     ② 就算参数补上，方向还是**反的**：engine 是 `s * ev.ratio`（乘），我写的是 `/=`（除）
+    #        → ★★★ 折算会做到相反方向去，**比不折算更糟**。
+    #   ★★★★★ 而我当时在 except 后面写的注释是「自证里会写出来」—— ★ 自证里根本没写。
+    #     → ★★ 这正是 #80 的同一种病（「以为自证会兜住，其实它没兜」），
+    #        ★★★ 而且是我**在修 #80 的代码里**又犯一次。账本 #97。
+    #   → ★ 现在：★★ 严格照抄 `engine/data.dividends` 的写法（**乘**），
+    #     ★★★ 并且**不再吞异常** —— 失败就记进 `_折算失败`，自证里**必须报出来**。
     try:
-        for ev in split_gate.ratio_events_from_rows(rows_all):
-            日, 比 = ev[0], float(ev[1])
-            if 比 and 比 != 1.0:
-                s.loc[s.index < pd.Timestamp(日)] /= 比
-    except Exception:
-        pass      # ★ 折算失败不静默改数，★★ 原样返回未折算的（自证里会写出来）
+        evs = split_gate.ratio_events_from_rows(票, rows_all)
+    except Exception as e:                      # ★ 只兜「读事件」这一步
+        _折算失败[票] = f"{type(e).__name__}: {e}"
+        return s
+    n = 0
+    for ev in evs:
+        ts = pd.Timestamp(ev.date)
+        m = s.index < ts
+        if m.any():
+            s.loc[m] = s.loc[m] * ev.ratio      # ★★★ 乘 —— 和 engine 逐字一致
+            n += 1
+    if n:
+        _折算生效[票] = n
     return s
 
 
@@ -130,6 +151,8 @@ def install(需覆盖: list[str] | None = None, 最低覆盖率: float = 0.90) -
     _路径表.update(_扫(_基准目录))                     # ★ 基准也要能取到分红
     _缓存.clear()                                      # ★★ 路径表换了，缓存必须跟着清（否则读旧交付）
     _缓存命中[0] = _缓存命中[1] = 0
+    _折算生效.clear()
+    _折算失败.clear()
 
     def dividends(票: str) -> pd.Series:
         s = _分红(票)
@@ -184,6 +207,22 @@ def install(需覆盖: list[str] | None = None, 最低覆盖率: float = 0.90) -
         查得到 = [t for t in 需覆盖 if t in _路径表]
         自证["★★★查得到文件的比例"] = (f"{len(查得到)}/{len(需覆盖)} = "
                                  f"{len(查得到)/max(1,len(需覆盖))*100:.1f}%")
+        # ★★★★★ 1108（账本 #97）：**拆股折算也必须证明它真的跑了。**
+        #   ★ 之前那版这一段是静默失败的 —— ★★ 自证里只有「有没有分红」，
+        #     ★★★ 没有「分红有没有和价格对齐口径」→ 口径标签又一次是假的。
+        自证["★★★拆股折算生效"] = (f"{len(_折算生效)} 只被折算过，"
+                             f"共 {sum(_折算生效.values())} 个拆股事件")
+        自证["★★★拆股折算失败"] = (f"{len(_折算失败)} 只" +
+                             (f"（例：{list(_折算失败.items())[:3]}）" if _折算失败 else "（无）"))
+        if _折算失败:
+            raise AssertionError(
+                f"★★★ 拆股折算有 {len(_折算失败)} 只失败 —— 停跑。"
+                f"★ 例：{list(_折算失败.items())[:3]}（#97：不许再吞这个异常）")
+        if not _折算生效:
+            raise AssertionError(
+                "★★★★★ 拆股折算**一只都没生效** —— 停跑。"
+                "★ 池子里不可能一只有拆股的票都没有（抽样实测约 29% 的票同时有分红和拆股），"
+                "★★★ 所以这几乎一定是又一次静默失败（#97 就是这么藏了一整天）。")
         if len(查得到) / max(1, len(需覆盖)) < 最低覆盖率:
             raise AssertionError(
                 f"★★★ 分红文件只覆盖 {len(查得到)}/{len(需覆盖)}，"
