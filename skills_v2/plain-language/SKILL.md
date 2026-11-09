@@ -67,3 +67,8 @@ description: 把已经理解的金融/投研内容改写成自然易懂的大白
 ---
 
 > **XING V2.3 接入附注**：本方法是 V2 研究视角，不覆盖 `xing-main` 的统一边界，不抢占 `xing-fundamental-analyst`、`xing-technical-analyst`、`xing-screener` 等模块的正式数值判定。执行前按需参阅 `references/shared/method_integration_contract.md`；该路径按本集成包根目录解析。若引用的底层工具未实际接通，必须降级说明，不得模拟计算结果或历史回测证据。
+
+## 共用边界
+
+本卡的研究规则与表达边界，以 `references/shared/common_boundaries.md` 为**唯一来源**。
+该文件 38 张卡共用一份；**不要改写、不要复制到本卡正文里**。
