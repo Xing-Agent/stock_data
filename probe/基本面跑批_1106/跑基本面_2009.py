@@ -28,8 +28,12 @@ PANEL = "probe/基本面跑批_1106/并池2004修接缝_1108/ohlcv_panel_newpool
 POOL = "probe/并池2004_1107/pool_MERGED2004_ALL_1107.csv"
 PERF_START, PERF_END = "2009-01-01", "2025-12-31"
 预热 = 440
-ARMS = os.path.join(HERE, "arms_2009修接缝")
-LED = os.path.join(HERE, "ledgers_2009修接缝")
+# ★★★ 1109 主路：臂目录/流水目录改成可覆盖（★ 默认值不变）——
+#   ★★ 为什么：这 33 个臂 JSON **是入库的**，而 `--arm` 不像 `--all` 那样跳过已有结果
+#     → ★★★ 想「单跑一条验证一下」就会**原地盖掉库里那一条**（同 #96 那一类）。
+#   ★ 验证性质的跑一律换目录：XING_ARMS_DIR / XING_LEDG_DIR / XING_NAV_DIR 三件一起换。
+ARMS = os.path.join(HERE, os.environ.get("XING_ARMS_DIR", "arms_2009修接缝"))
+LED = os.path.join(HERE, os.environ.get("XING_LEDG_DIR", "ledgers_2009修接缝"))
 口径行 = ("【本次口径】全收益 · 摩擦档 三档 5/15/30bp 单边 · 窗口 2009-01-01~2025-12-31 · "
          "池 并池2004(3858,一档) · 标签滞后 1 天")
 N随机 = 100
@@ -49,13 +53,45 @@ def 装层():
     import 基本面零件_1106 as PARTS, 策略零件_1106 as MINE, 补分红_1107 as DIV
     import rerun_core_1030 as RC
     a = EXT.install(); b = SLIM.install(); e = SHARE.install(); c = PARTS.install(); d = MINE.install()
-    wide = pd.read_parquet(PANEL)
-    idx = wide.index
+    # ════════════════════════════════════════════════════════════════════
+    # ★★★★★ 1109 主路 · **逐字段读**（★ 原来是 `pd.read_parquet(PANEL)` 整张读进来再裁行）
+    #
+    # ★★★ 为什么改：1109 实测，这一条**自己就把跑批挤死了** ——
+    #   ★ 原写法 `装层()` 峰值 **4.24~4.58 GB**，★★ 而真正要留下的数据只有 **0.87 GB**
+    #     （6 字段 × 4716 天 × 3858 只 × float64 = 146 MB 每张）。
+    #   ★★★ 差的那 3.4 GB 是：整张 5747 行先全读进来（1.06 GB）+ pyarrow 的中间缓冲
+    #     + `.iloc` 裁行那一次拷贝 + 字典推导那一次拷贝 —— ★ 全是过手就扔的。
+    #   ★★★★★ 容器的 cgroup 上限实测约 **6.1 GB**（oom-kill 记录：anon-rss 6,090,256 kB）
+    #     → ★ 装层占掉 4.24 GB，剩给 `matrices.build` 不到 2 GB → **OOM，一条臂都跑不完**。
+    #     ★★ 实测连撞两次（1109 第 2 次唤醒），★★★ 也就是说「33 条整批 4~7 小时」
+    #       这个下一步**在这个容器里从来就起不来** —— 不是跑得慢，是跑不了。
+    #
+    # ★★ 改法：按字段一张一张读、读一张裁一张（读完就 gc）→ 峰值 **1.74 GB**（省 2.5 GB）。
+    # ★★★★★ 自证（★ 不是「我觉得一样」）：新旧两法各开一个进程，六个字段逐字节比 ——
+    #   `sha256(ascontiguousarray(values).tobytes())` · dtype · NaN 数 · 行列头尾
+    #   → **六个字段签名完全一致**（close sha256 = 3803ac1fc368d5a8adb85d4e40393fe7，
+    #     形状 [4716, 3858]，行 2007-04-05 → 2025-12-31）。
+    #   ★ 也就是说这是**纯内存改动，一个数都没动**。
+    import gc                                                     # noqa: E402
+    import pyarrow.parquet as pq                                  # noqa: E402
+    _pf = pq.ParquetFile(PANEL)
+    _names = _pf.schema_arrow.names
+    _ixc = list(_pf.schema_arrow.pandas_metadata["index_columns"])
+    _fields = sorted({n.split("'")[1] for n in _names if n.startswith("('")})
+    _ix = _pf.read(columns=_ixc).to_pandas()
+    idx = pd.DatetimeIndex(_ix.index)
     i0 = max(0, int(idx.searchsorted(pd.Timestamp(PERF_START))) - 预热)
     i1 = int(idx.searchsorted(pd.Timestamp(PERF_END), side="right"))
-    wide = wide.iloc[i0:i1]                                       # ★ 按窗口裁行,不改 dtype
-    cache._PANEL = {f: wide[f] for f in wide.columns.levels[0]}
-    del wide
+    del _ix
+    gc.collect()
+    cache._PANEL = {}
+    for _fd in _fields:                                           # ★ 按窗口裁行,不改 dtype
+        _cols = [n for n in _names if n.startswith(f"('{_fd}'")]
+        _t = _pf.read(columns=_cols + _ixc).to_pandas()
+        _t.columns = [c[1] if isinstance(c, tuple) else c for c in _t.columns]
+        cache._PANEL[_fd] = _t.iloc[i0:i1].copy()
+        del _t
+        gc.collect()
     RC._IDX_CACHE["idx"] = pool_scope.PoolIndex(path=POOL)
     data.PERF_START, data.PERF_END = PERF_START, PERF_END
     data.TOTAL_RETURN_DEFAULT = True
@@ -100,6 +136,48 @@ def 跑一条(arm: dict) -> dict:
     os.makedirs(LED, exist_ok=True)
     lp = os.path.join(LED, f"REAL__{R0.安全名(arm['臂'])}.csv")
     led.to_csv(lp, index=False)
+    # ════════════════════════════════════════════════════════════════════
+    # ★★★★★ 1109 主路（第 2 次唤醒）· **逐日净值落盘** —— ★ Lin 1109 拍板第 4 条
+    #
+    # ★★★ 为什么基本面这 33 条也要它：《138》第四节自己写着「要 t 就得带 XING_NAV_DIR
+    #   重跑这 33 条」—— ★ 而 `grep -rln XING_NAV_DIR` 只出 5 个文件，★★ 基本面跑批器
+    #   **一个都不在里面**（台账《92》1109 第 1 次唤醒第三节核过）。
+    # ★★ 引擎一直有：`res.equity / equity_gross / exposure` 都是日频序列，
+    #   ★★★ 只是这里拿到手就扔了（和技术面那条链 1107 夜之前一模一样的病）。
+    # ★ 没有它算不出来的是：赛道基准的配对检验六个 t · 尺子②（比标普全收益）·
+    #   最长连亏 —— ★★ 流水里只有**逐笔**（entry/exit/net_pnl），没有逐日。
+    #
+    # ★★★★★ 两件**故意**这么写的（★ 不是疏忽）：
+    #   ① **只有显式给 XING_NAV_DIR 才落盘**（★ 不给默认值）——
+    #      ★★ 默认值就是 1109 拆的那两颗雷的根（出数侧 arms_1107 · 臂曲线配错对）。
+    #   ② 文件名用**本文件自己的** `R0.安全名(臂)`，和同一行上面那份流水
+    #      （`REAL__{R0.安全名}.csv`）**同一把钥匙** → ★★★ 曲线和流水天然配得上对。
+    #      ★ 注意：`出数_1107.py` 那条技术面链用的是**另一个** 安全名（label 直接换字符），
+    #      ★★ 两条链的曲线目录**不要混用**（规矩㊻：对不上就该在名字上看出来）。
+    #   ★★★ 只存**真链这一次**；下面那 N随机 次是随机对照，不是这条臂（同 日序列覆盖层_1107）。
+    _曲线目录 = os.environ.get("XING_NAV_DIR")
+    arm["★日净值"] = "没落盘（没给 XING_NAV_DIR）"
+    if _曲线目录:
+        _曲线目录 = os.path.join(HERE, _曲线目录)
+        try:
+            os.makedirs(_曲线目录, exist_ok=True)
+            _df = pd.DataFrame({"equity": res.equity,
+                                "equity_gross": res.equity_gross,
+                                "exposure": res.exposure})
+            _df.index.name = "date"
+            _cp = os.path.join(_曲线目录, f"{R0.安全名(arm['臂'])}.csv")
+            _df.to_csv(_cp)
+            # ★★★ 自证：**当场读回来**再报（规矩 51/账本 #83：登记里写了拿什么做检验，
+            #   跑之前必须确认它真的会落盘）—— ★ 「写了」和「读得回来」是两件事。
+            _回 = pd.read_csv(_cp, parse_dates=["date"]).set_index("date")
+            _eq = _回["equity"].astype(float).dropna()
+            arm["★日净值"] = (f"{len(_回)} 天 · {_回.index.min().date()} → {_回.index.max().date()}"
+                           f" · equity 首尾 {_eq.iloc[0]:.4f} → {_eq.iloc[-1]:.4f}"
+                           f" · 文件 {os.path.relpath(_cp, ROOT)}")
+            print(f"★★★ 日净值已落盘并读回：{arm['★日净值']}", flush=True)
+        except Exception as e:                      # ★ 存不下来要喊出来，不许静默（规矩⑯）
+            arm["★日净值"] = f"★★★ 存失败 {type(e).__name__}: {e}"
+            print(f"⚠⚠ 日净值没落盘 {arm['臂']} —— {type(e).__name__}: {e}", flush=True)
     n_days = int(len(data.perf_window(m.index, PERF_START, PERF_END)))
     事 = R1.事实(led, 脏)
     # ★ 换手率按本窗口天数重算(R1 里写死的是 2016 窗口的 2514 天)
@@ -149,6 +227,9 @@ def 跑一条(arm: dict) -> dict:
         "★读法": "★★ 只报事实:落在随机 2.5%~97.5% 之间 =「和随机挑分不出」(规矩㊸ v2);★ 本轮不下结论",
         "逐个": rs,
     }
+    # ★★★ 1109：把「日净值到底落没落盘」写进臂文件本身 —— ★ 以后第三个人光看 JSON
+    #   就能判断这条臂**能不能做配对检验**，不用去翻目录（规矩㊻ 结构上看得出来）。
+    rec["★★★日净值"] = arm.get("★日净值", "没记")
     return rec
 
 
