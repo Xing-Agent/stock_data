@@ -206,7 +206,14 @@ def main():
     #     `probe/基本面跑批_1106/跑基本面_1106.py:24,43` 读
     #     `probe/newpool_1106/ohlcv_panel_newpool.parquet`（200MB，MultiIndex 列）。
     #   ★★ 这不是绕开引擎 —— ★★★ 跑批本来就是这么喂的，我们用的是**同一张表**。
-    NEWPANEL = os.path.join(ROOT, "probe/newpool_1106/ohlcv_panel_newpool.parquet")
+    #   【第三版 · 现行】🔴 **第二版还是不够宽** —— ★★ 带闸重跑后 **718 条失败里 640 条栽在闸①**
+    #     （★ 缺价格）。★★★ 一查：`newpool_1106` 这张表只到 **2807 只 · 2014-01 起**，
+    #     ★ 而很多臂的名字里就写着「**并池2004**」「A_2004到2014」。
+    #   ✅ 换成 `probe/并池2004_1107/ohlcv_panel_newpool.parquet` ——
+    #     ★★★★★ **3858 只 · 2004-01-02 ~ 2026-11-04**，★★ 在票数和年份上都**真包含**上一张。
+    #   ★★★ 这不是「挑一张让数字好看的表」：★ 旧表在 2004~2013 整段**一个价格都没有**，
+    #     ★★ 那不是「分数差」，是「算不出来」—— ★★★★★ 两件事必须分开记。
+    NEWPANEL = os.path.join(ROOT, "probe/并池2004_1107/ohlcv_panel_newpool.parquet")
     print(f"【前置】读新池宽表 {NEWPANEL} …")
     wide = pd.read_parquet(NEWPANEL)
     收盘价 = wide["close"] if "close" in wide.columns.get_level_values(0) else None
@@ -216,6 +223,9 @@ def main():
     print(f"【自证】新池宽表 {收盘价.shape[0]} 行 × {收盘价.shape[1]} 列 "
           f"（★ 老池 price_panel 只有 300 列）")
     assert 收盘价.shape[1] > 900, f"🔴 只有 {收盘价.shape[1]} 列，不像新池（预期 >900）"
+    # ★★★★★ 并池表的硬自证：★ 票数和起始年份都必须覆盖得住 2004 那批臂
+    assert 收盘价.shape[1] >= 3800, f"🔴 只有 {收盘价.shape[1]} 列，不像并池2004（预期 ≥3800）"
+    assert 收盘价.index[0].year <= 2004, f"🔴 起点是 {收盘价.index[0].date()}，不是 2004 —— ★★ 2004~2013 那批臂会整段取不到价"
     print(f"【前置】宽表 {收盘价.shape[0]} 行 × {收盘价.shape[1]} 列")
     spy = None
     try:
