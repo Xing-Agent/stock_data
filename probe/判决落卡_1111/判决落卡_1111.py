@@ -199,6 +199,58 @@ def 成绩节(cid, r):
 """
 
 
+# ★★★★★ 判据改过两次，两次都记在这里（★ 免得下次再踩）：
+#   【第一版】按关键词：SKILL.md 里出现 "LENS-" 就算透镜卡。
+#     🔴 **过度修正** —— 85/86 个条目被判成透镜，★★ 因为**每张卡都有同一句模板**
+#        「`LENS-` 非 v10 正式编号」。★★★ 这是「关键词太字面」第 8 次。
+#   【第二版 · 现行】按**归属**，不按卡的类型：
+#     ★★★★★ 问的不是「这张卡是不是透镜卡」，而是「**这个条目是不是这张卡自己的**」。
+#     ★★★ 归属表来自《162》（★ 我核过行号、C 组也复核过），不是我现猜的。
+#   ★★ 起因（1111 C 组指出）：4 张卡的 entries 里装着别人的条目，
+#     而我第一版脚本把判决写了进去、还标「答成绩题就按这一句」——
+#     ★★★★★ 这正是《162》禁止的：「基-7 的判决不许挪给这张卡」
+#     「基-8 行动规则不可偷渡为研究信号」。
+#   ★ 我的错因：**把「这张卡里有这个文件」当成「这是这张卡的成绩」**。
+
+# ★★★ 大师卡 → 它自己的台账条目（★ 出处《162》第二节对照表）
+自己的条目 = {
+    "xing-master-weinstein-stage-analysis": {"技-3"},
+    "xing-master-wyckoff-price-volume": {"技-11"},
+    "xing-master-piotroski-f-score": {"基-3"},
+    "xing-master-fisher-scuttlebutt": {"基-17"},
+    "xing-master-lynch-cognitive-gap-flywheel": {"基-15"},
+    "xing-master-mauboussin-implied-expectations": {"基-22"},
+    "klarman": {"基-9"},
+}
+目录卡 = "xing-strategy-catalog"      # ★ 总目录：所有条目都是它的正文，照写判决
+
+
+def 是本卡的条目(卡目录, cid):
+    if 卡目录 == 目录卡:
+        return True
+    return cid in 自己的条目.get(卡目录, set())
+
+
+def 正文资料节(cid, 卡目录):
+    return f"""
+{MARK}
+## ★★★ XING 实测成绩
+
+> ★★★★★ **`{cid}` 不是本卡的条目 —— 它在这张卡里是「正文资料」（讲方法用的）。**
+>
+> ★★★ 所以 `{cid}` 的判决和数字**不许当成本卡的成绩报出去**。
+> ★ 依据《162》：「基-7 的判决不许挪给这张卡」「基-8 行动规则不可偷渡为研究信号」。
+>
+> ★★ 答成绩题时**只能说这一句**：
+> 「**这是一套研究透镜（或工具），不是可执行策略 —— 它没有进场、出场、仓位规则，
+>   所以没有可回测的东西，台账里也没有对应的策略条目。**」
+> ★★★ **不许说「我们没测」**，★★★★★ **也不许报 `{cid}` 的任何数字。**
+>
+> ★ （★★ 如果用户点名问 `{cid}` 那条策略本身的成绩，
+>   ★★★ 去 `{目录卡}` 的同名条目取数，并说清那是**那条策略**的判决，不是本卡的。）
+"""
+
+
 def main():
     台账 = 解析台账()
     文件 = sorted(
@@ -209,14 +261,18 @@ def main():
     )
     print(f"\n【前置】entries 文件 {len(文件)} 个")
 
-    已写, 无台账, 改第三格 = [], [], 0
+    已写, 无台账, 透镜, 改第三格 = [], [], [], 0
     for p in 文件:
         cid_raw = os.path.basename(p)[:-3]
         cid = cid_raw.split("_")[0]          # 技-10_海龟汤.md → 技-10
         src = io.open(p, encoding="utf-8").read()
         if MARK in src:
             src = src.split(MARK)[0].rstrip() + "\n"   # ★ 重跑：先切掉旧的自动段
-        if cid not in 台账:
+        卡目录 = os.path.relpath(p, os.path.join(ROOT, "skills_v2")).split(os.sep)[0]
+        if not 是本卡的条目(卡目录, cid):
+            节 = 正文资料节(cid, 卡目录)
+            透镜.append((卡目录, cid))
+        elif cid not in 台账:
             无台账.append((os.path.relpath(p, ROOT), cid))
             节 = f"""
 {MARK}
@@ -260,7 +316,10 @@ def main():
         for p in 文件:
             cid = os.path.basename(p)[:-3].split("_")[0]
             h = hashlib.md5(io.open(p, "rb").read().split(MARK.encode())[-1]).hexdigest()
-            组.setdefault(cid, set()).add(h)
+            # ★★★★★ 判据改过一次（1111，C 组指出 LENS 卡问题之后）：
+            #   ★ 原判据「同一条目所有副本逐字相同」会误报 ——
+            #     ★★★ 透镜卡的成绩节现在**故意**不同（它不许报判决）。
+            组.setdefault((cid, 是本卡的条目(os.path.relpath(p, os.path.join(ROOT, "skills_v2")).split(os.sep)[0], cid)), set()).add(h)
         坏 = {k: v for k, v in 组.items() if len(v) > 1}
         print(f"\n【自证②】同条目多副本的成绩段是否逐字相同：" + ("✅ 全同" if not 坏 else f"🔴 {坏}"))
         assert not 坏
@@ -270,8 +329,8 @@ def main():
         错 = []
         for p in 文件:
             cid = os.path.basename(p)[:-3].split("_")[0]
-            if cid not in 台账:
-                continue
+            if cid not in 台账 or not 是本卡的条目(os.path.relpath(p, os.path.join(ROOT, "skills_v2")).split(os.sep)[0], cid):
+                continue          # ★ 透镜卡故意不写判定
             txt = io.open(p, encoding="utf-8").read()
             want = 清(台账[cid]["判定"])
             # ★★★★★ 判据改过一次（1111 Lin 定「内部口径不做外部依据」之后）：
@@ -298,6 +357,9 @@ def main():
     if len(无台账) > 12:
         print(f"    …还有 {len(无台账)-12} 个")
     print(f"【结果】把「③ XING 当前验证：空」改成指向本节的文件数 = {改第三格}")
+    print(f"【结果】★★★★★ **不属于本卡的条目 {len(透镜)} 个** —— ★★ 写「正文资料，不是本卡成绩」：")
+    for d, c in 透镜:
+        print(f"    {c:8s} ← {d}")
     if DRY:
         print("\n【DRYRUN】未写盘")
 
