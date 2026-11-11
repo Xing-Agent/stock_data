@@ -347,7 +347,8 @@ def main() -> int:
                 if r["all9"]:
                     c["九项全齐"] += 1
                     continue
-                y = r["years"]
+                # judge() 把 years 存成排好序的 list(为了打印好看),这里按需转回 set
+                y = {k: set(v) for k, v in r["years"].items()}
                 核心 = y["netincome"] | y["totalassets"] | y["revenue"]
                 if not 核心:
                     c["★空库:窗口内一个核心科目都没有(多为非us-gaap/IFRS申报人、或退市太早)"] += 1
