@@ -237,17 +237,47 @@ def main():
     组 = 找流水()
     print(f"【前置】找到 {len(组)} 个跑批目录，共 {sum(len(v) for v in 组.values())} 个流水文件\n")
 
-    结果, 失败 = [], []
+    # ★★★★★ 结构改过一次（★ 这是同一个跑第 3 次重启，★★ 按规矩㊺：**改结构，不是再加一次时限**）：
+    #   🔴 【旧】汇总表**只在最后写一次** + 没有断点 ——
+    #      ★★ 后台时限到了被杀 → ★★★ 145 个净值文件在盘上，**汇总表一行都没有**，
+    #      ★ 重启等于从头再跑一遍。
+    #   ✅ 【现行】两样：
+    #      ① **逐条追加写**（`逐条_1111.jsonl`）—— ★★ 杀在任何一刻，前面的都还在
+    #      ② **断点续跑** —— ★★★ 净值 csv 已存在的臂直接跳过（★ 用 `--重跑` 强制重算）
+    逐条路径 = os.path.join(OUT, "逐条_1111.jsonl")
+    重跑 = "--重跑" in sys.argv
+    结果, 失败, 跳过 = [], [], 0
+    if os.path.exists(逐条路径) and not 重跑:
+        with io.open(逐条路径, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                rec = json.loads(line)
+                (失败 if rec.get("★失败") else 结果).append(rec)
+        print(f"【续跑】读到上次已算 {len(结果)} 条成功 · {len(失败)} 条失败 —— ★ 这些不重算\n")
+    已算 = {(x.get("跑批"), x.get("臂")) for x in 结果} | {(x.get("跑批"), x.get("臂")) for x in 失败}
+    逐条 = io.open(逐条路径, "a", encoding="utf-8")
+
+    def 记一条(rec):
+        逐条.write(json.dumps(rec, ensure_ascii=False, default=str) + "\n")
+        逐条.flush()                                   # ★★★★★ 必须 flush，★ 不然被杀时还在缓冲里
+
     for 目录, fs in sorted(组.items(), key=lambda kv: -len(kv[1])):
         for p in fs:
             名 = os.path.basename(p)[:-4]
+            if (目录, 名) in 已算:
+                跳过 += 1
+                continue
             r, err = 重建一条(p, 收盘价)
             if err:
-                失败.append({"跑批": 目录, "臂": 名, "原因": err})
+                rec = {"跑批": 目录, "臂": 名, "原因": err, "★失败": True}
+                失败.append(rec); 记一条(rec)
                 continue
             m = 指标(r["净值"], r["在场"], spy)
             if m is None:
-                失败.append({"跑批": 目录, "臂": 名, "原因": "净值点数不足"})
+                rec = {"跑批": 目录, "臂": 名, "原因": "净值点数不足", "★失败": True}
+                失败.append(rec); 记一条(rec)
                 continue
             # ★★★★★ 「★自证」**必须进汇总表**（★ 第一轮漏了这一列 ——
             #   ★★ 于是 833 行里**看不出哪条自证过了、哪条没过**，等于白做。
@@ -257,8 +287,12 @@ def main():
             结果.append(m)
             r["净值"].to_frame("净值").to_csv(
                 os.path.join(OUT, f"净值__{目录.replace('/', '_')}__{名[:70]}.csv"))
-        print(f"  {目录:34s} 完成 {len([x for x in 结果 if x['跑批']==目录]):4d} / 失败 "
-              f"{len([x for x in 失败 if x['跑批']==目录]):4d}")
+            记一条(m)                                   # ★★★ 算完立刻落盘，不等最后
+        print(f"  {目录:34s} 完成 {len([x for x in 结果 if x.get('跑批')==目录]):4d} / 失败 "
+              f"{len([x for x in 失败 if x.get('跑批')==目录]):4d}", flush=True)
+    逐条.close()
+    if 跳过:
+        print(f"\n【续跑】跳过 {跳过} 条（★ 上次已算过）")
 
     df = pd.DataFrame(结果)
     df.to_csv(os.path.join(OUT, "指标汇总_1111.csv"), index=False)
