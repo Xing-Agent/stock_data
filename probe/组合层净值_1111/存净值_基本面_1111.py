@@ -61,7 +61,15 @@ def 指标(nv, 在场率):
     }
 
 
-def main():
+def main(只跑=None):
+    """★★★★★ 结构改过一次（★ 记在这里）：
+    【第一版】33 条臂在**同一个进程**里连着跑 → 🔴 **被 OOM 杀掉**
+      ★ 症状：日志只有 6 行、`echo EXIT=` 一次都没执行（★★ 进程是被杀的，不是正常退出）
+      ★★★ 原因：每条臂都要 `matrices.build(2224 只)`，★ 同进程里内存不释放。
+      ★★★★★ 这正是之前「33 条基本面跑批 OOM」的同一个坑 —— ★★ 不是逻辑错，是**结构错**。
+    【第二版 · 现行】**一条臂一个进程**：加 `--arm N`，外层 shell 循环，
+      ★★★ 每条跑完进程退出、内存归还。
+    """
     import copy
     import yaml
     import 跑基本面_1106 as B
@@ -79,7 +87,13 @@ def main():
         f"🔴 窗口起点是 {data.PERF_START}，不是 2015 —— ★★ 和已有成绩不可比，停"
 
     臂 = B.臂表()
-    print(f"【前置】臂表 {len(臂)} 条\n")
+    if 只跑 is not None:
+        if not (0 <= 只跑 < len(臂)):
+            print(f"🔴 --arm {只跑} 超范围（共 {len(臂)} 条）"); return 2
+        臂 = [臂[只跑]]
+        print(f"【前置】臂表共 {len(B.臂表())} 条 —— ★ 本进程只跑第 {只跑} 条\n")
+    else:
+        print(f"【前置】臂表 {len(臂)} 条\n")
 
     行, 失败 = [], []
     for i, arm in enumerate(臂, 1):
@@ -132,9 +146,10 @@ def main():
         print(f"  ✅ {名[:48]:50s} 年化 {m.get('复合年化%')}% · 回撤 {m.get('最大回撤%')}% "
               f"· 卡玛 {m.get('卡玛')} · {m['耗时秒']}s")
 
-    df = pd.DataFrame(行)
-    df.to_csv(os.path.join(OUT, "指标_基本面_1111.csv"), index=False)
-    json.dump(失败, io.open(os.path.join(OUT, "失败_1111.json"), "w", encoding="utf-8"),
+    # ★★★ 一条臂一个进程 → ★ 每条各写自己的小文件，★★ 最后另外合并（不覆盖别人的）
+    后缀 = f"_arm{只跑:02d}" if 只跑 is not None else "_all"
+    pd.DataFrame(行).to_csv(os.path.join(OUT, f"指标{后缀}.csv"), index=False)
+    json.dump(失败, io.open(os.path.join(OUT, f"失败{后缀}.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     print(f"\n【结果】成功 {len(行)} · 失败 {len(失败)} → {OUT}")
     print("\n★★★★★ **自证还没做** —— ★★ 必须拿这里算出的组合层数，")
@@ -143,4 +158,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    n = None
+    if "--arm" in sys.argv:
+        n = int(sys.argv[sys.argv.index("--arm") + 1])
+    sys.exit(main(n) or 0)
