@@ -325,6 +325,40 @@ def main() -> int:
         print(f"★★★ 下面是**全池** {len(pool)} 只的结果(分母含没有财报库的那些)。")
         out["全池"] = 跑(pool, f"全池 {len(pool)} 只", a.workers)
 
+    # ---- 交集池(财报库 ∩ 价格池):这才是真正能回测的分母
+    if a.交集 and os.path.isdir(PRICE):
+        both = sorted(set(有库) & set(os.listdir(PRICE)))
+        print()
+        print(f"★★★ 下面是「财报库 ∩ 价格池」{len(both)} 只 —— 真正能回测的池子。")
+        out["交集池"] = 跑(both, f"财报库∩价格池 {len(both)} 只", a.workers)
+
+    # ---- 缺口成因诊断(大白话:算不出来,到底是哪一类算不出来)
+    if a.诊断:
+        print()
+        print("=" * 78)
+        print("【缺口成因】九项不全齐的票,按原因分类")
+        print("=" * 78)
+        c = Counter()
+        with ProcessPoolExecutor(max_workers=a.workers) as ex:
+            for r in ex.map(judge, pool, chunksize=16):
+                if r is None:
+                    c["库读不出来"] += 1
+                    continue
+                if r["all9"]:
+                    c["九项全齐"] += 1
+                    continue
+                y = r["years"]
+                核心 = y["netincome"] | y["totalassets"] | y["revenue"]
+                if not 核心:
+                    c["★空库:窗口内一个核心科目都没有(多为非us-gaap/IFRS申报人、或退市太早)"] += 1
+                elif not (y["grossprofit"] or y["costofrevenue"]):
+                    c["★只缺毛利科目:有营收有总资产,但没毛利/成本(金融、REIT 这类不报毛利)"] += 1
+                else:
+                    c["其它:部分科目期数不够或对不上同一财年"] += 1
+        for k, v in c.most_common():
+            print(f"  {k:<58} {v:>5} / {len(pool)} = {v/len(pool)*100:5.1f}%")
+        out["缺口成因"] = dict(c)
+
     with open(a.json, "w") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     print(f"\n结果已写 {a.json}")
