@@ -1,6 +1,0 @@
-【前置】研发池 2224 只 · 留出池 583 只（★ 已排除）
-【前置】装新池层（★ 复用跑批自己的 装层()，不自己拼）…
-【前置】装层完成：{'财报库': 4005, '瘦身': 0, '零件': 8, '本路': ['pb_rank_bottom', 'fund_metric_threshold', 'graham_defensive', 'value_momentum_top', 'zweig_garp', 'roce_rank_top_x', 'magic_formula_available'], '股数闸': {'★股数闸补上了': True, '新池行情目录数': 3914}}
-【前置】data.PERF_START = 2015-01-01 · PERF_END = 2025-12-31
-【前置】臂表共 33 条 —— ★ 本进程只跑第 0 条
-
