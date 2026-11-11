@@ -241,21 +241,58 @@ def main() -> int:
                       "对照组」那一层 —— ★★★ 用户会把「❌ 没跑赢大盘」读成「这套不赚钱」。"
                       "★ 修法：引用共用边界「③-附」那一段，或在卡内写全（基金必须止损 / 没跑赢≠不赚钱 / 单窗口）"})
 
+    # ---- ⑦ entries 里必须有成绩节（★★★★★ 1111 新加 · Lin 拍板「判决落卡」）
+    #   ★★ 起因：C 组第二轮 —— 四张卡被问成绩全答「没有回测成绩」。
+    #     ★ 实扫 69 个 entries：「利润因子」0 个、「相邻三点」0 个 → **包里一条判决都没有**。
+    #   ★★★★★ 和 1110 那条同一个形状：**规则写了，没做承载它的格子。**
+    #   ★ 判法：每个 entries/*.md 必须带自动生成标记；带判定的必须同时带窗口和免责层。
+    报.setdefault("🔴entries缺成绩节", [])
+    成绩标记 = "<!-- XING-成绩-自动生成"
+    for d in 卡:
+        ed = os.path.join(ROOT, "skills_v2", d, "references", "entries")
+        if not os.path.isdir(ed):
+            continue          # ★ 没有 entries 的卡 = 透镜/工具卡，★★ 成绩口径整条不适用
+        for fn in sorted(os.listdir(ed)):
+            if not fn.endswith(".md"):
+                continue
+            fp = os.path.join(ed, fn)
+            et = io.open(fp, encoding="utf-8").read()
+            if 成绩标记 not in et:
+                报["🔴entries缺成绩节"].append(
+                    {"卡": d, "条目": fn,
+                     "★": "★★★★★ 没有「XING 实测成绩」节 —— ★★ 卡被问成绩时会答「没有回测成绩」。"
+                          "★ 修法：重跑 probe/判决落卡_1111/判决落卡_1111.py"})
+                continue
+            节 = et.split(成绩标记, 1)[1]
+            if "台账里没有这一条" in 节:
+                continue      # ★ 这是合法的三种内容之一
+            缺 = []
+            if "只有一个窗口" not in 节:
+                缺.append("窗口")
+            if "不是一个真实可选的对照组" not in 节:
+                缺.append("满仓标普免责层")
+            if "不给用户看" not in 节:
+                缺.append("内部数字隔离")
+            if 缺:
+                报["🔴entries缺成绩节"].append(
+                    {"卡": d, "条目": fn, "缺": 缺,
+                     "★": "★★★ 成绩节在，★★★★★ 但缺了必带的那几层 —— ★ 按 1110 口径这等于歪曲判定"})
+
     报["★★本次没查到的"] += [
         "★ **答得对不对** —— ★★ 机器只查结构和边界，★★★ 内容对错要靠三类测试里的「刁钻输入」。",
         "★ **流程顺不顺** —— ★★★ 那是体验的事，不是体检的事（《131》：体验属于「改」的阶段）。",
-        "★ **references 里的内容** —— ★★ 本次只读 SKILL.md 正文。",
+        "★ **SKILL.md 以外的 references 内容** —— ★★ 本次只读 SKILL.md 正文 + entries 的成绩节。",
     ]
     红 = (len(报["🔴判据被动"]) + len(报["🔴泄漏"])
          + len(报["🔴违反共用边界"]) + len(报["🔴自述不符"])
-         + len(报["🔴满仓标普尺子缺免责"]))
+         + len(报["🔴满仓标普尺子缺免责"]) + len(报["🔴entries缺成绩节"]))
     黄 = len(报["🟡术语不统一"]) + len(报["🟡泄漏_待人判"])
     报["★★★三秒版"] = f"🔴 红牌 {红} 张 · 🟡 黄牌 {黄} 张 · ★ 卡数 {len(卡)}"
     out = os.path.join(ROOT, "手册", f"体检_{os.environ.get('XING_TAG','1109')}.json")
     io.open(out, "w", encoding="utf-8").write(json.dumps(报, ensure_ascii=False, indent=1))
     print(报["★★★三秒版"])
     for k in ("🔴判据被动", "🔴泄漏", "🔴违反共用边界", "🔴自述不符",
-              "🔴满仓标普尺子缺免责", "🟡泄漏_待人判", "🟡术语不统一"):
+              "🔴满仓标普尺子缺免责", "🔴entries缺成绩节", "🟡泄漏_待人判", "🟡术语不统一"):
         if 报[k]:
             print(f"\n{k}（{len(报[k])}）")
             for x in 报[k][:6]:

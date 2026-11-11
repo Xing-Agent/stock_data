@@ -1,0 +1,245 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+把《93》台账的判决落进每张卡的 references/entries/<条目>.md（2026-11-11 · Lin 拍板「同意」）
+
+★★★★★ 为什么要做：C 组第二轮指出 —— 四张卡被问成绩时都答「没有回测成绩」。
+   ★ 我扫了全包 69 个 entries：「测不出」0 个 · 「利润因子」0 个 · 「最大回撤」0 个
+     · 「2015」(窗口) 0 个 · 「相邻三点」0 个。
+   ★★★★★ 也就是说：**包里一条判决都没有**。
+   ★★ 而昨天我们刚把「成绩怎么说：三层 + 窗口 + 副指标」写进 39 张卡 ——
+      ★★★ 规则在，数据不在。这个形状和 1110 那条教训一样：**写了规则，没做承载它的格子。**
+
+★ 做法：不新造结构 —— entries 里本来就有一行
+   「③ XING 当前验证：空（…当前线上状态须查有版本的策略验证记录）」
+   ★★ 这次就是把这个空格填上，并在文件末尾追加一节完整成绩。
+
+★★★ 列号已逐列对过表头（1110 读错列三次的教训）：
+   第 11 列 = 「两套同向?」   第 12 列 = 「判定」 ← ★★★★★ 成绩按这一列
+   第 4 笔数 · 5/6 ①赛道alpha+t · 7/8 ②对满仓SPY+t · 9/10 组合层
+   13 持有 · 14 组合层回撤% · 15 利润因子 · 16 胜率 · 17 相邻三点 · 18 时点注
+
+★ 不动 engine/ 一个字节。
+"""
+import hashlib
+import io
+import json
+import os
+import re
+import sys
+from collections import OrderedDict
+
+ROOT = "/home/claude/xing-agent-stock_data"
+LEDGER = os.path.join(ROOT, "手册/93-策略说明书-全40条-按新尺子-1107.md")
+DRY = os.environ.get("XING_DRYRUN") == "1"
+
+MARK = "<!-- XING-成绩-自动生成 v1 -->"
+WINDOW = "2015-01-01 ~ 2025-12-31 · 整 11 年 · **只有一个窗口**"
+
+
+def 解析台账():
+    t = io.open(LEDGER, encoding="utf-8").read()
+    lines = t.split("\n")
+    # ---- 定位主表表头，逐列对名字（★★★ 不靠位置猜）
+    hi = None
+    for i, l in enumerate(lines):
+        if l.startswith("|") and "判定" in l and "笔数" in l:
+            hi = i
+            break
+    assert hi is not None, "🔴 找不到主表表头"
+    头 = [c.strip() for c in lines[hi].strip("|").split("|")]
+    assert len(头) == 19, f"🔴 主表列数 {len(头)}，预期 19"
+
+    def 列(关键词, 必含=None):
+        """按表头文字找列号，★ 找不到就报错，不猜位置"""
+        cand = [j for j, c in enumerate(头)
+                if 关键词 in c and (必含 is None or 必含 in c)]
+        assert len(cand) == 1, f"🔴 列「{关键词}」命中 {len(cand)} 个：{[头[j] for j in cand]}"
+        return cand[0]
+
+    IDX = OrderedDict([
+        ("策略", 列("策略")), ("派", 列("派")), ("版本", 列("版本")),
+        ("笔数", 列("笔数")),
+        ("赛道alpha", 列("对自己赛道alpha")), ("赛道t", 列("①t")),
+        ("对SPY差", 列("比同期大盘差")), ("SPYt", 列("②t")),
+        ("组合alpha", 列("组合层alpha")), ("组合t", 列("组合层t")),
+        ("两套同向", 列("两套同向")), ("判定", 列("判定")),
+        ("持有", 列("持有")), ("回撤", 列("组合层回撤")),
+        ("利润因子", 列("利润因子")), ("胜率", 列("胜率")),
+        ("相邻三点", 列("相邻三点")), ("时点注", 列("时点注")),
+    ])
+    print("【前置】逐列对表头 ✅")
+    for k, j in IDX.items():
+        print(f"    {k:10s} → 第 {j+1:2d} 列「{头[j]}」")
+
+    行们 = {}
+    for l in lines[hi + 2:]:
+        if not l.startswith("|"):
+            if l.startswith("#") and 行们:
+                break
+            continue
+        cs = [c.strip() for c in l.strip("|").split("|")]
+        if len(cs) != 19:
+            continue
+        名 = cs[IDX["策略"]]
+        m = re.search(r"((?:基|技|套|模|状|配)-\d+)", 名)
+        if not m:
+            continue
+        行们[m.group(1)] = {k: cs[j] for k, j in IDX.items()}
+    print(f"【前置】主表解析到 {len(行们)} 条：{' '.join(sorted(行们, key=lambda x:(x[0], int(x.split('-')[1]))))}")
+    return 行们
+
+
+def 清(s):
+    s = s.replace("★", "").strip()
+    return s if s and s not in ("—", "-", "–") else ""
+
+
+def 成绩节(cid, r):
+    判 = 清(r["判定"]) or "（台账此格为空）"
+    def g(k, 单位=""):
+        v = 清(r[k])
+        return f"{v}{单位}" if v else "**台账未填**"
+
+    内部 = []
+    for 名, k in [("①对自己赛道 alpha 年%", "赛道alpha"), ("①t", "赛道t"),
+                 ("②对满仓 SPY 差（个百分点）", "对SPY差"), ("②t", "SPYt"),
+                 ("组合层 alpha 年%", "组合alpha"), ("组合层 t", "组合t"),
+                 ("两套同向?", "两套同向")]:
+        内部.append(f"| {名} | {g(k)} |")
+
+    return f"""
+{MARK}
+## ★★★ XING 实测成绩 —— ★ 本节是「③ XING 当前验证」那一格的实际内容
+
+> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从
+> 《93》策略说明书主表自动生成，**不要手改** —— ★★ 手改会和台账对不上。
+> ★★★ 台账更新后重跑脚本即可。
+
+**条目**：`{cid}` · {清(r['策略'])}
+**判定（★★★★★ 答成绩题就按这一句，不许换别的说法）**：{判}
+
+### ★★ 给用户看的（★ 四样照给，一样不许省）
+
+| 项 | 数 |
+|---|---|
+| 笔数 | {g('笔数')} |
+| 利润因子 | {g('利润因子')} |
+| 胜率 | {g('胜率')} |
+| 平均持有（日） | {g('持有')} |
+| 组合层最大回撤 % | {g('回撤')} |
+| 相邻三点（脆弱度） | {g('相邻三点')} |
+| 版本数 | {g('版本')} |
+
+**窗口（★★★★★ 每次都要写，不许省）**：{WINDOW}
+★ 换一个十一年，结论可能完全不同 —— 我们没测过别的窗口。
+
+### ★★★★★ 说这条判定时必须同时带的一层（★ 省掉就是歪曲）
+
+> ★★★ 判定里的「没跑赢大盘」，比的是**满仓标普全收益、十一年一动不动** ——
+> ★★★★★ **那不是一个真实可选的对照组**：基金回撤到一定规模**必须直接止损**，结构上做不到；
+> 个人要坐过 **-34.1%** 回撤、**2.0 年**不创新高，也极少有人做到。
+> 能做到的只剩两种钱 —— **超复杂衍生品叠加**，或者**自己的钱 + 绝对的信仰**。
+>
+> ★★★★★ 所以：**「没跑赢大盘」≠「不赚钱」。** 实测 28 条里 **23 条利润因子 > 1**。
+> ★ 完整口径见 `references/shared/common_boundaries.md` 的「③-附」。
+
+### ⛔ 不给用户看的（★★★ 内部口径，按 C-3：产品输出里不出现 t，也不出现「显著」）
+
+| 内部项 | 值 |
+|---|---|
+{chr(10).join(内部)}
+
+★ 时点注：{清(r['时点注']) or '—'}
+"""
+
+
+def main():
+    台账 = 解析台账()
+    文件 = sorted(
+        os.path.join(dp, f)
+        for dp, _, fns in os.walk(os.path.join(ROOT, "skills_v2"))
+        if os.path.basename(dp) == "entries"
+        for f in fns if f.endswith(".md")
+    )
+    print(f"\n【前置】entries 文件 {len(文件)} 个")
+
+    已写, 无台账, 改第三格 = [], [], 0
+    for p in 文件:
+        cid_raw = os.path.basename(p)[:-3]
+        cid = cid_raw.split("_")[0]          # 技-10_海龟汤.md → 技-10
+        src = io.open(p, encoding="utf-8").read()
+        if MARK in src:
+            src = src.split(MARK)[0].rstrip() + "\n"   # ★ 重跑：先切掉旧的自动段
+        if cid not in 台账:
+            无台账.append((os.path.relpath(p, ROOT), cid))
+            节 = f"""
+{MARK}
+## ★★★ XING 实测成绩
+
+> ★★★★★ **《93》台账里没有 `{cid}` 这一条。**
+> ★★★ 答成绩题时必须说「**台账里没有对应的策略条目，所以没有成绩可报**」——
+> ★★★★★ **不许说「我们没测」**，也不许借用别的条目的判定。
+> ★ （★★ 这是 1110 C 组那一轮踩过的坑：「台账里没有这一条」≠「台账判它是研究框架」。）
+"""
+        else:
+            节 = 成绩节(cid, 台账[cid])
+            已写.append(cid)
+
+        新 = src.rstrip() + "\n" + 节
+        # ★ 顺手把「③ XING 当前验证：空」那一行指向本节
+        新2 = re.sub(
+            r"(\*\*③ XING 当前验证\*\*：)空([^\n]*)",
+            r"\1见本文件末尾「XING 实测成绩」一节（★ 自动生成）\2",
+            新)
+        if 新2 != 新:
+            改第三格 += 1
+        新 = 新2
+
+        # ---- 自证 ①：原文一个字不动（只在末尾追加 + ③ 那一行改指向）
+        回 = 新.split(MARK)[0].rstrip()
+        回 = re.sub(r"(\*\*③ XING 当前验证\*\*：)见本文件末尾「XING 实测成绩」一节（★ 自动生成）",
+                   r"\1空", 回)
+        assert 回 == src.rstrip(), f"🔴 {p} 不是纯追加"
+
+        if not DRY:
+            io.open(p, "w", encoding="utf-8").write(新)
+
+    # ---- 自证 ②：同一条目的多份副本必须逐字相同 ────────────
+    if not DRY:
+        组 = {}
+        for p in 文件:
+            cid = os.path.basename(p)[:-3].split("_")[0]
+            h = hashlib.md5(io.open(p, "rb").read().split(MARK.encode())[-1]).hexdigest()
+            组.setdefault(cid, set()).add(h)
+        坏 = {k: v for k, v in 组.items() if len(v) > 1}
+        print(f"\n【自证②】同条目多副本的成绩段是否逐字相同：" + ("✅ 全同" if not 坏 else f"🔴 {坏}"))
+        assert not 坏
+
+    # ---- 自证 ③：判定必须和台账第 12 列逐字一致 ─────────────
+    if not DRY:
+        错 = []
+        for p in 文件:
+            cid = os.path.basename(p)[:-3].split("_")[0]
+            if cid not in 台账:
+                continue
+            txt = io.open(p, encoding="utf-8").read()
+            want = 清(台账[cid]["判定"])
+            if want and want not in txt:
+                错.append((cid, want))
+        print(f"【自证③】判定与台账第 12 列逐字一致：" + ("✅" if not 错 else f"🔴 {错[:4]}"))
+        assert not 错
+
+    print(f"\n【结果】写入成绩 {len(set(已写))} 个条目 / 共 {len(文件)} 个文件")
+    print(f"【结果】台账里没有的条目 {len(无台账)} 个 —— ★★★ 它们写的是「台账无此条目」，不是「没测」：")
+    for rp, cid in 无台账[:12]:
+        print(f"    {cid:8s} {rp}")
+    if len(无台账) > 12:
+        print(f"    …还有 {len(无台账)-12} 个")
+    print(f"【结果】把「③ XING 当前验证：空」改成指向本节的文件数 = {改第三格}")
+    if DRY:
+        print("\n【DRYRUN】未写盘")
+
+
+if __name__ == "__main__":
+    main()
