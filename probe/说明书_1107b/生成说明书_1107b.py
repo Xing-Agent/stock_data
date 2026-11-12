@@ -1083,6 +1083,13 @@ def 写出() -> int:
     r = main()
     A = 续(*r)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    # ★★★★★ 1112 接入：**写出前套上手工更正** —— ★★ 否则重出会把抬头 6 段必读、
+    #   融-1 改名、所有口径更正全冲掉（★★★ 这正是「正文一直没重出」的真原因）。
+    #   🔴 ★ 任何一条落不下去，`套()` 自己会 SystemExit —— **宁可不写，也不写一个丢了更正的版本**。
+    import sys as _s
+    _s.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from _套手工更正_1112 import 套 as _套
+    A = _套(A)
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write("\n".join(A) + "\n")
     print(f"★ 写到 {OUT}（{len(A)} 行）")
