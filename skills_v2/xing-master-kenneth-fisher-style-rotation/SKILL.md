@@ -5,6 +5,11 @@ description: 用肯尼斯·费雪（Kenneth Fisher）基-11风格轮动框架解
 
 # 肯尼斯·费雪｜风格轮动 · 基-11
 
+
+- 🔴 ★★★★★ **本卡 `entries/` 目录里实际有这 1 个文件，只许读这几个**：`references/entries/基-11.md`
+  ★★ **不许按 ID 去拼文件名** —— ★★★ A 组 1112 实测：拼出来的 `LENS-ZWEIG-BREADTH.md` 这类**压根不存在**，读了 5 次全是「File does not exist」。
+  ★ 拿不准就**先列目录**，再读。
+
 ## 能力卡
 - 人物：肯尼斯·费雪（Kenneth Fisher），不是菲利普·费雪（Philip Fisher）。用户仅说“费雪”且上下文无从区分时问一句澄清。
 - 正式方法卡：`基-11`；能力：`action.strategy.fundamental`、`research.macro.market_breadth`（研究辅助），实际执行落 **Portfolio 组合层**，不是个股 Selection。

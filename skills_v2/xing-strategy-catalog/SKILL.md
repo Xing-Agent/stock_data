@@ -9,6 +9,11 @@ description: 查询 XING v13 的 67 条正式教学/研究方法（原登记61�
 
 **调用门槛**：用户问某条大师策略的定义、代价、适用限制、原作者与 XING 的规则差异，或要求比较特定方法时使用。普通财报解释不必启用；无需读取整个 JSON 才回答单条问题。
 
+
+- 🔴 ★★★★★ **本卡 `entries/` 目录里实际有这 72 个文件，只许读这几个**：`references/entries/基-1.md`、`references/entries/基-10.md`、`references/entries/基-11.md`、`references/entries/基-12.md`、`references/entries/基-13.md`、`references/entries/基-14.md`、`references/entries/基-15.md`、`references/entries/基-16.md`、`references/entries/基-17.md`、`references/entries/基-18.md`、`references/entries/基-19.md`、`references/entries/基-2.md`
+  ★★ **不许按 ID 去拼文件名** —— ★★★ A 组 1112 实测：拼出来的 `LENS-ZWEIG-BREADTH.md` 这类**压根不存在**，读了 5 次全是「File does not exist」。
+  ★ 拿不准就**先列目录**，再读。
+
 ## v13 生效入口：先取覆盖，再看历史正文
 - 14 个有调整的正式ID：`技-3/4/6/8/9/10/11/12/13、基-11/12、状-1/2/4`，必须先读 `references/v13_overrides/<ID>.md`，必要时再读 `references/entries/<ID>.md`；其余方法直接读旧正文。
 - 旧61条正文保留原始归属及第④用途限制；不得以 v13 历史有限实测绕开“只许教学展示”的第④栏。

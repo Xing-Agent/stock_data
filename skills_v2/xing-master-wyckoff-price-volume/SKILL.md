@@ -19,6 +19,10 @@ master: wyckoff
 - **决策输出**：只展示符合用户约束的 2–3 个教育性方法，不排序、不代选；第③栏尚未验证时不得生成实盘信号/具体仓位/退出价。
 - **主动建议**：正常回答之后可选补充视角，最多 2–3 个，不打断；一次会话同一标的去重，并说明补的是哪项盲区。
 - **需要更详细证据时**：v10 官方条目按 ID 只读 `references/entries/<ID>.md`；内部镜头读本 Skill 原始 `references/`，不加载全库。
+- 🔴 ★★★★★ **本卡 `entries/` 目录里实际有这 2 个文件，只许读这几个**：`references/entries/技-11.md`、`references/entries/状-4.md`
+  ★★ **不许按 ID 去拼文件名** —— ★★★ A 组 1112 实测：拼出来的 `LENS-ZWEIG-BREADTH.md` 这类**压根不存在**，读了 5 次全是「File does not exist」。
+  ★ 拿不准就**先列目录**，再读。
+
 
 
 # Wyckoff 大师｜量价结构判断
