@@ -10,9 +10,6 @@ vcp_momentum,NotImplementedError: mansfield_rs_positive(against: SECTOR)还不�
 技-10-原著-持仓2至5天离场,ValueError: 不认识的初始止损 type=day_low_minus_tick
 技-11-原著,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
 技-13-原著-四重离场,NotImplementedError: 离场规则 td_countdown_13_exit 还没实现 —— ★ 没有悄悄忽略它。支持:close_below_ma / close_below_ema / close_above_ma / 
-技-6-行业,子进程退出码 -9（多半是内存被杀）
-技-8-行业-时间止损20日,子进程退出码 -9（多半是内存被杀）
-技-8,子进程退出码 -9（多半是内存被杀）
 技-9,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
 模-1,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
 模-5,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
