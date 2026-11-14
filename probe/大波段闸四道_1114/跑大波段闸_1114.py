@@ -68,7 +68,7 @@ def 跑一条(名):
         r = reg.copy()
         if 挪:
             r = np.concatenate([np.zeros(挪, dtype=bool), r[:-挪]])
-        m.regime = reg0 & r
+        m.regime = r   # 1115 改：配置自带的闸先拿掉，只留被检验的这一道（原先是 reg0 & r，自带闸的配置等于叠了两道）
         res = chain.run_chain(chain.ChainConfig.from_dict(copy.deepcopy(raw)), dev, start, end, m=m,
                               total_return=True)
         if len(res.ledger) and (set(res.ledger["symbol"].astype(str)) & hs):
@@ -81,6 +81,8 @@ def 跑一条(名):
 
     全开 = np.ones(len(idx), dtype=bool)
     版 = {"不挂闸": 跑(全开)}
+    if len(原闸):
+        版["配置自带的闸_原样"] = 跑(reg0)
     for n in (160, 180, 200, 220, 240):
         版[f"均线{n}_带斜率_挪0天"] = 跑(spy闸(n))
     for k in (1, 2):
