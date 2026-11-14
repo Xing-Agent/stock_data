@@ -1,0 +1,21 @@
+﻿策略,原因
+cashflow_discipline,NotImplementedError: universe 规则 no_large_equity_issuance 还没法跑 —— ★ B 类:「大规模增发」的阈值专家原文没给(配置里 undefined_param 写着)。★ 不许借用流
+quality_compounder,"NotImplementedError: universe 规则 gross_profit_to_assets_rank_above 还没法跑 —— GP/A 的截面分位算子引擎还没写(A 类:口径已明确 = 池内横截面前 20%,补代码即"
+vcp_momentum,NotImplementedError: mansfield_rs_positive(against: SECTOR)还不能跑 —— 仓库只有 sector_classification_current_non_pit.csv(元数据自己写
+基-12-无自由参数子集,NotImplementedError: universe 规则 share_count_declining 还没法跑 —— 引擎还没实现这条规则
+基-2-施洛斯极度分散,NotImplementedError: 离场规则 screen_dropout 还没实现 —— ★ 没有悄悄忽略它。支持:close_below_ma / close_below_ema / close_above_ma / monthl
+基-4-神奇公式,NotImplementedError: universe 规则 magic_formula_rank_top 还没法跑 —— 引擎还没实现这条规则
+基-5-低市盈率逆向,NotImplementedError: 离场规则 screen_dropout 还没实现 —— ★ 没有悄悄忽略它。支持:close_below_ma / close_below_ema / close_above_ma / monthl
+基-6-收购者倍数,NotImplementedError: 离场规则 screen_dropout 还没实现 —— ★ 没有悄悄忽略它。支持:close_below_ma / close_below_ema / close_above_ma / monthl
+技-10-原著-持仓2至5天离场,ValueError: 不认识的初始止损 type=day_low_minus_tick
+技-11-原著,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
+技-13-原著-四重离场,NotImplementedError: 离场规则 td_countdown_13_exit 还没实现 —— ★ 没有悄悄忽略它。支持:close_below_ma / close_below_ema / close_above_ma / 
+技-6-行业,子进程退出码 -9（多半是内存被杀）
+技-8-行业-时间止损20日,子进程退出码 -9（多半是内存被杀）
+技-8,子进程退出码 -9（多半是内存被杀）
+技-9,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
+模-1,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
+模-5,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
+模-6,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
+状-4,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
+状-6,"ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。"
