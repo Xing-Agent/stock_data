@@ -1,0 +1,5 @@
+{
+ "名": "技-11-原著",
+ "跑失败": "ValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。",
+ "traceback": "Traceback (most recent call last):\n  File \"/home/claude/xing-agent-stock_data/probe/微仓全接_1114/微仓全接_1114.py\", line 168, in main\n    rec = 跑一条(item)\n          ~~~~~~^^^^^^\n  File \"/home/claude/xing-agent-stock_data/probe/微仓全接_1114/微仓全接_1114.py\", line 93, in 跑一条\n    cfg0 = chain.ChainConfig.from_dict(copy.deepcopy(raw0))\n  File \"/home/claude/xing-agent-stock_data/engine/chain.py\", line 83, in from_dict\n    obj = cls(norm).validate()\n  File \"/home/claude/xing-agent-stock_data/engine/chain.py\", line 96, in validate\n    raise ValueError(\n        f\"★ 第 {step} 步有参数但没写 source。参数只能来自原著或行业惯例,\"\n        f\"并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。\")\nValueError: ★ 第 sizing 步有参数但没写 source。参数只能来自原著或行业惯例,并在配置里标明出处(硬纪律第 6 条,禁止网格搜索)。\n"
+}

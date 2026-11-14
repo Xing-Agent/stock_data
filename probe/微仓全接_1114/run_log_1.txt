@@ -1,1 +1,101 @@
 共 67 条
+ok   基-12_回购筛选
+   基-12_回购筛选  356s
+ok   基-16_特里史密斯
+   基-16_特里史密斯  381s
+ok   基-1_格雷厄姆防御七条
+   基-1_格雷厄姆防御七条  531s
+ok   基-20_价值动量双因子
+   基-20_价值动量双因子  442s
+ok   基-2_施洛斯极度分散
+   基-2_施洛斯极度分散  347s
+ok   基-3_F分数原著版
+   基-3_F分数原著版  317s
+ok   基-4_神奇公式
+   基-4_神奇公式  382s
+ok   基-5_德雷曼低市盈率
+   基-5_德雷曼低市盈率  309s
+ok   基-6_收购者倍数
+   基-6_收购者倍数  359s
+ok   基-7_早期巴菲特烟蒂
+   基-7_早期巴菲特烟蒂  288s
+ok   基-8_茨威格GARP红绿灯
+   基-8_茨威格GARP红绿灯  373s
+FAIL 基-12-无自由参数子集
+   基-12-无自由参数子集  3s
+FAIL 基-2-施洛斯极度分散
+   基-2-施洛斯极度分散  258s
+FAIL 基-4-神奇公式
+   基-4-神奇公式  3s
+FAIL 基-5-低市盈率逆向
+   基-5-低市盈率逆向  270s
+FAIL 基-6-收购者倍数
+   基-6-收购者倍数  300s
+ok   融-1_震荡
+   融-1_震荡  32s
+ok   融-2_突破
+   融-2_突破  20s
+ok   融-3_大波段
+   融-3_大波段  29s
+FAIL cashflow_discipline
+   cashflow_discipline  329s
+ok   deep_value
+   deep_value  336s
+/usr/local/lib/python3.13/site-packages/pandas/core/internals/blocks.py:347: RuntimeWarning: divide by zero encountered in log
+  result = func(self.values, **kwargs)
+ok   liquidity_sweep
+   liquidity_sweep  259s
+FAIL quality_compounder
+   quality_compounder  4s
+ok   trend_following-原著-唐奇安反向通道离场
+   trend_following-原著-唐奇安反向通道离场  31s
+ok   trend_following
+   trend_following  33s
+FAIL vcp_momentum
+   vcp_momentum  4s
+ok   技-1-原著-唐奇安反向通道离场
+   技-1-原著-唐奇安反向通道离场  108s
+FAIL 技-10-原著-持仓2至5天离场
+   技-10-原著-持仓2至5天离场  9s
+ok   技-10
+   技-10  25s
+ok   技-11-XING
+   技-11-XING  19s
+ok   技-11-两日结构
+   技-11-两日结构  24s
+FAIL 技-11-原著
+   技-11-原著  3s
+ok   技-11-行业
+   技-11-行业  24s
+ok   技-12
+   技-12  23s
+FAIL 技-13-原著-四重离场
+   技-13-原著-四重离场  7s
+ok   技-13
+   技-13  57s
+ok   技-14-XING
+   技-14-XING  38s
+ok   技-14-原著
+   技-14-原著  61s
+ok   技-14-行业-RSI2
+   技-14-行业-RSI2  19s
+ok   技-14-行业
+   技-14-行业  21s
+ok   技-2
+   技-2  216s
+ok   技-3-XING
+   技-3-XING  37s
+ok   技-3-原著-底盘9周
+   技-3-原著-底盘9周  24s
+ok   技-3-原著-机械日线
+   技-3-原著-机械日线  35s
+ok   技-3-原著
+   技-3-原著  26s
+ok   技-3-行业
+   技-3-行业  36s
+ok   技-4-原著-中值
+   技-4-原著-中值  109s
+ok   技-4-原著-宽松端
+   技-4-原著-宽松端  115s
+ok   技-4-原著
+   技-4-原著  113s
