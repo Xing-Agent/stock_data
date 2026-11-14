@@ -30,6 +30,42 @@ def 读卡():
             out[d] = io.open(p, encoding="utf-8").read()
     return out
 
+def 去饰(s):
+    """★★★ 1114 第 5 次唤醒加：去掉 markdown 强调和装饰符再比。
+    ★★ 为什么这不算放宽：比的还是**同一句话**，★★★ 只是不再因为
+       「封存段**任何界面都不许泄露**」里那两个星号的位置不同就判成不符。
+    ★ 1114-4 逐条核过的 8 张黄里，有 2 张纯粹坏在这件上。"""
+    return re.sub(r"[*★#>│｜\s`.、,，]", "", s)
+
+
+def 是标题行(行):
+    """★ 只认 markdown 标题（`#`~`######`）—— ★★★ 不认「粗体当标题」那种写法，宁可留黄。"""
+    return bool(re.match(r"\s*#{1,6}\s", 行))
+
+
+def 抽小节名(句, m):
+    """★★★★★ 1114 第 5 次唤醒加：自述写「第 N 行 · §4 风险字段」时，拿**小节名**去比标题。
+
+    ★★ 口径（★★★ 刻意写窄，宁可留黄不要误绿）：
+      · 只看「第 N 行」**后面**那一小段，到第一个 `）` `)` 或换行为止；
+      · 这一段里有 `§` → 小节名 = `§` 后面那串；
+      · 没有 `§` 但以 `·` 引出 → 小节名 = 第一个 `·` 后面那串；
+      · 其它写法（「第 79 行有理由」「那一节在 … 第 379 行」）→ **不给名字，照旧留黄**。
+    """
+    i = 句.find(m.group(0))
+    if i < 0:
+        return ""
+    尾 = 句[i + len(m.group(0)):]
+    尾 = re.split(r"[）)\n]", 尾, maxsplit=1)[0]
+    g = re.search(r"§\s*(.+)$", 尾)
+    if g:
+        return g.group(1).strip()
+    g = re.search(r"^[\s★]*·\s*(.+)$", 尾)
+    if g:
+        return g.group(1).strip()
+    return ""
+
+
 def 抽关键词(句):
     """★ 从「第 N 行」所在那一句里，抽出这条规则自己点名的关键词（『』「」或 **粗体**）。"""
     ks = []
@@ -38,8 +74,15 @@ def 抽关键词(句):
     ks = [k.strip() for k in ks if not re.fullmatch(r"[★\s\d行第]*", k)]
     # ★ 去掉「第 N 行」自己和纯星号片段
     ks = [k for k in ks if "第" not in k or "行" not in k]
+    # ★★★ 1114-5 补：引号**跨行没闭合**那种 —— ★ piotroski 第 94 行就是
+    #   「**缺一项就标 UNKNOWN，<换行>输出『…』**」，★★ 原正则要求闭合 → 这条关键词根本没抽出来。
+    g = re.search(r"[「『]\s*\**([^」』*\n]{4,40}?)\s*$", 句)
+    if g:
+        ks.append(g.group(1).strip())
+    ks = [k.strip() for k in ks if not re.fullmatch(r"[★\s\d行第]*", k)]
+    ks = [k for k in ks if "第" not in k or "行" not in k]
     ks = sorted(set(ks), key=len, reverse=True)
-    return ks[:3]
+    return ks[:4]
 
 def 读引用():
     """★★★★★ 1114 第 2 次唤醒加：引用层 `references/` `templates/` 里的 *.md。
@@ -89,9 +132,14 @@ def 查引用层(报, 卡数):
                 记["那一行现在是"] = 目标行.strip()[:100] or "(空行)"
                 报["🔴引用层行号空指"].append(记); continue
             ks = 抽关键词(近句)
-            if ks and any(k in 目标行 for k in ks):
+            if ks and any(去饰(k) and 去饰(k) in 去饰(目标行) for k in ks):
+                continue
+            小节名 = 抽小节名(近句, m)
+            if 小节名 and 是标题行(目标行) and 去饰(小节名) and 去饰(小节名) in 去饰(目标行):
                 continue
             记["那一行现在是"] = 目标行.strip()[:100]
+            if 小节名:
+                记["它还说小节是"] = 小节名
             报["🟡引用层待人判"].append(记)
         for m in re.finditer(r"([一二三四五六七八九十]{1,3}|\d{1,3})\s*张卡", txt):
             sv = m.group(1)
@@ -167,21 +215,37 @@ def main():
             ks = 抽关键词(近句)
             低 = max(0, n - 1 - 窗); 高 = min(len(目标行们), n + 窗)
             窗内 = "\n".join(目标行们[低:高])
+            目标净 = 去饰(目标行)
             真位 = {}
             for k in ks:
-                真位[k] = [i + 1 for i, L in enumerate(目标行们) if k in L and i + 1 != n]
+                kn = 去饰(k)
+                真位[k] = [i + 1 for i, L in enumerate(目标行们)
+                          if kn and kn in 去饰(L) and i + 1 != n]
             记["找的关键词"] = ks
             记["关键词真在哪几行"] = {k: v[:4] for k, v in 真位.items() if v}
+            小节名 = 抽小节名(近句, m)
+            if 小节名:
+                记["它还说小节是"] = 小节名
             # ★★★★★ 红 = 机器百分之百确定的那种坏：**指到空行 / 代码围栏 / 表格分隔线 / 水平线**
             if 空壳.match(目标行):
                 记.update({"那一行现在是": 目标行.strip()[:100] or "(空行)",
                          "★": "★★★★★ 指到空行/围栏/表格线 —— ★ 照它去翻，那里什么规则都没有"})
                 报["🔴行号空指"].append(记); continue
-            if ks and any(k in 目标行 for k in ks):
-                报["✅行号对的"].append({"卡": d, "它说": f"第 {n} 行", "指向": 目标名}); continue
+            if ks and any(去饰(k) and 去饰(k) in 目标净 for k in ks):
+                报["✅行号对的"].append({"卡": d, "它说": f"第 {n} 行", "指向": 目标名,
+                                     "判法": "关键词落在那一行上"}); continue
+            # ★★★★★ 1114-5 新增判法：自述给了小节名，而那一行**就是那个小节的标题** → 判对。
+            #   ★★ 这是更严不是更松：没给小节名的、给了但对不上的，★★★ 一律照旧留黄。
+            if 小节名 and 是标题行(目标行) and 去饰(小节名) and 去饰(小节名) in 去饰(目标行):
+                报["✅行号对的"].append({"卡": d, "它说": f"第 {n} 行", "指向": 目标名,
+                                     "判法": f"小节名「{小节名}」对上了那一行的标题"}); continue
             记.update({"那一行现在是": 目标行.strip()[:100],
-                     "★": ("★★ 关键词不在那一行上 —— ★ 窗口 ±%d 行内%s → **要人判**" % (
-                         窗, "有" if any(k in 窗内 for k in ks) else "也没有"))})
+                     "★": ("★★ %s —— ★ 窗口 ±%d 行内%s → **要人判**" % (
+                         ("小节名「%s」和那一行的标题对不上" % 小节名) if 小节名
+                         else ("自述没给小节名，关键词也不在那一行上"
+                               if not 是标题行(目标行) else
+                               "那一行是个标题，但自述没给小节名 → 机器核不了"),
+                         窗, "有" if any(去饰(k) and 去饰(k) in 去饰(窗内) for k in ks) else "也没有"))})
             报["🟡行号待人判"].append(记)
 
         # ---- ③ 规模自述
