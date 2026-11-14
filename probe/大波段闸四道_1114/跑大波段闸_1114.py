@@ -24,7 +24,7 @@ import traceback
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-OUT = os.path.join(HERE, "out")
+OUT = os.environ.get("XING_GATE_OUT") or os.path.join(HERE, "out")   # 1114 加：允许写到另一个目录，默认行为不变（规矩75 要能把重跑产物单独落库）
 POOL = os.path.join(ROOT, "probe/流动性池_1114")
 大波段类 = ["技-1", "技-1-原著-唐奇安反向通道离场", "trend_following", "trend_following-原著-唐奇安反向通道离场"]
 
