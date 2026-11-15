@@ -79,6 +79,47 @@ if os.path.exists(os.path.join(ROOT, 要的[0][0])):
         print(f"  🔴 面板身份查不了：{str(_e)[:90]}")
         缺.append("★★★ 面板身份（规矩 70）查不了 → 先把它查通再起跑批，不许跳过")
 
+# ★★★★★ 1115 第 10 次唤醒加的第五件：**newpool 那张面板这份从来没查过** ——
+#   ★★★ 台账《92》1115 五节 ③ 列的那条「半轮的活」。★ 上面查的是 `并池2004_1107/` 那张，
+#   ★★ `newpool_1106/ohlcv_panel_newpool.parquet` 连「在不在」都没查过（它 .gitignore，每容器自己烤）。
+#   ★★★★★ 刻意做成**选配**：重测_1107 那条线用的是并池2004，★ newpool 那张只有换池/流动性池那几条臂要，
+#     ★★ 做成硬缺项会在新容器里**误拦**不需要它的跑批（规矩⑯ 要的是「该响的时候响」，不是「总是响」）。
+#   ★★ 但凡它**在**，就按规矩 76 比指纹 —— ★★★ 在而不对，比不在危险得多。
+_np面板 = "probe/newpool_1106/ohlcv_panel_newpool.parquet"
+_np元 = "probe/newpool_1106/panel_meta_newpool.parquet"
+_有面板 = os.path.exists(os.path.join(ROOT, _np面板))
+_有元 = os.path.exists(os.path.join(ROOT, _np元))
+_烤 = "python3 probe/newpool_1106/烤新池_1106.py（约 51 秒）"
+if not _有面板:
+    print(f"  ○ {_np面板}  [选配 · 只有换池/流动性池那几条臂要它；要用先 {_烤}]")
+if _有元 and not _有面板:
+    # ★ 只有元信息也能查一样：**元信息 md5** —— ★★ 这一条是《195》唯一跨容器查实的那个数
+    import hashlib as _h
+    _md5 = _h.md5(open(os.path.join(ROOT, _np元), "rb").read()).hexdigest()
+    _应 = "c16032d7b1cf2ad5f996fb87a895671b"
+    print(f"  {'✅' if _md5 == _应 else '🔴'} newpool 元信息 md5（规矩 76/77）：{_md5[:12]}…"
+          f" → {'对上 1115 基线' if _md5 == _应 else '★★★★★ 和 1115 基线不符'}")
+    if _md5 != _应:
+        缺.append(f"★★★★★ `{_np元}` 与 1115 基线 md5 不符（出处《195》二节）→ "
+                 f"它是入库文件，不该变；先查是谁动了，别直接重烤盖过去")
+if _有面板 and _有元:
+    try:
+        import importlib.util as _iu
+        _spec = _iu.spec_from_file_location(
+            "面板指纹_newpool_1115",
+            os.path.join(ROOT, "probe/newpool_1106/面板指纹_newpool_1115.py"))
+        _mod = _iu.module_from_spec(_spec); _spec.loader.exec_module(_mod)
+        _出 = _mod.必须对上1115基线(os.path.join(ROOT, _np面板), os.path.join(ROOT, _np元))
+        print(f"  ✅ newpool 面板指纹（规矩 76/77）：对上 1115 基线 · 形状 {_出.get('形状')} · "
+              f"库版本 {_出.get('库版本', '—')}")
+    except AssertionError as _e:
+        print(f"  🔴 newpool 面板指纹：**不符** → {str(_e)[:160]}")
+        缺.append("★★★★★ newpool 面板与 1115 基线不符 → 按《195》：重烤一次；"
+                 "★★★ 重烤后仍不符就**停下来报**，不许加 XING_ALLOW_* 绕过")
+    except Exception as _e:                                     # noqa: BLE001
+        print(f"  🔴 newpool 面板指纹查不了：{str(_e)[:110]}")
+        缺.append("★★★ newpool 面板指纹查不了 → 先查通再起用它的跑批，不许跳过")
+
 if 缺:
     print("\n★★★★★ 不齐 —— 跑批**先别起**（规矩⑯：响亮失败，不要跑到一半才抛）：")
     for s in 缺:
