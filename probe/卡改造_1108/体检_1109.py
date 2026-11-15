@@ -69,6 +69,41 @@ def 读卡(基: str) -> dict:
     return 出
 
 
+成绩标记 = "<!-- XING-成绩-自动生成"
+
+
+def 读卡_判据面(基: str) -> dict:
+    """★★★★★ 1115 第十五轮新加（规矩 80 ② 回核出来的洞）——
+    ★ 判据这一项**不许只看 SKILL.md**：真正的参数（通道天数 / ATR 倍数 / 止损刻度 /
+      取前 N）有一半写在 `references/entries/*.md` 和 `references/shared/*.md` 里。
+    ★★★ 实测分母：39 张卡 = 39 个 SKILL.md + **450 个其它 .md**（去重后 195 个）——
+      ★★ 老写法只喂 39 个，判据形状**看不见 124 处**（见《201》）。
+    ★★ 一条例外：**成绩节以后的正文整段剔掉** —— 那一段是 `判决落卡_1111.py` 从台账
+      自动生成的「测出来是多少」，★★★ 台账一更新它就变，拿它当判据会把每次落卡都报成红牌。
+    ★ 返回 {卡: (喂给抽判据的文本, 扫了几个文件)}。
+    """
+    出 = {}
+    if not os.path.isdir(基):
+        return 出
+    for d in sorted(os.listdir(基)):
+        根 = os.path.join(基, d)
+        if not os.path.isdir(根) or not os.path.exists(os.path.join(根, "SKILL.md")):
+            continue
+        块, n = [], 0
+        for dp, _dirs, fns in os.walk(根):
+            for fn in sorted(fns):
+                if not fn.endswith(".md"):
+                    continue
+                txt = io.open(os.path.join(dp, fn), encoding="utf-8", errors="replace").read()
+                切 = txt.find(成绩标记)
+                if 切 >= 0:
+                    txt = txt[:切]          # ★★ 成绩节以后不要
+                块.append((os.path.relpath(os.path.join(dp, fn), 根), txt))
+                n += 1
+        出[d] = (块, n)
+    return 出
+
+
 def 抽判据(txt: str) -> set:
     """★ 把卡里所有「会改变选股/买卖/通过与否」的数字抽出来当指纹。"""
     s = set()
@@ -88,16 +123,30 @@ def main() -> int:
 
     # ---- ① 判据有没有被动（★★★ 要有基线才能查）
     if 基线:
-        旧 = 读卡(os.path.join(ROOT, 基线))
-        for d, txt in 卡.items():
-            if d not in 旧:
+        新面 = 读卡_判据面(CARDS)
+        旧面 = 读卡_判据面(os.path.join(ROOT, 基线))
+        报["★判据扫了几个文件"] = sum(n for _块, n in 新面.values())   # ★★★ 规矩 80：先报分母
+        for d in sorted(新面):
+            if d not in 旧面:
                 报["🔴判据被动"].append({"卡": d, "情况": "★ 新增的卡（基线里没有）"})
                 continue
-            新集, 旧集 = 抽判据(txt), 抽判据(旧[d])
+            新块, _ = 新面[d]
+            旧块, _ = 旧面[d]
+            新集, 旧集 = set(), set()
+            出处 = {}
+            for rel, txt in 新块:
+                for 指纹 in 抽判据(txt):
+                    新集.add(指纹)
+                    出处.setdefault(指纹, rel)
+            for rel, txt in 旧块:
+                旧集 |= 抽判据(txt)
             加, 删 = sorted(新集 - 旧集), sorted(旧集 - 新集)
             if 加 or 删:
-                报["🔴判据被动"].append({"卡": d, "新增": 加[:6], "删掉": 删[:6],
-                                   "★★★要走谁": "Lin（《130》A 格：逐条问）"})
+                报["🔴判据被动"].append(
+                    {"卡": d,
+                     "新增": [f"{x}　（{出处.get(x, '?')}）" for x in 加[:6]],
+                     "删掉": 删[:6],
+                     "★★★要走谁": "Lin（《130》A 格：逐条问）"})
     else:
         报["★★本次没查到的"].append(
             "★★★ **判据有没有被动** —— ★ 没给基线目录（XING_BASELINE=上一版目录），这一项没查。"
@@ -345,7 +394,11 @@ def main() -> int:
     报["★★本次没查到的"] += [
         "★ **答得对不对** —— ★★ 机器只查结构和边界，★★★ 内容对错要靠三类测试里的「刁钻输入」。",
         "★ **流程顺不顺** —— ★★★ 那是体验的事，不是体检的事（《131》：体验属于「改」的阶段）。",
-        "★ **SKILL.md 以外的 references 内容** —— ★★ 本次只读 SKILL.md 正文 + entries 的成绩节。",
+        "★★★★★ **SKILL.md 以外的 references 内容：判据这一项已全扫**（1115 第十五轮 · 规矩 80 ②），"
+        "★ 但**泄漏 / 术语 / 自述**三项仍只看 SKILL.md —— ★★★ 不是忘了，是**量过才没扩**："
+        "把泄漏正则直接铺到 450 个 .md 上会报 60 处，★★★★★ 其中 42 处是 entries 里同一行"
+        "「本节由 probe/判决落卡_1111 自动生成」（★★ 按规矩 78 ① 它不在「给用户看的」小节里，"
+        "**不算面向用户**）→ ★ 七成是假的，先压假阳性再扩（《201》四节）。",
     ]
     红 = (len(报["🔴判据被动"]) + len(报["🔴泄漏"])
          + len(报["🔴违反共用边界"]) + len(报["🔴自述不符"])
