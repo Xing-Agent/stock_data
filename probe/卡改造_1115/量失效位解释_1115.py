@@ -16,7 +16,8 @@ import os, re, json, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 包 = os.path.join(ROOT, os.environ.get("XING_CARDS", "skills_v2"))
-词 = "失效位"
+# ★★★ 1115 第十三轮：词表化（★ 默认一个字没变，★★ 为的是闸⑧ 能按保留词逐个调用本尺子）
+词 = os.environ.get("XING_RESERVED_WORD", "失效位")
 窗 = int(os.environ.get("XING_WIN_LINES", "6"))          # ★ 往后看几行
 窗前 = int(os.environ.get("XING_WIN_BACK", "3"))         # ★★★ 往**前**看几行
 # ★★★★★ 为什么要往前看（1115 第十二轮当场抓到的尺子窟窿）：
@@ -145,7 +146,23 @@ for r in 结果:
     print(f"   面向用户第一次 → {h['文件']}:{h['行号']}  [{h['位置']}]"
           + (f"  (内部 {r['命中数']-r['面向用户数']} 处已排除)" if r['命中数']>r['面向用户数'] else ""))
     print(f"   原文: {h['原文']}")
-out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "量失效位解释_1115.json")
-json.dump(dict(卡数=len(卡), 窗口行=窗, 结果=结果, 全命中=全命中),
+# ★★★★★ 1115 第十三轮新加（为闸⑧）：人核表每条还配不配得上
+# ★★ 为什么要查：11 条内部写法是**手钉**的（规矩79 第三句）。★★★ 卡一改措辞，片段就可能配不上 →
+#   那条就**悄悄变成「面向用户」**。★ 往红的方向错是安全的，但「钉死表烂了」这件事必须有人知道。
+_命中理由 = set(h["内部"] for h in 全命中 if h["内部"])
+人核表 = []
+for _f, _frag, _why in 内部:
+    _n = sum(1 for h in 全命中
+             if h["文件"] == _f and (_frag == "" or _frag in h["原文"]))
+    人核表.append(dict(文件=_f, 片段=_frag, 归类=_why, 配上几处=_n))
+_失配 = [e for e in 人核表 if e["配上几处"] == 0]
+print(f"\n=== 人核钉死表 {len(内部)} 条 · 失配 {len(_失配)} 条 ===")
+for e in _失配:
+    print(f"  🟡 配不上了：{e['文件']} ← 「{e['片段'][:30]}」（{e['归类']}）")
+
+out = os.environ.get("XING_OUT") or os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "量失效位解释_1115.json")
+json.dump(dict(词=词, 卡数=len(卡), 窗口行=窗, 结果=结果, 全命中=全命中,
+          人核表=人核表, 人核表失配=len(_失配)),
           open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"\n★ 落盘 {out}")
