@@ -23,6 +23,9 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+# ★★★ 1115 主路加一行：换输出目录（默认行为不变）—— ★ 不覆盖库里 B 路那份，
+#   ★★ 跨容器要比的就是这几个文件（错号 #113 / 规矩 76）。
+OUT = os.environ.get("XING_POOL_OUT") or HERE
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(ROOT, "probe/基本面跑批_1106"))
 门槛三点 = {"低": 5e6, "中": 1e7, "高": 2e7}   # 行业惯例 / 推断，相邻三点
@@ -30,6 +33,7 @@ sys.path.insert(0, os.path.join(ROOT, "probe/基本面跑批_1106"))
 
 
 def main():
+    os.makedirs(OUT, exist_ok=True)
     import numpy as np
     import pandas as pd
     import 跑基本面_1106 as B
@@ -118,10 +122,10 @@ def main():
                          "复合年化pct": round(ann * 100, 2), "最大回撤pct": round(dd * 100, 2),
                          "卡玛": round(ann / abs(dd), 3) if dd < 0 else None,
                          "只算价格的复合年化pct": round((float(eq_p.iloc[-1]) ** (1 / yrs) - 1) * 100, 2)}
-        mask.to_parquet(os.path.join(HERE, f"流动性池掩膜_{名}.parquet"))
+        mask.to_parquet(os.path.join(OUT, f"流动性池掩膜_{名}.parquet"))
         线[f"机会集宽基_{名}"] = eq
-    pd.DataFrame(线).to_csv(os.path.join(HERE, "机会集宽基_日净值.csv"))
-    io.open(os.path.join(HERE, "流动性池_报告.json"), "w", encoding="utf-8").write(
+    pd.DataFrame(线).to_csv(os.path.join(OUT, "机会集宽基_日净值.csv"))
+    io.open(os.path.join(OUT, "流动性池_报告.json"), "w", encoding="utf-8").write(
         json.dumps(报告, ensure_ascii=False, indent=1, default=str))
     print(json.dumps(报告, ensure_ascii=False, indent=1, default=str))
 
