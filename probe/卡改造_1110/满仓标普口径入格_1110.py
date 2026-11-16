@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 DRY = os.environ.get("XING_DRYRUN") == "1"
 
 # ────────────────────────────────────────────────────────────────

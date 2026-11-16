@@ -2,9 +2,10 @@
 根因:window_pool.run_grid 的 seed = seed + hash((wname,pool)) % 10000,
       而 Python 的 hash() 对字符串逐进程随机 → 每次跑同一份代码、同一份数据,
       四格的 Z 和差值都不一样。"""
+import os
 import sys, json
 import numpy as np
-sys.path.insert(0, "/home/claude/xing-agent-stock_data")
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")))
 from engine import data, chain, stats_gate, window_pool, run_batch
 from engine import run_gate_redesign as R
 

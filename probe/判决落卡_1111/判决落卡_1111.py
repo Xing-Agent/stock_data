@@ -29,7 +29,7 @@ import re
 import sys
 from collections import OrderedDict
 
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 LEDGER = os.path.join(ROOT, "手册/93-策略说明书-全40条-按新尺子-1107.md")
 DRY = os.environ.get("XING_DRYRUN") == "1"
 

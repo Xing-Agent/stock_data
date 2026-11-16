@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import csv, json, os, re, datetime as dt
 from collections import Counter
-PIT="/home/claude/xing-agent-stock_data/probe/xing-pit-universe-20261029-025954"
-REPO="/home/claude/xing-agent-stock_data"
+PIT=os.path.join(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")), "probe", "xing-pit-universe-20261029-025954")
+REPO=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 syms={r['symbol']:r for r in csv.DictReader(open(os.path.join(PIT,'pit_universe_symbols.csv')))}
 man=list(csv.DictReader(open(os.path.join(REPO,'pilot_300','manifest.csv'))))
 d0='2018-01-02'

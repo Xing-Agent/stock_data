@@ -19,7 +19,7 @@ import os
 import re
 import sys
 
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 SRC = os.path.join(ROOT, "手册/93-策略说明书-全40条-按新尺子-1107.md")
 OUT外 = os.path.join(ROOT, "手册/182-大师策略手册-对外版-1112.md")
 OUT内 = os.path.join(ROOT, "手册/183-大师策略手册-对内版-1112.md")

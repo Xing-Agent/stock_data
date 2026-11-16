@@ -3,7 +3,7 @@
 import io, json, math, os, glob
 import pandas as pd
 
-HERE = "/home/claude/xing-agent-stock_data/probe/新策略_1106"
+HERE = os.path.join(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")), "probe", "新策略_1106")
 ARMS = os.path.join(HERE, "arms_1106")
 LED = os.path.join(HERE, "ledgers_1106")
 

@@ -4,8 +4,8 @@
 import csv, json, os, re, sys, datetime as dt
 from collections import Counter, defaultdict
 
-PIT = "/home/claude/xing-agent-stock_data/probe/xing-pit-universe-20261029-025954"
-REPO = "/home/claude/xing-agent-stock_data"
+PIT = os.path.join(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")), "probe", "xing-pit-universe-20261029-025954")
+REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 OUT = {}
 
 def load(name):

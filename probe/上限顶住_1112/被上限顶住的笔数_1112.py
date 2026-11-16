@@ -27,7 +27,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 风险 = 0.01      # ★ risk_per_trade，★★ 32 个配置写的都是 0.01
 上限 = 0.10      # ★ max_weight
 

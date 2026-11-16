@@ -28,7 +28,7 @@ import time
 import numpy as np
 import pandas as pd
 
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "probe/基本面跑批_1106"))
 OUT = os.path.join(ROOT, "probe/组合层净值_1111/出_基本面")

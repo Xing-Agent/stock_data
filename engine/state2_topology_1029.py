@@ -449,7 +449,7 @@ def main(argv=None) -> int:
         "meta": {
             "git_commit": subprocess.run(
                 ["git", "rev-parse", "HEAD"], capture_output=True, text=True,
-                cwd="/home/claude/xing-agent-stock_data").stdout.strip(),
+                cwd=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))).stdout.strip(),
             "git_commit_说明": "★ 这是**跑之前**的 HEAD。本次改动的提交在它之后。",
             "缓存身份": _cache_fingerprint(),
             "symbols": len(syms),

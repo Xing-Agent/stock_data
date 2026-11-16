@@ -439,7 +439,7 @@ def mark_divergence(x: pd.DataFrame, ops: pd.DataFrame) -> pd.DataFrame:
 # 最小 json 读取器 —— ★ 故意不依赖 engine 里任何别的模块
 # ============================================================================
 
-DEFAULT_DATA_ROOT = "/home/claude/xing-agent-stock_data/pilot_300"
+DEFAULT_DATA_ROOT = os.path.join(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")), "pilot_300")
 
 
 def load_daily_json(symbol: str, data_root: str = DEFAULT_DATA_ROOT) -> pd.DataFrame:

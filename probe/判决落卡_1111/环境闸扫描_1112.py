@@ -28,7 +28,7 @@ import re
 
 import yaml
 
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 目录 = [
     "engine/configs",
     "probe/fundamental_buildout_1030/configs_1030",

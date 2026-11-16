@@ -26,7 +26,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 sys.path.insert(0, ROOT)
 OUT = os.path.join(ROOT, "probe/组合层净值_1111/出")
 os.makedirs(OUT, exist_ok=True)

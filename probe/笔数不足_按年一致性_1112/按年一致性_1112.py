@@ -25,7 +25,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 六条 = ["基-1", "基-16", "基-8", "技-8", "基-7", "基-3"]
 
 
