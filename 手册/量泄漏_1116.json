@@ -1,0 +1,2248 @@
+{
+ "★分母": {
+  "卡数": 39,
+  "扫了几个.md": 489,
+  "★★★": "★ 报「全仓 N 处」先报这个（规矩80①）"
+ },
+ "★全仓宽口径处数": 370,
+ "★去重后不同行": 18,
+ "🔴面向用户的泄漏": [],
+ "🟡待人判": [],
+ "★人核放过": [
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "equity-research/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "howard-marks/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "implied-expectations-valuation/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "klarman/references/entries/基-9.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "klarman/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "plain-language/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "risk-dashboard/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-agent-builder/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-condition-engine/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-discipline-coach/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-fundamental-analyst/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-main/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-main/references/数据清单.md",
+   "行号": 9,
+   "理由": "内部数据清单的**出处列**（路径就是答案本身）",
+   "全文": "| D-01 | ✅ 有的  probe/survivorship_1029/pool_FULL_ALL.cs | `probe/survivorship_1029/pool_FU"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-akre-capital-allocation/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-buffett-munger-business-quality/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-chanos-short-forensics/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-dalio-macro-machine/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-damodaran-valuation/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-earnings-quick-read/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-feynman-plain-language/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-financial-translation/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/entries/基-17.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-fisher-scuttlebutt/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-greenblatt-special-situations/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-growth-quality/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-kenneth-fisher-style-rotation/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/entries/基-15.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-lynch-cognitive-gap-flywheel/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/entries/基-22.md",
+   "行号": 46,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-mauboussin-implied-expectations/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-mentor/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/entries/基-3.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-piotroski-f-score/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-schilit-financial-red-flags/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-soros-reflexivity/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-supply-chain-transmission/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/entries/技-3.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-weinstein-stage-analysis/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/entries/技-11.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-wyckoff-price-volume/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-master-zweig-market-breadth/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-quote/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-review/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-screener/SKILL.md",
+   "行号": 181,
+   "理由": "★★ 箱体示例输出里拿 `XXX` 当**匿名股票代码**（不是 TODO/占位）—— ★ 体检那份的注释早写明「示例里的匿名代码不算」",
+   "全文": "XXX      8/10      相对强弱为负        +4.2%      -6.9%"
+  },
+  {
+   "文件": "xing-screener/SKILL.md",
+   "行号": 311,
+   "理由": "★★ 箱体示例输出里拿 `XXX` 当**匿名股票代码**（不是 TODO/占位）—— ★ 体检那份的注释早写明「示例里的匿名代码不算」",
+   "全文": "XXX     8/10    相对强弱为负   +4.2%    -6.9%    ✓ 信号收盘成立"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-screener/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-screener/references/数据清单.md",
+   "行号": 9,
+   "理由": "同上",
+   "全文": "| D-01 | 七大只有 TSLA 在(查证:probe/fundamental_buildout_1030 | `probe/fundamental_buildout_1030"
+  },
+  {
+   "文件": "xing-screener/references/数据清单.md",
+   "行号": 10,
+   "理由": "内部数据清单的**出处列**（路径就是答案本身）",
+   "全文": "| D-02 | 有的:probe/survivorship_1029/pool_FULL_ALL.csv,7 | `probe/survivorship_1029/pool_FU"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-skill-builder/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-1.md",
+   "行号": 41,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-10.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-11.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-12.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-13.md",
+   "行号": 38,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-14.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-15.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-16.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-17.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-18.md",
+   "行号": 46,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-19.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-2.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-20.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-21.md",
+   "行号": 41,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-22.md",
+   "行号": 46,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-23.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-3.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-4.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-5.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-6.md",
+   "行号": 45,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-7.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-8.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/基-9.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-1.md",
+   "行号": 49,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-1.md",
+   "行号": 74,
+   "理由": "给 AI 的答法交代（★ 紧跟着就是「不许答…」）",
+   "全文": "**无·原著本来就没有** —— ★★★★★ **原著本身就没有这道闸** —— ★ 我们留空是**照原文**，不是忘了填。🔴 ★★ 所以**不许**答「不是原著没讲」—— ★★★"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-10.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-10_2B.md",
+   "行号": 7,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-10_海龟汤.md",
+   "行号": 8,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-11.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-12.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-13.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-14.md",
+   "行号": 41,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-2.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-3.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-4.md",
+   "行号": 40,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-5.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-6.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-7.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-8.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/技-9.md",
+   "行号": 39,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/融-1.md",
+   "行号": 43,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/融-2.md",
+   "行号": 43,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/entries/融-3.md",
+   "行号": 43,
+   "理由": "★★ 成绩节的出处引注，由 `判决落卡_1111.py` 自动生成（49 个 entries 文件同一行）—— ★★★ 内部留痕，不是对用户说的话；★ 要改得连生成器一起改（规矩80③）",
+   "全文": "> ★★★★★ 本节由 `probe/判决落卡_1111/判决落卡_1111.py` 从"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-strategy-catalog/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 201,
+   "理由": "6.9 出处五档的内部定义（★ 讲的是我们怎么分档）",
+   "全文": "★ 原文 grep 得到(→ ①)· ★★ 我们自己跑出来并验证(→ ②)。"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 239,
+   "理由": "「智慧」的内部定义段",
+   "全文": "★★★ 我们下的结论,他只会当成一个意见 —— **而意见是可以不听的**。"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 485,
+   "理由": "6.17 内部论证：为什么要配反方",
+   "全文": "★ 我们有「**不许下结论**」(不给方向、不给评分);"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 512,
+   "理由": "版本记录表（内部变更史）",
+   "全文": "| ★★★ **v3** | **2026-11-03** | ★★★ 融合 V1 之后新增三节(Lin 拍板):<br>★★ **6.15 两套数据各管一边,不许混** —— ★"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 748,
+   "理由": "★★★★★ 小节标题带「给用户的」但这句是**撤回记录**的内部引注（判据①的假阳性，见下）",
+   "全文": "> ★★ 我 1111 曾用这个办法算出「技-13 折年化 **-43.3%/年**」—— ★★★★★ **那个数无效，已撤回。**"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 828,
+   "理由": "内部订正记录（叫法改过）",
+   "全文": "★★ 我原先把 `vcp_momentum` 写成「（欧奈尔）」，★★★★★ 读起来像「**技-4 CANSLIM 有闸**」——"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 927,
+   "理由": "环境闸四道关的内部实测注",
+   "全文": "（★ 我们自己数的：翻转 34~48 次，但持续 ≥60 个交易日的只有 7~9 段）"
+  },
+  {
+   "文件": "xing-technical-analyst/references/shared/common_boundaries.md",
+   "行号": 956,
+   "理由": "机会集宽基 25 这个数的内部来历",
+   "全文": "★★★ 这个 25 怎么来的：★ 我们满仓 10 只，要和基准有 60% 以上的不同"
+  },
+  {
+   "文件": "xing-technical-analyst/references/数据清单.md",
+   "行号": 9,
+   "理由": "同上",
+   "全文": "| D-01 | 道指工业与运输  第 1 层的大盘状态（道氏理论的两指数互相确认）  ✅ 确实没有 ——   | `probe/xing-pit-universe-2026102"
+  },
+  {
+   "文件": "xing-technical-analyst/references/数据清单.md",
+   "行号": 10,
+   "理由": "同上",
+   "全文": "| D-02 | 未来的财报日历  第 7 节的有效窗口压缩（实时那一半）  ⚠ 有一半，而且这一半分得很干净 | `probe/fundamentals_sec_1030/sec"
+  }
+ ],
+ "🟡钉死表配不上": [],
+ "★★本尺子看不见的一类": {
+  "形态": "裸正文 / 围栏内（规矩78③）",
+  "处数": 0,
+  "★★★": "★ 这里的 0 是**人核的结论，不是尺子的能力** —— ★★ 裸正文新写一句内部口吻，本闸报不出来",
+  "按文件": {},
+  "逐条": []
+ },
+ "★按形态": {
+  "围栏内": 236,
+  "表格单元格": 44,
+  "裸正文": 90
+ },
+ "★按文件 top": {
+  "equity-research/references/shared/common_boundaries.md": 8,
+  "howard-marks/references/shared/common_boundaries.md": 8,
+  "implied-expectations-valuation/references/shared/common_boundaries.md": 8,
+  "klarman/references/shared/common_boundaries.md": 8,
+  "plain-language/references/shared/common_boundaries.md": 8,
+  "risk-dashboard/references/shared/common_boundaries.md": 8
+ }
+}
