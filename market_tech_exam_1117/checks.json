@@ -1,0 +1,119 @@
+{
+ "checks": [
+  {
+   "symbol": "TQQQ",
+   "trading_days_daily": 118,
+   "days_with_regular_15m": 118,
+   "days_not_26_regular_15m": {},
+   "days_regular_high_low_differs_from_daily": [
+    "2026-11-09"
+   ]
+  },
+  {
+   "symbol": "SOXL",
+   "trading_days_daily": 118,
+   "days_with_regular_15m": 118,
+   "days_not_26_regular_15m": {},
+   "days_regular_high_low_differs_from_daily": [
+    "2026-07-27",
+    "2026-10-23"
+   ]
+  },
+  {
+   "symbol": "KORU_拆股折算",
+   "trading_days_daily": 118,
+   "days_with_regular_15m": 118,
+   "days_not_26_regular_15m": {},
+   "days_regular_high_low_differs_from_daily": [
+    "2026-06-05",
+    "2026-06-29"
+   ]
+  },
+  {
+   "symbol": "KORU_原始价",
+   "trading_days_daily": 118,
+   "days_with_regular_15m": 118,
+   "days_not_26_regular_15m": {},
+   "days_regular_high_low_differs_from_daily": [
+    "2026-06-05",
+    "2026-06-29"
+   ]
+  },
+  {
+   "symbol": "QQQ",
+   "trading_days_daily": 118,
+   "days_with_regular_15m": 118,
+   "days_not_26_regular_15m": {},
+   "days_regular_high_low_differs_from_daily": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "symbol": "GLD",
+   "trading_days_daily": 118,
+   "days_with_regular_15m": 118,
+   "days_not_26_regular_15m": {},
+   "days_regular_high_low_differs_from_daily": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "symbol": "BTC",
+   "continuity": {
+    "15min": {
+     "expected": 16255,
+     "got": 16255,
+     "missing": 0
+    },
+    "1h": {
+     "expected": 4063,
+     "got": 4063,
+     "missing": 0
+    },
+    "日线": {
+     "expected": 169,
+     "got": 169,
+     "missing": 0
+    },
+    "4h_bars_with_<4_hours": 0
+   }
+  },
+  {
+   "symbol": "ETH",
+   "continuity": {
+    "15min": {
+     "expected": 16255,
+     "got": 16255,
+     "missing": 0
+    },
+    "1h": {
+     "expected": 4063,
+     "got": 4063,
+     "missing": 0
+    },
+    "日线": {
+     "expected": 169,
+     "got": 169,
+     "missing": 0
+    },
+    "4h_bars_with_<4_hours": 0
+   }
+  }
+ ],
+ "splits_in_window": {
+  "TQQQ_splits": [],
+  "SOXL_splits": [],
+  "KORU_splits": [
+   {
+    "execution_date": "2026-07-15",
+    "id": "Ebd946ef68049f3f8e1e6b189a2a8e8ac3cd518b3075c4065eaa28a63ad60fd1c",
+    "split_from": 1,
+    "split_to": 20,
+    "ticker": "KORU"
+   }
+  ],
+  "QQQ_splits": [],
+  "GLD_splits": []
+ },
+ "crypto_cutoff_utc": "2026-11-17T07:45:00Z"
+}

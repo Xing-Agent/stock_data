@@ -1,0 +1,47 @@
+file,symbol,source,how,adjust,start,end,rows
+TQQQ_15min_含盘前盘后.csv,TQQQ,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:45:00Z,7552
+TQQQ_15min_常规时段.csv,TQQQ,Polygon,原生(筛 09:30–16:00),原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:45:00Z,3068
+TQQQ_1h_含盘前盘后.csv,TQQQ,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,1888
+TQQQ_1h_常规时段_合成.csv,TQQQ,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:30:00Z,826
+TQQQ_4h_含盘前盘后.csv,TQQQ,Polygon,原生(按 UTC 0/4/8/12/16/20 点切),原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,483
+TQQQ_4h_常规时段_合成.csv,TQQQ,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T18:30:00Z,236
+TQQQ_日线.csv,TQQQ,Polygon,原生,原始价(adjusted=false),2026-06-01T04:00:00Z,2026-11-16T05:00:00Z,118
+SOXL_15min_含盘前盘后.csv,SOXL,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:45:00Z,7552
+SOXL_15min_常规时段.csv,SOXL,Polygon,原生(筛 09:30–16:00),原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:45:00Z,3068
+SOXL_1h_含盘前盘后.csv,SOXL,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,1888
+SOXL_1h_常规时段_合成.csv,SOXL,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:30:00Z,826
+SOXL_4h_含盘前盘后.csv,SOXL,Polygon,原生(按 UTC 0/4/8/12/16/20 点切),原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,483
+SOXL_4h_常规时段_合成.csv,SOXL,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T18:30:00Z,236
+SOXL_日线.csv,SOXL,Polygon,原生,原始价(adjusted=false),2026-06-01T04:00:00Z,2026-11-16T05:00:00Z,118
+KORU_15min_含盘前盘后_拆股折算.csv,KORU,Polygon,原生,拆股折算(adjusted=true),2026-06-01T08:00:00Z,2026-11-17T00:45:00Z,7547
+KORU_15min_常规时段_拆股折算.csv,KORU,Polygon,原生(筛 09:30–16:00),拆股折算(adjusted=true),2026-06-01T13:30:00Z,2026-11-16T20:45:00Z,3068
+KORU_1h_含盘前盘后_拆股折算.csv,KORU,Polygon,原生,拆股折算(adjusted=true),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,1888
+KORU_1h_常规时段_合成_拆股折算.csv,KORU,Polygon,15 分钟线从 09:30 起拼,拆股折算(adjusted=true),2026-06-01T13:30:00Z,2026-11-16T20:30:00Z,826
+KORU_4h_含盘前盘后_拆股折算.csv,KORU,Polygon,原生(按 UTC 0/4/8/12/16/20 点切),拆股折算(adjusted=true),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,483
+KORU_4h_常规时段_合成_拆股折算.csv,KORU,Polygon,15 分钟线从 09:30 起拼,拆股折算(adjusted=true),2026-06-01T13:30:00Z,2026-11-16T18:30:00Z,236
+KORU_日线_拆股折算.csv,KORU,Polygon,原生,拆股折算(adjusted=true),2026-06-01T04:00:00Z,2026-11-16T05:00:00Z,118
+KORU_15min_含盘前盘后_原始价.csv,KORU,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:45:00Z,7547
+KORU_15min_常规时段_原始价.csv,KORU,Polygon,原生(筛 09:30–16:00),原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:45:00Z,3068
+KORU_1h_含盘前盘后_原始价.csv,KORU,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,1888
+KORU_1h_常规时段_合成_原始价.csv,KORU,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:30:00Z,826
+KORU_4h_含盘前盘后_原始价.csv,KORU,Polygon,原生(按 UTC 0/4/8/12/16/20 点切),原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,483
+KORU_4h_常规时段_合成_原始价.csv,KORU,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T18:30:00Z,236
+KORU_日线_原始价.csv,KORU,Polygon,原生,原始价(adjusted=false),2026-06-01T04:00:00Z,2026-11-16T05:00:00Z,118
+QQQ_1h_含盘前盘后.csv,QQQ,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,1888
+QQQ_1h_常规时段_合成.csv,QQQ,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:30:00Z,826
+QQQ_4h_含盘前盘后.csv,QQQ,Polygon,原生(按 UTC 0/4/8/12/16/20 点切),原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,483
+QQQ_4h_常规时段_合成.csv,QQQ,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T18:30:00Z,236
+QQQ_日线.csv,QQQ,Polygon,原生,原始价(adjusted=false),2026-06-01T04:00:00Z,2026-11-16T05:00:00Z,118
+GLD_1h_含盘前盘后.csv,GLD,Polygon,原生,原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,1888
+GLD_1h_常规时段_合成.csv,GLD,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T20:30:00Z,826
+GLD_4h_含盘前盘后.csv,GLD,Polygon,原生(按 UTC 0/4/8/12/16/20 点切),原始价(adjusted=false),2026-06-01T08:00:00Z,2026-11-17T00:00:00Z,483
+GLD_4h_常规时段_合成.csv,GLD,Polygon,15 分钟线从 09:30 起拼,原始价(adjusted=false),2026-06-01T13:30:00Z,2026-11-16T18:30:00Z,236
+GLD_日线.csv,GLD,Polygon,原生,原始价(adjusted=false),2026-06-01T04:00:00Z,2026-11-16T05:00:00Z,118
+BTC_15min.csv,BTC,Coinbase BTC-USD,原生,—,2026-06-01T00:00:00Z,2026-11-17T07:30:00Z,16255
+BTC_1h.csv,BTC,Coinbase BTC-USD,原生,—,2026-06-01T00:00:00Z,2026-11-17T06:00:00Z,4063
+BTC_4h_合成.csv,BTC,Coinbase BTC-USD,1 小时线按 UTC 0/4/8/12/16/20 点拼,—,2026-06-01T00:00:00Z,2026-11-17T00:00:00Z,1015
+BTC_日线.csv,BTC,Coinbase BTC-USD,原生(UTC 00:00 切日),—,2026-06-01T00:00:00Z,2026-11-16T00:00:00Z,169
+ETH_15min.csv,ETH,Coinbase ETH-USD,原生,—,2026-06-01T00:00:00Z,2026-11-17T07:30:00Z,16255
+ETH_1h.csv,ETH,Coinbase ETH-USD,原生,—,2026-06-01T00:00:00Z,2026-11-17T06:00:00Z,4063
+ETH_4h_合成.csv,ETH,Coinbase ETH-USD,1 小时线按 UTC 0/4/8/12/16/20 点拼,—,2026-06-01T00:00:00Z,2026-11-17T00:00:00Z,1015
+ETH_日线.csv,ETH,Coinbase ETH-USD,原生(UTC 00:00 切日),—,2026-06-01T00:00:00Z,2026-11-16T00:00:00Z,169
