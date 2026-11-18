@@ -195,18 +195,20 @@ def 跑一条(名):
     前5 = led晚.nlargest(5, "net_pnl")[["symbol", "entry_date", "exit_date", "net_pnl"]].copy() if len(led晚) else None
 
     def 砍了多少(led早):
+        # 1118 改：原先按「同一只票 + 同一个进场日」去对，结果全对不上（早走后腾出位子，后面买的票和日子都变了）。
+        # 现在按「同一只票、在只晚走那笔的持有期间内进场的所有交易」合计来比。
         if 前5 is None or not len(led早):
             return None
-        k = led早.set_index([led早["symbol"].astype(str), led早["entry_date"].astype(str)])["net_pnl"]
+        e早 = pd.to_datetime(led早["entry_date"]); sym早 = led早["symbol"].astype(str)
         out, 晚和, 早和 = [], 0.0, 0.0
         for _, t in 前5.iterrows():
-            key = (str(t["symbol"]), str(t["entry_date"]))
-            早 = float(k.loc[key].sum()) if key in k.index else None
-            晚和 += float(t["net_pnl"])
-            早和 += (早 or 0.0)
-            out.append({"票": str(t["symbol"]), "进场": str(t["entry_date"])[:10], "只晚走赚": round(float(t["net_pnl"])),
-                        "只早走同一笔赚": None if 早 is None else round(早)})
-        return {"逐笔": out, "只晚走前5笔合计": round(晚和), "同样5笔在只早走版合计": round(早和),
+            a, b = pd.Timestamp(t["entry_date"]), pd.Timestamp(t["exit_date"])
+            sel = (sym早 == str(t["symbol"])) & (e早 >= a - pd.Timedelta(days=7)) & (e早 <= b)
+            早 = float(led早.loc[sel, "net_pnl"].sum())
+            晚和 += float(t["net_pnl"]); 早和 += 早
+            out.append({"票": str(t["symbol"]), "只晚走进场": str(a.date()), "只晚走离场": str(b.date()),
+                        "只晚走赚": round(float(t["net_pnl"])), "只早走同期同票笔数": int(sel.sum()), "只早走同期同票合计赚": round(早)})
+        return {"逐笔": out, "只晚走前5笔合计": round(晚和), "同票同期在只早走版合计": round(早和),
                 "保住的比例pct": round(早和 / 晚和 * 100, 1) if 晚和 > 0 else None}
 
     def 一组(标, sig, 数=None):
