@@ -1,0 +1,7 @@
+ok   trend_following
+ok   trend_following-原著-唐奇安反向通道离场
+ok   技-6-XING
+ok   技-5-XING
+ok   技-3-XING
+ok   技-4-原著-中值
+ALL_DONE
