@@ -10,8 +10,8 @@
   · SEC 两百天窗口里一个字都没提并股,且这一天是放量的真行情 → 「不是并股」;其余 → 「查不到」。比例绝不猜。
 用法:python3 judge.py sec_results.json polygon_splits.json
 """
-import csv, json, math, re, sys
-from datetime import date
+import csv, json, math, os, re, sys
+from datetime import date, timedelta
 
 W = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'eleven': 11,
      'twelve': 12, 'fifteen': 15, 'twenty': 20, 'twenty-five': 25, 'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60,
@@ -51,8 +51,12 @@ def ratios(s):
 
 
 def main(secf, polyf):
-    R = list(csv.DictReader(open('待核事件_1118.csv', encoding='utf-8-sig')))
+    import os
+    R = list(csv.DictReader(open(os.environ.get('EVENTS', '待核事件_1118.csv'), encoding='utf-8-sig')))
     SR = json.load(open(secf)); PS = json.load(open(polyf))
+    if os.environ.get('PS2'): PS.update(json.load(open(os.environ['PS2'])))
+    if R and '候选序号' in R[0]:
+        SR = {str(i): SR[r['候选序号']] for i, r in enumerate(R) if r['候选序号'] in SR}
     import gzip
     cache = {}
     def true_jump(sym, d):
@@ -88,7 +92,9 @@ def main(secf, polyf):
         pol = []
         for t in {r['代码'], r['源头代码']}:
             for ed, f, to in PS.get(t, []):
-                if abs((date.fromisoformat(ed) - d0).days) <= 10:
+                edd = date.fromisoformat(ed)
+                lo = date.fromisoformat(prevd) if prevd else d0
+                if abs((edd - d0).days) <= 10 or (lo - timedelta(days=5) <= edd <= d0):
                     pol.append((t, ed, f, to))
         # SEC
         s = SR.get(str(i))
@@ -99,11 +105,11 @@ def main(secf, polyf):
                 for sn in doc['snips']:
                     if sn.startswith('ERR'): continue
                     low = sn.lower()
-                    is_fwd = ('forward' in low and 'split' in low and 'reverse' not in low)
+                    is_fwd = ('reverse' not in low and 'consolidat' not in low and ('split' in low or 'stock dividend' in low))
                     for k, txt in ratios(sn):
                         cands.append(dict(k=k, txt=txt, form=doc['form'], fd=fd, url=doc['url'], fwd=is_fwd, sn=sn))
-        best = None
-        polk = {round(f / to, 3) if rev else round(to / f, 3) for (_, ed, f, to) in pol if abs((date.fromisoformat(ed) - d0).days) <= 5}
+        best = None; weak = []
+        polk = {round(f / to, 3) if rev else round(to / f, 3) for (_, ed, f, to) in pol}
         for c in cands:
             if (not rev) != c['fwd']:  # 方向:并股找 reverse,拆股找 forward
                 continue
@@ -112,7 +118,20 @@ def main(secf, polyf):
             pol_same = any(abs(math.log(c['k'] / pk)) < 0.02 for pk in polk if pk > 0)
             # 价格对得上(差 35% 内);或者 SEC 和 Polygon 两家比例一致、而且实测跳幅落在「比例 ÷4 ~ 比例 ×1.35」之间
             #(仙股并股当天常常再跌一大截,所以只放宽往下的一侧)
-            ok = err <= math.log(1.35) or (pol_same and c["k"] / 4 <= k_obs <= c["k"] * 3)
+            # 收紧(全池这轮加的):没有 Polygon 佐证时,只认跳变前 90 天~后 20 天内的 8-K / 6-K(公告当期事件的文件);
+            # 招股书、年报、委托书里常常提到很早以前的拆股,单靠它们会误配
+            strong = c['form'] in ('8-K', '6-K', '8-K/A', '6-K/A') and -20 <= lag <= 90
+            # 公告里的比例如果正好是 Polygon 记在别的日子的那次拆股(离这次跳变 15 天以上),多半说的是那一次,不认
+            elsewhere = any(abs(math.log((f / to if rev else to / f) / c['k'])) < 0.02 and abs((date.fromisoformat(ed) - d0).days) > 15
+                            and (t, ed, f, to) not in pol for t in {r['代码'], r['源头代码']} for ed, f, to in PS.get(t, []) if f > 0 and to > 0)
+            if elsewhere and not pol_same:
+                continue
+            if rev:   # 往上跳:并股。比例对得上、文件日期合理即可(大涨正好等于公告比例,巧合的可能很小)
+                ok = (err <= math.log(1.35) and (pol_same or -20 <= lag <= 90)) or (pol_same and c["k"] / 4 <= k_obs <= c["k"] * 3 and k_obs >= 1.5)
+            else:     # 往下跳:正向拆股。暴跌一半正好碰上「2-for-1」的巧合多,只认当期 8-K/6-K 或 Polygon 佐证
+                ok = (err <= math.log(1.35) and (pol_same or strong)) or (pol_same and c["k"] / 4 <= k_obs <= c["k"] * 3 and k_obs >= 1.5)
+            if not ok and err <= math.log(1.35) and -20 <= lag <= 200:
+                weak.append(c)
             if ok and -20 <= lag <= 200:
                 sc = (err, 0 if c['form'] in ('8-K', '6-K', '8-K/A') else 1, abs(lag))
                 if best is None or sc < best[0]: best = (sc, c)
@@ -130,19 +149,28 @@ def main(secf, polyf):
             any_mention = bool(s) and any(doc['snips'] for doc in s['docs'])
             pol_any = bool(pol)
             src0 = 'SEC 全文检索(跳变前 200 天~后 15 天)没有对得上的并股/拆股公告;Polygon 拆股表前后 10 天也没有' if not pol_any else ''
-            if not rev and not pol_any:
+            if r['判据'] == 'P' and abs(math.log(jump)) < math.log(1.5):
+                res.update(结论='不用折算', 比例='', 来源='Polygon 拆股表(单一来源)',
+                           备注=f"Polygon 记了 {pol[0][1] if pol else ''} {pol[0][2]:g}→{pol[0][3]:g} 的拆股,但我们日线那几天价格没跳(单日 {jump:.2f} 倍)—— 多半是合并、分拆、换股这类,或者价格本来就按新股数记的;照 Polygon 折反而会造出假跳变" if pol else f"价格没跳(单日 {jump:.2f} 倍)")
+            elif weak:
+                pass
+            elif not rev and not pol_any:
                 res.update(结论='不是并股', 比例='', 来源=src0,
                            备注=f"价格是往下跳(单日 {jump:.2f} 倍),并股只会让价格往上跳;两处都没有拆股记录 → 真跌" + (f",股数量比 {vr}" if vr else ''))
             elif rev and not pol_any and vr is not None and vr >= 1.5:
                 res.update(结论='不是并股', 比例='', 来源=src0,
                            备注=f"价格往上跳 {jump:.2f} 倍同时股数成交量放大 {vr} 倍;并股一定让股数量缩小 → 真涨")
-            elif rev and not pol_any and jump < 3:
+            elif s and s['n'] == 0 and not pol_any:
+                res.update(结论='不是并股', 比例='', 来源=src0.replace('没有对得上的', '0 篇提到'),
+                           备注=f"美国上市公司并股必须发公告,SEC 全文里一篇都没有、Polygon 也没有;实测单日 {jump:.2f} 倍" + (f",股数量比 {vr}" if vr else ''))
+            elif rev and not pol_any and jump < 3 and 'C' not in r['判据']:
                 res.update(结论='不是并股', 比例='', 来源=src0,
                            备注=f"前后 6 个交易日里最大的单日涨幅只有 {jump:.2f} 倍,是几天累计的走势或数据断档,不是一次性跳变")
-            else:
+            if weak or res.get('结论') is None:
                 why = []
                 if not s: why.append('SEC 没查(出错)')
                 elif s['n'] == 0: why.append('SEC 200 天窗口里没有任何公告提到并股')
+                elif weak: why.append(f"SEC 只有旁证:{weak[0]['form']} {weak[0]['fd']} 写「{weak[0]['txt']}」(不是当期 8-K/6-K,Polygon 也没有,可能说的是更早那次)")
                 else: why.append(f"SEC 有 {s['n']} 篇提到并股,但没有比例和日期都对得上的" + ('(提到的比例:' + ','.join(sorted({f'{c["k"]:g}' for c in cands})[:6]) + ')' if cands else ''))
                 if pol: why.append(f"Polygon 有 {pol[0][0]} {pol[0][1]} {pol[0][2]}→{pol[0][3]}(单一来源,不填)")
                 why.append(f"实测单日 {jump:.2f} 倍,股数量比 {vr}")
@@ -155,4 +183,4 @@ if __name__ == '__main__':
     o = main(*sys.argv[1:3])
     from collections import Counter
     print(Counter(x['结论'] for x in o))
-    json.dump(o, open('judged.json', 'w'), ensure_ascii=False)
+    json.dump(o, open(os.environ.get('OUTJ', 'judged.json'), 'w'), ensure_ascii=False)
