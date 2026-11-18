@@ -12,6 +12,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 # 1118 加：XING_EXCL_JUMP=1 时，把「一天跳三倍」清单里的票整只从选股范围里拿掉（数据可疑，疑似反向拆股没折算），结果另存
 SUF = "_剔可疑票" if os.environ.get("XING_EXCL_JUMP") == "1" else ""
+# 1118 晚加：XING_SPLIT_FIX=1 时，按数据组的并股事件表在内存里折算面板，并拿掉查不到 / 破产重组 / 断档的票，结果另存
+按表 = os.environ.get("XING_SPLIT_FIX") == "1"
+if 按表:
+    SUF = "_按表折算"
 OUT = os.path.join(HERE, "基本面融合_out" + SUF)
 LED = os.path.join(HERE, "基本面融合_ledgers" + SUF)
 EQ = os.path.join(HERE, "基本面融合_日净值" + SUF)
@@ -39,13 +43,20 @@ def 跑一条(名, 路):
     DIV.install()
     from engine import chain, matrices, data
     from 跑技术面换池_1114 import 指标
+    折算报告 = None
+    if 按表:
+        sys.path.insert(0, HERE)
+        import 按表折算_1118 as FIX
+        折算报告 = FIX.install()
     hold = json.load(io.open(B.HOLD, encoding="utf-8"))
     dev, hs = hold["研发池名单"], set(hold["留出池名单"])
     raw = yaml.safe_load(io.open(os.path.join(ROOT, 路), encoding="utf-8"))
     m = matrices.build(chain.ChainConfig.from_dict(copy.deepcopy(raw)).raw, dev)
     RC.apply_scope(m, B.SCOPE)
     剔 = 0
-    if SUF:
+    if 按表:
+        剔 = FIX.拿掉(m)
+    elif SUF:
         bad = set(pd.read_csv(os.path.join(HERE, "一天跳三倍_清单_1118.csv"))["代码"].astype(str))
         cols = [m.col[x] for x in bad if x in m.col]
         m.universe[:, cols] = False
@@ -62,7 +73,7 @@ def 跑一条(名, 路):
     os.makedirs(EQ, exist_ok=True)
     (eq / float(eq.dropna().iloc[0])).to_csv(os.path.join(EQ, 名 + ".csv"), header=["净值"])
     rec = {"名": 名, "配置": 路, "窗口": f"{perf[0].date()} → {perf[-1].date()}",
-           "池": f"研发池内 {B.SCOPE} 口径", "分红": "含分红", "剔掉的可疑票只数": 剔, "笔数": int(len(led)),
+           "池": f"研发池内 {B.SCOPE} 口径", "分红": "含分红", "剔掉的可疑票只数": 剔, "按表折算了几处": (len(折算报告["折算了"]) if 折算报告 else 0), "笔数": int(len(led)),
            "平均仓位pct": round(float(res.exposure.reindex(perf).fillna(0).mean() * 100), 1), **指标(eq, yrs)}
     if len(led):
         os.makedirs(LED, exist_ok=True)
