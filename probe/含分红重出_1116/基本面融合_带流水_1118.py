@@ -10,9 +10,11 @@ engine/ 一个字节不改。只用研发池。一条一个子进程，可续跑
 import copy, glob, io, json, os, subprocess, sys, traceback
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-OUT = os.path.join(HERE, "基本面融合_out")
-LED = os.path.join(HERE, "基本面融合_ledgers")
-EQ = os.path.join(HERE, "基本面融合_日净值")
+# 1118 加：XING_EXCL_JUMP=1 时，把「一天跳三倍」清单里的票整只从选股范围里拿掉（数据可疑，疑似反向拆股没折算），结果另存
+SUF = "_剔可疑票" if os.environ.get("XING_EXCL_JUMP") == "1" else ""
+OUT = os.path.join(HERE, "基本面融合_out" + SUF)
+LED = os.path.join(HERE, "基本面融合_ledgers" + SUF)
+EQ = os.path.join(HERE, "基本面融合_日净值" + SUF)
 DIRS = ["probe/基本面跑批_1106/configs", "probe/fundamental_buildout_1030/configs_1030", "probe/新策略_1106/configs"]
 sys.path.insert(0, os.path.join(ROOT, "probe/流动性池_1114"))
 sys.path.insert(0, os.path.join(ROOT, "probe/基本面跑批_1106"))
@@ -42,6 +44,12 @@ def 跑一条(名, 路):
     raw = yaml.safe_load(io.open(os.path.join(ROOT, 路), encoding="utf-8"))
     m = matrices.build(chain.ChainConfig.from_dict(copy.deepcopy(raw)).raw, dev)
     RC.apply_scope(m, B.SCOPE)
+    剔 = 0
+    if SUF:
+        bad = set(pd.read_csv(os.path.join(HERE, "一天跳三倍_清单_1118.csv"))["代码"].astype(str))
+        cols = [m.col[x] for x in bad if x in m.col]
+        m.universe[:, cols] = False
+        剔 = len(cols)
     idx = m.index
     perf = idx[(idx >= pd.Timestamp(data.PERF_START)) & (idx <= pd.Timestamp(data.PERF_END))]
     yrs = (perf[-1] - perf[0]).days / 365.25
@@ -54,7 +62,7 @@ def 跑一条(名, 路):
     os.makedirs(EQ, exist_ok=True)
     (eq / float(eq.dropna().iloc[0])).to_csv(os.path.join(EQ, 名 + ".csv"), header=["净值"])
     rec = {"名": 名, "配置": 路, "窗口": f"{perf[0].date()} → {perf[-1].date()}",
-           "池": f"研发池内 {B.SCOPE} 口径", "分红": "含分红", "笔数": int(len(led)),
+           "池": f"研发池内 {B.SCOPE} 口径", "分红": "含分红", "剔掉的可疑票只数": 剔, "笔数": int(len(led)),
            "平均仓位pct": round(float(res.exposure.reindex(perf).fillna(0).mean() * 100), 1), **指标(eq, yrs)}
     if len(led):
         os.makedirs(LED, exist_ok=True)
