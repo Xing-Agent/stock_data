@@ -1,0 +1,10 @@
+/home/claude/xing-agent-stock_data/probe/分批离场_1114/跑分批离场_1114.py:86: RuntimeWarning: All-NaN slice encountered
+  if c[t] < np.nanmin(l[t - 3:t]) and f[t] < 50.0:
+ok   技-1
+/home/claude/xing-agent-stock_data/probe/分批离场_1114/跑分批离场_1114.py:86: RuntimeWarning: All-NaN slice encountered
+  if c[t] < np.nanmin(l[t - 3:t]) and f[t] < 50.0:
+ok   trend_following
+/home/claude/xing-agent-stock_data/probe/分批离场_1114/跑分批离场_1114.py:86: RuntimeWarning: All-NaN slice encountered
+  if c[t] < np.nanmin(l[t - 3:t]) and f[t] < 50.0:
+ok   trend_following-原著-唐奇安反向通道离场
+ALL_DONE

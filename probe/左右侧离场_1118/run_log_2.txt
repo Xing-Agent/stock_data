@@ -1,0 +1,2 @@
+/home/claude/xing-agent-stock_data/probe/分批离场_1114/跑分批离场_1114.py:86: RuntimeWarning: All-NaN slice encountered
+  if c[t] < np.nanmin(l[t - 3:t]) and f[t] < 50.0:
