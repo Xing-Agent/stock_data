@@ -1,0 +1,6 @@
+{
+ "名": "技-10-原著-持仓2至5天离场",
+ "跑失败": "ValueError: 不认识的初始止损 type=day_low_minus_tick",
+ "traceback": "Traceback (most recent call last):\n  File \"/home/claude/xing-agent-stock_data/probe/换挑法_1118/跑换默认挑法_全技术面_1118.py\", line 116, in main\n    rec = 跑一条(名)\n          ~~~~~~^^^^\n  File \"/home/claude/xing-agent-stock_data/probe/换挑法_1118/跑换默认挑法_全技术面_1118.py\", line 81, in 跑一条\n    版 = {\"成交额大的先买_现在\": 跑(rs0),\n                                 ~~^^^^^\n  File \"/home/claude/xing-agent-stock_data/probe/换挑法_1118/跑换默认挑法_全技术面_1118.py\", line 66, in 跑\n    res = chain.run_chain(chain.ChainConfig.from_dict(copy.deepcopy(raw)), dev, data.PERF_START, data.PERF_END, m=m, total_return=True)\n  File \"/home/claude/xing-agent-stock_data/engine/chain.py\", line 601, in run_chain\n    stop0 = _initial_stop_spec(m, j, i, entry_px, istop_spec)\n  File \"/home/claude/xing-agent-stock_data/engine/chain.py\", line 378, in _initial_stop_spec\n    stop = _one_stop(m, j, i, entry_px, spec)\n  File \"/home/claude/xing-agent-stock_data/engine/chain.py\", line 358, in _one_stop\n    raise ValueError(f\"不认识的初始止损 type={kind}\")\nValueError: 不认识的初始止损 type=day_low_minus_tick\n",
+ "总秒": 22.8
+}
