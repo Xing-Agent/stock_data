@@ -1,0 +1,36 @@
+﻿交易所,合约代码,对应标的,上线日(交易所给的),能不能拿 1 小时历史
+OKX,EWY-USDT-SWAP,EWY,2026-03-11,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Binance,EWYUSDT,EWY,2026-03-16,能:从上线起全部 1 小时线(本目录已取)
+Hyperliquid(trade.xyz),xyz:EWY,EWY,,"只能拿最近约 5000 根(约 7 个月),这次没取"
+Binance,KORUUSDT,KORU,2026-06-22,能:从上线起全部 1 小时线(本目录已取)
+OKX,KORU-USDT-SWAP,KORU,2026-06-24,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Bybit,KORUUSDT,KORU,2026-07-15,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+Hyperliquid(trade.xyz),xyz:KORU,KORU,,"只能拿最近约 5000 根(约 7 个月),本目录已取"
+OKX,NVDA-USDT-SWAP,NVDA,2026-03-04,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Binance,NVDAUSDT,NVDA,2026-03-26,能:从上线起全部 1 小时线(本目录已取)
+Bybit,NVDAUSDT,NVDA,2026-05-06,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+Hyperliquid(trade.xyz),xyz:NVDA,NVDA,,"只能拿最近约 5000 根(约 7 个月),本目录已取"
+OKX,QQQ-USDT-SWAP,QQQ,2026-03-04,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Binance,QQQUSDT,QQQ,2026-04-06,能:从上线起全部 1 小时线(本目录已取)
+Bybit,QQQUSDT,QQQ,2026-05-07,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+OKX,SMH-USDT-SWAP,SMH,2026-06-18,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Bybit,SMHUSDT,SMH,2026-07-15,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+Binance,SMHUSDT,SMH,2026-07-29,能:从上线起全部 1 小时线(本目录已取)
+Hyperliquid(trade.xyz),xyz:SMH,SMH,,"只能拿最近约 5000 根(约 7 个月),这次没取"
+Binance,SOXLUSDT,SOXL,2026-05-15,能:从上线起全部 1 小时线(本目录已取)
+Bybit,SOXLUSDT,SOXL,2026-05-19,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+OKX,SOXL-USDT-SWAP,SOXL,2026-05-19,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Hyperliquid(trade.xyz),xyz:SOXL,SOXL,,"只能拿最近约 5000 根(约 7 个月),本目录已取"
+Bybit,SOXXUSDT,SOXX,2026-07-21,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+Binance,SOXXUSDT,SOXX,2026-11-18,能:从上线起全部 1 小时线(本目录已取)
+OKX,SOXX-USDT-SWAP,SOXX,2026-11-18,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Hyperliquid(trade.xyz),xyz:SP500,SP500,,"只能拿最近约 5000 根(约 7 个月),本目录已取"
+OKX,SPY-USDT-SWAP,SPY,2026-03-04,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Binance,SPYUSDT,SPY,2026-04-06,能:从上线起全部 1 小时线(本目录已取)
+Bybit,SPYUSDT,SPY,2026-05-14,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+Bybit,TQQQUSDT,TQQQ,2026-06-24,"应该能(接口支持按时间分页;这次没取,Binance 已覆盖)"
+Binance,TQQQUSDT,TQQQ,2026-06-29,能:从上线起全部 1 小时线(本目录已取)
+OKX,TQQQ-USDT-SWAP,TQQQ,2026-07-02,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+OKX,US100-USDT-SWAP,US100,2026-09-10,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+OKX,US500-USDT-SWAP,US500,2026-09-10,"应该能(history-candles 接口分页;这次没取,也没逐只验证)"
+Hyperliquid(trade.xyz),xyz:XYZ100,XYZ100,,"只能拿最近约 5000 根(约 7 个月),本目录已取"
