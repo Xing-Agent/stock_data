@@ -41,13 +41,14 @@ CFG = {"卡现在这版": dict(trig="C", rrmode="gem", f_box=True, tk_rules=True
        "只换早鸟扳机_不设闸": dict(trig="C", rrmode="none"),
        "最早那版_收盘确认_不设闸": dict(trig="A", rrmode="none")}
 files = sorted(f for f in os.listdir(D) if f.endswith(".parquet"))
+只常规 = os.environ.get("XING_SESSION") == "regular"   # 另一种跑法：只用常规时段的 K 线（冷门票盘前盘后成交稀，影线可能不可靠）
 cols = ["symbol", "time_utc", "open_adj", "high_adj", "low_adj", "close_adj", "volume_adj"]
 B = 25
 for b in range(0, len(抽), B):
     fp = os.path.join(OUT, f"批{b // B:03d}.csv")
     if os.path.exists(fp): continue
     grp = 抽[b:b + B]; t0 = time.time()
-    df = pd.concat([ds.dataset(os.path.join(D, f)).to_table(columns=cols, filter=ds.field("symbol").isin(grp)).to_pandas() for f in files])
+    df = pd.concat([ds.dataset(os.path.join(D, f)).to_table(columns=cols, filter=(ds.field("symbol").isin(grp) & (ds.field("session") == "regular")) if 只常规 else ds.field("symbol").isin(grp)).to_pandas() for f in files])
     df.columns = ["symbol", "time", "open", "high", "low", "close", "volume"]
     rows = []
     for s, d in df.groupby("symbol"):
