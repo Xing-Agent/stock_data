@@ -75,7 +75,7 @@ def run2(d,name,trig='C',rrmode='gem',f_box=False,f_n=False,f_ema=False,tk_rules
                 if (H[j]>=tp2) if Lg else (Lo[j]<=tp2): res=Rm+(1-part)*rr2;break
         if res is None:
             last=C[min(i+hold,len(d)-1)];res=(Rm if half else 0)+((1-part) if half else 1)*(((last-e) if Lg else (e-last))/risk)
-        trades.append({'票':name,'t':str(d.index[i])[:16],'dir':'多' if Lg else '空','R':round(res,2),'tp1':half})
+        trades.append({'票':name,'t':str(d.index[i])[:16],'dir':'多' if Lg else '空','R':round(res,2),'tp1':half,'riskp':risk/e})
         i+=1
     return pd.DataFrame(trades)
 def stats(t):
