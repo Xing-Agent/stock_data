@@ -71,6 +71,7 @@ def run2(d,name,trig='C',rrmode='gem',f_box=False,f_n=False,f_ema=False,tk_rules
     return pd.DataFrame(trades)
 def stats(t):
     if len(t)==0: return '0 笔'
+    t=t.sort_values('t') if 't' in t else t
     w=t.R[t.R>0].sum();l=-t.R[t.R<0].sum();cum=t.R.cumsum();dd=(cum-cum.cummax()).min()
     return f"{len(t):3d}笔 到TP1 {t.tp1.mean()*100:3.0f}% 赚钱 {(t.R>0).mean()*100:3.0f}% 合计{t.R.sum():+6.1f}R 每笔{t.R.mean():+.2f}R 利润因子{(w/l if l else np.inf):.2f} 最大回撤{dd:.1f}R"
 S={k:v for k,v in SETS.items() if '1H' in k}
