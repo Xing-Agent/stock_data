@@ -8,7 +8,7 @@
 >
 > ★★ 引用它的卡(2026-11-02):`xing-main` · `xing-technical-analyst` ·
 > ★★★ `xing-fundamental-analyst`(新)· `xing-quote` · `xing-screener` ·
-> `xing-review` · `xing-agent-builder` · `xing-skill-builder` —— ★ 共 **39 张**。
+> `xing-review` · `xing-agent-builder` · `xing-skill-builder` —— ★ 共 **42 张**（V2.6.0 加了 `xing-ta-master` · `xing-fa-master` · `xing-gemini-fallback`）。
 >
 > v3 顶级顾问范式定稿后,也改这里,不要改到各个 Skill 里去。
 
