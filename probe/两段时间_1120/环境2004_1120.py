@@ -21,7 +21,7 @@ START, END = "2005-01-03", "2014-12-31"
 门槛 = {"低": 5e6, "中": 1e7, "高": 2e7}
 
 
-def install():
+def install(只留测试期=False):
     sys.path.insert(0, ROOT)
     for d in ("probe/基本面跑批_1106", "probe/并池_1107", "probe/含分红重出_1116"):
         sys.path.insert(0, os.path.join(ROOT, d))
@@ -51,6 +51,13 @@ def install():
     import 按表折算_1118 as FIX
     FIX.窗口起 = "2003-01-01"
     rep = FIX.install(); drop = set(FIX.要拿掉的票())
+    if 只留测试期:      # ★ 省内存：折算做完以后，把 2015 年以后的行情切掉（整张面板到 2025，全留着建矩阵会把 8G 内存撑爆）
+        cut = pd.Timestamp(END)
+        cache._PANEL = {f: df.loc[:cut] for f, df in cache._PANEL.items()}
+        _pm = cache.panel_meta
+        def pm():       # 退市结算日落在切掉的那一段里的，在这一段看来就是「还没退市」
+            m_ = _pm().copy(); z = pd.to_datetime(m_["zero_bar"], errors="coerce"); m_["zero_bar"] = z.where(z <= cut, pd.NaT); return m_
+        cache.panel_meta = pm
     hold = json.load(io.open(os.path.join(ROOT, B.HOLD), encoding="utf-8")); hs = set(hold["留出池名单"])
     close = cache._PANEL["close"]
     dev = sorted(s for s in close.columns if s not in hs and s not in drop)

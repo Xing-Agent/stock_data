@@ -24,7 +24,10 @@ def 跑一条(名):
     sys.path.insert(0, HERE); sys.path.insert(0, ROOT)
     import yaml, numpy as np, pandas as pd
     import 环境2004_1120 as ENV
-    env = ENV.install(); dev = env["dev"]; hs = env["留出池"]
+    env = ENV.install(只留测试期=True); hs = env["留出池"]      # 省内存：2015 年以后的行情切掉，退市元数据在内存里跟着改
+    from engine import cache as _c
+    _has = _c._PANEL["close"].loc[:ENV.END].notna().any()
+    dev = [s_ for s_ in env["dev"] if bool(_has.get(s_, False))]      # ★ 省内存：2014 年底以前一根 K 线都没有的票不建矩阵。它们在这一段本来就全是空值，不影响任何排名
     from engine import matrices, data
     from engine_v2 import chain
     raw = yaml.safe_load(io.open(os.path.join(ROOT, "engine/configs", 名 + ".yaml"), encoding="utf-8"))
