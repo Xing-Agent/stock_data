@@ -18,7 +18,7 @@ N = 买入前一天的 ATR（各策略配置自己的周期）。加仓一律收
 """
 import copy, io, json, os, sys, time, traceback
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
-OUT = os.path.join(HERE, "out_五种做法" + ("_拆解" if os.environ.get("XING_SET") == "拆解" else "")); POOL = os.path.join(ROOT, "probe/流动性池_1114")
+OUT = os.path.join(HERE, "out_五种做法" + ("_" + os.environ["XING_SET"] if os.environ.get("XING_SET") else "")); POOL = os.path.join(ROOT, "probe/流动性池_1114")
 名单 = ["trend_following", "trend_following-原著-唐奇安反向通道离场", "技-1", "技-3-XING", "技-3-原著", "技-4-原著-中值", "技-4-行业", "技-6-XING", "技-6-原著"]
 
 def 跑一条(名):
@@ -57,6 +57,15 @@ def 跑一条(名):
                 "④XING版_不设总风险上限": {**xing(1.5), "heat_cap": None},
                 "④XING版_只用它的起始仓位_不加仓": {**xing(1.5), "heat_cap": None, "max_adds": 0},
                 "⑥原仓位_涨1.5倍ATR加一次半仓_不设总风险": dict(type="xing", initial=None, step_n=1.5, max_adds=1, add_ratios=[0.5], min_gap=5, stop_on_add="breakeven", cap_single=0.20)}
+    if os.environ.get("XING_SET") == "总风险":
+        # ★ Lin 11-20 12:48：总风险 6% 太紧，改成 10% / 15% / 不设 三档并排（不设那档在「拆解」里已经跑过）
+        方案 = {}
+        for h in (0.10, 0.15):
+            t = f"总风险{int(h*100)}pct"
+            方案[f"原仓位_不加仓_{t}"] = dict(type="none", max_adds=0, cap_single=0.20, heat_cap=h)
+            方案[f"④XING版_{t}"] = xing(1.5, heat_cap=h)
+            方案[f"⑥原仓位加一次半仓_{t}"] = dict(type="xing", initial=None, step_n=1.5, max_adds=1, add_ratios=[0.5], min_gap=5, stop_on_add="breakeven", cap_single=0.20, heat_cap=h)
+            方案[f"②海龟原著_{t}"] = dict(type="turtle", initial="unit_risk", unit_risk=0.01, step_n=0.5, max_adds=3, stop_on_add="turtle", cap_single=0.20, heat_cap=h)
     res = {}
     for nm, py in 方案.items():
         r = chain.run_chain(chain.ChainConfig.from_dict(copy.deepcopy(raw)), dev, data.PERF_START, data.PERF_END, m=m, total_return=True, pyramid=py)
