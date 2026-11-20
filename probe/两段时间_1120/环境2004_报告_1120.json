@@ -1,0 +1,148 @@
+{
+ "窗口": "2005-01-03 → 2014-12-31",
+ "票数": 3202,
+ "折算": {
+  "折算了": 93,
+  "跳过_面板上没有跳变": 0,
+  "跳过_不在面板或日期在面板之外": 1
+ },
+ "拿掉的票": [
+  "AEIS",
+  "AEVA",
+  "AIRE",
+  "AMCC",
+  "AMPL",
+  "AMRN",
+  "AQB",
+  "ARGO",
+  "ARWR",
+  "ASML",
+  "ATVI",
+  "AVNR",
+  "AXON",
+  "BANR",
+  "BAS",
+  "BLDP",
+  "BTE",
+  "BULL",
+  "CCOI",
+  "CFFN",
+  "CHRD",
+  "CHRW",
+  "CIEN",
+  "CIVI",
+  "CLDX",
+  "COHR__21510",
+  "COWN",
+  "CRAY",
+  "CRC",
+  "CTIC",
+  "CZR__858339",
+  "DCIX",
+  "DGLY",
+  "DJCO",
+  "DORM",
+  "DYN__1379895",
+  "EGLE",
+  "EXXI",
+  "FNSR",
+  "GTEC",
+  "GTX",
+  "HMNY",
+  "HOLO",
+  "HOPE",
+  "HTZ",
+  "IMMP",
+  "INO",
+  "INSM",
+  "ITUB",
+  "JAGX",
+  "KTOS",
+  "LIFW",
+  "LTXB",
+  "MARK",
+  "MBOT",
+  "MDCA",
+  "MRIN",
+  "NAKD",
+  "NPSP",
+  "NRXP",
+  "NUAN",
+  "NWG",
+  "OAS",
+  "OCLR",
+  "PEGY",
+  "PEIX",
+  "PETZ",
+  "PLUG",
+  "PRPL",
+  "PTPI",
+  "RIDE",
+  "RIOT",
+  "ROVI",
+  "SAN",
+  "SANM",
+  "SD",
+  "SGY",
+  "SMCI",
+  "SOS",
+  "SVU",
+  "TBBK",
+  "TCOM",
+  "TDW",
+  "TLN",
+  "TOPS",
+  "TRMD",
+  "UCB",
+  "VCEL",
+  "VRM",
+  "WLL",
+  "WTRH",
+  "XOMA",
+  "ZG"
+ ],
+ "池_低": {
+  "调仓次数": 40,
+  "成分只数_最少_中位_最多": [
+   800,
+   1226,
+   1772
+  ],
+  "同池子全买不动": {
+   "复合年化pct": 10.44,
+   "最大回撤pct": -57.52
+  }
+ },
+ "池_中": {
+  "调仓次数": 40,
+  "成分只数_最少_中位_最多": [
+   612,
+   1026,
+   1530
+  ],
+  "同池子全买不动": {
+   "复合年化pct": 9.69,
+   "最大回撤pct": -57.79
+  }
+ },
+ "池_高": {
+  "调仓次数": 40,
+  "成分只数_最少_中位_最多": [
+   419,
+   784,
+   1187
+  ],
+  "同池子全买不动": {
+   "复合年化pct": 9.17,
+   "最大回撤pct": -57.86
+  }
+ },
+ "SPY": {
+  "复合年化pct": 7.61,
+  "最大回撤pct": -55.19
+ },
+ "RSP": {
+  "复合年化pct": 7.86,
+  "最大回撤pct": -60.13
+ }
+}
