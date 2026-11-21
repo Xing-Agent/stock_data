@@ -1,0 +1,120 @@
+===== KODK
+  t: KODK
+  price: 7.51
+  price_date: 2026-11-04
+  fin_period_end: 2026-06-30
+  bal_period_end: 2026-06-30
+  mktcap_bn: 0.733
+  ev_ebitda: 9.216
+  fcf_yield: 0.633
+  pb: 1.177
+  netdebt_ebitda: -3.0
+  current_ratio: 2.913
+  roe: -0.151
+  pe: -7.798
+  gross_margin: 0.241
+  ocf_over_ni: -5.16
+  de: 0.177
+  p_fcf: 1.58
+  gw_over_eq: 0.019
+  from_52w_high: -0.495
+  ocf_ttm_bn: 0.485
+  fcf_ttm_bn: 0.464
+  rev_fy: [('2020', 1029000000.0), ('2021', 1150000000.0), ('2022', 1205000000.0), ('2023', 1117000000.0), ('2024', 1043000000.0), ('2025', 1069000000.0)]
+  shares_fy: [('2022', 80.6), ('2023', 90.5), ('2024', 92.3), ('2025', 87.0)]
+===== NVDA
+  t: NVDA
+  price: 200.13
+  price_date: 2026-11-04
+  fin_period_end: 2026-07-26
+  bal_period_end: 2026-07-26
+  mktcap_bn: 4870.764
+  ev_ebitda: 24.255
+  fcf_yield: 0.026
+  pb: 21.271
+  netdebt_ebitda: 0.054
+  current_ratio: 4.589
+  roe: 0.842
+  pe: 25.253
+  gross_margin: 0.747
+  ocf_over_ni: 0.697
+  de: 0.146
+  p_fcf: 38.351
+  gw_over_eq: 0.092
+  from_52w_high: -0.178
+  ocf_ttm_bn: 134.36
+  fcf_ttm_bn: 127.006
+  rev_fy: [('2021', 16675000000.0), ('2022', 26914000000.0), ('2023', 26974000000.0), ('2024', 60922000000.0), ('2025', 130497000000.0), ('2026', 215938000000.0)]
+  shares_fy: [('2023', 25070.0), ('2024', 24940.0), ('2025', 24804.0), ('2026', 24514.0)]
+===== FTDR
+  t: FTDR
+  price: 92.86
+  price_date: 2026-11-04
+  fin_period_end: 2026-06-30
+  bal_period_end: 2026-06-30
+  mktcap_bn: 6.649
+  ev_ebitda: 16.322
+  fcf_yield: 0.058
+  pb: 23.411
+  netdebt_ebitda: 1.211
+  current_ratio: 1.591
+  roe: 0.965
+  pe: 24.266
+  gross_margin: 0.555
+  ocf_over_ni: 1.496
+  de: 4.085
+  p_fcf: 17.225
+  gw_over_eq: 3.391
+  from_52w_high: -0.006
+  ocf_ttm_bn: 0.41
+  fcf_ttm_bn: 0.386
+  rev_fy: [('2020', 1474000000.0), ('2021', 1602000000.0), ('2022', 1662000000.0), ('2023', 1780000000.0), ('2024', 1843000000.0), ('2025', 2093000000.0)]
+  shares_fy: [('2022', 82.0), ('2023', 80.9), ('2024', 78.0), ('2025', 74.5)]
+===== KO
+  t: KO
+  price: 95.8
+  price_date: 2026-11-04
+  fin_period_end: 2026-10-02
+  bal_period_end: 2026-10-02
+  mktcap_bn: 413.185
+  ev_ebitda: 26.965
+  fcf_yield: 0.035
+  pb: 11.056
+  netdebt_ebitda: 1.703
+  current_ratio: 1.377
+  roe: 0.391
+  pe: 28.244
+  gross_margin: 0.623
+  ocf_over_ni: 1.109
+  de: 1.112
+  p_fcf: 28.93
+  gw_over_eq: 0.412
+  from_52w_high: -0.008
+  ocf_ttm_bn: 16.227
+  fcf_ttm_bn: 14.282
+  rev_fy: [('2020', 33014000000.0), ('2021', 38655000000.0), ('2022', 43004000000.0), ('2023', 45754000000.0), ('2024', 47061000000.0), ('2025', 47941000000.0)]
+  shares_fy: [('2022', 4350.0), ('2023', 4339.0), ('2024', 4320.0), ('2025', 4313.0)]
+===== INTC
+  t: INTC
+  price: nan
+  price_date: 缺
+  fin_period_end: 2026-09-26
+  bal_period_end: 2026-09-26
+  mktcap_bn: nan
+  ev_ebitda: nan
+  fcf_yield: nan
+  pb: nan
+  netdebt_ebitda: -2.197
+  current_ratio: 2.208
+  roe: -0.105
+  pe: nan
+  gross_margin: 0.399
+  ocf_over_ni: -1.452
+  de: 0.436
+  p_fcf: nan
+  gw_over_eq: 0.178
+  from_52w_high: nan
+  ocf_ttm_bn: 17.472
+  fcf_ttm_bn: 3.768
+  rev_fy: [('2020', 77867000000.0), ('2021', 79024000000.0), ('2022', 63054000000.0), ('2023', 54228000000.0), ('2024', 53101000000.0), ('2025', 52853000000.0)]
+  shares_fy: [('2022', 4123.0), ('2023', 4212.0), ('2024', 4280.0), ('2025', 4530.0)]
