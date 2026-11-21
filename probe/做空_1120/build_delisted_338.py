@@ -7,7 +7,7 @@
   · Polygon 的日线是按代码取的,代码被别的公司接着用过的话会混在一起。所以每只只要「退市日以前」那段,
     再往前碰到停牌超过 60 天的空档、或者同一代码更早一家公司的退市日,就从那以后算起。
   · 拆股按 Polygon 拆股记录折(只用这只票自己那段时间里的)。列和之前的日线一样。
-用法:python3 build_delisted_338.py RAW.json.gz 面板已有代码.csv OUT_DIR [标普补充 RAW_P2.json.gz]
+用法:python3 build_delisted_338.py RAW.json.gz 面板已有代码.csv OUT_DIR [标普补充 RAW_P2.json.gz] [第三步 RAW_P3.json.gz 面板CIK.json]
 """
 import csv, gzip, json, os, sys
 from collections import defaultdict
@@ -123,15 +123,61 @@ if len(sys.argv) > 4:
         frames.append(frame(sym, '', '', B, sp, '标普补充').with_columns(pl.lit(t).alias('source_ticker')))
         rec.update(退市日_polygon='', 数据起=a, 最后交易日=b, 最后收盘价=B[-1][4], 交易天数=len(B), 拆股=';'.join(f'{d}×{kk:g}' for d, kk in sp))
         summary.append(rec)
-A = pl.concat(frames, rechunk=False)
+# 第三步(Lin 11-21 同意):Polygon 参考库漏掉的 2005–2015 年退市股(主要是纳斯达克)。
+# 办法:2004-12 ~ 2017-06 每月取一天「全市场当天所有代码」(Polygon grouped daily,只含交易所上市的),
+# 2005–2016-06 之间最后一次出现、之后再没出现的 1–4 个字母代码,查当时的公司名和 CIK;
+# 去掉:CIK 现在还在交易的(改名)、CIK 在两个面板里的、名字像权证 / 优先股 / 基金 / ETF 的、Polygon 标了非普通股的。
+if len(sys.argv) > 5:
+    P3 = json.load(gzip.open(sys.argv[5]))
+    pc = json.load(open(sys.argv[6]))                  # 面板 CIK → 面板代码
+    have = {r['代码'] for r in summary if r['交易天数']}
+    for row in P3['keep']:
+        t, first, last, nmon, name, ex, typ, cik, figi = row[:9]
+        c = (cik or '').lstrip('0')
+        rec = dict(代码=t, 公司名=name, 交易所={'XNAS': 'NASDAQ', 'XNYS': 'NYSE', 'XASE': 'AMEX'}.get(ex, ''), polygon_composite_figi=figi,
+                   polygon_share_class_figi='', cik=cik, 退市日_polygon='', 数据起='', 最后交易日='', 最后收盘价='', 交易天数=0, 拆股='',
+                   说明='Polygon 参考库漏的;按每月全市场代码表找出来的')
+        if c and c in pc: continue                     # 面板里有这家公司(可能换了代码)
+        if t in have: continue
+        bars = P3['dl'].get(t)
+        if bars == 'ERR' or not bars:
+            rec['说明'] += ';Polygon 没有这个代码的日线'; summary.append(rec); continue
+        B = [(day(b[0]), *b[1:]) for b in bars]
+        cut = 0
+        for i in range(len(B) - 1, 0, -1):
+            if (date.fromisoformat(B[i][0]) - date.fromisoformat(B[i - 1][0])).days > 60: cut = i; break
+        B = B[cut:]
+        if len(B) < 5:
+            rec['说明'] += f';只有 {len(B)} 天,太少,没放'; summary.append(rec); continue
+        a, b = B[0][0], B[-1][0]
+        sp = sorted((d, kk) for d, kk in splits.get(t, []) if a < d <= b)
+        sym = t if t not in panel else f"{t}__{b[:7].replace('-', '')}"
+        if sym != t: rec['说明'] += f';面板里的 {t} 是后来用这个代码的另一家公司,这里写成 {sym}'
+        frames.append(frame(sym, figi, cik, B, sp, b[:4]).with_columns(pl.lit(t).alias('source_ticker')))
+        rec.update(代码=sym, 数据起=a, 最后交易日=b, 最后收盘价=B[-1][4], 交易天数=len(B), 拆股=';'.join(f'{d}×{kk:g}' for d, kk in sp))
+        if not rec['交易所']: rec['说明'] += ';交易所 Polygon 没记(在 NYSE / NASDAQ / AMEX 之一上市)'
+        summary.append(rec)
+    p3 = [r for r in summary if '按每月全市场' in r['说明']]
+    print('第三步 候选', len(P3['keep']), '进总表', len(p3), '放了', sum(1 for r in p3 if r['交易天数']))
+# 省内存:原始 JSON 先丢掉,再按退市年份一年一年写
+del J, INA, DL
+for v in ('P2', 'P3'):
+    if v in globals(): del globals()[v]
+import gc; gc.collect()
+byy = defaultdict(list)
+for fr in frames: byy[fr['退市年'][0]].append(fr)
 del frames
-for (y,), g in A.group_by(['退市年'], maintain_order=True):
-    g.drop('退市年').sort(['symbol', 'date']).write_parquet(f'{out}/退市于{y}.parquet', compression='zstd', compression_level=9, statistics=True)
+nrows = 0
+for y in sorted(byy):
+    g = pl.concat(byy[y]).drop('退市年').sort(['symbol', 'date'])
+    nrows += g.height
+    g.write_parquet(f'{out}/退市于{y}.parquet', compression='zstd', compression_level=9, statistics=True)
+    byy[y] = None; del g; gc.collect()
 summary.sort(key=lambda r: (r['退市日_polygon'] or r['最后交易日'] or '9', r['代码']))
 with open(f'{out}/总表.csv', 'w', newline='', encoding='utf-8-sig') as fh:
     w = csv.DictWriter(fh, fieldnames=list(summary[0])); w.writeheader(); w.writerows(summary)
 ok = [r for r in summary if r['交易天数']]
-print('名单(去掉面板后)', len(summary), '面板里已有', n_panel, '取到', len(ok), '取不到', len(summary) - len(ok), '行数', A.height)
+print('名单(去掉面板后)', len(summary), '面板里已有', n_panel, '取到', len(ok), '取不到', len(summary) - len(ok), '行数', nrows)
 from collections import Counter
 print(Counter(r['说明'].split(',')[0][:12] for r in summary if not r['交易天数']))
 print(sorted(Counter((r['退市日_polygon'] or r['最后交易日'])[:4] for r in ok).items()))
