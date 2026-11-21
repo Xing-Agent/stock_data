@@ -10,7 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
 import fa
-fa.R = ROOT + '/'          # fa.py 里写死的 /home/claude/xing-agent-stock_data/ 本容器不存在
+fa.R = ROOT + '/'          # fa.py 里写死的那个旧数据根目录本容器不存在（闸⑪ 那条），改成按本脚本位置自推仓库根
 
 def one(t):
     f, _ = fa.load(t)
