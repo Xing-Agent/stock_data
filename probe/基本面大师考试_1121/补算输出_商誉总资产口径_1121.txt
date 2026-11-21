@@ -1,0 +1,60 @@
+===== KODK
+  t: KODK
+  bal_period_end: 2026-06-30
+  assets_period_end: 2026-06-30
+  goodwill_bn: 0.012
+  intangible_bn: 0.017
+  assets_bn: 1.527
+  equity_bn: 0.623
+  treasury_bn: None
+  gw_ia_bn: 0.029
+  gw_ia_over_assets: 0.019
+  gw_over_eq: 0.0193
+===== NVDA
+  t: NVDA
+  bal_period_end: 2026-07-26
+  assets_period_end: 2026-07-26
+  goodwill_bn: 21.125
+  intangible_bn: 2.998
+  assets_bn: 320.272
+  equity_bn: 228.984
+  treasury_bn: None
+  gw_ia_bn: 24.123
+  gw_ia_over_assets: 0.0753
+  gw_over_eq: 0.0923
+===== FTDR
+  t: FTDR
+  bal_period_end: 2026-06-30
+  assets_period_end: 2026-06-30
+  goodwill_bn: 0.963
+  intangible_bn: 0.374
+  assets_bn: 2.186
+  equity_bn: 0.284
+  treasury_bn: None
+  gw_ia_bn: 1.337
+  gw_ia_over_assets: 0.6116
+  gw_over_eq: 3.3908
+===== KO
+  t: KO
+  bal_period_end: 2026-10-02
+  assets_period_end: 2026-10-02
+  goodwill_bn: 15.408
+  intangible_bn: None
+  assets_bn: 107.95
+  equity_bn: 37.372
+  treasury_bn: None
+  gw_ia_bn: 15.408
+  gw_ia_over_assets: 0.1427
+  gw_over_eq: 0.4123
+===== INTC
+  t: INTC
+  bal_period_end: 2026-09-26
+  assets_period_end: 2026-09-26
+  goodwill_bn: 20.465
+  intangible_bn: 2.444
+  assets_bn: 228.574
+  equity_bn: 114.914
+  treasury_bn: None
+  gw_ia_bn: 22.909
+  gw_ia_over_assets: 0.1002
+  gw_over_eq: 0.1781
