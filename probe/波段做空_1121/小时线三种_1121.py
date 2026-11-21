@@ -12,6 +12,7 @@ B = {"__file__": os.path.join(HERE, "圣杯空头版_日线_1121.py")}; exec(com
 load, ind, 开关表, 次数限制, 汇总, 组, 段, SLIP, BORROW = (B[k] for k in ["load", "ind", "开关表", "次数限制", "汇总", "组", "段", "SLIP", "BORROW"])
 HD = [os.path.join(ROOT, "market_ext_1105/ETF和币_1120/小时线_2004_2014"), os.path.join(ROOT, "market_ext_1105/ETF和币_1120/小时线_2015起")]
 SYMS = [s for g in 组.values() for s in g]
+坏点数 = {}
 
 def 读小时():
     parts = []
@@ -38,6 +39,11 @@ def 备(sym, H):
         t = pd.Timestamp("2016-09-19"); raw = pd.read_csv(os.path.join(ROOT, "market_ext_1105/ETF和币_1120/日线/XLF_日线.csv"), parse_dates=["date"]).set_index("date")
         i = raw.index.get_loc(t); k = raw.close_adj.iloc[i] / raw.close_adj.iloc[i - 1]
         h.loc[h.index < t, ["o", "h", "l", "c"]] *= k
+    lim = 0.25 if sym in ("TQQQ", "SQQQ", "SOXL", "SOXS") else 0.08       # 小时线同样清坏点:一根小时线里高(低)出开收盘 8% 以上(三倍杠杆 25%)
+    top, bot = h[["o", "c"]].max(axis=1), h[["o", "c"]].min(axis=1)
+    bh, bl = h.h > top * (1 + lim), h.l < bot * (1 - lim)
+    h.loc[bh, "h"] = top[bh]; h.loc[bl, "l"] = bot[bl]
+    坏点数[sym] = int(bh.sum() + bl.sum())
     h["day"] = h.index.normalize()
     h = h[h.day.isin(d.index)]
     dh = h.c.diff(); h["rsi"] = 100 - 100 / (1 + w(dh.clip(lower=0), 14) / w((-dh).clip(lower=0), 14).replace(0, 1e-12))
@@ -241,7 +247,7 @@ def main():
                 全 += tr
                 if tr:
                     for r in 随机(d, h, tr): r.update({"票": s, "组": g, "做法": nm}); 随.append(r)
-    df = pd.DataFrame(全); rd = pd.DataFrame(随)
+    df = pd.DataFrame(全); rd = pd.DataFrame(随); print("小时线坏点", 坏点数)
     df.to_csv(os.path.join(HERE, "小时线三种_逐笔.csv"), index=False)
     res = {}
     for nm in 名:

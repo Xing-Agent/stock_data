@@ -18,6 +18,13 @@ def load(sym):
     d = pd.read_csv(os.path.join(D, sym + "_日线.csv"), parse_dates=["date"]).set_index("date").sort_index()
     x = pd.DataFrame({"o": d.open_adj, "h": d.high_adj, "l": d.low_adj, "c": d.close_adj, "v": d.volume_adj,
                       "div": d.dividend_amount / d.adj_factor})
+    # 1121 下午加:数据里有坏的最高 / 最低价(例:SPY 2008-09-29 最低比收盘低 89%,IWM 2004-07-30 最高是收盘的 99 倍)。
+    # 不带杠杆的 ETF,一天里最高(最低)比开盘和收盘都高(低)出 20% 以上的,当坏点,拉回到开收盘;三倍杠杆的门槛放到 40%。
+    lim = 0.40 if sym in ("TQQQ", "SQQQ", "SOXL", "SOXS") else 0.20
+    top, bot = x[["o", "c"]].max(axis=1), x[["o", "c"]].min(axis=1)
+    bad_h, bad_l = x.h > top * (1 + lim), x.l < bot * (1 - lim)
+    x.loc[bad_h, "h"] = top[bad_h]; x.loc[bad_l, "l"] = bot[bad_l]
+    x.attrs["坏点"] = int(bad_h.sum() + bad_l.sum())
     if sym == "XLF":   # 2016-09-19 分出 XLRE:数据里前后没接上(假跌 6.9%),这里按「那天平盘」接上,并把那笔分配当 0
         t = pd.Timestamp("2016-09-19"); i = x.index.get_loc(t)
         k = x.c.iloc[i] / x.c.iloc[i - 1]
