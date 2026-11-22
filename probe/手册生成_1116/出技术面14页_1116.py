@@ -142,7 +142,7 @@ def main():
     import pandas as _pd
     _b = _pd.read_csv(os.path.join(ROOT, "probe/两段时间_1120/第二段_汇总_1120.csv"))
     第二段 = {r["策略"]: r for _, r in _b[_b["做法"] == "原样"].iterrows()}
-    B2 = {"ann": 9.69, "dd": -57.8}; S2 = {"ann": 7.61, "dd": -55.2}
+    B2 = {"ann": 9.69, "dd": -57.8}; S2 = {"ann": 7.67, "dd": -55.2}
     for i in range(1, 15):
         key = f"技-{i}"
         t = 正文[key]
