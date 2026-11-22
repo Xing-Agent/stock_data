@@ -578,6 +578,55 @@ def 闸13_指纹对说明书():
                 "② **不查 zip**（zip SHA 带 mtime，换容器重打包就变）；"
                 "③ **不知道该以谁为准** —— 对不上只说「两边不一样」。")
 
+def 闸14_改动单登记():
+    """★★★★★ 1122 第三十二轮新加 —— ★ 查「`手册/给主chat-*` 那些单子，有没有**既没登记、也没进卡**，或者**撞号**」。
+
+    ★★★ 为什么装（1122 当天两件事推过线）：
+      ① 今早三份改动单落在 **main 上**，闸⑥ 照样报「未合入 0 条」—— ★★ 闸⑥ 只读《待合入项清单》，
+         而那份清单**全靠人往里写**；★★★ 没人写的那天，就是 V2.4.4 那次「四张卡的改动在正式包里全丢了」。
+      ② 装好当场就捞出两条真的（见《92》第三十二轮补记之五）：**Lin 已点头的 v0.19 A 段「主动点出盘口细节」没进卡**
+         （被 v0.19 撞号盖住了），以及**另一份 v0.20（目标区合成 / 波浪两条）既没进卡也没登记**。
+    ★★★ 和闸⑦~⑬ 同一个写法（**判断只许有一份实现**）：subprocess 调
+      `probe/出包_1113/量改动单登记_1122.py`，★ 本闸只把 🔴 变成不打包 + rc=1。
+    🔴 ★★★★★ 本闸看不见的几类（不许缩短）：
+      ① **只认文件名里的 (卡, 版本)** —— 单子正文里写的版本号读不出来；
+      ② 判「已落进卡」**只比版本号大小、不读卡的内容** —— ★★ 卡头写 v0.20 ≠ 落的就是那份 v0.20 单子
+         （★★★ 所以同号的一律报 🟡 让人看一眼，不敢判它过）；
+      ③ **只扫 `手册/给主chat-*`** —— ★★★ 别的 chat 开分支放的单子、换了命名的单子一个都扫不到
+         （★ 台账里「清单管不住别的 chat 开分支放的拍板单」那条，本闸**没解决**）。
+    ★★ 第一版尺子的教训（当轮立刻改掉）：没有「比卡头版本」这一步，v0.4~v0.16 那些早落进卡的老单子
+      被报了 **9 张假红牌** —— ★★★★★ **闸乱叫会被人绕，比不装还坏**。
+    ★ 逃生门：`XING_ALLOW_UNREG=1` → 降成 🟡 不拦包（★★ 用它的那一轮必须在《92》里写明为什么）。
+    """
+    脚本 = os.path.join(ROOT, "probe", "出包_1113", "量改动单登记_1122.py")
+    if not os.path.isfile(脚本):
+        问题.append("★★★ 缺 `probe/出包_1113/量改动单登记_1122.py` —— ★ 闸 14 无处可查")
+        return
+    出 = os.path.join(tempfile.gettempdir(), "xing_闸14_改动单登记.json")
+    env = dict(os.environ, XING_OUT=出)
+    env.pop("XING_SCAN_ROOT", None)      # ★★ 阳性对照用的那个口子，闸里不许生效
+    p = subprocess.run([sys.executable, "-I", 脚本], cwd=ROOT, env=env,
+                       stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out = p.stdout.decode("utf-8", "replace")
+    if p.returncode not in (0, 3) or not os.path.isfile(出):
+        问题.append(f"★★★ 闸 14 自己挂了（rc={p.returncode}）：{out[-300:]}")
+        return
+    d = json.load(io.open(出, encoding="utf-8"))
+    红, 黄 = d.get("🔴", []), d.get("🟡", [])
+    print(f"⑭ 改动单登记 {'🔴' if 红 else '✅'} 扫 {d.get('★扫了几份单子', '?')} 份单子"
+          f"（改动单 {d.get('★改动单', '?')} · 测试单 {d.get('★测试单', '?')}）· "
+          f"🔴 {len(红)} · 🟡 {len(黄)}")
+    for x in 红:
+        if os.environ.get("XING_ALLOW_UNREG"):
+            提醒.append(x + "　★★ 本轮用了逃生门 XING_ALLOW_UNREG → 降成 🟡 不拦包")
+        else:
+            问题.append(x)
+    for x in 黄:
+        提醒.append(x)
+    提醒.append("★★ 闸 14 看不见的三类：① 只认文件名里的 (卡, 版本)；"
+                "② 判「已落进卡」只比版本号、不读卡的内容（同号一律报 🟡）；"
+                "③ 只扫 `手册/给主chat-*`，别的 chat 放在分支上的单子扫不到。")
+
 def 打包(卡, 文件):
     ver = os.environ.get("XING_VER", "")
     if not ver:
@@ -602,7 +651,7 @@ def 打包(卡, 文件):
 
 def main():
     print("=" * 60)
-    print("★★★★★ 出包前机器检查（规矩 71 ② · 十三道闸）")
+    print("★★★★★ 出包前机器检查（规矩 71 ② · 十四道闸）")
     print("=" * 60)
     head = 闸1_git()
     卡, 文件 = 闸2_数数()
@@ -616,6 +665,7 @@ def main():
     闸11_死路径()
     闸12_卡里的数()
     闸13_指纹对说明书()
+    闸14_改动单登记()
     print("-" * 60)
     for x in 提醒:
         print("🟡", x)
@@ -624,7 +674,7 @@ def main():
         for x in 问题:
             print("  ·", x)
         return 1
-    print("\n✅ 十三道闸全过")
+    print("\n✅ 十四道闸全过")
     if os.environ.get("XING_PACK"):
         打包(卡, 文件)
         if 问题:
