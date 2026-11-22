@@ -8,7 +8,7 @@
     半日交易日 13:00 以后算盘后,夜盘不要。折算按 Polygon 拆股记录,折到今天。
   · 今天(11-20)美股还在交易,只取到 11-19 收盘,不放半天的数据。
   · QQQ 2004-12-01 ~ 2011-03-22 那段代码是 QQQQ(同一只基金),日线、小时线都接成一条。
-用法:python3 build_343.py RAW.json.gz OUT_DIR RAW_2004_2014.json.gz
+用法:python3 build_343.py RAW.json.gz OUT_DIR RAW_2004_2014.json.gz [可疑日子1分钟线.json.gz] [Yahoo分红.json]
 """
 import csv, gzip, json, os, sys
 from collections import defaultdict
@@ -68,6 +68,18 @@ def clean_minutes(bars, lev, event=False):
 # ---- 《356》XLF 2016-09-19 分出 XLRE:Polygon 把它同时记成「拆股 ×1.139」和「现金分红 4.44」,重复算了两遍 ----
 # 改成:只按分出去的价值折价(前收 ÷ (前收 − 4.44356)),不折量,不再当分红,也不当拆股
 SPINOFF = {('XLF', '2016-09-19'): 4.44356}
+YDIV, YADD = {}, []   # 《368》Yahoo 分红(已换回原始每股金额);YADD 记下补了哪些
+
+
+def load_ydiv(fp):
+    Y = json.load(open(fp))
+    for t, v in Y.items():
+        spl = [(datetime.fromtimestamp(d, ET).date().isoformat(), n / dn) for d, n, dn in v['spl']]
+        for d, a in v['div']:
+            dd = datetime.fromtimestamp(d, ET).date().isoformat(); f = 1.0
+            for e, k in spl:
+                if dd < e: f *= k
+            YDIV.setdefault(t, {})[dd] = round(a * f, 6)
 
 
 def parts_of(t):
@@ -86,6 +98,9 @@ def daily(D, t):
             divs[ex] = divs.get(ex, 0) + float(amt)
         for ex, f, to in D['spl|' + src]:
             if ex <= LAST: spl[ex] = to / f
+    # 《368》补分红:Polygon 的分红记录大多从 2007-03 才开始,之前的(和零星几次漏的)用 Yahoo 补;两边都有的日子 Polygon 和 Yahoo 一致,用 Polygon 的
+    for ex, amt in YDIV.get(t, {}).items():
+        if ex <= LAST and ex not in divs and (ex >= min(rows) if rows else False): divs[ex] = amt; YADD.append((t, ex, amt))
     spin = {d: amt for (tt, d), amt in SPINOFF.items() if tt == t}
     for d, amt in spin.items():
         spl.pop(d, None); divs[d] = round(divs.get(d, 0) - amt, 6)
@@ -182,6 +197,7 @@ def check(h, rows, a0, b0):
 def main(raw, out):
     D = json.load(gzip.open(raw))
     if len(sys.argv) > 3: D.update(json.load(gzip.open(sys.argv[3])))   # 2004–2014 那批 30 分钟线
+    if len(sys.argv) > 5: load_ydiv(sys.argv[5])   # 《368》Yahoo 分红
     if len(sys.argv) > 4:   # 《356》可疑日子的 1 分钟线
         M = json.load(gzip.open(sys.argv[4])); nfix = 0
         from collections import Counter
@@ -226,6 +242,9 @@ def main(raw, out):
         fp = f'{oh}/{y}.parquet'; g.drop('d', 'y').sort(['symbol', 'time_utc']).write_parquet(fp, compression='zstd', compression_level=9, statistics=True)
         sizes.append((y, g.height, os.path.getsize(fp) // 1000))
     print(sorted(sizes))
+    with open(f'{out}/分红补自Yahoo.csv', 'w', newline='', encoding='utf-8-sig') as fh:
+        w = csv.writer(fh); w.writerow(['代码', '除息日', '每股分红(原始股数)']); w.writerows(sorted(set(YADD)))
+    print('Yahoo 补分红', len(set(YADD)))
     with open(f'{out}/坏点修正_日线.csv', 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.DictWriter(fh, fieldnames=['层', '代码', '时间', '原开', '原高', '原低', '原收', '新高', '新低']); w.writeheader(); w.writerows(LOG)
     with open(f'{out}/说明_每只.csv', 'w', newline='', encoding='utf-8-sig') as fh:
