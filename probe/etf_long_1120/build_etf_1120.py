@@ -8,10 +8,18 @@
 import csv, gzip, json, os, sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
+
+
+def _near(divs, ex, amt):
+    """Polygon 在前后 10 天内已经记了一笔差不多的(金额差 5% 以内),就是同一次分红、日期记得不一样,不重复补"""
+    from datetime import date as _d
+    e = _d.fromisoformat(ex)
+    return any(abs((_d.fromisoformat(d) - e).days) <= 10 and abs(a - amt) <= 0.05 * max(a, amt) for d, a in divs.items())
 ET = ZoneInfo('America/New_York')
 J = json.load(gzip.open(sys.argv[1])); D = J['data']; out = sys.argv[2]
 os.makedirs(out, exist_ok=True)
 summ = []
+ADD = []
 for t in ['SPY', 'RSP', 'QQQ', 'IWM']:
     rows = {}
     parts = [('QQQ', None, '2004-11-30'), ('QQQQ', '2004-12-01', '2011-03-22'), ('QQQ', '2011-03-23', None)] if t == 'QQQ' else [(t, None, None)]
@@ -25,6 +33,15 @@ for t in ['SPY', 'RSP', 'QQQ', 'IWM']:
             if (a and ex < a) or (b and ex > b): continue
             divs[ex] = divs.get(ex, 0) + float(amt)
         for ex, f, to in D['spl_' + src]: spl[ex] = to / f
+    # 11-22(《368》后补):Polygon 分红记录大多从 2007-03 才开始,之前的用 Yahoo 补;Yahoo 的金额按之后的拆股折过,先换回原始每股金额
+    if len(sys.argv) > 3:
+        Y = json.load(open(sys.argv[3])).get(t, {'div': [], 'spl': []})
+        ysp = [(datetime.fromtimestamp(x, ET).date().isoformat(), n / dn) for x, n, dn in Y['spl']]
+        for x, amt in Y['div']:
+            ex = datetime.fromtimestamp(x, ET).date().isoformat(); f = 1.0
+            for e, k in ysp:
+                if ex < e: f *= k
+            if ex not in divs and ex <= '2025-12-31' and rows and ex >= min(rows) and not _near(divs, ex, amt * f): divs[ex] = round(amt * f, 6); ADD.append((t, ex, round(amt * f, 6)))
     ds = sorted(rows)
     for d in ds:
         rows[d]['dividend_amount'] = round(divs.get(d, 0.0), 6); rows[d]['split_coefficient'] = spl.get(d, 1.0)
@@ -54,3 +71,7 @@ for t in ['SPY', 'RSP', 'QQQ', 'IWM']:
     print(summ[-1])
 with open(f'{out}/说明_每只.csv', 'w', newline='', encoding='utf-8-sig') as fh:
     w = csv.DictWriter(fh, fieldnames=list(summ[0])); w.writeheader(); w.writerows(summ)
+
+with open(f'{out}/分红补自Yahoo.csv', 'w', newline='', encoding='utf-8-sig') as fh:
+    w = csv.writer(fh); w.writerow(['代码', '除息日', '每股分红(原始股数)']); w.writerows(sorted(ADD))
+print('Yahoo 补分红', len(ADD))

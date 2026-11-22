@@ -14,6 +14,13 @@ import csv, gzip, json, os, sys
 from collections import defaultdict
 from datetime import datetime
 from zoneinfo import ZoneInfo
+
+
+def _near(divs, ex, amt):
+    """Polygon 在前后 10 天内已经记了一笔差不多的(金额差 5% 以内),就是同一次分红、日期记得不一样,不重复补"""
+    from datetime import date as _d
+    e = _d.fromisoformat(ex)
+    return any(abs((_d.fromisoformat(d) - e).days) <= 10 and abs(a - amt) <= 0.05 * max(a, amt) for d, a in divs.items())
 import polars as pl
 
 ET = ZoneInfo('America/New_York')
@@ -100,7 +107,7 @@ def daily(D, t):
             if ex <= LAST: spl[ex] = to / f
     # 《368》补分红:Polygon 的分红记录大多从 2007-03 才开始,之前的(和零星几次漏的)用 Yahoo 补;两边都有的日子 Polygon 和 Yahoo 一致,用 Polygon 的
     for ex, amt in YDIV.get(t, {}).items():
-        if ex <= LAST and ex not in divs and (ex >= min(rows) if rows else False): divs[ex] = amt; YADD.append((t, ex, amt))
+        if ex <= LAST and ex not in divs and (ex >= min(rows) if rows else False) and not _near(divs, ex, amt): divs[ex] = amt; YADD.append((t, ex, amt))
     spin = {d: amt for (tt, d), amt in SPINOFF.items() if tt == t}
     for d, amt in spin.items():
         spl.pop(d, None); divs[d] = round(divs.get(d, 0) - amt, 6)
