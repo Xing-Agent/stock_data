@@ -1,0 +1,2 @@
+['close', 'dollar_volume', 'high', 'low', 'open', 'volume']
+a 172 ['AAPL', 'GOOG', 'MSFT', 'XOM', 'BAC', 'INTC', 'C', 'JPM', 'CSCO', 'GE']

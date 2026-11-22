@@ -1,0 +1,2 @@
+['close', 'dollar_volume', 'high', 'low', 'open', 'volume']
+b 172 ['TSLA', 'META', 'NVDA', 'GOOG', 'BABA', 'XOM', 'QCOM', 'WMT', 'PYPL', 'BKNG']
