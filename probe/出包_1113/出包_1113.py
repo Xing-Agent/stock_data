@@ -37,6 +37,7 @@
 ★ 退出码：0 = 全过；1 = 有闸没过。
 """
 from __future__ import annotations
+import glob
 import hashlib
 import io
 import json
@@ -498,6 +499,85 @@ def 闸12_卡里的数():
         提醒.append(x)
 
 
+def 闸13_指纹对说明书():
+    """★★★★★ 1122 第三十二轮新加（**Lin 11-22 09:3x 点头装**）—— 查「给测试组的说明书里写的那串内容指纹
+       == 现在 `skills_v2/` 卡的内容指纹」。
+
+    ★★★★★ 为什么装（★ 这条已连着**八轮**刻意没装，1122 当天的事把它推过线）：
+      · 1122 半小时里卡的内容指纹换了**三个**（`1a5928f5…` → `0d40c9c3…` → `7d808711…`，09:23 和 09:26 两次落卡），
+        ★★★ 而十二道闸**一道都没报** —— 全靠主路每轮人工量一次（规矩(89)）。
+      · 连着三轮（《370》/ 第三十 / 第三十一轮）的「包和卡对不上」也是人工发现、人工改对的。
+      🔴 ★★★ 这正是规矩(89) 那句话的原型：**闸没报 ≠ 没事**。
+    ★★ 本闸只干一件事：把说明书里那串数，和**现在树上**的卡算出来的数比一下。
+    ★★★ 和闸⑦⑧⑨⑩⑪⑫ 同一个写法（**判断只许有一份实现**）：subprocess 调
+      `probe/出包_1113/量卡内容指纹_1121.py`，用它的 `XING_EXPECT_FP` + rc 0/3，★ 本闸只把 🔴 变成不打包 + rc=1。
+    🔴 ★★★★★ 本闸看不见的几类（不许缩短）：
+      ① **不说包里的内容是对的** —— 和那把尺子自己印的那句一样（卡里写错的数一样算得出干净指纹）；
+      ② **不查 zip** —— 说明书里的 zip SHA-256 带 mtime，换容器重打包就变（第二十五轮阳性对照），本闸一律不碰；
+      ③ **不知道「该以谁为准」** —— 对不上只说「两边不一样」，🔴 是该重切包还是该改说明书，**要 Lin 定**（规矩⑱：不许自己顺手切）。
+    ★ 逃生门：`XING_ALLOW_FP_DRIFT=1` → 降成 🟡 不拦包（★★ 用它的那一轮必须在《92》里写明为什么）。
+    ★ 说明书默认 `手册/349-*.md`，换版本用 `XING_FP_DOC=<路径>`。
+    """
+    候选 = sorted(glob.glob(os.path.join(ROOT, "手册", "349-*.md")))
+    路 = os.environ.get("XING_FP_DOC") or (候选[0] if 候选 else "")
+    if not 路 or not os.path.isfile(路):
+        提醒.append("★★★ 闸 13：找不到给测试组的说明书（默认 `手册/349-*.md`，或给 XING_FP_DOC）"
+                    " —— ★ 这道闸等于没查")
+        print("⑬ 指纹对说明书 🟡 找不到说明书 → 没查")
+        return
+    文 = io.open(路, encoding="utf-8").read()
+    写的 = ""
+    for 行 in 文.splitlines():
+        if "内容总指纹" in 行:
+            m = re.search(r"[0-9a-f]{64}", 行)
+            if m:
+                写的 = m.group(0)
+                break
+    名 = os.path.basename(路)
+    if not 写的:
+        提醒.append(f"★★★ 闸 13：《{名[:3]}》里没有「内容总指纹 + 64 位」那一行 —— ★ 这道闸等于没查；"
+                    "★★ 规矩(89) 要求说明书把指纹写出来")
+        print(f"⑬ 指纹对说明书 🟡 {名[:3]} 里没写指纹 → 没查")
+        return
+    脚本 = os.path.join(ROOT, "probe", "出包_1113", "量卡内容指纹_1121.py")
+    if not os.path.isfile(脚本):
+        问题.append("★★★ 缺 `probe/出包_1113/量卡内容指纹_1121.py` —— ★ 闸 13 无处可查")
+        return
+    env = dict(os.environ, XING_EXPECT_FP=写的)
+    env.pop("XING_SCAN_ROOT", None)      # ★★ 阳性对照用的那个口子，闸里不许生效
+    p = subprocess.run([sys.executable, "-I", 脚本], cwd=ROOT, env=env,
+                       stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out = p.stdout.decode("utf-8", "replace")
+    if p.returncode not in (0, 3):
+        问题.append(f"★★★ 闸 13 自己挂了（rc={p.returncode}）：{out[-300:]}")
+        return
+    现在 = ""
+    m = re.search(r"内容总指纹 SHA-256 = ([0-9a-f]{64})", out)
+    if m:
+        现在 = m.group(1)
+    一致 = (p.returncode == 0)
+    print(f"⑬ 指纹对说明书 {'✅' if 一致 else '🔴'} {名[:3]} 写的 {写的[:8]}… · "
+          f"现在树上 {(现在 or '?')[:8]}…")
+    if not 一致:
+        句 = (f"★★★★★ 闸 13：**包和说明书对不上** —— 《{名[:3]}》写的 `{写的[:8]}…`，"
+              f"现在 `skills_v2/` 算出来是 `{(现在 or '?')[:8]}…` "
+              f"→ ★★★ 测试组手里那个包，和现在树上的卡**不是一回事**。"
+              f"★★ 当轮必须：① 查差在哪（`git diff <说明书对应的 commit> HEAD -- skills_v2/`）、"
+              f"② 记进《92》、③ 推送带给 Lin；"
+              f"🔴 **是重切包还是改说明书要 Lin 定**（规矩⑱：不许自己顺手切）。"
+              f"★ 逃生门 XING_ALLOW_FP_DRIFT=1。")
+        if os.environ.get("XING_ALLOW_FP_DRIFT"):
+            提醒.append(句 + "　★★ 本轮用了逃生门 → 降成 🟡 不拦包")
+        else:
+            问题.append(句)
+    if not re.search(r"(commit|入库)[^\n]{0,40}`?[0-9a-f]{7,40}`?", 文, re.I):
+        提醒.append(f"★★★ 闸 13：《{名[:3]}》写了指纹、但**没写它对应的 commit** —— "
+                    f"★★ 规矩(89) 配套①要求一起写，★★★ 不写就做不了阳性对照"
+                    f"（分不清「那个数旧了」和「那个数本身写错」）")
+    提醒.append("★★ 闸 13 看不见的三类：① **不说包里的内容是对的**（尺子自己印着这句）；"
+                "② **不查 zip**（zip SHA 带 mtime，换容器重打包就变）；"
+                "③ **不知道该以谁为准** —— 对不上只说「两边不一样」。")
+
 def 打包(卡, 文件):
     ver = os.environ.get("XING_VER", "")
     if not ver:
@@ -522,7 +602,7 @@ def 打包(卡, 文件):
 
 def main():
     print("=" * 60)
-    print("★★★★★ 出包前机器检查（规矩 71 ② · 十二道闸）")
+    print("★★★★★ 出包前机器检查（规矩 71 ② · 十三道闸）")
     print("=" * 60)
     head = 闸1_git()
     卡, 文件 = 闸2_数数()
@@ -535,6 +615,7 @@ def main():
     闸10_泄漏全仓()
     闸11_死路径()
     闸12_卡里的数()
+    闸13_指纹对说明书()
     print("-" * 60)
     for x in 提醒:
         print("🟡", x)
@@ -543,7 +624,7 @@ def main():
         for x in 问题:
             print("  ·", x)
         return 1
-    print("\n✅ 十二道闸全过")
+    print("\n✅ 十三道闸全过")
     if os.environ.get("XING_PACK"):
         打包(卡, 文件)
         if 问题:
