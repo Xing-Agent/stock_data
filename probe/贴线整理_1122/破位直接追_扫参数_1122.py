@@ -17,11 +17,13 @@ def 走(O, H, L, C, ei, Lg, e, stp, tp1, tp2, hold=72):
     half = False; res = None; Rm = 0; s = stp; jj = ei
     for j in range(ei + 1, min(ei + 1 + hold, n)):
         jj = j
+        gap = (O[j] <= s) if Lg else (O[j] >= s)          # ★ 跳空越过止损：按开盘价成交（《382》那一版按止损价算，偏乐观，11-22 夜查出）
+        fill = O[j] if gap else s
         if not half:
-            if (L[j] <= s) if Lg else (H[j] >= s): res = -1; break
+            if (L[j] <= s) if Lg else (H[j] >= s): res = ((fill - e) if Lg else (e - fill)) / risk; break
             if (H[j] >= tp1) if Lg else (L[j] <= tp1): half = True; Rm = 0.5 * rr1; s = e
         else:
-            if (L[j] <= s) if Lg else (H[j] >= s): res = Rm; break
+            if (L[j] <= s) if Lg else (H[j] >= s): res = Rm + 0.5 * (((fill - e) if Lg else (e - fill)) / risk); break
             if (H[j] >= tp2) if Lg else (L[j] <= tp2): res = Rm + 0.5 * rr2; break
     if res is None:
         last = C[jj]; res = (Rm if half else 0) + (0.5 if half else 1) * (((last - e) if Lg else (e - last)) / risk)
@@ -70,11 +72,11 @@ if __name__ == "__main__":
             t = 跑(data[s], **kw)
             if len(t): t["票"] = s; t["类"] = 类(s); L.append(t)
         allT[g] = pd.concat(L); print(g, S(allT[g]), flush=True)
-    allT["基准"].to_csv(os.path.join(HERE, "out", "直接追_基准_逐笔.csv"), index=False)
+    allT["基准"].to_csv(os.path.join(HERE, "out", "直接追_基准_逐笔_跳空按开盘.csv"), index=False)
     out = {}
     for g, t in allT.items():
         t = t[(t["年"] >= 2005) & (t["年"] <= 2025)]; t["段"] = np.where(t["年"] <= 2014, "2005–2014", "2015–2025")
         out[g] = {"全部": S(t), "分段分多空": {f"{a}｜{d_}": S(x) for (a, d_), x in t.groupby(["段", "dir"])}, "分类分段分多空": {f"{c}｜{a}｜{d_}": S(x) for (c, a, d_), x in t.groupby(["类", "段", "dir"])}}
         if g == "基准": out[g]["分票"] = {f"{s}｜{a}": S(x) for (s, a), x in t.groupby(["票", "段"])}; out[g]["分年"] = {int(y): S(x) for y, x in t.groupby("年")}
-    json.dump(out, open(os.path.join(HERE, "out", "直接追_扫参数_结果.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(out, open(os.path.join(HERE, "out", "直接追_扫参数_结果_跳空按开盘.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("DONE")
