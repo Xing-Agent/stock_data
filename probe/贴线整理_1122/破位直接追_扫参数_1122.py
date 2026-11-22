@@ -3,7 +3,7 @@
 基准 = 《382》的 C 组：4 小时箱体（过去 20 根、箱高 2~6 倍 ATR、上下各碰 2 次）被放量实体 K 线收盘突破 0.25×ATR → 那根收盘进；
 止损 = 分界线往里 0.5×ATR；第一目标 = 线外 1 倍箱高（平一半、推成本），第二目标 = 1.618 倍；最长 72 根；成本单边 0.05%。
 这一轮：箱体长度 15 / 20 / 30；突破幅度 0.15 / 0.25 / 0.35；止损 0.25 / 0.5 / 0.75；量比 1.2 / 1.5 / 2.0。每次只动一个。
-品种：22 只 ETF（含反向和杠杆）+ BTC、ETH。两个十年分开，多空分开。另加随机对照：同一只票同一个月随便一根收盘、同方向、同样的止损距离和目标倍数。
+品种：22 只 ETF（含反向和杠杆）+ BTC、ETH。两个十年分开，多空分开。另加随机对照：同一只票、同一个十年里随便一根收盘、同方向、同样的止损距离和目标倍数。
 """
 import os, sys, json, importlib.util
 import numpy as np, pandas as pd
@@ -34,7 +34,8 @@ def 跑(d, N=20, brk=0.25, stk=0.5, volx=1.5, seed=0):
     O, H, L, C, V = [d[c].values for c in ["open", "high", "low", "close", "volume"]]
     top, bot, ok = B.top.values, B.bot.values, B.ok.fillna(False).values.astype(bool)
     vma = pd.Series(V).rolling(20).mean().shift(1).values; n = len(d); T = []; i = 150
-    ym = (d.index.year * 100 + d.index.month).values; rng = np.random.default_rng(seed)
+    ym = np.where(d.index.year <= 2014, 0, 1)      # ★ 随机对照改成「同一只票、同一个十年里随便一根」。第一遍用的是「同一个月」，等于偷看了那个月会往哪边突破，对照被抬高了（多空都是 +0.2~0.4R），作废
+    rng = np.random.default_rng(seed)
     while i < n - 8:
         if not ok[i] or np.isnan(A[i]) or np.isnan(vma[i]): i += 1; continue
         body = abs(C[i] - O[i]); rg = H[i] - L[i] + 1e-12
@@ -72,11 +73,11 @@ if __name__ == "__main__":
             t = 跑(data[s], **kw)
             if len(t): t["票"] = s; t["类"] = 类(s); L.append(t)
         allT[g] = pd.concat(L); print(g, S(allT[g]), flush=True)
-    allT["基准"].to_csv(os.path.join(HERE, "out", "直接追_基准_逐笔_跳空按开盘.csv"), index=False)
+    allT["基准"].to_csv(os.path.join(HERE, "out", "直接追_基准_逐笔_终版.csv"), index=False)
     out = {}
     for g, t in allT.items():
         t = t[(t["年"] >= 2005) & (t["年"] <= 2025)]; t["段"] = np.where(t["年"] <= 2014, "2005–2014", "2015–2025")
         out[g] = {"全部": S(t), "分段分多空": {f"{a}｜{d_}": S(x) for (a, d_), x in t.groupby(["段", "dir"])}, "分类分段分多空": {f"{c}｜{a}｜{d_}": S(x) for (c, a, d_), x in t.groupby(["类", "段", "dir"])}}
         if g == "基准": out[g]["分票"] = {f"{s}｜{a}": S(x) for (s, a), x in t.groupby(["票", "段"])}; out[g]["分年"] = {int(y): S(x) for y, x in t.groupby("年")}
-    json.dump(out, open(os.path.join(HERE, "out", "直接追_扫参数_结果_跳空按开盘.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(out, open(os.path.join(HERE, "out", "直接追_扫参数_结果_终版.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("DONE")
