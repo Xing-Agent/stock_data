@@ -14,7 +14,7 @@ SOXX 没有小时线，用 SMH 代替。
 import os, sys, glob, json, warnings
 import numpy as np, pandas as pd
 warnings.filterwarnings("ignore")
-ROOT = "/home/claude/xing-agent-stock_data"
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 E1 = os.path.join(ROOT, "market_ext_1105/ETF和币_1120")
 HERE = os.path.dirname(os.path.abspath(__file__))
 OLD = os.path.join(ROOT, "probe/技术面大师考试_1119")
