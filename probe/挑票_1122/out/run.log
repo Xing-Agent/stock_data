@@ -1,0 +1,5 @@
+buy_and_hold A_原样 {'每年赚pct': np.float64(8.28), '最深亏损pct': -56.5, '每年赚除以最深亏损': np.float64(0.15)}
+buy_and_hold B_动量前10 {'每年赚pct': np.float64(9.12), '最深亏损pct': -64.0, '每年赚除以最深亏损': np.float64(0.14)}
+buy_and_hold B_动量前20 {'每年赚pct': np.float64(9.02), '最深亏损pct': -62.0, '每年赚除以最深亏损': np.float64(0.15)}
+buy_and_hold B_动量前30 {'每年赚pct': np.float64(8.93), '最深亏损pct': -60.8, '每年赚除以最深亏损': np.float64(0.15)}
+ok   buy_and_hold 101.9
