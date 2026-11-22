@@ -14,7 +14,7 @@ D = os.path.join(ROOT, "probe/含分红重出_1116")
 OUT = os.path.join(D, "基本面融合_out_按表折算")
 BM = json.load(io.open(os.path.join(D, "基本面主对标_1119.json"), encoding="utf-8"))
 BENCH = {"ann": BM["复合年化pct"], "dd": BM["最大回撤pct"]}
-SPY = {"ann": 13.44, "dd": -33.7}; RF = 2.0
+SPY = {"ann": 13.47, "dd": -33.7}; RF = 2.0
 
 def 取正文():
     s = io.open(SRC, encoding="utf-8").read()

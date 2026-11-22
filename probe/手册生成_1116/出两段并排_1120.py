@@ -5,7 +5,7 @@ import pandas as pd
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 A = os.path.join(ROOT, "probe/含分红重出_1116/技术面中档_out")
 B = os.path.join(ROOT, "probe/两段时间_1120/第二段_汇总_1120.csv")
-BENCH = {"一": (7.28, -40.3, 13.44, -33.7), "二": (9.69, -57.8, 7.61, -55.2)}
+BENCH = {"一": (7.28, -40.3, 13.47, -33.7), "二": (9.69, -57.8, 7.61, -55.2)}
 
 def f(x, d=1):
     try:
