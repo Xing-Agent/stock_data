@@ -28,6 +28,7 @@ def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 要ST或UT=True, BC
     didx = D.index; dc, dh, dl, dv = (D[x].to_numpy(float) for x in ("close", "high", "low", "volume")); nd = len(D)
     d2w = np.searchsorted(widx.values, didx.values)          # 这一天属于第几周（那周周五才走完）
     lo252 = pd.Series(dc).rolling(252).min().shift(1).to_numpy(); hi20 = pd.Series(dc).rolling(20).max().to_numpy()
+    放 = lambda k: (not (v10[k] > 0)) or wv[k] > v10[k]      # 没量当放量：早年没有成交量的周，放量这条算通过
     st = np.array(["涨势"] * nd, dtype=object); EV = []; state = "涨势"; box = None; brk = None; att = None; trial = None; 熊低 = np.inf; 熊低i = 0; 熊起 = 0; 熊高 = np.nan; last_w = -1; 旧熊 = None
     def ev(kind, di, **kw): EV.append({"事": kind, "日期": str(didx[di].date()), "收盘": round(float(dc[di]), 2), **kw})
     for di in range(nd):
@@ -46,7 +47,7 @@ def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 要ST或UT=True, BC
                 if 旧熊 is not None and wc[i] > 旧熊["顶"]: 旧熊 = None
                 Tmin = 固定横盘周 if 固定横盘周 else min(24, max(4, 横盘系数 / r))
                 rng = wh[i] - wl[i]
-                isBC = wh[i] > hi52[i] and ((wv[i] > v10[i] and rng > 0 and (wc[i] - wl[i]) / rng < 0.5) if BC严 else True)
+                isBC = wh[i] > hi52[i] and ((放(i) and rng > 0 and (wc[i] - wl[i]) / rng < 0.5) if BC严 else True)
                 if isBC and (box is None or wh[i] > box["顶"] * 1.03 or box.get("废")):
                     box = {"顶": wh[i], "t0": i, "底": None, "ST": False, "UT": False, "over": 0}
                 elif box is not None:
@@ -58,7 +59,7 @@ def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 要ST或UT=True, BC
                     if box["over"] >= 2: box = None
                     elif i - box["t0"] > 6 and wh[i] >= box["顶"] * 0.97 and wc[i] < box["顶"]: box["ST"] = True
                     if box is not None and box["底"] is not None and wc[i] < box["底"] * (1 - 跌破) and wc[i] < ma40[i] and wc[i] < m10w[i]:
-                        够久 = i - box["t0"] >= Tmin; 有结构 = (box["ST"] or box["UT"]) or not 要ST或UT; 放量 = wv[i] > v10[i]
+                        够久 = i - box["t0"] >= Tmin; 有结构 = (box["ST"] or box["UT"]) or not 要ST或UT; 放量 = 放(i)
                         if 够久 and 有结构 and 放量:
                             state = "跌势"; brk = {"底": box["底"], "顶": box["顶"], "wi": i, "次": 1, "last": i, "急": False}; 熊低 = wl[i]; 熊低i = di; 熊起 = di; 熊高 = box["顶"]; att = None
                             ev("转空·大顶跌破", di, 箱底=round(box["底"], 2), 箱顶=round(box["顶"], 2), 顶部横了几周=int(i - box["t0"]), 离顶pct=round((dc[di] / box["顶"] - 1) * 100, 1))
@@ -73,7 +74,7 @@ def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 要ST或UT=True, BC
                 if att["day"] == 0:
                     if dc[di] > dc[di - 1]: att["day"] = 1
                 else: att["day"] += 1
-                if 4 <= att["day"] <= 10 and dc[di] / dc[di - 1] - 1 >= 0.015 and dv[di] > dv[di - 1] and (not 跟进日要二次探底 or att["low"] > 熊低 or di - 熊低i >= 15):
+                if 4 <= att["day"] <= 10 and dc[di] / dc[di - 1] - 1 >= 0.015 and (not (dv[di - 1] > 0) or dv[di] > dv[di - 1]) and (not 跟进日要二次探底 or att["low"] > 熊低 or di - 熊低i >= 15):
                     trial = {"stop": att["low"] * 0.99, "top": float(dh[熊低i:di + 1].max()), "i": di}; state = "试仓"
                     ev("跟进日·解除跌势试仓", di, 离底pct=round((dc[di] / 熊低 - 1) * 100, 1), 离顶pct=round((dc[di] / 熊高 - 1) * 100, 1), 第几天=att["day"])
             if state == "跌势" and 周末 and i == wi:
