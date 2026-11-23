@@ -29,7 +29,7 @@ def 美股日线(sym):
     b = b[b.index > a.index[-1]]; f = a.close.iloc[-1] / y.close_adj.reindex(a.index).dropna().iloc[-1] if len(y.close_adj.reindex(a.index).dropna()) else 1.0
     return pd.concat([a, b]).sort_index()      # 两段都是拆股复权价；接缝 2003-09
 
-def 跑(D, P, k=3, 转空倍数=2.2, 封口=0.30, 止跌天=35, 均线变=0.025, 针收回=3, 观察=3, 横比=0.25, V=0.618, 用200=False, 压制=None):
+def 跑(D, P, k=3, 转空倍数=2.2, 封口=0.30, 止跌天=35, 均线变=0.025, 针收回=3, 观察=3, 横比=0.25, V=0.618, 用200=False, 压制=None, V按收复=False):
     o, h, l, c, v = (D[x].to_numpy(float) for x in ("open", "high", "low", "close", "volume")); n = len(D); idx = D.index
     pc = np.roll(c, 1); pc[0] = c[0]; tr = np.maximum(h - l, np.maximum(abs(h - pc), abs(l - pc)))
     atr = pd.Series(tr).rolling(14).mean().to_numpy(); ap = atr / c
@@ -87,7 +87,7 @@ def 跑(D, P, k=3, 转空倍数=2.2, 封口=0.30, 止跌天=35, 均线变=0.025,
                 if np.isnan(H1) or (h[i] > H1 and not 封了) or h[i] > H1: 
                     if np.isnan(H1) or h[i] > H1: H1 = h[i]; h1i = i; 封了 = False
                 if not 封了 and H1 / L - 1 >= max(P["反弹最小"], 2.5 * ap[li] if ap[li] > 0 else 0) and l[i] <= H1 - 封口 * (H1 - L) and i > h1i: 封了 = True
-            reb = (c[i] - L) / L
+            reb = (c[i] - L) / max(pk - L, 1e-9) if V按收复 else (c[i] - L) / L      # V按收复：按「收复了这轮跌幅的几成」算，指数用
             if reb >= V and wclose[i] > s200[i] and wclose2[i] > s200[i] and (压制 is None or 压制[i] != "跌势"):
                 new = "转涨期"; r = f"防 V 形：从最低点（{L:,.0f}）反弹超过 {V:.1%}、周线连续 2 周站上 200 日线，离开跌势"; box = None
             elif 封了 and (pk - L) / pk >= P["跌幅"] and i - li >= 止跌天 and H1 / L - 1 <= P["箱宽"] and s150[i - 20] > 0 and abs(s150[i] / s150[i - 20] - 1) <= 均线变:
