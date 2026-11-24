@@ -14,14 +14,17 @@
 """
 import os, sys, json, importlib.util, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
-def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 旧反抽=False, 跟进日全平=False, 允许0382=False, 多A=0.5, 多B=0.2, 仓=(0.35, 0.65, 1.0)):
+def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 旧反抽=False, 跟进日全平=False, 允许0382=False, 多A=0.5, 多B=0.2, 仓=(0.35, 0.65, 1.0), 成本保护="成本", 级别="月"):
     W = D.resample("W-FRI").agg({"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}).dropna()
     wo, wh, wl, wc, wv = (W[x].to_numpy(float) for x in ("open", "high", "low", "close", "volume")); nw = len(W); widx = W.index
     pc = np.roll(wc, 1); pc[0] = wc[0]
     watr_abs = pd.Series(np.maximum(wh - wl, np.maximum(abs(wh - pc), abs(wl - pc)))).rolling(14).mean().to_numpy(); watr = watr_abs / wc
     R = pd.Series(watr).rolling(104, min_periods=26).median().to_numpy()
-    ma40 = pd.Series(wc).rolling(40).mean().to_numpy(); ma20 = pd.Series(wc).rolling(20).mean().to_numpy()
-    m10w = D.close.resample("ME").last().rolling(10).mean().shift(1).reindex(widx, method="ffill").to_numpy()
+    _ma = lambda k: pd.Series(wc).rolling(k).mean().to_numpy()
+    _m10 = D.close.resample("ME").last().rolling(10).mean().shift(1).reindex(widx, method="ffill").to_numpy()
+    # 级别：月 = 原样（40 周线 + 10 月线把关，20 周线 / 40 周线离场）；周 = 低一级（20 周 + 40 周把关，10 周 / 20 周离场）；日 = 再低一级（10 周 + 20 周把关，5 周 / 10 周离场）
+    # ★ 低一级怎么换线、跌破门槛改成 1.25 倍周波幅，是我定的，拍板没给
+    ma40, m10w, ma20 = {"月": (_ma(40), _m10, _ma(20)), "周": (_ma(20), _ma(40), _ma(10)), "日": (_ma(10), _ma(20), _ma(5))}[级别]      # 名字沿用：ma40 = 把关线甲兼慢离场线，m10w = 把关线乙，ma20 = 快离场线
     v10 = pd.Series(wv).rolling(10).mean().shift(1).to_numpy(); hi52 = pd.Series(wh).rolling(52).max().shift(1).to_numpy()
     didx = D.index; dc, dh, dl, dv = (D[x].to_numpy(float) for x in ("close", "high", "low", "volume")); nd = len(D)
     d2w = np.searchsorted(widx.values, didx.values); s20 = pd.Series(dc).rolling(20).mean().to_numpy()
@@ -40,7 +43,7 @@ def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 旧反抽=False, �
     def 收(di, why):
         nonlocal legs, covered, flat_ftd
         平(di, 1.0, why)
-        for x in legs: LEG.append({"第几次": min(x["次"], 4), "开": str(didx[x["d"]].date()), "平": str(didx[di].date()), "仓位": round(x["size"], 2), "这一腿pct": round(x["real"] * 100, 2), "占账户pct": round(x["real"] * x["size"] * 100, 3), "怎么平": "→".join(dict.fromkeys(x["how"])),
+        for x in legs: LEG.append({"第几次": min(x["次"], 4), "开": str(didx[x["d"]].date()), "平": str(didx[x.get("out", di)].date()), "仓位": round(x["size"], 2), "这一腿pct": round(x["real"] * 100, 2), "占账户pct": round(x["real"] * x["size"] * 100, 3), "怎么平": "→".join(dict.fromkeys(x["how"])),
                                        "之后最多再跌pct": round((dc[x["d"]:di + 1].min() / x["e"] - 1) * 100, 1), "之后最多反弹pct": round((dc[x["d"]:di + 1].max() / x["e"] - 1) * 100, 1)})
         legs = []; covered = False; flat_ftd = None
     for di in range(nd):
@@ -69,7 +72,7 @@ def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 旧反抽=False, �
                     if wh[i] > box["顶"] and wc[i] <= box["顶"]: box["顶"] = wh[i]
                     box["over"] = box["over"] + 1 if wc[i] > box["顶"] * 1.03 else 0
                     if box["over"] >= 2: box = None
-                    elif box["底"] is not None and wc[i] < box["底"] * (1 - 跌破) and wc[i] < ma40[i] and wc[i] < m10w[i]:
+                    elif box["底"] is not None and wc[i] < box["底"] * (1 - (跌破 if 级别 == "月" else 1.25 * r)) and wc[i] < ma40[i] and wc[i] < m10w[i]:
                         if i - box["t0"] >= Tmin and 放(i): 进("转空·大顶跌破", box["底"], box["顶"], 1, False, 箱底=round(box["底"], 2), 顶部横了几周=int(i - box["t0"]))
                         elif not box.get("报过"): box["报过"] = True; ev("小顶预警", di)
             if long_w < 1 and 周末 and i == wi and wc[i] > ma20[i]: long_w = 1.0
@@ -78,8 +81,10 @@ def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 旧反抽=False, �
             # 成本保护
             for x in legs:
                 if x["rem"] > 0:
+                    线 = x["e"] + (watr_abs[i] if 成本保护 == "成本加1ATR" else 0.0)
+                    管 = 成本保护 in ("成本", "成本加1ATR") or (成本保护 == "只管第一腿" and x["次"] == 1)
                     if not x["be"] and i >= 0 and dc[di] <= x["e"] - 1.5 * watr_abs[i]: x["be"] = True
-                    elif x["be"] and dc[di] > x["e"] and not 旧反抽: x["real"] += x["rem"] * (x["e"] - dc[di]) / x["e"]; x["rem"] = 0; x["how"].append("移到成本价被打掉")
+                    elif 管 and x["be"] and dc[di] > 线 and not 旧反抽: x["real"] += x["rem"] * (x["e"] - dc[di]) / x["e"]; x["rem"] = 0; x["how"].append("成本保护被打掉"); x["out"] = di
             # 跟进日
             if att is None or dl[di] < att["low"]:
                 if flat_ftd is not None and att is not None and dl[di] < att["low"] * 0.99: 开(di, flat_ftd["仓"], brk["次"]); flat_ftd = None; ev("跟进日失败·重开", di)
