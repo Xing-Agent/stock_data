@@ -15,7 +15,7 @@ import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
 sp = importlib.util.spec_from_file_location("m4", os.path.join(ROOT, "probe/大周期五档_1123/五档状态机_第四版_1123.py")); M4 = importlib.util.module_from_spec(sp); sp.loader.exec_module(M4)
 
-def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 要ST或UT=True, BC严=True, 固定横盘周=None, 跟进日要二次探底=False):
+def 跑(D, 横盘系数=0.40, 跌破=0.03, 急跌倍数=4.5, 要ST或UT=False, BC严=False, 固定横盘周=None, 跟进日要二次探底=False):
     W = D.resample("W-FRI").agg({"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}).dropna()
     wo, wh, wl, wc, wv = (W[x].to_numpy(float) for x in ("open", "high", "low", "close", "volume")); nw = len(W); widx = W.index
     pc = np.roll(wc, 1); pc[0] = wc[0]
