@@ -50,7 +50,7 @@ def 摆动低(c, k=3):
     return out          # 第 j 根是摆动低点，要到 j + k 根收盘才看得出来
 
 
-def 主版(B, 破=0.025, 急=0.065, 观=4, 两根跌=0.045, 均线=30, 用均线=True, 用急跌=True, 年=52, 盒小=4, 盒大=12, 涨=0.35, 两年=104, 缩=0.85, 量起=None, 作废等新高=False, 看量=True, 年最少=None):
+def 主版(B, 破=0.025, 急=0.065, 观=4, 两根跌=0.045, 均线=30, 用均线=True, 用急跌=True, 年=52, 盒小=4, 盒大=12, 涨=0.35, 两年=104, 缩=0.85, 量起=None, 作废等新高=False, 看量=True, 年最少=None, 解除要箱底=True):
     """B: 周线（BTC 时是日线）DataFrame[close, volume]。返回报警列表。"""
     c = B.close.to_numpy(float); v = B.volume.to_numpy(float); idx = B.index; n = len(c)
     ma = pd.Series(c).rolling(均线, min_periods=均线).mean().to_numpy()
@@ -85,7 +85,7 @@ def 主版(B, 破=0.025, 急=0.065, 观=4, 两根跌=0.045, 均线=30, 用均线
             # 跌势，找解除
             r = None
             for j in range(确 + 1, n):
-                if j >= 1 and c[j] > 底 and c[j - 1] > 底 and not np.isnan(ma[j]) and c[j] > ma[j] and c[j - 1] > ma[j - 1] and ma[j] > ma[j - 1]: r = j; break
+                if j >= 1 and ((c[j] > 底 and c[j - 1] > 底) or not 解除要箱底) and not np.isnan(ma[j]) and c[j] > ma[j] and c[j - 1] > ma[j - 1] and ma[j] > ma[j - 1]: r = j; break
             ev.append({"高点周": idx[H], "破位": idx[bt], "确认": idx[确], "路": 路, "箱底": float(底), "解除": idx[r] if r is not None else None})
             H = None; t = (r + 1) if r is not None else n
         else:
@@ -93,7 +93,7 @@ def 主版(B, 破=0.025, 急=0.065, 观=4, 两根跌=0.045, 均线=30, 用均线
     return ev
 
 
-def 日线版(D, 箱=65, 破=0.015, 急=0.10, 急天=10, 慢天=15, ma_n=200):
+def 日线版(D, 箱=65, 破=0.015, 急=0.10, 急天=10, 慢天=15, ma_n=200, 前提天=10, 解除要箱底=True):
     c = D.close.to_numpy(float); idx = D.index; n = len(c)
     ma = pd.Series(c).rolling(ma_n, min_periods=ma_n).mean().to_numpy(); sw = 摆动低(c)
     ev = []; t = ma_n + 30
@@ -101,7 +101,7 @@ def 日线版(D, 箱=65, 破=0.015, 急=0.10, 急天=10, 慢天=15, ma_n=200):
         lows = [c[j] for j in range(max(0, t - 箱), t - 3) if sw[j]]
         if not lows: t += 1; continue
         底 = float(np.median(lows))
-        前提 = ma[t] - ma[t - 20] <= 0 and all(c[t - k] < ma[t - k] for k in range(10))
+        前提 = ma[t] - ma[t - 20] <= 0 and all(c[t - k] < ma[t - k] for k in range(前提天))
         确 = None; 路 = None
         if c[t] < 底 and c[t] < ma[t] and t >= 急天 and c[t] / c[t - 急天] - 1 < -急: 确 = t; 路 = "急跌"
         elif 前提 and c[t] < 底 * (1 - 破):
@@ -116,7 +116,7 @@ def 日线版(D, 箱=65, 破=0.015, 急=0.10, 急天=10, 慢天=15, ma_n=200):
         if 确 is None: t += 1; continue
         r = None
         for j in range(确 + 10, n):
-            if all(c[j - k] > 底 and c[j - k] > ma[j - k] for k in range(10)) and ma[j] > ma[j - 20]: r = j; break
+            if all((c[j - k] > 底 or not 解除要箱底) and c[j - k] > ma[j - k] for k in range(10)) and ma[j] > ma[j - 20]: r = j; break
         ev.append({"破位": idx[t], "确认": idx[确], "路": 路, "箱底": 底, "解除": idx[r] if r is not None else None})
         t = (r + 1) if r is not None else n
     return ev
