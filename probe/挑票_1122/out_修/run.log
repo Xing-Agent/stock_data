@@ -12,3 +12,8 @@ trend_following B_动量前30 {'每年赚pct': np.float64(4.45), '最深亏损pc
 ok   trend_following 41.9
 修正 49
 技-3-XING A_原样 {'每年赚pct': np.float64(2.81), '最深亏损pct': -49.7, '每年赚除以最深亏损': np.float64(0.06)}
+技-3-XING B_动量前10 {'每年赚pct': np.float64(6.81), '最深亏损pct': -42.7, '每年赚除以最深亏损': np.float64(0.16)}
+技-3-XING B_动量前20 {'每年赚pct': np.float64(10.3), '最深亏损pct': -42.0, '每年赚除以最深亏损': np.float64(0.25)}
+技-3-XING B_动量前30 {'每年赚pct': np.float64(4.69), '最深亏损pct': -49.4, '每年赚除以最深亏损': np.float64(0.09)}
+ok   技-3-XING 42.5
+修正 49
