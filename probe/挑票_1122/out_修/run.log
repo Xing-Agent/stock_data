@@ -1,0 +1,14 @@
+修正 49
+buy_and_hold A_原样 {'每年赚pct': np.float64(8.66), '最深亏损pct': -56.4, '每年赚除以最深亏损': np.float64(0.15)}
+buy_and_hold B_动量前10 {'每年赚pct': np.float64(9.35), '最深亏损pct': -63.7, '每年赚除以最深亏损': np.float64(0.15)}
+buy_and_hold B_动量前20 {'每年赚pct': np.float64(9.21), '最深亏损pct': -61.9, '每年赚除以最深亏损': np.float64(0.15)}
+buy_and_hold B_动量前30 {'每年赚pct': np.float64(9.26), '最深亏损pct': -60.9, '每年赚除以最深亏损': np.float64(0.15)}
+ok   buy_and_hold 136.7
+修正 49
+trend_following A_原样 {'每年赚pct': np.float64(4.89), '最深亏损pct': -24.8, '每年赚除以最深亏损': np.float64(0.2)}
+trend_following B_动量前10 {'每年赚pct': np.float64(6.71), '最深亏损pct': -16.2, '每年赚除以最深亏损': np.float64(0.42)}
+trend_following B_动量前20 {'每年赚pct': np.float64(4.85), '最深亏损pct': -26.1, '每年赚除以最深亏损': np.float64(0.19)}
+trend_following B_动量前30 {'每年赚pct': np.float64(4.45), '最深亏损pct': -22.1, '每年赚除以最深亏损': np.float64(0.2)}
+ok   trend_following 41.9
+修正 49
+技-3-XING A_原样 {'每年赚pct': np.float64(2.81), '最深亏损pct': -49.7, '每年赚除以最深亏损': np.float64(0.06)}

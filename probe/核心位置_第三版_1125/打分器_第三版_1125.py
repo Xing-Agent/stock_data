@@ -30,7 +30,9 @@ def 分形(X, N):
         if l[j] == l[j - N:j + N + 1].min(): out.append((t[j + N], t[j], l[j], "低"))
     return out
 
-def 每天的带(D, H4, P, N=5, 窗=60, 币=True, 起=None):
+def 每天的带(D, H4, P, N=5, 窗=60, 币=True, 起=None, 测试="固定"):
+    """测试="固定"：每碰一次 ×0.7（《446》）。测试="分支"：照《450》第 2 条 —— 派发 +1.5（最多 +3）/ 吸收 ×0.7 / 其他 ×0.9；"分支B"：派发每次 ×1.15、封顶 10 分。
+    一次「碰」= 当天最高进了位置下方 0.25 ATR 以内、收盘在位置下方。碰完等 3 天再定性（看这 3 天最多砸下多少）。"""
     o, h, l, c, v = (D[x].to_numpy(float) for x in ("open", "high", "low", "close", "volume")); n = len(D); idx = D.index
     pc = np.roll(c, 1); pc[0] = c[0]; atr = pd.Series(np.maximum(h - l, np.maximum(abs(h - pc), abs(l - pc)))).rolling(14).mean().to_numpy()
     wk = 7 if 币 else 5
@@ -42,13 +44,14 @@ def 每天的带(D, H4, P, N=5, 窗=60, 币=True, 起=None):
     if H4 is not None:
         hh, hl, ht = H4.high.to_numpy(float), H4.low.to_numpy(float), H4.index
         FVG = [(ht[j + 1] + pd.Timedelta(hours=4), hh[j + 1], hl[j - 1], j) for j in range(1, len(H4) - 1) if hl[j - 1] > hh[j + 1]]   # 向下真空：(可用时刻, 下沿, 上沿)
+    v20 = pd.Series(v).rolling(20).mean().to_numpy()
     活 = []; fi = 0; out = {}; dsh = []                       # 活 = 还没作废的水平位：dict(tf, 价, 类型, 碰, 生)
     gaps = []; fv = 0; 活F = []
     for i in range(n):
         day_end = idx[i] + pd.Timedelta(days=1)                # 第 i 天收盘后
         while fi < len(F) and F[fi][1] <= idx[i]:
             tf, ct, st, p, k = F[fi]; fi += 1
-            活.append(dict(tf=tf, p=p, 原=k, 角色=("压力" if k == "高" else "支撑"), 碰=0, 生=i))
+            活.append(dict(tf=tf, p=p, 原=k, 角色=("压力" if k == "高" else "支撑"), 碰=0, 生=i, 乘=1.0, 加=0.0, 待=[], 上次高=p, 首量=(v[D.index.get_loc(st)] if (tf == "D" and st in D.index) else v20[i])))
             if tf == "D" and k == "高": dsh.append((D.index.get_loc(st), p))
         a = atr[i]
         if not (a > 0): continue
@@ -59,11 +62,22 @@ def 每天的带(D, H4, P, N=5, 窗=60, 币=True, 起=None):
         for L in 活:
             if L["生"] == i: keep.append(L); continue
             if L["角色"] == "支撑":
-                if c[i] < L["p"] - 0.5 * a: L["角色"] = "压力"; L["碰"] = 0           # 被跌破 → 变压力（只变一次）
+                if c[i] < L["p"] - 0.5 * a: L["角色"] = "压力"; L["碰"] = 0; L["乘"] = 1.0; L["加"] = 0.0; L["待"] = []; L["上次高"] = L["p"]; L["首量"] = v[i]           # 被跌破 → 变压力（只变一次）
                 keep.append(L)
             else:
                 if c[i] > L["p"] + 0.5 * a: continue                                  # 压力被站上 → 作废
-                if h[i] >= L["p"] - 0.25 * a and c[i] < L["p"]: L["碰"] += 1
+                for T_ in list(L["待"]):                                         # 3 天后给上一次「碰」定性
+                    if i - T_["i"] >= 3:
+                        砸 = T_["高"] - l[T_["i"]:i + 1].min(); 派发 = T_["高"] <= T_["前高"] and T_["量"] < 0.85 * L["首量"] and 砸 >= 1.2 * T_["a"]
+                        吸收 = T_["高"] > T_["前高"] or T_["量"] > 1.3 * T_["v20"] or 砸 < 0.8 * T_["a"]
+                        if 测试 == "分支":
+                            if 派发: L["加"] = min(3.0, L["加"] + 1.5)
+                            elif 吸收: L["乘"] *= 0.7
+                            else: L["乘"] *= 0.9
+                        elif 测试 == "分支B": L["乘"] *= 1.15 if 派发 else (0.7 if 吸收 else 0.9)
+                        L["待"].remove(T_)
+                if h[i] >= L["p"] - 0.25 * a and c[i] < L["p"]:
+                    L["碰"] += 1; L["待"].append(dict(i=i, 高=h[i], 前高=L["上次高"], 量=v[i], v20=v20[i], a=a)); L["上次高"] = h[i]
                 keep.append(L)
         活 = keep
         gaps = [g for g in gaps if not (h[i] >= (g["lo"] + g["hi"]) / 2 and g["生"] < i)]
@@ -73,7 +87,7 @@ def 每天的带(D, H4, P, N=5, 窗=60, 币=True, 起=None):
         for L in 活:
             if L["角色"] == "压力" and px < L["p"] <= top:
                 if L["tf"] == "D" and i - L["生"] > 250: continue
-                lv.append((L["p"], "前高前低", L["tf"], 0.7 ** L["碰"]))
+                lv.append((L["p"], "前高前低", L["tf"], (0.7 ** L["碰"]) if 测试 == "固定" else L["乘"], L["加"] if 测试 == "分支" else 0.0))
         for tf, X in (("D", D.iloc[max(0, i - 窗 + 1):i + 1]), ("W", W[W.index <= idx[i]].iloc[-窗:])):
             if len(X) < 20: continue
             lo_, hi_ = X.low.min(), X.high.max()
@@ -113,8 +127,10 @@ def 每天的带(D, H4, P, N=5, 窗=60, 币=True, 起=None):
         Z = []
         for z in zones:
             best = {}
-            for p, nm, tf, mul in z:
-                s = P["分"].get(nm, 0) * P["乘"][tf] * mul
+            for it_ in z:
+                p, nm, tf, mul = it_[:4]; 加_ = it_[4] if len(it_) > 4 else 0.0
+                s = P["分"].get(nm, 0) * P["乘"][tf] * mul + 加_
+                if 测试 == "分支B" and nm == "前高前低": s = min(s, 10.0)
                 if s > best.get((nm, tf), (0, 0))[0]: best[(nm, tf)] = (s, p)
             样 = {k[0] for k in best}; sc = sum(x[0] for x in best.values()); 原始最高 = max(P["分"].get(k[0], 0) for k in best)
             Z.append(dict(lo=z[0][0], hi=z[-1][0], 分=round(sc, 2), 样=sorted(样), 几样=len(样), 几类=len({大类[x] for x in 样}), 有地基=bool(样 & 地基类),
