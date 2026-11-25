@@ -49,7 +49,7 @@ reports:
 以运行时工具 docstring / JSON Schema 为唯一工具参数契约：
 - `financial-history` 财务历史及平台确定性派生值；`issuer-disclosure` SEC/IR 申报、经营/治理/指引；`market-data` 最新报价与必要日线；`valuation-metrics` 官方适配的估值字段；`consensus-estimates` 相同期间、相同口径预期；`company-segments` 分部/地区/KPI，SEC 暖文档优先；`news-events` 相关事件；`industry-macro` 有传导机制的宏观。
 - 同类独立请求尽量走工具 batch-first；只重试失败项，**不得**因另一子项失败而重复成功请求。每个调用都要能回答上述某一个问题；所需证据到达可支持主张的终态后停止。
-- SEC 冷数据支撑财务事实，暖披露支撑经营解释，行情支撑价格，新闻不替代申报，一致预期不跨 Provider 拼接；个人附件不替代公开财务数据。
+- SEC 冷数据支撑财务事实，暖披露支撑经营解释，行情支撑价格，新闻不替代申报，一致预期不跨 Provider 拼接；个人附件不替代公开财务数据。「冷数据」「暖披露」是内部叫法，🔴 不对用户说；对用户说「SEC 申报文件」「公司披露」。
 - 当前 provider 的一致预期不可冒充**历史 as-of** 预期；未经核验的拆股、证券单位、币种、TTM/财年口径不能进计算。
 - **只有**出现历史 PIT 截止日、跨 Provider 冲突、非标字段异常、复杂数据源问题时，读取一次 `references/ADVANCED_DATA_BOUNDARIES.md`；常态不需要。
 - **只有**用户授权、平台为 mixed 模式且选择了个人资料时，在公开采集关闭后读取一次 `references/ATTACHMENT_BOUNDARY.md`，批量取得资料；禁止把用户方法文件当公司事实。
