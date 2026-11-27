@@ -11,7 +11,7 @@ L = []
 for f in sorted(glob.glob(A + '流水_一_*.csv')):
     nm = os.path.basename(f)[5:-4]
     if nm.startswith('buy_and_hold'): continue
-    t = pd.read_csv(f, parse_dates=['entry_date', 'exit_date']); t = t[t.entry_date <= '2021-12-31']; t['策略'] = nm; L.append(t)
+    t = pd.read_csv(f, parse_dates=['entry_date', 'exit_date']); t = t[t.exit_date <= '2021-12-31']; t['策略'] = nm; L.append(t)
 T = pd.concat(L, ignore_index=True); T = T[T.symbol.isin(E.keys())].copy()
 def 隔(r):
     e = E[r.symbol]; k = np.searchsorted(e, np.datetime64(r.entry_date), side='right')

@@ -4,11 +4,11 @@ A = 'probe/成绩单_1122/out_手册/'; B = 'probe/成绩单_1122/out_手册_修
 for f in sorted(glob.glob(A + '流水_*.csv')):
     b = os.path.basename(f)[3:-4]; seg, name = b.split('_', 1); d = A; 源 = '原'
     if seg == '二' and os.path.exists(B + f'流水_二_{name}.csv') and os.path.exists(B + f'日线_二_{name}.parquet'): d = B; 源 = '修坏点'
-    t = pd.read_csv(d + f'流水_{seg}_{name}.csv'); e = pd.read_parquet(d + f'日线_{seg}_{name}.parquet')['eq']
-    if seg == '一': t = t[t.entry_date <= '2021-12-31']; e = e[:'2021-12-31']
+    t = pd.read_csv(d + f'流水_{seg}_{name}.csv'); 还拿着 = int(((t.entry_date <= '2021-12-31') & (t.exit_date > '2021-12-31')).sum()) if seg == '一' else 0; e = pd.read_parquet(d + f'日线_{seg}_{name}.parquet')['eq']
+    if seg == '一': t = t[t.exit_date <= '2021-12-31']; e = e[:'2021-12-31']      # 按平仓日挑：2022 年以后才平掉的单子用到了封存期的数据，不算进笔数（跑批 chat 11-27 指出原来按进场日挑是错的）；它们在 2021 年底的市值仍算在净值里
     yrs = (e.index[-1] - e.index[0]).days / 365.25; r = t.r_multiple_net; pnl = t.net_pnl
     y08 = e['2008'] if seg == '二' else None
-    rows.append(dict(策略=name, 段='2005-2014' if seg == '二' else '2015-2021', 数据=源, 笔数=len(t), 每笔平均R=round(r.mean(), 2), 赚钱笔占比=round((r > 0).mean() * 100, 1),
+    rows.append(dict(策略=name, 段='2005-2014' if seg == '二' else '2015-2021', 数据=源, 笔数=len(t), 截止时还拿着=还拿着, 每笔平均R=round(r.mean(), 2), 赚钱笔占比=round((r > 0).mean() * 100, 1),
                      利润因子=round(pnl[pnl > 0].sum() / -pnl[pnl < 0].sum(), 2) if (pnl < 0).any() else np.nan, 每年赚=round(((e.iloc[-1] / e.iloc[0]) ** (1 / yrs) - 1) * 100, 1), 最深亏损=round((e / e.cummax() - 1).min() * 100, 1),
                      年2008=round((y08.iloc[-1] / e[:'2007-12-31'].iloc[-1] - 1) * 100, 1) if y08 is not None and len(y08) else np.nan))
 O = pd.DataFrame(rows).sort_values(['策略', '段']); O.to_csv('probe/大师接策略库_1126/成绩_两段_到2021_修坏点.csv', index=False)

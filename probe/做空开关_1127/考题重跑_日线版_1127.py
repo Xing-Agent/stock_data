@@ -17,7 +17,8 @@ def 读(sym):
     R = pd.read_csv(os.path.join(ROOT, f"probe/大周期五档_1123/out4/{sym}_四版_每天的档.csv"), index_col=0, parse_dates=True)
     if not 币: D = D.loc[:封存]; R = R.loc[:封存]                                  # 美股 2022 年以后封存，不读
     return D.loc[D.index.isin(R.index)], R
-def 跑(sym="BTC", 倍=3.0, 段长=90, 回看L=180, 跌幅=0.20, 连=2, 撤a=0.25, 撤b=2, 撤c=20, 派=1.5, 窗=20, 破=0.3):
+def 跑(sym="BTC", 倍=3.0, 段长=90, 回看L=180, 跌幅=0.20, 连=2, 撤a=0.25, 撤b=2, 撤c=20, 派=1.5, 窗=20, 破=0.3, 顶门槛=0, 顶回看=730):
+    # 顶门槛（《487 拍板》第 1 条）：离最近的大顶（过去 顶回看 根日线里的最高收盘）不满这么多根日线，筑底期就不算数，照跌势算、可以空。币一天一根（=日历天），美股是交易日。0 = 不加这条。
     D, R = 读(sym); o, h, l, c = (D[x].to_numpy(float) for x in ("open", "high", "low", "close")); n = len(D); idx = D.index
     档 = R["档"].reindex(idx).to_numpy(); why = R["切换原因"].reindex(idx).fillna("").to_numpy()
     pc = np.roll(c, 1); pc[0] = c[0]; atr = pd.Series(np.maximum(h - l, np.maximum(abs(h - pc), abs(l - pc)))).rolling(14).mean().bfill().to_numpy()
@@ -29,6 +30,7 @@ def 跑(sym="BTC", 倍=3.0, 段长=90, 回看L=180, 跌幅=0.20, 连=2, 撤a=0.2
         if d >= 0 and h[eh] - l[i] >= 倍 * atr[i] and eh < i: Z.append((eh, h[eh], "高", i)); d = -1; el = i
         elif d <= 0 and h[i] - l[el] >= 倍 * atr[i] and el < i: Z.append((el, l[el], "低", i)); d = 1; eh = i
     SH = [j for j in range(5, n - 5) if h[j] == h[j - 5:j + 6].max()]; SL = [j for j in range(5, n - 5) if l[j] == l[j - 5:j + 6].min()]
+    离顶 = np.array([i - (max(0, i - 顶回看) + int(np.argmax(c[max(0, i - 顶回看):i + 1]))) for i in range(n)]); 未满 = (离顶 < 顶门槛) & (档 == "筑底期")
     提前 = np.zeros(n, bool); 假突破 = np.zeros(n, bool); 再派发 = np.zeros(n, bool); st = None; 冷却 = False; box = None; 触发表 = []; 箱表 = []
     for i in range(max(回看L, 160), n):
         pk = i - 回看L + int(np.argmax(h[i - 回看L:i + 1])); j0 = pk + int(np.argmin(l[pk:i + 1])); L = l[j0]; H = None   # 先找回看期里的最高点，L = 那之后的最低点（这一轮下跌的低点，不是更早的旧低点）
@@ -87,8 +89,8 @@ def 跑(sym="BTC", 倍=3.0, 段长=90, 回看L=180, 跌幅=0.20, 连=2, 撤a=0.2
             if box["确认"]: 假突破[i] = True
     if st is not None: st.update(撤销日="还挂着", 隔了几天=n - 1 - st["t0"]); st.pop("low10"); st.pop("高"); 触发表.append(st)
     if box is not None: 箱表.append(dict(品种=sym, 进箱=str(idx[box["起"]].date()), 出箱="还在箱里", 天数=n - 1 - box["起"], 箱底=box["底"], 箱顶=box["顶"], 出箱后的档="", 判再派发的天数=box["派天"], 第一次判再派发=box["首派"], 出箱方向=""))
-    可空 = np.array([(档[i] in ("跌势", "见顶") and not 提前[i]) or (档[i] == "筑底期" and (假突破[i] or 再派发[i]) and not 提前[i]) for i in range(n)])
-    T = pd.DataFrame({"close": c, "档": 档, "提前转涨": 提前, "箱顶假突破": 假突破, "再派发": 再派发, "可空": 可空}, index=idx)
+    可空 = np.array([(档[i] in ("跌势", "见顶") and not 提前[i]) or (档[i] == "筑底期" and (假突破[i] or 再派发[i] or 未满[i]) and not 提前[i]) for i in range(n)])
+    T = pd.DataFrame({"close": c, "档": 档, "提前转涨": 提前, "箱顶假突破": 假突破, "再派发": 再派发, "离顶": 离顶, "未满门槛": 未满, "可空": 可空}, index=idx)
     for x in 触发表: x.pop("t0", None); x["品种"] = sym
     return T, 触发表, 箱表
 考题 = (("2019-04-03~04-30", "2019-04-03", "2019-04-30", "挡住"), ("2020-04-30~05-15", "2020-04-30", "2020-05-15", "挡住"), ("2020-08-01~08-10", "2020-08-01", "2020-08-10", "挡住"), ("2020-11-05~11-13", "2020-11-05", "2020-11-13", "挡住"),
@@ -111,6 +113,15 @@ if __name__ == "__main__":
         for kw in (dict(), dict(倍=2.5), dict(倍=3.5), dict(段长=60), dict(段长=120), dict(连=3), dict(撤a=0.2), dict(撤a=0.5), dict(撤b=1), dict(撤b=3), dict(撤c=15), dict(撤c=30), dict(派=1.0), dict(派=2.0), dict(回看L=120), dict(回看L=365)):
             T, 触, 箱 = 跑("BTC", **kw); k = 考(T).set_index("考题")["可空天数占比"]; out.append(dict(参数=str(kw) if kw else "默认", 触发次数=len(触), **k.to_dict()))
         O = pd.DataFrame(out); O.to_csv(os.path.join(HERE, "out", "BTC_相邻参数.csv"), index=False); print(O.T.to_string())
+    elif what == "门槛":
+        out = []
+        for g in (0, 150, 180, 210):
+            T, 触, 箱 = 跑("BTC", 顶门槛=g); k = 考(T).set_index("考题")["可空天数占比"]; x = T.loc["2018"]; b18 = T.loc["2018-04-02":"2018-11-16"]
+            out.append(dict(门槛=g, **k.to_dict(), 年2018筑底期里未满的天数=int(b18.未满门槛.sum()), 年2018筑底期里不能空的天数=int((~b18.可空).sum()), 年2026箱子被挡的天数=int(T.loc["2026-05-22":].未满门槛.sum())))
+            if g == 180:
+                T.to_csv(os.path.join(HERE, "out", "BTC_每天能不能空_加门槛180.csv")); nb = b18[~b18.可空]; print("2018 筑底期里还不能空的日子：", nb.index.min().date() if len(nb) else None, "~", nb.index.max().date() if len(nb) else None, "提前转涨占", int(nb.提前转涨.sum()))
+                for d in ("2018-04-02", "2018-06-15", "2026-05-22"): print(d, "离顶", int(T.loc[d, "离顶"]))
+        O = pd.DataFrame(out); O.to_csv(os.path.join(HERE, "out", "BTC_加门槛三档.csv"), index=False); print(O.T.to_string())
     elif what == "全品种":
         触all, 箱all = [], []
         for s in ("BTC", "ETH", "QQQ", "SPY"):
