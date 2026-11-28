@@ -1,3 +1,4 @@
 out/*.npy
 out/回踩_*.csv
-out/日志.txt
+out/V形_*.csv
+out/*日志*.txt
