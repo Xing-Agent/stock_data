@@ -122,11 +122,12 @@ def 进场们(D, ev, 平台天=5, 平台宽=1.0, 收回=0.25, 止损=0.4, D4=Non
             if c[p] < k1 - 0.25 * atr[p]: break
             if l[p] <= k1 + 0.5 * atr[p]:
                 q = next((q for q in range(p + 1, min(p + 6, n)) if c[q] > h[p]), None)
+                if q is not None and q <= t: continue                                   # 1128 修：进场必须在触发日之后（触发那天才知道这是 V 形），早于触发的回踩不算
                 if q is not None and min(c[p:q + 1]) >= k1 - 0.25 * atr[q]:
                     r["①"] = (q, c[q], min(l[p:q + 1].min(), e10[q]) - 止损 * atr[q], False)
                 break
     # ② 小阴线 / 十字星次日突破
-    for i in range(max(j0 + 8, 10), win):
+    for i in range(max(j0 + 8, 10, t), win):                                          # 1128 修：从触发日起找（原来从最低点后第 8 根起找，会在触发之前就进场 = 偷看）
         if np.isnan(o[i]) or not 盘涨(o, h, l, c, atr, e10, i - 1): continue
         body = c[i] - o[i]
         if (body < 0 and -body <= 0.5 * atr[i]) or abs(body) <= 0.1 * (h[i] - l[i]):
